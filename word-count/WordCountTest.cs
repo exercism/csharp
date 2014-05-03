@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 
 [TestFixture]
-public class BobTest
+public class WordCountTest
 {
     [Test]
     public void CountOneWord ()
