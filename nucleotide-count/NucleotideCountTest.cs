@@ -12,21 +12,21 @@ public class NucleoTideCountTest
         Assert.That(dna.NucleotideCounts, Is.EquivalentTo(expected));
     }
 
-    [Test]
+    [Test, Ignore]
     public void HasNoAdenosine()
     {
         var dna = new DNA("");
         Assert.That(dna.Count('A'), Is.EqualTo(0));
     }
 
-    [Test]
+    [Test, Ignore]
     public void RepetitiveCytidineGetsCounts()
     {
         var dna = new DNA("CCCCC");
         Assert.That(dna.Count('C'), Is.EqualTo(5));
     }
 
-    [Test]
+    [Test, Ignore]
     public void RepetitiveSequenceHasOnlyGuanosine()
     {
         var dna = new DNA("GGGGGGGG");
@@ -34,14 +34,14 @@ public class NucleoTideCountTest
         Assert.That(dna.NucleotideCounts, Is.EquivalentTo(expected));
     }
 
-    [Test]
+    [Test, Ignore]
     public void CountsOnlyThymidine()
     {
         var dna = new DNA("GGGGTAACCCGG");
         Assert.That(dna.Count('T'), Is.EqualTo(1));
     }
 
-    [Test]
+    [Test, Ignore]
     public void CountsANucleotideOnlyOnce()
     {
         var dna = new DNA("GGTTGG");
@@ -49,21 +49,21 @@ public class NucleoTideCountTest
         Assert.That(dna.Count('T'), Is.EqualTo(2));
     }
 
-    [Test]
+    [Test, Ignore]
     public void HasNoUracil()
     {
         var dna = new DNA("GGTTGG");
         Assert.That(dna.Count('U'), Is.EqualTo(0));
     }
 
-    [Test]
+    [Test, Ignore]
     public void ValidatesNucleotides()
     {
         var dna = new DNA("GGTTGG");
         Assert.Throws<InvalidNucleotideException>(() => dna.Count('X'));
     }
 
-    [Test]
+    [Test, Ignore]
     public void CountsAllNucleotides()
     {
         var dna = new DNA("AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC");
