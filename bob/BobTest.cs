@@ -12,105 +12,104 @@ public class BobTest
     }
 
     [Test]
-    public void StatingSomething ()
+    public void Stating_something ()
     {
-        Assert.AreEqual("Whatever.", teenager.Hey("Tom-ay-to, tom-aaaah-to."));
+        Assert.That(teenager.Hey("Tom-ay-to, tom-aaaah-to."), Is.EqualTo("Whatever."));
     }
 
     [Test, Ignore]
     public void Shouting ()
     {
-        Assert.AreEqual("Woah, chill out!", teenager.Hey("WATCH OUT!"));
+        Assert.That(teenager.Hey("WATCH OUT!"), Is.EqualTo("Woah, chill out!"));
     }
 
     [Test, Ignore]
-    public void AskingAQuestion ()
+    public void Asking_a_question ()
     {
-        Assert.AreEqual("Sure.", teenager.Hey("Does this cryogenic chamber make me look fat?"));
+        Assert.That(teenager.Hey("Does this cryogenic chamber make me look fat?"), Is.EqualTo("Sure."));
     }
 
     [Test, Ignore]
-    public void AskingANumericQuestion ()
+    public void Asking_a_numeric_question ()
     {
-        Assert.AreEqual("Sure.", teenager.Hey("You are, what, like 15?"));
+        Assert.That(teenager.Hey("You are, what, like 15?"), Is.EqualTo("Sure."));
     }
 
     [Test, Ignore]
-    public void TalkingForcefully ()
+    public void Talking_forcefully ()
     {
-        Assert.AreEqual("Whatever.", teenager.Hey("Let's go make out behind the gym!"));
+        Assert.That(teenager.Hey("Let's go make out behind the gym!"), Is.EqualTo("Whatever."));
     }
 
     [Test, Ignore]
-    public void UsingAcronymsInRegularSearch ()
+    public void Using_acronyms_in_regular_search ()
     {
-        Assert.AreEqual("Whatever.", teenager.Hey("It's OK if you don't want to go to the DMV."));
+        Assert.That(teenager.Hey("It's OK if you don't want to go to the DMV."), Is.EqualTo("Whatever."));
     }
 
     [Test, Ignore]
-    public void ForcefulQuestions ()
+    public void Forceful_questions ()
     {
-        Assert.AreEqual("Woah, chill out!", teenager.Hey("WHAT THE HELL WERE YOU THINKING?"));
+        Assert.That(teenager.Hey("WHAT THE HELL WERE YOU THINKING?"), Is.EqualTo("Woah, chill out!"));
     }
 
     [Test, Ignore]
-    public void ShoutingNumbers ()
+    public void Shouting_numbers ()
     {
-        Assert.AreEqual("Woah, chill out!", teenager.Hey("1, 2, 3 GO!"));
+        Assert.That(teenager.Hey("1, 2, 3 GO!"), Is.EqualTo("Woah, chill out!"));
     }
 
     [Test, Ignore]
-    public void OnlyNumbers ()
+    public void Only_numbers ()
     {
-        Assert.AreEqual("Whatever.", teenager.Hey("1, 2, 3"));
+        Assert.That(teenager.Hey("1, 2, 3"), Is.EqualTo("Whatever."));
     }
 
     [Test, Ignore]
-    public void QuestionWithOnlyNumbers ()
+    public void Question_with_only_numbers ()
     {
-        Assert.AreEqual("Sure.", teenager.Hey("4?"));
+        Assert.That(teenager.Hey("4?"), Is.EqualTo("Sure."));
     }
 
     [Test, Ignore]
-    public void ShoutingWithSpecialCharacters ()
+    public void Shouting_with_special_characters ()
     {
-        Assert.AreEqual("Woah, chill out!", teenager.Hey("ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!"));
+        Assert.That(teenager.Hey("ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!"), Is.EqualTo("Woah, chill out!"));
     }
 
     [Test, Ignore]
-    public void ShoutingWithNoExclamationMark ()
+    public void Shouting_with_no_exclamation_mark ()
     {
-        Assert.AreEqual("Woah, chill out!", teenager.Hey("I HATE YOU"));
+        Assert.That(teenager.Hey("I HATE YOU"), Is.EqualTo("Woah, chill out!"));
     }
 
     [Test, Ignore]
-    public void StatementContainingQuestionMark ()
+    public void Statement_containing_question_mark ()
     {
-        Assert.AreEqual("Whatever.", teenager.Hey("Ending with ? means a question."));
+        Assert.That(teenager.Hey("Ending with ? means a question."), Is.EqualTo("Whatever."));
     }
 
     [Test, Ignore]
-    public void PrattlingOn ()
+    public void Prattling_on ()
     {
-        Assert.AreEqual("Sure.", teenager.Hey("Wait! Hang on. Are you going to be OK?"));
+        Assert.That(teenager.Hey("Wait! Hang on. Are you going to be OK?"), Is.EqualTo("Sure."));
     }
 
     [Test, Ignore]
     public void Silence ()
     {
-        Assert.AreEqual("Fine. Be that way!", teenager.Hey(""));
+        Assert.That(teenager.Hey(""), Is.EqualTo("Fine. Be that way!"));
     }
 
     [Test, Ignore]
-    public void ProlongedSilence ()
+    public void Prolonged_silence ()
     {
-        Assert.AreEqual("Fine. Be that way!", teenager.Hey("    "));
+        Assert.That(teenager.Hey("    "), Is.EqualTo("Fine. Be that way!"));
     }
 
     [Test, Ignore]
-    public void MultipleLineQuestion ()
+    public void Multiple_line_question ()
     {
-        Assert.AreEqual("Whatever.", teenager.Hey("Does this cryogenic chamber make me look fat?\nno"));
+        Assert.That(teenager.Hey("Does this cryogenic chamber make me look fat?\nno"), Is.EqualTo("Whatever."));
     }
-
 }

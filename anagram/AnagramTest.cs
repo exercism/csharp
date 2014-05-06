@@ -4,85 +4,84 @@ using NUnit.Framework;
 public class AnagramTest
 {
     [Test]
-    public void NoMatches ()
+    public void No_matches()
     {
-        Anagram detector = new Anagram("diaper");
-        string[] words = new string[] { "hello", "world", "zombies", "pants" };
-        string[] results = new string[0];
-        Assert.AreEqual(results, detector.Match(words));
-    }
-
-
-    [Test, Ignore]
-    public void DetectSimpleAnagram ()
-    {
-        Anagram detector = new Anagram("ant");
-        string[] words = new string[] { "tan", "stand", "at" };
-        string[] results = new string[] { "tan" };
-        Assert.AreEqual(results, detector.Match(words));
+        var detector = new Anagram("diaper");
+        var words = new[] { "hello", "world", "zombies", "pants" };
+        var results = new string[0];
+        Assert.That(detector.Match(words), Is.EqualTo(results));
     }
 
     [Test, Ignore]
-    public void DetectMultipleAnagrams ()
+    public void Detect_simple_anagram()
     {
-        Anagram detector = new Anagram("master");
-        string[] words = new string[] { "stream", "pigeon", "maters" };
-        string[] results = new string[] { "maters", "stream" };
-        Assert.AreEqual(results, detector.Match(words));
+        var detector = new Anagram("ant");
+        var words = new[] { "tan", "stand", "at" };
+        var results = new[] { "tan" };
+        Assert.That(detector.Match(words), Is.EqualTo(results));
     }
 
     [Test, Ignore]
-    public void DoesNotConfuseDifferentDuplicates ()
+    public void Detect_multiple_anagrams()
     {
-        Anagram detector = new Anagram("galea");
-        string[] words = new string[] { "eagle" };
-        string[] results = new string[0];
-        Assert.AreEqual(results, detector.Match(words));
+        var detector = new Anagram("master");
+        var words = new[] { "stream", "pigeon", "maters" };
+        var results = new[] { "maters", "stream" };
+        Assert.That(detector.Match(words), Is.EqualTo(results));
     }
 
     [Test, Ignore]
-    public void IdenticalWordIsNotAnagram ()
+    public void Does_not_confuse_different_duplicates()
     {
-        Anagram detector = new Anagram("corn");
-        string[] words = new string[] { "corn", "dark", "Corn", "rank", "CORN", "cron", "park" };
-        string[] results = new string[] { "cron" };
-        Assert.AreEqual(results, detector.Match(words));
+        var detector = new Anagram("galea");
+        var words = new[] { "eagle" };
+        var results = new string[0];
+        Assert.That(detector.Match(words), Is.EqualTo(results));
     }
 
     [Test, Ignore]
-    public void EliminateAnagramsWithSameChecksum ()
+    public void Identical_word_is_not_anagram()
     {
-        Anagram detector = new Anagram("mass");
-        string[] words = new string[] { "last" };
-        string[] results = new string[0];
-        Assert.AreEqual(results, detector.Match(words));
+        var detector = new Anagram("corn");
+        var words = new[] { "corn", "dark", "Corn", "rank", "CORN", "cron", "park" };
+        var results = new[] { "cron" };
+        Assert.That(detector.Match(words), Is.EqualTo(results));
     }
 
     [Test, Ignore]
-    public void EliminateAnagramSubsets ()
+    public void Eliminate_anagrams_with_same_checksum()
     {
-        Anagram detector = new Anagram("good");
-        string[] words = new string[] { "dog", "goody" };
-        string[] results = new string[0];
-        Assert.AreEqual(results, detector.Match(words));
+        var detector = new Anagram("mass");
+        var words = new[] { "last" };
+        var results = new string[0];
+        Assert.That(detector.Match(words), Is.EqualTo(results));
     }
 
     [Test, Ignore]
-    public void DetectAnagrams ()
+    public void Eliminate_anagram_subsets()
     {
-        Anagram detector = new Anagram("allergy");
-        string[] words = new string[] { "gallery", "ballerina", "regally", "clergy", "largely", "leading" };
-        string[] results = new string[] { "gallery", "largely", "regally" };
-        Assert.AreEqual(results, detector.Match(words));
+        var detector = new Anagram("good");
+        var words = new[] { "dog", "goody" };
+        var results = new string[0];
+        Assert.That(detector.Match(words), Is.EqualTo(results));
     }
 
     [Test, Ignore]
-    public void AnagramsAreCaseInsensitive ()
+    public void Detect_anagrams()
     {
-        Anagram detector = new Anagram("Orchestra");
-        string[] words = new string[] { "cashregister", "Carthorse", "radishes" };
-        string[] results = new string[] { "Carthorse" };
-        Assert.AreEqual(results, detector.Match(words));
+        var detector = new Anagram("allergy");
+        var words = new[] { "gallery", "ballerina", "regally", "clergy", "largely", "leading" };
+        var results = new[] { "gallery", "largely", "regally" };
+        Assert.That(detector.Match(words), Is.EqualTo(results));
+    }
+
+    [Test, Ignore]
+    public void Anagrams_are_case_insensitive()
+    {
+        var detector = new Anagram("Orchestra");
+        var words = new[] { "cashregister", "Carthorse", "radishes" };
+        var results = new[] { "Carthorse" };
+        Assert.That(detector.Match(words), Is.EqualTo(results));
     }
 
 }

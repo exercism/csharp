@@ -10,7 +10,7 @@ public class Phrase
         this.text = text;
     }
 
-    public Dictionary<string,int> WordCount ()
+    public IDictionary<string,int> WordCount ()
     {
         string[] words = Words();
         Dictionary<string,int> wordCount = new Dictionary<string,int>();

@@ -5,34 +5,34 @@ using NUnit.Framework;
 public class WordCountTest
 {
     [Test]
-    public void CountOneWord ()
+    public void Count_one_word()
     {
-        Phrase phrase = new Phrase("word");
-        Dictionary<string,int> counts = new Dictionary<string,int> {
+        var phrase = new Phrase("word");
+        var counts = new Dictionary<string,int> {
             { "word", 1 }
         };
 
-        Assert.AreEqual(counts,phrase.WordCount());
+        Assert.That(phrase.WordCount(), Is.EqualTo(counts));
     }
 
     [Test, Ignore]
-    public void CountOneOfEach ()
+    public void Count_one_of_each()
     {
-        Phrase phrase = new Phrase("one of each");
-        Dictionary<string,int> counts = new Dictionary<string,int> {
+        var phrase = new Phrase("one of each");
+        var counts = new Dictionary<string,int> {
             { "one",  1 },
             { "of",   1 },
             { "each", 1 }
         };
 
-        Assert.AreEqual(counts,phrase.WordCount());
+        Assert.That(phrase.WordCount(), Is.EqualTo(counts));
     }
 
     [Test, Ignore]
-    public void CountMultipleOccurrences ()
+    public void Count_multiple_occurrences()
     {
-        Phrase phrase = new Phrase("one fish two fish red fish blue fish");
-        Dictionary<string,int> counts = new Dictionary<string,int> {
+        var phrase = new Phrase("one fish two fish red fish blue fish");
+        var counts = new Dictionary<string,int> {
             { "one",  1 },
             { "fish", 4 },
             { "two",  1 },
@@ -40,14 +40,14 @@ public class WordCountTest
             { "blue", 1 },
         };
 
-        Assert.AreEqual(counts,phrase.WordCount());
+        Assert.That(phrase.WordCount(), Is.EqualTo(counts));
     }
 
     [Test, Ignore]
-    public void CountEverythingJustOnce ()
+    public void Count_everything_just_once()
     {
-        Phrase phrase = new Phrase("all the kings horses and all the kings men");
-        Dictionary<string,int> counts = new Dictionary<string,int> {
+        var phrase = new Phrase("all the kings horses and all the kings men");
+        var counts = new Dictionary<string,int> {
             { "all",    2 },
             { "the",    2 },
             { "kings",  2 },
@@ -56,14 +56,14 @@ public class WordCountTest
             { "men",    1 },
         };
 
-        Assert.AreEqual(counts,phrase.WordCount());
+        Assert.That(phrase.WordCount(), Is.EqualTo(counts));
     }
 
     [Test, Ignore]
-    public void IgnorePunctuation ()
+    public void Ignore_punctuation()
     {
-        Phrase phrase = new Phrase("car : carpet as java : javascript!!&@$%^&");
-        Dictionary<string,int> counts = new Dictionary<string,int> {
+        var phrase = new Phrase("car : carpet as java : javascript!!&@$%^&");
+        var counts = new Dictionary<string,int> {
             { "car",        1 },
             { "carpet",     1 },
             { "as",         1 },
@@ -71,51 +71,51 @@ public class WordCountTest
             { "javascript", 1 },
         };
 
-        Assert.AreEqual(counts,phrase.WordCount());
+        Assert.That(phrase.WordCount(), Is.EqualTo(counts));
     }
 
     [Test, Ignore]
-    public void HandlesCrampedList ()
+    public void Handles_cramped_list()
     {
-        Phrase phrase = new Phrase("one,two,three");
-        Dictionary<string,int> counts = new Dictionary<string,int> {
+        var phrase = new Phrase("one,two,three");
+        var counts = new Dictionary<string,int> {
             { "one",   1 },
             { "two",   1 },
             { "three", 1 },
         };
 
-        Assert.AreEqual(counts,phrase.WordCount());
+        Assert.That(phrase.WordCount(), Is.EqualTo(counts));
     }
 
     [Test, Ignore]
-    public void IncludeNumbers ()
+    public void Include_numbers()
     {
-        Phrase phrase = new Phrase("testing, 1, 2 testing");
-        Dictionary<string,int> counts = new Dictionary<string,int> {
+        var phrase = new Phrase("testing, 1, 2 testing");
+        var counts = new Dictionary<string,int> {
             { "testing", 2 },
             { "1",       1 },
             { "2",       1 },
         };
 
-        Assert.AreEqual(counts,phrase.WordCount());
+        Assert.That(phrase.WordCount(), Is.EqualTo(counts));
     }
 
     [Test, Ignore]
-    public void NormalizeCase ()
+    public void Normalize_case()
     {
-        Phrase phrase = new Phrase("go Go GO");
-        Dictionary<string,int> counts = new Dictionary<string,int> {
+        var phrase = new Phrase("go Go GO");
+        var counts = new Dictionary<string,int> {
             { "go", 3 },
         };
 
-        Assert.AreEqual(counts,phrase.WordCount());
+        Assert.That(phrase.WordCount(), Is.EqualTo(counts));
     }
 
     [Test, Ignore]
-    public void WithApostrophes ()
+    public void With_apostrophes()
     {
-        Phrase phrase = new Phrase("First: don't laugh. Then: don't cry.");
-        Dictionary<string,int> counts = new Dictionary<string,int> {
+        var phrase = new Phrase("First: don't laugh. Then: don't cry.");
+        var counts = new Dictionary<string,int> {
             { "first", 1 },
             { "don't", 2 },
             { "laugh", 1 },
@@ -123,7 +123,7 @@ public class WordCountTest
             { "cry",   1 },
         };
 
-        Assert.AreEqual(counts,phrase.WordCount());
+        Assert.That(phrase.WordCount(), Is.EqualTo(counts));
     }
 
 }
