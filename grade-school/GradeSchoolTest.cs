@@ -18,7 +18,7 @@ public class GradeSchoolTest
         Assert.That(school.Roster, Has.Count.EqualTo(0));
     }
 
-    [Test]
+    [Test, Ignore]
     public void AddingAStudentAddsThemToTheRosterForTheGivenGrade()
     {
         school.Add("Aimee", 2);
@@ -26,7 +26,7 @@ public class GradeSchoolTest
         Assert.That(school.Roster[2], Is.EqualTo(expected));
     }
 
-    [Test]
+    [Test, Ignore]
     public void AddingMoreStudentsToTheSameGradeAddsThemToTheRoster()
     {
         school.Add("Blair", 2);
@@ -36,7 +36,7 @@ public class GradeSchoolTest
         Assert.That(school.Roster[2], Is.EqualTo(expected));
     }
 
-    [Test]
+    [Test, Ignore]
     public void AddingStudentsToDifferentGradesAddsThemToTheRoster()
     {
         school.Add("Chelsea", 3);
@@ -45,7 +45,7 @@ public class GradeSchoolTest
         Assert.That(school.Roster[7], Is.EqualTo(new List<string> { "Logan" }));
     }
 
-    [Test]
+    [Test, Ignore]
     public void GradeReturnsTheStudentsInThatGradeInAlphabeticalOrder()
     {
         school.Add("Franklin", 5);
@@ -55,13 +55,13 @@ public class GradeSchoolTest
         Assert.That(school.Grade(5), Is.EqualTo(expected));
     }
 
-    [Test]
+    [Test, Ignore]
     public void GradeReturnsAnEmptyListIfThereAreNoStudentsInThatGrade()
     {
         Assert.That(school.Grade(1), Is.EqualTo(new List<string>()));
     }
 
-    [Test]
+    [Test, Ignore]
     public void StudentNamesInEachGradeInRosterAreSorted()
     {
         school.Add("Jennifer", 4);

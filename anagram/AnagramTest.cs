@@ -13,7 +13,7 @@ public class AnagramTest
     }
 
 
-    [Test]
+    [Test, Ignore]
     public void DetectSimpleAnagram ()
     {
         Anagram detector = new Anagram("ant");
@@ -22,7 +22,7 @@ public class AnagramTest
         Assert.AreEqual(results, detector.Match(words));
     }
 
-    [Test]
+    [Test, Ignore]
     public void DetectMultipleAnagrams ()
     {
         Anagram detector = new Anagram("master");
@@ -31,7 +31,7 @@ public class AnagramTest
         Assert.AreEqual(results, detector.Match(words));
     }
 
-    [Test]
+    [Test, Ignore]
     public void DoesNotConfuseDifferentDuplicates ()
     {
         Anagram detector = new Anagram("galea");
@@ -40,7 +40,7 @@ public class AnagramTest
         Assert.AreEqual(results, detector.Match(words));
     }
 
-    [Test]
+    [Test, Ignore]
     public void IdenticalWordIsNotAnagram ()
     {
         Anagram detector = new Anagram("corn");
@@ -49,7 +49,7 @@ public class AnagramTest
         Assert.AreEqual(results, detector.Match(words));
     }
 
-    [Test]
+    [Test, Ignore]
     public void EliminateAnagramsWithSameChecksum ()
     {
         Anagram detector = new Anagram("mass");
@@ -58,7 +58,7 @@ public class AnagramTest
         Assert.AreEqual(results, detector.Match(words));
     }
 
-    [Test]
+    [Test, Ignore]
     public void EliminateAnagramSubsets ()
     {
         Anagram detector = new Anagram("good");
@@ -67,7 +67,7 @@ public class AnagramTest
         Assert.AreEqual(results, detector.Match(words));
     }
 
-    [Test]
+    [Test, Ignore]
     public void DetectAnagrams ()
     {
         Anagram detector = new Anagram("allergy");
@@ -76,7 +76,7 @@ public class AnagramTest
         Assert.AreEqual(results, detector.Match(words));
     }
 
-    [Test]
+    [Test, Ignore]
     public void AnagramsAreCaseInsensitive ()
     {
         Anagram detector = new Anagram("Orchestra");

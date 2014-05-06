@@ -15,7 +15,7 @@ public class WordCountTest
         Assert.AreEqual(counts,phrase.WordCount());
     }
 
-    [Test]
+    [Test, Ignore]
     public void CountOneOfEach ()
     {
         Phrase phrase = new Phrase("one of each");
@@ -28,7 +28,7 @@ public class WordCountTest
         Assert.AreEqual(counts,phrase.WordCount());
     }
 
-    [Test]
+    [Test, Ignore]
     public void CountMultipleOccurrences ()
     {
         Phrase phrase = new Phrase("one fish two fish red fish blue fish");
@@ -43,7 +43,7 @@ public class WordCountTest
         Assert.AreEqual(counts,phrase.WordCount());
     }
 
-    [Test]
+    [Test, Ignore]
     public void CountEverythingJustOnce ()
     {
         Phrase phrase = new Phrase("all the kings horses and all the kings men");
@@ -59,7 +59,7 @@ public class WordCountTest
         Assert.AreEqual(counts,phrase.WordCount());
     }
 
-    [Test]
+    [Test, Ignore]
     public void IgnorePunctuation ()
     {
         Phrase phrase = new Phrase("car : carpet as java : javascript!!&@$%^&");
@@ -74,7 +74,7 @@ public class WordCountTest
         Assert.AreEqual(counts,phrase.WordCount());
     }
 
-    [Test]
+    [Test, Ignore]
     public void HandlesCrampedList ()
     {
         Phrase phrase = new Phrase("one,two,three");
@@ -87,7 +87,7 @@ public class WordCountTest
         Assert.AreEqual(counts,phrase.WordCount());
     }
 
-    [Test]
+    [Test, Ignore]
     public void IncludeNumbers ()
     {
         Phrase phrase = new Phrase("testing, 1, 2 testing");
@@ -100,7 +100,7 @@ public class WordCountTest
         Assert.AreEqual(counts,phrase.WordCount());
     }
 
-    [Test]
+    [Test, Ignore]
     public void NormalizeCase ()
     {
         Phrase phrase = new Phrase("go Go GO");
@@ -111,7 +111,7 @@ public class WordCountTest
         Assert.AreEqual(counts,phrase.WordCount());
     }
 
-    [Test]
+    [Test, Ignore]
     public void WithApostrophes ()
     {
         Phrase phrase = new Phrase("First: don't laugh. Then: don't cry.");

@@ -17,20 +17,20 @@ public class RobotNameTest
         StringAssert.IsMatch(@"\w{2}\d{3}", robot.Name);
     }
 
-    [Test]
+    [Test, Ignore]
     public void NameIsTheSameEachTime()
     {
         Assert.That(robot.Name, Is.EqualTo(robot.Name));
     }
 
-    [Test]
+    [Test, Ignore]
     public void DifferentRobotsHaveDifferentNames()
     {
         var robot2 = new Robot();
         Assert.That(robot.Name, Is.Not.EqualTo(robot2.Name));
     }
 
-    [Test]
+    [Test, Ignore]
     public void CanResetTheName()
     {
         var originalName = robot.Name;

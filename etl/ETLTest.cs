@@ -12,7 +12,7 @@ public class ETLTest
         Assert.That(ETL.Transform(old), Is.EquivalentTo(expected));
     }
 
-    [Test]
+    [Test, Ignore]
     public void TransformsMultipleValues()
     {
         var old = new Dictionary<int, IList<string>> { { 1, new List<string> { "A", "E", "I", "O", "U" } } };
@@ -20,7 +20,7 @@ public class ETLTest
         Assert.That(ETL.Transform(old), Is.EquivalentTo(expected));
     }
 
-    [Test]
+    [Test, Ignore]
     public void TransformsMultipleKeys()
     {
         var old = new Dictionary<int, IList<string>> { { 1, new List<string> { "A", "E" } }, { 2, new List<string> { "D", "G" } } };
@@ -28,7 +28,7 @@ public class ETLTest
         Assert.That(ETL.Transform(old), Is.EquivalentTo(expected));
     }
 
-    [Test]
+    [Test, Ignore]
     public void TransformsAFullDataset()
     {
         var old = new Dictionary<int, IList<string>>
