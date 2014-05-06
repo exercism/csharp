@@ -19,35 +19,12 @@ namespace ExercismCSharp.sum_of_multiples
 
         public int To(int limit)
         {
-            int sum = 0;
-
-            for (int i = 1; i < limit; i++)
-            {
-                if (IsMultiple(i))
-                {
-                    sum += i;
-                }
-            }
-
-            return sum;
+            return Enumerable.Range(1, limit - 1).Where(IsMultiple).Sum();
         }
 
         private bool IsMultiple(int input)
         {
-            bool isMultiple = false;
-
-            if (multiples.Any())
-            {
-                multiples.ForEach(multiple =>
-                {
-                    if (input % multiple == 0)
-                    {
-                        isMultiple = true;
-                    }
-                });
-            }
-
-            return isMultiple;
+            return multiples.Any(multiple => input % multiple == 0);
         }
     }
 }
