@@ -4,50 +4,50 @@ using NUnit.Framework;
 public class HammingTest
 {
     [Test]
-    public void NoDifferenceBetweenEmptyStrands ()
+    public void No_difference_between_empty_strands()
     {
-        Assert.AreEqual(0,Hamming.Compute("",""));
+        Assert.That(Hamming.Compute("",""), Is.EqualTo(0));
     }
 
     [Test, Ignore]
-    public void NoDifferenceBetweenIdenticalStrands ()
+    public void No_difference_between_identical_strands()
     {
-        Assert.AreEqual(0,Hamming.Compute("GGACTGA","GGACTGA"));
+        Assert.That(Hamming.Compute("GGACTGA","GGACTGA"), Is.EqualTo(0));
     }
 
     [Test, Ignore]
-    public void CompleteHammingDistanceInSmallStrand ()
+    public void Complete_hamming_distance_in_small_strand()
     {
-        Assert.AreEqual(3,Hamming.Compute("ACT","GGA"));
+        Assert.That(Hamming.Compute("ACT","GGA"), Is.EqualTo(3));
     }
 
     [Test, Ignore]
-    public void HammingDistanceInOffByOneStrand ()
+    public void Hamming_distance_is_off_by_one_strand()
     {
-        Assert.AreEqual(9,Hamming.Compute("GGACGGATTCTG","AGGACGGATTCT"));
+        Assert.That(Hamming.Compute("GGACGGATTCTG","AGGACGGATTCT"), Is.EqualTo(9));
     }
 
     [Test, Ignore]
-    public void SmallingHammingDistanceInMiddleSomewhere ()
+    public void Smalling_hamming_distance_in_middle_somewhere()
     {
-        Assert.AreEqual(1,Hamming.Compute("GGACG","GGTCG"));
+        Assert.That(Hamming.Compute("GGACG","GGTCG"), Is.EqualTo(1));
     }
 
     [Test, Ignore]
-    public void LargerDistance ()
+    public void Larger_distance()
     {
-        Assert.AreEqual(2,Hamming.Compute("ACCAGGG","ACTATGG"));
+        Assert.That(Hamming.Compute("ACCAGGG","ACTATGG"), Is.EqualTo(2));
     }
 
     [Test, Ignore]
-    public void IgnoresExtraLengthOnOtherStrandWhenLonger ()
+    public void Ignores_extra_length_on_other_strand_when_longer()
     {
-        Assert.AreEqual(3,Hamming.Compute("AAACTAGGGG","AGGCTAGCGGTAGGAC"));
+        Assert.That(Hamming.Compute("AAACTAGGGG","AGGCTAGCGGTAGGAC"), Is.EqualTo(3));
     }
 
     [Test, Ignore]
-    public void IgnoresExtraLengthOnOriginalStrandWhenLonger ()
+    public void Ignores_extra_length_on_original_strand_when_longer()
     {
-        Assert.AreEqual(5,Hamming.Compute("GACTACGGACAGGGTAGGGAAT","GACATCGCACACC"));
+        Assert.That(Hamming.Compute("GACTACGGACAGGGTAGGGAAT","GACATCGCACACC"), Is.EqualTo(5));
     }
 }

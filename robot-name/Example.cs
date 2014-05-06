@@ -14,7 +14,7 @@ public class Robot
 
     private static string GenerateName()
     {
-        return GetRandomCharacter() + GetRandomCharacter() + Random.Next(999);
+        return GetRandomCharacter() + GetRandomCharacter() + Random.Next(100, 999);
     }
 
     private static string GetRandomCharacter()
