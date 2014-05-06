@@ -1,64 +1,64 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using System.Collections.Generic;
 
 namespace ExercismCSharp.sum_of_multiples
 {
-    [TestClass]
+    [TestFixture]
     public class SumOfMultiplesTest
     {
         private SumOfMultiples sumOfMultiples;
 
-        [TestInitialize]
+        [TestFixtureSetUp]
         public void FixtureSetup()
         {
             sumOfMultiples = new SumOfMultiples();
         }
 
-        [TestCleanup]
+        [TestFixtureTearDown]
         public void FixtureTearDown()
         {
             sumOfMultiples = null;
         }
 
-        [TestMethod]
+        [Test]
         public void TestSumTo1()
         {
-            Assert.AreEqual(0, sumOfMultiples.To(1));
+            Assert.That(0, Is.EqualTo(sumOfMultiples.To(1)));
         }
 
-        [TestMethod]
+        [Test]
         //[Ignore]
         public void TestSumTo3()
         {
-            Assert.AreEqual(3, sumOfMultiples.To(4));
+            Assert.That(3, Is.EqualTo(sumOfMultiples.To(4)));
         }
 
-        [TestMethod]
+        [Test]
         //[Ignore]
         public void TestSumTo10()
         {
-            Assert.AreEqual(23, sumOfMultiples.To(10));
+            Assert.That(23, Is.EqualTo(sumOfMultiples.To(10)));
         }
 
-        [TestMethod]
+        [Test]
         //[Ignore]
         public void TestSumTo1000()
         {
-            Assert.AreEqual(233168, sumOfMultiples.To(1000));
+            Assert.That(233168, Is.EqualTo(sumOfMultiples.To(1000)));
         }
 
-        [TestMethod]
+        [Test]
         //[Ignore]
         public void TestConfigurable7_13_17To20()
         {
-            Assert.AreEqual(51, new SumOfMultiples(new List<int> { 7, 13, 17 }).To(20));
+            Assert.That(51, Is.EqualTo(new SumOfMultiples(new List<int> { 7, 13, 17 }).To(20)));
         }
 
-        [TestMethod]
+        [Test]
         //[Ignore]
         public void TestConfigurable43_47To10000()
         {
-            Assert.AreEqual(2203160, new SumOfMultiples(new List<int> { 43, 47 }).To(10000));
+            Assert.That(2203160, Is.EqualTo(new SumOfMultiples(new List<int> { 43, 47 }).To(10000)));
         }
     }
 }
