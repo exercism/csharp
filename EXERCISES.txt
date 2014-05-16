@@ -14,3 +14,4 @@ twelve-days
 space-age
 gigasecond
 triangle
+scrabble-score
