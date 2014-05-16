@@ -12,6 +12,7 @@ public class GigasecondTest
     }
 
     [Test]
+    [Ignore]
     public void Another_date()
     {
         var gs = new Gigasecond(new DateTime(1977, 6, 13));
@@ -19,6 +20,7 @@ public class GigasecondTest
     }
 
     [Test]
+    [Ignore]
     public void Yet_another_date()
     {
         var gs = new Gigasecond(new DateTime(1959, 7, 19));
