@@ -1,0 +1,26 @@
+{
+  "slug": "csharp",
+  "language": "C#",
+  "repository": "https://github.com/exercism/xcsharp",
+  "active": true,
+  "problems": [
+    "leap",
+    "bob",
+    "etl",
+    "anagram",
+    "hamming",
+    "word-count",
+    "grade-school",
+    "nucleotide-count",
+    "phone-number",
+    "robot-name",
+    "sum-of-multiples",
+    "meetup",
+    "twelve-days",
+    "space-age",
+    "gigasecond",
+    "triangle",
+    "scrabble-score",
+    "roman-numerals"
+  ]
+}
