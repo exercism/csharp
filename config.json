@@ -22,5 +22,8 @@
     "triangle",
     "scrabble-score",
     "roman-numerals"
+  ],
+  "ignore": [
+
   ]
 }
