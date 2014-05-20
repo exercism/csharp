@@ -23,6 +23,9 @@
     "scrabble-score",
     "roman-numerals"
   ],
+  "deprecated": [
+
+  ],
   "ignore": [
 
   ]
