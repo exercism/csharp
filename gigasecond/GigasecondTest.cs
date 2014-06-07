@@ -11,16 +11,16 @@ public class GigasecondTest
         Assert.That(gs.Date(), Is.EqualTo(new DateTime(2043, 1, 1)));
     }
 
-    [Test]
     [Ignore]
+    [Test]
     public void Another_date()
     {
         var gs = new Gigasecond(new DateTime(1977, 6, 13));
         Assert.That(gs.Date(), Is.EqualTo(new DateTime(2009, 2, 19)));
     }
 
-    [Test]
     [Ignore]
+    [Test]
     public void Yet_another_date()
     {
         var gs = new Gigasecond(new DateTime(1959, 7, 19));

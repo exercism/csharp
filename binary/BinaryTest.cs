@@ -16,6 +16,7 @@ public class BinaryTest
         return new Binary(binary).ToDecimal();
     }
 
+    [Ignore]
     [Test]
     public void Invalid_binary_is_decimal_0()
     {
