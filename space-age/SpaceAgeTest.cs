@@ -11,16 +11,16 @@ public class SpaceAgeTest
         Assert.That(age.Seconds, Is.EqualTo(1000000));
     }
 
-    [Test]
     [Ignore]
+    [Test]
     public void Age_on_earth()
     {
         var age = new SpaceAge(1000000000);
         Assert.That(age.OnEarth(), Is.EqualTo(31.69));
     }
 
-    [Test]
     [Ignore]
+    [Test]
     public void Age_on_mercury()
     {
         var age = new SpaceAge(2134835688);
@@ -28,8 +28,8 @@ public class SpaceAgeTest
         Assert.That(age.OnMercury(), Is.EqualTo(280.88));
     }
 
-    [Test]
     [Ignore]
+    [Test]
     public void Age_on_venus()
     {
         var age = new SpaceAge(189839836);
@@ -37,8 +37,8 @@ public class SpaceAgeTest
         Assert.That(age.OnVenus(), Is.EqualTo(9.78));
     }
 
-    [Test]
     [Ignore]
+    [Test]
     public void Age_on_mars()
     {
         var age = new SpaceAge(2329871239);
@@ -46,8 +46,8 @@ public class SpaceAgeTest
         Assert.That(age.OnMars(), Is.EqualTo(39.25));
     }
 
-    [Test]
     [Ignore]
+    [Test]
     public void Age_on_jupiter()
     {
         var age = new SpaceAge(901876382);
@@ -55,8 +55,8 @@ public class SpaceAgeTest
         Assert.That(age.OnJupiter(), Is.EqualTo(2.41));
     }
 
-    [Test]
     [Ignore]
+    [Test]
     public void Age_on_saturn()
     {
         var age = new SpaceAge(3000000000);
@@ -64,8 +64,8 @@ public class SpaceAgeTest
         Assert.That(age.OnSaturn(), Is.EqualTo(3.23));
     }
 
-    [Test]
     [Ignore]
+    [Test]
     public void Age_on_uranus()
     {
         var age = new SpaceAge(3210123456);
@@ -73,8 +73,8 @@ public class SpaceAgeTest
         Assert.That(age.OnUranus(), Is.EqualTo(1.21));
     }
 
-    [Test]
     [Ignore]
+    [Test]
     public void Age_on_neptune()
     {
         var age = new SpaceAge(8210123456);

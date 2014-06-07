@@ -15,7 +15,8 @@ public class WordCountTest
         Assert.That(phrase.WordCount(), Is.EqualTo(counts));
     }
 
-    [Test, Ignore]
+    [Ignore]
+    [Test]
     public void Count_one_of_each()
     {
         var phrase = new Phrase("one of each");
@@ -28,7 +29,8 @@ public class WordCountTest
         Assert.That(phrase.WordCount(), Is.EqualTo(counts));
     }
 
-    [Test, Ignore]
+    [Ignore]
+    [Test]
     public void Count_multiple_occurrences()
     {
         var phrase = new Phrase("one fish two fish red fish blue fish");
@@ -43,7 +45,8 @@ public class WordCountTest
         Assert.That(phrase.WordCount(), Is.EqualTo(counts));
     }
 
-    [Test, Ignore]
+    [Ignore]
+    [Test]
     public void Count_everything_just_once()
     {
         var phrase = new Phrase("all the kings horses and all the kings men");
@@ -59,7 +62,8 @@ public class WordCountTest
         Assert.That(phrase.WordCount(), Is.EqualTo(counts));
     }
 
-    [Test, Ignore]
+    [Ignore]
+    [Test]
     public void Ignore_punctuation()
     {
         var phrase = new Phrase("car : carpet as java : javascript!!&@$%^&");
@@ -74,7 +78,8 @@ public class WordCountTest
         Assert.That(phrase.WordCount(), Is.EqualTo(counts));
     }
 
-    [Test, Ignore]
+    [Ignore]
+    [Test]
     public void Handles_cramped_list()
     {
         var phrase = new Phrase("one,two,three");
@@ -87,7 +92,8 @@ public class WordCountTest
         Assert.That(phrase.WordCount(), Is.EqualTo(counts));
     }
 
-    [Test, Ignore]
+    [Ignore]
+    [Test]
     public void Include_numbers()
     {
         var phrase = new Phrase("testing, 1, 2 testing");
@@ -100,7 +106,8 @@ public class WordCountTest
         Assert.That(phrase.WordCount(), Is.EqualTo(counts));
     }
 
-    [Test, Ignore]
+    [Ignore]
+    [Test]
     public void Normalize_case()
     {
         var phrase = new Phrase("go Go GO");
@@ -111,7 +118,8 @@ public class WordCountTest
         Assert.That(phrase.WordCount(), Is.EqualTo(counts));
     }
 
-    [Test, Ignore]
+    [Ignore]
+    [Test]
     public void With_apostrophes()
     {
         var phrase = new Phrase("First: don't laugh. Then: don't cry.");
