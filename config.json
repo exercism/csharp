@@ -29,7 +29,8 @@
     "strain",
     "atbash-cipher",
     "accumulate",
-    "crypto-square"
+    "crypto-square",
+    "trinary"
   ],
   "deprecated": [
 
