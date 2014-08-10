@@ -33,7 +33,8 @@
     "trinary",
     "rna-transcription",
     "sieve",
-    "simple-cipher"
+    "simple-cipher",
+    "octal"
   ],
   "deprecated": [
 
