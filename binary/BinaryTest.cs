@@ -15,11 +15,22 @@ public class BinaryTest
     {
         return new Binary(binary).ToDecimal();
     }
+    
+    [TestCase("carrot", Ignore = true)]
+    [TestCase("2", Ignore = true)]
+    [TestCase("5", Ignore = true)]
+    [TestCase("9", Ignore = true)]
+    [TestCase("134678", Ignore = true)]
+    [TestCase("abc10z", Ignore = true)]
+    public void Invalid_binary_is_decimal_0(string invalidValue)
+    {
+        Assert.That(new Binary(invalidValue).ToDecimal(), Is.EqualTo(0));
+    }
 
     [Ignore]
     [Test]
-    public void Invalid_binary_is_decimal_0()
+    public void Binary_can_convert_formatted_strings()
     {
-        Assert.That(new Binary("carrot123").ToDecimal(), Is.EqualTo(0));
+        Assert.That(new Binary("011").ToDecimal(), Is.EqualTo(3));
     }
 }
