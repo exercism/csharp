@@ -32,7 +32,8 @@
     "crypto-square",
     "trinary",
     "rna-transcription",
-    "sieve"
+    "sieve",
+    "simple-cipher"
   ],
   "deprecated": [
 
