@@ -12,16 +12,16 @@ public class Trinary
 
     public int ToDecimal()
     {
-        if (IsNotNumeric()) return 0;
+        if (IsNotValidTrinary()) return 0;
 
         return value
             .Select((c, i) => int.Parse(c.ToString()) * ThreeToThePowerOf(value.Length - i - 1))
             .Sum();
     }
 
-    private bool IsNotNumeric()
+    private bool IsNotValidTrinary()
     {
-        return !value.All(char.IsDigit);
+        return !value.All(x => char.IsDigit(x) && int.Parse(x.ToString()) < 3);
     }
 
     private static int ThreeToThePowerOf(int power)

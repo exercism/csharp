@@ -17,10 +17,21 @@ public class TrinaryTest
         return new Trinary(value).ToDecimal();
     }
 
+    [TestCase("carrot", Ignore = true)]
+    [TestCase("3", Ignore = true)]
+    [TestCase("6", Ignore = true)]
+    [TestCase("9", Ignore = true)]
+    [TestCase("124578", Ignore = true)]
+    [TestCase("abc1z", Ignore = true)]
+    public void Invalid_trinary_is_decimal_0(string invalidValue)
+    {
+        Assert.That(new Trinary(invalidValue).ToDecimal(), Is.EqualTo(0));
+    }
+
     [Ignore]
     [Test]
-    public void Invalid_trinary_is_decimal_0()
+    public void Trinary_can_convert_formatted_strings()
     {
-        Assert.That(new Trinary("carrot").ToDecimal(), Is.EqualTo(0));
+        Assert.That(new Trinary("011").ToDecimal(), Is.EqualTo(4));
     }
 }

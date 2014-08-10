@@ -3,25 +3,25 @@ using System.Linq;
 
 public class Binary
 {
-    private readonly string number;
+    private readonly string value;
 
-    public Binary(string number)
+    public Binary(string value)
     {
-        this.number = number;
+        this.value = value;
     }
 
     public int ToDecimal()
     {
-        if (IsNotANumber()) return 0;
+        if (IsNotValidBinary()) return 0;
 
-        return number
-            .Select((c, i) => int.Parse(c.ToString()) * TwoToThePowerOf(number.Length - i - 1))
+        return value
+            .Select((c, i) => int.Parse(c.ToString()) * TwoToThePowerOf(value.Length - i - 1))
             .Sum();
     }
 
-    private bool IsNotANumber()
+    private bool IsNotValidBinary()
     {
-        return !number.All(char.IsDigit);
+        return !value.All(x => char.IsDigit(x) && int.Parse(x.ToString()) < 2);
     }
 
     private static int TwoToThePowerOf(int power)
