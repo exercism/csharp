@@ -56,14 +56,6 @@ public class NucleoTideCountTest
 
     [Ignore]
     [Test]
-    public void Has_no_uracil()
-    {
-        var dna = new DNA("GGTTGG");
-        Assert.That(dna.Count('U'), Is.EqualTo(0));
-    }
-
-    [Ignore]
-    [Test]
     public void Validates_nucleotides()
     {
         var dna = new DNA("GGTTGG");
