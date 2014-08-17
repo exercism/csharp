@@ -34,7 +34,8 @@
     "rna-transcription",
     "sieve",
     "simple-cipher",
-    "octal"
+    "octal",
+    "luhn"
   ],
   "deprecated": [
 
