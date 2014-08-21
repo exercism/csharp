@@ -19,18 +19,10 @@ public class DNA
 
     public int Count(char nucleotide)
     {
-        if (IsUracil(nucleotide))
-            return 0;
-
         int count;
         if (!NucleotideCounts.TryGetValue(nucleotide, out count))
             throw new InvalidNucleotideException();
         return count;
-    }
-
-    private static bool IsUracil(char nucleotide)
-    {
-        return nucleotide == 'U';
     }
 }
 
