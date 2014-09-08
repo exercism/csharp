@@ -35,7 +35,8 @@
     "sieve",
     "simple-cipher",
     "octal",
-    "luhn"
+    "luhn",
+    "pig-latin"
   ],
   "deprecated": [
 
