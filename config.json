@@ -36,7 +36,8 @@
     "simple-cipher",
     "octal",
     "luhn",
-    "pig-latin"
+    "pig-latin",
+    "pythagorean-triplet"
   ],
   "deprecated": [
 
