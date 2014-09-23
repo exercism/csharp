@@ -21,7 +21,7 @@ public class BobTest
     [Test]
     public void Shouting ()
     {
-        Assert.That(teenager.Hey("WATCH OUT!"), Is.EqualTo("Woah, chill out!"));
+        Assert.That(teenager.Hey("WATCH OUT!"), Is.EqualTo("Whoa, chill out!"));
     }
 
     [Ignore]
@@ -63,7 +63,7 @@ public class BobTest
     [Test]
     public void Shouting_numbers ()
     {
-        Assert.That(teenager.Hey("1, 2, 3 GO!"), Is.EqualTo("Woah, chill out!"));
+        Assert.That(teenager.Hey("1, 2, 3 GO!"), Is.EqualTo("Whoa, chill out!"));
     }
 
     [Ignore]
