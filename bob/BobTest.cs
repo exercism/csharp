@@ -56,7 +56,7 @@ public class BobTest
     [Test]
     public void Forceful_questions ()
     {
-        Assert.That(teenager.Hey("WHAT THE HELL WERE YOU THINKING?"), Is.EqualTo("Woah, chill out!"));
+        Assert.That(teenager.Hey("WHAT THE HELL WERE YOU THINKING?"), Is.EqualTo("Whoa, chill out!"));
     }
 
     [Ignore]
@@ -84,14 +84,14 @@ public class BobTest
     [Test]
     public void Shouting_with_special_characters ()
     {
-        Assert.That(teenager.Hey("ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!"), Is.EqualTo("Woah, chill out!"));
+        Assert.That(teenager.Hey("ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!"), Is.EqualTo("Whoaa, chill out!"));
     }
 
     [Ignore]
     [Test]
     public void Shouting_with_no_exclamation_mark ()
     {
-        Assert.That(teenager.Hey("I HATE YOU"), Is.EqualTo("Woah, chill out!"));
+        Assert.That(teenager.Hey("I HATE YOU"), Is.EqualTo("Whoa, chill out!"));
     }
 
     [Ignore]
