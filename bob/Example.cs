@@ -9,7 +9,7 @@ public class Bob
         }
         if (IsYelling(statement))
         {
-            return "Woah, chill out!";
+            return "Whoa, chill out!";
         }
         if (IsQuestion(statement))
         {
