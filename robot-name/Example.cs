@@ -3,7 +3,6 @@ using System;
 public class Robot
 {
     private static readonly Random Random = new Random();
-    private const string ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     public string Name { get; private set; }
 
@@ -14,12 +13,12 @@ public class Robot
 
     private static string GenerateName()
     {
-        return GetRandomCharacter() + GetRandomCharacter() + Random.Next(100, 999);
+        return GetRandomCharacter() + GetRandomCharacter() + Random.Next(1000).ToString("000");
     }
 
     private static string GetRandomCharacter()
     {
-        return ALPHABET[Random.Next(25)].ToString();
+        return ((char)('A' + Random.Next(26))).ToString();
     }
 
     public void Reset()
