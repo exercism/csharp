@@ -46,15 +46,8 @@ public class HammingTest
 
     [Ignore]
     [Test]
-    public void Ignores_extra_length_on_other_strand_when_longer()
+    public void Strands_must_be_the_same_length_to_get_distance()
     {
-        Assert.That(Hamming.Compute("AAACTAGGGG","AGGCTAGCGGTAGGAC"), Is.EqualTo(3));
-    }
-
-    [Ignore]
-    [Test]
-    public void Ignores_extra_length_on_original_strand_when_longer()
-    {
-        Assert.That(Hamming.Compute("GACTACGGACAGGGTAGGGAAT","GACATCGCACACC"), Is.EqualTo(5));
+        Assert.That(() => Hamming.Compute("AAACTAGGGG", "AGGCTAGCGGTAGGAC"), Throws.ArgumentException);
     }
 }

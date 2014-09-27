@@ -1,38 +1,31 @@
 using System;
+using System.Linq;
 
 public class Hamming
 {
-    public static int Compute (string firstStrand, string secondStrand)
+    public static int Compute(string firstStrand, string secondStrand)
     {
         return new Hamming(firstStrand,secondStrand).Distance();
     }
 
-    private string firstStrand;
-    private string secondStrand;
+    private readonly string firstStrand;
+    private readonly string secondStrand;
 
-    public Hamming (string firstStrand, string secondStrand)
+    public Hamming(string firstStrand, string secondStrand)
     {
         this.firstStrand = firstStrand;
         this.secondStrand = secondStrand;
+        ValidateStrands();
     }
 
-    public int Distance ()
+    private void ValidateStrands()
     {
-        char[] firstStrandChars = firstStrand.ToCharArray();
-        char[] secondStrandChars = secondStrand.ToCharArray();
-
-        int difference = 0;
-
-        for (int i = 0; i < CommonDistance(); i++)
-        {
-            if (firstStrandChars[i] != secondStrandChars[i]) { difference++; }
-        }
-
-        return difference;
+        if (firstStrand.Length != secondStrand.Length)
+            throw new ArgumentException("Undefined for sequences of unequal length");
     }
 
-    private int CommonDistance ()
+    public int Distance()
     {
-        return Math.Min(firstStrand.Length,secondStrand.Length);
+        return firstStrand.Where((x, i) => x != secondStrand[i]).Count();
     }
 }
