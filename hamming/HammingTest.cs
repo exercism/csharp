@@ -43,11 +43,4 @@ public class HammingTest
     {
         Assert.That(Hamming.Compute("ACCAGGG","ACTATGG"), Is.EqualTo(2));
     }
-
-    [Ignore]
-    [Test]
-    public void Strands_must_be_the_same_length_to_get_distance()
-    {
-        Assert.That(() => Hamming.Compute("AAACTAGGGG", "AGGCTAGCGGTAGGAC"), Throws.ArgumentException);
-    }
 }

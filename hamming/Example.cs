@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 
 public class Hamming
@@ -15,13 +14,6 @@ public class Hamming
     {
         this.firstStrand = firstStrand;
         this.secondStrand = secondStrand;
-        ValidateStrands();
-    }
-
-    private void ValidateStrands()
-    {
-        if (firstStrand.Length != secondStrand.Length)
-            throw new ArgumentException("Undefined for sequences of unequal length");
     }
 
     public int Distance()
