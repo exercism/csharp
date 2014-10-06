@@ -37,7 +37,8 @@
     "octal",
     "luhn",
     "pig-latin",
-    "pythagorean-triplet"
+    "pythagorean-triplet",
+    "series"
   ],
   "deprecated": [
 
