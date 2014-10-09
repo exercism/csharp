@@ -38,7 +38,9 @@
     "luhn",
     "pig-latin",
     "pythagorean-triplet",
-    "series"
+    "series",
+    "difference-of-squares",
+    "secret-handshake"
   ],
   "deprecated": [
 
