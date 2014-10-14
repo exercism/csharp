@@ -3,35 +3,28 @@ using System.Collections.Generic;
 
 public class Phrase
 {
-    private string text;
+    private readonly string _phrase;
 
-    public Phrase (string text)
+    public Phrase(string phrase)
     {
-        this.text = text;
+        if (phrase == null) throw new ArgumentNullException("phrase");
+        _phrase = phrase;
     }
-
-    public IDictionary<string,int> WordCount ()
+    
+    public IDictionary<string, int> WordCount()
     {
-        string[] words = Words();
-        Dictionary<string,int> wordCount = new Dictionary<string,int>();
-
-        foreach(string word in words)
+        var counts = new Dictionary<string, int>();
+        Match match = Regex.Match(_phrase.ToLower(), @"\w+'\w+|\w+");
+        while(match.Success)
         {
-            if ( ! wordCount.ContainsKey(word) ) { wordCount[word] = 0; }
-            wordCount[word]++;
+            string word = match.Value;
+            if(!counts.ContainsKey(word))
+            {
+                counts[word] = 0;
+            }
+            counts[word]++;
+            match = match.NextMatch();
         }
-
-        return wordCount;
+        return counts;
     }
-
-    private string RemoveUnwantedCharacters (string text)
-    {
-        return Regex.Replace(text,"[^\\w\\s']+"," ").Trim();
-    }
-
-    private string[] Words ()
-    {
-        return Regex.Split(RemoveUnwantedCharacters(this.text).ToLower(),"\\s+");
-    }
-
 }
