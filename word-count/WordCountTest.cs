@@ -134,4 +134,34 @@ public class WordCountTest
         Assert.That(phrase.WordCount(), Is.EqualTo(counts));
     }
 
+    [Ignore]
+    [Test]
+    public void With_free_standing_apostrophes()
+    {
+        var phrase = new Phrase("go ' Go '' GO");
+        var counts = new Dictionary<string, int> {
+            { "go", 3 },
+        };
+
+        Assert.That(phrase.WordCount(), Is.EqualTo(counts));
+    }
+
+    [Ignore]
+    [Test]
+    public void With_apostrophes_as_quotes()
+    {
+        var phrase = new Phrase("She said, 'let's meet at twelve o'clock'");
+        var counts = new Dictionary<string, int> {
+            { "she", 1 },
+            { "said", 1 },
+            { "let's", 1 },
+            { "meet", 1 },
+            { "at", 1 },
+            { "twelve", 1 },
+            { "o'clock", 1 },
+        };
+
+        Assert.That(phrase.WordCount(), Is.EqualTo(counts));
+    }
+
 }
