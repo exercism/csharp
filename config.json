@@ -40,7 +40,8 @@
     "pythagorean-triplet",
     "series",
     "difference-of-squares",
-    "secret-handshake"
+    "secret-handshake",
+    "clock"
   ],
   "deprecated": [
 
