@@ -3,26 +3,24 @@ using NUnit.Framework;
 [TestFixture]
 public class ClockTest
 {
-    [Test]
     [TestCase(8, "08:00")]
     [TestCase(9, "09:00")]
-    public void PrintsTheHour(int hours, string expected)
+    public void Prints_the_hour(int hours, string expected)
     {
         Assert.That(new Clock(hours).ToString(), Is.EqualTo(expected));
     }
 
     [Ignore]
-    [Test]
     [TestCase(11, 9, "11:09")]
     [TestCase(11, 19, "11:19")]
-    public void PrintsPastTheHour(int hours, int minutes, string expected)
+    public void Prints_past_the_hour(int hours, int minutes, string expected)
     {
         Assert.That(new Clock(hours, minutes).ToString(), Is.EqualTo(expected));
     }
 
     [Ignore]
     [Test]
-    public void CanAddMinutes()
+    public void Can_add_minutes()
     {
         var clock = new Clock(10).Add(3);
         Assert.That(clock.ToString(), Is.EqualTo("10:03"));
@@ -30,7 +28,7 @@ public class ClockTest
 
     [Ignore]
     [Test]
-    public void CanAddOverAnHour()
+    public void Can_add_over_an_hour()
     {
         var clock = new Clock(10).Add(63);
         Assert.That(clock.ToString(), Is.EqualTo("11:03"));
@@ -38,7 +36,7 @@ public class ClockTest
 
     [Ignore]
     [Test]
-    public void CanSubtractMinutes()
+    public void Can_subtract_minutes()
     {
         var clock = new Clock(10, 3).Subtract(3);
         Assert.That(clock.ToString(), Is.EqualTo("10:00"));
@@ -46,7 +44,7 @@ public class ClockTest
 
     [Ignore]
     [Test]
-    public void CanSubtractToPreviousHour()
+    public void Can_subtract_to_previous_hour()
     {
         var clock = new Clock(10, 3).Subtract(30);
         Assert.That(clock.ToString(), Is.EqualTo("09:33"));
@@ -54,7 +52,7 @@ public class ClockTest
 
     [Ignore]
     [Test]
-    public void CanSubtractOverAnHour()
+    public void Can_subtract_over_an_hour()
     {
         var clock = new Clock(10, 3).Subtract(70);
         Assert.That(clock.ToString(), Is.EqualTo("08:53"));
@@ -62,7 +60,7 @@ public class ClockTest
 
     [Ignore]
     [Test]
-    public void WrapsAroundMidnight()
+    public void Wraps_around_midnight()
     {
         var clock = new Clock(23, 59).Add(2);
         Assert.That(clock.ToString(), Is.EqualTo("00:01"));
@@ -70,7 +68,7 @@ public class ClockTest
 
     [Ignore]
     [Test]
-    public void WrapsAroundMidnightBackwards()
+    public void Wraps_around_midnight_backwards()
     {
         var clock = new Clock(0, 1).Subtract(2);
         Assert.That(clock.ToString(), Is.EqualTo("23:59"));
@@ -78,7 +76,7 @@ public class ClockTest
 
     [Ignore]
     [Test]
-    public void MidnightIsZeroHundredHours()
+    public void Midnight_is_zero_hundred_hours()
     {
         var clock = new Clock(24);
         Assert.That(clock.ToString(), Is.EqualTo("00:00"));
@@ -86,7 +84,7 @@ public class ClockTest
 
     [Ignore]
     [Test]
-    public void SixtyMinutesIsNextHour()
+    public void Sixty_minutes_is_next_hour()
     {
         var clock = new Clock(1, 60);
         Assert.That(clock.ToString(), Is.EqualTo("02:00"));
