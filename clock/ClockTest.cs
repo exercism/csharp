@@ -11,6 +11,7 @@ public class ClockTest
         Assert.That(new Clock(hours).ToString(), Is.EqualTo(expected));
     }
 
+    [Ignore]
     [Test]
     [TestCase(11, 9, "11:09")]
     [TestCase(11, 19, "11:19")]
@@ -19,6 +20,7 @@ public class ClockTest
         Assert.That(new Clock(hours, minutes).ToString(), Is.EqualTo(expected));
     }
 
+    [Ignore]
     [Test]
     public void CanAddMinutes()
     {
@@ -26,6 +28,7 @@ public class ClockTest
         Assert.That(clock.ToString(), Is.EqualTo("10:03"));
     }
 
+    [Ignore]
     [Test]
     public void CanAddOverAnHour()
     {
@@ -33,6 +36,7 @@ public class ClockTest
         Assert.That(clock.ToString(), Is.EqualTo("11:03"));
     }
 
+    [Ignore]
     [Test]
     public void CanSubtractMinutes()
     {
@@ -40,6 +44,7 @@ public class ClockTest
         Assert.That(clock.ToString(), Is.EqualTo("10:00"));
     }
 
+    [Ignore]
     [Test]
     public void CanSubtractToPreviousHour()
     {
@@ -47,6 +52,7 @@ public class ClockTest
         Assert.That(clock.ToString(), Is.EqualTo("09:33"));
     }
 
+    [Ignore]
     [Test]
     public void CanSubtractOverAnHour()
     {
@@ -54,6 +60,7 @@ public class ClockTest
         Assert.That(clock.ToString(), Is.EqualTo("08:53"));
     }
 
+    [Ignore]
     [Test]
     public void WrapsAroundMidnight()
     {
@@ -61,6 +68,7 @@ public class ClockTest
         Assert.That(clock.ToString(), Is.EqualTo("00:01"));
     }
 
+    [Ignore]
     [Test]
     public void WrapsAroundMidnightBackwards()
     {
@@ -68,6 +76,7 @@ public class ClockTest
         Assert.That(clock.ToString(), Is.EqualTo("23:59"));
     }
 
+    [Ignore]
     [Test]
     public void MidnightIsZeroHundredHours()
     {
@@ -75,6 +84,7 @@ public class ClockTest
         Assert.That(clock.ToString(), Is.EqualTo("00:00"));
     }
 
+    [Ignore]
     [Test]
     public void SixtyMinutesIsNextHour()
     {
