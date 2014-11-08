@@ -69,9 +69,23 @@ public class IncorrectKeyCipherTest
 
     [Ignore]
     [Test]
+    public void Cipher_throws_with_any_caps_key()
+    {
+        Assert.That(() => new Cipher("abcdEFg"), Throws.ArgumentException);
+    }
+
+    [Ignore]
+    [Test]
     public void Cipher_throws_with_numeric_key()
     {
         Assert.That(() => new Cipher("12345"), Throws.ArgumentException);
+    }
+
+    [Ignore]
+    [Test]
+    public void Cipher_throws_with_any_numeric_key()
+    {
+        Assert.That(() => new Cipher("abcd345ef"), Throws.ArgumentException);
     }
 
     [Ignore]
@@ -137,5 +151,19 @@ public class SubstitutionCipherTest
     public void Cipher_can_wrap_encode()
     {
         Assert.That(cipher.Encode("zzzzzzzzzz"), Is.EqualTo("zabcdefghi"));
+    }
+
+    [Ignore]
+    [Test]
+    public void Cipher_can_encode_a_message_that_is_shorter_than_the_key()
+    {
+        Assert.That(cipher.Encode("aaaaa"), Is.EqualTo("abcde"));
+    }
+
+    [Ignore]
+    [Test]
+    public void Cipher_can_decode_a_message_that_is_shorter_than_the_key()
+    {
+        Assert.That(cipher.Decode("abcde"), Is.EqualTo("aaaaa"));
     }
 }

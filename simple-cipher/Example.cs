@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 public class Cipher
 {
@@ -11,30 +12,25 @@ public class Cipher
 
     public Cipher()
     {
-        Key = new string(Enumerable.Range(0, 100).Select(x => ALPHABET[Rand.Next(ALPHABET.Length - 1)]).ToArray());
+        Key = new string(Enumerable.Range(0, 100).Select(x => ALPHABET[Rand.Next(ALPHABET.Length)]).ToArray());
     }
 
     public Cipher(string key)
     {
-        ThrowIfInvalidKey(key);
+        if (!IsValidKey(key)) throw new ArgumentException("Invalid key");
         Key = key;
     }
 
-    private static void ThrowIfInvalidKey(string key)
+    private static bool IsValidKey(string key)
     {
-        if (string.IsNullOrWhiteSpace(key))
-            throw new ArgumentException("Key cannot be null or empty");
-        if (key.All(char.IsDigit))
-            throw new ArgumentException("Key cannot be numeric");
-        if (key.ToUpper() == key)
-            throw new ArgumentException("Key cannot be all caps");
+        return Regex.IsMatch(key, "^[a-z]+$");
     }
 
     public string Encode(string plaintext)
     {
         var ciphertext = new StringBuilder(plaintext.Length);
 
-        for (int i = 0; i < plaintext.Length; i++)
+        for (int i = 0; i < Math.Min(plaintext.Length, Key.Length); i++)
             ciphertext.Append(EncodeCharacter(plaintext, i));
 
         return ciphertext.ToString();
