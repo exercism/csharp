@@ -41,7 +41,8 @@
     "series",
     "difference-of-squares",
     "secret-handshake",
-    "clock"
+    "clock",
+    "linked-list"
   ],
   "deprecated": [
 
