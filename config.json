@@ -42,7 +42,8 @@
     "difference-of-squares",
     "secret-handshake",
     "clock",
-    "linked-list"
+    "linked-list",
+    "wordy"
   ],
   "deprecated": [
 
