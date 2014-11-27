@@ -33,6 +33,13 @@ public class BobTest
 
     [Ignore]
     [Test]
+    public void Asking_a_question_with_a_trailing_space()
+    {
+        Assert.That(teenager.Hey("Do I like my  spacebar  too much?  "), Is.EqualTo("Sure."));
+    }
+
+    [Ignore]
+    [Test]
     public void Asking_a_numeric_question ()
     {
         Assert.That(teenager.Hey("You are, what, like 15?"), Is.EqualTo("Sure."));

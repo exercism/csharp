@@ -34,7 +34,7 @@ public class Bob
 
     private bool IsQuestion (string statement)
     {
-        return statement.EndsWith("?");
+        return statement.Trim().EndsWith("?");
     }
 
 }
