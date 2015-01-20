@@ -43,7 +43,8 @@
     "secret-handshake",
     "clock",
     "linked-list",
-    "wordy"
+    "wordy",
+    "tournament"
   ],
   "deprecated": [
 
