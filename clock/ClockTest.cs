@@ -89,4 +89,13 @@ public class ClockTest
         var clock = new Clock(1, 60);
         Assert.That(clock.ToString(), Is.EqualTo("02:00"));
     }
+
+    [Ignore]
+    [Test]
+    public void Clocks_with_same_time_are_equal()
+    {
+        var clock1 = new Clock(14, 30);
+        var clock2 = new Clock(14, 30);
+        Assert.That(clock1, Is.EqualTo(clock2));
+    }
 }
