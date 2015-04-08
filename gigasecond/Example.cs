@@ -11,6 +11,6 @@ public class Gigasecond
 
     public DateTime Date()
     {
-        return birthDate.AddSeconds(1000000000).Date;
+        return birthDate.AddSeconds(1000000000);
     }
 }
