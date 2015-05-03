@@ -14,7 +14,7 @@ public class OctalTest
     [TestCase("1234567", Result = 342391, Ignore = true)]
     public int Octal_converts_to_decimal(string value)
     {
-        return new Octal(value).ToDecimal();
+        return Octal.ToDecimal(value);
     }
 
     [TestCase("carrot", Ignore = true)]
@@ -24,13 +24,13 @@ public class OctalTest
     [TestCase("abc1z", Ignore = true)]
     public void Invalid_octal_is_decimal_0(string invalidValue)
     {
-        Assert.That(new Octal(invalidValue).ToDecimal(), Is.EqualTo(0));
+        Assert.That(Octal.ToDecimal(invalidValue), Is.EqualTo(0));
     }
 
     [Ignore]
     [Test]
     public void Octal_can_convert_formatted_strings()
     {
-        Assert.That(new Octal("011").ToDecimal(), Is.EqualTo(9));
+        Assert.That(Octal.ToDecimal("011"), Is.EqualTo(9));
     }
 }

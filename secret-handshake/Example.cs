@@ -1,28 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 public class SecretHandshake
 {
-    private readonly int commandValue;
-    private readonly Dictionary<int, string> commandValues;
-
-    public SecretHandshake(int commandValue)
-    {
-        this.commandValue = commandValue;
-        commandValues = new Dictionary<int, string>
+    private static readonly Dictionary<int, string> CommandValues = new Dictionary<int, string>
         {
             { 1, "wink" },
             { 2, "double blink" },
             { 4, "close your eyes" },
             { 8, "jump" }
         };
-    }
 
-    public string[] Commands()
+    public static string[] Commands(int commandValue)
     {
-        List<string> commands = new List<string>();
-        foreach (var value in commandValues.OrderBy(x => x.Key))
+        var commands = new List<string>();
+        foreach (var value in CommandValues.OrderBy(x => x.Key))
         {
             if ((commandValue & value.Key) != 0)
             {
@@ -30,17 +22,14 @@ public class SecretHandshake
             }
         }
 
-        if (ShouldReverse())
+        if (ShouldReverse(commandValue))
         {
             return commands.AsEnumerable().Reverse().ToArray();
         }
-        else
-        {
-            return commands.ToArray();
-        }
+        return commands.ToArray();
     }
 
-    private bool ShouldReverse()
+    private static bool ShouldReverse(int commandValue)
     {
         return (commandValue & 16) != 0;
     }

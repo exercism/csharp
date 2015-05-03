@@ -13,7 +13,7 @@ public class BinaryTest
     [TestCase("10001101000", Result = 1128, Ignore = true)]
     public int Binary_converts_to_decimal(string binary)
     {
-        return new Binary(binary).ToDecimal();
+        return Binary.ToDecimal(binary);
     }
     
     [TestCase("carrot", Ignore = true)]
@@ -24,13 +24,13 @@ public class BinaryTest
     [TestCase("abc10z", Ignore = true)]
     public void Invalid_binary_is_decimal_0(string invalidValue)
     {
-        Assert.That(new Binary(invalidValue).ToDecimal(), Is.EqualTo(0));
+        Assert.That(Binary.ToDecimal(invalidValue), Is.EqualTo(0));
     }
 
     [Ignore]
     [Test]
     public void Binary_can_convert_formatted_strings()
     {
-        Assert.That(new Binary("011").ToDecimal(), Is.EqualTo(3));
+        Assert.That(Binary.ToDecimal("011"), Is.EqualTo(3));
     }
 }

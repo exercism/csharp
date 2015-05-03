@@ -4,18 +4,12 @@ using System.Collections.Generic;
 
 public class Phrase
 {
-    private readonly string _phrase;
-
-    public Phrase(string phrase)
+    public static IDictionary<string, int> WordCount(string phrase)
     {
         if (phrase == null) throw new ArgumentNullException("phrase");
-        _phrase = phrase;
-    }
-    
-    public IDictionary<string, int> WordCount()
-    {
+
         var counts = new Dictionary<string, int>();
-        Match match = Regex.Match(_phrase.ToLower(), @"\w+'\w+|\w+");
+        Match match = Regex.Match(phrase.ToLower(), @"\w+'\w+|\w+");
         while(match.Success)
         {
             string word = match.Value;

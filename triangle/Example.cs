@@ -10,23 +10,16 @@ public enum TriangleKind
 
 public class Triangle
 {
-    private readonly decimal side1;
-    private readonly decimal side2;
-    private readonly decimal side3;
-
-    public Triangle(decimal side1, decimal side2, decimal side3)
+    public static TriangleKind Kind(decimal side1, decimal side2, decimal side3)
     {
-        this.side1 = side1;
-        this.side2 = side2;
-        this.side3 = side3;
-    }
-
-    public TriangleKind Kind()
-    {
-        if (AllSidesAreZero() || HasImpossibleSides() || ViolatesTriangleInequality())
+        if (AllSidesAreZero(side1, side2, side3) ||
+            HasImpossibleSides(side1, side2, side3) ||
+            ViolatesTriangleInequality(side1, side2, side3))
+        {
             throw new TriangleException();
+        }
 
-        int uniqueSides = UniqueSides();
+        int uniqueSides = UniqueSides(side1, side2, side3);
         if (uniqueSides == 1)
             return TriangleKind.Equilateral;
         if (uniqueSides == 2)
@@ -34,22 +27,22 @@ public class Triangle
         return TriangleKind.Scalene;
     }
 
-    private bool AllSidesAreZero()
+    private static bool AllSidesAreZero(decimal side1, decimal side2, decimal side3)
     {
         return side1 == 0 && side2 == 0 && side3 == 0;
     }
 
-    private bool HasImpossibleSides()
+    private static bool HasImpossibleSides(decimal side1, decimal side2, decimal side3)
     {
         return side1 < 0 || side2 < 0 || side3 < 0;
     }
 
-    private bool ViolatesTriangleInequality()
+    private static bool ViolatesTriangleInequality(decimal side1, decimal side2, decimal side3)
     {
         return side1 + side2 <= side3 || side1 + side3 <= side2 || side2 + side3 <= side1;
     }
 
-    private int UniqueSides()
+    private static int UniqueSides(decimal side1, decimal side2, decimal side3)
     {
         decimal[] sides = { side1, side2, side3 };
         return sides.Distinct().Count();

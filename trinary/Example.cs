@@ -3,25 +3,18 @@ using System.Linq;
 
 public class Trinary
 {
-    private readonly string value;
-
-    public Trinary(string value)
+    public static int ToDecimal(string trinary)
     {
-        this.value = value;
-    }
+        if (IsNotValidTrinary(trinary)) return 0;
 
-    public int ToDecimal()
-    {
-        if (IsNotValidTrinary()) return 0;
-
-        return value
-            .Select((c, i) => int.Parse(c.ToString()) * ThreeToThePowerOf(value.Length - i - 1))
+        return trinary
+            .Select((c, i) => int.Parse(c.ToString()) * ThreeToThePowerOf(trinary.Length - i - 1))
             .Sum();
     }
 
-    private bool IsNotValidTrinary()
+    private static bool IsNotValidTrinary(string trinary)
     {
-        return !value.All(x => char.IsDigit(x) && int.Parse(x.ToString()) < 3);
+        return !trinary.All(x => char.IsDigit(x) && int.Parse(x.ToString()) < 3);
     }
 
     private static int ThreeToThePowerOf(int power)
