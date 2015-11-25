@@ -17,7 +17,7 @@ You can either start by creating your own project for working with the Exercism 
 
 This is a Visual Studio template that comes pre-configured to work on the problems in as many languages as Visual Studio supports.
 
-![Solution Explorer](/img/SolutionExplorer.png)
+![Solution Explorer](/img/setup/visualstudio/SolutionExplorer.png)
 
 1. Download the [Exercism.io Visual Studio Template](https://github.com/rprouse/Exercism.VisualStudio) from GitHub by clicking the Download Zip button on the page.
 2. Unzip the template into your exercises directory, for example `C:\src\exercises`
@@ -32,13 +32,13 @@ This is a Visual Studio template that comes pre-configured to work on the proble
 10. The exercise you just fetched will appear greyed out. Right click on the folder and **Include In Project**
 11. Get coding...
 
-![Add files](/img/AddFiles.png)
+![Add files](/img/setup/visualstudio/AddFiles.png)
 
 The NUnit NuGet package is included in the project, so you will not need to install it.
 
 If you have a paid version of Visual Studio install the [NUnit Visual Studio Test Adapter](https://visualstudiogallery.msdn.microsoft.com/6ab922d0-21c0-4f06-ab5f-4ecd1fe7175d). This will allow you to run the tests from within Visual Studio. If you have ReSharper installed, you can also [run the tests using ReSharper](https://www.jetbrains.com/resharper/features/unit_testing.html).
 
-![Test Explorer](/img/TestExplorer.png)
+![Test Explorer](/img/setup/visualstudio/TestExplorer.png)
 
 If you are using Visual Studio Express, install [NUnit 2.6.3](http://www.nunit.org/) and run the tests from the command line (see below).
 
@@ -46,32 +46,32 @@ If you are using Visual Studio Express, install [NUnit 2.6.3](http://www.nunit.o
 
 Once installed and started, click on "Create New Project" (alternatively, you can go to File->New->New Project).
 
-![New Project](/img/newProject.png)
+![New Project](/img/setup/csharp/newProject.png)
 
 Choose what language and project type (Visual C# and Class Library). Also name your project to whatever you'd like.
 
-![Create Project](/img/createNewProject.png)
+![Create Project](/img/setup/csharp/createNewProject.png)
 
 Once created, feel free to drag and drop the C# Exercism folders into the project.
 
-![Drag and Drop Folders](/img/dragDropFolders.png)
+![Drag and Drop Folders](/img/setup/csharp/dragDropFolders.png)
 
 In order to compile, get the [NUnit](http://nunit.org/) assembly referenced for the unit tests. This can be done via [NuGet](http://www.nuget.org/) - a package manager for Visual Studio. The best packages is to get the base [NUnit]() and the [NUnit.Runners](https://www.nuget.org/packages/NUnit.Runners/)
 package since it includes the assemblies needed and a GUI test runner.
 
-![Nuget](/img/nugetMenu.png)
+![Nuget](/img/setup/csharp/nugetMenu.png)
 
 Two options to use Nuget - the NuGet manager or through the Package Manager Console.
 
 The manager is the easiest way to get started.
 
-![Nuget Manager](/img/nugetManageNunitRunner.png)
+![Nuget Manager](/img/setup/csharp/nugetManageNunitRunner.png)
 
 The project should now be able to compile.
 
 To start implementing the exercise, in Visual Studio, right click on where you want the file to go to and go to `Add` -> `Class`. Name it what you'd like.
 
-![New Item](/img/addNewClass.png)
+![New Item](/img/setup/csharp/addNewClass.png)
 
 Now you can start coding!
 
@@ -84,30 +84,16 @@ The compiler executable is usually located in the Microsoft.NET\Framework\Versio
 Refer to this [MSDN article](http://msdn.microsoft.com/en-us/library/78f4aasd.aspx) for more information on the command line compiler.
 
 ### Mac
-Install [Mono Develop](http://www.mono-project.com/Mono:OSX#Installing_Mono_on_MacOS_X).
 
-Build
-```bash
-dmcs Leap.cs LeapTest.cs -reference:nunit.framework.dll
-```
+Install [Xamarin Studio](http://xamarin.com/download).
 
-Link
-```bash
-monolinker -a /../NUnit-2.6.3/bin/nunit.framework.dll -a Leap.dll
-```
+While Xamarin is most known for creating iOS and Android applications, it's still a perfect IDE to create C# console
+or library projects which is all that's needed for Exercism.
 
-And run the DLL
-```bash
-mono /../NUnit-2.6.3/bin/nunit-console.exe output/Leap.dll
-```
+Once installed and running, click on new solution and you'll find the C# library project to select.
 
-Clean up afterwards, if needed.
-```bash
-rm -rf output
-```
-
-Mono does have an IDE that can be used for development instead of the above command line commands.
+![Xamarin New Project](/img/setup/csharp/xamarin-csharp.jpg)
 
 ### Linux
 
-[Mono Develop](http://www.mono-project.com/Mono_For_Linux_Developers) is also available for Linux.
+[Mono Develop](http://www.mono-project.com/Mono_For_Linux_Developers) is available for Linux.

@@ -1,11 +1,9 @@
-## Recommended Learning Resources
+## Code Analysis
+Code Analysis can be turned on to run after a build of certain projects. This [MSDN article](http://msdn.microsoft.com/en-us/library/ms182066.aspx) is a good walkthrough on how to enable code analysis.
 
-Exercism provides exercises and feedback but can be difficult to jump into for those learning C# for the first time. These resources can help you get started:
+**NOTE:** This will add a bit of extra time to compile the project.
 
-* [Channel9 Series: C# Fundamentals](http://channel9.msdn.com/Series/C-Sharp-Fundamentals-Development-for-Absolute-Beginners)
-* [MSDN Walkthrough: Getting Started with C#](http://msdn.microsoft.com/library/vstudio/dd492171(v=vs.120))
-* [.NET Framework Development Guide](http://msdn.microsoft.com/library/vstudio/hh156542)
-* [StackOverflow](http://stackoverflow.com/)
-  * [C#](http://stackoverflow.com/questions/tagged/c%23)
-  * [.NET](http://stackoverflow.com/questions/tagged/.net)
-  * [NUnit](http://stackoverflow.com/questions/tagged/nunit)
+Code A uses FxCop to run the analysis. [FxCop](http://www.microsoft.com/en-us/download/details.aspx?id=6544) can be run separately as a stand alone program.
+
+[StyleCop](https://stylecop.codeplex.com/) can be installed and run inside Visual Studio to analyze the code style.
+

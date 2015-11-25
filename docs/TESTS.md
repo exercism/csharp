@@ -1,4 +1,4 @@
-## Running Tests
+### Windows
 All tests have been ignored except the first one for you to work on. To continue, just remove the ```[Ignore]``` attribute on the test to start working on it.
 
 Make sure [NUnit](http://nunit.org/?p=download) is installed, if not already installed from the setup from above.
@@ -11,10 +11,18 @@ If you installed the NUnit runner through NuGet, the runner will be located in t
 
 If you installed NUnit manually the runner will be in the ```Program Files (x86)\NUnit(version number)\bin``` folder.
 
-![NUnit Runner](/img/nUnitRunner.png)
+![NUnit Runner](/img/setup/csharp/nUnitRunner.png)
 
 Once you have been able to compile the code it will create a DLL in the ```\bin\Debug``` folder of your project. In the NUnit runner, select "Open Project" and select the DLL that was created from compiling. This will load all the tests and allow you to run them.
 
-![NUnit Runner Execute Tests](/img/nUnitExecuteTests.png)
+![NUnit Runner Execute Tests](/img/setup/csharp/nUnitExecuteTests.png)
 
 The NUnit runner will automatically reload the DLL if it has been updated.
+
+### Mac
+Xamarin Studio also ships with NUnit. From the new project dialog, just select an NUnit class library.
+
+![Xamarin NUnit](/img/setup/csharp/xamarin-nunit.jpg)
+
+From here you can write NUnit tests right away. To run the tests open the `Unit Tests` pad within
+Xamarin (View -> Pads -> Unit Tests).
