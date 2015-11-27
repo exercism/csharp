@@ -11,18 +11,18 @@ If you installed the NUnit runner through NuGet, the runner will be located in t
 
 If you installed NUnit manually the runner will be in the ```Program Files (x86)\NUnit(version number)\bin``` folder.
 
-![NUnit Runner](/img/setup/csharp/nUnitRunner.png)
+![NUnit Runner](http://x.exercism.io/v3/tracks/csharp/docs/img/nUnitRunner.png)
 
 Once you have been able to compile the code it will create a DLL in the ```\bin\Debug``` folder of your project. In the NUnit runner, select "Open Project" and select the DLL that was created from compiling. This will load all the tests and allow you to run them.
 
-![NUnit Runner Execute Tests](/img/setup/csharp/nUnitExecuteTests.png)
+![NUnit Runner Execute Tests](http://x.exercism.io/v3/tracks/csharp/docs/img/nUnitExecuteTests.png)
 
 The NUnit runner will automatically reload the DLL if it has been updated.
 
 ### Mac
 Xamarin Studio also ships with NUnit. From the new project dialog, just select an NUnit class library.
 
-![Xamarin NUnit](/img/setup/csharp/xamarin-nunit.jpg)
+![Xamarin NUnit](http://x.exercism.io/v3/tracks/csharp/docs/img/xamarin-nunit.jpg)
 
 From here you can write NUnit tests right away. To run the tests open the `Unit Tests` pad within
 Xamarin (View -> Pads -> Unit Tests).

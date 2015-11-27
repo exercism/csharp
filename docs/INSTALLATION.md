@@ -46,32 +46,32 @@ If you are using Visual Studio Express, install [NUnit 2.6.3](http://www.nunit.o
 
 Once installed and started, click on "Create New Project" (alternatively, you can go to File->New->New Project).
 
-![New Project](/img/setup/csharp/newProject.png)
+![New Project](http://x.exercism.io/v3/tracks/csharp/docs/img/newProject.png)
 
 Choose what language and project type (Visual C# and Class Library). Also name your project to whatever you'd like.
 
-![Create Project](/img/setup/csharp/createNewProject.png)
+![Create Project](http://x.exercism.io/v3/tracks/csharp/docs/img/createNewProject.png)
 
 Once created, feel free to drag and drop the C# Exercism folders into the project.
 
-![Drag and Drop Folders](/img/setup/csharp/dragDropFolders.png)
+![Drag and Drop Folders](http://x.exercism.io/v3/tracks/csharp/docs/img/dragDropFolders.png)
 
 In order to compile, get the [NUnit](http://nunit.org/) assembly referenced for the unit tests. This can be done via [NuGet](http://www.nuget.org/) - a package manager for Visual Studio. The best packages is to get the base [NUnit]() and the [NUnit.Runners](https://www.nuget.org/packages/NUnit.Runners/)
 package since it includes the assemblies needed and a GUI test runner.
 
-![Nuget](/img/setup/csharp/nugetMenu.png)
+![Nuget](http://x.exercism.io/v3/tracks/csharp/docs/img/nugetMenu.png)
 
 Two options to use Nuget - the NuGet manager or through the Package Manager Console.
 
 The manager is the easiest way to get started.
 
-![Nuget Manager](/img/setup/csharp/nugetManageNunitRunner.png)
+![Nuget Manager](http://x.exercism.io/v3/tracks/csharp/docs/img/nugetManageNunitRunner.png)
 
 The project should now be able to compile.
 
 To start implementing the exercise, in Visual Studio, right click on where you want the file to go to and go to `Add` -> `Class`. Name it what you'd like.
 
-![New Item](/img/setup/csharp/addNewClass.png)
+![New Item](http://x.exercism.io/v3/tracks/csharp/docs/img/addNewClass.png)
 
 Now you can start coding!
 
@@ -92,7 +92,7 @@ or library projects which is all that's needed for Exercism.
 
 Once installed and running, click on new solution and you'll find the C# library project to select.
 
-![Xamarin New Project](/img/setup/csharp/xamarin-csharp.jpg)
+![Xamarin New Project](http://x.exercism.io/v3/tracks/csharp/docs/img/xamarin-csharp.jpg)
 
 ### Linux
 
