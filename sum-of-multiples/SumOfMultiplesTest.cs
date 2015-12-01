@@ -32,6 +32,12 @@ public class SumOfMultiplesTest
         Assert.That(sumOfMultiples.To(10), Is.EqualTo(23));
     }
 
+    [Test]
+    public void Sum_to_100()
+    {
+       Assert.That(sumOfMultiples.To(100), Is.EqualTo(2318));
+    }
+
     [Ignore]
     [Test]
     public void Sum_to_1000()
