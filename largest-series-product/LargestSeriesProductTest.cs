@@ -72,9 +72,17 @@ public class LargestSeriesProductTest
     }
 
     [Ignore]
-    [Test]
-    public void Largest_product_for_empty_input_is_1()
+    [TestCase("", Result = 1)]
+    [TestCase("123", Result = 1)]
+    public int Largest_product_for_empty_span_is_1(string digits)
     {
-        Assert.That(new LargestSeriesProduct("").GetLargestProduct(0), Is.EqualTo(1));
+        return new LargestSeriesProduct(digits).GetLargestProduct(0);
+    }
+
+    [Ignore]
+    [Test]
+    public void Cannot_slice_empty_string_with_nonzero_span(string digits)
+    {
+        Assert.Throws<ArgumentException>(() => new LargestSeriesProduct("").GetSlices(1));
     }
 }
