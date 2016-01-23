@@ -72,6 +72,14 @@ public class LargestSeriesProductTest
     }
 
     [Ignore]
+    [TestCase("0000", 2, Result = 0)]
+    [TestCase("99099", 3, Result = 0)]
+    public int Largest_product_works_if_all_spans_contain_zero(string digits, int seriesLength)
+    {
+        return new LargestSeriesProduct(digits).GetLargestProduct(seriesLength);
+    }
+
+    [Ignore]
     [TestCase("", Result = 1)]
     [TestCase("123", Result = 1)]
     public int Largest_product_for_empty_span_is_1(string digits)
