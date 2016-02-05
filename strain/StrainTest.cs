@@ -11,28 +11,28 @@ public class StrainTest
         Assert.That(new LinkedList<int>().Keep(x => x < 10), Is.EqualTo(new LinkedList<int>()));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Keep_everything()
     {
         Assert.That(new HashSet<int> { 1, 2, 3 }.Keep(x => x < 10), Is.EqualTo(new HashSet<int> { 1, 2, 3 }));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Keep_first_and_last()
     {
         Assert.That(new[] { 1, 2, 3 }.Keep(x => x % 2 != 0), Is.EqualTo(new[] { 1, 3 }));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Keep_neither_first_nor_last()
     {
         Assert.That(new List<int> { 1, 2, 3, 4, 5 }.Keep(x => x % 2 == 0), Is.EqualTo(new List<int> { 2, 4 }));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Keep_strings()
     {
@@ -40,7 +40,7 @@ public class StrainTest
         Assert.That(words.Keep(x => x.StartsWith("z")), Is.EqualTo("zebra zombies zelot".Split(' ')));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Keep_arrays()
     {
@@ -58,35 +58,35 @@ public class StrainTest
         Assert.That(actual.Keep(x => x.Contains(5)), Is.EqualTo(expected));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Empty_discard()
     {
         Assert.That(new LinkedList<int>().Discard(x => x < 10), Is.EqualTo(new LinkedList<int>()));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Discard_nothing()
     {
         Assert.That(new HashSet<int> { 1, 2, 3 }.Discard(x => x > 10), Is.EqualTo(new HashSet<int> { 1, 2, 3 }));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Discard_first_and_last()
     {
         Assert.That(new[] { 1, 2, 3 }.Discard(x => x % 2 != 0), Is.EqualTo(new[] { 2 }));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Discard_neither_first_nor_last()
     {
         Assert.That(new List<int> { 1, 2, 3, 4, 5 }.Discard(x => x % 2 == 0), Is.EqualTo(new List<int> { 1, 3, 5 }));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Discard_strings()
     {
@@ -94,7 +94,7 @@ public class StrainTest
         Assert.That(words.Discard(x => x.StartsWith("z")), Is.EqualTo("apple banana cherimoya".Split(' ')));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Discard_arrays()
     {

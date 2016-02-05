@@ -3,15 +3,15 @@ using NUnit.Framework;
 [TestFixture]
 public class RaindropsTest
 {
-    [TestCase(1, Result = "1")]
-    [TestCase(52, Result = "52")]
-    [TestCase(12121, Result = "12121")]
+    [TestCase(1, ExpectedResult = "1")]
+    [TestCase(52, ExpectedResult = "52")]
+    [TestCase(12121, ExpectedResult = "12121")]
     public string Non_primes_pass_through(int number)
     {
         return Raindrops.Convert(number);
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [TestCase(3)]
     [TestCase(6)]
     [TestCase(9)]
@@ -20,7 +20,7 @@ public class RaindropsTest
         Assert.That(Raindrops.Convert(number), Is.EqualTo("Pling"));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [TestCase(5)]
     [TestCase(10)]
     [TestCase(25)]
@@ -29,7 +29,7 @@ public class RaindropsTest
         Assert.That(Raindrops.Convert(number), Is.EqualTo("Plang"));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [TestCase(7)]
     [TestCase(14)]
     [TestCase(49)]
@@ -38,11 +38,11 @@ public class RaindropsTest
         Assert.That(Raindrops.Convert(number), Is.EqualTo("Plong"));
     }
 
-    [Ignore]
-    [TestCase(15, Result = "PlingPlang")]
-    [TestCase(21, Result = "PlingPlong")]
-    [TestCase(35, Result = "PlangPlong")]
-    [TestCase(105, Result = "PlingPlangPlong")]
+    [Ignore("Remove to run test")]
+    [TestCase(15, ExpectedResult = "PlingPlang")]
+    [TestCase(21, ExpectedResult = "PlingPlong")]
+    [TestCase(35, ExpectedResult = "PlangPlong")]
+    [TestCase(105, ExpectedResult = "PlingPlangPlong")]
     public string Numbers_containing_multiple_prime_factors_give_all_results_concatenated(int number)
     {
         return Raindrops.Convert(number);

@@ -13,7 +13,7 @@ public class AllergiesTest
         Assert.That(allergies.AllergicTo("strawberries"), Is.False);
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Allergic_to_eggs()
     {
@@ -21,7 +21,7 @@ public class AllergiesTest
         Assert.That(allergies.AllergicTo("eggs"), Is.True);
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Allergic_to_eggs_in_addition_to_other_stuff()
     {
@@ -31,7 +31,7 @@ public class AllergiesTest
         Assert.That(allergies.AllergicTo("strawberries"), Is.False);
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void No_allergies_at_all()
     {
@@ -39,7 +39,7 @@ public class AllergiesTest
         Assert.That(allergies.List(), Is.Empty);
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Allergic_to_just_eggs()
     {
@@ -47,7 +47,7 @@ public class AllergiesTest
         Assert.That(allergies.List(), Is.EqualTo(new List<string> { "eggs" }));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Allergic_to_just_peanuts()
     {
@@ -55,7 +55,7 @@ public class AllergiesTest
         Assert.That(allergies.List(), Is.EqualTo(new List<string> { "peanuts" }));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Allergic_to_eggs_and_peanuts()
     {
@@ -63,7 +63,7 @@ public class AllergiesTest
         Assert.That(allergies.List(), Is.EqualTo(new List<string> { "eggs", "peanuts" }));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Allergic_to_lots_of_stuff()
     {
@@ -72,7 +72,7 @@ public class AllergiesTest
             Is.EqualTo(new List<string> { "strawberries", "tomatoes", "chocolate", "pollen", "cats" }));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Allergic_to_everything()
     {
@@ -91,7 +91,7 @@ public class AllergiesTest
                 }));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Ignore_non_allergen_score_parts()
     {

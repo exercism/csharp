@@ -11,7 +11,7 @@ public class SpaceAgeTest
         Assert.That(age.Seconds, Is.EqualTo(1000000));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Age_on_earth()
     {
@@ -19,7 +19,7 @@ public class SpaceAgeTest
         Assert.That(age.OnEarth(), Is.EqualTo(31.69).Within(1E-02));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Age_on_mercury()
     {
@@ -28,7 +28,7 @@ public class SpaceAgeTest
         Assert.That(age.OnMercury(), Is.EqualTo(280.88).Within(1E-02));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Age_on_venus()
     {
@@ -37,7 +37,7 @@ public class SpaceAgeTest
         Assert.That(age.OnVenus(), Is.EqualTo(9.78).Within(1E-02));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Age_on_mars()
     {
@@ -46,7 +46,7 @@ public class SpaceAgeTest
         Assert.That(age.OnMars(), Is.EqualTo(39.25).Within(1E-02));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Age_on_jupiter()
     {
@@ -55,7 +55,7 @@ public class SpaceAgeTest
         Assert.That(age.OnJupiter(), Is.EqualTo(2.41).Within(1E-02));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Age_on_saturn()
     {
@@ -64,7 +64,7 @@ public class SpaceAgeTest
         Assert.That(age.OnSaturn(), Is.EqualTo(3.23).Within(1E-02));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Age_on_uranus()
     {
@@ -73,7 +73,7 @@ public class SpaceAgeTest
         Assert.That(age.OnUranus(), Is.EqualTo(1.21).Within(1E-02));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Age_on_neptune()
     {

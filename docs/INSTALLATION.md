@@ -40,7 +40,7 @@ If you have a paid version of Visual Studio install the [NUnit Visual Studio Tes
 
 ![Test Explorer](/img/setup/visualstudio/TestExplorer.png)
 
-If you are using Visual Studio Express, install [NUnit 2.6.3](http://www.nunit.org/) and run the tests from the command line (see below).
+If you are using Visual Studio Express, install [NUnit 3.x](http://www.nunit.org/) and run the tests from the command line (see below).
 
 #### Create a New Visual Studio Project
 
@@ -56,7 +56,7 @@ Once created, feel free to drag and drop the C# Exercism folders into the projec
 
 ![Drag and Drop Folders](http://x.exercism.io/v3/tracks/csharp/docs/img/dragDropFolders.png)
 
-In order to compile, get the [NUnit](http://nunit.org/) assembly referenced for the unit tests. This can be done via [NuGet](http://www.nuget.org/) - a package manager for Visual Studio. The best packages is to get the base [NUnit]() and the [NUnit.Runners](https://www.nuget.org/packages/NUnit.Runners/)
+In order to compile, get the [NUnit](http://nunit.org/) assembly referenced for the unit tests. This can be done via [NuGet](http://www.nuget.org/) - a package manager for Visual Studio. The best packages is to get the base [NUnit]() and the [NUnit.Console](https://www.nuget.org/packages/NUnit.Console/)
 package since it includes the assemblies needed and a GUI test runner.
 
 ![Nuget](http://x.exercism.io/v3/tracks/csharp/docs/img/nugetMenu.png)

@@ -11,12 +11,12 @@ namespace Exercism
             Assert.That(Acronym.Abbreviate(string.Empty), Is.EqualTo(string.Empty));
         }
 
-        [TestCase("Portable Network Graphics", Result = "PNG", Ignore = true)]
-        [TestCase("Ruby on Rails", Result = "ROR", Ignore = true)]
-        [TestCase("HyperText Markup Language", Result = "HTML", Ignore = true)]
-        [TestCase("First In, First Out", Result = "FIFO", Ignore = true)]
-        [TestCase("PHP: Hypertext Preprocessor", Result = "PHP", Ignore = true)]
-        [TestCase("Complementary metal-oxide semiconductor", Result = "CMOS", Ignore = true)]
+        [TestCase("Portable Network Graphics", ExpectedResult = "PNG", Ignore = "Remove to run test case")]
+        [TestCase("Ruby on Rails", ExpectedResult = "ROR", Ignore = "Remove to run test case")]
+        [TestCase("HyperText Markup Language", ExpectedResult = "HTML", Ignore = "Remove to run test case")]
+        [TestCase("First In, First Out", ExpectedResult = "FIFO", Ignore = "Remove to run test case")]
+        [TestCase("PHP: Hypertext Preprocessor", ExpectedResult = "PHP", Ignore = "Remove to run test case")]
+        [TestCase("Complementary metal-oxide semiconductor", ExpectedResult = "CMOS", Ignore = "Remove to run test case")]
         public string Phrase_abbreviated_to_acronym(string phrase)
         {
             return Acronym.Abbreviate(phrase);

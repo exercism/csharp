@@ -10,7 +10,7 @@ public class ClockTest
         Assert.That(new Clock(hours).ToString(), Is.EqualTo(expected));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [TestCase(11, 9, "11:09")]
     [TestCase(11, 19, "11:19")]
     public void Prints_past_the_hour(int hours, int minutes, string expected)
@@ -18,7 +18,7 @@ public class ClockTest
         Assert.That(new Clock(hours, minutes).ToString(), Is.EqualTo(expected));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Can_add_minutes()
     {
@@ -26,7 +26,7 @@ public class ClockTest
         Assert.That(clock.ToString(), Is.EqualTo("10:03"));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Can_add_over_an_hour()
     {
@@ -34,7 +34,7 @@ public class ClockTest
         Assert.That(clock.ToString(), Is.EqualTo("11:03"));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Can_subtract_minutes()
     {
@@ -42,7 +42,7 @@ public class ClockTest
         Assert.That(clock.ToString(), Is.EqualTo("10:00"));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Can_subtract_to_previous_hour()
     {
@@ -50,7 +50,7 @@ public class ClockTest
         Assert.That(clock.ToString(), Is.EqualTo("09:33"));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Can_subtract_over_an_hour()
     {
@@ -58,7 +58,7 @@ public class ClockTest
         Assert.That(clock.ToString(), Is.EqualTo("08:53"));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Wraps_around_midnight()
     {
@@ -66,7 +66,7 @@ public class ClockTest
         Assert.That(clock.ToString(), Is.EqualTo("00:01"));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Wraps_around_midnight_backwards()
     {
@@ -74,7 +74,7 @@ public class ClockTest
         Assert.That(clock.ToString(), Is.EqualTo("23:59"));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Midnight_is_zero_hundred_hours()
     {
@@ -82,7 +82,7 @@ public class ClockTest
         Assert.That(clock.ToString(), Is.EqualTo("00:00"));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Sixty_minutes_is_next_hour()
     {
@@ -90,7 +90,7 @@ public class ClockTest
         Assert.That(clock.ToString(), Is.EqualTo("02:00"));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Clocks_with_same_time_are_equal()
     {

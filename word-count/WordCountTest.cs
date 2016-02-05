@@ -14,7 +14,7 @@ public class WordCountTest
         Assert.That(Phrase.WordCount("word"), Is.EqualTo(counts));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Count_one_of_each()
     {
@@ -27,7 +27,7 @@ public class WordCountTest
         Assert.That(Phrase.WordCount("one of each"), Is.EqualTo(counts));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Count_multiple_occurrences()
     {
@@ -42,7 +42,7 @@ public class WordCountTest
         Assert.That(Phrase.WordCount("one fish two fish red fish blue fish"), Is.EqualTo(counts));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Count_everything_just_once()
     {
@@ -58,7 +58,7 @@ public class WordCountTest
         Assert.That(Phrase.WordCount("all the kings horses and all the kings men"), Is.EqualTo(counts));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Ignore_punctuation()
     {
@@ -73,7 +73,7 @@ public class WordCountTest
         Assert.That(Phrase.WordCount("car : carpet as java : javascript!!&@$%^&"), Is.EqualTo(counts));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Handles_cramped_list()
     {
@@ -86,7 +86,7 @@ public class WordCountTest
         Assert.That(Phrase.WordCount("one,two,three"), Is.EqualTo(counts));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Include_numbers()
     {
@@ -99,7 +99,7 @@ public class WordCountTest
         Assert.That(Phrase.WordCount("testing, 1, 2 testing"), Is.EqualTo(counts));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Normalize_case()
     {
@@ -110,7 +110,7 @@ public class WordCountTest
         Assert.That(Phrase.WordCount("go Go GO"), Is.EqualTo(counts));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void With_apostrophes()
     {
@@ -125,7 +125,7 @@ public class WordCountTest
         Assert.That(Phrase.WordCount("First: don't laugh. Then: don't cry."), Is.EqualTo(counts));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void With_free_standing_apostrophes()
     {
@@ -136,7 +136,7 @@ public class WordCountTest
         Assert.That(Phrase.WordCount("go ' Go '' GO"), Is.EqualTo(counts));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void With_apostrophes_as_quotes()
     {

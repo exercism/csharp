@@ -14,17 +14,17 @@ public class RandomKeyCipherTest
     [Test]
     public void Cipher_key_is_made_of_letters()
     {
-        Assert.That(cipher.Key, Is.StringMatching("[a-z]+"));
+        Assert.That(cipher.Key, Does.Match("[a-z]+"));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Default_cipher_key_is_100_characters()
     {
         Assert.That(cipher.Key, Has.Length.EqualTo(100));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Cipher_keys_are_randomly_generated()
     {
@@ -34,21 +34,21 @@ public class RandomKeyCipherTest
     // Here we take advantage of the fact that plaintext of "aaa..." doesn't output
     // the key. This is a critical problem with shift ciphers, some characters
     // will always output the key verbatim.
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Cipher_can_encode()
     {
         Assert.That(cipher.Encode("aaaaaaaaaa"), Is.EqualTo(cipher.Key.Substring(0, 10)));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Cipher_can_decode()
     {
         Assert.That(cipher.Decode(cipher.Key.Substring(0, 10)), Is.EqualTo("aaaaaaaaaa"));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Cipher_is_reversible()
     {
@@ -60,35 +60,35 @@ public class RandomKeyCipherTest
 [TestFixture]
 public class IncorrectKeyCipherTest
 {
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Cipher_throws_with_an_all_caps_key()
     {
         Assert.That(() => new Cipher("ABCDEF"), Throws.ArgumentException);
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Cipher_throws_with_any_caps_key()
     {
         Assert.That(() => new Cipher("abcdEFg"), Throws.ArgumentException);
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Cipher_throws_with_numeric_key()
     {
         Assert.That(() => new Cipher("12345"), Throws.ArgumentException);
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Cipher_throws_with_any_numeric_key()
     {
         Assert.That(() => new Cipher("abcd345ef"), Throws.ArgumentException);
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Cipher_throws_with_empty_key()
     {
@@ -102,35 +102,35 @@ public class SubstitutionCipherTest
     private const string KEY = "abcdefghij";
     private Cipher cipher;
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [SetUp]
     public void Setup()
     {
         cipher = new Cipher(KEY);
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Cipher_keeps_the_submitted_key()
     {
         Assert.That(cipher.Key, Is.EqualTo(KEY));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Cipher_can_encode_with_given_key()
     {
         Assert.That(cipher.Encode("aaaaaaaaaa"), Is.EqualTo("abcdefghij"));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Cipher_can_decode_with_given_key()
     {
         Assert.That(cipher.Decode("abcdefghij"), Is.EqualTo("aaaaaaaaaa"));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Cipher_is_reversible_given_key()
     {
@@ -138,7 +138,7 @@ public class SubstitutionCipherTest
         Assert.That(cipher.Decode(cipher.Encode(PLAINTEXT)), Is.EqualTo(PLAINTEXT));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Cipher_can_double_shift_encode()
     {
@@ -146,21 +146,21 @@ public class SubstitutionCipherTest
         Assert.That(new Cipher(PLAINTEXT).Encode(PLAINTEXT), Is.EqualTo("qayaeaagaciai"));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Cipher_can_wrap_encode()
     {
         Assert.That(cipher.Encode("zzzzzzzzzz"), Is.EqualTo("zabcdefghi"));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Cipher_can_encode_a_message_that_is_shorter_than_the_key()
     {
         Assert.That(cipher.Encode("aaaaa"), Is.EqualTo("abcde"));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Cipher_can_decode_a_message_that_is_shorter_than_the_key()
     {
