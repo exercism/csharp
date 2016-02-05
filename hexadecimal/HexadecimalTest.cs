@@ -4,28 +4,28 @@ using NUnit.Framework;
 public class HexadecimalTest
 {
     // change Ignore to false to run test case or just remove 'Ignore = true'
-    [TestCase("1", Result = 1)]
-    [TestCase("c", Result = 12, Ignore = true)]
-    [TestCase("10", Result = 16, Ignore = true)]
-    [TestCase("af", Result = 175, Ignore = true)]
-    [TestCase("100", Result = 256, Ignore = true)]
-    [TestCase("19ace", Result = 105166, Ignore = true)]
-    [TestCase("19ace", Result = 105166, Ignore = true)]
+    [TestCase("1", ExpectedResult = 1)]
+    [TestCase("c", ExpectedResult = 12, Ignore = "Remove to run test case")]
+    [TestCase("10", ExpectedResult = 16, Ignore = "Remove to run test case")]
+    [TestCase("af", ExpectedResult = 175, Ignore = "Remove to run test case")]
+    [TestCase("100", ExpectedResult = 256, Ignore = "Remove to run test case")]
+    [TestCase("19ace", ExpectedResult = 105166, Ignore = "Remove to run test case")]
+    [TestCase("19ace", ExpectedResult = 105166, Ignore = "Remove to run test case")]
     public int Hexadecimal_converts_to_decimal(string hexadecimal)
     {
         return Hexadecimal.ToDecimal(hexadecimal);
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Invalid_hexadecimal_is_decimal_0()
     {
         Assert.That(Hexadecimal.ToDecimal("carrot"), Is.EqualTo(0));
     }
 
-    [TestCase("000000", Result = 0, Ignore = true)]
-    [TestCase("ffffff", Result = 16777215, Ignore = true)]
-    [TestCase("ffff00", Result = 16776960, Ignore = true)]
+    [TestCase("000000", ExpectedResult = 0, Ignore = "Remove to run test case")]
+    [TestCase("ffffff", ExpectedResult = 16777215, Ignore = "Remove to run test case")]
+    [TestCase("ffff00", ExpectedResult = 16776960, Ignore = "Remove to run test case")]
     public int Octal_can_convert_formatted_strings(string hexidecimal)
     {
         return Hexadecimal.ToDecimal(hexidecimal);

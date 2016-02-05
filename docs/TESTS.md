@@ -1,13 +1,13 @@
 ### Windows
 All tests have been ignored except the first one for you to work on. To continue, just remove the ```[Ignore]``` attribute on the test to start working on it.
 
-Make sure [NUnit](http://nunit.org/?p=download) is installed, if not already installed from the setup from above.
+Make sure [NUnit](http://nunit.org/?p=download) version 3.x is installed, if not already installed from the setup from above.
 
 This installation should include the NUnit-Gui executable. Run this and, after compiling, open the assembly from the Gui and you are able to run the tests.
 
 **Note:** You may need to include the nunit-framework.dll in the same directory as the source code you're compiling if you get an error saying it can't find the ```nunit.framework.dll```.
 
-If you installed the NUnit runner through NuGet, the runner will be located in the ```\packages\NUnit.Runners(version number)\tools``` folder where your project is.
+If you installed the NUnit runner through NuGet, the runner will be located in the ```\packages\NUnit.Console(version number)\tools``` folder where your project is.
 
 If you installed NUnit manually the runner will be in the ```Program Files (x86)\NUnit(version number)\bin``` folder.
 

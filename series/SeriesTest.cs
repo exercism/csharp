@@ -22,7 +22,7 @@ public class SeriesTest
             new object[] { "37103", new[] { new[] { 3, 7 }, new[] { 7, 1 }, new[] { 1, 0 }, new[] { 0, 3 } } }
         };
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [TestCaseSource("SliceTwoTestData")]
     public void Series_of_two_splits_to_two_digits(string input, int[][] result)
     {
@@ -36,7 +36,7 @@ public class SeriesTest
             new object[] { "982347", new[] { new[] { 9, 8, 2 }, new[] { 8, 2, 3 }, new[] { 2, 3, 4 }, new[] { 3, 4, 7 } } }
         };
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [TestCaseSource("SliceThreeTestData")]
     public void Series_of_three_splits_to_three_digits(string input, int[][] result)
     {
@@ -49,7 +49,7 @@ public class SeriesTest
             new object[] { "91274", new[] { new[] { 9, 1, 2, 7 }, new[] { 1, 2, 7, 4 } } }
         };
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [TestCaseSource("SliceFourTestData")]
     public void Series_of_four_splits_to_four_digits(string input, int[][] result)
     {
@@ -62,14 +62,14 @@ public class SeriesTest
             new object[] { "81228", new[] { new[] { 8, 1, 2, 2, 8 } } }
         };
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [TestCaseSource("SliceFiveTestData")]
     public void Series_of_five_splits_to_five_digits(string input, int[][] result)
     {
         Assert.That(new Series(input).Slices(5), Is.EqualTo(result));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [TestCase("01234", 6)]
     [TestCase("01032987583", 19)]
     public void Slice_longer_than_input_is_not_allowed(string input, int slice)

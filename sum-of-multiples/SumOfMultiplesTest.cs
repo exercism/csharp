@@ -18,42 +18,42 @@ public class SumOfMultiplesTest
         Assert.That(sumOfMultiples.To(1), Is.EqualTo(0));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Sum_to_3()
     {
         Assert.That(sumOfMultiples.To(4), Is.EqualTo(3));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Sum_to_10()
     {
         Assert.That(sumOfMultiples.To(10), Is.EqualTo(23));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Sum_to_100()
     {
        Assert.That(sumOfMultiples.To(100), Is.EqualTo(2318));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Sum_to_1000()
     {
         Assert.That(sumOfMultiples.To(1000), Is.EqualTo(233168));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Configurable_7_13_17_to_20()
     {
         Assert.That(new SumOfMultiples(new List<int> { 7, 13, 17 }).To(20), Is.EqualTo(51));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Configurable_43_47_to_10000()
     {

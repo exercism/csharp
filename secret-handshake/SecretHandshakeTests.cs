@@ -9,42 +9,42 @@ public class SecretHandshakeTests
         Assert.That(SecretHandshake.Commands(1), Is.EqualTo(new[] { "wink" }));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Test_10_handshake_to_double_blink()
     {
         Assert.That(SecretHandshake.Commands(2), Is.EqualTo(new[] { "double blink" }));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Test_100_handshake_to_close_your_eyes()
     {
         Assert.That(SecretHandshake.Commands(4), Is.EqualTo(new[] { "close your eyes" }));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Test_1000_handshake_to_close_your_eyes()
     {
         Assert.That(SecretHandshake.Commands(8), Is.EqualTo(new[] { "jump" }));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Test_handshake_11_to_wink_and_double_blink()
     {
         Assert.That(SecretHandshake.Commands(3), Is.EqualTo(new[] { "wink", "double blink" }));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Test_handshake_10011_to_double_blink_and_wink()
     {
         Assert.That(SecretHandshake.Commands(19), Is.EqualTo(new[] { "double blink", "wink" }));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Test_handshake_11111_to_all_commands_reversed()
     {

@@ -12,14 +12,14 @@ public class AccumulateTest
         Assert.That(new int[0].Accumulate(x => x * x), Is.EqualTo(new int[0]));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Accumulate_squares()
     {
         Assert.That(new[] { 1, 2, 3 }.Accumulate(x => x * x), Is.EqualTo(new[] { 1, 4, 9 }));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Accumulate_upcases()
     {
@@ -27,7 +27,7 @@ public class AccumulateTest
             Is.EqualTo(new List<string> { "HELLO", "WORLD" }));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Accumulate_reversed_strings()
     {
@@ -42,7 +42,7 @@ public class AccumulateTest
         return new string(array);
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Accumulate_within_accumulate()
     {
@@ -51,7 +51,7 @@ public class AccumulateTest
         Assert.That(actual, Is.EqualTo(new[] { "a1 a2 a3", "b1 b2 b3", "c1 c2 c3" }));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Accumulate_is_lazy()
     {

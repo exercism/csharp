@@ -12,7 +12,7 @@ public class GigasecondTest
     }
 
     [Test]
-    [Ignore]
+    [Ignore("Remove to run test")]
     public void Another_date()
     {
         var date = Gigasecond.Date(new DateTime(1977, 6, 13, 0, 0, 0, DateTimeKind.Utc));
@@ -20,7 +20,7 @@ public class GigasecondTest
     }
 
     [Test]
-    [Ignore]
+    [Ignore("Remove to run test")]
     public void Yet_another_date()
     {
         var date = Gigasecond.Date(new DateTime(1959, 7, 19, 0, 0, 0, DateTimeKind.Utc));

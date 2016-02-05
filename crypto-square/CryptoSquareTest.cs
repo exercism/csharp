@@ -10,7 +10,7 @@ public class CryptoSquareTest
         Assert.That(crypto.NormalizePlaintext, Is.EqualTo("splunk"));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Letters_are_lowercased_during_normalization()
     {
@@ -18,7 +18,7 @@ public class CryptoSquareTest
         Assert.That(crypto.NormalizePlaintext, Is.EqualTo("whoahey"));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Numbers_are_kept_during_normalization()
     {
@@ -26,7 +26,7 @@ public class CryptoSquareTest
         Assert.That(crypto.NormalizePlaintext, Is.EqualTo("123go"));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Smallest_square_size_is_2()
     {
@@ -34,7 +34,7 @@ public class CryptoSquareTest
         Assert.That(crypto.Size, Is.EqualTo(2));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Size_of_text_whose_length_is_a_perfect_square_is_its_square_root()
     {
@@ -42,7 +42,7 @@ public class CryptoSquareTest
         Assert.That(crypto.Size, Is.EqualTo(3));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Size_of_text_whose_length_is_not_a_perfect_square_is_next_biggest_square_root()
     {
@@ -50,7 +50,7 @@ public class CryptoSquareTest
         Assert.That(crypto.Size, Is.EqualTo(4));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Size_is_determined_by_normalized_text()
     {
@@ -58,7 +58,7 @@ public class CryptoSquareTest
         Assert.That(crypto.Size, Is.EqualTo(4));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Segments_are_split_by_square_size()
     {
@@ -66,7 +66,7 @@ public class CryptoSquareTest
         Assert.That(crypto.PlaintextSegments(), Is.EqualTo(new[] { "neverv", "exthin", "eheart", "withid", "lewoes" }));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Segments_are_split_by_square_size_until_text_runs_out()
     {
@@ -74,7 +74,7 @@ public class CryptoSquareTest
         Assert.That(crypto.PlaintextSegments(), Is.EqualTo(new[] { "zomg", "zomb", "ies" }));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Ciphertext_combines_text_by_column()
     {
@@ -82,7 +82,7 @@ public class CryptoSquareTest
         Assert.That(crypto.Ciphertext(), Is.EqualTo("foeewhilpmrervrticseohtottbeedshlnte"));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Ciphertext_skips_cells_with_no_text()
     {
@@ -90,7 +90,7 @@ public class CryptoSquareTest
         Assert.That(crypto.Ciphertext(), Is.EqualTo("tasneyinicdsmiohooelntuillibsuuml"));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Normalized_ciphertext_is_split_by_height_of_square()
     {
@@ -98,7 +98,7 @@ public class CryptoSquareTest
         Assert.That(crypto.NormalizeCiphertext(), Is.EqualTo("vrel aepe mset paoo irpo"));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Normalized_ciphertext_not_exactly_divisible_by_5_spills_into_a_smaller_segment()
     {
@@ -106,7 +106,7 @@ public class CryptoSquareTest
         Assert.That(crypto.NormalizeCiphertext(), Is.EqualTo("msemo aanin dninn dlaet ltshu i"));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Normalized_ciphertext_is_split_into_segements_of_correct_size()
     {
@@ -114,7 +114,7 @@ public class CryptoSquareTest
         Assert.That(crypto.NormalizeCiphertext(), Is.EqualTo("imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghns seoau"));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Normalized_ciphertext_is_split_into_segements_of_correct_size_with_punctuation()
     {
@@ -122,7 +122,7 @@ public class CryptoSquareTest
         Assert.That(crypto.NormalizeCiphertext(), Is.EqualTo("hifei acedl veeol eddgo aatcu nyhht"));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Normalized_ciphertext_is_split_into_segements_of_correct_size_when_just_less_than_full_square()
     {

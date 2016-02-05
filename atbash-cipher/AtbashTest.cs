@@ -4,13 +4,13 @@ using NUnit.Framework;
 public class AtbashTest
 {
     // change Ignore to false to run test case or just remove 'Ignore = true'
-    [TestCase("no", Result = "ml")]
-    [TestCase("yes", Result = "bvh", Ignore = true)]
-    [TestCase("OMG", Result = "lnt", Ignore = true)]
-    [TestCase("mindblowingly", Result = "nrmwy oldrm tob", Ignore = true)]
-    [TestCase("Testing, 1 2 3, testing.", Result = "gvhgr mt123 gvhgr mt", Ignore = true)]
-    [TestCase("Truth is fiction.", Result = "gifgs rhurx grlm", Ignore = true)]
-    [TestCase("The quick brown fox jumps over the lazy dog.", Result = "gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt", Ignore = true)]
+    [TestCase("no", ExpectedResult = "ml")]
+    [TestCase("yes", ExpectedResult = "bvh", Ignore = "Remove to run test case")]
+    [TestCase("OMG", ExpectedResult = "lnt", Ignore = "Remove to run test case")]
+    [TestCase("mindblowingly", ExpectedResult = "nrmwy oldrm tob", Ignore = "Remove to run test case")]
+    [TestCase("Testing, 1 2 3, testing.", ExpectedResult = "gvhgr mt123 gvhgr mt", Ignore = "Remove to run test case")]
+    [TestCase("Truth is fiction.", ExpectedResult = "gifgs rhurx grlm", Ignore = "Remove to run test case")]
+    [TestCase("The quick brown fox jumps over the lazy dog.", ExpectedResult = "gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt", Ignore = "Remove to run test case")]
     public string Encodes_words_using_atbash_cipher(string words)
     {
         return Atbash.Encode(words);

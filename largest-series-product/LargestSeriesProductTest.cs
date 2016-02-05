@@ -10,21 +10,21 @@ public class LargestSeriesProductTest
         Assert.That(new LargestSeriesProduct("0123456789").Digits, Is.EqualTo(new[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Digits_maintain_order()
     {
         Assert.That(new LargestSeriesProduct("9876543210").Digits, Is.EqualTo(new[] { 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 }));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Digits_is_an_empty_array_for_empty_input()
     {
         Assert.That(new LargestSeriesProduct("").Digits, Is.Empty);
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Slices_digits_by_limit_given()
     {
@@ -32,7 +32,7 @@ public class LargestSeriesProductTest
             Is.EqualTo(new[] { new[] { 0, 1 }, new[] { 1, 2 }, new[] { 2, 3 }, new[] { 3, 4 } }));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Slices_are_as_long_as_the_limit_given()
     {
@@ -40,7 +40,7 @@ public class LargestSeriesProductTest
             Is.EqualTo(new[] { new[] { 9, 8, 2 }, new[] { 8, 2, 3 }, new[] { 2, 3, 4 }, new[] { 3, 4, 7 } }));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Cannot_slice_bigger_than_input()
     {
@@ -48,22 +48,22 @@ public class LargestSeriesProductTest
         Assert.That(ex.Message, Is.EqualTo("Slice size is too big"));
     }
 
-    [Ignore]
-    [TestCase("01234567890", 2, Result = 72)]
-    [TestCase("1027839564", 3, Result = 270)]
+    [Ignore("Remove to run test")]
+    [TestCase("01234567890", 2, ExpectedResult = 72)]
+    [TestCase("1027839564", 3, ExpectedResult = 270)]
     public int Gets_the_largest_product(string digits, int seriesLength)
     {
         return new LargestSeriesProduct(digits).GetLargestProduct(seriesLength);
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Largest_product_works_for_small_numbers()
     {
         Assert.That(new LargestSeriesProduct("19").GetLargestProduct(2), Is.EqualTo(9));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Largest_product_works_for_large_numbers()
     {
@@ -71,23 +71,23 @@ public class LargestSeriesProductTest
         Assert.That(new LargestSeriesProduct(LARGE_NUMBER).GetLargestProduct(6), Is.EqualTo(23520));
     }
 
-    [Ignore]
-    [TestCase("0000", 2, Result = 0)]
-    [TestCase("99099", 3, Result = 0)]
+    [Ignore("Remove to run test")]
+    [TestCase("0000", 2, ExpectedResult = 0)]
+    [TestCase("99099", 3, ExpectedResult = 0)]
     public int Largest_product_works_if_all_spans_contain_zero(string digits, int seriesLength)
     {
         return new LargestSeriesProduct(digits).GetLargestProduct(seriesLength);
     }
 
-    [Ignore]
-    [TestCase("", Result = 1)]
-    [TestCase("123", Result = 1)]
+    [Ignore("Remove to run test")]
+    [TestCase("", ExpectedResult = 1)]
+    [TestCase("123", ExpectedResult = 1)]
     public int Largest_product_for_empty_span_is_1(string digits)
     {
         return new LargestSeriesProduct(digits).GetLargestProduct(0);
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Cannot_slice_empty_string_with_nonzero_span(string digits)
     {

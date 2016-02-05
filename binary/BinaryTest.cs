@@ -4,30 +4,30 @@ using NUnit.Framework;
 public class BinaryTest
 {
     // change Ignore to false to run test case or just remove 'Ignore = true'
-    [TestCase("1", Result = 1)]
-    [TestCase("10", Result = 2, Ignore = true)]
-    [TestCase("11", Result = 3, Ignore = true)]
-    [TestCase("100", Result = 4, Ignore = true)]
-    [TestCase("1001", Result = 9, Ignore = true)]
-    [TestCase("11010", Result = 26, Ignore = true)]
-    [TestCase("10001101000", Result = 1128, Ignore = true)]
+    [TestCase("1", ExpectedResult = 1)]
+    [TestCase("10", ExpectedResult = 2, Ignore = "Remove to run test case")]
+    [TestCase("11", ExpectedResult = 3, Ignore = "Remove to run test case")]
+    [TestCase("100", ExpectedResult = 4, Ignore = "Remove to run test case")]
+    [TestCase("1001", ExpectedResult = 9, Ignore = "Remove to run test case")]
+    [TestCase("11010", ExpectedResult = 26, Ignore = "Remove to run test case")]
+    [TestCase("10001101000", ExpectedResult = 1128, Ignore = "Remove to run test case")]
     public int Binary_converts_to_decimal(string binary)
     {
         return Binary.ToDecimal(binary);
     }
     
-    [TestCase("carrot", Ignore = true)]
-    [TestCase("2", Ignore = true)]
-    [TestCase("5", Ignore = true)]
-    [TestCase("9", Ignore = true)]
-    [TestCase("134678", Ignore = true)]
-    [TestCase("abc10z", Ignore = true)]
+    [TestCase("carrot", Ignore = "Remove to run test case")]
+    [TestCase("2", Ignore = "Remove to run test case")]
+    [TestCase("5", Ignore = "Remove to run test case")]
+    [TestCase("9", Ignore = "Remove to run test case")]
+    [TestCase("134678", Ignore = "Remove to run test case")]
+    [TestCase("abc10z", Ignore = "Remove to run test case")]
     public void Invalid_binary_is_decimal_0(string invalidValue)
     {
         Assert.That(Binary.ToDecimal(invalidValue), Is.EqualTo(0));
     }
 
-    [Ignore]
+    [Ignore("Remove to run test")]
     [Test]
     public void Binary_can_convert_formatted_strings()
     {
