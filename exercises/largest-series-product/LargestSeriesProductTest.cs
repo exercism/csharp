@@ -89,7 +89,7 @@ public class LargestSeriesProductTest
 
     [Ignore("Remove to run test")]
     [Test]
-    public void Cannot_slice_empty_string_with_nonzero_span(string digits)
+    public void Cannot_slice_empty_string_with_nonzero_span()
     {
         Assert.Throws<ArgumentException>(() => new LargestSeriesProduct("").GetSlices(1));
     }
