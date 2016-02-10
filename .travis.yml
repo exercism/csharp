@@ -1,6 +1,6 @@
----
-language: bash
+language: csharp
+
 script:
-- bin/fetch-configlet
-- bin/configlet .
-sudo: false
+  - bin/fetch-configlet
+  - bin/configlet .
+  - build.sh
