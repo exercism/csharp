@@ -3,3 +3,8 @@
 tmp
 bin/configlet
 bin/configlet.exe
+.fake/
+.vs/
+tools/
+build/
+TestResult.xml

@@ -103,7 +103,7 @@ public class CryptoSquareTest
     public void Normalized_ciphertext_not_exactly_divisible_by_5_spills_into_a_smaller_segment()
     {
         var crypto = new Crypto("Madness, and then illumination.");
-        Assert.That(crypto.NormalizeCiphertext(), Is.EqualTo("msemo aanin dninn dlaet ltshu i"));
+        Assert.That(crypto.NormalizeCiphertext(), Is.EqualTo("msemo aanin dnin ndla etlt shui"));
     }
 
     [Ignore("Remove to run test")]
@@ -111,7 +111,7 @@ public class CryptoSquareTest
     public void Normalized_ciphertext_is_split_into_segements_of_correct_size()
     {
         var crypto = new Crypto("If man was meant to stay on the ground god would have given us roots");
-        Assert.That(crypto.NormalizeCiphertext(), Is.EqualTo("imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghns seoau"));
+        Assert.That(crypto.NormalizeCiphertext(), Is.EqualTo("imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghn sseoau"));
     }
 
     [Ignore("Remove to run test")]

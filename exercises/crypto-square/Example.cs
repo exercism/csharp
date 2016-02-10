@@ -1,68 +1,54 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 public class Crypto
 {
-    public string NormalizePlaintext { get; private set; }
+    public Crypto(string input)
+    {
+        this.NormalizePlaintext = GetNormalizedPlaintext(input);
+        this.Size = this.CalculateSize();
+    }
+
     public int Size { get; private set; }
 
-    public Crypto(string value)
-    {
-        NormalizePlaintext = NormalizeText(value);
-        Size = GetSquareSize(NormalizePlaintext);
-    }
+    public string NormalizePlaintext { get; private set; }
 
-    private static string NormalizeText(string text)
+    public string NormalizeCiphertext()
     {
-        return string.Concat(text.ToLower().Where(char.IsLetterOrDigit));
-    }
-
-    private static int GetSquareSize(string text)
-    {
-        return (int)Math.Ceiling(Math.Sqrt(text.Length));
-    }
-
-    public string[] PlaintextSegments()
-    {
-        return SegmentText(NormalizePlaintext, Size);
-    }
-
-    private static string[] SegmentText(string text, int size)
-    {
-        var segments = new List<string>();
-        var idx = 0;
-        while (idx < text.Length)
-        {
-            if (idx + size < text.Length)
-                segments.Add(text.Substring(idx, size));
-            else
-                segments.Add(text.Substring(idx));
-            idx += size;
-        }
-        return segments.ToArray();
+        return string.Join(" ", Transpose(this.PlaintextSegments()));
     }
 
     public string Ciphertext()
     {
-        var ciphertext = new StringBuilder(NormalizePlaintext.Length);
-
-        for (int i = 0; i < Size; i++)
-        {
-            foreach (var segment in PlaintextSegments())
-            {
-                if (i < segment.Length)
-                    ciphertext.Append(segment[i]);
-            }
-        }
-        return ciphertext.ToString();
+        return string.Join("", Transpose(this.PlaintextSegments()));
     }
 
-    public string NormalizeCiphertext()
+    public IEnumerable<string> PlaintextSegments()
     {
-        string cipher = Ciphertext();
-        int size = cipher.Length == Size * Size - Size ? Size : Size - 1;
-        return string.Join(" ", SegmentText(cipher, size) );
+        return Chunks(this.NormalizePlaintext, this.Size);
+    }
+
+    private int CalculateSize()
+    {
+        return (int) Math.Ceiling(Math.Sqrt(this.NormalizePlaintext.Length));
+    }
+
+    private static string GetNormalizedPlaintext(string input)
+    {
+        return new string(input.ToLowerInvariant().Where(char.IsLetterOrDigit).ToArray());
+    }
+
+    private static IEnumerable<string> Chunks(string str, int chunkSize)
+    {
+        return Enumerable.Range(0, (int)Math.Ceiling(str.Length / (double)chunkSize))
+                            .Select(i => str.Substring(i * chunkSize, Math.Min(str.Length - i * chunkSize, chunkSize)));
+    }
+    
+    private static IEnumerable<string> Transpose(IEnumerable<string> input)
+    {
+        return input.SelectMany(s => s.Select((c, i) => Tuple.Create(i, c)))
+                    .GroupBy(x => x.Item1)
+                    .Select(g => new string(g.Select(t => t.Item2).ToArray()));
     }
 }
