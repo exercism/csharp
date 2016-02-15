@@ -5,7 +5,7 @@ toolsDirectory=$currentDirectory/tools
 nugetDirectory=$toolsDirectory/nuget
 nugetExe=$nugetDirectory/nuget.exe
 fakeExe=$toolsDirectory/FAKE/tools/FAKE.exe
-nunitFrameworkDll=$toolsDirectory/NUnit/lib/nunit.framework.dll
+nunitFrameworkDll=$toolsDirectory/NUnit/lib/net45/nunit.framework.dll
 nunitConsoleExe=$toolsDirectory/NUnit.Console/tools/nunit3-console.exe
 
 if test ! -d $nugetDirectory; then
@@ -30,7 +30,7 @@ if test ! -f $fakeExe; then
     exit 1
 fi
 
-mono $nugetExe install NUnit -Version 2.6.4 -ExcludeVersion -OutputDirectory $toolsDirectory
+mono $nugetExe install NUnit -Version 3.0.1 -ExcludeVersion -OutputDirectory $toolsDirectory
 if test ! -f $nunitFrameworkDll; then
 	echo "Could not find nunit.framework.dll"
     exit 1
