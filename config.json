@@ -51,7 +51,12 @@
     "beer-song",
     "kindergarten-garden",
     "pascals-triangle",
-    "saddle-points"
+    "saddle-points",
+    "nth-prime",
+    "palindrome-products",
+    "binary-search-tree",
+    "robot-simulator",
+    "simple-linked-list"
   ],
   "deprecated": [
 
