@@ -58,7 +58,8 @@
     "robot-simulator",
     "simple-linked-list",
     "matrix",
-    "queen-attack"
+    "queen-attack",
+    "ocr-numbers"
   ],
   "deprecated": [
 
