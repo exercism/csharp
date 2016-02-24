@@ -56,7 +56,8 @@
     "palindrome-products",
     "binary-search-tree",
     "robot-simulator",
-    "simple-linked-list"
+    "simple-linked-list",
+    "matrix"
   ],
   "deprecated": [
 

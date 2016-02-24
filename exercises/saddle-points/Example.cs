@@ -2,20 +2,20 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-public class Matrix
+public class SaddlePoints
 {
     private readonly int[,] values;
     private readonly int[] maxRows;
     private readonly int[] minCols;
 
-    public Matrix(int[,] values)
+    public SaddlePoints(int[,] values)
     {
         this.values = values;
         this.maxRows = Rows().Select(r => r.Max()).ToArray();
         this.minCols = Columns().Select(r => r.Min()).ToArray();
     }
 
-    public IEnumerable<Tuple<int, int>> SaddlePoints()
+    public IEnumerable<Tuple<int, int>> Calculate()
     {
         return Coordinates().Where(IsSaddlePoint);
     }
