@@ -57,7 +57,8 @@
     "binary-search-tree",
     "robot-simulator",
     "simple-linked-list",
-    "matrix"
+    "matrix",
+    "queen-attack"
   ],
   "deprecated": [
 
