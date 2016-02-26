@@ -46,11 +46,6 @@ public class SimpleLinkedList<T> : IEnumerable<T>
         return this;
     }
 
-    public SimpleLinkedList<T> Reverse()
-    {
-        return new SimpleLinkedList<T>(this.AsEnumerable().Reverse());
-    }
-
     public IEnumerator<T> GetEnumerator()
     {
         yield return Value;
