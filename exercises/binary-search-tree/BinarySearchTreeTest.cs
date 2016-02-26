@@ -55,7 +55,7 @@ public class BinarySearchTreeTest
     [Test]
     public void Iterating_one_element()
     {
-        var elements = new BinarySearchTree(4);
+        var elements = new BinarySearchTree(4).AsEnumerable();
         Assert.That(elements, Is.EqualTo(new [] { 4 }));
     }
 
