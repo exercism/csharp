@@ -41,4 +41,12 @@ public class LargestSeriesProductTest
     {
         return new LargestSeriesProduct(digits).GetLargestProduct(0);
     }
+
+    [Ignore("Remove to run test")]
+    [TestCase("123", 4)]
+    [TestCase("", 1)]
+    public void Cannot_take_largest_product_of_more_digits_than_input(string digits, int seriesLength)
+    {
+        Assert.Throws<ArgumentException>(() => new LargestSeriesProduct(digits).GetLargestProduct(seriesLength));
+    }
 }
