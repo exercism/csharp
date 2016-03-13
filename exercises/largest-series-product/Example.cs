@@ -6,7 +6,7 @@ public class LargestSeriesProduct
 {
     private readonly string digits;
 
-    public int[] Digits { get; private set; }
+    private int[] Digits;
 
     public LargestSeriesProduct(string digits)
     {
@@ -19,7 +19,7 @@ public class LargestSeriesProduct
         return values.Select(x => int.Parse(x.ToString())).ToArray();
     }
 
-    public int[][] GetSlices(int limit)
+    private int[][] GetSlices(int limit)
     {
         if (limit > digits.Length) throw new ArgumentException("Slice size is too big");
         var slices = new List<int[]>();
