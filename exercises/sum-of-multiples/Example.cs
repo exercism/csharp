@@ -1,27 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-public class SumOfMultiples
+public static class SumOfMultiples
 {
-    private List<int> multiples;
-
-    public SumOfMultiples()
+    public static int To(IEnumerable<int> multiples, int max)
     {
-        multiples = new List<int> { 5, 3 };
-    }
-
-    public SumOfMultiples(IEnumerable<int> multiplesToCheck)
-    {
-        multiples = multiplesToCheck.ToList();
-    }
-
-    public int To(int limit)
-    {
-        return Enumerable.Range(1, limit - 1).Where(IsMultiple).Sum();
-    }
-
-    private bool IsMultiple(int input)
-    {
-        return multiples.Any(multiple => input % multiple == 0);
+        return Enumerable.Range(1, max - 1)
+            .Where(i => multiples.Any(m => i % m == 0))
+            .Sum();
     }
 }
