@@ -1,62 +1,47 @@
 ﻿using NUnit.Framework;
-using System.Collections.Generic;
 
 [TestFixture]
 public class SumOfMultiplesTest
 {
-    private SumOfMultiples sumOfMultiples;
-
-    [SetUp]
-    public void SetUp()
-    {
-        sumOfMultiples = new SumOfMultiples();
-    }
-
     [Test]
     public void Sum_to_1()
     {
-        Assert.That(sumOfMultiples.To(1), Is.EqualTo(0));
+        Assert.That(SumOfMultiples.To(new[] { 3, 5 }, 1), Is.EqualTo(0));
     }
-
-    [Ignore("Remove to run test")]
+    
     [Test]
     public void Sum_to_3()
     {
-        Assert.That(sumOfMultiples.To(4), Is.EqualTo(3));
+        Assert.That(SumOfMultiples.To(new[] { 3, 5 }, 4), Is.EqualTo(3));
     }
-
-    [Ignore("Remove to run test")]
+    
     [Test]
     public void Sum_to_10()
     {
-        Assert.That(sumOfMultiples.To(10), Is.EqualTo(23));
+        Assert.That(SumOfMultiples.To(new[] { 3, 5 }, 10), Is.EqualTo(23));
     }
-
-    [Ignore("Remove to run test")]
+    
     [Test]
     public void Sum_to_100()
     {
-       Assert.That(sumOfMultiples.To(100), Is.EqualTo(2318));
+       Assert.That(SumOfMultiples.To(new[] { 3, 5 }, 100), Is.EqualTo(2318));
     }
-
-    [Ignore("Remove to run test")]
+    
     [Test]
     public void Sum_to_1000()
     {
-        Assert.That(sumOfMultiples.To(1000), Is.EqualTo(233168));
+        Assert.That(SumOfMultiples.To(new[] { 3, 5 }, 1000), Is.EqualTo(233168));
     }
-
-    [Ignore("Remove to run test")]
+    
     [Test]
-    public void Configurable_7_13_17_to_20()
+    public void Sum_to_20()
     {
-        Assert.That(new SumOfMultiples(new List<int> { 7, 13, 17 }).To(20), Is.EqualTo(51));
+        Assert.That(SumOfMultiples.To(new [] { 7, 13, 17 }, 20), Is.EqualTo(51));
     }
-
-    [Ignore("Remove to run test")]
+    
     [Test]
-    public void Configurable_43_47_to_10000()
+    public void Sum_to_10000()
     {
-        Assert.That(new SumOfMultiples(new List<int> { 43, 47 }).To(10000), Is.EqualTo(2203160));
+        Assert.That(SumOfMultiples.To(new [] { 43, 47 }, 10000), Is.EqualTo(2203160));
     }
 }
