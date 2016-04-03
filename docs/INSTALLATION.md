@@ -17,7 +17,7 @@ You can either start by creating your own project for working with the Exercism 
 
 This is a Visual Studio template that comes pre-configured to work on the problems in as many languages as Visual Studio supports.
 
-![Solution Explorer](/img/setup/visualstudio/SolutionExplorer.png)
+![Solution Explorer](http://x.exercism.io/v3/tracks/csharp/docs/img/SolutionExplorer.png)
 
 1. Download the [Exercism.io Visual Studio Template](https://github.com/rprouse/Exercism.VisualStudio) from GitHub by clicking the Download Zip button on the page.
 2. Unzip the template into your exercises directory, for example `C:\src\exercises`
@@ -32,13 +32,13 @@ This is a Visual Studio template that comes pre-configured to work on the proble
 10. The exercise you just fetched will appear greyed out. Right click on the folder and **Include In Project**
 11. Get coding...
 
-![Add files](/img/setup/visualstudio/AddFiles.png)
+![Add files](http://x.exercism.io/v3/tracks/csharp/docs/img/AddFiles.png)
 
 The NUnit NuGet package is included in the project, so you will not need to install it.
 
 If you have a paid version of Visual Studio install the [NUnit Visual Studio Test Adapter](https://visualstudiogallery.msdn.microsoft.com/6ab922d0-21c0-4f06-ab5f-4ecd1fe7175d). This will allow you to run the tests from within Visual Studio. If you have ReSharper installed, you can also [run the tests using ReSharper](https://www.jetbrains.com/resharper/features/unit_testing.html).
 
-![Test Explorer](/img/setup/visualstudio/TestExplorer.png)
+![Test Explorer](http://x.exercism.io/v3/tracks/csharp/docs/img/TestExplorer.png)
 
 If you are using Visual Studio Express, install [NUnit 3.x](http://www.nunit.org/) and run the tests from the command line (see below).
 
