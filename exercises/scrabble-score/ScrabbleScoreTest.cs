@@ -55,6 +55,6 @@ public class ScrabbleScoreTest
     [Test]
     public void Scores_are_case_insensitive()
     {
-        Assert.That(Scrabble.Score("MULTIBILLIONAIRE"), Is.EqualTo(20));
+        Assert.That(Scrabble.Score("OXYPHENBUTAZONE"), Is.EqualTo(41));
     }
 }
