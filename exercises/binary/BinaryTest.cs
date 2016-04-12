@@ -20,6 +20,9 @@ public class BinaryTest
     [TestCase("2", Ignore = "Remove to run test case")]
     [TestCase("5", Ignore = "Remove to run test case")]
     [TestCase("9", Ignore = "Remove to run test case")]
+    [TestCase("a10", Ignore = "Remove to run test case")]
+    [TestCase("100b", Ignore = "Remove to run test case")]
+    [TestCase("10c01", Ignore = "Remove to run test case")]
     [TestCase("134678", Ignore = "Remove to run test case")]
     [TestCase("abc10z", Ignore = "Remove to run test case")]
     public void Invalid_binary_is_decimal_0(string invalidValue)

@@ -1,47 +1,31 @@
 public struct Clock
 {
-    private int _hours;
-    private int _minutes;
+    private readonly int hours;
+    private readonly int minutes;
 
     public Clock(int hours, int minutes = 0)
     {
-        _hours = hours;
-        _minutes = minutes;
-        Normalize();
+        this.hours = Mod((hours * 60 + minutes) / 60.0, 24);
+        this.minutes = Mod(minutes, 60);
     }
 
-    public Clock Add(int minutes)
+    public Clock Add(int minutesToAdd)
     {
-        return new Clock(_hours, _minutes + minutes);
+        return new Clock(hours, minutes + minutesToAdd);
     }
 
-    public Clock Subtract(int minutes)
+    public Clock Subtract(int minutesToSubtract)
     {
-        return Add(-minutes);
+        return new Clock(hours, minutes - minutesToSubtract);
     }
 
     public override string ToString()
     {
-        return string.Format("{0:00}:{1:00}", _hours, _minutes);
+        return $"{hours:00}:{minutes:00}";
     }
 
-    private void Normalize()
+    private static int Mod(double x, double y)
     {
-        if(_minutes >= 60)
-        {
-            _hours += _minutes / 60;
-            _minutes = _minutes % 60;
-        }
-        while(_minutes < 0)
-        {
-            --_hours;
-            _minutes += 60;
-        }
-        if(_hours >= 24)
-        {
-            _hours = _hours % 24;
-        }
-        while(_hours < 0)
-            _hours += 24;
+        return (int)((x % y + y) % y);
     }
 }
