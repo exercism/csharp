@@ -20,9 +20,13 @@ Once you have been able to compile the code it will create a DLL in the ```\bin\
 The NUnit runner will automatically reload the DLL if it has been updated.
 
 ### Mac
-Xamarin Studio also ships with NUnit. From the new project dialog, just select an NUnit class library.
+Xamarin Studio also ships with NUnit. Right-click the solution you created before and choose *Add New Project*.
 
-![Xamarin NUnit](http://x.exercism.io/v3/tracks/csharp/docs/img/xamarin-nunit.jpg)
+![Add Xamarin NUnit Test](img/xamarin-add-test.png)
+
+Then from the new project dialog, just select an NUnit class library.
+
+![Xamarin NUnit](img/xamarin-nunit.jpg)
 
 From here you can write NUnit tests right away. To run the tests open the `Unit Tests` pad within
 Xamarin (View -> Pads -> Unit Tests).
