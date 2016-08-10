@@ -3,7 +3,6 @@ using NUnit.Framework;
 [TestFixture]
 public class HexadecimalTest
 {
-    // change Ignore to false to run test case or just remove 'Ignore = true'
     [TestCase("1", ExpectedResult = 1)]
     [TestCase("c", ExpectedResult = 12, Ignore = "Remove to run test case")]
     [TestCase("10", ExpectedResult = 16, Ignore = "Remove to run test case")]

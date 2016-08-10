@@ -3,7 +3,6 @@ using NUnit.Framework;
 [TestFixture]
 public class OctalTest
 {
-    // change Ignore to false to run test case or just remove 'Ignore = true'
     [TestCase("1", ExpectedResult = 1)]
     [TestCase("10", ExpectedResult = 8, Ignore = "Remove to run test case")]
     [TestCase("17", ExpectedResult = 15, Ignore = "Remove to run test case")]

@@ -1,6 +1,6 @@
 language: csharp
 
 script:
-  - bin/fetch-configlet
-  - bin/configlet .
-  - build.sh
+  - ./bin/fetch-configlet
+  - ./bin/configlet .
+  - ./build.sh

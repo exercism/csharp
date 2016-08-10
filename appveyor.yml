@@ -1,2 +1,4 @@
 build_script:
-- ps: .\build.ps1
+- ps: .\build.cmd
+
+test: off
