@@ -25,22 +25,22 @@ Xamarin Studio also ships with NUnit. To set the tests up you will have to add N
 This is the example setup for the "leap" exercise. We assume you created a solution called `LeapCalculator`.
 
 Right-click the solution and choose *Add* -> *Add New Project*.
-![Add Xamarin NUnit Test](img/xamarin-add-new-project.png)
+![Add Xamarin NUnit Test](http://x.exercism.io/v3/tracks/csharp/docs/img/xamarin-add-new-project.png)
 
 Then from the new project dialog, select an NUnit Library Project.
-![Xamarin NUnit](img/xamarin-nunit.jpg)
+![Xamarin NUnit](http://x.exercism.io/v3/tracks/csharp/docs/img/xamarin-nunit.jpg)
 
 For the project name append `.Tests` to the name of your solution. So in our case `LeapCalculator.Tests`
-![Xamarin NUnit](img/xamarin-naming.png)
+![Xamarin NUnit](http://x.exercism.io/v3/tracks/csharp/docs/img/xamarin-naming.png)
 
 Set a reference to your solution with right-click on references in your test project. Then choose the Projects tab and tick the box to your solution and  click `ok`.
 
-![Xamarin NUnit](img/xamarin-edit-reference.png)
+![Xamarin NUnit](http://x.exercism.io/v3/tracks/csharp/docs/img/xamarin-edit-reference.png)
 
-![Xamarin NUnit](img/xamarin-add-reference.png)
+![Xamarin NUnit](http://x.exercism.io/v3/tracks/csharp/docs/img/xamarin-add-reference.png)
 
 Add some of the tests from the exercise or write your own.
 
 To run the tests open the `Unit Tests` pad within Xamarin (View -> Pads -> Unit Tests) and click `Run All`.
 
-![Xamarin NUnit](img/xamarin-tests.png)
+![Xamarin NUnit](http://x.exercism.io/v3/tracks/csharp/docs/img/xamarin-tests.png)
