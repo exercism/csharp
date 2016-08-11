@@ -20,7 +20,7 @@ Once you have been able to compile the code it will create a DLL in the ```\bin\
 The NUnit runner will automatically reload the DLL if it has been updated.
 
 ### Mac
-Xamarin Studio also ships with NUnit. To set the tests up you will have to add NUnit as a new project to your solution, name it correctly and set a reference to your solution.
+Xamarin Studio also ships with NUnit. To set the tests up you will have to add an NUnit library project to your solution, name it correctly and set a reference to your solution.
 
 This is the example setup for the "leap" exercise. We assume you created a solution called `LeapCalculator`.
 
