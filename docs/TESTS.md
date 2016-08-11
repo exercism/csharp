@@ -20,9 +20,27 @@ Once you have been able to compile the code it will create a DLL in the ```\bin\
 The NUnit runner will automatically reload the DLL if it has been updated.
 
 ### Mac
-Xamarin Studio also ships with NUnit. From the new project dialog, just select an NUnit class library.
+Xamarin Studio also ships with NUnit. To set the tests up you will have to add an NUnit library project to your solution, name it correctly and set a reference to your solution.
 
+This is the example setup for the "leap" exercise. We assume you created a solution called `LeapCalculator`.
+
+Right-click the solution and choose *Add* -> *Add New Project*.
+![Add Xamarin NUnit Test](http://x.exercism.io/v3/tracks/csharp/docs/img/xamarin-add-new-project.png)
+
+Then from the new project dialog, select an NUnit Library Project.
 ![Xamarin NUnit](http://x.exercism.io/v3/tracks/csharp/docs/img/xamarin-nunit.jpg)
 
-From here you can write NUnit tests right away. To run the tests open the `Unit Tests` pad within
-Xamarin (View -> Pads -> Unit Tests).
+For the project name append `.Tests` to the name of your solution. So in our case `LeapCalculator.Tests`
+![Xamarin NUnit](http://x.exercism.io/v3/tracks/csharp/docs/img/xamarin-naming.png)
+
+Set a reference to your solution with right-click on references in your test project. Then choose the Projects tab and tick the box to your solution and  click `ok`.
+
+![Xamarin NUnit](http://x.exercism.io/v3/tracks/csharp/docs/img/xamarin-edit-reference.png)
+
+![Xamarin NUnit](http://x.exercism.io/v3/tracks/csharp/docs/img/xamarin-add-reference.png)
+
+Add some of the tests from the exercise or write your own.
+
+To run the tests open the `Unit Tests` pad within Xamarin (View -> Pads -> Unit Tests) and click `Run All`.
+
+![Xamarin NUnit](http://x.exercism.io/v3/tracks/csharp/docs/img/xamarin-tests.png)
