@@ -4,7 +4,9 @@ tmp
 bin/configlet
 bin/configlet.exe
 .fake/
+.paket/paket.exe
 .vs/
 tools/
 build/
+packages/
 TestResult.xml

@@ -1,46 +1,33 @@
-#!/usr/bin/env bash
+#!/bin/bash
+if test "$OS" = "Windows_NT"
+then
+  # use .Net
 
-currentDirectory="$( cd "$( dirname "$0" )" && pwd )"
-toolsDirectory=$currentDirectory/tools
-nugetDirectory=$toolsDirectory/nuget
-nugetExe=$nugetDirectory/nuget.exe
-fakeExe=$toolsDirectory/FAKE/tools/FAKE.exe
-nunitFrameworkDll=$toolsDirectory/NUnit/lib/net45/nunit.framework.dll
-nunitConsoleExe=$toolsDirectory/NUnit.Console/tools/nunit3-console.exe
+  .paket/paket.bootstrapper.exe
+  exit_code=$?
+  if [ $exit_code -ne 0 ]; then
+  	exit $exit_code
+  fi
 
-if test ! -d $nugetDirectory; then
-    mkdir -p $nugetDirectory
+  .paket/paket.exe restore
+  exit_code=$?
+  if [ $exit_code -ne 0 ]; then
+  	exit $exit_code
+  fi
+
+  packages/FAKE/tools/FAKE.exe $@ --fsiargs build.fsx
+else
+  # use mono
+  mono .paket/paket.bootstrapper.exe
+  exit_code=$?
+  if [ $exit_code -ne 0 ]; then
+  	exit $exit_code
+  fi
+
+  mono .paket/paket.exe restore
+  exit_code=$?
+  if [ $exit_code -ne 0 ]; then
+  	exit $exit_code
+  fi
+  mono packages/FAKE/tools/FAKE.exe $@ --fsiargs -d:MONO build.fsx
 fi
-
-if test ! -f $nugetExe; then
-    nugetUrl="https://dist.nuget.org/win-x86-commandline/v3.3.0/nuget.exe"
-    wget -O $nugetExe $nugetUrl 2> /dev/null || curl -o $nugetExe --location $nugetUrl /dev/null
-    
-    if test ! -f $nugetExe; then
-        echo "Could not find nuget.exe"
-        exit 1
-    fi
-    
-    chmod 755 $nugetExe
-fi
-
-mono $nugetExe install FAKE -Version 4.17.1 -ExcludeVersion -OutputDirectory $toolsDirectory
-if test ! -f $fakeExe; then
-	echo "Could not find fake.exe"
-    exit 1
-fi
-
-mono $nugetExe install NUnit -Version 3.0.1 -ExcludeVersion -OutputDirectory $toolsDirectory
-if test ! -f $nunitFrameworkDll; then
-	echo "Could not find nunit.framework.dll"
-    exit 1
-fi
-
-mono $nugetExe install NUnit.Console -Version 3.0.1 -ExcludeVersion -OutputDirectory $toolsDirectory
-if test ! -f $nunitConsoleExe; then
-	echo "Could not find nunit3-console.exe"
-    exit 1
-fi
-
-# Use FAKE to execute the build script
-mono $fakeExe build.fsx $@

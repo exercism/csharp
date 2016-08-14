@@ -3,7 +3,6 @@ using NUnit.Framework;
 [TestFixture]
 public class AtbashTest
 {
-    // change Ignore to false to run test case or just remove 'Ignore = true'
     [TestCase("no", ExpectedResult = "ml")]
     [TestCase("yes", ExpectedResult = "bvh", Ignore = "Remove to run test case")]
     [TestCase("OMG", ExpectedResult = "lnt", Ignore = "Remove to run test case")]
