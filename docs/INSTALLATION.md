@@ -69,6 +69,10 @@ The manager is the easiest way to get started.
 
 The project should now be able to compile.
 
+The next piece required is the NUnit Test Adapter for Visual Studio.  The major version of the Test Adapter must match the major version of the NUnit Framework that you installed above, or the Visual Studio Test Explorer window will not detect your unit tests.
+- [Adapter Version 3 for NUnit 3.x](https://visualstudiogallery.msdn.microsoft.com/0da0f6bd-9bb6-4ae3-87a8-537788622f2d)
+- [Adapter Version 2 for NUnit 2.x](https://visualstudiogallery.msdn.microsoft.com/6ab922d0-21c0-4f06-ab5f-4ecd1fe7175d)
+
 To start implementing the exercise, in Visual Studio, right click on where you want the file to go to and go to `Add` -> `Class`. Name it what you'd like.
 
 ![New Item](http://x.exercism.io/v3/tracks/csharp/docs/img/addNewClass.png)
