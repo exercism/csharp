@@ -59,7 +59,8 @@
     "simple-linked-list",
     "matrix",
     "queen-attack",
-    "ocr-numbers"
+    "ocr-numbers",
+	"hello-world"
   ],
   "exercises": [
     {
@@ -394,6 +395,12 @@
     },
     {
       "slug": "ocr-numbers",
+      "difficulty": 1,
+      "topics": [
+      ]
+    },
+    {
+      "slug": "hello-world",
       "difficulty": 1,
       "topics": [
       ]
