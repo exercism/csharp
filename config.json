@@ -59,7 +59,8 @@
     "nth-prime",
     "pig-latin",
     "palindrome-products",
-    "wordy"
+    "wordy",
+    "minesweeper",
   ],
   "exercises": [
     {
@@ -514,6 +515,14 @@
       "topics": [
         "Parsing",
         "Strings",
+        "Transforming"
+      ]
+    },
+    {
+      "slug": "minesweeper",
+      "difficulty": 7,
+      "topics": [
+        "Parsing",
         "Transforming"
       ]
     }
