@@ -520,7 +520,7 @@
     },
     {
       "slug": "minesweeper",
-      "difficulty": 7,
+      "difficulty": 5,
       "topics": [
         "Parsing",
         "Transforming"
