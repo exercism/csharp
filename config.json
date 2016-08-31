@@ -12,6 +12,7 @@
     "rna-transcription",
     "sum-of-multiples",
     "space-age",
+    "grains",
     "hamming",
     "raindrops",
     "nucleotide-count",
@@ -129,6 +130,13 @@
       "topics": [
         "Strings",
         "Filtering"
+      ]
+    },
+    {
+      "slug": "grains",
+      "difficulty": 2,
+      "topics": [
+        "Integers"
       ]
     },
     {
@@ -307,7 +315,7 @@
     {
       "slug": "allergies",
       "difficulty": 4,
-      "topics": [  	
+      "topics": [
         "Bitwise operations",
         "Filtering"
       ]
