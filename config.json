@@ -21,18 +21,14 @@
     "etl",
     "phone-number",
     "strain",
-    "binary",
     "scrabble-score",
     "robot-name",
     "kindergarten-garden",
     "clock",
     "triangle",
-    "octal",
     "beer-song",
-    "trinary",
     "sieve",
     "queen-attack",
-    "hexadecimal",
     "robot-simulator",
     "secret-handshake",
     "allergies",
@@ -48,6 +44,7 @@
     "word-count",
     "prime-factors",
     "meetup",
+    "all-your-base",
     "pascals-triangle",
     "simple-cipher",
     "roman-numerals",
@@ -198,15 +195,6 @@
       ]
     },
     {
-      "slug": "binary",
-      "difficulty": 3,
-      "topics": [
-        "Integers",
-        "Parsing",
-        "Transforming"
-      ]
-    },
-    {
       "slug": "scrabble-score",
       "difficulty": 3,
       "topics": [
@@ -247,29 +235,11 @@
       ]
     },
     {
-      "slug": "octal",
-      "difficulty": 3,
-      "topics": [
-        "Integers",
-        "Parsing",
-        "Transforming"
-      ]
-    },
-    {
       "slug": "beer-song",
       "difficulty": 3,
       "topics": [
         "Text formatting",
         "Algorithms"
-      ]
-    },
-    {
-      "slug": "trinary",
-      "difficulty": 3,
-      "topics": [
-        "Integers",
-        "Parsing",
-        "Transforming"
       ]
     },
     {
@@ -285,15 +255,6 @@
       "difficulty": 3,
       "topics": [
         "Classes"
-      ]
-    },
-    {
-      "slug": "hexadecimal",
-      "difficulty": 3,
-      "topics": [
-        "Integers",
-        "Parsing",
-        "Transforming"
       ]
     },
     {
@@ -421,6 +382,14 @@
       ]
     },
     {
+      "slug": "all-your-base",
+      "difficulty": 4,
+      "topics": [
+        "Integers",
+        "Transforming"
+      ]
+    },
+    {
       "slug": "pascals-triangle",
       "difficulty": 4,
       "topics": [
@@ -541,7 +510,10 @@
     }
   ],
   "deprecated": [
-
+    "binary",
+    "trinary",
+    "octal",
+    "hexadecimal"
   ],
   "ignored": [
     "docs",
