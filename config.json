@@ -4,6 +4,7 @@
   "repository": "https://github.com/exercism/xcsharp",
   "active": true,
   "problems": [
+    "hello-world",
     "leap",
     "bob",
     "etl",
@@ -62,6 +63,12 @@
     "ocr-numbers"
   ],
   "exercises": [
+    {
+      "slug": "hello-world",
+      "difficulty": 1,
+      "topics": [
+      ]
+    },
     {
       "slug": "leap",
       "difficulty": 1,
