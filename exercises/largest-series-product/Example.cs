@@ -2,41 +2,33 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-public class LargestSeriesProduct
+public static class LargestSeriesProduct
 {
-    private readonly string digits;
+    public static long GetLargestProduct(string digits, int span) => GetSlices(ParseDigits(digits), span).Max(l => GetProduct(l));
 
-    private int[] Digits;
-
-    public LargestSeriesProduct(string digits)
+    private static IEnumerable<IEnumerable<long>> GetSlices(long[] digits, int span)
     {
-        this.digits = digits;
-        Digits = ParseValues(digits);
-    }
-
-    private int[] ParseValues(IEnumerable<char> values)
-    {
-        return values.Select(x => int.Parse(x.ToString())).ToArray();
-    }
-
-    private int[][] GetSlices(int limit)
-    {
-        if (limit > digits.Length) throw new ArgumentException("Slice size is too big");
-        var slices = new List<int[]>();
-        for (int i = 0; i <= digits.Length - limit; i++)
+        if (span < 0 || span > digits.Length)
         {
-            slices.Add(ParseValues(digits.Skip(i).Take(limit)));
+            throw new ArgumentException("Invalid span.");
         }
-        return slices.ToArray();
+
+        return Enumerable.Range(0, GetNumberOfSlices(digits, span)).Select(i => digits.Skip(i).Take(span));
     }
 
-    public int GetLargestProduct(int seriesLength)
+    private static long[] ParseDigits(string digits) => digits.ToCharArray().Select(ParseDigit).ToArray();
+
+    private static long ParseDigit(char c)
     {
-        if (seriesLength < 1) return 1;
-        return GetSlices(seriesLength).Aggregate(0, (prev, next) =>
-            {
-                int product = next.Aggregate((x, y) => x * y);
-                return product > prev ? product : prev;
-            });
+        if (!char.IsDigit(c))
+        {
+            throw new ArgumentException("Invalid digit.");
+        }
+
+        return long.Parse(c.ToString());
     }
+
+    private static long GetProduct(IEnumerable<long> numbers) => numbers.Aggregate(1L, (x, product) => x * product);
+
+    private static int GetNumberOfSlices(long[] digits, int span) => digits.Length + 1 - span;
 }
