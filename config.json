@@ -4,6 +4,7 @@
   "repository": "https://github.com/exercism/xcsharp",
   "active": true,
   "problems": [
+	"hello-world",
     "leap",
     "bob",
     "etl",
@@ -59,10 +60,15 @@
     "simple-linked-list",
     "matrix",
     "queen-attack",
-    "ocr-numbers",
-	"hello-world"
+    "ocr-numbers"
   ],
   "exercises": [
+	{
+      "slug": "hello-world",
+      "difficulty": 1,
+      "topics": [
+      ]
+    },
     {
       "slug": "leap",
       "difficulty": 1,
@@ -395,12 +401,6 @@
     },
     {
       "slug": "ocr-numbers",
-      "difficulty": 1,
-      "topics": [
-      ]
-    },
-    {
-      "slug": "hello-world",
       "difficulty": 1,
       "topics": [
       ]
