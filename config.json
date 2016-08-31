@@ -29,6 +29,7 @@
     "beer-song",
     "sieve",
     "queen-attack",
+    "binary-search",
     "robot-simulator",
     "secret-handshake",
     "allergies",
@@ -255,6 +256,14 @@
       "difficulty": 3,
       "topics": [
         "Classes"
+      ]
+    },
+    {
+      "slug": "binary-search",
+      "difficulty": 3,
+      "topics": [
+        "Searching",
+        "Arrays"
       ]
     },
     {
