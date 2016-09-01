@@ -50,6 +50,7 @@
     "simple-cipher",
     "roman-numerals",
     "binary-search-tree",
+	"minesweeper",
     "atbash-cipher",
     "linked-list",
     "crypto-square",
@@ -59,8 +60,7 @@
     "nth-prime",
     "pig-latin",
     "palindrome-products",
-    "wordy",
-    "minesweeper"
+    "wordy"
   ],
   "exercises": [
     {
@@ -433,6 +433,14 @@
         "Trees",
         "Overloading"
       ]
+    },
+    {
+      "slug": "minesweeper",
+      "difficulty": 5,
+      "topics": [
+        "Parsing",
+        "Transforming"
+      ]
     },   
     {
       "slug": "atbash-cipher",
@@ -515,14 +523,6 @@
       "topics": [
         "Parsing",
         "Strings",
-        "Transforming"
-      ]
-    },
-    {
-      "slug": "minesweeper",
-      "difficulty": 5,
-      "topics": [
-        "Parsing",
         "Transforming"
       ]
     }
