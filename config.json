@@ -227,7 +227,8 @@
         "Strings",
         "Lists",
         "Transforming"
-      ],
+      ]
+	},
     {
       "slug": "clock",
       "difficulty": 3,
