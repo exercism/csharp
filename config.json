@@ -24,6 +24,7 @@
     "scrabble-score",
     "robot-name",
     "kindergarten-garden",
+    "protein-translation",
     "clock",
     "triangle",
     "beer-song",
@@ -218,6 +219,15 @@
       "topics": [
         "Parsing",
         "Enumerations"
+      ]
+    },
+    {
+      "slug": "protein-translation",
+      "difficulty": 3,
+      "topics": [
+        "Strings",
+        "Lists",
+        "Transforming"
       ]
     },
     {
