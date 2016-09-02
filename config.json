@@ -17,6 +17,7 @@
     "raindrops",
     "nucleotide-count",
     "accumulate",
+    "bank-account",
     "grade-school",
     "etl",
     "phone-number",
@@ -160,6 +161,13 @@
         "Extension methods",
         "Sequences",
         "Transforming"
+      ]
+    },
+    {
+      "slug": "bank-account",
+      "difficulty": 2,
+      "topics": [
+        "Classes"
       ]
     },
     {
