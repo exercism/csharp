@@ -50,6 +50,7 @@
     "simple-cipher",
     "roman-numerals",
     "binary-search-tree",
+    "minesweeper",
     "atbash-cipher",
     "linked-list",
     "crypto-square",
@@ -431,6 +432,14 @@
         "Searching",
         "Trees",
         "Overloading"
+      ]
+    },
+    {
+      "slug": "minesweeper",
+      "difficulty": 5,
+      "topics": [
+        "Parsing",
+        "Transforming"
       ]
     },   
     {
