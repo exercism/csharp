@@ -24,7 +24,7 @@
     "scrabble-score",
     "robot-name",
     "kindergarten-garden",
-	"protein-translation",
+    "protein-translation",
     "clock",
     "triangle",
     "beer-song",
@@ -228,7 +228,7 @@
         "Lists",
         "Transforming"
       ]
-	},
+    },
     {
       "slug": "clock",
       "difficulty": 3,
