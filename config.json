@@ -33,6 +33,7 @@
     "queen-attack",
     "binary-search",
     "robot-simulator",
+    "isogram",
     "secret-handshake",
     "allergies",
     "simple-linked-list",
@@ -291,6 +292,14 @@
       "topics": [
         "Classes",
         "Enumerations"
+      ]
+    },
+    {
+      "slug": "isogram",
+      "difficulty": 3,
+      "topics": [
+        "Strings",
+        "Filtering"
       ]
     },
     {
