@@ -68,7 +68,8 @@
     "pig-latin",
     "change",
     "palindrome-products",
-    "wordy"
+    "wordy",
+    "zebra-puzzle"
   ],
   "exercises": [
     {
@@ -594,6 +595,13 @@
         "Parsing",
         "Strings",
         "Transforming"
+      ]
+    },
+    {
+      "slug": "zebra-puzzle",
+      "difficulty": 8,
+      "topics": [
+        "Logic"
       ]
     }
   ],
