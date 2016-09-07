@@ -65,6 +65,7 @@
     "bowling",
     "nth-prime",
     "pig-latin",
+    "change",
     "palindrome-products",
     "wordy"
   ],
@@ -558,6 +559,14 @@
       "topics": [
         "Strings",
         "Transforming"
+      ]
+    },
+    {
+      "slug": "change",
+      "difficulty": 6,
+      "topics": [
+        "Integers",
+        "Arrays"
       ]
     },
     {
