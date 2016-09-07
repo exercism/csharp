@@ -62,6 +62,7 @@
     "ocr-numbers",
     "luhn",
     "tournament",
+    "bowling",
     "nth-prime",
     "pig-latin",
     "palindrome-products",
@@ -534,6 +535,14 @@
       "topics": [
         "Text formatting",
         "Parsing"
+      ]
+    },
+    {
+      "slug": "bowling",
+      "difficulty": 6,
+      "topics": [
+        "Algorithms",
+        "Control-flow (loops)"
       ]
     },
     {
