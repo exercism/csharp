@@ -13,6 +13,7 @@
     "sum-of-multiples",
     "space-age",
     "grains",
+    "pangram",
     "hamming",
     "raindrops",
     "nucleotide-count",
@@ -138,6 +139,13 @@
       "difficulty": 2,
       "topics": [
         "Integers"
+      ]
+    },
+    {
+      "slug": "pangram",
+      "difficulty": 2,
+      "topics": [
+        "Strings"
       ]
     },
     {
