@@ -57,6 +57,7 @@
     "binary-search-tree",
     "minesweeper",
     "atbash-cipher",
+    "scale-generator",
     "linked-list",
     "crypto-square",
     "ocr-numbers",
@@ -494,6 +495,14 @@
         "Strings",
         "Algorithms",
         "Transforming"
+      ]
+    },
+    {
+      "slug": "scale-generator",
+      "difficulty": 5,
+      "topics": [
+        "Parsing",
+        "Algorithms"
       ]
     },
     {
