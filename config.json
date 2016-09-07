@@ -27,6 +27,7 @@
     "robot-name",
     "kindergarten-garden",
     "protein-translation",
+    "perfect-numbers",
     "clock",
     "triangle",
     "beer-song",
@@ -244,6 +245,13 @@
         "Strings",
         "Lists",
         "Transforming"
+      ]
+    },
+    {
+      "slug": "perfect-numbers",
+      "difficulty": 3,
+      "topics": [
+        "Integers"
       ]
     },
     {
