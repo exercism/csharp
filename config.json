@@ -61,6 +61,7 @@
     "linked-list",
     "crypto-square",
     "ocr-numbers",
+    "circular-buffer",
     "luhn",
     "tournament",
     "bowling",
@@ -529,6 +530,14 @@
       "topics": [
         "Parsing",
         "Pattern recognition"
+      ]
+    },
+    {
+      "slug": "circular-buffer",
+      "difficulty": 5,
+      "topics": [
+        "Queues",
+        "Classes"
       ]
     },
     {
