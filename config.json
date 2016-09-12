@@ -42,6 +42,7 @@
     "acronym",
     "matrix",
     "largest-series-product",
+    "house",
     "saddle-points",
     "pythagorean-triplet",
     "series",
@@ -371,6 +372,14 @@
         "Strings",
         "Integers",
         "Transforming"
+      ]
+    },
+    {
+      "slug": "house",
+      "difficulty": 4,
+      "topics": [
+        "Text formatting",
+        "Algorithms"
       ]
     },
     {
