@@ -60,6 +60,7 @@
     "atbash-cipher",
     "scale-generator",
     "bracket-push",
+    "parallel-letter-frequency",
     "linked-list",
     "crypto-square",
     "ocr-numbers",
@@ -523,6 +524,15 @@
       "topics": [
         "Parsing",
         "Strings"
+      ]
+    },
+    {
+      "slug": "parallel-letter-frequency",
+      "difficulty": 5,
+      "topics": [
+        "Parallellism",
+        "Transforming",
+        "Dictionaries"
       ]
     },
     {
