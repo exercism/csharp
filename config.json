@@ -58,6 +58,7 @@
     "minesweeper",
     "atbash-cipher",
     "scale-generator",
+    "bracket-push",
     "linked-list",
     "crypto-square",
     "ocr-numbers",
@@ -505,6 +506,14 @@
       "topics": [
         "Parsing",
         "Algorithms"
+      ]
+    },
+    {
+      "slug": "bracket-push",
+      "difficulty": 5,
+      "topics": [
+        "Parsing",
+        "Strings"
       ]
     },
     {
