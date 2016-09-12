@@ -75,7 +75,8 @@
     "palindrome-products",
     "dominoes",
     "wordy",
-    "zebra-puzzle"
+    "zebra-puzzle",
+    "diamond"
   ],
   "exercises": [
     {
@@ -656,6 +657,14 @@
       "difficulty": 8,
       "topics": [
         "Logic"
+      ]
+    },
+    {
+      "slug": "diamond",
+      "difficulty": 8,
+      "topics": [
+        "Text formatting",
+        "Algorithms"
       ]
     }
   ],
