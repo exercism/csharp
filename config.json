@@ -58,6 +58,7 @@
     "binary-search-tree",
     "minesweeper",
     "atbash-cipher",
+    "sublist",
     "scale-generator",
     "bracket-push",
     "parallel-letter-frequency",
@@ -509,6 +510,13 @@
         "Strings",
         "Algorithms",
         "Transforming"
+      ]
+    },
+    {
+      "slug": "sublist",
+      "difficulty": 5,
+      "topics": [
+        "Lists"
       ]
     },
     {
