@@ -741,7 +741,11 @@
     "docs",
     "img"
   ],
-  "foregone": [
-
+  "foregone": [    
+    "lens-person",
+    "nucleotide-codons",
+    "paasio",
+    "point-mutations",
+    "counter"
   ]
 }
