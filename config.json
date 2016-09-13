@@ -79,7 +79,8 @@
     "dominoes",
     "wordy",
     "zebra-puzzle",
-    "diamond"
+    "diamond",
+    "variable-length-quantity"
   ],
   "exercises": [
     {
@@ -690,6 +691,14 @@
       "difficulty": 8,
       "topics": [
         "Text formatting",
+        "Algorithms"
+      ]
+    },
+    {
+      "slug": "variable-length-quantity",
+      "difficulty": 9,
+      "topics": [
+        "Bitwise operations",
         "Algorithms"
       ]
     }
