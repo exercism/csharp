@@ -64,6 +64,7 @@
     "parallel-letter-frequency",
     "linked-list",
     "crypto-square",
+    "custom-set",
     "ocr-numbers",
     "circular-buffer",
     "luhn",
@@ -562,6 +563,13 @@
         "Transforming"
       ]
     }, 
+    {
+      "slug": "custom-set",
+      "difficulty": 5,
+      "topics": [
+        "Sets"
+      ]
+    },
     {
       "slug": "ocr-numbers",
       "difficulty": 5,
