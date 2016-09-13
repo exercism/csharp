@@ -24,6 +24,7 @@
     "phone-number",
     "strain",
     "scrabble-score",
+    "proverb",
     "robot-name",
     "kindergarten-garden",
     "protein-translation",
@@ -235,6 +236,14 @@
       "difficulty": 3,
       "topics": [
         "Transforming"
+      ]
+    },
+    {
+      "slug": "proverb",
+      "difficulty": 3,
+      "topics": [
+        "Text formatting",
+        "Algorithms"
       ]
     },
     {
