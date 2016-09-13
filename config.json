@@ -58,6 +58,7 @@
     "binary-search-tree",
     "minesweeper",
     "atbash-cipher",
+    "food-chain",
     "sublist",
     "scale-generator",
     "bracket-push",
@@ -512,6 +513,14 @@
         "Strings",
         "Algorithms",
         "Transforming"
+      ]
+    },
+    {
+      "slug": "food-chain",
+      "difficulty": 5,
+      "topics": [
+        "Text formatting",
+        "Algorithms"
       ]
     },
     {
