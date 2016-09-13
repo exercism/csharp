@@ -71,6 +71,7 @@
     "luhn",
     "tournament",
     "bowling",
+    "transpose",
     "nth-prime",
     "pig-latin",
     "change",
@@ -618,6 +619,14 @@
       "topics": [
         "Algorithms",
         "Control-flow (loops)"
+      ]
+    },
+    {
+      "slug": "transpose",
+      "difficulty": 6,
+      "topics": [
+        "Strings",
+        "Transforming"
       ]
     },
     {
