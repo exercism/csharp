@@ -71,6 +71,7 @@
     "circular-buffer",
     "luhn",
     "tournament",
+    "word-search",
     "bowling",
     "transpose",
     "nth-prime",
@@ -622,6 +623,14 @@
       "topics": [
         "Text formatting",
         "Parsing"
+      ]
+    },
+    {
+      "slug": "word-search",
+      "difficulty": 6,
+      "topics": [
+        "Searching",
+        "Tuples"
       ]
     },
     {
