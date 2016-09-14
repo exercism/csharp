@@ -86,6 +86,7 @@
     "wordy",
     "zebra-puzzle",
     "diamond",
+    "say",
     "variable-length-quantity"
   ],
   "exercises": [
@@ -748,6 +749,15 @@
       "topics": [
         "Text formatting",
         "Algorithms"
+      ]
+    },
+    {
+      "slug": "say",
+      "difficulty": 8,
+      "topics": [
+        "Strings",
+        "Transforming",
+        "Text formatting"
       ]
     },
     {
