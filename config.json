@@ -78,6 +78,7 @@
     "transpose",
     "nth-prime",
     "pig-latin",
+    "rail-fence-cipher",
     "change",
     "palindrome-products",
     "diffie-hellman",
@@ -679,6 +680,15 @@
       "difficulty": 6,
       "topics": [
         "Strings",
+        "Transforming"
+      ]
+    },
+    {
+      "slug": "rail-fence-cipher",
+      "difficulty": 6,
+      "topics": [
+        "Strings",
+        "Algorithms",
         "Transforming"
       ]
     },
