@@ -71,6 +71,7 @@
     "ocr-numbers",
     "circular-buffer",
     "luhn",
+    "run-length-encoding",
     "tournament",
     "word-search",
     "bowling",
@@ -622,6 +623,14 @@
       "difficulty": 5,
       "topics": [
         "Strings",
+        "Algorithms",
+        "Transforming"
+      ]
+    },
+    {
+      "slug": "run-length-encoding",
+      "difficulty": 5,
+      "topics": [
         "Algorithms",
         "Transforming"
       ]
