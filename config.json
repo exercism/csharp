@@ -56,6 +56,7 @@
     "pascals-triangle",
     "simple-cipher",
     "roman-numerals",
+    "flatten-array",
     "binary-search-tree",
     "minesweeper",
     "atbash-cipher",
@@ -500,6 +501,14 @@
       "topics": [
         "Control-flow (loops)",
         "Transforming"
+      ]
+    },
+    {
+      "slug": "flatten-array",
+      "difficulty": 5,
+      "topics": [
+        "Lists",
+        "Recursion"
       ]
     },
     {
