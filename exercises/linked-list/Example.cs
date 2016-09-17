@@ -1,4 +1,4 @@
-public class Deque<T>
+public class LinkedList<T>
 {
     private Element head;
 
