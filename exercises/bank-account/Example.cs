@@ -2,36 +2,50 @@
 
 public class BankAccount
 {
+    private readonly object _lock = new object();
+
     private float balance;
     private bool isOpen;
 
     public void Open()
     {
-        isOpen = true;
+        lock(_lock)
+        {
+            isOpen = true;
+        }
     }
 
     public void Close()
     {
-        isOpen = false;
+        lock(_lock)
+        {
+            isOpen = false;
+        }
     }
 
     public float GetBalance()
     {
-        if (!isOpen)
+        lock(_lock)
         {
-            throw new InvalidOperationException("Cannot get balance on an account that isn't open");
-        }
+            if (!isOpen)
+            {
+                throw new InvalidOperationException("Cannot get balance on an account that isn't open");
+            }
 
-        return balance;
+            return balance;
+        }
     }
 
     public void UpdateBalance(float change)
     {
-        if (!isOpen)
+        lock(_lock)
         {
-            throw new InvalidOperationException("Cannot update balance on an account that isn't open");
-        }
+            if (!isOpen)
+            {
+                throw new InvalidOperationException("Cannot update balance on an account that isn't open");
+            }
 
-        balance += change;
+            balance += change;
+        }
     }
 }
