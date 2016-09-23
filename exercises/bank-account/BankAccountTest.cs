@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using NUnit.Framework;
 
 public class BankAccountTest
@@ -56,5 +58,32 @@ public class BankAccountTest
         account.Close();
 
         Assert.Throws<InvalidOperationException>(() => account.GetBalance());
+    }
+
+    [Ignore("Remove to run test")]
+    [Test]
+    public void Change_account_balance_from_multiple_threads()
+    {
+        var account = new BankAccount();
+        var tasks = new List<Task>();
+
+        var threads = 500;
+        var iterations = 100;
+
+        account.Open();
+        for (int i = 0; i < threads; i++)
+        {
+            tasks.Add(Task.Factory.StartNew(() =>
+            {
+                for (int j = 0; j < iterations; j++)
+                {
+                    account.UpdateBalance(1);
+                    account.UpdateBalance(-1);
+                }
+            }));
+        }
+        Task.WaitAll(tasks.ToArray());
+
+        Assert.That(account.GetBalance(), Is.EqualTo(0));
     }
 }
