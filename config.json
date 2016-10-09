@@ -699,6 +699,14 @@
         "Bitwise operations",
         "Algorithms"
       ]
+    },
+    {
+      "slug": "sgf-parsing",
+      "difficulty": 9,
+      "topics": [
+        "Parsing",
+        "Transforming"
+      ]
     }
   ],
   "deprecated": [
