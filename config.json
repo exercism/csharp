@@ -463,6 +463,15 @@
       ]
     },
     {
+      "slug": "grep",
+      "difficulty": 5,
+      "topics": [
+        "Text formatting",
+        "Files",
+        "Searching"
+      ]
+    },
+    {
       "slug": "sublist",
       "difficulty": 5,
       "topics": [
