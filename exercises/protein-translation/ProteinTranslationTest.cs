@@ -78,6 +78,6 @@ public class ProteinTranslationTest
     [Ignore("Remove to run test")]
     public void Throws_for_invalid_codons()
     {
-        Assert.Throws<Exception>(() => ProteinTranslation.Translate("CARROT"));
+        Assert.That(() => ProteinTranslation.Translate("CARROT"), Throws.Exception);
     }
 }
