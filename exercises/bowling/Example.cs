@@ -9,32 +9,61 @@ public class BowlingGame
 
     public void Roll(int pins) => rolls.Add(pins);
 
-    public int Score()
+    public int? Score()
     {
         var score = 0;
         var frameIndex = 0;
 
-        for (int i = 0; i < NumberOfFrames; i++)
+        for (var i = 1; i <= NumberOfFrames; i++)
         {
+            if (rolls.Count <= frameIndex)
+            {
+                return null;
+            }
+
             if (IsStrike(frameIndex))
             {
-                score += 10 + StrikeBonus(frameIndex);
-                frameIndex += 1;
+                if (rolls.Count <= frameIndex + 2)
+                {
+                    return null;
+                }
+
+                var strikeBonus = StrikeBonus(frameIndex);
+                if (strikeBonus > MaximumFrameScore && !IsStrike(frameIndex + 1))
+                {
+                    return null;
+                }
+
+                score += 10 + strikeBonus;
+                frameIndex += i == NumberOfFrames ? 3 : 1;
             }
             else if (IsSpare(frameIndex))
             {
+                if (rolls.Count <= frameIndex + 2)
+                {
+                    return null;
+                }
+
                 score += 10 + SpareBonus(frameIndex);
-                frameIndex += 2;
+                frameIndex += i == NumberOfFrames ? 3 : 2;
             }
             else
             {
-                score += SumOfPinsInFrame(frameIndex);
+                var frameScore = FrameScore(frameIndex);
+                if (frameScore < 0 || frameScore > 10)
+                {
+                    return null;
+                }
+
+                score += frameScore;
                 frameIndex += 2;
             }
         }
-
-        return score;
+        
+        return CorrectNumberOfRolls(frameIndex) ? score : (int?)null;
     }
+
+    private bool CorrectNumberOfRolls(int frameIndex) => frameIndex == rolls.Count;
 
     private bool IsStrike(int frameIndex) => rolls[frameIndex] == MaximumFrameScore;
     private bool IsSpare(int frameIndex) => rolls[frameIndex] + rolls[frameIndex + 1] == MaximumFrameScore;
@@ -42,5 +71,5 @@ public class BowlingGame
     private int StrikeBonus(int frameIndex) => rolls[frameIndex + 1] + rolls[frameIndex + 2];
     private int SpareBonus(int frameIndex) => rolls[frameIndex + 2];
 
-    private int SumOfPinsInFrame(int frameIndex) => rolls[frameIndex] + rolls[frameIndex + 1];
+    private int FrameScore(int frameIndex) => rolls[frameIndex] + rolls[frameIndex + 1];
 }
