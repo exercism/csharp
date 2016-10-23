@@ -660,6 +660,14 @@
       ]
     },
     {
+      "slug": "rectangles",
+      "difficulty": 7,
+      "topics": [
+        "Parsing",
+        "Transforming"
+      ]
+    },
+    {
       "slug": "wordy",
       "difficulty": 7,
       "topics": [
