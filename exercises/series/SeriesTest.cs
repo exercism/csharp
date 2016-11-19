@@ -9,7 +9,7 @@ public class SeriesTest
             new object[] { "92834", new[] { new[] { 9 }, new[] { 2 }, new[] { 8 }, new[] { 3 }, new[] { 4 } } }
         };
 
-    [TestCaseSource("SliceOneTestData")]
+    [TestCaseSource(nameof(SliceOneTestData))]
     public void Series_of_one_splits_to_one_digit(string input, int[][] result)
     {
         Assert.That(new Series(input).Slices(1), Is.EqualTo(result));
@@ -23,7 +23,7 @@ public class SeriesTest
         };
 
     [Ignore("Remove to run test")]
-    [TestCaseSource("SliceTwoTestData")]
+    [TestCaseSource(nameof(SliceTwoTestData))]
     public void Series_of_two_splits_to_two_digits(string input, int[][] result)
     {
         Assert.That(new Series(input).Slices(2), Is.EqualTo(result));
@@ -37,7 +37,7 @@ public class SeriesTest
         };
 
     [Ignore("Remove to run test")]
-    [TestCaseSource("SliceThreeTestData")]
+    [TestCaseSource(nameof(SliceThreeTestData))]
     public void Series_of_three_splits_to_three_digits(string input, int[][] result)
     {
         Assert.That(new Series(input).Slices(3), Is.EqualTo(result));
@@ -50,7 +50,7 @@ public class SeriesTest
         };
 
     [Ignore("Remove to run test")]
-    [TestCaseSource("SliceFourTestData")]
+    [TestCaseSource(nameof(SliceFourTestData))]
     public void Series_of_four_splits_to_four_digits(string input, int[][] result)
     {
         Assert.That(new Series(input).Slices(4), Is.EqualTo(result));
@@ -63,7 +63,7 @@ public class SeriesTest
         };
 
     [Ignore("Remove to run test")]
-    [TestCaseSource("SliceFiveTestData")]
+    [TestCaseSource(nameof(SliceFiveTestData))]
     public void Series_of_five_splits_to_five_digits(string input, int[][] result)
     {
         Assert.That(new Series(input).Slices(5), Is.EqualTo(result));
