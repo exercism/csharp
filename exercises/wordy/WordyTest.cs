@@ -109,7 +109,7 @@ public class WordProblemTest
 
     [Ignore("Remove to run test")]
     [Test]
-    public void Irrelevent_problems_are_not_valid()
+    public void Irrelevant_problems_are_not_valid()
     {
         Assert.That(() => WordProblem.Solve("Who is the president of the United States?"), Throws.ArgumentException);
     }
