@@ -1,9 +1,9 @@
 ### Windows
 All tests have been ignored except the first one for you to work on. To continue, just remove the ```[Ignore]``` attribute on the test to start working on it.
 
-Make sure [NUnit](http://nunit.org/?p=download) version 3.x is installed, if not already installed from the setup from above.
+Make sure [NUnit](http://nunit.org/?p=download) version 3.x is installed, if not already installed from the setup above.
 
-This installation should include the NUnit-Gui executable. Run this and, after compiling, open the assembly from the Gui and you are able to run the tests.
+This installation should include the NUnit-Gui executable. Run this, and after compiling, open the assembly from the Gui and you are able to run the tests.
 
 **Note:** You may need to include the nunit-framework.dll in the same directory as the source code you're compiling if you get an error saying it can't find the ```nunit.framework.dll```.
 
@@ -18,6 +18,10 @@ Once you have been able to compile the code it will create a DLL in the ```\bin\
 ![NUnit Runner Execute Tests](http://x.exercism.io/v3/tracks/csharp/docs/img/nUnitExecuteTests.png)
 
 The NUnit runner will automatically reload the DLL if it has been updated.
+
+##### Visual Studio Integration
+
+Another alternative to running the tests with NUnit-Gui is to run them directly in Visual Studio, which is very convenient if that's your IDE of choice. While the support is natively built in to Visual Studio 2015, for older versions you'll need to install the [NUnit Test Adapter](http://www.nunit.org/index.php?p=vsTestAdapter&r=2.6.2).
 
 ### Mac
 Xamarin Studio also ships with NUnit. To set the tests up you will have to add an NUnit library project to your solution, name it correctly and set a reference to your solution.
