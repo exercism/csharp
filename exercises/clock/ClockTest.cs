@@ -109,6 +109,15 @@ public class ClockTest
 
     [Ignore("Remove to run test")]
     [Test]
+    public void Clocks_with_different_time_are_not_equal()
+    {
+        var clock1 = new Clock(15, 30);
+        var clock2 = new Clock(14, 30);
+        Assert.That(clock1, Is.Not.EqualTo(clock2));
+    }
+
+    [Ignore("Remove to run test")]
+    [Test]
     public void Overflown_clocks_with_same_time_are_equal()
     {
         var clock1 = new Clock(14, 30);
