@@ -43,8 +43,7 @@ Target "Test" (fun _ ->
         [compiledOutput]
         |> NUnit3 (fun p -> { p with 
                                 ShadowCopy = false
-                                ToolPath = @"C:\Tools\NUnit3\bin\nunit3-console.exe"
-                                ResultSpecs = ["myresults.xml;format=AppVeyor"] })
+                                ToolPath = "nunit3-console.exe" })
     else
         [compiledOutput]
         |> NUnit3 (fun p -> { p with ShadowCopy = false })
