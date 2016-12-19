@@ -9,4 +9,6 @@ bin/configlet.exe
 tools/
 build/
 packages/
+paket-files
 TestResult.xml
+junit-results.xml

@@ -75,3 +75,6 @@ NUGET
       Microsoft.NETCore.Platforms (>= 1.0.1) - framework: dnxcore50, netstandard10, >= netstandard13
       Microsoft.NETCore.Targets (>= 1.0.1) - framework: dnxcore50, netstandard10, >= netstandard13
       System.Runtime (>= 4.1) - framework: dnxcore50, netstandard10, >= netstandard13
+GITHUB
+  remote: nunit/nunit-transforms
+    nunit3-junit/nunit3-junit.xslt (2a7c74198375b4b280ff3e79033c3d44e3083850)
