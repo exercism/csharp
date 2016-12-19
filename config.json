@@ -404,6 +404,14 @@
       ]
     },
     {
+      "slug": "list-ops",
+      "difficulty": 5,
+      "topics": [
+        "Lists",
+        "Recursion"
+      ]
+    },
+    {
       "slug": "simple-cipher",
       "difficulty": 5,
       "topics": [
