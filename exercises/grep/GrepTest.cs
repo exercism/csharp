@@ -42,6 +42,7 @@ That Shepherd, who first taught the chosen Seed
     [OneTimeSetUp]
     public void SetUp()
     {
+        Directory.SetCurrentDirectory(Path.GetTempPath());
         File.WriteAllText(IliadFileName, IliadContents);
         File.WriteAllText(MidsummerNightFileName, MidsummerNightContents);
         File.WriteAllText(ParadiseLostFileName, ParadiseLostContents);
@@ -50,6 +51,7 @@ That Shepherd, who first taught the chosen Seed
     [OneTimeTearDown]
     public void TearDown()
     {
+        Directory.SetCurrentDirectory(Path.GetTempPath());
         File.Delete(IliadFileName);
         File.Delete(MidsummerNightFileName);
         File.Delete(ParadiseLostFileName);
