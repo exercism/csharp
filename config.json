@@ -561,6 +561,15 @@
       ]
     },
     {
+      "slug": "markdown",
+      "difficulty": 5,
+      "topics": [
+        "Parsing",
+        "Transforming",
+        "Refactoring"
+      ]
+    },
+    {
       "slug": "run-length-encoding",
       "difficulty": 5,
       "topics": [
