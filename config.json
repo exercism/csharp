@@ -707,6 +707,14 @@
       ]
     },
     {
+      "slug": "connect",
+      "difficulty": 8,
+      "topics": [
+        "Parsing",
+        "Transforming"
+      ]
+    },
+    {
       "slug": "say",
       "difficulty": 8,
       "topics": [
