@@ -47,14 +47,14 @@ public class GoCounting
 
     private Player GetPlayer(Point coordinate) => board[coordinate.Y][coordinate.X];
 
-    private bool isEmpty(Point coordinate) => GetPlayer(coordinate) == Player.None;
-    private bool isTaken(Point coordinate) => !isEmpty(coordinate);
+    private bool IsEmpty(Point coordinate) => GetPlayer(coordinate) == Player.None;
+    private bool IsTaken(Point coordinate) => !IsEmpty(coordinate);
 
     private IEnumerable<Point> EmptyCoordinates()
     {
         return Enumerable.Range(0, Cols).SelectMany(col =>
                Enumerable.Range(0, Rows).Select(row => new Point(col, row)))
-                .Where(isEmpty);
+                .Where(IsEmpty);
     }
 
     private IEnumerable<Point> NeighborCoordinates(Point coordinate)
@@ -73,15 +73,15 @@ public class GoCounting
         return coords.Where(IsValidCoordinate);
     }
 
-    private IEnumerable<Point> NonEmptyNeighborCoordinates(Point coordinate) =>
-        NeighborCoordinates(coordinate).Where(neighborCoordinate => !isEmpty(neighborCoordinate));
+    private IEnumerable<Point> TakenNeighborCoordinates(Point coordinate) =>
+        NeighborCoordinates(coordinate).Where(IsTaken);
 
     private IEnumerable<Point> EmptyNeighborCoordinates(Point coordinate) =>
-        NeighborCoordinates(coordinate).Where(isEmpty);
+        NeighborCoordinates(coordinate).Where(IsEmpty);
 
     private Player TerritoryOwner(HashSet<Point> coords)
     {
-        var neighborColors = coords.SelectMany(NonEmptyNeighborCoordinates).Where(isTaken).Select(GetPlayer);
+        var neighborColors = coords.SelectMany(TakenNeighborCoordinates).Select(GetPlayer);
         var uniqueNeighborColors = ToSet(neighborColors);
 
         if (uniqueNeighborColors.Count == 1)
@@ -104,7 +104,7 @@ public class GoCounting
     }
 
     private HashSet<Point> Territory(Point coordinate) =>
-        IsValidCoordinate(coordinate) && isEmpty(coordinate)
+        IsValidCoordinate(coordinate) && IsEmpty(coordinate)
             ? TerritoryHelper(ToSingletonSet(coordinate), ToSingletonSet(coordinate))
             : new HashSet<Point>();
 
@@ -145,4 +145,3 @@ public class GoCounting
     private static HashSet<T> ToSet<T>(IEnumerable<T> value) => new HashSet<T>(value);
     private static HashSet<T> ToSingletonSet<T>(T value) => new HashSet<T> { value };    
 }
-
