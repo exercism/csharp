@@ -748,6 +748,15 @@
       ]
     },
     {
+      "slug": "go-counting",
+      "difficulty": 9,
+      "topics": [
+        "Parsing",
+        "Tuples",
+        "Optional values"
+      ]
+    },
+    {
       "slug": "sgf-parsing",
       "difficulty": 9,
       "topics": [
