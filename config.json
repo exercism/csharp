@@ -740,6 +740,15 @@
       ]
     },
     {
+      "slug": "react",
+      "difficulty": 9,
+      "topics": [
+        "Reactive programming",
+        "Classes",
+        "Events"
+      ]
+    },
+    {
       "slug": "variable-length-quantity",
       "difficulty": 9,
       "topics": [
