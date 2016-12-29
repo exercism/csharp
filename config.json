@@ -487,6 +487,14 @@
       ]
     },
     {
+      "slug": "tree-building",
+      "difficulty": 5,
+      "topics": [
+        "Trees",
+        "Refactoring"
+      ]
+    },
+    {
       "slug": "scale-generator",
       "difficulty": 5,
       "topics": [
