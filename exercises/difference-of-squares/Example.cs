@@ -9,7 +9,7 @@ public class Squares
     {
         if (max < 0)
         {
-            throw new ArgumentException("Max must be positive", "max");
+            throw new ArgumentOutOfRangeException("Max must be positive", "max");
         }
 
         this.max = max;

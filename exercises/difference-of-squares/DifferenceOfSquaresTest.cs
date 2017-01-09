@@ -77,6 +77,6 @@ public class DifferenceOfSquaresTests
     [Test]
     public void Test_negative_numbers_throw_argument_exception()
     {
-        Assert.That(() => new Squares(-5), Throws.TypeOf<ArgumentException>());
+        Assert.That(() => new Squares(-5), Throws.TypeOf<ArgumentOutOfRangeException>());
     }
 }
