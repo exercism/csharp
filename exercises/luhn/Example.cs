@@ -1,22 +1,23 @@
 using System;
 using System.Linq;
 
-public class Luhn
+public static class Luhn
 {
-    private readonly long number;
-
-    public long CheckDigit { get { return number % 10; } }
-    public int[] Addends { get; private set; }
-    public int Checksum { get { return Addends.Sum(); } }
-    public bool Valid { get { return Checksum % 10 == 0; } }
-
-    public Luhn(long number)
+    public static bool IsValid(string number)
     {
-        this.number = number;
-        Addends = GenerateAddends();
+        number = number.Replace(" ", "");
+
+        if (number.Length < 2 || number.Any(c => c < '0' || c > '9'))
+        {
+            return false;
+        }
+
+        var checksum = GenerateChecksum(number);
+
+        return checksum % 10 == 0;
     }
 
-    private int[] GenerateAddends()
+    private static int GenerateChecksum(string number)
     {
         var reversedIntArray = SplitToReversedIntArray(number);
         for (int i = 1; i < reversedIntArray.Length; i++)
@@ -25,34 +26,17 @@ public class Luhn
                 reversedIntArray[i] = ConvertDigitForAddend(reversedIntArray[i]);
         }
         Array.Reverse(reversedIntArray);
-        return reversedIntArray;
+        return reversedIntArray.Sum();
     }
 
-    private static int[] SplitToReversedIntArray(long value)
+    private static int[] SplitToReversedIntArray(string value)
     {
-        return value.ToString().Select(c => int.Parse(c.ToString())).Reverse().ToArray();
+        return value.Select(c => int.Parse(c.ToString())).Reverse().ToArray();
     }
 
     private static int ConvertDigitForAddend(int value)
     {
         var doubled = value * 2;
         return doubled < 10 ? doubled : doubled - 9;
-    }
-
-    public static long Create(long number)
-    {
-        var zeroCheckDigitNumber = number * 10;
-        var luhn = new Luhn(zeroCheckDigitNumber);
-
-        if (luhn.Valid)
-            return zeroCheckDigitNumber;
-
-        return zeroCheckDigitNumber + CreateCheckDigit(luhn.Checksum);
-    }
-
-    private static int CreateCheckDigit(int value)
-    {
-        var nearestTen = (int)(Math.Ceiling(value / 10.0m) * 10);
-        return nearestTen - value;
     }
 }
