@@ -62,4 +62,13 @@ public class AccumulateTest
         accumulation.ToList();
         Assert.That(counter, Is.EqualTo(3));
     }
+
+    [Ignore("Remove to run test")]
+    [Test]
+    public void Accumulate_allows_different_return_type()
+    {
+        Assert.That(
+            new[] { 1, 2, 3 }.Accumulate(x => x.ToString()), 
+            Is.EqualTo(new[] { "1", "2", "3" }));
+    }
 }
