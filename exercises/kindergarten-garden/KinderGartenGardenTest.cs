@@ -57,9 +57,9 @@ public class KinderGartenGardenTest
     public void Surprise_garden()
     {
         var garden = new Garden(new [] { "Samantha", "Patricia", "Xander", "Roger" }, "VCRRGVRG\nRVGCCGCV");
-        Assert.That(garden.GetPlants("Patricia"), Is.EqualTo(new[] { Plant.Violets, Plant.Clover, Plant.Radishes, Plant.Violets }));
-        Assert.That(garden.GetPlants("Roger"), Is.EqualTo(new[] { Plant.Radishes, Plant.Radishes, Plant.Grass, Plant.Clover }));
-        Assert.That(garden.GetPlants("Samantha"), Is.EqualTo(new[] { Plant.Grass, Plant.Violets, Plant.Clover, Plant.Grass }));
-        Assert.That(garden.GetPlants("Xander"), Is.EqualTo(new[] { Plant.Radishes, Plant.Grass, Plant.Clover, Plant.Violets }));
+        Assert.That(garden.GetPlants("Samantha"), Is.EqualTo(new[] { Plant.Violets, Plant.Clover, Plant.Radishes, Plant.Violets }));
+        Assert.That(garden.GetPlants("Patricia"), Is.EqualTo(new[] { Plant.Radishes, Plant.Radishes, Plant.Grass, Plant.Clover }));
+        Assert.That(garden.GetPlants("Xander"), Is.EqualTo(new[] { Plant.Grass, Plant.Violets, Plant.Clover, Plant.Grass }));
+        Assert.That(garden.GetPlants("Roger"), Is.EqualTo(new[] { Plant.Radishes, Plant.Grass, Plant.Clover, Plant.Violets }));
     }
 }
