@@ -535,6 +535,15 @@
         "Algorithms",
         "Transforming"
       ]
+    },
+    {
+      "slug": "ledger",
+      "difficulty": 5,
+      "topics": [
+        "Globalization",
+        "Text formatting",
+        "Refactoring"
+      ]
     }, 
     {
       "slug": "custom-set",
