@@ -544,6 +544,15 @@
       ]
     },
     {
+      "slug": "dot-dsl",
+      "difficulty": 5,
+      "topics": [
+        "Domain-specific languages",
+        "Classes",
+        "Equality"
+      ]
+    },
+    {
       "slug": "ocr-numbers",
       "difficulty": 5,
       "topics": [
