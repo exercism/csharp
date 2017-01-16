@@ -780,6 +780,14 @@
         "Parsing",
         "Transforming"
       ]
+    },
+    {
+      "slug": "alphametics",
+      "difficulty": 10,
+      "topics": [
+        "Parsing",
+        "Dictionaries"
+      ]
     }
   ],
   "deprecated": [
