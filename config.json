@@ -734,6 +734,14 @@
       ]
     },
     {
+      "slug": "hangman",
+      "difficulty": 8,
+      "topics": [
+        "Reactive programming",
+        "Events"
+      ]
+    },
+    {
       "slug": "diamond",
       "difficulty": 8,
       "topics": [
