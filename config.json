@@ -176,6 +176,13 @@
       ]
     },
     {
+      "slug": "error-handling",
+      "difficulty": 3,
+      "topics": [
+        "Exception handling"
+      ]
+    },
+    {
       "slug": "kindergarten-garden",
       "difficulty": 3,
       "topics": [
