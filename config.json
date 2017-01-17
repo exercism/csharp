@@ -821,6 +821,15 @@
         "Parsing",
         "Dictionaries"
       ]
+    },
+    {
+      "slug": "pov",
+      "difficulty": 10,
+      "topics": [
+        "Graphs",
+        "Recursion",
+        "Searching"
+      ]
     }
   ],
   "deprecated": [
