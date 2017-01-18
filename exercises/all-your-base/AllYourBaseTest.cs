@@ -131,6 +131,7 @@ public class AllYourBaseTest
         Assert.Throws<ArgumentException>(() => Base.Rebase(inputBase, inputDigits, outputBase));
     }
 
+    [Ignore("Remove to run test")]
     [Test]
     public void Negative_digit()
     {

@@ -176,6 +176,13 @@
       ]
     },
     {
+      "slug": "error-handling",
+      "difficulty": 3,
+      "topics": [
+        "Exception handling"
+      ]
+    },
+    {
       "slug": "kindergarten-garden",
       "difficulty": 3,
       "topics": [
@@ -535,12 +542,30 @@
         "Algorithms",
         "Transforming"
       ]
+    },
+    {
+      "slug": "ledger",
+      "difficulty": 5,
+      "topics": [
+        "Globalization",
+        "Text formatting",
+        "Refactoring"
+      ]
     }, 
     {
       "slug": "custom-set",
       "difficulty": 5,
       "topics": [
         "Sets"
+      ]
+    },
+    {
+      "slug": "dot-dsl",
+      "difficulty": 5,
+      "topics": [
+        "Domain-specific languages",
+        "Classes",
+        "Equality"
       ]
     },
     {
@@ -716,6 +741,14 @@
       ]
     },
     {
+      "slug": "hangman",
+      "difficulty": 8,
+      "topics": [
+        "Reactive programming",
+        "Events"
+      ]
+    },
+    {
       "slug": "diamond",
       "difficulty": 8,
       "topics": [
@@ -779,6 +812,23 @@
       "topics": [
         "Parsing",
         "Transforming"
+      ]
+    },
+    {
+      "slug": "alphametics",
+      "difficulty": 10,
+      "topics": [
+        "Parsing",
+        "Dictionaries"
+      ]
+    },
+    {
+      "slug": "pov",
+      "difficulty": 10,
+      "topics": [
+        "Graphs",
+        "Recursion",
+        "Searching"
       ]
     }
   ],

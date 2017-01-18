@@ -1,5 +1,9 @@
 language: csharp
 
+os:
+  - linux
+  - osx
+
 script:
   - ./bin/fetch-configlet
   - ./bin/configlet .
