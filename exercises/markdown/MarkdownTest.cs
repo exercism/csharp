@@ -14,7 +14,7 @@ public class MarkdownTest
     public void Parsing_italics()
     {
         var input = "_This will be italic_";
-        var expected = "<p><i>This will be italic</i></p>";
+        var expected = "<p><em>This will be italic</em></p>";
         Assert.That(Markdown.Parse(input), Is.EqualTo(expected));
     }
 
@@ -22,7 +22,7 @@ public class MarkdownTest
     public void Parsing_bold_text()
     {
         var input = "__This will be bold__";
-        var expected = "<p><em>This will be bold</em></p>";
+        var expected = "<p><strong>This will be bold</strong></p>";
         Assert.That(Markdown.Parse(input), Is.EqualTo(expected));
     }
 
@@ -30,7 +30,7 @@ public class MarkdownTest
     public void Mixed_normal_italics_and_bold_text()
     {
         var input = "This will _be_ __mixed__";
-        var expected = "<p>This will <i>be</i> <em>mixed</em></p>";
+        var expected = "<p>This will <em>be</em> <strong>mixed</strong></p>";
         Assert.That(Markdown.Parse(input), Is.EqualTo(expected));
     }
 
@@ -70,7 +70,7 @@ public class MarkdownTest
     public void With_a_little_bit_of_everything()
     {
         var input = "# Header!\n* __Bold Item__\n* _Italic Item_";
-        var expected = "<h1>Header!</h1><ul><li><em>Bold Item</em></li><li><i>Italic Item</i></li></ul>";
+        var expected = "<h1>Header!</h1><ul><li><strong>Bold Item</strong></li><li><em>Italic Item</em></li></ul>";
         Assert.That(Markdown.Parse(input), Is.EqualTo(expected));
     }
 }

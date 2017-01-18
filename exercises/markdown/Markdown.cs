@@ -14,9 +14,9 @@ public static class Markdown
         return Regex.Replace(markdown, pattern, replacement);
     }
 
-    private static string Parse__(string markdown) => Parse(markdown, "__", "em");
+    private static string Parse__(string markdown) => Parse(markdown, "__", "strong");
 
-    private static string Parse_(string markdown) => Parse(markdown, "_", "i");
+    private static string Parse_(string markdown) => Parse(markdown, "_", "em");
 
     private static string ParseText(string markdown, bool list)
     {
