@@ -14,8 +14,8 @@ public static class Markdown
     private const string ItalicMarkdown = "_";
     private const string ListItemMarkdown = "*";
 
-    private const string BoldTag = "em";
-    private const string ItalicTag = "i";
+    private const string BoldTag = "strong";
+    private const string ItalicTag = "em";
     private const string ParagraphTag = "p";
     private const string ListTag = "ul";
     private const string ListItemTag = "li";
