@@ -17,9 +17,9 @@ public class Graph<T> : IEquatable<Graph<T>>
         Value.Equals(other.Value) && Children.SequenceEqual(other.Children);
 }
 
-public class Crumb<T>
+public class GraphCrumb<T>
 {
-    public Crumb(T value, IEnumerable<Graph<T>> left, IEnumerable<Graph<T>> right)
+    public GraphCrumb(T value, IEnumerable<Graph<T>> left, IEnumerable<Graph<T>> right)
     {
         Value = value;
         Left = left;
@@ -31,16 +31,16 @@ public class Crumb<T>
     public IEnumerable<Graph<T>> Right { get; }
 }
 
-public class Zipper<T>
+public class GraphZipper<T>
 {
-    public Zipper(Graph<T> focus, IEnumerable<Crumb<T>> crumbs)
+    public GraphZipper(Graph<T> focus, IEnumerable<GraphCrumb<T>> crumbs)
     {
         Focus = focus;
         Crumbs = crumbs;
     }
 
     public Graph<T> Focus { get; }
-    public IEnumerable<Crumb<T>> Crumbs { get; }
+    public IEnumerable<GraphCrumb<T>> Crumbs { get; }
 }
 
 public static class Pov
@@ -54,15 +54,15 @@ public static class Pov
     public static IEnumerable<T> TracePathBetween<T>(T value1, T value2, Graph<T> graph) where T : IComparable
         => ZipperToPath(FindNode(value2, GraphToZipper(FromPOV(value1, graph))));
 
-    private static Zipper<T> GraphToZipper<T>(Graph<T> graph)
+    private static GraphZipper<T> GraphToZipper<T>(Graph<T> graph)
     {
         if (graph == null)
             return null;
 
-        return new Zipper<T>(graph, Enumerable.Empty<Crumb<T>>());
+        return new GraphZipper<T>(graph, Enumerable.Empty<GraphCrumb<T>>());
     }
 
-    private static IEnumerable<T> ZipperToPath<T>(Zipper<T> zipper)
+    private static IEnumerable<T> ZipperToPath<T>(GraphZipper<T> zipper)
     {
         if (zipper == null)
             return null;
@@ -70,7 +70,7 @@ public static class Pov
         return zipper.Crumbs.Select(c => c.Value).Reverse().Concat(new[] { zipper.Focus.Value });
     }
 
-    private static Zipper<T> GoDown<T>(Zipper<T> zipper)
+    private static GraphZipper<T> GoDown<T>(GraphZipper<T> zipper)
     {        
         if (zipper == null || !zipper.Focus.Children.Any())
             return null;
@@ -78,12 +78,12 @@ public static class Pov
         var focus = zipper.Focus;
         var children = focus.Children;
 
-        var newCrumb = new Crumb<T>(focus.Value, Enumerable.Empty<Graph<T>>(), children.Skip(1));
+        var newCrumb = new GraphCrumb<T>(focus.Value, Enumerable.Empty<Graph<T>>(), children.Skip(1));
 
-        return new Zipper<T>(children.First(), new[] { newCrumb }.Concat(zipper.Crumbs));
+        return new GraphZipper<T>(children.First(), new[] { newCrumb }.Concat(zipper.Crumbs));
     }
 
-    private static Zipper<T> GoRight<T>(Zipper<T> zipper)
+    private static GraphZipper<T> GoRight<T>(GraphZipper<T> zipper)
     {        
         if (zipper == null || !zipper.Crumbs.Any() || !zipper.Crumbs.First().Right.Any())
             return null;
@@ -91,12 +91,12 @@ public static class Pov
         var crumbs = zipper.Crumbs;
         var firstCrumb = crumbs.First();
 
-        var newCrumb = new Crumb<T>(firstCrumb.Value, firstCrumb.Left.Concat(new[] { zipper.Focus }), firstCrumb.Right.Skip(1));
+        var newCrumb = new GraphCrumb<T>(firstCrumb.Value, firstCrumb.Left.Concat(new[] { zipper.Focus }), firstCrumb.Right.Skip(1));
 
-        return new Zipper<T>(firstCrumb.Right.First(), new[] { newCrumb }.Concat(crumbs.Skip(1)));
+        return new GraphZipper<T>(firstCrumb.Right.First(), new[] { newCrumb }.Concat(crumbs.Skip(1)));
     }
 
-    private static Zipper<T> FindNode<T>(T value, Zipper<T> zipper)
+    private static GraphZipper<T> FindNode<T>(T value, GraphZipper<T> zipper)
         where T : IComparable
     {
         if (zipper == null || zipper.Focus.Value.CompareTo(value) == 0)
@@ -105,7 +105,7 @@ public static class Pov
         return FindNode(value, GoDown(zipper)) ?? FindNode(value, GoRight(zipper));
     }
 
-    private static Graph<T> ChangeParent<T>(Zipper<T> zipper)
+    private static Graph<T> ChangeParent<T>(GraphZipper<T> zipper)
     {
         if (zipper == null)
             return null;
@@ -116,7 +116,7 @@ public static class Pov
         var firstCrumb = zipper.Crumbs.First();
         var focus = zipper.Focus;
 
-        var newZipper = new Zipper<T>(CreateGraph(firstCrumb.Value, firstCrumb.Left.Concat(firstCrumb.Right)), zipper.Crumbs.Skip(1));
+        var newZipper = new GraphZipper<T>(CreateGraph(firstCrumb.Value, firstCrumb.Left.Concat(firstCrumb.Right)), zipper.Crumbs.Skip(1));
         var parentGraph = ChangeParent(newZipper);
 
         var ys = focus.Children.Concat(new[] { parentGraph });

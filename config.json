@@ -815,6 +815,15 @@
       ]
     },
     {
+      "slug": "zipper",
+      "difficulty": 10,
+      "topics": [
+        "Trees",
+        "Recursion",
+        "Searching"
+      ]
+    },
+    {
       "slug": "alphametics",
       "difficulty": 10,
       "topics": [

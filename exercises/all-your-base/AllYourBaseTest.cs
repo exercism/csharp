@@ -156,7 +156,7 @@ public class AllYourBaseTest
     public void First_base_is_one()
     {
         const int inputBase = 1;
-        var inputDigits = new int[0];
+        var inputDigits = new[] { 1, 0, 1, 0, 1, 0 };
         const int outputBase = 10;
         Assert.Throws<ArgumentException>(() => Base.Rebase(inputBase, inputDigits, outputBase));
     }
