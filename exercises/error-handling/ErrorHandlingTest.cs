@@ -57,9 +57,9 @@ public class ErrorHandlingTest
     [Ignore("Remove to run test")]
     public void DisposableObjectsAreDisposedWhenThrowingAnException()
     {
-        var disposbaleResource = new DisposableResource();
+        var disposableResource = new DisposableResource();
 
-        Assert.Throws<Exception>(() => ErrorHandling.DisposableResourcesAreDisposedWhenExceptionIsThrown(disposbaleResource));
-        Assert.That(disposbaleResource.IsDisposed, Is.EqualTo(true));
+        Assert.Throws<Exception>(() => ErrorHandling.DisposableResourcesAreDisposedWhenExceptionIsThrown(disposableResource));
+        Assert.That(disposableResource.IsDisposed, Is.EqualTo(true));
     }
 }
