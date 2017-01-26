@@ -1,6 +1,10 @@
 ## Installing C&#35;
 
-### Windows
+* [Windows](#windows)
+* [Mac](#mac)
+* [Linux](#linux)
+
+### [Windows](#windows)
 There are a couple of different ways to get started using C#. The main way is to
 install Visual Studio, the IDE for C# and related projects.
 
@@ -87,7 +91,7 @@ The compiler executable is usually located in the Microsoft.NET\Framework\Versio
 
 Refer to this [MSDN article](http://msdn.microsoft.com/en-us/library/78f4aasd.aspx) for more information on the command line compiler.
 
-### Mac
+### [Mac](#mac)
 
 Install [Xamarin Studio](http://xamarin.com/download).
 
@@ -98,6 +102,84 @@ Once installed and running, click on new solution and you'll find the C# library
 
 ![Xamarin New Project](http://x.exercism.io/v3/tracks/csharp/docs/img/xamarin-csharp.jpg)
 
-### Linux
+### [Linux](#linux)
+
+.NET Core is available for Linux. Follow the [official installation guide](https://www.microsoft.com/net/core#linuxubuntu) to install the .NET Core development tools. 
+
+After installing .NET Core, fetch the first exercise of the csharp-track:
+
+```
+exercism fetch csharp
+```
+
+Move into the exercise directory:
+
+```
+cd ~/exercism/csharp/hello-world
+```
+
+Initialize a new dotnet project
+
+```
+dotnet new
+```
+
+Several new files are created, among them project.json. We have to add nunit as a dependency in order to run the tests provided in the exercise.
+
+Add the following lines to the dependency block:
+
+```
+"dependencies": {
+  "nunit": "3.6.0",
+  "dotnet-test-nunit": "3.4.0-*"
+}
+```
+
+We also have to specify the testrunner, add this line below the dependency block:
+
+```
+"testRunner":"nunit"
+```
+
+The complete **project.json** file should look something like this:
+
+```
+{
+  "version": "1.0.0-*",
+  "buildOptions": {
+    "debugType": "portable",
+    "emitEntryPoint": true
+  },
+  "dependencies": {
+    "nunit": "3.6.0",
+    "dotnet-test-nunit": "3.4.0-*"
+  },
+  "testRunner":"nunit",
+  "frameworks": {
+    "netcoreapp1.1": {
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "type": "platform",
+          "version": "1.1.0"
+        }
+      },
+      "imports": "dnxcore50"
+    }
+  }
+}
+```
+
+Then we can restore the packages using:
+
+```
+dotnet restore
+```
+
+Compile the project and run the tests with this:
+
+```
+dotnet test
+```
+
 
 [Mono Develop](http://www.mono-project.com/Mono_For_Linux_Developers) is available for Linux.
