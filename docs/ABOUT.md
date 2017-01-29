@@ -1,13 +1,5 @@
-C# is a modern, object oriented language which is developed and maintained by Microsoft.
+C# is a modern, object oriented language developed and maintained by Microsoft. The learning curve is small, reduced even if the developer has experience with other 'C-Style' languages.
 
-The syntax of C# is very similar to other languages like Java and C++.
+C# is a carefully designed language with lots of great features, such as type-inference and async/await. The official [documentation](https://docs.microsoft.com/en-us/dotnet/articles/csharp/) is very extensive and well-written.
 
-C# is a reasonably popular language, in 2014 it was surveyed that 5% of developers used it.  The learning curve is small, reduced even if the developer has experience with other 'C-Style' languages.
-
-Key Benefits:
-
-- It has a great library with lots of well-documented, easy to use functionality such as writing to a text file, or accessing Windows related features.
-- Type Safety
-  - Type Safety is a language-agnostic compilation feature that means when code is compiled, types are validated.  This means for example a `string` value could not be assigned to an `int`.
-- Native Garbage Collection
-  - Garbage Collection (GC) is a feature that allows memory management.  When a resource like a variable, is no longer used, GC will release the related resources back to the system.
+Although .NET used to be Windows-only, with the release of [.NET Core](https://www.microsoft.com/net/core) you can also use C# on Mac or Unix-based systems.
