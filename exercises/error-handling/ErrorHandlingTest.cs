@@ -6,7 +6,7 @@ public class ErrorHandlingTest
 {
     // Read more about exception handling here:
     // https://msdn.microsoft.com/en-us/library/ms173162.aspx?f=255&MSPPError=-2147217396
-    [TestCase]
+    [Test]
     public void ThrowException()
     {
         Assert.Throws<Exception>(ErrorHandling.HandleErrorByThrowingException);
@@ -14,7 +14,7 @@ public class ErrorHandlingTest
 
     // Read more about nullable types here:
     // https://msdn.microsoft.com/en-us/library/1t3y8s4s.aspx?f=255&MSPPError=-2147217396
-    [TestCase]
+    [Test]
     [Ignore("Remove to run test")]
     public void ReturnNullableType()
     {
@@ -27,7 +27,7 @@ public class ErrorHandlingTest
 
     // Read more about out parameters here:
     // https://msdn.microsoft.com/en-us/library/t3c3bfhx.aspx?f=255&MSPPError=-2147217396
-    [TestCase]
+    [Test]
     [Ignore("Remove to run test")]
     public void ReturnWithOutParameter()
     {
@@ -53,7 +53,7 @@ public class ErrorHandlingTest
 
     // Read more about IDisposable here:
     // https://msdn.microsoft.com/en-us/library/system.idisposable(v=vs.110).aspx
-    [TestCase]
+    [Test]
     [Ignore("Remove to run test")]
     public void DisposableObjectsAreDisposedWhenThrowingAnException()
     {
