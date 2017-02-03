@@ -57,4 +57,11 @@ public class ScrabbleScoreTest
     {
         Assert.That(Scrabble.Score("OXYPHENBUTAZONE"), Is.EqualTo(41));
     }
+    
+    [Ignore("Remove to run test")]
+    [Test]
+    public void Entire_alphabet()
+    {
+        Assert.That(Scrabble.Score("abcdefghijklmnopqrstuvwxyz"), Is.EqualTo(87));
+    }
 }
