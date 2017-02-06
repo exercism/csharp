@@ -11,7 +11,7 @@ public class BankAccountTest
         var account = new BankAccount();
         account.Open();
 
-        Assert.That(account.GetBalance(), Is.EqualTo(0));
+        Assert.That(account.Balance, Is.EqualTo(0));
     }
 
     [Ignore("Remove to run test")]
@@ -21,10 +21,10 @@ public class BankAccountTest
         var account = new BankAccount();
         account.Open();
 
-        var openingBalance = account.GetBalance();
+        var openingBalance = account.Balance;
 
         account.UpdateBalance(10);
-        var updatedBalance = account.GetBalance();
+        var updatedBalance = account.Balance;
 
         Assert.That(openingBalance, Is.EqualTo(0));
         Assert.That(updatedBalance, Is.EqualTo(10));
@@ -36,13 +36,13 @@ public class BankAccountTest
     {
         var account = new BankAccount();
         account.Open();
-        var openingBalance = account.GetBalance();
+        var openingBalance = account.Balance;
 
         account.UpdateBalance(10);
-        var addedBalance = account.GetBalance();
+        var addedBalance = account.Balance;
 
         account.UpdateBalance(-15);
-        var subtractedBalance = account.GetBalance();
+        var subtractedBalance = account.Balance;
 
         Assert.That(openingBalance, Is.EqualTo(0));
         Assert.That(addedBalance, Is.EqualTo(10));
@@ -57,7 +57,7 @@ public class BankAccountTest
         account.Open();
         account.Close();
 
-        Assert.Throws<InvalidOperationException>(() => account.GetBalance());
+        Assert.That(() => account.Balance, Throws.InvalidOperationException);
     }
 
     [Ignore("Remove to run test")]
@@ -84,6 +84,6 @@ public class BankAccountTest
         }
         Task.WaitAll(tasks.ToArray());
 
-        Assert.That(account.GetBalance(), Is.EqualTo(0));
+        Assert.That(account.Balance, Is.EqualTo(0));
     }
 }
