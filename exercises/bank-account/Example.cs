@@ -23,16 +23,19 @@ public class BankAccount
         }
     }
 
-    public float GetBalance()
+    public float Balance
     {
-        lock(_lock)
+        get
         {
-            if (!isOpen)
+            lock (_lock)
             {
-                throw new InvalidOperationException("Cannot get balance on an account that isn't open");
-            }
+                if (!isOpen)
+                {
+                    throw new InvalidOperationException("Cannot get balance on an account that isn't open");
+                }
 
-            return balance;
+                return balance;
+            }
         }
     }
 
