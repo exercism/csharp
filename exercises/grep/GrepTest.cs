@@ -1,7 +1,8 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Xunit;
 
-public class GrepTest
+public class GrepTest : IDisposable
 {
     private const string IliadFileName = "iliad.txt";
     private const string IliadContents =
@@ -38,18 +39,16 @@ Sing Heav'nly Muse, that on the secret top
 Of Oreb, or of Sinai, didst inspire
 That Shepherd, who first taught the chosen Seed
 ";
-
-    [OneTimeSetUp]
-    public void SetUp()
+    
+    public GrepTest()
     {
         Directory.SetCurrentDirectory(Path.GetTempPath());
         File.WriteAllText(IliadFileName, IliadContents);
         File.WriteAllText(MidsummerNightFileName, MidsummerNightContents);
         File.WriteAllText(ParadiseLostFileName, ParadiseLostContents);
     }
-
-    [OneTimeTearDown]
-    public void TearDown()
+    
+    public void Dispose()
     {
         Directory.SetCurrentDirectory(Path.GetTempPath());
         File.Delete(IliadFileName);

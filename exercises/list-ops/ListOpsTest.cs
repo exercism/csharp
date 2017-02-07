@@ -40,37 +40,37 @@ public class ListOpsTest
     [Fact(Skip="Remove to run test")]
     public void ReverseOfEmptylist()
     {
-        Assert.That(ListOps.Reverse(EmptyList), Is.EquivalentTo(EmptyList));
+        Assert.Equal(EmptyList, ListOps.Reverse(EmptyList));
     }
 
     [Fact(Skip="Remove to run test")]
     public void ReverseOfNonEmptyList()
     {
-        Assert.That(ListOps.Reverse(Range(1, 100)), Is.EquivalentTo(Range(1, 100).OrderByDescending(x => x).ToList()));
+        Assert.Equal(Range(1, 100).OrderByDescending(x => x).ToList(), ListOps.Reverse(Range(1, 100)));
     }
 
     [Fact(Skip="Remove to run test")]
     public void MapOfEmptylist()
     {
-        Assert.That(ListOps.Map(x => x + 1, EmptyList), Is.EquivalentTo(EmptyList));
+        Assert.Equal(EmptyList, ListOps.Map(x => x + 1, EmptyList));
     }
 
     [Fact(Skip="Remove to run test")]
     public void MapOfNonEmptyList()
     {
-        Assert.That(ListOps.Map(x => x + 1, new List<int> {1, 3, 5, 7}), Is.EquivalentTo(new List<int> {2, 4, 6, 8}));
+        Assert.Equal(new List<int> {2, 4, 6, 8}, ListOps.Map(x => x + 1, new List<int> {1, 3, 5, 7}));
     }
 
     [Fact(Skip="Remove to run test")]
     public void FilterOfEmptylist()
     {
-        Assert.That(ListOps.Filter(x => true, EmptyList), Is.EquivalentTo(EmptyList));
+        Assert.Equal(EmptyList, ListOps.Filter(x => true, EmptyList));
     }
 
     [Fact(Skip="Remove to run test")]
     public void FilterOfNormalList()
     {
-        Assert.That(ListOps.Filter(Odd, Range(1, 4)), Is.EquivalentTo(new List<int> {1, 3}));
+        Assert.Equal(new List<int> {1, 3}, ListOps.Filter(Odd, Range(1, 4)));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -100,19 +100,19 @@ public class ListOpsTest
     [Fact(Skip="Remove to run test")]
     public void FoldlIsNotJustFoldrFlip()
     {
-        Assert.Equal("fdsa".ToList(), ListOps.Foldl((acc, x) => Cons(x, acc), EmptyList, "asdf".ToList()));
+        Assert.Equal("fdsa", string.Concat(ListOps.Foldl((acc, x) => Cons(x, acc), EmptyList, "asdf".ToList())));
     }
 
     [Fact(Skip="Remove to run test")]
     public void FoldrAsId()
     {
-        Assert.That(ListOps.Foldr((x, acc) => Cons(x, acc), EmptyList, Range(1, Big)), Is.EquivalentTo(BigList));
+        Assert.Equal(BigList, ListOps.Foldr((x, acc) => Cons(x, acc), EmptyList, Range(1, Big)));
     }
 
     [Fact(Skip="Remove to run test")]
     public void FoldrAsAppend()
     {
-        Assert.That(ListOps.Foldr((x, acc) => Cons(x, acc), Range(100, Big), Range(1, 99)), Is.EquivalentTo(BigList));
+        Assert.Equal(BigList, ListOps.Foldr((x, acc) => Cons(x, acc), Range(100, Big), Range(1, 99)));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -142,7 +142,7 @@ public class ListOpsTest
     [Fact(Skip="Remove to run test")]
     public void AppendOfLargeLists()
     {
-        Assert.That(ListOps.Append(Range(1, Big / 2), Range(1 + Big / 2, Big)), Is.EquivalentTo(BigList));
+        Assert.Equal(BigList, ListOps.Append(Range(1, Big / 2), Range(1 + Big / 2, Big)));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -154,19 +154,19 @@ public class ListOpsTest
     [Fact(Skip="Remove to run test")]
     public void ConcatOfListOfLists()
     {
-        Assert.That(
+        Assert.Equal(Range(1, 6),
             ListOps.Concat(new List<List<int>>
             {
                 new List<int> {1, 2},
                 new List<int> {3},
                 EmptyList,
                 new List<int> {4, 5, 6}
-            }), Is.EqualTo(Range(1, 6)));
+            }));
     }
 
     [Fact(Skip="Remove to run test")]
     public void ConcatOfLargeListOfSmallLists()
     {
-        Assert.That(ListOps.Concat(ListOps.Map(x => new List<int> {x}, Range(1, Big))), Is.EquivalentTo(BigList));
+        Assert.Equal(BigList, ListOps.Concat(ListOps.Map(x => new List<int> {x}, Range(1, Big))));
     }
 }

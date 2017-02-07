@@ -3,18 +3,12 @@ using Xunit;
 
 public class GradeSchoolTest
 {
-    private School school;
-
-    [SetUp]
-    public void Setup()
-    {
-        school = new School();
-    }
+    private readonly School school = new School();
 
     [Fact]
     public void New_school_has_an_empty_roster()
     {
-        Assert.That(school.Roster, Has.Count.EqualTo(0));
+        Assert.Empty(school.Roster);
     }
 
     [Fact(Skip="Remove to run test")]

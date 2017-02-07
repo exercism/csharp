@@ -9,7 +9,10 @@ public class DiffieHellmanTest
     {
         var primeP = new BigInteger(23);
         var privateKeys = Enumerable.Range(0, 10).Select(_ => DiffieHellman.PrivateKey(primeP)).ToList();
-        Assert.That(privateKeys, Is.All.InRange(new BigInteger(1), primeP - new BigInteger(1)));
+        Assert.All(privateKeys, privateKey => 
+        {
+            Assert.InRange(privateKey, new BigInteger(1), primeP - new BigInteger(1));
+        });
     }
 
     // Note: due to the nature of randomness, there is always a chance that this test fails

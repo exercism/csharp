@@ -8,13 +8,13 @@ public class RandomKeyCipherTest
     [Fact]
     public void Cipher_key_is_made_of_letters()
     {
-        Assert.That(cipher.Key, Does.Match("[a-z]+"));
+        Assert.Matches("[a-z]+", cipher.Key);
     }
 
     [Fact(Skip="Remove to run test")]
     public void Default_cipher_key_is_100_characters()
     {
-        Assert.That(cipher.Key, Has.Length.EqualTo(100));
+        Assert.Equal(100, cipher.Key.Length);
     }
 
     [Fact(Skip="Remove to run test")]

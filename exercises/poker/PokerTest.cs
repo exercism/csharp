@@ -138,8 +138,7 @@ public class PokerTest
     {
         const string straightFlushTo8 = "4H 6H 7H 8H 5H";
         const string straightFlushTo9 = "5S 7S 8S 9S 6S";
-        Assert.That(Poker.BestHands(new[] { straightFlushTo8, straightFlushTo9 }),
-            Is.EqualTo(new[] { straightFlushTo9 }));
+        Assert.Equal(new[] { straightFlushTo9 }, Poker.BestHands(new[] { straightFlushTo8, straightFlushTo9 }));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -148,8 +147,7 @@ public class PokerTest
         const string spadeStraightTo9 = "9S 8S 7S 6S 5S";
         const string diamondStraightTo9 = "9D 8D 7D 6D 5D";
         const string threeOf4 = "4D 4S 4H QS KS";
-        Assert.That(Poker.BestHands(new[] { spadeStraightTo9, diamondStraightTo9, threeOf4 }),
-            Is.EqualTo(new[] { spadeStraightTo9, diamondStraightTo9 }));
+        Assert.Equal(new[] { spadeStraightTo9, diamondStraightTo9 }, Poker.BestHands(new[] { spadeStraightTo9, diamondStraightTo9, threeOf4 }));
     }
 
     [Ignore("Remove to run test")]

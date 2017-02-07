@@ -20,15 +20,13 @@ public class AccumulateTest
     [Fact(Skip="Remove to run test")]
     public void Accumulate_upcases()
     {
-        Assert.That(new List<string> { "hello", "world" }.Accumulate(x => x.ToUpper()),
-            Is.EqualTo(new List<string> { "HELLO", "WORLD" }));
+        Assert.Equal(new List<string> { "HELLO", "WORLD" }, new List<string> { "hello", "world" }.Accumulate(x => x.ToUpper()));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Accumulate_reversed_strings()
     {
-        Assert.That("the quick brown fox etc".Split(' ').Accumulate(Reverse),
-            Is.EqualTo("eht kciuq nworb xof cte".Split(' ')));
+        Assert.Equal("eht kciuq nworb xof cte".Split(' '), "the quick brown fox etc".Split(' ').Accumulate(Reverse));
     }
 
     private static string Reverse(string value)
@@ -60,8 +58,6 @@ public class AccumulateTest
     [Fact(Skip="Remove to run test")]
     public void Accumulate_allows_different_return_type()
     {
-        Assert.That(
-            new[] { 1, 2, 3 }.Accumulate(x => x.ToString()), 
-            Is.EqualTo(new[] { "1", "2", "3" }));
+        Assert.Equal(new[] { "1", "2", "3" }, new[] { 1, 2, 3 }.Accumulate(x => x.ToString()));
     }
 }

@@ -35,7 +35,7 @@ public class GoCountingTest
         var board = new GoCounting(boardFiveByFive);
         var result = board.TerritoryFor(new Point(0, 1));
         Assert.Equal(GoCounting.Player.Black, result.Item1);
-        Assert.That(result.Item2, Is.EquivalentTo(new[] { new Point(0, 0), new Point(0, 1), new Point(1, 0) }));
+        Assert.Equal(new[] { new Point(0, 0), new Point(0, 1), new Point(1, 0) }, result.Item2);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -44,7 +44,7 @@ public class GoCountingTest
         var board = new GoCounting(boardFiveByFive);
         var result = board.TerritoryFor(new Point(2, 3));
         Assert.Equal(GoCounting.Player.White, result.Item1);
-        Assert.That(result.Item2, Is.EquivalentTo(new[] { new Point(2, 3) }));
+        Assert.Equal(new[] { new Point(2, 3) }, result.Item2);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -53,7 +53,7 @@ public class GoCountingTest
         var board = new GoCounting(boardFiveByFive);
         var result = board.TerritoryFor(new Point(1, 4));
         Assert.Equal(GoCounting.Player.None, result.Item1);
-        Assert.That(result.Item2, Is.EquivalentTo(new[] { new Point(0, 3), new Point(0, 4), new Point(1, 4) }));
+        Assert.Equal(new[] { new Point(0, 3), new Point(0, 4), new Point(1, 4) }, result.Item2);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -85,7 +85,7 @@ public class GoCountingTest
 
         var expected = new Dictionary<GoCounting.Player, IEnumerable<Point>>();
 
-        Assert.That(board.Territories(), Is.EquivalentTo(expected));
+        Assert.Equal(expected, board.Territories());
     }
 
     [Fact(Skip="Remove to run test")]
@@ -99,7 +99,7 @@ public class GoCountingTest
             [GoCounting.Player.None] = new[] { new Point(0, 0) }
         };
 
-        Assert.That(board.Territories(), Is.EquivalentTo(expected));
+        Assert.Equal(expected, board.Territories());
     }
 
     [Fact(Skip="Remove to run test")]
@@ -114,6 +114,6 @@ public class GoCountingTest
             [GoCounting.Player.White] = new[] { new Point(3, 0), new Point(3, 1) }
         };
 
-        Assert.That(board.Territories(), Is.EquivalentTo(expected));
+        Assert.Equal(expected, board.Territories());
     }
 }

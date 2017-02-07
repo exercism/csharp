@@ -51,7 +51,7 @@ public class ReactTest
 
         Assert.Empty(observed);
         inputCell1.Value = 2;
-        Assert.That(observed, Is.EquivalentTo(new[] { 3 }));
+        Assert.Equal(new[] { 3 }, observed);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -87,13 +87,13 @@ public class ReactTest
         computeCell1.Changed += changedHandler2;
 
         inputCell1.Value = 2;
-        Assert.That(observed1, Is.EquivalentTo(new[] { 3 }));
-        Assert.That(observed2, Is.EquivalentTo(new[] { 3 }));
+        Assert.Equal(new[] { 3 }, observed1);
+        Assert.Equal(new[] { 3 }, observed2);
 
         computeCell1.Changed -= changedHandler1;
         inputCell1.Value = 3;
-        Assert.That(observed1, Is.EquivalentTo(new[] { 3 }));
-        Assert.That(observed2, Is.EquivalentTo(new[] { 3, 4 }));
+        Assert.Equal(new[] { 3 }, observed1);
+        Assert.Equal(new[] { 3, 4 }, observed2);
     }
 
     [Fact(Skip="Remove to run test")]

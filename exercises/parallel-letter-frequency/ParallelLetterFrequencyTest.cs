@@ -43,7 +43,7 @@ public class ParallelLetterParallelLetterFrequency
         var input = Enumerable.Empty<string>();
         var actual = ParallelLetterFrequency.Calculate(input);
         var expected = new Dictionary<char, int>();
-        Assert.That(actual, Is.EquivalentTo(expected));
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -55,7 +55,7 @@ public class ParallelLetterParallelLetterFrequency
         {
             { 'a', 1 }
         };
-        Assert.That(actual, Is.EquivalentTo(expected));
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -67,7 +67,7 @@ public class ParallelLetterParallelLetterFrequency
         {
             { 'a', 2 }
         };
-        Assert.That(actual, Is.EquivalentTo(expected));
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -76,7 +76,7 @@ public class ParallelLetterParallelLetterFrequency
         var input = Enumerable.Repeat("  ", 10000);
         var actual = ParallelLetterFrequency.Calculate(input);
         var expected = new Dictionary<char, int>();
-        Assert.That(actual, Is.EquivalentTo(expected));
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -90,7 +90,7 @@ public class ParallelLetterParallelLetterFrequency
             { 'b', 1000 },
             { 'c', 1000 }
         };
-        Assert.That(actual, Is.EquivalentTo(expected));
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip="Remove to run test")]

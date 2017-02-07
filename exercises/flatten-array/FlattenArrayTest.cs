@@ -14,7 +14,7 @@ public class FlattenArrayTest
     public void Flattens_2_Level_Nested_List()
     {
         var nestedList = new List<object> { 1, new List<object> { 2, 3, 4 }, 5 };
-        Assert.That(Flattener.Flatten(nestedList), Is.EquivalentTo(new List<object> { 1, 2, 3, 4, 5 }));
+        Assert.Equal(new List<object> { 1, 2, 3, 4, 5 }, Flattener.Flatten(nestedList));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -27,7 +27,7 @@ public class FlattenArrayTest
             5,
             new List<object> { 6, new List<object> { 7, 8 } }
         };
-        Assert.That(Flattener.Flatten(nestedList), Is.EquivalentTo(new List<object> { 1, 2, 3, 4, 5, 6, 7, 8 }));
+        Assert.Equal(new List<object> { 1, 2, 3, 4, 5, 6, 7, 8 }, Flattener.Flatten(nestedList));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -47,7 +47,7 @@ public class FlattenArrayTest
                 -2
             }
         };
-        Assert.That(Flattener.Flatten(nestedList), Is.EquivalentTo(new List<object> { 0, 2, 2, 3, 8, 100, 4, 50, -2 }));
+        Assert.Equal(new List<object> { 0, 2, 2, 3, 8, 100, 4, 50, -2 }, Flattener.Flatten(nestedList));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -66,7 +66,7 @@ public class FlattenArrayTest
             },
             8
         };
-        Assert.That(Flattener.Flatten(nestedList), Is.EquivalentTo(new List<object> { 1, 2, 3, 4, 5, 6, 7, 8 }));
+        Assert.Equal(new List<object> { 1, 2, 3, 4, 5, 6, 7, 8 }, Flattener.Flatten(nestedList));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -88,7 +88,7 @@ public class FlattenArrayTest
             8,
             null
         };
-        Assert.That(Flattener.Flatten(nestedList), Is.EquivalentTo(new List<object> { 1, 2, 3, 4, 5, 6, 7, 8 }));
+        Assert.Equal(new List<object> { 1, 2, 3, 4, 5, 6, 7, 8 }, Flattener.Flatten(nestedList));
     }
 
     [Fact(Skip="Remove to run test")]

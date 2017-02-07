@@ -128,7 +128,10 @@ public class PovTest
     {
         var nodes = new[] { singleton, flat, kids, nested, cousins }.Select(graph => Pov.FromPOV("NOT THERE", graph));
     
-        Assert.That(nodes, Is.All.Null);
+        Assert.All(nodes, node =>
+        {
+            Assert.Null(node);
+        });
     }
 
     [Fact(Skip="Remove to run test")]
@@ -140,12 +143,12 @@ public class PovTest
     [Fact(Skip="Remove to run test")]
     public void Can_trace_a_path_from_x_to_cousin()
     {
-        Assert.That(Pov.TracePathBetween(x, "cousin-1", cousins), Is.EquivalentTo(new[] { "x", "parent", "grandparent", "uncle", "cousin-1" }));
+        Assert.Equal(new[] { "x", "parent", "grandparent", "uncle", "cousin-1" }, Pov.TracePathBetween(x, "cousin-1", cousins));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Can_trace_from_a_leaf_to_a_leaf()
     {
-        Assert.That(Pov.TracePathBetween("kid-a", "cousin-0", cousins), Is.EquivalentTo(new[] { "kid-a", "x", "parent", "grandparent", "uncle", "cousin-0" }));
+        Assert.Equal(new[] { "kid-a", "x", "parent", "grandparent", "uncle", "cousin-0" }, Pov.TracePathBetween("kid-a", "cousin-0", cousins));
     }
 }

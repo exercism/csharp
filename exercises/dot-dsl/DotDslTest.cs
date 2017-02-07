@@ -20,7 +20,7 @@ public class DotDslTest
             new Node("a")
         };
 
-        Assert.That(g.Nodes, Is.EquivalentTo(new[] { new Node("a") }));
+        Assert.Equal(new[] { new Node("a") }, g.Nodes);
         Assert.Empty(g.Edges);
         Assert.Empty(g.Attrs);
     }
@@ -33,7 +33,7 @@ public class DotDslTest
             new Node("a") { { "color", "green" } }
         };
 
-        Assert.That(g.Nodes, Is.EquivalentTo(new[] { new Node("a") { { "color", "green" } } }));
+        Assert.Equal(new[] { new Node("a") { { "color", "green" } } }, g.Nodes);
         Assert.Empty(g.Edges);
         Assert.Empty(g.Attrs);
     }
@@ -47,7 +47,7 @@ public class DotDslTest
         };
 
         Assert.Empty(g.Nodes);
-        Assert.That(g.Edges, Is.EquivalentTo(new[] { new Edge("a", "b") }));
+        Assert.Equal(new[] { new Edge("a", "b") }, g.Edges);
         Assert.Empty(g.Attrs);
     }
 
@@ -61,7 +61,7 @@ public class DotDslTest
 
         Assert.Empty(g.Nodes);
         Assert.Empty(g.Edges);
-        Assert.That(g.Attrs, Is.EquivalentTo(new[] { new Attr("foo", "1") }));
+        Assert.Equal(new[] { new Attr("foo", "1") }, g.Attrs);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -79,8 +79,8 @@ public class DotDslTest
             { "bar", "true" }
         };
 
-        Assert.That(g.Nodes, Is.EquivalentTo(new[] { new Node("a") { { "color", "green" } }, new Node("b") { { "label", "Beta!" } }, new Node("c") }));
-        Assert.That(g.Edges, Is.EquivalentTo(new[] { new Edge("a", "b") { { "color", "blue" } }, new Edge("b", "c") }));
-        Assert.That(g.Attrs, Is.EquivalentTo(new[] { new Attr("bar", "true"), new Attr("foo", "1"), new Attr("title", "Testing Attrs") }));
+        Assert.Equal(new[] { new Node("a") { { "color", "green" } }, new Node("b") { { "label", "Beta!" } }, new Node("c") }, g.Nodes);
+        Assert.Equal(new[] { new Edge("a", "b") { { "color", "blue" } }, new Edge("b", "c") }, g.Edges);
+        Assert.Equal(new[] { new Attr("bar", "true"), new Attr("foo", "1"), new Attr("title", "Testing Attrs") }, g.Attrs);
     }
 }

@@ -41,7 +41,7 @@ public class DominoesTest
     {
         var actual = new Tuple<int, int>[0];
         var chain = Dominoes.Chain(actual);
-        Assert.That(IsValidSolution(chain, actual));
+        Assert.True(IsValidSolution(chain, actual));
     }
 
     [Fact]
@@ -49,7 +49,7 @@ public class DominoesTest
     {
         var actual = new[] { Tuple.Create(1, 1) };
         var chain = Dominoes.Chain(actual);
-        Assert.That(IsValidSolution(chain, actual));
+        Assert.True(IsValidSolution(chain, actual));
     }
 
     [Fact]
@@ -65,7 +65,7 @@ public class DominoesTest
     {
         var actual = new[] { Tuple.Create(1, 2), Tuple.Create(3, 1), Tuple.Create(2, 3) };
         var chain = Dominoes.Chain(actual);
-        Assert.That(IsValidSolution(chain, actual));
+        Assert.True(IsValidSolution(chain, actual));
     }
 
     [Fact]
@@ -73,7 +73,7 @@ public class DominoesTest
     {
         var actual = new[] { Tuple.Create(1, 2), Tuple.Create(1, 3), Tuple.Create(2, 3) };
         var chain = Dominoes.Chain(actual);
-        Assert.That(IsValidSolution(chain, actual));
+        Assert.True(IsValidSolution(chain, actual));
     }
 
     [Fact]
@@ -113,7 +113,7 @@ public class DominoesTest
     {
         var actual = new[] { Tuple.Create(1, 2), Tuple.Create(2, 3), Tuple.Create(3, 1), Tuple.Create(2, 4), Tuple.Create(2, 4) };
         var chain = Dominoes.Chain(actual);
-        Assert.That(IsValidSolution(chain, actual));
+        Assert.True(IsValidSolution(chain, actual));
     }
 
     [Fact]
@@ -124,7 +124,7 @@ public class DominoesTest
             Tuple.Create(1, 2), Tuple.Create(2, 3), Tuple.Create(3, 1), Tuple.Create(1, 1), Tuple.Create(2, 2), Tuple.Create(3, 3)
         };
         var chain = Dominoes.Chain(actual);
-        Assert.That(IsValidSolution(chain, actual));
+        Assert.True(IsValidSolution(chain, actual));
     }
 
     [Fact]
@@ -136,6 +136,6 @@ public class DominoesTest
             Tuple.Create(1, 6), Tuple.Create(2, 3), Tuple.Create(3, 4), Tuple.Create(5, 6)
         };
         var chain = Dominoes.Chain(actual);
-        Assert.That(IsValidSolution(chain, actual));
+        Assert.True(IsValidSolution(chain, actual));
     }
 }

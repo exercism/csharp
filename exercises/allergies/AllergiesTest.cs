@@ -60,16 +60,14 @@ public class AllergiesTest
     public void Allergic_to_lots_of_stuff()
     {
         var allergies = new Allergies(248);
-        Assert.That(allergies.List(),
-            Is.EqualTo(new List<string> { "strawberries", "tomatoes", "chocolate", "pollen", "cats" }));
+        Assert.Equal(new List<string> { "strawberries", "tomatoes", "chocolate", "pollen", "cats" }, allergies.List());
     }
 
     [Fact(Skip="Remove to run test")]
     public void Allergic_to_everything()
     {
         var allergies = new Allergies(255);
-        Assert.That(allergies.List(),
-            Is.EqualTo(new List<string>
+        Assert.Equal(new List<string>
                 {
                     "eggs",
                     "peanuts",
@@ -79,15 +77,15 @@ public class AllergiesTest
                     "chocolate",
                     "pollen",
                     "cats"
-                }));
+                },
+                allergies.List());
     }
 
     [Fact(Skip="Remove to run test")]
     public void Ignore_non_allergen_score_parts()
     {
         var allergies = new Allergies(509);
-        Assert.That(allergies.List(),
-            Is.EqualTo(new List<string>
+        Assert.Equal(new List<string>
                 {
                     "eggs",
                     "shellfish",
@@ -96,6 +94,6 @@ public class AllergiesTest
                     "chocolate",
                     "pollen",
                     "cats"
-                }));
+                }, allergies.List());
     }
 }

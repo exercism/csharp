@@ -2,13 +2,7 @@ using Xunit;
 
 public class DequeTest
 {
-    private Deque<int> deque;
-
-    [SetUp]
-    public void Setup()
-    {
-        deque = new Deque<int>();
-    }
+    private readonly Deque<int> deque = new Deque<int>();
 
     [Fact]
     public void Push_and_pop_are_first_in_last_out_order()
