@@ -89,12 +89,12 @@ public class WordProblemTest
     [Fact(Skip="Remove to run test")]
     public void Cubed_is_too_advanced()
     {
-        Assert.That(() => WordProblem.Solve("What is 53 cubed?"), Throws.ArgumentException);
+        Assert.Throws<ArgumentException>(() => WordProblem.Solve("What is 53 cubed?"));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Irrelevant_problems_are_not_valid()
     {
-        Assert.That(() => WordProblem.Solve("Who is the president of the United States?"), Throws.ArgumentException);
+        Assert.Throws<ArgumentException>(() => WordProblem.Solve("Who is the president of the United States?"));
     }
 }

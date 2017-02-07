@@ -73,6 +73,6 @@ public class SeriesTest
     [TestCase("01032987583", 19)]
     public void Slice_longer_than_input_is_not_allowed(string input, int slice)
     {
-        Assert.That(() => new Series(input).Slices(slice), Throws.ArgumentException);
+        Assert.Throws<ArgumentException>(() => new Series(input).Slices(slice));
     }
 }

@@ -89,12 +89,12 @@ public class SayTest
     [Fact(Skip="Remove to run test")]
     public void Lower_bound()
     {
-        Assert.That(() => Say.InEnglish(-1L), Throws.Exception);
+        Assert.Throws<Exception>(() => Say.InEnglish(-1L));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Upper_bound()
     {
-        Assert.That(() => Say.InEnglish(1000000000000L), Throws.Exception);
+        Assert.Throws<Exception>(() => Say.InEnglish(1000000000000L));
     }
 }

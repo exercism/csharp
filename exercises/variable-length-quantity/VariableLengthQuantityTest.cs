@@ -71,13 +71,13 @@ public class VariableLengthQuantityTest
     [Fact(Skip="Remove to run test")]
     public void Incomplete_byte_sequence()
     {
-        Assert.That(() => VariableLengthQuantity.FromBytes(new[] { 0xffu }), Throws.Exception);
+        Assert.Throws<Exception>(() => VariableLengthQuantity.FromBytes(new[] { 0xffu }));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Overflow()
     {
-        Assert.That(() => VariableLengthQuantity.FromBytes(new[] { 0xffu, 0xffu, 0xffu, 0xffu, 0x7fu }), Throws.Exception);
+        Assert.Throws<Exception>(() => VariableLengthQuantity.FromBytes(new[] { 0xffu, 0xffu, 0xffu, 0xffu, 0x7fu }));
     }
 
     [Fact(Skip="Remove to run test")]

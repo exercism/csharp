@@ -24,21 +24,21 @@ public class SgfParsingTest
     public void Empty_value()
     {
         const string input = "";
-        Assert.That(() => SgfParser.ParseTree(input), Throws.Exception);
+        Assert.Throws<Exception>(() => SgfParser.ParseTree(input));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Tree_without_nodes()
     {
         const string input = "()";
-        Assert.That(() => SgfParser.ParseTree(input), Throws.Exception);
+        Assert.Throws<Exception>(() => SgfParser.ParseTree(input));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Node_without_tree()
     {
         const string input = ";";
-        Assert.That(() => SgfParser.ParseTree(input), Throws.Exception);
+        Assert.Throws<Exception>(() => SgfParser.ParseTree(input));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -61,21 +61,21 @@ public class SgfParsingTest
     public void Properties_without_delimiter()
     {
         const string input = "(;a)";
-        Assert.That(() => SgfParser.ParseTree(input), Throws.Exception);
+        Assert.Throws<Exception>(() => SgfParser.ParseTree(input));
     }
 
     [Fact(Skip="Remove to run test")]
     public void All_lowercase_property()
     {
         const string input = "(;a[b])";
-        Assert.That(() => SgfParser.ParseTree(input), Throws.Exception);
+        Assert.Throws<Exception>(() => SgfParser.ParseTree(input));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Upper_and_lowercase_property()
     {
         const string input = "(;Aa[b])";
-        Assert.That(() => SgfParser.ParseTree(input), Throws.Exception);
+        Assert.Throws<Exception>(() => SgfParser.ParseTree(input));
     }
 
     [Fact(Skip="Remove to run test")]

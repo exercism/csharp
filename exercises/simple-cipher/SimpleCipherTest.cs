@@ -57,31 +57,31 @@ public class IncorrectKeyCipherTest
     [Fact(Skip="Remove to run test")]
     public void Cipher_throws_with_an_all_caps_key()
     {
-        Assert.That(() => new Cipher("ABCDEF"), Throws.ArgumentException);
+        Assert.Throws<ArgumentException>(() => new Cipher("ABCDEF"));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Cipher_throws_with_any_caps_key()
     {
-        Assert.That(() => new Cipher("abcdEFg"), Throws.ArgumentException);
+        Assert.Throws<ArgumentException>(() => new Cipher("abcdEFg"));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Cipher_throws_with_numeric_key()
     {
-        Assert.That(() => new Cipher("12345"), Throws.ArgumentException);
+        Assert.Throws<ArgumentException>(() => new Cipher("12345"));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Cipher_throws_with_any_numeric_key()
     {
-        Assert.That(() => new Cipher("abcd345ef"), Throws.ArgumentException);
+        Assert.Throws<ArgumentException>(() => new Cipher("abcd345ef"));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Cipher_throws_with_empty_key()
     {
-        Assert.That(() => new Cipher(""), Throws.ArgumentException);
+        Assert.Throws<ArgumentException>(() => new Cipher(""));
     }
 }
 

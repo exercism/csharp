@@ -10,7 +10,7 @@ public class CircularBufferTest
         var val = buffer.Read();
 
         Assert.Equal('1', val);
-        Assert.That(() => buffer.Read(), Throws.Exception);
+        Assert.Throws<Exception>(() => buffer.Read());
     }
 
     [Fact(Skip="Remove to run test")]
@@ -25,7 +25,7 @@ public class CircularBufferTest
 
         Assert.Equal('1', val1);
         Assert.Equal('2', val2);
-        Assert.That(() => buffer.Read(), Throws.Exception);
+        Assert.Throws<Exception>(() => buffer.Read());
     }
 
     [Fact(Skip="Remove to run test")]
@@ -38,7 +38,7 @@ public class CircularBufferTest
 
         buffer.Clear();
 
-        Assert.That(() => buffer.Read(), Throws.Exception);
+        Assert.Throws<Exception>(() => buffer.Read());
 
         buffer.Write('1');
         buffer.Write('2');
@@ -86,7 +86,7 @@ public class CircularBufferTest
         buffer.Write('1');
         buffer.Write('2');
 
-        Assert.That(() => buffer.Write('A'), Throws.Exception);
+        Assert.Throws<Exception>(() => buffer.Write('A'));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -102,7 +102,7 @@ public class CircularBufferTest
 
         Assert.Equal('2', val1);
         Assert.Equal('A', val2);
-        Assert.That(() => buffer.Read(), Throws.Exception);
+        Assert.Throws<Exception>(() => buffer.Read());
     }
 
     [Fact(Skip="Remove to run test")]
@@ -117,7 +117,7 @@ public class CircularBufferTest
 
         Assert.Equal('1', val1);
         Assert.Equal('2', val2);
-        Assert.That(() => buffer.Read(), Throws.Exception);
+        Assert.Throws<Exception>(() => buffer.Read());
     }
 
     [Fact(Skip="Remove to run test")]
@@ -152,6 +152,6 @@ public class CircularBufferTest
         Assert.Equal('8', val6);
         Assert.Equal('A', val7);
         Assert.Equal('B', val8);
-        Assert.That(() => buffer.Read(), Throws.Exception);
+        Assert.Throws<Exception>(() => buffer.Read());
     }
 }

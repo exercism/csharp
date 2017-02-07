@@ -19,13 +19,13 @@ public class AlphameticsTest
     [Fact(Skip="Remove to run test")]
     public void Solution_must_have_unique_value_for_each_letter()
     {
-        Assert.That(() => Alphametics.Solve("A == B"), Throws.Exception);
+        Assert.Throws<Exception>(() => Alphametics.Solve("A == B"));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Leading_zero_solution_is_invalid()
     {
-        Assert.That(() => Alphametics.Solve("ACA + DD == BD"), Throws.Exception);
+        Assert.Throws<Exception>(() => Alphametics.Solve("ACA + DD == BD"));
     }
 
     [Fact(Skip="Remove to run test")]

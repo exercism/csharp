@@ -125,7 +125,7 @@ public class TreeBuildingTest
     {
         var records = new TreeBuildingRecord[0];
 
-        Assert.That(() => TreeBuilder.BuildTree(records), Throws.Exception);
+        Assert.Throws<Exception>(() => TreeBuilder.BuildTree(records));
     }
 
     [Fact]
@@ -137,7 +137,7 @@ public class TreeBuildingTest
             new TreeBuildingRecord { RecordId = 1, ParentId = 0 }
         };
 
-        Assert.That(() => TreeBuilder.BuildTree(records), Throws.Exception);
+        Assert.Throws<Exception>(() => TreeBuilder.BuildTree(records));
     }
 
     [Fact]
@@ -148,7 +148,7 @@ public class TreeBuildingTest
             new TreeBuildingRecord { RecordId = 1, ParentId = 0 }
         };
 
-        Assert.That(() => TreeBuilder.BuildTree(records), Throws.Exception);
+        Assert.Throws<Exception>(() => TreeBuilder.BuildTree(records));
     }
 
 
@@ -163,7 +163,7 @@ public class TreeBuildingTest
             new TreeBuildingRecord { RecordId = 0, ParentId = 0 }
         };
 
-        Assert.That(() => TreeBuilder.BuildTree(records), Throws.Exception);
+        Assert.Throws<Exception>(() => TreeBuilder.BuildTree(records));
     }
 
     [Fact]
@@ -180,7 +180,7 @@ public class TreeBuildingTest
             new TreeBuildingRecord { RecordId = 6, ParentId = 3 }
         };
 
-        Assert.That(() => TreeBuilder.BuildTree(records), Throws.Exception);
+        Assert.Throws<Exception>(() => TreeBuilder.BuildTree(records));
     }
 
     [Fact]
@@ -197,7 +197,7 @@ public class TreeBuildingTest
             new TreeBuildingRecord { RecordId = 6, ParentId = 3 }
         };
 
-        Assert.That(() => TreeBuilder.BuildTree(records), Throws.Exception);
+        Assert.Throws<Exception>(() => TreeBuilder.BuildTree(records));
     }
 
     [Fact]
@@ -210,7 +210,7 @@ public class TreeBuildingTest
             new TreeBuildingRecord { RecordId = 1, ParentId = 2 }
         };
 
-        Assert.That(() => TreeBuilder.BuildTree(records), Throws.Exception);
+        Assert.Throws<Exception>(() => TreeBuilder.BuildTree(records));
     }
 
     private static void AssertTreeIsBranch(Tree tree, int id, int childCount)

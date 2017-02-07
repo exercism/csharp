@@ -54,7 +54,7 @@ public class BankAccountTest
         account.Open();
         account.Close();
 
-        Assert.That(() => account.Balance, Throws.InvalidOperationException);
+        Assert.Throws<InvalidOperationException>(() => account.Balance);
     }
 
     [Fact(Skip="Remove to run test")]
