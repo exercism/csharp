@@ -8,14 +8,15 @@ public class AcronymTest
         Assert.Equal(string.Empty, Acronym.Abbreviate(string.Empty));
     }
 
-    [TestCase("Portable Network Graphics", ExpectedResult = "PNG", Ignore = "Remove to run test case")]
-    [TestCase("Ruby on Rails", ExpectedResult = "ROR", Ignore = "Remove to run test case")]
-    [TestCase("HyperText Markup Language", ExpectedResult = "HTML", Ignore = "Remove to run test case")]
-    [TestCase("First In, First Out", ExpectedResult = "FIFO", Ignore = "Remove to run test case")]
-    [TestCase("PHP: Hypertext Preprocessor", ExpectedResult = "PHP", Ignore = "Remove to run test case")]
-    [TestCase("Complementary metal-oxide semiconductor", ExpectedResult = "CMOS", Ignore = "Remove to run test case")]
-    public string Phrase_abbreviated_to_acronym(string phrase)
+    [Theory(Skip="Remove to run test")]
+    [InlineData("Portable Network Graphics", "PNG")]
+    [InlineData("Ruby on Rails", "ROR")]
+    [InlineData("HyperText Markup Language", "HTML")]
+    [InlineData("First In, First Out", "FIFO")]
+    [InlineData("PHP: Hypertext Preprocessor", "PHP")]
+    [InlineData("Complementary metal-oxide semiconductor", "CMOS")]
+    public void Phrase_abbreviated_to_acronym(string phrase, string expected)
     {
-        return Acronym.Abbreviate(phrase);
+        Assert.Equal(expected, Acronym.Abbreviate(phrase));
     }
 }

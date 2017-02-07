@@ -1,14 +1,9 @@
+using System;
 using Xunit;
 
 public class RandomKeyCipherTest
 {
-    private Cipher cipher;
-
-    [SetUp]
-    public void Setup()
-    {
-        cipher = new Cipher();
-    }
+    private readonly Cipher cipher = new Cipher();
 
     [Fact]
     public void Cipher_key_is_made_of_letters()
@@ -89,14 +84,7 @@ public class IncorrectKeyCipherTest
 public class SubstitutionCipherTest
 {
     private const string KEY = "abcdefghij";
-    private Cipher cipher;
-
-    [Ignore("Remove to run test")]
-    [SetUp]
-    public void Setup()
-    {
-        cipher = new Cipher(KEY);
-    }
+    private readonly Cipher cipher = new Cipher(KEY);
 
     [Fact(Skip="Remove to run test")]
     public void Cipher_keeps_the_submitted_key()

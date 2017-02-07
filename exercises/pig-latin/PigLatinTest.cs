@@ -2,24 +2,25 @@ using Xunit;
 
 public class PigLatinTest
 {
-    [TestCase("apple", ExpectedResult = "appleay")]
-    [TestCase("ear", ExpectedResult = "earay")]
-    [TestCase("igloo", ExpectedResult = "iglooay")]
-    [TestCase("object", ExpectedResult = "objectay")]
-    [TestCase("under", ExpectedResult = "underay")]
-    public string Ay_is_added_to_words_that_start_with_vowels(string word)
+    [Theory]
+    [InlineData("apple", "appleay")]
+    [InlineData("ear", "earay")]
+    [InlineData("igloo", "iglooay")]
+    [InlineData("object", "objectay")]
+    [InlineData("under", "underay")]
+    public void Ay_is_added_to_words_that_start_with_vowels(string word, string expected)
     {
-        return PigLatin.Translate(word);
+        Assert.Equal(expected, PigLatin.Translate(word));
     }
 
-    [Ignore("Remove to run test")]
-    [TestCase("pig", ExpectedResult = "igpay")]
-    [TestCase("koala", ExpectedResult = "oalakay")]
-    [TestCase("yellow", ExpectedResult = "ellowyay")]
-    [TestCase("xenon", ExpectedResult = "enonxay")]
-    public string First_letter_and_ay_are_moved_to_the_end_of_words_that_start_with_consonants(string word)
+    [Theory(Skip = "Remove to run test")]
+    [InlineData("pig", "igpay")]
+    [InlineData("koala", "oalakay")]
+    [InlineData("yellow", "ellowyay")]
+    [InlineData("xenon", "enonxay")]
+    public void First_letter_and_ay_are_moved_to_the_end_of_words_that_start_with_consonants(string word, string expected)
     {
-        return PigLatin.Translate(word);
+        Assert.Equal(expected, PigLatin.Translate(word));
     }
 
     [Fact(Skip="Remove to run test")]

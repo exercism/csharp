@@ -2,16 +2,17 @@ using Xunit;
 
 public class ClockTest
 {
-    [TestCase(8, "08:00")]
-    [TestCase(9, "09:00")]
+    [Theory]
+    [InlineData(8, "08:00")]
+    [InlineData(9, "09:00")]
     public void Prints_the_hour(int hours, string expected)
     {
         Assert.Equal(expected, new Clock(hours).ToString());
     }
 
-    [Ignore("Remove to run test")]
-    [TestCase(11, 9, "11:09")]
-    [TestCase(11, 19, "11:19")]
+    [Theory(Skip="Remove to run test")]
+    [InlineData(11, 9, "11:09")]
+    [InlineData(11, 19, "11:19")]
     public void Prints_past_the_hour(int hours, int minutes, string expected)
     {
         Assert.Equal(expected, new Clock(hours, minutes).ToString());

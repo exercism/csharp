@@ -138,8 +138,7 @@ public class TransposeTest
         Assert.Equal(expected, Transpose.String(input));
     }
 
-    [Fact]
-    [Ignore("Remove to run test")]
+    [Fact(Skip = "Remove to run test")]
     public void Rectangle()
     {
         const string input =

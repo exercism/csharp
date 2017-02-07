@@ -207,12 +207,13 @@ That Shepherd, who first taught the chosen Seed
         Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
-    [TestCase("", Ignore = "Remove to run test case")]
-    [TestCase("-n", Ignore = "Remove to run test case")]
-    [TestCase("-l", Ignore = "Remove to run test case")]
-    [TestCase("-x", Ignore = "Remove to run test case")]
-    [TestCase("-i", Ignore = "Remove to run test case")]
-    [TestCase("-n -l -x -i", Ignore = "Remove to run test case")]
+    [Theory(Skip="Remove to run test")]
+    [InlineData("")]
+    [InlineData("-n")]
+    [InlineData("-l")]
+    [InlineData("-x")]
+    [InlineData("-i")]
+    [InlineData("-n -l -x -i")]
     public void One_file_no_matches_various_flags(string flags)
     {
         const string pattern = "Gandalf";
@@ -342,12 +343,13 @@ That Shepherd, who first taught the chosen Seed
         Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
-    [TestCase("", Ignore = "Remove to run test case")]
-    [TestCase("-n", Ignore = "Remove to run test case")]
-    [TestCase("-l", Ignore = "Remove to run test case")]
-    [TestCase("-x", Ignore = "Remove to run test case")]
-    [TestCase("-i", Ignore = "Remove to run test case")]
-    [TestCase("-n -l -x -i", Ignore = "Remove to run test case")]
+    [Theory(Skip="Remove to run test")]
+    [InlineData("")]
+    [InlineData("-n")]
+    [InlineData("-l")]
+    [InlineData("-x")]
+    [InlineData("-i")]
+    [InlineData("-n -l -x -i")]
     public void Multiple_files_no_matches_various_flags(string flags)
     {
         const string pattern = "Frodo";

@@ -2,18 +2,12 @@ using Xunit;
 
 public class RobotNameTest
 {
-    private Robot robot;
-
-    [SetUp]
-    public void Setup()
-    {
-        robot = new Robot();
-    }
+    private readonly Robot robot = new Robot();
 
     [Fact]
     public void Robot_has_a_name()
     {
-        StringAssert.IsMatch(@"[A-Z]{2}\d{3}", robot.Name);
+        Assert.Matches(@"[A-Z]{2}\d{3}", robot.Name);
     }
 
     [Fact(Skip="Remove to run test")]

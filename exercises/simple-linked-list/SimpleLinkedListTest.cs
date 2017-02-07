@@ -56,10 +56,11 @@ public class SimpleLinkedListTest
         Assert.Equal(2, list.Next.Next.Next.Next.Value);
     }
 
-    [TestCase(1, Ignore = "Remove to run test case")]
-    [TestCase(2, Ignore = "Remove to run test case")]
-    [TestCase(10, Ignore = "Remove to run test case")]
-    [TestCase(100, Ignore = "Remove to run test case")]
+    [Theory(Skip="Remove to run test")]
+    [InlineData(1)]
+    [InlineData(2)]
+    [InlineData(10)]
+    [InlineData(100)]
     public void Reverse(int length)
     {
         var values = Enumerable.Range(1, length).ToArray();
@@ -68,10 +69,11 @@ public class SimpleLinkedListTest
         Assert.Equal(values.Reverse(), reversed);
     }
 
-    [TestCase(1, Ignore = "Remove to run test case")]
-    [TestCase(2, Ignore = "Remove to run test case")]
-    [TestCase(10, Ignore = "Remove to run test case")]
-    [TestCase(100, Ignore = "Remove to run test case")]
+    [Theory(Skip="Remove to run test")]
+    [InlineData(1)]
+    [InlineData(2)]
+    [InlineData(10)]
+    [InlineData(100)]
     public void Roundtrip(int length)
     {
         var values = Enumerable.Range(1, length);

@@ -2,13 +2,7 @@
 
 public class TwelveDaysTest
 {
-    private TwelveDaysSong twelveDaysSong;
-
-    [SetUp]
-    public void Setup()
-    {
-        twelveDaysSong = new TwelveDaysSong();
-    }
+    private readonly TwelveDaysSong twelveDaysSong = new TwelveDaysSong();
 
     [Fact]
     public void Return_verse_1()

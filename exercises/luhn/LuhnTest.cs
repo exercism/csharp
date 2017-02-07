@@ -2,14 +2,15 @@ using Xunit;
 
 public class LuhnTest
 {
-    [TestCase("1", ExpectedResult = false)] // single digit strings can not be valid
-    [TestCase("0", ExpectedResult = false, Ignore = "Remove to run test case")] // a single zero is invalid
-    [TestCase("046 454 286", ExpectedResult = true, Ignore = "Remove to run test case")] // valid Canadian SIN
-    [TestCase("046 454 287", ExpectedResult = false, Ignore = "Remove to run test case")] // invalid Canadian SIN
-    [TestCase("8273 1232 7352 0569", ExpectedResult = false, Ignore = "Remove to run test case")] // invalid credit card
-    [TestCase("827a 1232 7352 0569", ExpectedResult = false, Ignore = "Remove to run test case")] // strings that contain non-digits are not valid
-    public bool ValidateChecksum(string number)
+    [Theory]
+    [InlineData("1", false)] // single digit strings can not be valid
+    [InlineData("0", false)] // a single zero is invalid
+    [InlineData("046 454 286", true)] // valid Canadian SIN
+    [InlineData("046 454 287", false)] // invalid Canadian SIN
+    [InlineData("8273 1232 7352 0569", false)] // invalid credit card
+    [InlineData("827a 1232 7352 0569", false)] // strings that contain non-digits are not valid
+    public void ValidateChecksum(string number, bool expected)
     {
-        return Luhn.IsValid(number);
+        Assert.Equal(expected, Luhn.IsValid(number));
     }
 }

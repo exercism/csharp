@@ -15,12 +15,12 @@ public class PythagoreanTripletTest
         Assert.Equal(60, new Triplet(3, 4, 5).Product());
     }
 
-    [Ignore("Remove to run test")]
-    [TestCase(3, 4, 5, ExpectedResult = true)]
-    [TestCase(5, 6, 7, ExpectedResult = false)]
-    public bool Can_recognize_a_valid_pythagorean(int a, int b, int c)
+    [Theory(Skip = "Remove to run test")]
+    [InlineData(3, 4, 5, true)]
+    [InlineData(5, 6, 7, false)]
+    public void Can_recognize_a_valid_pythagorean(int a, int b, int c, bool expected)
     {
-        return new Triplet(a, b, c).IsPythagorean();
+        Assert.Equal(expected, new Triplet(a, b, c).IsPythagorean());
     }
 
     [Fact(Skip="Remove to run test")]
