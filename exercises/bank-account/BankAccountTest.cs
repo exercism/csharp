@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NUnit.Framework;
+using Xunit;
 
 public class BankAccountTest
 {
-    [Test]
+    [Fact]
     public void Returns_empty_balance_after_opening()
     {
         var account = new BankAccount();
@@ -14,8 +14,7 @@ public class BankAccountTest
         Assert.That(account.Balance, Is.EqualTo(0));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Check_basic_balance()
     {
         var account = new BankAccount();
@@ -30,8 +29,7 @@ public class BankAccountTest
         Assert.That(updatedBalance, Is.EqualTo(10));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Balance_can_increment_and_decrement()
     {
         var account = new BankAccount();
@@ -49,8 +47,7 @@ public class BankAccountTest
         Assert.That(subtractedBalance, Is.EqualTo(-5));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Closed_account_throws_exception_when_checking_balance()
     {
         var account = new BankAccount();
@@ -60,8 +57,7 @@ public class BankAccountTest
         Assert.That(() => account.Balance, Throws.InvalidOperationException);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Change_account_balance_from_multiple_threads()
     {
         var account = new BankAccount();

@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -29,7 +29,7 @@ public class GoCountingTest
                 "   B B   "
             });
 
-    [Test]
+    [Fact]
     public void FiveByFiveTerritoryForBlack()
     {
         var board = new GoCounting(boardFiveByFive);
@@ -38,8 +38,7 @@ public class GoCountingTest
         Assert.That(result.Item2, Is.EquivalentTo(new[] { new Point(0, 0), new Point(0, 1), new Point(1, 0) }));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void FiveByFiveTerritoryForWhite()
     {
         var board = new GoCounting(boardFiveByFive);
@@ -48,8 +47,7 @@ public class GoCountingTest
         Assert.That(result.Item2, Is.EquivalentTo(new[] { new Point(2, 3) }));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void FiveByFiveOpenTerritory()
     {
         var board = new GoCounting(boardFiveByFive);
@@ -58,32 +56,28 @@ public class GoCountingTest
         Assert.That(result.Item2, Is.EquivalentTo(new[] { new Point(0, 3), new Point(0, 4), new Point(1, 4) }));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void FiveByFiveNonTerritoryStone()
     {
         var board = new GoCounting(boardFiveByFive);
         Assert.That(board.TerritoryFor(new Point(1, 1)), Is.Null);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void FiveByFiveNonTerritoryDueToTooLowCoordinate()
     {
         var board = new GoCounting(boardFiveByFive);
         Assert.That(board.TerritoryFor(new Point(-1, 1)), Is.Null);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void FiveByFiveNonTerritoryDueToTooHighCoordinate()
     {
         var board = new GoCounting(boardFiveByFive);
         Assert.That(board.TerritoryFor(new Point(1, 5)), Is.Null);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void MinimalBoardWithNoTerritories()
     {
         var input = "B";
@@ -94,8 +88,7 @@ public class GoCountingTest
         Assert.That(board.Territories(), Is.EquivalentTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void OneTerritoryCoveringTheWholeBoard()
     {
         var input = " ";
@@ -109,8 +102,7 @@ public class GoCountingTest
         Assert.That(board.Territories(), Is.EquivalentTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void TwoTerritoriesOnRectangularBoard()
     {
         var input = string.Join("\n", new[] { " BW ", " BW " });

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Text;
-using NUnit.Framework;
+using Xunit;
 
 public class TournamentTest
 {
@@ -67,20 +67,20 @@ public class TournamentTest
         }
     }
 
-    [Test]
+    [Fact]
     public void Test_good()
     {
         Assert.That(RunTally(input1).Trim(), Is.EqualTo(expected1));
     }
     
-    [Test]
+    [Fact]
     [Ignore("Remove to run test")]
     public void Test_ignore_bad_lines()
     {
         Assert.That(RunTally(input2).Trim(), Is.EqualTo(expected2));
     }
     
-    [Test]
+    [Fact]
     [Ignore("Remove to run test")]
     public void Test_incomplete_competition()
     {

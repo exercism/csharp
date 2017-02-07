@@ -1,9 +1,9 @@
 ﻿using System;
-using NUnit.Framework;
+using Xunit;
 
 public class ChangeTest
 {
-    [Test]
+    [Fact]
     public void Single_coin_change()
     {
         var actual = new[] { 1, 5, 10, 25, 100 };
@@ -12,8 +12,7 @@ public class ChangeTest
         Assert.That(Change.Calculate(target, actual), Is.EqualTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Multiple_coin_change()
     {
         var actual = new[] { 1, 5, 10, 25, 100 };
@@ -22,8 +21,7 @@ public class ChangeTest
         Assert.That(Change.Calculate(target, actual), Is.EqualTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Change_with_Lilliputian_Coins()
     {
         var actual = new[] { 1, 4, 15, 20, 50 };
@@ -32,8 +30,7 @@ public class ChangeTest
         Assert.That(Change.Calculate(target, actual), Is.EqualTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Change_with_Lower_Elbonia_Coins()
     {
         var actual = new[] { 1, 5, 10, 21, 25 };
@@ -42,8 +39,7 @@ public class ChangeTest
         Assert.That(Change.Calculate(target, actual), Is.EqualTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Large_target_values()
     {
         var actual = new[] { 1, 2, 5, 10, 20, 50, 100 };
@@ -52,8 +48,7 @@ public class ChangeTest
         Assert.That(Change.Calculate(target, actual), Is.EqualTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void No_coins_make_0_change()
     {
         var actual = new[] { 1, 5, 10, 21, 25 };
@@ -62,8 +57,7 @@ public class ChangeTest
         Assert.That(Change.Calculate(target, actual), Is.EqualTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Error_testing_for_change_smaller_than_the_smallest_of_coins()
     {
         var actual = new[] { 5, 10 };
@@ -71,8 +65,7 @@ public class ChangeTest
         Assert.Throws<ArgumentException>(() => Change.Calculate(target, actual));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Cannot_find_negative_change_values()
     {
         var actual = new[] { 1, 2, 5 };

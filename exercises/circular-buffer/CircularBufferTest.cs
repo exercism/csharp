@@ -1,8 +1,8 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 
 public class CircularBufferTest
 {
-    [Test]
+    [Fact]
     public void Write_and_read_back_one_item()
     {
         var buffer = new CircularBuffer<char>(1);
@@ -13,8 +13,7 @@ public class CircularBufferTest
         Assert.That(() => buffer.Read(), Throws.Exception);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Write_and_read_back_multiple_items()
     {
         var buffer = new CircularBuffer<char>(2);
@@ -29,8 +28,7 @@ public class CircularBufferTest
         Assert.That(() => buffer.Read(), Throws.Exception);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Clearing_buffer()
     {
         var buffer = new CircularBuffer<char>(3);
@@ -53,8 +51,7 @@ public class CircularBufferTest
         Assert.That(val2, Is.EqualTo('2'));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Alternate_write_and_read()
     {
         var buffer = new CircularBuffer<char>(2);
@@ -67,8 +64,7 @@ public class CircularBufferTest
         Assert.That(val2, Is.EqualTo('2'));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Reads_back_oldest_item()
     {
         var buffer1 = new CircularBuffer<char>(3);
@@ -83,8 +79,7 @@ public class CircularBufferTest
         Assert.That(val3, Is.EqualTo('3'));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Writing_to_a_full_buffer_throws_an_exception()
     {
         var buffer = new CircularBuffer<char>(2);
@@ -94,8 +89,7 @@ public class CircularBufferTest
         Assert.That(() => buffer.Write('A'), Throws.Exception);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Overwriting_oldest_item_in_a_full_buffer()
     {
         var buffer = new CircularBuffer<char>(2);
@@ -111,8 +105,7 @@ public class CircularBufferTest
         Assert.That(() => buffer.Read(), Throws.Exception);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Forced_writes_to_non_full_buffer_should_behave_like_writes()
     {
         var buffer = new CircularBuffer<char>(2);
@@ -127,8 +120,7 @@ public class CircularBufferTest
         Assert.That(() => buffer.Read(), Throws.Exception);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Alternate_read_and_write_into_buffer_overflow()
     {
         var buffer = new CircularBuffer<char>(5);

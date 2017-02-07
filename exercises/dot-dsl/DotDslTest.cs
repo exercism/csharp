@@ -1,8 +1,8 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 
 public class DotDslTest
 {
-    [Test]
+    [Fact]
     public void Empty_graph()
     {
         var g = new Graph();
@@ -12,8 +12,7 @@ public class DotDslTest
         Assert.That(g.Attrs, Is.Empty);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Graph_with_one_node()
     {
         var g = new Graph
@@ -26,8 +25,7 @@ public class DotDslTest
         Assert.That(g.Attrs, Is.Empty);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Graph_with_one_node_with_keywords()
     {
         var g = new Graph
@@ -40,8 +38,7 @@ public class DotDslTest
         Assert.That(g.Attrs, Is.Empty);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Graph_with_one_edge()
     {
         var g = new Graph
@@ -54,8 +51,7 @@ public class DotDslTest
         Assert.That(g.Attrs, Is.Empty);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Graph_with_one_attribute()
     {
         var g = new Graph
@@ -68,8 +64,7 @@ public class DotDslTest
         Assert.That(g.Attrs, Is.EquivalentTo(new[] { new Attr("foo", "1") }));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Graph_with_attributes()
     {
         var g = new Graph

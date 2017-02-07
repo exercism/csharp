@@ -1,8 +1,8 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 
 public class TwoBucketTest
 {
-    [Test]
+    [Fact]
     public void First_example()
     {
         var bucketOneSize = 3;
@@ -18,8 +18,7 @@ public class TwoBucketTest
         Assert.That(actual.OtherBucketContents, Is.EqualTo(5));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Second_example()
     {
         var bucketOneSize = 3;
@@ -35,8 +34,7 @@ public class TwoBucketTest
         Assert.That(actual.OtherBucketContents, Is.EqualTo(3));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Third_example()
     {
         var bucketOneSize = 7;
@@ -52,8 +50,7 @@ public class TwoBucketTest
         Assert.That(actual.OtherBucketContents, Is.EqualTo(11));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Fourth_example()
     {
         var bucketOneSize = 7;

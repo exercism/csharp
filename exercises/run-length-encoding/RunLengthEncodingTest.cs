@@ -1,8 +1,8 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 
 public class RunLengthEncodingTest
 {
-    [Test]
+    [Fact]
     public void Encode_simple()
     {
         const string input = "AABBBCCCC";
@@ -10,8 +10,7 @@ public class RunLengthEncodingTest
         Assert.That(RunLengthEncoding.Encode(input), Is.EqualTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Decode_simple()
     {
         const string input = "2A3B4C";
@@ -19,8 +18,7 @@ public class RunLengthEncodingTest
         Assert.That(RunLengthEncoding.Decode(input), Is.EqualTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Encode_with_single_values()
     {
         const string input = "WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB";
@@ -28,8 +26,7 @@ public class RunLengthEncodingTest
         Assert.That(RunLengthEncoding.Encode(input), Is.EqualTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Decode_with_single_values()
     {
         const string input = "12WB12W3B24WB";
@@ -37,8 +34,7 @@ public class RunLengthEncodingTest
         Assert.That(RunLengthEncoding.Decode(input), Is.EqualTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Encode_and_then_decode()
     {
         const string input = "zzz ZZ  zZ";
@@ -46,8 +42,7 @@ public class RunLengthEncodingTest
         Assert.That(RunLengthEncoding.Decode(RunLengthEncoding.Encode(input)), Is.EqualTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Encode_unicode()
     {
         const string input = "⏰⚽⚽⚽⭐⭐⏰";
@@ -55,8 +50,7 @@ public class RunLengthEncodingTest
         Assert.That(RunLengthEncoding.Encode(input), Is.EqualTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Decode_unicode()
     {
         const string input = "⏰3⚽2⭐⏰";

@@ -1,16 +1,16 @@
 using System;
-using NUnit.Framework;
+using Xunit;
 
 public class GigasecondTest
 {
-    [Test]
+    [Fact]
     public void First_date()
     {
         var date = Gigasecond.Date(new DateTime(2011, 4, 25, 0, 0, 0, DateTimeKind.Utc));
         Assert.That(date, Is.EqualTo(new DateTime(2043, 1, 1, 1, 46, 40, DateTimeKind.Utc)));
     }
 
-    [Test]
+    [Fact]
     [Ignore("Remove to run test")]
     public void Another_date()
     {
@@ -18,7 +18,7 @@ public class GigasecondTest
         Assert.That(date, Is.EqualTo(new DateTime(2009, 2, 19, 1, 46, 40, DateTimeKind.Utc)));
     }
 
-    [Test]
+    [Fact]
     [Ignore("Remove to run test")]
     public void Yet_another_date()
     {

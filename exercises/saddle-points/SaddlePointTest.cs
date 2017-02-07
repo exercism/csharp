@@ -1,9 +1,9 @@
 ﻿using System;
-using NUnit.Framework;
+using Xunit;
 
 public class SaddlePointTests
 {
-    [Test]
+    [Fact]
     public void Readme_example()
     {
         var values = new[,]
@@ -16,8 +16,7 @@ public class SaddlePointTests
         Assert.That(actual, Is.EqualTo(new [] { Tuple.Create(1, 0)}));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void No_saddle_point()
     {
         var values = new[,] 
@@ -29,8 +28,7 @@ public class SaddlePointTests
         Assert.That(actual, Is.Empty);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Saddle_point()
     {
         var values = new[,] 
@@ -42,8 +40,7 @@ public class SaddlePointTests
         Assert.That(actual, Is.EqualTo(new[] { Tuple.Create(0, 1) }));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Another_saddle_point()
     {
         var values = new[,] 
@@ -56,8 +53,7 @@ public class SaddlePointTests
         Assert.That(actual, Is.EqualTo(new[] { Tuple.Create(2, 2) }));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Multiple_saddle_points()
     {
         var values = new[,]

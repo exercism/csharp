@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 
 public class ProteinTranslationTest
 {
@@ -51,28 +51,28 @@ public class ProteinTranslationTest
         Assert.That(ProteinTranslation.Translate(codon), Is.EquivalentTo(new[] { "Tryptophan" }));
     }
 
-    [Test]
+    [Fact]
     [Ignore("Remove to run test")]
     public void Translates_rna_strand_into_correct_protein()
     {
         Assert.That(ProteinTranslation.Translate("AUGUUUUGG"), Is.EquivalentTo(new[] { "Methionine", "Phenylalanine", "Tryptophan" }));
     }
 
-    [Test]
+    [Fact]
     [Ignore("Remove to run test")]
     public void Stops_translation_if_stop_codon_present()
     {
         Assert.That(ProteinTranslation.Translate("AUGUUUUAA"), Is.EquivalentTo(new[] { "Methionine", "Phenylalanine" }));
     }
 
-    [Test]
+    [Fact]
     [Ignore("Remove to run test")]
     public void Stops_translation_of_longer_strand()
     {
         Assert.That(ProteinTranslation.Translate("UGGUGUUAUUAAUGGUUU"), Is.EquivalentTo(new[] { "Tryptophan", "Cysteine", "Tyrosine" }));
     }
 
-    [Test]
+    [Fact]
     [Ignore("Remove to run test")]
     public void Throws_for_invalid_codons()
     {

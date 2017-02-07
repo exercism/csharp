@@ -1,9 +1,9 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 using System.Collections.Generic;
 
 public class AlphameticsTest
 {
-    [Test]
+    [Fact]
     public void Puzzle_with_three_letters()
     {
         var actual = Alphametics.Solve("I + BB == ILL");
@@ -16,22 +16,19 @@ public class AlphameticsTest
         Assert.That(actual, Is.EqualTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Solution_must_have_unique_value_for_each_letter()
     {
         Assert.That(() => Alphametics.Solve("A == B"), Throws.Exception);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Leading_zero_solution_is_invalid()
     {
         Assert.That(() => Alphametics.Solve("ACA + DD == BD"), Throws.Exception);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Puzzle_with_four_letters()
     {
         var actual = Alphametics.Solve("AS + A == MOM");
@@ -45,8 +42,7 @@ public class AlphameticsTest
         Assert.That(actual, Is.EqualTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Puzzle_with_six_letters()
     {
         var actual = Alphametics.Solve("NO + NO + TOO == LATE");
@@ -62,8 +58,7 @@ public class AlphameticsTest
         Assert.That(actual, Is.EqualTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Puzzle_with_seven_letters()
     {
         var actual = Alphametics.Solve("HE + SEES + THE == LIGHT");
@@ -80,8 +75,7 @@ public class AlphameticsTest
         Assert.That(actual, Is.EqualTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Puzzle_with_eight_letters()
     {
         var actual = Alphametics.Solve("SEND + MORE == MONEY");
@@ -99,8 +93,7 @@ public class AlphameticsTest
         Assert.That(actual, Is.EqualTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Puzzle_with_ten_letters()
     {
         var actual = Alphametics.Solve("AND + A + STRONG + OFFENSE + AS + A + GOOD == DEFENSE");

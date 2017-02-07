@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using NUnit.Framework;
+using Xunit;
 
 public class ParallelLetterParallelLetterFrequency
 {
@@ -37,7 +37,7 @@ public class ParallelLetterParallelLetterFrequency
         "O say does that star-spangled banner yet wave,\n" +
         "O'er the land of the free and the home of the brave?\n";
 
-    [Test]
+    [Fact]
     public void No_texts_mean_no_letters()
     {
         var input = Enumerable.Empty<string>();
@@ -46,8 +46,7 @@ public class ParallelLetterParallelLetterFrequency
         Assert.That(actual, Is.EquivalentTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void One_letter()
     {
         var input = new[] { "a" };
@@ -59,8 +58,7 @@ public class ParallelLetterParallelLetterFrequency
         Assert.That(actual, Is.EquivalentTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Case_insensitivity()
     {
         var input = new[] { "aA" };
@@ -72,8 +70,7 @@ public class ParallelLetterParallelLetterFrequency
         Assert.That(actual, Is.EquivalentTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Many_empty_texts_still_mean_no_letters()
     {
         var input = Enumerable.Repeat("  ", 10000);
@@ -82,8 +79,7 @@ public class ParallelLetterParallelLetterFrequency
         Assert.That(actual, Is.EquivalentTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Many_times_the_same_text_gives_a_predictable_result()
     {
         var input = Enumerable.Repeat("abc", 1000);
@@ -97,8 +93,7 @@ public class ParallelLetterParallelLetterFrequency
         Assert.That(actual, Is.EquivalentTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Punctuation_doesnt_count()
     {
         var input = new[] { OdeAnDieFreude };
@@ -106,8 +101,7 @@ public class ParallelLetterParallelLetterFrequency
         Assert.False(actual.ContainsKey(','));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Numbers_dont_count()
     {
         var input = new[] { "Testing, 1, 2, 3" };
@@ -115,8 +109,7 @@ public class ParallelLetterParallelLetterFrequency
         Assert.False(actual.ContainsKey('1'));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void All_three_anthems_together()
     {
         var input = new[] { OdeAnDieFreude, Wilhelmus, StarSpangledBanner };

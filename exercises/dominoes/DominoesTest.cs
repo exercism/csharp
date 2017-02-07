@@ -1,5 +1,5 @@
 ﻿using System;
-using NUnit.Framework;
+using Xunit;
 using System.Linq;
 using System.Collections.Generic;
 
@@ -36,7 +36,7 @@ public class DominoesTest
             HasSameDominoes(chain, input);
     }
 
-    [Test]
+    [Fact]
     public void Empty_input_equals_empty_output()
     {
         var actual = new Tuple<int, int>[0];
@@ -44,7 +44,7 @@ public class DominoesTest
         Assert.That(IsValidSolution(chain, actual));
     }
 
-    [Test]
+    [Fact]
     public void Singleton_input_equals_singleton_output()
     {
         var actual = new[] { Tuple.Create(1, 1) };
@@ -52,7 +52,7 @@ public class DominoesTest
         Assert.That(IsValidSolution(chain, actual));
     }
 
-    [Test]
+    [Fact]
     public void Singleton_that_cant_be_chained()
     {
         var actual = new[] { Tuple.Create(1, 2) };
@@ -60,7 +60,7 @@ public class DominoesTest
         Assert.That(chain, Is.Null);
     }
 
-    [Test]
+    [Fact]
     public void Three_elements()
     {
         var actual = new[] { Tuple.Create(1, 2), Tuple.Create(3, 1), Tuple.Create(2, 3) };
@@ -68,7 +68,7 @@ public class DominoesTest
         Assert.That(IsValidSolution(chain, actual));
     }
 
-    [Test]
+    [Fact]
     public void Can_reverse_dominoes()
     {
         var actual = new[] { Tuple.Create(1, 2), Tuple.Create(1, 3), Tuple.Create(2, 3) };
@@ -76,7 +76,7 @@ public class DominoesTest
         Assert.That(IsValidSolution(chain, actual));
     }
 
-    [Test]
+    [Fact]
     public void Cant_be_chained()
     {
         var actual = new[] { Tuple.Create(1, 2), Tuple.Create(4, 1), Tuple.Create(2, 3) };
@@ -84,7 +84,7 @@ public class DominoesTest
         Assert.That(chain, Is.Null);
     }
 
-    [Test]
+    [Fact]
     public void Disconnected_simple()
     {
         var actual = new[] { Tuple.Create(1, 1), Tuple.Create(2, 2) };
@@ -92,7 +92,7 @@ public class DominoesTest
         Assert.That(chain, Is.Null);
     }
 
-    [Test]
+    [Fact]
     public void Disconnected_double_loop()
     {
         var actual = new[] { Tuple.Create(1, 2), Tuple.Create(2, 1), Tuple.Create(3, 4), Tuple.Create(4, 3) };
@@ -100,7 +100,7 @@ public class DominoesTest
         Assert.That(chain, Is.Null);
     }
 
-    [Test]
+    [Fact]
     public void Disconnected_single_isolated()
     {
         var actual = new[] { Tuple.Create(1, 2), Tuple.Create(2, 3), Tuple.Create(3, 1), Tuple.Create(4, 4) };
@@ -108,7 +108,7 @@ public class DominoesTest
         Assert.That(chain, Is.Null);
     }
 
-    [Test]
+    [Fact]
     public void Need_backtrack()
     {
         var actual = new[] { Tuple.Create(1, 2), Tuple.Create(2, 3), Tuple.Create(3, 1), Tuple.Create(2, 4), Tuple.Create(2, 4) };
@@ -116,7 +116,7 @@ public class DominoesTest
         Assert.That(IsValidSolution(chain, actual));
     }
 
-    [Test]
+    [Fact]
     public void Separate_loops()
     {
         var actual = new[]
@@ -127,7 +127,7 @@ public class DominoesTest
         Assert.That(IsValidSolution(chain, actual));
     }
 
-    [Test]
+    [Fact]
     public void Ten_elements()
     {
         var actual = new[]

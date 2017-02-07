@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using NUnit.Framework;
+using Xunit;
 
 public class NucleoTideCountTest
 {
-    [Test]
+    [Fact]
     public void Has_no_nucleotides()
     {
         var dna = new DNA("");
@@ -11,24 +11,21 @@ public class NucleoTideCountTest
         Assert.That(dna.NucleotideCounts, Is.EqualTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Has_no_adenosine()
     {
         var dna = new DNA("");
         Assert.That(dna.Count('A'), Is.EqualTo(0));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Repetitive_cytidine_gets_counts()
     {
         var dna = new DNA("CCCCC");
         Assert.That(dna.Count('C'), Is.EqualTo(5));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Repetitive_sequence_has_only_guanosine()
     {
         var dna = new DNA("GGGGGGGG");
@@ -36,16 +33,14 @@ public class NucleoTideCountTest
         Assert.That(dna.NucleotideCounts, Is.EqualTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Counts_only_thymidine()
     {
         var dna = new DNA("GGGGTAACCCGG");
         Assert.That(dna.Count('T'), Is.EqualTo(1));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Counts_a_nucleotide_only_once()
     {
         var dna = new DNA("GGTTGG");
@@ -53,16 +48,14 @@ public class NucleoTideCountTest
         Assert.That(dna.Count('T'), Is.EqualTo(2));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Validates_nucleotides()
     {
         var dna = new DNA("GGTTGG");
         Assert.Throws<InvalidNucleotideException>(() => dna.Count('X'));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Counts_all_nucleotides()
     {
         var dna = new DNA("AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC");

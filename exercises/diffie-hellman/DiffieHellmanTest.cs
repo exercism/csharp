@@ -1,10 +1,10 @@
 ﻿using System.Linq;
 using System.Numerics;
-using NUnit.Framework;
+using Xunit;
 
 public class DiffieHellmanTest
 {
-    [Test]
+    [Fact]
     public void Private_key_in_range()
     {
         var primeP = new BigInteger(23);
@@ -14,8 +14,7 @@ public class DiffieHellmanTest
 
     // Note: due to the nature of randomness, there is always a chance that this test fails
     // Be sure to check the actual generated values
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Private_key_randomly_generated()
     {
         var primeP = new BigInteger(7919);
@@ -23,8 +22,7 @@ public class DiffieHellmanTest
         Assert.That(privateKeys.Count, Is.EqualTo(privateKeys.Distinct().Count()));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Public_key_correctly_calculated()
     {
         var primeP = new BigInteger(23);
@@ -35,8 +33,7 @@ public class DiffieHellmanTest
         Assert.That(actual, Is.EqualTo(new BigInteger(8)));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Secret_key_correctly_calculated()
     {
         var primeP = new BigInteger(23);
@@ -47,8 +44,7 @@ public class DiffieHellmanTest
         Assert.That(actual, Is.EqualTo(new BigInteger(2)));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Secret_key_correctly_calculated_when_using_large_primes()
     {
         var primeP = BigInteger.Parse("120227323036150778550155526710966921740030662694578947298423549235265759593711587341037426347114541533006628856300552706996143592240453345642869233562886752930249953227657883929905072620233073626594386072962776144691433658814261874113232461749035425712805067202910389407991986070558964461330091797026762932543");
@@ -59,8 +55,7 @@ public class DiffieHellmanTest
         Assert.That(actual, Is.EqualTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Test_exchange()
     {
         var primeP = new BigInteger(23);

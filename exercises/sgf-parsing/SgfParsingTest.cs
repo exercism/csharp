@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using NUnit.Framework;
+using Xunit;
 
 public class SgfParsingTest
 {
@@ -20,31 +20,28 @@ public class SgfParsingTest
 
     private static IDictionary<string, string[]> CreateData(string key, params string[] values) => new Dictionary<string, string[]> { [key] = values };
     
-    [Test]
+    [Fact]
     public void Empty_value()
     {
         const string input = "";
         Assert.That(() => SgfParser.ParseTree(input), Throws.Exception);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Tree_without_nodes()
     {
         const string input = "()";
         Assert.That(() => SgfParser.ParseTree(input), Throws.Exception);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Node_without_tree()
     {
         const string input = ";";
         Assert.That(() => SgfParser.ParseTree(input), Throws.Exception);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Node_without_properties()
     {
         const string input = "(;)";
@@ -52,8 +49,7 @@ public class SgfParsingTest
         Assert.That(SgfParser.ParseTree(input), Is.EqualTo(expected).Using(SgfTreeEqualityComparer.Instance));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Single_node_tree()
     {
         const string input = "(;A[B])";
@@ -61,32 +57,28 @@ public class SgfParsingTest
         Assert.That(SgfParser.ParseTree(input), Is.EqualTo(expected).Using(SgfTreeEqualityComparer.Instance));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Properties_without_delimiter()
     {
         const string input = "(;a)";
         Assert.That(() => SgfParser.ParseTree(input), Throws.Exception);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void All_lowercase_property()
     {
         const string input = "(;a[b])";
         Assert.That(() => SgfParser.ParseTree(input), Throws.Exception);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Upper_and_lowercase_property()
     {
         const string input = "(;Aa[b])";
         Assert.That(() => SgfParser.ParseTree(input), Throws.Exception);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Two_nodes()
     {
         const string input = "(;A[B];B[C])";
@@ -94,8 +86,7 @@ public class SgfParsingTest
         Assert.That(SgfParser.ParseTree(input), Is.EqualTo(expected).Using(SgfTreeEqualityComparer.Instance));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Two_child_trees()
     {
         const string input = "(;A[B](;B[C])(;C[D]))";
@@ -108,8 +99,7 @@ public class SgfParsingTest
         Assert.That(SgfParser.ParseTree(input), Is.EqualTo(expected).Using(SgfTreeEqualityComparer.Instance));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Multiple_properties()
     {
         const string input = "(;A[b][c][d])";
@@ -117,8 +107,7 @@ public class SgfParsingTest
         Assert.That(SgfParser.ParseTree(input), Is.EqualTo(expected).Using(SgfTreeEqualityComparer.Instance));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Escaped_property()
     {
         const string input = @"(;A[\]b\nc\nd\t\te \n\]])";

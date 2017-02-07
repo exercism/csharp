@@ -1,17 +1,16 @@
 ﻿using System.Linq;
-using NUnit.Framework;
+using Xunit;
 
 public class BinarySearchTreeTest
 {
-    [Test]
+    [Fact]
     public void Data_is_retained()
     {
         var tree = new BinarySearchTree(4);
         Assert.That(tree.Value, Is.EqualTo(4));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Inserting_less()
     {
         var tree = new BinarySearchTree(4).Add(2);
@@ -19,8 +18,7 @@ public class BinarySearchTreeTest
         Assert.That(tree.Left.Value, Is.EqualTo(2));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Inserting_same()
     {
         var tree = new BinarySearchTree(4).Add(4);
@@ -28,8 +26,7 @@ public class BinarySearchTreeTest
         Assert.That(tree.Left.Value, Is.EqualTo(4));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Inserting_greater()
     {
         var tree = new BinarySearchTree(4).Add(5);
@@ -37,8 +34,7 @@ public class BinarySearchTreeTest
         Assert.That(tree.Right.Value, Is.EqualTo(5));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Complex_tree()
     {
         var tree = new BinarySearchTree(new [] {  4, 2, 6, 1, 3, 7, 5 });
@@ -51,32 +47,28 @@ public class BinarySearchTreeTest
         Assert.That(tree.Right.Right.Value, Is.EqualTo(7));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Iterating_one_element()
     {
         var elements = new BinarySearchTree(4).AsEnumerable();
         Assert.That(elements, Is.EqualTo(new [] { 4 }));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Iterating_over_smaller_element()
     {
         var elements = new BinarySearchTree(new[] { 4, 2 }).AsEnumerable();
         Assert.That(elements, Is.EqualTo(new[] { 2, 4 }));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Iterating_over_larger_element()
     {
         var elements = new BinarySearchTree(new[] { 4, 5 }).AsEnumerable();
         Assert.That(elements, Is.EqualTo(new[] { 4, 5 }));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Iterating_over_complex_element()
     {
         var elements = new BinarySearchTree(new[] { 4, 2, 1, 3, 6, 7, 5 }).AsEnumerable();

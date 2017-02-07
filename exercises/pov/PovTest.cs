@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 using System.Linq;
 
 public class PovTest
@@ -87,49 +87,43 @@ public class PovTest
             })
         });
 
-    [Test]
+    [Fact]
     public void Reparent_singleton()
     {
         Assert.That(Pov.FromPOV(x, singleton), Is.EqualTo(singleton_));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Reparent_flat()
     {
         Assert.That(Pov.FromPOV(x, flat), Is.EqualTo(flat_));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Reparent_nested()
     {
         Assert.That(Pov.FromPOV(x, nested), Is.EqualTo(nested_));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Reparent_kids()
     {
         Assert.That(Pov.FromPOV(x, kids), Is.EqualTo(kids_));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Reparent_cousins()
     {
         Assert.That(Pov.FromPOV(x, cousins), Is.EqualTo(cousins_));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Reparent_from_POV_of_non_existent_node()
     {
         Assert.That(Pov.FromPOV(x, leaf("foo")), Is.Null);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Should_not_be_able_to_find_a_missing_node()
     {
         var nodes = new[] { singleton, flat, kids, nested, cousins }.Select(graph => Pov.FromPOV("NOT THERE", graph));
@@ -137,22 +131,19 @@ public class PovTest
         Assert.That(nodes, Is.All.Null);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Cannot_trace_between_unconnected_nodes()
     {
         Assert.That(Pov.TracePathBetween(x, "NOT THERE", cousins), Is.Null);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Can_trace_a_path_from_x_to_cousin()
     {
         Assert.That(Pov.TracePathBetween(x, "cousin-1", cousins), Is.EquivalentTo(new[] { "x", "parent", "grandparent", "uncle", "cousin-1" }));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Can_trace_from_a_leaf_to_a_leaf()
     {
         Assert.That(Pov.TracePathBetween("kid-a", "cousin-0", cousins), Is.EquivalentTo(new[] { "kid-a", "x", "parent", "grandparent", "uncle", "cousin-0" }));

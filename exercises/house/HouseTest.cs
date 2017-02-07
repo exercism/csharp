@@ -1,8 +1,8 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 
 public class HouseTest
 {
-    [Test]
+    [Fact]
     public void Rhyme_is_correct()
     {
         const string expected =

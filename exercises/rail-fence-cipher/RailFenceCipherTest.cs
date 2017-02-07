@@ -1,8 +1,8 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 
 public class RailFenceCipherTest
 {
-    [Test]
+    [Fact]
     public void Encode_with_two_rails()
     {
         var railFenceCipher = new RailFenceCipher(2);
@@ -11,8 +11,7 @@ public class RailFenceCipherTest
         Assert.That(actual, Is.EqualTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Encode_with_three_rails()
     {
         var railFenceCipher = new RailFenceCipher(3);
@@ -21,8 +20,7 @@ public class RailFenceCipherTest
         Assert.That(actual, Is.EqualTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Encode_with_ending_in_the_middle()
     {
         var railFenceCipher = new RailFenceCipher(4);
@@ -31,8 +29,7 @@ public class RailFenceCipherTest
         Assert.That(actual, Is.EqualTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Decode_with_three_rails()
     {
         var railFenceCipher = new RailFenceCipher(3);
@@ -41,8 +38,7 @@ public class RailFenceCipherTest
         Assert.That(actual, Is.EqualTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Decode_with_five_rails()
     {
         var railFenceCipher = new RailFenceCipher(5);
@@ -51,8 +47,7 @@ public class RailFenceCipherTest
         Assert.That(actual, Is.EqualTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Decode_with_six_rails()
     {
         var railFenceCipher = new RailFenceCipher(6);

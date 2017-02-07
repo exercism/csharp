@@ -1,57 +1,51 @@
 ﻿using System.Linq;
-using NUnit.Framework;
+using Xunit;
 
 public class SimpleLinkedListTest
 {
-    [Test]
+    [Fact]
     public void Single_item_list_value()
     {
         var list = new SimpleLinkedList<int>(1);
         Assert.That(list.Value, Is.EqualTo(1));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Single_item_list_has_no_next_item()
     {
         var list = new SimpleLinkedList<int>(1);
         Assert.That(list.Next, Is.Null);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Two_item_list_first_value()
     {
         var list = new SimpleLinkedList<int>(2).Add(1);
         Assert.That(list.Value, Is.EqualTo(2));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Two_item_list_second_value()
     {
         var list = new SimpleLinkedList<int>(2).Add(1);
         Assert.That(list.Next.Value, Is.EqualTo(1));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Two_item_list_second_item_has_no_next()
     {
         var list = new SimpleLinkedList<int>(2).Add(1);
         Assert.That(list.Next.Next, Is.Null);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Implements_enumerable()
     {
         var values = new SimpleLinkedList<int>(2).Add(1);
         Assert.That(values, Is.EqualTo(new[] { 2, 1 }));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void From_enumerable()
     {
         var list = new SimpleLinkedList<int>(new[] { 11, 7, 5, 3, 2 });

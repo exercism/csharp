@@ -1,8 +1,8 @@
-using NUnit.Framework;
+using Xunit;
 
 public class AnagramTest
 {
-    [Test]
+    [Fact]
     public void No_matches()
     {
         var detector = new Anagram("diaper");
@@ -11,8 +11,7 @@ public class AnagramTest
         Assert.That(detector.Match(words), Is.EquivalentTo(results));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Detect_simple_anagram()
     {
         var detector = new Anagram("ant");
@@ -21,8 +20,7 @@ public class AnagramTest
         Assert.That(detector.Match(words), Is.EquivalentTo(results));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Detect_multiple_anagrams()
     {
         var detector = new Anagram("master");
@@ -31,8 +29,7 @@ public class AnagramTest
         Assert.That(detector.Match(words), Is.EquivalentTo(results));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Does_not_confuse_different_duplicates()
     {
         var detector = new Anagram("galea");
@@ -41,8 +38,7 @@ public class AnagramTest
         Assert.That(detector.Match(words), Is.EquivalentTo(results));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Identical_word_is_not_anagram()
     {
         var detector = new Anagram("corn");
@@ -51,8 +47,7 @@ public class AnagramTest
         Assert.That(detector.Match(words), Is.EquivalentTo(results));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Eliminate_anagrams_with_same_checksum()
     {
         var detector = new Anagram("mass");
@@ -61,8 +56,7 @@ public class AnagramTest
         Assert.That(detector.Match(words), Is.EquivalentTo(results));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Eliminate_anagram_subsets()
     {
         var detector = new Anagram("good");
@@ -71,8 +65,7 @@ public class AnagramTest
         Assert.That(detector.Match(words), Is.EquivalentTo(results));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Detect_anagrams()
     {
         var detector = new Anagram("allergy");
@@ -81,8 +74,7 @@ public class AnagramTest
         Assert.That(detector.Match(words), Is.EquivalentTo(results));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Anagrams_are_case_insensitive()
     {
         var detector = new Anagram("Orchestra");

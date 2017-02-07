@@ -1,8 +1,8 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 
 public class TreeBuildingTest
 {
-    [Test]
+    [Fact]
     public void One_node()
     {
         var records = new[]
@@ -15,7 +15,7 @@ public class TreeBuildingTest
         AssertTreeIsLeaf(tree, id: 0);
     }
 
-    [Test]
+    [Fact]
     public void Three_nodes_in_order()
     {
         var records = new[]
@@ -32,7 +32,7 @@ public class TreeBuildingTest
         AssertTreeIsLeaf(tree.Children[1], id: 2);
     }
 
-    [Test]
+    [Fact]
     public void Three_nodes_in_reverse_order()
     {
         var records = new[]
@@ -49,7 +49,7 @@ public class TreeBuildingTest
         AssertTreeIsLeaf(tree.Children[1], id: 2);
     }
 
-    [Test]
+    [Fact]
     public void More_than_two_children()
     {
         var records = new[]
@@ -68,7 +68,7 @@ public class TreeBuildingTest
         AssertTreeIsLeaf(tree.Children[2], id: 3);
     }
 
-    [Test]
+    [Fact]
     public void Binary_tree()
     {
         var records = new[]
@@ -94,7 +94,7 @@ public class TreeBuildingTest
         AssertTreeIsLeaf(tree.Children[1].Children[1], id: 6);
     }
 
-    [Test]
+    [Fact]
     public void Unbalanced_tree()
     {
         var records = new[]
@@ -120,7 +120,7 @@ public class TreeBuildingTest
         AssertTreeIsLeaf(tree.Children[1].Children[2], id: 6);
     }
 
-    [Test]
+    [Fact]
     public void Empty_input()
     {
         var records = new TreeBuildingRecord[0];
@@ -128,7 +128,7 @@ public class TreeBuildingTest
         Assert.That(() => TreeBuilder.BuildTree(records), Throws.Exception);
     }
 
-    [Test]
+    [Fact]
     public void Root_node_has_parent()
     {
         var records = new[]
@@ -140,7 +140,7 @@ public class TreeBuildingTest
         Assert.That(() => TreeBuilder.BuildTree(records), Throws.Exception);
     }
 
-    [Test]
+    [Fact]
     public void No_root_node()
     {
         var records = new[]
@@ -152,7 +152,7 @@ public class TreeBuildingTest
     }
 
 
-    [Test]
+    [Fact]
     public void Non_continuous()
     {
         var records = new[]
@@ -166,7 +166,7 @@ public class TreeBuildingTest
         Assert.That(() => TreeBuilder.BuildTree(records), Throws.Exception);
     }
 
-    [Test]
+    [Fact]
     public void Cycle_directly()
     {
         var records = new[]
@@ -183,7 +183,7 @@ public class TreeBuildingTest
         Assert.That(() => TreeBuilder.BuildTree(records), Throws.Exception);
     }
 
-    [Test]
+    [Fact]
     public void Cycle_indirectly()
     {
         var records = new[]
@@ -200,7 +200,7 @@ public class TreeBuildingTest
         Assert.That(() => TreeBuilder.BuildTree(records), Throws.Exception);
     }
 
-    [Test]
+    [Fact]
     public void Higher_id_parent_of_lower_id()
     {
         var records = new[]

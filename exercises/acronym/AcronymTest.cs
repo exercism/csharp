@@ -1,8 +1,8 @@
-using NUnit.Framework;
+using Xunit;
 
 public class AcronymTest
 {
-    [Test]
+    [Fact]
     public void Empty_string_abbreviated_to_empty_string()
     {
         Assert.That(Acronym.Abbreviate(string.Empty), Is.EqualTo(string.Empty));

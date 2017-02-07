@@ -1,8 +1,8 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 
 public class TransposeTest
 {
-    [Test]
+    [Fact]
     public void Empty_string()
     {
         const string input = "";
@@ -11,8 +11,7 @@ public class TransposeTest
         Assert.That(Transpose.String(input), Is.EqualTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Two_characters()
     {
         const string input =
@@ -25,8 +24,7 @@ public class TransposeTest
         Assert.That(Transpose.String(input), Is.EqualTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Simple()
     {
         const string input =
@@ -41,8 +39,7 @@ public class TransposeTest
         Assert.That(Transpose.String(input), Is.EqualTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Single_line()
     {
         const string input =
@@ -65,8 +62,7 @@ public class TransposeTest
         Assert.That(Transpose.String(input), Is.EqualTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void First_line_longer_than_second_line()
     {
         const string input =
@@ -94,8 +90,7 @@ public class TransposeTest
         Assert.That(Transpose.String(input), Is.EqualTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Second_line_longer_than_first_line()
     {
         const string input =
@@ -123,8 +118,7 @@ public class TransposeTest
         Assert.That(Transpose.String(input), Is.EqualTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Square()
     {
         const string input =
@@ -144,7 +138,7 @@ public class TransposeTest
         Assert.That(Transpose.String(input), Is.EqualTo(expected));
     }
 
-    [Test]
+    [Fact]
     [Ignore("Remove to run test")]
     public void Rectangle()
     {
@@ -167,8 +161,7 @@ public class TransposeTest
         Assert.That(Transpose.String(input), Is.EqualTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Triangle()
     {
         const string input =
@@ -190,8 +183,7 @@ public class TransposeTest
         Assert.That(Transpose.String(input), Is.EqualTo(expected));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Many_lines()
     {
         const string input =

@@ -1,32 +1,29 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 
 public class KinderGartenGardenTest
 {
-    [Test]
+    [Fact]
     public void Missing_child()
     {
         var actual = Garden.DefaultGarden("RC\nGG").GetPlants("Potter");
         Assert.That(actual, Is.Empty);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Alice()
     {
         Assert.That(Garden.DefaultGarden("RC\nGG").GetPlants("Alice"), Is.EqualTo(new [] { Plant.Radishes, Plant.Clover, Plant.Grass, Plant.Grass }));
         Assert.That(Garden.DefaultGarden("VC\nRC").GetPlants("Alice"), Is.EqualTo(new[] { Plant.Violets, Plant.Clover, Plant.Radishes, Plant.Clover }));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Small_garden()
     {
         var actual = Garden.DefaultGarden("VVCG\nVVRC").GetPlants("Bob");
         Assert.That(actual, Is.EqualTo(new[] { Plant.Clover, Plant.Grass, Plant.Radishes, Plant.Clover }));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Medium_garden()
     {
         var garden = Garden.DefaultGarden("VVCCGG\nVVCCGG");
@@ -34,8 +31,7 @@ public class KinderGartenGardenTest
         Assert.That(garden.GetPlants("Charlie"), Is.EqualTo(new[] { Plant.Grass, Plant.Grass, Plant.Grass, Plant.Grass }));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Full_garden()
     {
         var garden = Garden.DefaultGarden("VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV");
@@ -52,8 +48,7 @@ public class KinderGartenGardenTest
         Assert.That(garden.GetPlants("Larry"), Is.EqualTo(new[] { Plant.Grass, Plant.Violets, Plant.Clover, Plant.Violets }));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Surprise_garden()
     {
         var garden = new Garden(new [] { "Samantha", "Patricia", "Xander", "Roger" }, "VCRRGVRG\nRVGCCGCV");

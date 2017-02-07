@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Drawing;
-using NUnit.Framework;
+using Xunit;
 
 public class WordSearchTest
 {
@@ -16,7 +16,7 @@ public class WordSearchTest
         "jalaycalmp\n" +
         "clojurermt";
 
-    [Test]
+    [Fact]
     public void Should_find_horizontal_words_written_left_to_right()
     {
         var wordSearch = new WordSearch(Puzzle);
@@ -24,8 +24,7 @@ public class WordSearchTest
         Assert.That(actual, Is.EqualTo(Tuple.Create(new Point(1, 10), new Point(7, 10))));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Should_find_horizontal_words_written_right_to_left()
     {
         var wordSearch = new WordSearch(Puzzle);
@@ -33,8 +32,7 @@ public class WordSearchTest
         Assert.That(actual, Is.EqualTo(Tuple.Create(new Point(6, 5), new Point(1, 5))));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Should_find_vertical_words_written_top_to_bottom()
     {
         var wordSearch = new WordSearch(Puzzle);
@@ -42,8 +40,7 @@ public class WordSearchTest
         Assert.That(actual, Is.EqualTo(Tuple.Create(new Point(10, 1), new Point(10, 10))));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Should_find_vertical_words_written_bottom_to_top()
     {
         var wordSearch = new WordSearch(Puzzle);
@@ -51,8 +48,7 @@ public class WordSearchTest
         Assert.That(actual, Is.EqualTo(Tuple.Create(new Point(9, 5), new Point(9, 2))));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Should_find_diagonal_words_written_top_left_to_bottom_right()
     {
         var wordSearch = new WordSearch(Puzzle);
@@ -60,8 +56,7 @@ public class WordSearchTest
         Assert.That(actual, Is.EqualTo(Tuple.Create(new Point(1, 1), new Point(4, 4))));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Should_find_diagonal_upper_written_bottom_right_to_top_left()
     {
         var wordSearch = new WordSearch(Puzzle);
@@ -69,8 +64,7 @@ public class WordSearchTest
         Assert.That(actual, Is.EqualTo(Tuple.Create(new Point(8, 9), new Point(6, 7))));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Should_find_diagonal_upper_written_bottom_left_to_top_right()
     {
         var wordSearch = new WordSearch(Puzzle);
@@ -78,8 +72,7 @@ public class WordSearchTest
         Assert.That(actual, Is.EqualTo(Tuple.Create(new Point(3, 6), new Point(6, 3))));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Should_find_diagonal_upper_written_top_right_to_bottom_left()
     {
         var wordSearch = new WordSearch(Puzzle);
@@ -87,8 +80,7 @@ public class WordSearchTest
         Assert.That(actual, Is.EqualTo(Tuple.Create(new Point(8, 6), new Point(5, 9))));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Should_not_find_words_that_are_not_in_the_puzzle()
     {
         var wordSearch = new WordSearch(Puzzle);
@@ -96,8 +88,7 @@ public class WordSearchTest
         Assert.That(actual, Is.Null);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Should_be_able_to_search_differently_sized_puzzles()
     {
         const string differentSizePuzzle =

@@ -1,16 +1,15 @@
 using System.Linq;
-using NUnit.Framework;
+using Xunit;
 
 public class PythagoreanTripletTest
 {
-    [Test]
+    [Fact]
     public void Calculates_the_sum()
     {
         Assert.That(new Triplet(3, 4, 5).Sum(), Is.EqualTo(12));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Calculates_the_product()
     {
         Assert.That(new Triplet(3, 4, 5).Product(), Is.EqualTo(60));
@@ -24,8 +23,7 @@ public class PythagoreanTripletTest
         return new Triplet(a, b, c).IsPythagorean();
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Can_make_triplets_up_to_10()
     {
         var triplets = Triplet.Where(maxFactor: 10);
@@ -33,8 +31,7 @@ public class PythagoreanTripletTest
         Assert.That(products, Is.EqualTo(new[] { 60, 480 }));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Can_make_triplets_from_11_to_20()
     {
         var triplets = Triplet.Where(minFactor: 11, maxFactor: 20);
@@ -42,8 +39,7 @@ public class PythagoreanTripletTest
         Assert.That(products, Is.EqualTo(new[] { 3840 }));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip="Remove to run test")]
     public void Can_make_triplets_filtered_on_sum()
     {
         var triplets = Triplet.Where(sum: 180, maxFactor: 100);

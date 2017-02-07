@@ -1,8 +1,8 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 
 public class LedgerTest
 {
-    [Test]
+    [Fact]
     public void Empty_ledger()
     {
         var currency = "USD";
@@ -14,7 +14,7 @@ public class LedgerTest
         Assert.That(Ledger.Format(currency, locale, entries), Is.EqualTo(expected));
     }
 
-    [Test]
+    [Fact]
     public void One_entry()
     {
         var currency = "USD";
@@ -30,7 +30,7 @@ public class LedgerTest
         Assert.That(Ledger.Format(currency, locale, entries), Is.EqualTo(expected));
     }
 
-    [Test]
+    [Fact]
     public void Credit_and_debit()
     {
         var currency = "USD";
@@ -48,7 +48,7 @@ public class LedgerTest
         Assert.That(Ledger.Format(currency, locale, entries), Is.EqualTo(expected));
     }
 
-    [Test]
+    [Fact]
     public void Multiple_entries_on_same_date_ordered_by_description()
     {
         var currency = "USD";
@@ -66,7 +66,7 @@ public class LedgerTest
         Assert.That(Ledger.Format(currency, locale, entries), Is.EqualTo(expected));
     }
 
-    [Test]
+    [Fact]
     public void Final_order_tie_breaker_is_change()
     {
         var currency = "USD";
@@ -86,7 +86,7 @@ public class LedgerTest
         Assert.That(Ledger.Format(currency, locale, entries), Is.EqualTo(expected));
     }
 
-    [Test]
+    [Fact]
     public void Overlong_descriptions()
     {
         var currency = "USD";
@@ -102,7 +102,7 @@ public class LedgerTest
         Assert.That(Ledger.Format(currency, locale, entries), Is.EqualTo(expected));
     }
 
-    [Test]
+    [Fact]
     public void Euros()
     {
         var currency = "EUR";
@@ -118,7 +118,7 @@ public class LedgerTest
         Assert.That(Ledger.Format(currency, locale, entries), Is.EqualTo(expected));
     }
 
-    [Test]
+    [Fact]
     public void Dutch_locale()
     {
         var currency = "USD";
@@ -134,7 +134,7 @@ public class LedgerTest
         Assert.That(Ledger.Format(currency, locale, entries), Is.EqualTo(expected));
     }
 
-    [Test]
+    [Fact]
     public void Dutch_negative_number_with_3_digits_before_decimal_point()
     {
         var currency = "USD";
@@ -150,7 +150,7 @@ public class LedgerTest
         Assert.That(Ledger.Format(currency, locale, entries), Is.EqualTo(expected));
     }
 
-    [Test]
+    [Fact]
     public void American_negative_number_with_3_digits_before_decimal_point()
     {
         var currency = "USD";
