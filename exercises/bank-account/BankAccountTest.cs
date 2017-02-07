@@ -11,7 +11,7 @@ public class BankAccountTest
         var account = new BankAccount();
         account.Open();
 
-        Assert.That(account.Balance, Is.EqualTo(0));
+        Assert.Equal(0, account.Balance);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -25,8 +25,8 @@ public class BankAccountTest
         account.UpdateBalance(10);
         var updatedBalance = account.Balance;
 
-        Assert.That(openingBalance, Is.EqualTo(0));
-        Assert.That(updatedBalance, Is.EqualTo(10));
+        Assert.Equal(0, openingBalance);
+        Assert.Equal(10, updatedBalance);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -42,9 +42,9 @@ public class BankAccountTest
         account.UpdateBalance(-15);
         var subtractedBalance = account.Balance;
 
-        Assert.That(openingBalance, Is.EqualTo(0));
-        Assert.That(addedBalance, Is.EqualTo(10));
-        Assert.That(subtractedBalance, Is.EqualTo(-5));
+        Assert.Equal(0, openingBalance);
+        Assert.Equal(10, addedBalance);
+        Assert.Equal(-5, subtractedBalance);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -80,6 +80,6 @@ public class BankAccountTest
         }
         Task.WaitAll(tasks.ToArray());
 
-        Assert.That(account.Balance, Is.EqualTo(0));
+        Assert.Equal(0, account.Balance);
     }
 }

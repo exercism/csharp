@@ -19,7 +19,7 @@ public class RobotNameTest
     [Fact(Skip="Remove to run test")]
     public void Name_is_the_same_each_time()
     {
-        Assert.That(robot.Name, Is.EqualTo(robot.Name));
+        Assert.Equal(robot.Name, robot.Name);
     }
 
     [Fact(Skip="Remove to run test")]

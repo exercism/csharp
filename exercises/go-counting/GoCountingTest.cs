@@ -34,7 +34,7 @@ public class GoCountingTest
     {
         var board = new GoCounting(boardFiveByFive);
         var result = board.TerritoryFor(new Point(0, 1));
-        Assert.That(result.Item1, Is.EqualTo(GoCounting.Player.Black));
+        Assert.Equal(GoCounting.Player.Black, result.Item1);
         Assert.That(result.Item2, Is.EquivalentTo(new[] { new Point(0, 0), new Point(0, 1), new Point(1, 0) }));
     }
 
@@ -43,7 +43,7 @@ public class GoCountingTest
     {
         var board = new GoCounting(boardFiveByFive);
         var result = board.TerritoryFor(new Point(2, 3));
-        Assert.That(result.Item1, Is.EqualTo(GoCounting.Player.White));
+        Assert.Equal(GoCounting.Player.White, result.Item1);
         Assert.That(result.Item2, Is.EquivalentTo(new[] { new Point(2, 3) }));
     }
 
@@ -52,7 +52,7 @@ public class GoCountingTest
     {
         var board = new GoCounting(boardFiveByFive);
         var result = board.TerritoryFor(new Point(1, 4));
-        Assert.That(result.Item1, Is.EqualTo(GoCounting.Player.None));
+        Assert.Equal(GoCounting.Player.None, result.Item1);
         Assert.That(result.Item2, Is.EquivalentTo(new[] { new Point(0, 3), new Point(0, 4), new Point(1, 4) }));
     }
 

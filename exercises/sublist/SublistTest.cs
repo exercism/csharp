@@ -9,7 +9,7 @@ public class SublistTest
     {
         var list1 = new List<int>();
         var list2 = new List<int>();
-        Assert.That(Sublist.Classify(list1, list2), Is.EqualTo(SublistType.Equal));
+        Assert.Equal(SublistType.Equal, Sublist.Classify(list1, list2));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -17,7 +17,7 @@ public class SublistTest
     {
         var list1 = new List<int>();
         var list2 = new List<int> { 1, 2, 3, 4 };
-        Assert.That(Sublist.Classify(list1, list2), Is.EqualTo(SublistType.Sublist));
+        Assert.Equal(SublistType.Sublist, Sublist.Classify(list1, list2));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -25,7 +25,7 @@ public class SublistTest
     {
         var list1 = new List<int> { 1, 2, 3, 4 };
         var list2 = new List<int>();
-        Assert.That(Sublist.Classify(list1, list2), Is.EqualTo(SublistType.Superlist));
+        Assert.Equal(SublistType.Superlist, Sublist.Classify(list1, list2));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -33,7 +33,7 @@ public class SublistTest
     {
         var list1 = new List<int> { 1 };
         var list2 = new List<int> { 2 };
-        Assert.That(Sublist.Classify(list1, list2), Is.EqualTo(SublistType.Unequal));
+        Assert.Equal(SublistType.Unequal, Sublist.Classify(list1, list2));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -41,7 +41,7 @@ public class SublistTest
     {
         var list1 = new List<char>(Enumerable.Repeat('x', 1000));
         var list2 = new List<char>(Enumerable.Repeat('x', 1000));
-        Assert.That(Sublist.Classify(list1, list2), Is.EqualTo(SublistType.Equal));
+        Assert.Equal(SublistType.Equal, Sublist.Classify(list1, list2));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -49,7 +49,7 @@ public class SublistTest
     {
         var list1 = new List<int> { 1, 2, 3 };
         var list2 = new List<int> { 1, 2, 3, 4, 5 };
-        Assert.That(Sublist.Classify(list1, list2), Is.EqualTo(SublistType.Sublist));
+        Assert.Equal(SublistType.Sublist, Sublist.Classify(list1, list2));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -57,7 +57,7 @@ public class SublistTest
     {
         var list1 = new List<int> { 4, 3, 2 };
         var list2 = new List<int> { 5, 4, 3, 2, 1 };
-        Assert.That(Sublist.Classify(list1, list2), Is.EqualTo(SublistType.Sublist));
+        Assert.Equal(SublistType.Sublist, Sublist.Classify(list1, list2));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -65,7 +65,7 @@ public class SublistTest
     {
         var list1 = new List<int> { 3, 4, 5 };
         var list2 = new List<int> { 1, 2, 3, 4, 5 };
-        Assert.That(Sublist.Classify(list1, list2), Is.EqualTo(SublistType.Sublist));
+        Assert.Equal(SublistType.Sublist, Sublist.Classify(list1, list2));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -73,7 +73,7 @@ public class SublistTest
     {
         var list1 = new List<int> { 1, 1, 2 };
         var list2 = new List<int> { 1, 1, 1, 2 };
-        Assert.That(Sublist.Classify(list1, list2), Is.EqualTo(SublistType.Sublist));
+        Assert.Equal(SublistType.Sublist, Sublist.Classify(list1, list2));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -81,7 +81,7 @@ public class SublistTest
     {
         var list1 = new List<int> { 3, 4, 5 };
         var list2 = new List<int>(Enumerable.Range(1, 1000000));
-        Assert.That(Sublist.Classify(list1, list2), Is.EqualTo(SublistType.Sublist));
+        Assert.Equal(SublistType.Sublist, Sublist.Classify(list1, list2));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -89,7 +89,7 @@ public class SublistTest
     {
         var list1 = new List<int>(Enumerable.Range(10, 1000001));
         var list2 = new List<int>(Enumerable.Range(1, 1000000));
-        Assert.That(Sublist.Classify(list1, list2), Is.EqualTo(SublistType.Unequal));
+        Assert.Equal(SublistType.Unequal, Sublist.Classify(list1, list2));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -97,7 +97,7 @@ public class SublistTest
     {
         var list1 = new List<int> { 1, 2, 3, 4, 5 };
         var list2 = new List<int> { 1, 2, 3 };
-        Assert.That(Sublist.Classify(list1, list2), Is.EqualTo(SublistType.Superlist));
+        Assert.Equal(SublistType.Superlist, Sublist.Classify(list1, list2));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -105,7 +105,7 @@ public class SublistTest
     {
         var list1 = new List<int> { 5, 4, 3, 2, 1 };
         var list2 = new List<int> { 4, 3, 2 };
-        Assert.That(Sublist.Classify(list1, list2), Is.EqualTo(SublistType.Superlist));
+        Assert.Equal(SublistType.Superlist, Sublist.Classify(list1, list2));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -113,7 +113,7 @@ public class SublistTest
     {
         var list1 = new List<int> { 1, 2, 3, 4, 5 };
         var list2 = new List<int> { 3, 4, 5 };
-        Assert.That(Sublist.Classify(list1, list2), Is.EqualTo(SublistType.Superlist));
+        Assert.Equal(SublistType.Superlist, Sublist.Classify(list1, list2));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -121,7 +121,7 @@ public class SublistTest
     {
         var list1 = new List<int> { 1, 1, 1, 2 };
         var list2 = new List<int> { 1, 1, 2 };
-        Assert.That(Sublist.Classify(list1, list2), Is.EqualTo(SublistType.Superlist));
+        Assert.Equal(SublistType.Superlist, Sublist.Classify(list1, list2));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -129,7 +129,7 @@ public class SublistTest
     {
         var list1 = new List<int>(Enumerable.Range(1, 1000000));
         var list2 = new List<int> { 3, 4, 5 };
-        Assert.That(Sublist.Classify(list1, list2), Is.EqualTo(SublistType.Superlist));
+        Assert.Equal(SublistType.Superlist, Sublist.Classify(list1, list2));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -137,7 +137,7 @@ public class SublistTest
     {
         var list1 = new List<int> { 1, 2, 1, 2, 3 };
         var list2 = new List<int> { 1, 2, 3, 1, 2, 1, 2, 3, 2, 1 };
-        Assert.That(Sublist.Classify(list1, list2), Is.EqualTo(SublistType.Sublist));
+        Assert.Equal(SublistType.Sublist, Sublist.Classify(list1, list2));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -145,6 +145,6 @@ public class SublistTest
     {
         var list1 = new List<int> { 1, 2, 1, 2, 3 };
         var list2 = new List<int> { 1, 2, 3, 1, 2, 3, 2, 3, 2, 1 };
-        Assert.That(Sublist.Classify(list1, list2), Is.EqualTo(SublistType.Unequal));
+        Assert.Equal(SublistType.Unequal, Sublist.Classify(list1, list2));
     }
 }

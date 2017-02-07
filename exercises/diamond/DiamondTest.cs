@@ -18,7 +18,7 @@ public class DiamondTest
         var rows = Rows(actual);
         var firstRowCharacters = rows.First().Trim();
 
-        Assert.That(firstRowCharacters, Is.EqualTo("A"));
+        Assert.Equal("A", firstRowCharacters);
     }
 
     [Ignore("Remove to run test")]
@@ -40,7 +40,7 @@ public class DiamondTest
 
         var expected = GetLetterRange('A', letter);
         var firstNonSpaceLetters = rows.Take(expected.Length).Select(row => row.Trim()[0]);
-        Assert.That(expected, Is.EqualTo(firstNonSpaceLetters));
+        Assert.Equal(firstNonSpaceLetters, expected);
     }
 
     [Ignore("Remove to run test")]
@@ -53,7 +53,7 @@ public class DiamondTest
         var top = rows.TakeWhile(row => !row.Contains(letter));
         var bottom = rows.Reverse().TakeWhile(row => !row.Contains(letter));
 
-        Assert.That(top, Is.EqualTo(bottom));
+        Assert.Equal(bottom, top);
     }
 
     [Ignore("Remove to run test")]
@@ -96,6 +96,6 @@ public class DiamondTest
         var spaceCounts = cornerSpaces.Select(row => row.Length).ToList();
         var expected = Enumerable.Range(0, spaceCounts.Count).Select(i => i).ToList();
 
-        Assert.That(spaceCounts, Is.EqualTo(expected));
+        Assert.Equal(expected, spaceCounts);
     }
 }

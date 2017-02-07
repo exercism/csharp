@@ -6,21 +6,21 @@ public class RectanglesTest
     public void No_rows()
     {
         var input = new string[0];
-        Assert.That(Rectangles.Count(input), Is.EqualTo(0));
+        Assert.Equal(0, Rectangles.Count(input));
     }
 
     [Fact(Skip="Remove to run test")]
     public void No_columns()
     {
         var input = new[] { "" };
-        Assert.That(Rectangles.Count(input), Is.EqualTo(0));
+        Assert.Equal(0, Rectangles.Count(input));
     }
 
     [Fact(Skip="Remove to run test")]
     public void No_rectangles()
     {
         var input = new[] { " " };
-        Assert.That(Rectangles.Count(input), Is.EqualTo(0));
+        Assert.Equal(0, Rectangles.Count(input));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -32,7 +32,7 @@ public class RectanglesTest
             "| |",
             "+-+"
         };
-        Assert.That(Rectangles.Count(input), Is.EqualTo(1));
+        Assert.Equal(1, Rectangles.Count(input));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -46,7 +46,7 @@ public class RectanglesTest
             "| |  ",
             "+-+  "
         };
-        Assert.That(Rectangles.Count(input), Is.EqualTo(2));
+        Assert.Equal(2, Rectangles.Count(input));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -60,7 +60,7 @@ public class RectanglesTest
             "| | |",
             "+-+-+"
         };
-        Assert.That(Rectangles.Count(input), Is.EqualTo(5));
+        Assert.Equal(5, Rectangles.Count(input));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -74,7 +74,7 @@ public class RectanglesTest
             "| | -",
             "+-+-+"
         };
-        Assert.That(Rectangles.Count(input), Is.EqualTo(1));
+        Assert.Equal(1, Rectangles.Count(input));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -88,7 +88,7 @@ public class RectanglesTest
             "|   |       |",
             "+---+-------+"
         };
-        Assert.That(Rectangles.Count(input), Is.EqualTo(3));
+        Assert.Equal(3, Rectangles.Count(input));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -102,7 +102,7 @@ public class RectanglesTest
             "|   |       |",
             "+---+-------+"
         };
-        Assert.That(Rectangles.Count(input), Is.EqualTo(2));
+        Assert.Equal(2, Rectangles.Count(input));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -119,6 +119,6 @@ public class RectanglesTest
             "+------+  | |",
             "          +-+"
         };
-        Assert.That(Rectangles.Count(input), Is.EqualTo(60));
+        Assert.Equal(60, Rectangles.Count(input));
     }
 }

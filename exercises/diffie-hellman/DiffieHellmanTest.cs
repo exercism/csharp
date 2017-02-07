@@ -19,7 +19,7 @@ public class DiffieHellmanTest
     {
         var primeP = new BigInteger(7919);
         var privateKeys = Enumerable.Range(0, 5).Select(_ => DiffieHellman.PrivateKey(primeP)).ToList();
-        Assert.That(privateKeys.Count, Is.EqualTo(privateKeys.Distinct().Count()));
+        Assert.Equal(privateKeys.Distinct().Count(), privateKeys.Count);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -30,7 +30,7 @@ public class DiffieHellmanTest
         var privateKey = new BigInteger(6);
 
         var actual = DiffieHellman.PublicKey(primeP, primeG, privateKey);
-        Assert.That(actual, Is.EqualTo(new BigInteger(8)));
+        Assert.Equal(new BigInteger(8), actual);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -41,7 +41,7 @@ public class DiffieHellmanTest
         var privateKey = new BigInteger(6);
 
         var actual = DiffieHellman.Secret(primeP, publicKey, privateKey);
-        Assert.That(actual, Is.EqualTo(new BigInteger(2)));
+        Assert.Equal(new BigInteger(2), actual);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -52,7 +52,7 @@ public class DiffieHellmanTest
         var privateKey = BigInteger.Parse("2483479393625932939911081304356888505153797135447327501792696199190469015215177630758617902200417377685436170904594686456961202706692908603181062371925882");
         var expected = BigInteger.Parse("70900735223964890815905879227737819348808518698920446491346508980461201746567735331455825644429877946556431095820785835497384849778344216981228226252639932672153547963980483673419756271345828771971984887453014488572245819864454136618980914729839523581263886740821363010486083940557620831348661126601106717071");
         var actual = DiffieHellman.Secret(primeP, publicKey, privateKey);
-        Assert.That(actual, Is.EqualTo(expected));
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -70,6 +70,6 @@ public class DiffieHellmanTest
         var secretA = DiffieHellman.Secret(primeP, publicKeyB, privateKeyA);
         var secretB = DiffieHellman.Secret(primeP, publicKeyA, privateKeyB);
 
-        Assert.That(secretA, Is.EqualTo(secretB));
+        Assert.Equal(secretB, secretA);
     }
 }

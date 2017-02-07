@@ -20,7 +20,7 @@ public class ConnectTest
                 "    . . . . ."
             };
         var board = new Connect(MakeBoard(lines));
-        Assert.That(board.Result(), Is.EqualTo(Connect.Winner.None));
+        Assert.Equal(Connect.Winner.None, board.Result());
     }
 
     [Fact(Skip="Remove to run test")]
@@ -28,7 +28,7 @@ public class ConnectTest
     {
         var lines = new[] { "X" };
         var board = new Connect(MakeBoard(lines));
-        Assert.That(board.Result(), Is.EqualTo(Connect.Winner.Black));
+        Assert.Equal(Connect.Winner.Black, board.Result());
     }
 
     [Fact(Skip="Remove to run test")]
@@ -36,7 +36,7 @@ public class ConnectTest
     {
         var lines = new[] { "O" };
         var board = new Connect(MakeBoard(lines));
-        Assert.That(board.Result(), Is.EqualTo(Connect.Winner.White));
+        Assert.Equal(Connect.Winner.White, board.Result());
     }
 
     [Fact(Skip="Remove to run test")]
@@ -51,7 +51,7 @@ public class ConnectTest
                 "    O O O O O"
             };
         var board = new Connect(MakeBoard(lines));
-        Assert.That(board.Result(), Is.EqualTo(Connect.Winner.Black));
+        Assert.Equal(Connect.Winner.Black, board.Result());
     }
 
     [Fact(Skip="Remove to run test")]
@@ -66,7 +66,7 @@ public class ConnectTest
                 "    . O X ."
             };
         var board = new Connect(MakeBoard(lines));
-        Assert.That(board.Result(), Is.EqualTo(Connect.Winner.Black));
+        Assert.Equal(Connect.Winner.Black, board.Result());
     }
 
     [Fact(Skip="Remove to run test")]
@@ -81,7 +81,7 @@ public class ConnectTest
                 "    . O X ."
             };
         var board = new Connect(MakeBoard(lines));
-        Assert.That(board.Result(), Is.EqualTo(Connect.Winner.White));
+        Assert.Equal(Connect.Winner.White, board.Result());
     }
 
     [Fact(Skip="Remove to run test")]
@@ -100,7 +100,7 @@ public class ConnectTest
             "XXXXXXXXO"
         };
         var board = new Connect(MakeBoard(lines));
-        Assert.That(board.Result(), Is.EqualTo(Connect.Winner.Black));
+        Assert.Equal(Connect.Winner.Black, board.Result());
     }
 
     [Fact(Skip="Remove to run test")]
@@ -119,6 +119,6 @@ public class ConnectTest
             "XXXXXXXXO"
         };
         var board = new Connect(MakeBoard(lines));
-        Assert.That(board.Result(), Is.EqualTo(Connect.Winner.None));
+        Assert.Equal(Connect.Winner.None, board.Result());
     }
 }

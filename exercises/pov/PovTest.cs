@@ -90,31 +90,31 @@ public class PovTest
     [Fact]
     public void Reparent_singleton()
     {
-        Assert.That(Pov.FromPOV(x, singleton), Is.EqualTo(singleton_));
+        Assert.Equal(singleton_, Pov.FromPOV(x, singleton));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Reparent_flat()
     {
-        Assert.That(Pov.FromPOV(x, flat), Is.EqualTo(flat_));
+        Assert.Equal(flat_, Pov.FromPOV(x, flat));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Reparent_nested()
     {
-        Assert.That(Pov.FromPOV(x, nested), Is.EqualTo(nested_));
+        Assert.Equal(nested_, Pov.FromPOV(x, nested));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Reparent_kids()
     {
-        Assert.That(Pov.FromPOV(x, kids), Is.EqualTo(kids_));
+        Assert.Equal(kids_, Pov.FromPOV(x, kids));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Reparent_cousins()
     {
-        Assert.That(Pov.FromPOV(x, cousins), Is.EqualTo(cousins_));
+        Assert.Equal(cousins_, Pov.FromPOV(x, cousins));
     }
 
     [Fact(Skip="Remove to run test")]

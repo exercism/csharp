@@ -6,7 +6,7 @@ public class PokerTest
     public void One_hand()
     {
         const string hand = "4S 5S 7H 8D JC";
-        Assert.That(Poker.BestHands(new[] { hand }), Is.EqualTo(new[] { hand }));
+        Assert.Equal(new[] { hand }, Poker.BestHands(new[] { hand }));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -14,7 +14,7 @@ public class PokerTest
     {
         const string nothing = "4S 5H 6S 8D JH";
         const string pairOf4 = "2S 4H 6S 4D JH";
-        Assert.That(Poker.BestHands(new[] { nothing, pairOf4 }), Is.EqualTo(new[] { pairOf4 }));
+        Assert.Equal(new[] { pairOf4 }, Poker.BestHands(new[] { nothing, pairOf4 }));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -22,7 +22,7 @@ public class PokerTest
     {
         const string pairOf2 = "4S 2H 6S 2D JH";
         const string pairOf4 = "2S 4H 6S 4D JH";
-        Assert.That(Poker.BestHands(new[] { pairOf2, pairOf4 }), Is.EqualTo(new[] { pairOf4 }));
+        Assert.Equal(new[] { pairOf4 }, Poker.BestHands(new[] { pairOf2, pairOf4 }));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -30,7 +30,7 @@ public class PokerTest
     {
         const string pairOf8 = "2S 8H 6S 8D JH";
         const string doublePair = "4S 5H 4S 8D 5H";
-        Assert.That(Poker.BestHands(new[] { pairOf8, doublePair }), Is.EqualTo(new[] { doublePair }));
+        Assert.Equal(new[] { doublePair }, Poker.BestHands(new[] { pairOf8, doublePair }));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -38,7 +38,7 @@ public class PokerTest
     {
         const string doublePair2And8 = "2S 8H 2S 8D JH";
         const string doublePair4And5 = "4S 5H 4S 8D 5H";
-        Assert.That(Poker.BestHands(new[] { doublePair2And8, doublePair4And5 }), Is.EqualTo(new[] { doublePair2And8 }));
+        Assert.Equal(new[] { doublePair2And8 }, Poker.BestHands(new[] { doublePair2And8, doublePair4And5 }));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -46,7 +46,7 @@ public class PokerTest
     {
         const string doublePair2And8 = "2S 8H 2S 8D JH";
         const string threeOf4 = "4S 5H 4S 8D 4H";
-        Assert.That(Poker.BestHands(new[] { doublePair2And8, threeOf4 }), Is.EqualTo(new[] { threeOf4 }));
+        Assert.Equal(new[] { threeOf4 }, Poker.BestHands(new[] { doublePair2And8, threeOf4 }));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -54,7 +54,7 @@ public class PokerTest
     {
         const string threeOf2 = "2S 2H 2S 8D JH";
         const string threeOf1 = "4S AH AS 8D AH";
-        Assert.That(Poker.BestHands(new[] { threeOf2, threeOf1 }), Is.EqualTo(new[] { threeOf1 }));
+        Assert.Equal(new[] { threeOf1 }, Poker.BestHands(new[] { threeOf2, threeOf1 }));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -62,7 +62,7 @@ public class PokerTest
     {
         const string threeOf4 = "4S 5H 4S 8D 4H";
         const string straight = "3S 4H 2S 6D 5H";
-        Assert.That(Poker.BestHands(new[] { threeOf4, straight }), Is.EqualTo(new[] { straight }));
+        Assert.Equal(new[] { straight }, Poker.BestHands(new[] { threeOf4, straight }));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -70,11 +70,11 @@ public class PokerTest
     {
         const string straightTo8 = "4S 6H 7S 8D 5H";
         const string straightTo9 = "5S 7H 8S 9D 6H";
-        Assert.That(Poker.BestHands(new[] { straightTo8, straightTo9 }), Is.EqualTo(new[] { straightTo9 }));
+        Assert.Equal(new[] { straightTo9 }, Poker.BestHands(new[] { straightTo8, straightTo9 }));
         
         const string straightTo1 = "AS QH KS TD JH";
         const string straightTo5 = "4S AH 3S 2D 5H";
-        Assert.That(Poker.BestHands(new[] { straightTo1, straightTo5 }), Is.EqualTo(new[] { straightTo1 }));
+        Assert.Equal(new[] { straightTo1 }, Poker.BestHands(new[] { straightTo1, straightTo5 }));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -82,7 +82,7 @@ public class PokerTest
     {
         const string straightTo8 = "4S 6H 7S 8D 5H";
         const string flushTo7 = "2S 4S 5S 6S 7S";
-        Assert.That(Poker.BestHands(new[] { straightTo8, flushTo7 }), Is.EqualTo(new[] { flushTo7 }));
+        Assert.Equal(new[] { flushTo7 }, Poker.BestHands(new[] { straightTo8, flushTo7 }));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -90,7 +90,7 @@ public class PokerTest
     {
         const string flushTo8 = "3H 6H 7H 8H 5H";
         const string flushTo7 = "2S 4S 5S 6S 7S";
-        Assert.That(Poker.BestHands(new[] { flushTo8, flushTo7 }), Is.EqualTo(new[] { flushTo8 }));
+        Assert.Equal(new[] { flushTo8 }, Poker.BestHands(new[] { flushTo8, flushTo7 }));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -98,7 +98,7 @@ public class PokerTest
     {
         const string flushTo8 = "3H 6H 7H 8H 5H";
         const string full = "4S 5H 4S 5D 4H";
-        Assert.That(Poker.BestHands(new[] { full, flushTo8 }), Is.EqualTo(new[] { full }));
+        Assert.Equal(new[] { full }, Poker.BestHands(new[] { full, flushTo8 }));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -106,7 +106,7 @@ public class PokerTest
     {
         const string fullOf4By9 = "4H 4S 4D 9S 9D";
         const string fullOf5By8 = "5H 5S 5D 8S 8D";
-        Assert.That(Poker.BestHands(new[] { fullOf4By9, fullOf5By8 }), Is.EqualTo(new[] { fullOf5By8 }));
+        Assert.Equal(new[] { fullOf5By8 }, Poker.BestHands(new[] { fullOf4By9, fullOf5By8 }));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -114,7 +114,7 @@ public class PokerTest
     {
         const string full = "4S 5H 4S 5D 4H";
         const string squareOf3 = "3S 3H 2S 3D 3H";
-        Assert.That(Poker.BestHands(new[] { full, squareOf3 }), Is.EqualTo(new[] { squareOf3 }));
+        Assert.Equal(new[] { squareOf3 }, Poker.BestHands(new[] { full, squareOf3 }));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -122,7 +122,7 @@ public class PokerTest
     {
         const string squareOf2 = "2S 2H 2S 8D 2H";
         const string squareOf5 = "4S 5H 5S 5D 5H";
-        Assert.That(Poker.BestHands(new[] { squareOf2, squareOf5 }), Is.EqualTo(new[] { squareOf5 }));
+        Assert.Equal(new[] { squareOf5 }, Poker.BestHands(new[] { squareOf2, squareOf5 }));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -130,7 +130,7 @@ public class PokerTest
     {
         const string squareOf5 = "4S 5H 5S 5D 5H";
         const string straightFlushTo9 = "5S 7S 8S 9S 6S";
-        Assert.That(Poker.BestHands(new[] { squareOf5, straightFlushTo9 }), Is.EqualTo(new[] { straightFlushTo9 }));
+        Assert.Equal(new[] { straightFlushTo9 }, Poker.BestHands(new[] { squareOf5, straightFlushTo9 }));
     }
 
     [Fact(Skip="Remove to run test")]

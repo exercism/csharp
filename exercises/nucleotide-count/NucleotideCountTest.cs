@@ -8,21 +8,21 @@ public class NucleoTideCountTest
     {
         var dna = new DNA("");
         var expected = new Dictionary<char, int> { { 'A', 0 }, { 'T', 0 }, { 'C', 0 }, { 'G', 0 } };
-        Assert.That(dna.NucleotideCounts, Is.EqualTo(expected));
+        Assert.Equal(expected, dna.NucleotideCounts);
     }
 
     [Fact(Skip="Remove to run test")]
     public void Has_no_adenosine()
     {
         var dna = new DNA("");
-        Assert.That(dna.Count('A'), Is.EqualTo(0));
+        Assert.Equal(0, dna.Count('A'));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Repetitive_cytidine_gets_counts()
     {
         var dna = new DNA("CCCCC");
-        Assert.That(dna.Count('C'), Is.EqualTo(5));
+        Assert.Equal(5, dna.Count('C'));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -30,14 +30,14 @@ public class NucleoTideCountTest
     {
         var dna = new DNA("GGGGGGGG");
         var expected = new Dictionary<char, int> { { 'A', 0 }, { 'T', 0 }, { 'C', 0 }, { 'G', 8 } };
-        Assert.That(dna.NucleotideCounts, Is.EqualTo(expected));
+        Assert.Equal(expected, dna.NucleotideCounts);
     }
 
     [Fact(Skip="Remove to run test")]
     public void Counts_only_thymidine()
     {
         var dna = new DNA("GGGGTAACCCGG");
-        Assert.That(dna.Count('T'), Is.EqualTo(1));
+        Assert.Equal(1, dna.Count('T'));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -45,7 +45,7 @@ public class NucleoTideCountTest
     {
         var dna = new DNA("GGTTGG");
         dna.Count('T');
-        Assert.That(dna.Count('T'), Is.EqualTo(2));
+        Assert.Equal(2, dna.Count('T'));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -60,6 +60,6 @@ public class NucleoTideCountTest
     {
         var dna = new DNA("AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC");
         var expected = new Dictionary<char, int> { { 'A', 20 }, { 'T', 21 }, { 'C', 12 }, { 'G', 17 } };
-        Assert.That(dna.NucleotideCounts, Is.EqualTo(expected));
+        Assert.Equal(expected, dna.NucleotideCounts);
     }
 }

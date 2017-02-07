@@ -5,85 +5,85 @@ public class SayTest
     [Fact]
     public void Zero()
     {
-        Assert.That(Say.InEnglish(0L), Is.EqualTo("zero"));
+        Assert.Equal("zero", Say.InEnglish(0L));
     }
 
     [Fact(Skip="Remove to run test")]
     public void One()
     {
-        Assert.That(Say.InEnglish(1L), Is.EqualTo("one"));
+        Assert.Equal("one", Say.InEnglish(1L));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Fourteen()
     {
-        Assert.That(Say.InEnglish(14L), Is.EqualTo("fourteen"));
+        Assert.Equal("fourteen", Say.InEnglish(14L));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Twenty()
     {
-        Assert.That(Say.InEnglish(20L), Is.EqualTo("twenty"));
+        Assert.Equal("twenty", Say.InEnglish(20L));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Twenty_two()
     {
-        Assert.That(Say.InEnglish(22L), Is.EqualTo("twenty-two"));
+        Assert.Equal("twenty-two", Say.InEnglish(22L));
     }
 
     [Fact(Skip="Remove to run test")]
     public void One_hundred()
     {
-        Assert.That(Say.InEnglish(100L), Is.EqualTo("one hundred"));
+        Assert.Equal("one hundred", Say.InEnglish(100L));
     }
 
     [Fact(Skip="Remove to run test")]
     public void One_hundred_twenty_three()
     {
-        Assert.That(Say.InEnglish(123L), Is.EqualTo("one hundred twenty-three"));
+        Assert.Equal("one hundred twenty-three", Say.InEnglish(123L));
     }
 
     [Fact(Skip="Remove to run test")]
     public void One_thousand()
     {
-        Assert.That(Say.InEnglish(1000L), Is.EqualTo("one thousand"));
+        Assert.Equal("one thousand", Say.InEnglish(1000L));
     }
 
     [Fact(Skip="Remove to run test")]
     public void One_thousand_two_hundred_thirty_four()
     {
-        Assert.That(Say.InEnglish(1234L), Is.EqualTo("one thousand two hundred thirty-four"));
+        Assert.Equal("one thousand two hundred thirty-four", Say.InEnglish(1234L));
     }
 
     [Fact(Skip="Remove to run test")]
     public void One_million()
     {
-        Assert.That(Say.InEnglish(1000000L), Is.EqualTo("one million"));
+        Assert.Equal("one million", Say.InEnglish(1000000L));
     }
 
     [Fact(Skip="Remove to run test")]
     public void One_million_two()
     {
-        Assert.That(Say.InEnglish(1000002L), Is.EqualTo("one million two"));
+        Assert.Equal("one million two", Say.InEnglish(1000002L));
     }
 
     [Fact(Skip="Remove to run test")]
     public void One_million_two_thousand_three_hundred_forty_five()
     {
-        Assert.That(Say.InEnglish(1002345L), Is.EqualTo("one million two thousand three hundred forty-five"));
+        Assert.Equal("one million two thousand three hundred forty-five", Say.InEnglish(1002345L));
     }
 
     [Fact(Skip="Remove to run test")]
     public void One_billion()
     {
-        Assert.That(Say.InEnglish(1000000000L), Is.EqualTo("one billion"));
+        Assert.Equal("one billion", Say.InEnglish(1000000000L));
     }
 
     [Fact(Skip="Remove to run test")]
     public void A_big_number()
     {
-        Assert.That(Say.InEnglish(987654321123L), Is.EqualTo("nine hundred eighty-seven billion six hundred fifty-four million three hundred twenty-one thousand one hundred twenty-three"));
+        Assert.Equal("nine hundred eighty-seven billion six hundred fifty-four million three hundred twenty-one thousand one hundred twenty-three", Say.InEnglish(987654321123L));
     }
 
     [Fact(Skip="Remove to run test")]

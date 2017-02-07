@@ -6,13 +6,13 @@ public class PythagoreanTripletTest
     [Fact]
     public void Calculates_the_sum()
     {
-        Assert.That(new Triplet(3, 4, 5).Sum(), Is.EqualTo(12));
+        Assert.Equal(12, new Triplet(3, 4, 5).Sum());
     }
 
     [Fact(Skip="Remove to run test")]
     public void Calculates_the_product()
     {
-        Assert.That(new Triplet(3, 4, 5).Product(), Is.EqualTo(60));
+        Assert.Equal(60, new Triplet(3, 4, 5).Product());
     }
 
     [Ignore("Remove to run test")]
@@ -28,7 +28,7 @@ public class PythagoreanTripletTest
     {
         var triplets = Triplet.Where(maxFactor: 10);
         var products = triplets.Select(x => x.Product()).OrderBy(x => x);
-        Assert.That(products, Is.EqualTo(new[] { 60, 480 }));
+        Assert.Equal(new[] { 60, 480 }, products);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -36,7 +36,7 @@ public class PythagoreanTripletTest
     {
         var triplets = Triplet.Where(minFactor: 11, maxFactor: 20);
         var products = triplets.Select(x => x.Product());
-        Assert.That(products, Is.EqualTo(new[] { 3840 }));
+        Assert.Equal(new[] { 3840 }, products);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -44,6 +44,6 @@ public class PythagoreanTripletTest
     {
         var triplets = Triplet.Where(sum: 180, maxFactor: 100);
         var products = triplets.Select(x => x.Product()).OrderBy(x => x);
-        Assert.That(products, Is.EqualTo(new[] { 118080, 168480, 202500 }));
+        Assert.Equal(new[] { 118080, 168480, 202500 }, products);
     }
 }

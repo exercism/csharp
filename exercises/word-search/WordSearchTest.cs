@@ -21,7 +21,7 @@ public class WordSearchTest
     {
         var wordSearch = new WordSearch(Puzzle);
         var actual = wordSearch.Find("clojure");
-        Assert.That(actual, Is.EqualTo(Tuple.Create(new Point(1, 10), new Point(7, 10))));
+        Assert.Equal(Tuple.Create(new Point(1, 10), new Point(7, 10)), actual);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -29,7 +29,7 @@ public class WordSearchTest
     {
         var wordSearch = new WordSearch(Puzzle);
         var actual = wordSearch.Find("elixir");
-        Assert.That(actual, Is.EqualTo(Tuple.Create(new Point(6, 5), new Point(1, 5))));
+        Assert.Equal(Tuple.Create(new Point(6, 5), new Point(1, 5)), actual);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -37,7 +37,7 @@ public class WordSearchTest
     {
         var wordSearch = new WordSearch(Puzzle);
         var actual = wordSearch.Find("ecmascript");
-        Assert.That(actual, Is.EqualTo(Tuple.Create(new Point(10, 1), new Point(10, 10))));
+        Assert.Equal(Tuple.Create(new Point(10, 1), new Point(10, 10)), actual);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -45,7 +45,7 @@ public class WordSearchTest
     {
         var wordSearch = new WordSearch(Puzzle);
         var actual = wordSearch.Find("rust");
-        Assert.That(actual, Is.EqualTo(Tuple.Create(new Point(9, 5), new Point(9, 2))));
+        Assert.Equal(Tuple.Create(new Point(9, 5), new Point(9, 2)), actual);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -53,7 +53,7 @@ public class WordSearchTest
     {
         var wordSearch = new WordSearch(Puzzle);
         var actual = wordSearch.Find("java");
-        Assert.That(actual, Is.EqualTo(Tuple.Create(new Point(1, 1), new Point(4, 4))));
+        Assert.Equal(Tuple.Create(new Point(1, 1), new Point(4, 4)), actual);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -61,7 +61,7 @@ public class WordSearchTest
     {
         var wordSearch = new WordSearch(Puzzle);
         var actual = wordSearch.Find("lua");
-        Assert.That(actual, Is.EqualTo(Tuple.Create(new Point(8, 9), new Point(6, 7))));
+        Assert.Equal(Tuple.Create(new Point(8, 9), new Point(6, 7)), actual);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -69,7 +69,7 @@ public class WordSearchTest
     {
         var wordSearch = new WordSearch(Puzzle);
         var actual = wordSearch.Find("lisp");
-        Assert.That(actual, Is.EqualTo(Tuple.Create(new Point(3, 6), new Point(6, 3))));
+        Assert.Equal(Tuple.Create(new Point(3, 6), new Point(6, 3)), actual);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -77,7 +77,7 @@ public class WordSearchTest
     {
         var wordSearch = new WordSearch(Puzzle);
         var actual = wordSearch.Find("ruby");
-        Assert.That(actual, Is.EqualTo(Tuple.Create(new Point(8, 6), new Point(5, 9))));
+        Assert.Equal(Tuple.Create(new Point(8, 6), new Point(5, 9)), actual);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -98,6 +98,6 @@ public class WordSearchTest
         var wordSearch = new WordSearch(differentSizePuzzle);
 
         var actual = wordSearch.Find("exercism");
-        Assert.That(actual, Is.EqualTo(Tuple.Create(new Point(11, 2), new Point(4, 2))));
+        Assert.Equal(Tuple.Create(new Point(11, 2), new Point(4, 2)), actual);
     }
 }

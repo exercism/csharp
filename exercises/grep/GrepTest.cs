@@ -67,7 +67,7 @@ That Shepherd, who first taught the chosen Seed
         const string expected =
             "Of Atreus, Agamemnon, King of men.\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -80,7 +80,7 @@ That Shepherd, who first taught the chosen Seed
         const string expected =
             "2:Of that Forbidden Tree, whose mortal tast\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -93,7 +93,7 @@ That Shepherd, who first taught the chosen Seed
         const string expected =
             "Of that Forbidden Tree, whose mortal tast\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -106,7 +106,7 @@ That Shepherd, who first taught the chosen Seed
         var expected =
             $"{ParadiseLostFileName}\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -119,7 +119,7 @@ That Shepherd, who first taught the chosen Seed
         const string expected =
             "With loss of Eden, till one greater Man\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -131,7 +131,7 @@ That Shepherd, who first taught the chosen Seed
         const string expected =
             "9:Of Atreus, Agamemnon, King of men.\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -146,7 +146,7 @@ That Shepherd, who first taught the chosen Seed
             "But I beseech your grace that I may know\n" +
             "The worst that may befall me in this case,\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -161,7 +161,7 @@ That Shepherd, who first taught the chosen Seed
             "5:But I beseech your grace that I may know\n" +
             "6:The worst that may befall me in this case,\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -173,7 +173,7 @@ That Shepherd, who first taught the chosen Seed
 
         const string expected = "";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -187,7 +187,7 @@ That Shepherd, who first taught the chosen Seed
             "Achilles sing, O Goddess! Peleus' son;\n" +
             "The noble Chief Achilles from the son\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -204,7 +204,7 @@ That Shepherd, who first taught the chosen Seed
             "Sing Heav'nly Muse, that on the secret top\n" +
             "That Shepherd, who first taught the chosen Seed\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
     [TestCase("", Ignore = "Remove to run test case")]
@@ -219,7 +219,7 @@ That Shepherd, who first taught the chosen Seed
         var files = new[] { IliadFileName };
         const string expected = "";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -232,7 +232,7 @@ That Shepherd, who first taught the chosen Seed
         var expected =
             $"{IliadFileName}:Of Atreus, Agamemnon, King of men.\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -247,7 +247,7 @@ That Shepherd, who first taught the chosen Seed
             $"{MidsummerNightFileName}:But I beseech your grace that I may know\n" +
             $"{MidsummerNightFileName}:The worst that may befall me in this case,\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -263,7 +263,7 @@ That Shepherd, who first taught the chosen Seed
             $"{ParadiseLostFileName}:2:Of that Forbidden Tree, whose mortal tast\n" +
             $"{ParadiseLostFileName}:6:Sing Heav'nly Muse, that on the secret top\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -277,7 +277,7 @@ That Shepherd, who first taught the chosen Seed
             $"{IliadFileName}\n" +
             $"{ParadiseLostFileName}\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -299,7 +299,7 @@ That Shepherd, who first taught the chosen Seed
             $"{ParadiseLostFileName}:Restore us, and regain the blissful Seat,\n" +
             $"{ParadiseLostFileName}:Sing Heav'nly Muse, that on the secret top\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -314,7 +314,7 @@ That Shepherd, who first taught the chosen Seed
             $"{IliadFileName}:The noble Chief Achilles from the son\n" +
             $"{MidsummerNightFileName}:If I refuse to wed Demetrius.\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -327,7 +327,7 @@ That Shepherd, who first taught the chosen Seed
         var expected =
             $"{MidsummerNightFileName}:But I beseech your grace that I may know\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -339,7 +339,7 @@ That Shepherd, who first taught the chosen Seed
         var expected =
             $"{ParadiseLostFileName}:4:With loss of Eden, till one greater Man\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
     [TestCase("", Ignore = "Remove to run test case")]
@@ -355,6 +355,6 @@ That Shepherd, who first taught the chosen Seed
 
         const string expected = "";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 }

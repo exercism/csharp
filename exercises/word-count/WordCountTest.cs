@@ -10,7 +10,7 @@ public class WordCountTest
             { "word", 1 }
         };
 
-        Assert.That(Phrase.WordCount("word"), Is.EqualTo(counts));
+        Assert.Equal(counts, Phrase.WordCount("word"));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -22,7 +22,7 @@ public class WordCountTest
             { "each", 1 }
         };
 
-        Assert.That(Phrase.WordCount("one of each"), Is.EqualTo(counts));
+        Assert.Equal(counts, Phrase.WordCount("one of each"));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -36,7 +36,7 @@ public class WordCountTest
             { "blue", 1 },
         };
 
-        Assert.That(Phrase.WordCount("one fish two fish red fish blue fish"), Is.EqualTo(counts));
+        Assert.Equal(counts, Phrase.WordCount("one fish two fish red fish blue fish"));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -51,7 +51,7 @@ public class WordCountTest
             { "men",    1 },
         };
 
-        Assert.That(Phrase.WordCount("all the kings horses and all the kings men"), Is.EqualTo(counts));
+        Assert.Equal(counts, Phrase.WordCount("all the kings horses and all the kings men"));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -65,7 +65,7 @@ public class WordCountTest
             { "javascript", 1 },
         };
 
-        Assert.That(Phrase.WordCount("car : carpet as java : javascript!!&@$%^&"), Is.EqualTo(counts));
+        Assert.Equal(counts, Phrase.WordCount("car : carpet as java : javascript!!&@$%^&"));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -77,7 +77,7 @@ public class WordCountTest
             { "three", 1 },
         };
 
-        Assert.That(Phrase.WordCount("one,two,three"), Is.EqualTo(counts));
+        Assert.Equal(counts, Phrase.WordCount("one,two,three"));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -89,7 +89,7 @@ public class WordCountTest
             { "2",       1 },
         };
 
-        Assert.That(Phrase.WordCount("testing, 1, 2 testing"), Is.EqualTo(counts));
+        Assert.Equal(counts, Phrase.WordCount("testing, 1, 2 testing"));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -99,7 +99,7 @@ public class WordCountTest
             { "go", 3 },
         };
 
-        Assert.That(Phrase.WordCount("go Go GO"), Is.EqualTo(counts));
+        Assert.Equal(counts, Phrase.WordCount("go Go GO"));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -113,7 +113,7 @@ public class WordCountTest
             { "cry",   1 },
         };
 
-        Assert.That(Phrase.WordCount("First: don't laugh. Then: don't cry."), Is.EqualTo(counts));
+        Assert.Equal(counts, Phrase.WordCount("First: don't laugh. Then: don't cry."));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -123,7 +123,7 @@ public class WordCountTest
             { "go", 3 },
         };
 
-        Assert.That(Phrase.WordCount("go ' Go '' GO"), Is.EqualTo(counts));
+        Assert.Equal(counts, Phrase.WordCount("go ' Go '' GO"));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -139,7 +139,7 @@ public class WordCountTest
             { "o'clock", 1 },
         };
 
-        Assert.That(Phrase.WordCount("She said, 'let's meet at twelve o'clock'"), Is.EqualTo(counts));
+        Assert.Equal(counts, Phrase.WordCount("She said, 'let's meet at twelve o'clock'"));
     }
 
 }

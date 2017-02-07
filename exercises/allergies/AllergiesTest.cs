@@ -39,21 +39,21 @@ public class AllergiesTest
     public void Allergic_to_just_eggs()
     {
         var allergies = new Allergies(1);
-        Assert.That(allergies.List(), Is.EqualTo(new List<string> { "eggs" }));
+        Assert.Equal(new List<string> { "eggs" }, allergies.List());
     }
 
     [Fact(Skip="Remove to run test")]
     public void Allergic_to_just_peanuts()
     {
         var allergies = new Allergies(2);
-        Assert.That(allergies.List(), Is.EqualTo(new List<string> { "peanuts" }));
+        Assert.Equal(new List<string> { "peanuts" }, allergies.List());
     }
 
     [Fact(Skip="Remove to run test")]
     public void Allergic_to_eggs_and_peanuts()
     {
         var allergies = new Allergies(3);
-        Assert.That(allergies.List(), Is.EqualTo(new List<string> { "eggs", "peanuts" }));
+        Assert.Equal(new List<string> { "eggs", "peanuts" }, allergies.List());
     }
 
     [Fact(Skip="Remove to run test")]

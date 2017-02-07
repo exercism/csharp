@@ -16,7 +16,7 @@ public class RaindropsTest
     [TestCase(9)]
     public void Numbers_containing_3_as_a_prime_factor_give_pling(int number)
     {
-        Assert.That(Raindrops.Convert(number), Is.EqualTo("Pling"));
+        Assert.Equal("Pling", Raindrops.Convert(number));
     }
 
     [Ignore("Remove to run test")]
@@ -25,7 +25,7 @@ public class RaindropsTest
     [TestCase(25)]
     public void Numbers_containing_5_as_a_prime_factor_give_plang(int number)
     {
-        Assert.That(Raindrops.Convert(number), Is.EqualTo("Plang"));
+        Assert.Equal("Plang", Raindrops.Convert(number));
     }
 
     [Ignore("Remove to run test")]
@@ -34,7 +34,7 @@ public class RaindropsTest
     [TestCase(49)]
     public void Numbers_containing_7_as_a_prime_factor_give_plong(int number)
     {
-        Assert.That(Raindrops.Convert(number), Is.EqualTo("Plong"));
+        Assert.Equal("Plong", Raindrops.Convert(number));
     }
 
     [Ignore("Remove to run test")]

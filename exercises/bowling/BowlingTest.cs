@@ -8,7 +8,7 @@ public class BowlingTest
     {
         var rolls = new[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
         var game = RollMany(rolls, new BowlingGame());
-        Assert.That(game.Score(), Is.EqualTo(0));
+        Assert.Equal(0, game.Score());
     }
 
     [Fact(Skip="Remove to run test")]
@@ -16,7 +16,7 @@ public class BowlingTest
     {
         var rolls = new[] { 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6 };
         var game = RollMany(rolls, new BowlingGame());
-        Assert.That(game.Score(), Is.EqualTo(90));
+        Assert.Equal(90, game.Score());
     }
 
     [Fact(Skip="Remove to run test")]
@@ -24,7 +24,7 @@ public class BowlingTest
     {
         var rolls = new[] { 6, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
         var game = RollMany(rolls, new BowlingGame());
-        Assert.That(game.Score(), Is.EqualTo(10));
+        Assert.Equal(10, game.Score());
     }
 
     [Fact(Skip="Remove to run test")]
@@ -32,7 +32,7 @@ public class BowlingTest
     {
         var rolls = new[] { 6, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
         var game = RollMany(rolls, new BowlingGame());
-        Assert.That(game.Score(), Is.EqualTo(16));
+        Assert.Equal(16, game.Score());
     }
 
     [Fact(Skip="Remove to run test")]
@@ -40,7 +40,7 @@ public class BowlingTest
     {
         var rolls = new[] { 5, 5, 3, 7, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
         var game = RollMany(rolls, new BowlingGame());
-        Assert.That(game.Score(), Is.EqualTo(31));
+        Assert.Equal(31, game.Score());
     }
 
     [Fact(Skip="Remove to run test")]
@@ -48,7 +48,7 @@ public class BowlingTest
     {
         var rolls = new[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 3, 7 };
         var game = RollMany(rolls, new BowlingGame());
-        Assert.That(game.Score(), Is.EqualTo(17));
+        Assert.Equal(17, game.Score());
     }
 
     [Fact(Skip="Remove to run test")]
@@ -56,7 +56,7 @@ public class BowlingTest
     {
         var rolls = new[] { 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
         var game = RollMany(rolls, new BowlingGame());
-        Assert.That(game.Score(), Is.EqualTo(10));
+        Assert.Equal(10, game.Score());
     }
 
     [Fact(Skip="Remove to run test")]
@@ -64,7 +64,7 @@ public class BowlingTest
     {
         var rolls = new[] { 10, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
         var game = RollMany(rolls, new BowlingGame());
-        Assert.That(game.Score(), Is.EqualTo(26));
+        Assert.Equal(26, game.Score());
     }
 
     [Fact(Skip="Remove to run test")]
@@ -72,7 +72,7 @@ public class BowlingTest
     {
         var rolls = new[] { 10, 10, 10, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
         var game = RollMany(rolls, new BowlingGame());
-        Assert.That(game.Score(), Is.EqualTo(81));
+        Assert.Equal(81, game.Score());
     }
 
     [Fact(Skip="Remove to run test")]
@@ -80,7 +80,7 @@ public class BowlingTest
     {
         var rolls = new[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 7, 1 };
         var game = RollMany(rolls, new BowlingGame());
-        Assert.That(game.Score(), Is.EqualTo(18));
+        Assert.Equal(18, game.Score());
     }
 
     [Fact(Skip="Remove to run test")]
@@ -88,7 +88,7 @@ public class BowlingTest
     {
         var rolls = new[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 7, 3 };
         var game = RollMany(rolls, new BowlingGame());
-        Assert.That(game.Score(), Is.EqualTo(20));
+        Assert.Equal(20, game.Score());
     }
 
     [Fact(Skip="Remove to run test")]
@@ -96,7 +96,7 @@ public class BowlingTest
     {
         var rolls = new[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 10 };
         var game = RollMany(rolls, new BowlingGame());
-        Assert.That(game.Score(), Is.EqualTo(30));
+        Assert.Equal(30, game.Score());
     }
 
     [Fact(Skip="Remove to run test")]
@@ -104,7 +104,7 @@ public class BowlingTest
     {
         var rolls = new[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 3, 10 };
         var game = RollMany(rolls, new BowlingGame());
-        Assert.That(game.Score(), Is.EqualTo(20));
+        Assert.Equal(20, game.Score());
     }
 
     [Fact(Skip="Remove to run test")]
@@ -112,7 +112,7 @@ public class BowlingTest
     {
         var rolls = new[] { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 };
         var game = RollMany(rolls, new BowlingGame());
-        Assert.That(game.Score(), Is.EqualTo(300));
+        Assert.Equal(300, game.Score());
     }
 
     [Fact(Skip="Remove to run test")]

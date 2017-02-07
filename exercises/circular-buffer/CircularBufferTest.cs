@@ -9,7 +9,7 @@ public class CircularBufferTest
         buffer.Write('1');
         var val = buffer.Read();
 
-        Assert.That(val, Is.EqualTo('1'));
+        Assert.Equal('1', val);
         Assert.That(() => buffer.Read(), Throws.Exception);
     }
 
@@ -23,8 +23,8 @@ public class CircularBufferTest
         var val1 = buffer.Read();
         var val2 = buffer.Read();
 
-        Assert.That(val1, Is.EqualTo('1'));
-        Assert.That(val2, Is.EqualTo('2'));
+        Assert.Equal('1', val1);
+        Assert.Equal('2', val2);
         Assert.That(() => buffer.Read(), Throws.Exception);
     }
 
@@ -47,8 +47,8 @@ public class CircularBufferTest
         buffer.Write('3');
         var val2 = buffer.Read();
 
-        Assert.That(val1, Is.EqualTo('1'));
-        Assert.That(val2, Is.EqualTo('2'));
+        Assert.Equal('1', val1);
+        Assert.Equal('2', val2);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -60,8 +60,8 @@ public class CircularBufferTest
         buffer.Write('2');
         var val2 = buffer.Read();
 
-        Assert.That(val1, Is.EqualTo('1'));
-        Assert.That(val2, Is.EqualTo('2'));
+        Assert.Equal('1', val1);
+        Assert.Equal('2', val2);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -75,8 +75,8 @@ public class CircularBufferTest
         buffer1.Write('3');
         var val2 = buffer1.Read();
         var val3 = buffer1.Read();
-        Assert.That(val2, Is.EqualTo('2'));
-        Assert.That(val3, Is.EqualTo('3'));
+        Assert.Equal('2', val2);
+        Assert.Equal('3', val3);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -100,8 +100,8 @@ public class CircularBufferTest
         var val1 = buffer.Read();
         var val2 = buffer.Read();
 
-        Assert.That(val1, Is.EqualTo('2'));
-        Assert.That(val2, Is.EqualTo('A'));
+        Assert.Equal('2', val1);
+        Assert.Equal('A', val2);
         Assert.That(() => buffer.Read(), Throws.Exception);
     }
 
@@ -115,8 +115,8 @@ public class CircularBufferTest
         var val1 = buffer.Read();
         var val2 = buffer.Read();
 
-        Assert.That(val1, Is.EqualTo('1'));
-        Assert.That(val2, Is.EqualTo('2'));
+        Assert.Equal('1', val1);
+        Assert.Equal('2', val2);
         Assert.That(() => buffer.Read(), Throws.Exception);
     }
 
@@ -147,11 +147,11 @@ public class CircularBufferTest
         var val7 = buffer.Read();
         var val8 = buffer.Read();
 
-        Assert.That(val4, Is.EqualTo('6'));
-        Assert.That(val5, Is.EqualTo('7'));
-        Assert.That(val6, Is.EqualTo('8'));
-        Assert.That(val7, Is.EqualTo('A'));
-        Assert.That(val8, Is.EqualTo('B'));
+        Assert.Equal('6', val4);
+        Assert.Equal('7', val5);
+        Assert.Equal('8', val6);
+        Assert.Equal('A', val7);
+        Assert.Equal('B', val8);
         Assert.That(() => buffer.Read(), Throws.Exception);
     }
 }

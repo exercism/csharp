@@ -9,9 +9,9 @@ public class ReactTest
         var reactor = new Reactor();
         var inputCell1 = reactor.CreateInputCell(1);
 
-        Assert.That(inputCell1.Value, Is.EqualTo(1));
+        Assert.Equal(1, inputCell1.Value);
         inputCell1.Value = 2;
-        Assert.That(inputCell1.Value, Is.EqualTo(2));
+        Assert.Equal(2, inputCell1.Value);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -21,9 +21,9 @@ public class ReactTest
         var inputCell1 = reactor.CreateInputCell(1);
         var computeCell1 = reactor.CreateComputeCell(new[] { inputCell1 }, (values) => values[0] + 1);
 
-        Assert.That(computeCell1.Value, Is.EqualTo(2));
+        Assert.Equal(2, computeCell1.Value);
         inputCell1.Value = 2;
-        Assert.That(computeCell1.Value, Is.EqualTo(3));
+        Assert.Equal(3, computeCell1.Value);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -35,9 +35,9 @@ public class ReactTest
         var computeCell2 = reactor.CreateComputeCell(new[] { inputCell1 }, (values) => values[0] - 1);
         var computeCell3 = reactor.CreateComputeCell(new[] { computeCell1, computeCell2 }, (values) => values[0] * values[1]);
 
-        Assert.That(computeCell3.Value, Is.EqualTo(0));
+        Assert.Equal(0, computeCell3.Value);
         inputCell1.Value = 3;
-        Assert.That(computeCell3.Value, Is.EqualTo(8));
+        Assert.Equal(8, computeCell3.Value);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -64,11 +64,11 @@ public class ReactTest
         computecell1.Changed += (sender, value) => observerCalled++;
 
         inputCell1.Value = 1;
-        Assert.That(observerCalled, Is.EqualTo(0));
+        Assert.Equal(0, observerCalled);
         inputCell1.Value = 2;
-        Assert.That(observerCalled, Is.EqualTo(0));
+        Assert.Equal(0, observerCalled);
         inputCell1.Value = 3;
-        Assert.That(observerCalled, Is.EqualTo(1));
+        Assert.Equal(1, observerCalled);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -110,6 +110,6 @@ public class ReactTest
         computeCell4.Changed += (sender, value) => changed4++;
 
         inputCell1.Value = 3;
-        Assert.That(changed4, Is.EqualTo(1));
+        Assert.Equal(1, changed4);
     }
 }

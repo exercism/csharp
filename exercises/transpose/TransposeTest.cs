@@ -8,7 +8,7 @@ public class TransposeTest
         const string input = "";
         const string expected = "";
 
-        Assert.That(Transpose.String(input), Is.EqualTo(expected));
+        Assert.Equal(expected, Transpose.String(input));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -21,7 +21,7 @@ public class TransposeTest
             "A\n" +
             "1";
 
-        Assert.That(Transpose.String(input), Is.EqualTo(expected));
+        Assert.Equal(expected, Transpose.String(input));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -36,7 +36,7 @@ public class TransposeTest
             "B2\n" +
             "C3";
 
-        Assert.That(Transpose.String(input), Is.EqualTo(expected));
+        Assert.Equal(expected, Transpose.String(input));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -59,7 +59,7 @@ public class TransposeTest
             "e\n" +
             ".";
 
-        Assert.That(Transpose.String(input), Is.EqualTo(expected));
+        Assert.Equal(expected, Transpose.String(input));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -87,7 +87,7 @@ public class TransposeTest
             "e.\n" +
             ".";
 
-        Assert.That(Transpose.String(input), Is.EqualTo(expected));
+        Assert.Equal(expected, Transpose.String(input));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -115,7 +115,7 @@ public class TransposeTest
             ".e\n" +
             " .";
 
-        Assert.That(Transpose.String(input), Is.EqualTo(expected));
+        Assert.Equal(expected, Transpose.String(input));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -135,7 +135,7 @@ public class TransposeTest
             "RESIN\n" +
             "TREND";
 
-        Assert.That(Transpose.String(input), Is.EqualTo(expected));
+        Assert.Equal(expected, Transpose.String(input));
     }
 
     [Fact]
@@ -158,7 +158,7 @@ public class TransposeTest
             "RENT\n" +
             "EDGE";
 
-        Assert.That(Transpose.String(input), Is.EqualTo(expected));
+        Assert.Equal(expected, Transpose.String(input));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -180,7 +180,7 @@ public class TransposeTest
             "    ER\n" +
             "     R";
 
-        Assert.That(Transpose.String(input), Is.EqualTo(expected));
+        Assert.Equal(expected, Transpose.String(input));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -258,6 +258,6 @@ public class TransposeTest
             "          ,  ";
 
 
-        Assert.That(Transpose.String(input), Is.EqualTo(expected));
+        Assert.Equal(expected, Transpose.String(input));
     }
 }

@@ -10,7 +10,7 @@ public class AllYourBaseTest
         var inputDigits = new [] { 1 };
         const int outputBase = 10;
         var outputDigits = new [] { 1 };
-        Assert.That(Base.Rebase(inputBase, inputDigits, outputBase), Is.EqualTo(outputDigits));
+        Assert.Equal(outputDigits, Base.Rebase(inputBase, inputDigits, outputBase));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -20,7 +20,7 @@ public class AllYourBaseTest
         var inputDigits = new [] { 1, 0, 1 };
         const int outputBase = 10;
         var outputDigits = new [] { 5 };
-        Assert.That(Base.Rebase(inputBase, inputDigits, outputBase), Is.EqualTo(outputDigits));
+        Assert.Equal(outputDigits, Base.Rebase(inputBase, inputDigits, outputBase));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -30,7 +30,7 @@ public class AllYourBaseTest
         var inputDigits = new [] { 5 };
         const int outputBase = 2;
         var outputDigits = new [] { 1, 0, 1 };
-        Assert.That(Base.Rebase(inputBase, inputDigits, outputBase), Is.EqualTo(outputDigits));
+        Assert.Equal(outputDigits, Base.Rebase(inputBase, inputDigits, outputBase));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -40,7 +40,7 @@ public class AllYourBaseTest
         var inputDigits = new [] { 1, 0, 1, 0, 1, 0 };
         const int outputBase = 10;
         var outputDigits = new [] { 4, 2 };
-        Assert.That(Base.Rebase(inputBase, inputDigits, outputBase), Is.EqualTo(outputDigits));
+        Assert.Equal(outputDigits, Base.Rebase(inputBase, inputDigits, outputBase));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -50,7 +50,7 @@ public class AllYourBaseTest
         var inputDigits = new [] { 4, 2 };
         const int outputBase = 2;
         var outputDigits = new [] { 1, 0, 1, 0, 1, 0 };
-        Assert.That(Base.Rebase(inputBase, inputDigits, outputBase), Is.EqualTo(outputDigits));
+        Assert.Equal(outputDigits, Base.Rebase(inputBase, inputDigits, outputBase));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -60,7 +60,7 @@ public class AllYourBaseTest
         var inputDigits = new [] { 1, 1, 2, 0 };
         const int outputBase = 16;
         var outputDigits = new [] { 2, 10 };
-        Assert.That(Base.Rebase(inputBase, inputDigits, outputBase), Is.EqualTo(outputDigits));
+        Assert.Equal(outputDigits, Base.Rebase(inputBase, inputDigits, outputBase));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -70,7 +70,7 @@ public class AllYourBaseTest
         var inputDigits = new [] { 2, 10 };
         const int outputBase = 3;
         var outputDigits = new [] { 1, 1, 2, 0 };
-        Assert.That(Base.Rebase(inputBase, inputDigits, outputBase), Is.EqualTo(outputDigits));
+        Assert.Equal(outputDigits, Base.Rebase(inputBase, inputDigits, outputBase));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -80,7 +80,7 @@ public class AllYourBaseTest
         var inputDigits = new [] { 3, 46, 60 };
         const int outputBase = 73;
         var outputDigits = new [] { 6, 10, 45 };
-        Assert.That(Base.Rebase(inputBase, inputDigits, outputBase), Is.EqualTo(outputDigits));
+        Assert.Equal(outputDigits, Base.Rebase(inputBase, inputDigits, outputBase));
     }
 
     [Fact(Skip="Remove to run test")]

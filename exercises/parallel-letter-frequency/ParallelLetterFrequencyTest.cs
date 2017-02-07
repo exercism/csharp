@@ -114,8 +114,8 @@ public class ParallelLetterParallelLetterFrequency
     {
         var input = new[] { OdeAnDieFreude, Wilhelmus, StarSpangledBanner };
         var actual = ParallelLetterFrequency.Calculate(input);
-        Assert.That(actual['a'], Is.EqualTo(49));
-        Assert.That(actual['t'], Is.EqualTo(56));
-        Assert.That(actual['ü'], Is.EqualTo(2));
+        Assert.Equal(49, actual['a']);
+        Assert.Equal(56, actual['t']);
+        Assert.Equal(2, actual['ü']);
     }
 }

@@ -11,7 +11,7 @@ public class SeriesTest
     [TestCaseSource("SliceOneTestData")]
     public void Series_of_one_splits_to_one_digit(string input, int[][] result)
     {
-        Assert.That(new Series(input).Slices(1), Is.EqualTo(result));
+        Assert.Equal(result, new Series(input).Slices(1));
     }
 
     private static readonly object[] SliceTwoTestData =
@@ -25,7 +25,7 @@ public class SeriesTest
     [TestCaseSource("SliceTwoTestData")]
     public void Series_of_two_splits_to_two_digits(string input, int[][] result)
     {
-        Assert.That(new Series(input).Slices(2), Is.EqualTo(result));
+        Assert.Equal(result, new Series(input).Slices(2));
     }
 
     private static readonly object[] SliceThreeTestData =
@@ -39,7 +39,7 @@ public class SeriesTest
     [TestCaseSource("SliceThreeTestData")]
     public void Series_of_three_splits_to_three_digits(string input, int[][] result)
     {
-        Assert.That(new Series(input).Slices(3), Is.EqualTo(result));
+        Assert.Equal(result, new Series(input).Slices(3));
     }
 
     private static readonly object[] SliceFourTestData =
@@ -52,7 +52,7 @@ public class SeriesTest
     [TestCaseSource("SliceFourTestData")]
     public void Series_of_four_splits_to_four_digits(string input, int[][] result)
     {
-        Assert.That(new Series(input).Slices(4), Is.EqualTo(result));
+        Assert.Equal(result, new Series(input).Slices(4));
     }
 
     private static readonly object[] SliceFiveTestData =
@@ -65,7 +65,7 @@ public class SeriesTest
     [TestCaseSource("SliceFiveTestData")]
     public void Series_of_five_splits_to_five_digits(string input, int[][] result)
     {
-        Assert.That(new Series(input).Slices(5), Is.EqualTo(result));
+        Assert.Equal(result, new Series(input).Slices(5));
     }
 
     [Ignore("Remove to run test")]

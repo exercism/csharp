@@ -15,8 +15,8 @@ public class DequeTest
     {
         deque.Push(10);
         deque.Push(20);
-        Assert.That(deque.Pop(), Is.EqualTo(20));
-        Assert.That(deque.Pop(), Is.EqualTo(10));
+        Assert.Equal(20, deque.Pop());
+        Assert.Equal(10, deque.Pop());
     }
 
     [Fact(Skip="Remove to run test")]
@@ -24,8 +24,8 @@ public class DequeTest
     {
         deque.Push(10);
         deque.Push(20);
-        Assert.That(deque.Shift(), Is.EqualTo(10));
-        Assert.That(deque.Shift(), Is.EqualTo(20));
+        Assert.Equal(10, deque.Shift());
+        Assert.Equal(20, deque.Shift());
     }
 
     [Fact(Skip="Remove to run test")]
@@ -33,8 +33,8 @@ public class DequeTest
     {
         deque.Unshift(10);
         deque.Unshift(20);
-        Assert.That(deque.Shift(), Is.EqualTo(20));
-        Assert.That(deque.Shift(), Is.EqualTo(10));
+        Assert.Equal(20, deque.Shift());
+        Assert.Equal(10, deque.Shift());
     }
 
     [Fact(Skip="Remove to run test")]
@@ -42,8 +42,8 @@ public class DequeTest
     {
         deque.Unshift(10);
         deque.Unshift(20);
-        Assert.That(deque.Pop(), Is.EqualTo(10));
-        Assert.That(deque.Pop(), Is.EqualTo(20));
+        Assert.Equal(10, deque.Pop());
+        Assert.Equal(20, deque.Pop());
     }
 
     [Fact(Skip="Remove to run test")]
@@ -52,9 +52,9 @@ public class DequeTest
         deque.Push(10);
         deque.Push(20);
         deque.Push(30);
-        Assert.That(deque.Pop(), Is.EqualTo(30));
-        Assert.That(deque.Pop(), Is.EqualTo(20));
-        Assert.That(deque.Pop(), Is.EqualTo(10));
+        Assert.Equal(30, deque.Pop());
+        Assert.Equal(20, deque.Pop());
+        Assert.Equal(10, deque.Pop());
     }
 
     [Fact(Skip="Remove to run test")]
@@ -63,9 +63,9 @@ public class DequeTest
         deque.Unshift(10);
         deque.Unshift(20);
         deque.Unshift(30);
-        Assert.That(deque.Shift(), Is.EqualTo(30));
-        Assert.That(deque.Shift(), Is.EqualTo(20));
-        Assert.That(deque.Shift(), Is.EqualTo(10));
+        Assert.Equal(30, deque.Shift());
+        Assert.Equal(20, deque.Shift());
+        Assert.Equal(10, deque.Shift());
     }
 
     [Fact(Skip="Remove to run test")]
@@ -73,15 +73,15 @@ public class DequeTest
     {
         deque.Push(10);
         deque.Push(20);
-        Assert.That(deque.Pop(), Is.EqualTo(20));
+        Assert.Equal(20, deque.Pop());
 
         deque.Push(30);
-        Assert.That(deque.Shift(), Is.EqualTo(10));
+        Assert.Equal(10, deque.Shift());
 
         deque.Unshift(40);
         deque.Push(50);
-        Assert.That(deque.Shift(), Is.EqualTo(40));
-        Assert.That(deque.Pop(), Is.EqualTo(50));
-        Assert.That(deque.Shift(), Is.EqualTo(30));
+        Assert.Equal(40, deque.Shift());
+        Assert.Equal(50, deque.Pop());
+        Assert.Equal(30, deque.Shift());
     }
 }

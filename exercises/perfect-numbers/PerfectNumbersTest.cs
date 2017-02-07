@@ -7,7 +7,7 @@ public class PerfectNumbersTest
     [TestCase(13, Ignore = "Remove to run test case")]
     public void Can_classify_deficient_numbers(int number)
     {
-        Assert.That(PerfectNumbers.Classify(number), Is.EqualTo(NumberType.Deficient));
+        Assert.Equal(NumberType.Deficient, PerfectNumbers.Classify(number));
     }
     
     [TestCase(6, Ignore = "Remove to run test case")]
@@ -15,7 +15,7 @@ public class PerfectNumbersTest
     [TestCase(496, Ignore = "Remove to run test case")]
     public void Can_classify_perfect_numbers(int number)
     {
-        Assert.That(PerfectNumbers.Classify(number), Is.EqualTo(NumberType.Perfect));
+        Assert.Equal(NumberType.Perfect, PerfectNumbers.Classify(number));
     }
     
     [TestCase(12, Ignore = "Remove to run test case")]
@@ -23,6 +23,6 @@ public class PerfectNumbersTest
     [TestCase(20, Ignore = "Remove to run test case")]
     public void Can_classify_abundant_numbers(int number)
     {
-        Assert.That(PerfectNumbers.Classify(number), Is.EqualTo(NumberType.Abundant));
+        Assert.Equal(NumberType.Abundant, PerfectNumbers.Classify(number));
     }
 }

@@ -16,14 +16,14 @@ public class ZipperTest
     {
         var zipper = Zipper<int>.FromTree(t1);
         var tree = zipper.ToTree();
-        Assert.That(tree, Is.EqualTo(t1));
+        Assert.Equal(t1, tree);
     }
 
     [Fact(Skip="Remove to run test")]
     public void Left_right_and_value()
     {
         var zipper = Zipper<int>.FromTree(t1);
-        Assert.That(zipper.Left().Right().Value, Is.EqualTo(3));
+        Assert.Equal(3, zipper.Left().Right().Value);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -37,7 +37,7 @@ public class ZipperTest
     public void Tree_from_deep_focus()
     {
         var zipper = Zipper<int>.FromTree(t1);
-        Assert.That(zipper.Left().Right().ToTree(), Is.EqualTo(t1));
+        Assert.Equal(t1, zipper.Left().Right().ToTree());
     }
 
     [Fact(Skip="Remove to run test")]
@@ -46,7 +46,7 @@ public class ZipperTest
         var zipper = Zipper<int>.FromTree(t1);
         var updatedZipper = zipper.Left().SetValue(5);
         var tree = updatedZipper.ToTree();
-        Assert.That(tree, Is.EqualTo(t2));
+        Assert.Equal(t2, tree);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -55,7 +55,7 @@ public class ZipperTest
         var zipper = Zipper<int>.FromTree(t1);
         var updatedZipper = zipper.Left().SetLeft(new BinTree<int>(5, null, null));
         var tree = updatedZipper.ToTree();
-        Assert.That(tree, Is.EqualTo(t3));
+        Assert.Equal(t3, tree);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -64,13 +64,13 @@ public class ZipperTest
         var zipper = Zipper<int>.FromTree(t1);
         var updatedZipper = zipper.Left().SetRight(null);
         var tree = updatedZipper.ToTree();
-        Assert.That(tree, Is.EqualTo(t4));
+        Assert.Equal(t4, tree);
     }
 
     [Fact(Skip="Remove to run test")]
     public void Different_paths_to_same_zipper()
     {
         var zipper = Zipper<int>.FromTree(t1);
-        Assert.That(zipper.Left().Up().Right().ToTree(), Is.EqualTo(zipper.Right().ToTree()));
+        Assert.Equal(zipper.Right().ToTree(), zipper.Left().Up().Right().ToTree());
     }
 }

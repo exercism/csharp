@@ -10,7 +10,7 @@ public class LargestSeriesProductTest
         const int span = 2;
         const int expected = 72;
 
-        Assert.That(LargestSeriesProduct.GetLargestProduct(digits, span), Is.EqualTo(expected));
+        Assert.Equal(expected, LargestSeriesProduct.GetLargestProduct(digits, span));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -20,7 +20,7 @@ public class LargestSeriesProductTest
         const int span = 2;
         const int expected = 48;
 
-        Assert.That(LargestSeriesProduct.GetLargestProduct(digits, span), Is.EqualTo(expected));
+        Assert.Equal(expected, LargestSeriesProduct.GetLargestProduct(digits, span));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -30,7 +30,7 @@ public class LargestSeriesProductTest
         const int span = 2;
         const int expected = 18;
 
-        Assert.That(LargestSeriesProduct.GetLargestProduct(digits, span), Is.EqualTo(expected));
+        Assert.Equal(expected, LargestSeriesProduct.GetLargestProduct(digits, span));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -40,7 +40,7 @@ public class LargestSeriesProductTest
         const int span = 3;
         const int expected = 504;
 
-        Assert.That(LargestSeriesProduct.GetLargestProduct(digits, span), Is.EqualTo(expected));
+        Assert.Equal(expected, LargestSeriesProduct.GetLargestProduct(digits, span));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -50,7 +50,7 @@ public class LargestSeriesProductTest
         const int span = 3;
         const int expected = 270;
 
-        Assert.That(LargestSeriesProduct.GetLargestProduct(digits, span), Is.EqualTo(expected));
+        Assert.Equal(expected, LargestSeriesProduct.GetLargestProduct(digits, span));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -60,7 +60,7 @@ public class LargestSeriesProductTest
         const int span = 5;
         const int expected = 15120;
 
-        Assert.That(LargestSeriesProduct.GetLargestProduct(digits, span), Is.EqualTo(expected));
+        Assert.Equal(expected, LargestSeriesProduct.GetLargestProduct(digits, span));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -70,7 +70,7 @@ public class LargestSeriesProductTest
         const int span = 6;
         const int expected = 23520;
 
-        Assert.That(LargestSeriesProduct.GetLargestProduct(digits, span), Is.EqualTo(expected));
+        Assert.Equal(expected, LargestSeriesProduct.GetLargestProduct(digits, span));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -80,7 +80,7 @@ public class LargestSeriesProductTest
         const int span = 6;
         const int expected = 28350;
 
-        Assert.That(LargestSeriesProduct.GetLargestProduct(digits, span), Is.EqualTo(expected));
+        Assert.Equal(expected, LargestSeriesProduct.GetLargestProduct(digits, span));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -90,7 +90,7 @@ public class LargestSeriesProductTest
         const int span = 13;
         const long expected = 23514624000;
 
-        Assert.That(LargestSeriesProduct.GetLargestProduct(digits, span), Is.EqualTo(expected));
+        Assert.Equal(expected, LargestSeriesProduct.GetLargestProduct(digits, span));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -100,7 +100,7 @@ public class LargestSeriesProductTest
         const int span = 2;
         const int expected = 0;
 
-        Assert.That(LargestSeriesProduct.GetLargestProduct(digits, span), Is.EqualTo(expected));
+        Assert.Equal(expected, LargestSeriesProduct.GetLargestProduct(digits, span));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -110,7 +110,7 @@ public class LargestSeriesProductTest
         const int span = 3;
         const int expected = 0;
 
-        Assert.That(LargestSeriesProduct.GetLargestProduct(digits, span), Is.EqualTo(expected));
+        Assert.Equal(expected, LargestSeriesProduct.GetLargestProduct(digits, span));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -120,7 +120,7 @@ public class LargestSeriesProductTest
         const int span = 0;
         const int expected = 1;
 
-        Assert.That(LargestSeriesProduct.GetLargestProduct(digits, span), Is.EqualTo(expected));
+        Assert.Equal(expected, LargestSeriesProduct.GetLargestProduct(digits, span));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -130,7 +130,7 @@ public class LargestSeriesProductTest
         const int span = 0;
         const int expected = 1;
 
-        Assert.That(LargestSeriesProduct.GetLargestProduct(digits, span), Is.EqualTo(expected));
+        Assert.Equal(expected, LargestSeriesProduct.GetLargestProduct(digits, span));
     }
 
     [Fact(Skip="Remove to run test")]

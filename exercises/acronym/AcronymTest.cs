@@ -5,7 +5,7 @@ public class AcronymTest
     [Fact]
     public void Empty_string_abbreviated_to_empty_string()
     {
-        Assert.That(Acronym.Abbreviate(string.Empty), Is.EqualTo(string.Empty));
+        Assert.Equal(string.Empty, Acronym.Abbreviate(string.Empty));
     }
 
     [TestCase("Portable Network Graphics", ExpectedResult = "PNG", Ignore = "Remove to run test case")]

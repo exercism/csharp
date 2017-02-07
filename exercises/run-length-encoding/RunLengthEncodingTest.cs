@@ -7,7 +7,7 @@ public class RunLengthEncodingTest
     {
         const string input = "AABBBCCCC";
         const string expected = "2A3B4C";
-        Assert.That(RunLengthEncoding.Encode(input), Is.EqualTo(expected));
+        Assert.Equal(expected, RunLengthEncoding.Encode(input));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -15,7 +15,7 @@ public class RunLengthEncodingTest
     {
         const string input = "2A3B4C";
         const string expected = "AABBBCCCC";
-        Assert.That(RunLengthEncoding.Decode(input), Is.EqualTo(expected));
+        Assert.Equal(expected, RunLengthEncoding.Decode(input));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -23,7 +23,7 @@ public class RunLengthEncodingTest
     {
         const string input = "WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB";
         const string expected = "12WB12W3B24WB";
-        Assert.That(RunLengthEncoding.Encode(input), Is.EqualTo(expected));
+        Assert.Equal(expected, RunLengthEncoding.Encode(input));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -31,7 +31,7 @@ public class RunLengthEncodingTest
     {
         const string input = "12WB12W3B24WB";
         const string expected = "WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB";
-        Assert.That(RunLengthEncoding.Decode(input), Is.EqualTo(expected));
+        Assert.Equal(expected, RunLengthEncoding.Decode(input));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -39,7 +39,7 @@ public class RunLengthEncodingTest
     {
         const string input = "zzz ZZ  zZ";
         const string expected = "zzz ZZ  zZ";
-        Assert.That(RunLengthEncoding.Decode(RunLengthEncoding.Encode(input)), Is.EqualTo(expected));
+        Assert.Equal(expected, RunLengthEncoding.Decode(RunLengthEncoding.Encode(input)));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -47,7 +47,7 @@ public class RunLengthEncodingTest
     {
         const string input = "⏰⚽⚽⚽⭐⭐⏰";
         const string expected = "⏰3⚽2⭐⏰";
-        Assert.That(RunLengthEncoding.Encode(input), Is.EqualTo(expected));
+        Assert.Equal(expected, RunLengthEncoding.Encode(input));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -55,6 +55,6 @@ public class RunLengthEncodingTest
     {
         const string input = "⏰3⚽2⭐⏰";
         const string expected = "⏰⚽⚽⚽⭐⭐⏰";
-        Assert.That(RunLengthEncoding.Decode(input), Is.EqualTo(expected));
+        Assert.Equal(expected, RunLengthEncoding.Decode(input));
     }
 }

@@ -46,7 +46,7 @@ public class SgfParsingTest
     {
         const string input = "(;)";
         var expected = TreeWithNoChildren(new Dictionary<string, string[]>());
-        Assert.That(SgfParser.ParseTree(input), Is.EqualTo(expected).Using(SgfTreeEqualityComparer.Instance));
+        Assert.Equal(expected).Using(SgfTreeEqualityComparer.Instance, SgfParser.ParseTree(input));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -54,7 +54,7 @@ public class SgfParsingTest
     {
         const string input = "(;A[B])";
         var expected = TreeWithNoChildren(CreateData("A", "B"));
-        Assert.That(SgfParser.ParseTree(input), Is.EqualTo(expected).Using(SgfTreeEqualityComparer.Instance));
+        Assert.Equal(expected).Using(SgfTreeEqualityComparer.Instance, SgfParser.ParseTree(input));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -83,7 +83,7 @@ public class SgfParsingTest
     {
         const string input = "(;A[B];B[C])";
         var expected = TreeWithSingleChild(CreateData("A", "B"), TreeWithNoChildren(CreateData("B", "C")));
-        Assert.That(SgfParser.ParseTree(input), Is.EqualTo(expected).Using(SgfTreeEqualityComparer.Instance));
+        Assert.Equal(expected).Using(SgfTreeEqualityComparer.Instance, SgfParser.ParseTree(input));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -96,7 +96,7 @@ public class SgfParsingTest
                                 TreeWithNoChildren(CreateData("B", "C")),
                                 TreeWithNoChildren(CreateData("C", "D"))
                             });
-        Assert.That(SgfParser.ParseTree(input), Is.EqualTo(expected).Using(SgfTreeEqualityComparer.Instance));
+        Assert.Equal(expected).Using(SgfTreeEqualityComparer.Instance, SgfParser.ParseTree(input));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -104,7 +104,7 @@ public class SgfParsingTest
     {
         const string input = "(;A[b][c][d])";
         var expected = TreeWithNoChildren(CreateData("A", "b", "c", "d"));
-        Assert.That(SgfParser.ParseTree(input), Is.EqualTo(expected).Using(SgfTreeEqualityComparer.Instance));
+        Assert.Equal(expected).Using(SgfTreeEqualityComparer.Instance, SgfParser.ParseTree(input));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -112,7 +112,7 @@ public class SgfParsingTest
     {
         const string input = @"(;A[\]b\nc\nd\t\te \n\]])";
         var expected = TreeWithNoChildren(CreateData("A", @"]b c d  e  ]"));
-        Assert.That(SgfParser.ParseTree(input), Is.EqualTo(expected).Using(SgfTreeEqualityComparer.Instance));
+        Assert.Equal(expected).Using(SgfTreeEqualityComparer.Instance, SgfParser.ParseTree(input));
     }
 
     private class SgfTreeEqualityComparer : IEqualityComparer<SgfTree>

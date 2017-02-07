@@ -7,7 +7,7 @@ public class MarkdownTest
     {
         var input = "This will be a paragraph";
         var expected = "<p>This will be a paragraph</p>";
-        Assert.That(Markdown.Parse(input), Is.EqualTo(expected));
+        Assert.Equal(expected, Markdown.Parse(input));
     }
 
     [Fact]
@@ -15,7 +15,7 @@ public class MarkdownTest
     {
         var input = "_This will be italic_";
         var expected = "<p><em>This will be italic</em></p>";
-        Assert.That(Markdown.Parse(input), Is.EqualTo(expected));
+        Assert.Equal(expected, Markdown.Parse(input));
     }
 
     [Fact]
@@ -23,7 +23,7 @@ public class MarkdownTest
     {
         var input = "__This will be bold__";
         var expected = "<p><strong>This will be bold</strong></p>";
-        Assert.That(Markdown.Parse(input), Is.EqualTo(expected));
+        Assert.Equal(expected, Markdown.Parse(input));
     }
 
     [Fact]
@@ -31,7 +31,7 @@ public class MarkdownTest
     {
         var input = "This will _be_ __mixed__";
         var expected = "<p>This will <em>be</em> <strong>mixed</strong></p>";
-        Assert.That(Markdown.Parse(input), Is.EqualTo(expected));
+        Assert.Equal(expected, Markdown.Parse(input));
     }
 
     [Fact]
@@ -39,7 +39,7 @@ public class MarkdownTest
     {
         var input = "# This will be an h1";
         var expected = "<h1>This will be an h1</h1>";
-        Assert.That(Markdown.Parse(input), Is.EqualTo(expected));
+        Assert.Equal(expected, Markdown.Parse(input));
     }
 
     [Fact]
@@ -47,7 +47,7 @@ public class MarkdownTest
     {
         var input = "## This will be an h2";
         var expected = "<h2>This will be an h2</h2>";
-        Assert.That(Markdown.Parse(input), Is.EqualTo(expected));
+        Assert.Equal(expected, Markdown.Parse(input));
     }
 
     [Fact]
@@ -55,7 +55,7 @@ public class MarkdownTest
     {
         var input = "###### This will be an h6";
         var expected = "<h6>This will be an h6</h6>";
-        Assert.That(Markdown.Parse(input), Is.EqualTo(expected));
+        Assert.Equal(expected, Markdown.Parse(input));
     }
 
     [Fact]
@@ -63,7 +63,7 @@ public class MarkdownTest
     {
         var input = "* Item 1\n* Item 2";
         var expected = "<ul><li>Item 1</li><li>Item 2</li></ul>";
-        Assert.That(Markdown.Parse(input), Is.EqualTo(expected));
+        Assert.Equal(expected, Markdown.Parse(input));
     }
 
     [Fact]
@@ -71,6 +71,6 @@ public class MarkdownTest
     {
         var input = "# Header!\n* __Bold Item__\n* _Italic Item_";
         var expected = "<h1>Header!</h1><ul><li><strong>Bold Item</strong></li><li><em>Italic Item</em></li></ul>";
-        Assert.That(Markdown.Parse(input), Is.EqualTo(expected));
+        Assert.Equal(expected, Markdown.Parse(input));
     }
 }

@@ -96,6 +96,6 @@ public class HouseTest
             "that ate the malt\n" +
             "that lay in the house that Jack built.";
 
-        Assert.That(House.Rhyme(), Is.EqualTo(expected));
+        Assert.Equal(expected, House.Rhyme());
     }
 }

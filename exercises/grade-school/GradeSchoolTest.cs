@@ -22,7 +22,7 @@ public class GradeSchoolTest
     {
         school.Add("Aimee", 2);
         var expected = new List<string> { "Aimee" };
-        Assert.That(school.Roster[2], Is.EqualTo(expected));
+        Assert.Equal(expected, school.Roster[2]);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -32,7 +32,7 @@ public class GradeSchoolTest
         school.Add("James", 2);
         school.Add("Paul", 2);
         var expected = new List<string> { "Blair", "James", "Paul" };
-        Assert.That(school.Roster[2], Is.EqualTo(expected));
+        Assert.Equal(expected, school.Roster[2]);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -40,8 +40,8 @@ public class GradeSchoolTest
     {
         school.Add("Chelsea", 3);
         school.Add("Logan", 7);
-        Assert.That(school.Roster[3], Is.EqualTo(new List<string> { "Chelsea" }));
-        Assert.That(school.Roster[7], Is.EqualTo(new List<string> { "Logan" }));
+        Assert.Equal(new List<string> { "Chelsea" }, school.Roster[3]);
+        Assert.Equal(new List<string> { "Logan" }, school.Roster[7]);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -51,13 +51,13 @@ public class GradeSchoolTest
         school.Add("Bradley", 5);
         school.Add("Jeff", 1);
         var expected = new List<string> { "Bradley", "Franklin" };
-        Assert.That(school.Grade(5), Is.EqualTo(expected));
+        Assert.Equal(expected, school.Grade(5));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Grade_returns_an_empty_list_if_there_are_no_students_in_that_grade()
     {
-        Assert.That(school.Grade(1), Is.EqualTo(new List<string>()));
+        Assert.Equal(new List<string>(), school.Grade(1));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -67,8 +67,8 @@ public class GradeSchoolTest
         school.Add("Kareem", 6);
         school.Add("Christopher", 4);
         school.Add("Kyle", 3);
-        Assert.That(school.Roster[3], Is.EqualTo(new List<string> { "Kyle" }));
-        Assert.That(school.Roster[4], Is.EqualTo(new List<string> { "Christopher", "Jennifer" }));
-        Assert.That(school.Roster[6], Is.EqualTo(new List<string> { "Kareem" }));
+        Assert.Equal(new List<string> { "Kyle" }, school.Roster[3]);
+        Assert.Equal(new List<string> { "Christopher", "Jennifer" }, school.Roster[4]);
+        Assert.Equal(new List<string> { "Kareem" }, school.Roster[6]);
     }
 }

@@ -25,54 +25,54 @@ public class PigLatinTest
     [Fact(Skip="Remove to run test")]
     public void Ch_is_treated_like_a_single_consonant()
     {
-        Assert.That(PigLatin.Translate("chair"), Is.EqualTo("airchay"));
+        Assert.Equal("airchay", PigLatin.Translate("chair"));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Qu_is_treated_like_a_single_consonant()
     {
-        Assert.That(PigLatin.Translate("queen"), Is.EqualTo("eenquay"));
+        Assert.Equal("eenquay", PigLatin.Translate("queen"));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Qu_and_a_single_preceding_consonant_are_treated_like_a_single_consonant()
     {
-        Assert.That(PigLatin.Translate("square"), Is.EqualTo("aresquay"));
+        Assert.Equal("aresquay", PigLatin.Translate("square"));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Th_is_treated_like_a_single_consonant()
     {
-        Assert.That(PigLatin.Translate("therapy"), Is.EqualTo("erapythay"));
+        Assert.Equal("erapythay", PigLatin.Translate("therapy"));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Thr_is_treated_like_a_single_consonant()
     {
-        Assert.That(PigLatin.Translate("thrush"), Is.EqualTo("ushthray"));
+        Assert.Equal("ushthray", PigLatin.Translate("thrush"));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Sch_is_treated_like_a_single_consonant()
     {
-        Assert.That(PigLatin.Translate("school"), Is.EqualTo("oolschay"));
+        Assert.Equal("oolschay", PigLatin.Translate("school"));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Yt_is_treated_like_a_single_vowel()
     {
-        Assert.That(PigLatin.Translate("yttria"), Is.EqualTo("yttriaay"));
+        Assert.Equal("yttriaay", PigLatin.Translate("yttria"));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Xr_is_treated_like_a_single_vowel()
     {
-        Assert.That(PigLatin.Translate("xray"), Is.EqualTo("xrayay"));
+        Assert.Equal("xrayay", PigLatin.Translate("xray"));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Phrases_are_translated()
     {
-        Assert.That(PigLatin.Translate("quick fast run"), Is.EqualTo("ickquay astfay unray"));
+        Assert.Equal("ickquay astfay unray", PigLatin.Translate("quick fast run"));
     }
 }

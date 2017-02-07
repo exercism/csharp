@@ -8,7 +8,7 @@ public class MinesweeperTest
         var input = "";
         var expected = "";
 
-        Assert.That(Minesweeper.Annotate(input), Is.EqualTo(expected));
+        Assert.Equal(expected, Minesweeper.Annotate(input));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -28,7 +28,7 @@ public class MinesweeperTest
             "   "
         });
 
-        Assert.That(Minesweeper.Annotate(input), Is.EqualTo(expected));
+        Assert.Equal(expected, Minesweeper.Annotate(input));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -48,7 +48,7 @@ public class MinesweeperTest
             "***"
         });
 
-        Assert.That(Minesweeper.Annotate(input), Is.EqualTo(expected));
+        Assert.Equal(expected, Minesweeper.Annotate(input));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -68,7 +68,7 @@ public class MinesweeperTest
             "***"
         });
 
-        Assert.That(Minesweeper.Annotate(input), Is.EqualTo(expected));
+        Assert.Equal(expected, Minesweeper.Annotate(input));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -84,7 +84,7 @@ public class MinesweeperTest
             "1*2*1"
         });
 
-        Assert.That(Minesweeper.Annotate(input), Is.EqualTo(expected));
+        Assert.Equal(expected, Minesweeper.Annotate(input));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -108,7 +108,7 @@ public class MinesweeperTest
             "1"
         });
 
-        Assert.That(Minesweeper.Annotate(input), Is.EqualTo(expected));
+        Assert.Equal(expected, Minesweeper.Annotate(input));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -132,7 +132,7 @@ public class MinesweeperTest
             " 2*2 "
         });
 
-        Assert.That(Minesweeper.Annotate(input), Is.EqualTo(expected));
+        Assert.Equal(expected, Minesweeper.Annotate(input));
     }
     
     private string FormatInput(string[] input)

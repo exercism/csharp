@@ -11,7 +11,7 @@ public class LedgerTest
         var expected =
             "Date       | Description               | Change       ";
 
-        Assert.That(Ledger.Format(currency, locale, entries), Is.EqualTo(expected));
+        Assert.Equal(expected, Ledger.Format(currency, locale, entries));
     }
 
     [Fact]
@@ -27,7 +27,7 @@ public class LedgerTest
             "Date       | Description               | Change       \n" +
             "01/01/2015 | Buy present               |      ($10.00)";
 
-        Assert.That(Ledger.Format(currency, locale, entries), Is.EqualTo(expected));
+        Assert.Equal(expected, Ledger.Format(currency, locale, entries));
     }
 
     [Fact]
@@ -45,7 +45,7 @@ public class LedgerTest
             "01/01/2015 | Buy present               |      ($10.00)\n" +
             "01/02/2015 | Get present               |       $10.00 ";
 
-        Assert.That(Ledger.Format(currency, locale, entries), Is.EqualTo(expected));
+        Assert.Equal(expected, Ledger.Format(currency, locale, entries));
     }
 
     [Fact]
@@ -63,7 +63,7 @@ public class LedgerTest
             "01/01/2015 | Buy present               |      ($10.00)\n" +
             "01/01/2015 | Get present               |       $10.00 ";
 
-        Assert.That(Ledger.Format(currency, locale, entries), Is.EqualTo(expected));
+        Assert.Equal(expected, Ledger.Format(currency, locale, entries));
     }
 
     [Fact]
@@ -83,7 +83,7 @@ public class LedgerTest
             "01/01/2015 | Something                 |        $0.00 \n" +
             "01/01/2015 | Something                 |        $0.01 ";
 
-        Assert.That(Ledger.Format(currency, locale, entries), Is.EqualTo(expected));
+        Assert.Equal(expected, Ledger.Format(currency, locale, entries));
     }
 
     [Fact]
@@ -99,7 +99,7 @@ public class LedgerTest
             "Date       | Description               | Change       \n" +
             "01/01/2015 | Freude schoner Gotterf... |   ($1,234.56)";
 
-        Assert.That(Ledger.Format(currency, locale, entries), Is.EqualTo(expected));
+        Assert.Equal(expected, Ledger.Format(currency, locale, entries));
     }
 
     [Fact]
@@ -115,7 +115,7 @@ public class LedgerTest
             "Date       | Description               | Change       \n" +
             "01/01/2015 | Buy present               |      (€10.00)";
 
-        Assert.That(Ledger.Format(currency, locale, entries), Is.EqualTo(expected));
+        Assert.Equal(expected, Ledger.Format(currency, locale, entries));
     }
 
     [Fact]
@@ -131,7 +131,7 @@ public class LedgerTest
             "Datum      | Omschrijving              | Verandering  \n" +
             "12-03-2015 | Buy present               |   $ 1.234,56 ";
 
-        Assert.That(Ledger.Format(currency, locale, entries), Is.EqualTo(expected));
+        Assert.Equal(expected, Ledger.Format(currency, locale, entries));
     }
 
     [Fact]
@@ -147,7 +147,7 @@ public class LedgerTest
             "Datum      | Omschrijving              | Verandering  \n" +
             "12-03-2015 | Buy present               |     $ -123,45";
 
-        Assert.That(Ledger.Format(currency, locale, entries), Is.EqualTo(expected));
+        Assert.Equal(expected, Ledger.Format(currency, locale, entries));
     }
 
     [Fact]
@@ -163,6 +163,6 @@ public class LedgerTest
             "Date       | Description               | Change       \n" +
             "03/12/2015 | Buy present               |     ($123.45)";
 
-        Assert.That(Ledger.Format(currency, locale, entries), Is.EqualTo(expected));
+        Assert.Equal(expected, Ledger.Format(currency, locale, entries));
     }
 }

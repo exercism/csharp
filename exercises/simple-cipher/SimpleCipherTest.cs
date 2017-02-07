@@ -34,20 +34,20 @@ public class RandomKeyCipherTest
     [Fact(Skip="Remove to run test")]
     public void Cipher_can_encode()
     {
-        Assert.That(cipher.Encode("aaaaaaaaaa"), Is.EqualTo(cipher.Key.Substring(0, 10)));
+        Assert.Equal(cipher.Key.Substring(0, 10), cipher.Encode("aaaaaaaaaa"));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Cipher_can_decode()
     {
-        Assert.That(cipher.Decode(cipher.Key.Substring(0, 10)), Is.EqualTo("aaaaaaaaaa"));
+        Assert.Equal("aaaaaaaaaa", cipher.Decode(cipher.Key.Substring(0, 10)));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Cipher_is_reversible()
     {
         const string PLAINTEXT = "abcdefghij";
-        Assert.That(cipher.Decode(cipher.Encode(PLAINTEXT)), Is.EqualTo(PLAINTEXT));
+        Assert.Equal(PLAINTEXT, cipher.Decode(cipher.Encode(PLAINTEXT)));
     }
 }
 
@@ -101,50 +101,50 @@ public class SubstitutionCipherTest
     [Fact(Skip="Remove to run test")]
     public void Cipher_keeps_the_submitted_key()
     {
-        Assert.That(cipher.Key, Is.EqualTo(KEY));
+        Assert.Equal(KEY, cipher.Key);
     }
 
     [Fact(Skip="Remove to run test")]
     public void Cipher_can_encode_with_given_key()
     {
-        Assert.That(cipher.Encode("aaaaaaaaaa"), Is.EqualTo("abcdefghij"));
+        Assert.Equal("abcdefghij", cipher.Encode("aaaaaaaaaa"));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Cipher_can_decode_with_given_key()
     {
-        Assert.That(cipher.Decode("abcdefghij"), Is.EqualTo("aaaaaaaaaa"));
+        Assert.Equal("aaaaaaaaaa", cipher.Decode("abcdefghij"));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Cipher_is_reversible_given_key()
     {
         const string PLAINTEXT = "abcdefghij";
-        Assert.That(cipher.Decode(cipher.Encode(PLAINTEXT)), Is.EqualTo(PLAINTEXT));
+        Assert.Equal(PLAINTEXT, cipher.Decode(cipher.Encode(PLAINTEXT)));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Cipher_can_double_shift_encode()
     {
         const string PLAINTEXT = "iamapandabear";
-        Assert.That(new Cipher(PLAINTEXT).Encode(PLAINTEXT), Is.EqualTo("qayaeaagaciai"));
+        Assert.Equal("qayaeaagaciai", new Cipher(PLAINTEXT).Encode(PLAINTEXT));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Cipher_can_wrap_encode()
     {
-        Assert.That(cipher.Encode("zzzzzzzzzz"), Is.EqualTo("zabcdefghi"));
+        Assert.Equal("zabcdefghi", cipher.Encode("zzzzzzzzzz"));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Cipher_can_encode_a_message_that_is_shorter_than_the_key()
     {
-        Assert.That(cipher.Encode("aaaaa"), Is.EqualTo("abcde"));
+        Assert.Equal("abcde", cipher.Encode("aaaaa"));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Cipher_can_decode_a_message_that_is_shorter_than_the_key()
     {
-        Assert.That(cipher.Decode("abcde"), Is.EqualTo("aaaaa"));
+        Assert.Equal("aaaaa", cipher.Decode("abcde"));
     }
 }

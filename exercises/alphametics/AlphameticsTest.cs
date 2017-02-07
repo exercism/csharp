@@ -13,7 +13,7 @@ public class AlphameticsTest
             ['B'] = 9,
             ['L'] = 0
         };
-        Assert.That(actual, Is.EqualTo(expected));
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -39,7 +39,7 @@ public class AlphameticsTest
             ['M'] = 1,            
             ['O'] = 0
         };
-        Assert.That(actual, Is.EqualTo(expected));
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -55,7 +55,7 @@ public class AlphameticsTest
             ['A'] = 0,
             ['E'] = 2
         };
-        Assert.That(actual, Is.EqualTo(expected));
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -72,7 +72,7 @@ public class AlphameticsTest
             ['S'] = 9,
             ['T'] = 7,
         };
-        Assert.That(actual, Is.EqualTo(expected));
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -90,7 +90,7 @@ public class AlphameticsTest
             ['R'] = 8,
             ['Y'] = 2,
         };
-        Assert.That(actual, Is.EqualTo(expected));
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -110,6 +110,6 @@ public class AlphameticsTest
             ['S'] = 6,
             ['T'] = 9,
         };
-        Assert.That(actual, Is.EqualTo(expected));
+        Assert.Equal(expected, actual);
     }
 }

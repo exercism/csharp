@@ -13,9 +13,9 @@ public class TwoBucketTest
 
         var actual = twoBuckets.Solve(goal);
 
-        Assert.That(actual.Moves, Is.EqualTo(4));
-        Assert.That(actual.GoalBucket, Is.EqualTo(Bucket.One));
-        Assert.That(actual.OtherBucketContents, Is.EqualTo(5));
+        Assert.Equal(4, actual.Moves);
+        Assert.Equal(Bucket.One, actual.GoalBucket);
+        Assert.Equal(5, actual.OtherBucketContents);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -29,9 +29,9 @@ public class TwoBucketTest
 
         var actual = twoBuckets.Solve(goal);
 
-        Assert.That(actual.Moves, Is.EqualTo(8));
-        Assert.That(actual.GoalBucket, Is.EqualTo(Bucket.Two));
-        Assert.That(actual.OtherBucketContents, Is.EqualTo(3));
+        Assert.Equal(8, actual.Moves);
+        Assert.Equal(Bucket.Two, actual.GoalBucket);
+        Assert.Equal(3, actual.OtherBucketContents);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -45,9 +45,9 @@ public class TwoBucketTest
 
         var actual = twoBuckets.Solve(goal);
 
-        Assert.That(actual.Moves, Is.EqualTo(14));
-        Assert.That(actual.GoalBucket, Is.EqualTo(Bucket.One));
-        Assert.That(actual.OtherBucketContents, Is.EqualTo(11));
+        Assert.Equal(14, actual.Moves);
+        Assert.Equal(Bucket.One, actual.GoalBucket);
+        Assert.Equal(11, actual.OtherBucketContents);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -61,8 +61,8 @@ public class TwoBucketTest
 
         var actual = twoBuckets.Solve(goal);
 
-        Assert.That(actual.Moves, Is.EqualTo(18));
-        Assert.That(actual.GoalBucket, Is.EqualTo(Bucket.Two));
-        Assert.That(actual.OtherBucketContents, Is.EqualTo(7));
+        Assert.Equal(18, actual.Moves);
+        Assert.Equal(Bucket.Two, actual.GoalBucket);
+        Assert.Equal(7, actual.OtherBucketContents);
     }
 }

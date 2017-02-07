@@ -8,7 +8,7 @@ public class FoodChainTest
         const string expected = "I know an old lady who swallowed a fly.\n" +
                                 "I don't know why she swallowed the fly. Perhaps she'll die.";
 
-        Assert.That(FoodChain.Verse(1), Is.EqualTo(expected));
+        Assert.Equal(expected, FoodChain.Verse(1));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -19,7 +19,7 @@ public class FoodChainTest
                                 "She swallowed the spider to catch the fly.\n" +
                                 "I don't know why she swallowed the fly. Perhaps she'll die.";
 
-        Assert.That(FoodChain.Verse(2), Is.EqualTo(expected));
+        Assert.Equal(expected, FoodChain.Verse(2));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -32,7 +32,7 @@ public class FoodChainTest
                                 "She swallowed the spider to catch the fly.\n" +
                                 "I don't know why she swallowed the fly. Perhaps she'll die.";
 
-        Assert.That(FoodChain.Verse(4), Is.EqualTo(expected));
+        Assert.Equal(expected, FoodChain.Verse(4));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -41,7 +41,7 @@ public class FoodChainTest
         const string expected = "I know an old lady who swallowed a horse.\n" +
                                 "She's dead, of course!";
 
-        Assert.That(FoodChain.Verse(8), Is.EqualTo(expected));
+        Assert.Equal(expected, FoodChain.Verse(8));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -98,6 +98,6 @@ public class FoodChainTest
                                 "I know an old lady who swallowed a horse.\n" +
                                 "She's dead, of course!";
 
-        Assert.That(FoodChain.Song(), Is.EqualTo(expected));
+        Assert.Equal(expected, FoodChain.Song());
     }
 }
