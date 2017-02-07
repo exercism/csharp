@@ -49,7 +49,7 @@ public class ReactTest
         var observed = new List<int>();
         computeCell1.Changed += (sender, value) => observed.Add(value);
 
-        Assert.That(observed, Is.Empty);
+        Assert.Empty(observed);
         inputCell1.Value = 2;
         Assert.That(observed, Is.EquivalentTo(new[] { 3 }));
     }

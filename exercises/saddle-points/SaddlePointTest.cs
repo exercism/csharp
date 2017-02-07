@@ -25,7 +25,7 @@ public class SaddlePointTests
             { 1, 2 }
         };
         var actual = new SaddlePoints(values).Calculate();
-        Assert.That(actual, Is.Empty);
+        Assert.Empty(actual);
     }
 
     [Fact(Skip="Remove to run test")]

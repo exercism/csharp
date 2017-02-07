@@ -7,7 +7,7 @@ public class FlattenArrayTest
     public void Flattens_A_Nested_List()
     {
         var nestedList = new List<object> { new List<object>() };
-        Assert.That(Flattener.Flatten(nestedList), Is.Empty);
+        Assert.Empty(Flattener.Flatten(nestedList));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -105,6 +105,6 @@ public class FlattenArrayTest
             },
             null
         };
-        Assert.That(Flattener.Flatten(nestedList), Is.Empty);
+        Assert.Empty(Flattener.Flatten(nestedList));
     }
 }

@@ -7,9 +7,9 @@ public class DotDslTest
     {
         var g = new Graph();
 
-        Assert.That(g.Nodes, Is.Empty);
-        Assert.That(g.Edges, Is.Empty);
-        Assert.That(g.Attrs, Is.Empty);
+        Assert.Empty(g.Nodes);
+        Assert.Empty(g.Edges);
+        Assert.Empty(g.Attrs);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -21,8 +21,8 @@ public class DotDslTest
         };
 
         Assert.That(g.Nodes, Is.EquivalentTo(new[] { new Node("a") }));
-        Assert.That(g.Edges, Is.Empty);
-        Assert.That(g.Attrs, Is.Empty);
+        Assert.Empty(g.Edges);
+        Assert.Empty(g.Attrs);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -34,8 +34,8 @@ public class DotDslTest
         };
 
         Assert.That(g.Nodes, Is.EquivalentTo(new[] { new Node("a") { { "color", "green" } } }));
-        Assert.That(g.Edges, Is.Empty);
-        Assert.That(g.Attrs, Is.Empty);
+        Assert.Empty(g.Edges);
+        Assert.Empty(g.Attrs);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -46,9 +46,9 @@ public class DotDslTest
             new Edge("a", "b")
         };
 
-        Assert.That(g.Nodes, Is.Empty);
+        Assert.Empty(g.Nodes);
         Assert.That(g.Edges, Is.EquivalentTo(new[] { new Edge("a", "b") }));
-        Assert.That(g.Attrs, Is.Empty);
+        Assert.Empty(g.Attrs);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -59,8 +59,8 @@ public class DotDslTest
             { "foo", "1" }
         };
 
-        Assert.That(g.Nodes, Is.Empty);
-        Assert.That(g.Edges, Is.Empty);
+        Assert.Empty(g.Nodes);
+        Assert.Empty(g.Edges);
         Assert.That(g.Attrs, Is.EquivalentTo(new[] { new Attr("foo", "1") }));
     }
 

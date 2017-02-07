@@ -32,7 +32,7 @@ public class AllergiesTest
     public void No_allergies_at_all()
     {
         var allergies = new Allergies(0);
-        Assert.That(allergies.List(), Is.Empty);
+        Assert.Empty(allergies.List());
     }
 
     [Fact(Skip="Remove to run test")]

@@ -6,7 +6,7 @@ public class KinderGartenGardenTest
     public void Missing_child()
     {
         var actual = Garden.DefaultGarden("RC\nGG").GetPlants("Potter");
-        Assert.That(actual, Is.Empty);
+        Assert.Empty(actual);
     }
 
     [Fact(Skip="Remove to run test")]
