@@ -3,4 +3,5 @@ nuget FAKE
 nuget NUnit
 nuget NUnit.ConsoleRunner
 nuget Sprache
+nuget xunit
 github nunit/nunit-transforms nunit3-junit/nunit3-junit.xslt
