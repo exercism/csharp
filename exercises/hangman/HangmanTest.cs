@@ -1,8 +1,8 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 
 public class HangmanTest
 {
-    [Test]
+    [Fact]
     public void Initially_9_failures_are_allowed()
     {
         var game = new HangmanGame("foo");
@@ -12,12 +12,11 @@ public class HangmanTest
 
         game.Start();
 
-        Assert.That(lastState.Status, Is.EqualTo(HangmanGame.Status.Busy));
-        Assert.That(lastState.RemainingGuesses, Is.EqualTo(9));
+        Assert.Equal(HangmanGame.Status.Busy, lastState.Status);
+        Assert.Equal(9, lastState.RemainingGuesses);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Initially_no_letters_are_guessed()
     {
         var game = new HangmanGame("foo");
@@ -27,11 +26,10 @@ public class HangmanTest
 
         game.Start();
 
-        Assert.That(lastState.MaskedWord, Is.EqualTo("___"));
+        Assert.Equal("___", lastState.MaskedWord);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void After_10_failures_the_game_is_over()
     {
         var game = new HangmanGame("foo");
@@ -46,11 +44,10 @@ public class HangmanTest
             game.Guess('x');
         }
 
-        Assert.That(lastState.Status, Is.EqualTo(HangmanGame.Status.Lose));
+        Assert.Equal(HangmanGame.Status.Lose, lastState.Status);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Feeding_a_correct_letter_removes_underscores()
     {
         var game = new HangmanGame("foobar");
@@ -62,19 +59,18 @@ public class HangmanTest
 
         game.Guess('b');
 
-        Assert.That(lastState.Status, Is.EqualTo(HangmanGame.Status.Busy));
-        Assert.That(lastState.RemainingGuesses, Is.EqualTo(9));
-        Assert.That(lastState.MaskedWord, Is.EqualTo("___b__"));
+        Assert.Equal(HangmanGame.Status.Busy, lastState.Status);
+        Assert.Equal(9, lastState.RemainingGuesses);
+        Assert.Equal("___b__", lastState.MaskedWord);
 
         game.Guess('o');
 
-        Assert.That(lastState.Status, Is.EqualTo(HangmanGame.Status.Busy));
-        Assert.That(lastState.RemainingGuesses, Is.EqualTo(9));
-        Assert.That(lastState.MaskedWord, Is.EqualTo("_oob__"));
+        Assert.Equal(HangmanGame.Status.Busy, lastState.Status);
+        Assert.Equal(9, lastState.RemainingGuesses);
+        Assert.Equal("_oob__", lastState.MaskedWord);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Feeding_a_correct_letter_twice_counts_as_a_failure()
     {
         var game = new HangmanGame("foobar");
@@ -86,19 +82,18 @@ public class HangmanTest
 
         game.Guess('b');
 
-        Assert.That(lastState.Status, Is.EqualTo(HangmanGame.Status.Busy));
-        Assert.That(lastState.RemainingGuesses, Is.EqualTo(9));
-        Assert.That(lastState.MaskedWord, Is.EqualTo("___b__"));
+        Assert.Equal(HangmanGame.Status.Busy, lastState.Status);
+        Assert.Equal(9, lastState.RemainingGuesses);
+        Assert.Equal("___b__", lastState.MaskedWord);
 
         game.Guess('b');
 
-        Assert.That(lastState.Status, Is.EqualTo(HangmanGame.Status.Busy));
-        Assert.That(lastState.RemainingGuesses, Is.EqualTo(8));
-        Assert.That(lastState.MaskedWord, Is.EqualTo("___b__"));
+        Assert.Equal(HangmanGame.Status.Busy, lastState.Status);
+        Assert.Equal(8, lastState.RemainingGuesses);
+        Assert.Equal("___b__", lastState.MaskedWord);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Getting_all_the_letters_right_makes_for_a_win()
     {
         var game = new HangmanGame("hello");
@@ -110,31 +105,31 @@ public class HangmanTest
 
         game.Guess('b');
 
-        Assert.That(lastState.Status, Is.EqualTo(HangmanGame.Status.Busy));
-        Assert.That(lastState.RemainingGuesses, Is.EqualTo(8));
-        Assert.That(lastState.MaskedWord, Is.EqualTo("_____"));
+        Assert.Equal(HangmanGame.Status.Busy, lastState.Status);
+        Assert.Equal(8, lastState.RemainingGuesses);
+        Assert.Equal("_____", lastState.MaskedWord);
 
         game.Guess('e');
 
-        Assert.That(lastState.Status, Is.EqualTo(HangmanGame.Status.Busy));
-        Assert.That(lastState.RemainingGuesses, Is.EqualTo(8));
-        Assert.That(lastState.MaskedWord, Is.EqualTo("_e___"));
+        Assert.Equal(HangmanGame.Status.Busy, lastState.Status);
+        Assert.Equal(8, lastState.RemainingGuesses);
+        Assert.Equal("_e___", lastState.MaskedWord);
 
         game.Guess('l');
 
-        Assert.That(lastState.Status, Is.EqualTo(HangmanGame.Status.Busy));
-        Assert.That(lastState.RemainingGuesses, Is.EqualTo(8));
-        Assert.That(lastState.MaskedWord, Is.EqualTo("_ell_"));
+        Assert.Equal(HangmanGame.Status.Busy, lastState.Status);
+        Assert.Equal(8, lastState.RemainingGuesses);
+        Assert.Equal("_ell_", lastState.MaskedWord);
 
         game.Guess('o');
 
-        Assert.That(lastState.Status, Is.EqualTo(HangmanGame.Status.Busy));
-        Assert.That(lastState.RemainingGuesses, Is.EqualTo(8));
-        Assert.That(lastState.MaskedWord, Is.EqualTo("_ello"));
+        Assert.Equal(HangmanGame.Status.Busy, lastState.Status);
+        Assert.Equal(8, lastState.RemainingGuesses);
+        Assert.Equal("_ello", lastState.MaskedWord);
 
         game.Guess('h');
 
-        Assert.That(lastState.Status, Is.EqualTo(HangmanGame.Status.Win));
-        Assert.That(lastState.MaskedWord, Is.EqualTo("hello"));
+        Assert.Equal(HangmanGame.Status.Win, lastState.Status);
+        Assert.Equal("hello", lastState.MaskedWord);
     }
 }

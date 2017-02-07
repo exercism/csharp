@@ -12,3 +12,5 @@ packages/
 paket-files
 TestResult.xml
 junit-results.xml
+exercises/obj/
+exercises/bin/

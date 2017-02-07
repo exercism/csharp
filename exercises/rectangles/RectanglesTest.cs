@@ -1,32 +1,29 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 
 public class RectanglesTest
 {
-    [Test]
+    [Fact]
     public void No_rows()
     {
         var input = new string[0];
-        Assert.That(Rectangles.Count(input), Is.EqualTo(0));
+        Assert.Equal(0, Rectangles.Count(input));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void No_columns()
     {
         var input = new[] { "" };
-        Assert.That(Rectangles.Count(input), Is.EqualTo(0));
+        Assert.Equal(0, Rectangles.Count(input));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void No_rectangles()
     {
         var input = new[] { " " };
-        Assert.That(Rectangles.Count(input), Is.EqualTo(0));
+        Assert.Equal(0, Rectangles.Count(input));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void One_rectangle()
     {
         var input = new[]
@@ -35,11 +32,10 @@ public class RectanglesTest
             "| |",
             "+-+"
         };
-        Assert.That(Rectangles.Count(input), Is.EqualTo(1));
+        Assert.Equal(1, Rectangles.Count(input));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Two_rectangles_without_shared_parts()
     {
         var input = new[]
@@ -50,11 +46,10 @@ public class RectanglesTest
             "| |  ",
             "+-+  "
         };
-        Assert.That(Rectangles.Count(input), Is.EqualTo(2));
+        Assert.Equal(2, Rectangles.Count(input));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Five_rectangles_with_shared_parts()
     {
         var input = new[]
@@ -65,11 +60,10 @@ public class RectanglesTest
             "| | |",
             "+-+-+"
         };
-        Assert.That(Rectangles.Count(input), Is.EqualTo(5));
+        Assert.Equal(5, Rectangles.Count(input));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Only_complete_rectangles_are_counted()
     {
         var input = new[]
@@ -80,11 +74,10 @@ public class RectanglesTest
             "| | -",
             "+-+-+"
         };
-        Assert.That(Rectangles.Count(input), Is.EqualTo(1));
+        Assert.Equal(1, Rectangles.Count(input));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Rectangles_can_be_of_different_sizes()
     {
         var input = new[]
@@ -95,11 +88,10 @@ public class RectanglesTest
             "|   |       |",
             "+---+-------+"
         };
-        Assert.That(Rectangles.Count(input), Is.EqualTo(3));
+        Assert.Equal(3, Rectangles.Count(input));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Corner_is_required_for_a_rectangle_to_be_complete()
     {
         var input = new[]
@@ -110,11 +102,10 @@ public class RectanglesTest
             "|   |       |",
             "+---+-------+"
         };
-        Assert.That(Rectangles.Count(input), Is.EqualTo(2));
+        Assert.Equal(2, Rectangles.Count(input));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Large_input_with_many_rectangles()
     {
         var input = new[]
@@ -128,6 +119,6 @@ public class RectanglesTest
             "+------+  | |",
             "          +-+"
         };
-        Assert.That(Rectangles.Count(input), Is.EqualTo(60));
+        Assert.Equal(60, Rectangles.Count(input));
     }
 }

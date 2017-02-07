@@ -2,7 +2,7 @@
 #r "./packages/FAKE/tools/FakeLib.dll"
 
 open Fake
-open Fake.Testing.NUnit3
+open Fake.Testing.XUnit2
 
 // Directories
 let buildDir  = "./build/"
@@ -11,7 +11,6 @@ let sourceDir  = "./exercises/"
 // Files
 let solutionFile = buildDir @@ "/exercises.csproj"
 let compiledOutput = buildDir @@ "xcsharp.dll"
-let nunitToJunitTransformFile = "./paket-files" @@ "nunit" @@ "nunit-transforms" @@ "nunit3-junit" @@ "nunit3-junit.xslt"
 
 // Targets
 Target "PrepareUnchanged" (fun _ -> 
@@ -28,7 +27,7 @@ Target "PrepareTests" (fun _ ->
     CleanDirs [buildDir]
     CopyDir buildDir sourceDir allFiles
 
-    let ignorePattern = "(\[Ignore\(\"Remove to run test\"\)]|, Ignore = \"Remove to run test case\")"
+    let ignorePattern = "Skip\s*=\s*\"Remove to run test\""
 
     !! (buildDir @@ "**/*Test.cs")
     |> RegexReplaceInFilesWithEncoding ignorePattern "" System.Text.Encoding.UTF8
@@ -40,19 +39,8 @@ Target "BuildTests" (fun _ ->
 )
 
 Target "Test" (fun _ ->
-    if getEnvironmentVarAsBool "APPVEYOR" then
-        [compiledOutput]
-        |> NUnit3 (fun p -> { p with 
-                                ShadowCopy = false
-                                ToolPath = "nunit3-console.exe" })
-    else if getEnvironmentVarAsBool "CIRCLECI" then
-        [compiledOutput]
-        |> NUnit3 (fun p -> { p with 
-                                ShadowCopy = false
-                                ResultSpecs = [sprintf "junit-results.xml;transform=%s" nunitToJunitTransformFile] })
-    else
-        [compiledOutput]
-        |> NUnit3 (fun p -> { p with ShadowCopy = false })
+    [compiledOutput]
+    |> xUnit2 (fun p -> { p with ShadowCopy = false })
 )
 
 // Build order

@@ -1,6 +1,5 @@
 source https://www.nuget.org/api/v2/
 nuget FAKE
-nuget NUnit
-nuget NUnit.ConsoleRunner
 nuget Sprache
-github nunit/nunit-transforms nunit3-junit/nunit3-junit.xslt
+nuget xunit
+nuget xunit.runner.console

@@ -10,7 +10,3 @@ dependencies:
 test:
   override:
     - ./build.sh
-  post:
-    - mkdir -p $CIRCLE_TEST_REPORTS/junit/
-    - sed -i '1 s/^\xef\xbb\xbf//' .*/junit-results.xml
-    - find . -type f -regex ".*/junit-results.xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
