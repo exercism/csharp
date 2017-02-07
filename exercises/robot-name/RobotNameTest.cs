@@ -26,7 +26,7 @@ public class RobotNameTest
     public void Different_robots_have_different_names()
     {
         var robot2 = new Robot();
-        Assert.That(robot.Name, Is.Not.EqualTo(robot2.Name));
+        Assert.NotEqual(robot2.Name, robot.Name);
     }
 
     [Fact(Skip="Remove to run test")]
@@ -34,6 +34,6 @@ public class RobotNameTest
     {
         var originalName = robot.Name;
         robot.Reset();
-        Assert.That(robot.Name, Is.Not.EqualTo(originalName));
+        Assert.NotEqual(originalName, robot.Name);
     }
 }

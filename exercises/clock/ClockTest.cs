@@ -100,7 +100,7 @@ public class ClockTest
     {
         var clock1 = new Clock(15, 30);
         var clock2 = new Clock(14, 30);
-        Assert.That(clock1, Is.Not.EqualTo(clock2));
+        Assert.NotEqual(clock2, clock1);
     }
 
     [Fact(Skip="Remove to run test")]

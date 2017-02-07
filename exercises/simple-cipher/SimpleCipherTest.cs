@@ -25,7 +25,7 @@ public class RandomKeyCipherTest
     [Fact(Skip="Remove to run test")]
     public void Cipher_keys_are_randomly_generated()
     {
-        Assert.That(cipher.Key, Is.Not.EqualTo(new Cipher().Key));
+        Assert.NotEqual(new Cipher().Key, cipher.Key);
     }
 
     // Here we take advantage of the fact that plaintext of "aaa..." doesn't output
