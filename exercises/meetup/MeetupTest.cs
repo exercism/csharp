@@ -1,7 +1,6 @@
 using System;
 using NUnit.Framework;
 
-[TestFixture]
 public class MeetupTest
 {
     [TestCase(5, DayOfWeek.Monday, ExpectedResult = "2013-5-13")]

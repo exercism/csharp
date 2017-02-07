@@ -1,6 +1,5 @@
 using NUnit.Framework;
 
-[TestFixture]
 public class RomanNumeralsTest
 {
     [TestCase(0, ExpectedResult = "")]

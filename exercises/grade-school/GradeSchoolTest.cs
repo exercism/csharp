@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 
-[TestFixture]
 public class GradeSchoolTest
 {
     private School school;

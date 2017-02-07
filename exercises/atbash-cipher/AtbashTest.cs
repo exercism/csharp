@@ -1,6 +1,5 @@
 using NUnit.Framework;
 
-[TestFixture]
 public class AtbashTest
 {
     [TestCase("no", ExpectedResult = "ml")]

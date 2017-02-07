@@ -1,7 +1,6 @@
 using System.Linq;
 using NUnit.Framework;
 
-[TestFixture]
 public class PythagoreanTripletTest
 {
     [Test]

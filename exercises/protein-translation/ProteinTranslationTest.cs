@@ -1,7 +1,5 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
-[TestFixture]
 public class ProteinTranslationTest
 {
     [TestCase("AUG")]

@@ -1,6 +1,5 @@
 using NUnit.Framework;
 
-[TestFixture]
 public class SeriesTest
 {
     private static readonly object[] SliceOneTestData =

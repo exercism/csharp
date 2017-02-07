@@ -1,6 +1,5 @@
 using NUnit.Framework;
 
-[TestFixture]
 public class LuhnTest
 {
     [TestCase("1", ExpectedResult = false)] // single digit strings can not be valid

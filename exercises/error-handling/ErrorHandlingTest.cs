@@ -1,7 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
 
-[TestFixture]
 public class ErrorHandlingTest
 {
     // Read more about exception handling here:

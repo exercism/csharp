@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 
-[TestFixture]
 public class WordCountTest
 {
     [Test]

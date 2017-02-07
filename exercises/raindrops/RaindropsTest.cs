@@ -1,6 +1,5 @@
 using NUnit.Framework;
 
-[TestFixture]
 public class RaindropsTest
 {
     [TestCase(1, ExpectedResult = "1")]

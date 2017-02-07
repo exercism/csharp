@@ -1,6 +1,5 @@
 using NUnit.Framework;
 
-[TestFixture]
 public class ClockTest
 {
     [TestCase(8, "08:00")]

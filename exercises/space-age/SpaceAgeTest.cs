@@ -1,7 +1,5 @@
-
 using NUnit.Framework;
 
-[TestFixture]
 public class SpaceAgeTest
 {
     [Test]

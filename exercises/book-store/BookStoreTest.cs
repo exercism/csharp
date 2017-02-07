@@ -2,7 +2,6 @@
 using System.Linq;
 using NUnit.Framework;
 
-[TestFixture]
 public class BookStoreTest
 {
     [Test]

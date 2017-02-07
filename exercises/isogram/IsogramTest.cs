@@ -1,6 +1,5 @@
 ﻿using NUnit.Framework;
 
-[TestFixture]
 public class IsogramTest
 {
     [TestCase("duplicates", ExpectedResult = true)]

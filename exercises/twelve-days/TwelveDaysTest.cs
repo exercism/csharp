@@ -1,6 +1,5 @@
 ﻿using NUnit.Framework;
 
-[TestFixture]
 public class TwelveDaysTest
 {
     private TwelveDaysSong twelveDaysSong;

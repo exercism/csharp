@@ -1,6 +1,5 @@
 using NUnit.Framework;
 
-[TestFixture]
 public class RandomKeyCipherTest
 {
     private Cipher cipher;
@@ -57,7 +56,7 @@ public class RandomKeyCipherTest
     }
 }
 
-[TestFixture]
+
 public class IncorrectKeyCipherTest
 {
     [Ignore("Remove to run test")]
@@ -96,7 +95,7 @@ public class IncorrectKeyCipherTest
     }
 }
 
-[TestFixture]
+
 public class SubstitutionCipherTest
 {
     private const string KEY = "abcdefghij";

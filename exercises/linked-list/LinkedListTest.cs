@@ -1,6 +1,5 @@
 using NUnit.Framework;
 
-[TestFixture]
 public class DequeTest
 {
     private Deque<int> deque;

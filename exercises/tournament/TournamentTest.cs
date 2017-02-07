@@ -3,7 +3,6 @@ using System.IO;
 using System.Text;
 using NUnit.Framework;
 
-[TestFixture]
 public class TournamentTest
 {
     readonly string input1 = 
