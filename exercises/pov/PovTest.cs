@@ -120,7 +120,7 @@ public class PovTest
     [Fact(Skip="Remove to run test")]
     public void Reparent_from_POV_of_non_existent_node()
     {
-        Assert.That(Pov.FromPOV(x, leaf("foo")), Is.Null);
+        Assert.Null(Pov.FromPOV(x, leaf("foo")));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -134,7 +134,7 @@ public class PovTest
     [Fact(Skip="Remove to run test")]
     public void Cannot_trace_between_unconnected_nodes()
     {
-        Assert.That(Pov.TracePathBetween(x, "NOT THERE", cousins), Is.Null);
+        Assert.Null(Pov.TracePathBetween(x, "NOT THERE", cousins));
     }
 
     [Fact(Skip="Remove to run test")]

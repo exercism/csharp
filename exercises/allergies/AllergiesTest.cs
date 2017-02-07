@@ -7,25 +7,25 @@ public class AllergiesTest
     public void No_allergies_means_not_allergic()
     {
         var allergies = new Allergies(0);
-        Assert.That(allergies.AllergicTo("peanuts"), Is.False);
-        Assert.That(allergies.AllergicTo("cats"), Is.False);
-        Assert.That(allergies.AllergicTo("strawberries"), Is.False);
+        Assert.False(allergies.AllergicTo("peanuts"));
+        Assert.False(allergies.AllergicTo("cats"));
+        Assert.False(allergies.AllergicTo("strawberries"));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Allergic_to_eggs()
     {
         var allergies = new Allergies(1);
-        Assert.That(allergies.AllergicTo("eggs"), Is.True);
+        Assert.True(allergies.AllergicTo("eggs"));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Allergic_to_eggs_in_addition_to_other_stuff()
     {
         var allergies = new Allergies(5);
-        Assert.That(allergies.AllergicTo("eggs"), Is.True);
-        Assert.That(allergies.AllergicTo("shellfish"), Is.True);
-        Assert.That(allergies.AllergicTo("strawberries"), Is.False);
+        Assert.True(allergies.AllergicTo("eggs"));
+        Assert.True(allergies.AllergicTo("shellfish"));
+        Assert.False(allergies.AllergicTo("strawberries"));
     }
 
     [Fact(Skip="Remove to run test")]

@@ -57,7 +57,7 @@ public class DominoesTest
     {
         var actual = new[] { Tuple.Create(1, 2) };
         var chain = Dominoes.Chain(actual);
-        Assert.That(chain, Is.Null);
+        Assert.Null(chain);
     }
 
     [Fact]
@@ -81,7 +81,7 @@ public class DominoesTest
     {
         var actual = new[] { Tuple.Create(1, 2), Tuple.Create(4, 1), Tuple.Create(2, 3) };
         var chain = Dominoes.Chain(actual);
-        Assert.That(chain, Is.Null);
+        Assert.Null(chain);
     }
 
     [Fact]
@@ -89,7 +89,7 @@ public class DominoesTest
     {
         var actual = new[] { Tuple.Create(1, 1), Tuple.Create(2, 2) };
         var chain = Dominoes.Chain(actual);
-        Assert.That(chain, Is.Null);
+        Assert.Null(chain);
     }
 
     [Fact]
@@ -97,7 +97,7 @@ public class DominoesTest
     {
         var actual = new[] { Tuple.Create(1, 2), Tuple.Create(2, 1), Tuple.Create(3, 4), Tuple.Create(4, 3) };
         var chain = Dominoes.Chain(actual);
-        Assert.That(chain, Is.Null);
+        Assert.Null(chain);
     }
 
     [Fact]
@@ -105,7 +105,7 @@ public class DominoesTest
     {
         var actual = new[] { Tuple.Create(1, 2), Tuple.Create(2, 3), Tuple.Create(3, 1), Tuple.Create(4, 4) };
         var chain = Dominoes.Chain(actual);
-        Assert.That(chain, Is.Null);
+        Assert.Null(chain);
     }
 
     [Fact]

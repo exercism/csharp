@@ -60,21 +60,21 @@ public class GoCountingTest
     public void FiveByFiveNonTerritoryStone()
     {
         var board = new GoCounting(boardFiveByFive);
-        Assert.That(board.TerritoryFor(new Point(1, 1)), Is.Null);
+        Assert.Null(board.TerritoryFor(new Point(1, 1)));
     }
 
     [Fact(Skip="Remove to run test")]
     public void FiveByFiveNonTerritoryDueToTooLowCoordinate()
     {
         var board = new GoCounting(boardFiveByFive);
-        Assert.That(board.TerritoryFor(new Point(-1, 1)), Is.Null);
+        Assert.Null(board.TerritoryFor(new Point(-1, 1)));
     }
 
     [Fact(Skip="Remove to run test")]
     public void FiveByFiveNonTerritoryDueToTooHighCoordinate()
     {
         var board = new GoCounting(boardFiveByFive);
-        Assert.That(board.TerritoryFor(new Point(1, 5)), Is.Null);
+        Assert.Null(board.TerritoryFor(new Point(1, 5)));
     }
 
     [Fact(Skip="Remove to run test")]

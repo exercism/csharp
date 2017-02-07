@@ -216,13 +216,13 @@ public class TreeBuildingTest
     private static void AssertTreeIsBranch(Tree tree, int id, int childCount)
     {
         Assert.That(tree.Id, Is.EqualTo(id));
-        Assert.That(tree.IsLeaf, Is.False);
+        Assert.False(tree.IsLeaf);
         Assert.That(tree.Children.Count, Is.EqualTo(childCount));
     }
 
     private static void AssertTreeIsLeaf(Tree tree, int id)
     {
         Assert.That(tree.Id, Is.EqualTo(id));
-        Assert.That(tree.IsLeaf, Is.True);
+        Assert.True(tree.IsLeaf);
     }
 }

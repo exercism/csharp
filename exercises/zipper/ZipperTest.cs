@@ -30,7 +30,7 @@ public class ZipperTest
     public void Dead_end()
     {
         var zipper = Zipper<int>.FromTree(t1);
-        Assert.That(zipper.Left().Left(), Is.Null);
+        Assert.Null(zipper.Left().Left());
     }
 
     [Fact(Skip="Remove to run test")]

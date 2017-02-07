@@ -6,35 +6,35 @@ public class CustomSetTest
     public void Sets_with_no_elements_are_empty()
     {
         var actual = new CustomSet<int>();
-        Assert.That(actual.IsEmpty(), Is.True);
+        Assert.True(actual.IsEmpty());
     }
 
     [Fact(Skip="Remove to run test")]
     public void Sets_with_elements_are_not_empty()
     {
         var actual = new CustomSet<int>(1);
-        Assert.That(actual.IsEmpty(), Is.False);
+        Assert.False(actual.IsEmpty());
     }
 
     [Fact(Skip="Remove to run test")]
     public void Nothing_is_contained_in_an_empty_set()
     {
         var actual = new CustomSet<int>();
-        Assert.That(actual.Contains(1), Is.False);
+        Assert.False(actual.Contains(1));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Detect_if_the_element_is_in_the_set()
     {
         var actual = new CustomSet<int>(new[] { 1, 2, 3 });
-        Assert.That(actual.Contains(1), Is.True);
+        Assert.True(actual.Contains(1));
     }
 
     [Fact(Skip="Remove to run test")]
     public void Detect_if_the_element_is_not_in_the_set()
     {
         var actual = new CustomSet<int>(new[] { 1, 2, 3 });
-        Assert.That(actual.Contains(4), Is.False);
+        Assert.False(actual.Contains(4));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -70,7 +70,7 @@ public class CustomSetTest
     {
         var left = new CustomSet<int>();
         var right = new CustomSet<int>();
-        Assert.That(left.IsSubsetOf(right), Is.True);
+        Assert.True(left.IsSubsetOf(right));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -78,7 +78,7 @@ public class CustomSetTest
     {
         var left = new CustomSet<int>();
         var right = new CustomSet<int>(1);
-        Assert.That(left.IsSubsetOf(right), Is.True);
+        Assert.True(left.IsSubsetOf(right));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -86,7 +86,7 @@ public class CustomSetTest
     {
         var left = new CustomSet<int>(1);
         var right = new CustomSet<int>();
-        Assert.That(left.IsSubsetOf(right), Is.False);
+        Assert.False(left.IsSubsetOf(right));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -94,7 +94,7 @@ public class CustomSetTest
     {
         var left = new CustomSet<int>(new[] { 1, 2, 3 });
         var right = new CustomSet<int>(new[] { 1, 2, 3 });
-        Assert.That(left.IsSubsetOf(right), Is.True);
+        Assert.True(left.IsSubsetOf(right));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -102,7 +102,7 @@ public class CustomSetTest
     {
         var left = new CustomSet<int>(new[] { 1, 2, 3 });
         var right = new CustomSet<int>(new[] { 4, 1, 2, 3 });
-        Assert.That(left.IsSubsetOf(right), Is.True);
+        Assert.True(left.IsSubsetOf(right));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -110,7 +110,7 @@ public class CustomSetTest
     {
         var left = new CustomSet<int>(new[] { 1, 2, 3 });
         var right = new CustomSet<int>(new[] { 4, 1, 3 });
-        Assert.That(left.IsSubsetOf(right), Is.False);
+        Assert.False(left.IsSubsetOf(right));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -118,7 +118,7 @@ public class CustomSetTest
     {
         var left = new CustomSet<int>();
         var right = new CustomSet<int>();
-        Assert.That(left.IsDisjointFrom(right), Is.True);
+        Assert.True(left.IsDisjointFrom(right));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -126,7 +126,7 @@ public class CustomSetTest
     {
         var left = new CustomSet<int>();
         var right = new CustomSet<int>(1);
-        Assert.That(left.IsDisjointFrom(right), Is.True);
+        Assert.True(left.IsDisjointFrom(right));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -134,7 +134,7 @@ public class CustomSetTest
     {
         var left = new CustomSet<int>(1);
         var right = new CustomSet<int>();
-        Assert.That(left.IsDisjointFrom(right), Is.True);
+        Assert.True(left.IsDisjointFrom(right));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -142,7 +142,7 @@ public class CustomSetTest
     {
         var left = new CustomSet<int>(new[] { 1, 2 });
         var right = new CustomSet<int>(new[] { 2, 3 });
-        Assert.That(left.IsDisjointFrom(right), Is.False);
+        Assert.False(left.IsDisjointFrom(right));
     }
 
     [Fact(Skip="Remove to run test")]
@@ -150,7 +150,7 @@ public class CustomSetTest
     {
         var left = new CustomSet<int>(new[] { 1, 2 });
         var right = new CustomSet<int>(new[] { 3, 4 });
-        Assert.That(left.IsDisjointFrom(right), Is.True);
+        Assert.True(left.IsDisjointFrom(right));
     }
 
     [Fact(Skip="Remove to run test")]

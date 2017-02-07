@@ -85,7 +85,7 @@ public class WordSearchTest
     {
         var wordSearch = new WordSearch(Puzzle);
         var actual = wordSearch.Find("haskell");
-        Assert.That(actual, Is.Null);
+        Assert.Null(actual);
     }
 
     [Fact(Skip="Remove to run test")]
