@@ -9,21 +9,21 @@ public class KinderGartenGardenTest
         Assert.Empty(actual);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Alice()
     {
         Assert.Equal(new [] { Plant.Radishes, Plant.Clover, Plant.Grass, Plant.Grass }, Garden.DefaultGarden("RC\nGG").GetPlants("Alice"));
         Assert.Equal(new[] { Plant.Violets, Plant.Clover, Plant.Radishes, Plant.Clover }, Garden.DefaultGarden("VC\nRC").GetPlants("Alice"));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Small_garden()
     {
         var actual = Garden.DefaultGarden("VVCG\nVVRC").GetPlants("Bob");
         Assert.Equal(new[] { Plant.Clover, Plant.Grass, Plant.Radishes, Plant.Clover }, actual);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Medium_garden()
     {
         var garden = Garden.DefaultGarden("VVCCGG\nVVCCGG");
@@ -31,7 +31,7 @@ public class KinderGartenGardenTest
         Assert.Equal(new[] { Plant.Grass, Plant.Grass, Plant.Grass, Plant.Grass }, garden.GetPlants("Charlie"));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Full_garden()
     {
         var garden = Garden.DefaultGarden("VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV");
@@ -48,7 +48,7 @@ public class KinderGartenGardenTest
         Assert.Equal(new[] { Plant.Grass, Plant.Violets, Plant.Clover, Plant.Violets }, garden.GetPlants("Larry"));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Surprise_garden()
     {
         var garden = new Garden(new [] { "Samantha", "Patricia", "Xander", "Roger" }, "VCRRGVRG\nRVGCCGCV");

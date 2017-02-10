@@ -93,37 +93,37 @@ public class PovTest
         Assert.Equal(singleton_, Pov.FromPOV(x, singleton));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Reparent_flat()
     {
         Assert.Equal(flat_, Pov.FromPOV(x, flat));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Reparent_nested()
     {
         Assert.Equal(nested_, Pov.FromPOV(x, nested));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Reparent_kids()
     {
         Assert.Equal(kids_, Pov.FromPOV(x, kids));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Reparent_cousins()
     {
         Assert.Equal(cousins_, Pov.FromPOV(x, cousins));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Reparent_from_POV_of_non_existent_node()
     {
         Assert.Null(Pov.FromPOV(x, leaf("foo")));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Should_not_be_able_to_find_a_missing_node()
     {
         var nodes = new[] { singleton, flat, kids, nested, cousins }.Select(graph => Pov.FromPOV("NOT THERE", graph));
@@ -134,19 +134,19 @@ public class PovTest
         });
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Cannot_trace_between_unconnected_nodes()
     {
         Assert.Null(Pov.TracePathBetween(x, "NOT THERE", cousins));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Can_trace_a_path_from_x_to_cousin()
     {
         Assert.Equal(new[] { "x", "parent", "grandparent", "uncle", "cousin-1" }, Pov.TracePathBetween(x, "cousin-1", cousins));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Can_trace_from_a_leaf_to_a_leaf()
     {
         Assert.Equal(new[] { "kid-a", "x", "parent", "grandparent", "uncle", "cousin-0" }, Pov.TracePathBetween("kid-a", "cousin-0", cousins));

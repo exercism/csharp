@@ -14,7 +14,7 @@ public class BankAccountTest
         Assert.Equal(0, account.Balance);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Check_basic_balance()
     {
         var account = new BankAccount();
@@ -29,7 +29,7 @@ public class BankAccountTest
         Assert.Equal(10, updatedBalance);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Balance_can_increment_and_decrement()
     {
         var account = new BankAccount();
@@ -47,7 +47,7 @@ public class BankAccountTest
         Assert.Equal(-5, subtractedBalance);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Closed_account_throws_exception_when_checking_balance()
     {
         var account = new BankAccount();
@@ -57,7 +57,7 @@ public class BankAccountTest
         Assert.Throws<InvalidOperationException>(() => account.Balance);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Change_account_balance_from_multiple_threads()
     {
         var account = new BankAccount();

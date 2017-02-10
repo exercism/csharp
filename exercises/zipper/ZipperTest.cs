@@ -19,28 +19,28 @@ public class ZipperTest
         Assert.Equal(t1, tree);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Left_right_and_value()
     {
         var zipper = Zipper<int>.FromTree(t1);
         Assert.Equal(3, zipper.Left().Right().Value);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Dead_end()
     {
         var zipper = Zipper<int>.FromTree(t1);
         Assert.Null(zipper.Left().Left());
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Tree_from_deep_focus()
     {
         var zipper = Zipper<int>.FromTree(t1);
         Assert.Equal(t1, zipper.Left().Right().ToTree());
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Set_value()
     {
         var zipper = Zipper<int>.FromTree(t1);
@@ -49,7 +49,7 @@ public class ZipperTest
         Assert.Equal(t2, tree);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Set_left_with_value()
     {
         var zipper = Zipper<int>.FromTree(t1);
@@ -58,7 +58,7 @@ public class ZipperTest
         Assert.Equal(t3, tree);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Set_right_to_null()
     {
         var zipper = Zipper<int>.FromTree(t1);
@@ -67,7 +67,7 @@ public class ZipperTest
         Assert.Equal(t4, tree);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Different_paths_to_same_zipper()
     {
         var zipper = Zipper<int>.FromTree(t1);

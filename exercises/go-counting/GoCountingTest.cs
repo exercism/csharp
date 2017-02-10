@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 
 public class GoCountingTest
 {
@@ -35,49 +36,49 @@ public class GoCountingTest
         var board = new GoCounting(boardFiveByFive);
         var result = board.TerritoryFor(new Point(0, 1));
         Assert.Equal(GoCounting.Player.Black, result.Item1);
-        Assert.Equal(new[] { new Point(0, 0), new Point(0, 1), new Point(1, 0) }, result.Item2);
+        Assert.Equal(new[] { new Point(0, 0), new Point(0, 1), new Point(1, 0) }.AsEnumerable(), result.Item2.AsEnumerable());
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void FiveByFiveTerritoryForWhite()
     {
         var board = new GoCounting(boardFiveByFive);
         var result = board.TerritoryFor(new Point(2, 3));
         Assert.Equal(GoCounting.Player.White, result.Item1);
-        Assert.Equal(new[] { new Point(2, 3) }, result.Item2);
+        Assert.Equal(new[] { new Point(2, 3) }.AsEnumerable(), result.Item2.AsEnumerable());
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void FiveByFiveOpenTerritory()
     {
         var board = new GoCounting(boardFiveByFive);
         var result = board.TerritoryFor(new Point(1, 4));
         Assert.Equal(GoCounting.Player.None, result.Item1);
-        Assert.Equal(new[] { new Point(0, 3), new Point(0, 4), new Point(1, 4) }, result.Item2);
+        Assert.Equal(new[] { new Point(0, 3), new Point(0, 4), new Point(1, 4) }.AsEnumerable(), result.Item2);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void FiveByFiveNonTerritoryStone()
     {
         var board = new GoCounting(boardFiveByFive);
         Assert.Null(board.TerritoryFor(new Point(1, 1)));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void FiveByFiveNonTerritoryDueToTooLowCoordinate()
     {
         var board = new GoCounting(boardFiveByFive);
         Assert.Null(board.TerritoryFor(new Point(-1, 1)));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void FiveByFiveNonTerritoryDueToTooHighCoordinate()
     {
         var board = new GoCounting(boardFiveByFive);
         Assert.Null(board.TerritoryFor(new Point(1, 5)));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void MinimalBoardWithNoTerritories()
     {
         var input = "B";
@@ -88,7 +89,7 @@ public class GoCountingTest
         Assert.Equal(expected, board.Territories());
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void OneTerritoryCoveringTheWholeBoard()
     {
         var input = " ";
@@ -96,13 +97,13 @@ public class GoCountingTest
 
         var expected = new Dictionary<GoCounting.Player, IEnumerable<Point>>
         {
-            [GoCounting.Player.None] = new[] { new Point(0, 0) }
+            [GoCounting.Player.None] = new[] { new Point(0, 0) }.AsEnumerable()
         };
 
         Assert.Equal(expected, board.Territories());
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void TwoTerritoriesOnRectangularBoard()
     {
         var input = string.Join("\n", new[] { " BW ", " BW " });
@@ -110,8 +111,8 @@ public class GoCountingTest
 
         var expected = new Dictionary<GoCounting.Player, IEnumerable<Point>>
         {
-            [GoCounting.Player.Black] = new[] { new Point(0, 0), new Point(0, 1) },
-            [GoCounting.Player.White] = new[] { new Point(3, 0), new Point(3, 1) }
+            [GoCounting.Player.Black] = new[] { new Point(0, 0), new Point(0, 1) }.AsEnumerable(),
+            [GoCounting.Player.White] = new[] { new Point(3, 0), new Point(3, 1) }.AsEnumerable()
         };
 
         Assert.Equal(expected, board.Territories());

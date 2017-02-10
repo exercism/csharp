@@ -10,7 +10,7 @@ public class BinarySearchTreeTest
         Assert.Equal(4, tree.Value);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Inserting_less()
     {
         var tree = new BinarySearchTree(4).Add(2);
@@ -18,7 +18,7 @@ public class BinarySearchTreeTest
         Assert.Equal(2, tree.Left.Value);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Inserting_same()
     {
         var tree = new BinarySearchTree(4).Add(4);
@@ -26,7 +26,7 @@ public class BinarySearchTreeTest
         Assert.Equal(4, tree.Left.Value);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Inserting_greater()
     {
         var tree = new BinarySearchTree(4).Add(5);
@@ -34,7 +34,7 @@ public class BinarySearchTreeTest
         Assert.Equal(5, tree.Right.Value);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Complex_tree()
     {
         var tree = new BinarySearchTree(new [] {  4, 2, 6, 1, 3, 7, 5 });
@@ -47,28 +47,28 @@ public class BinarySearchTreeTest
         Assert.Equal(7, tree.Right.Right.Value);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Iterating_one_element()
     {
         var elements = new BinarySearchTree(4).AsEnumerable();
         Assert.Equal(new [] { 4 }, elements);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Iterating_over_smaller_element()
     {
         var elements = new BinarySearchTree(new[] { 4, 2 }).AsEnumerable();
         Assert.Equal(new[] { 2, 4 }, elements);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Iterating_over_larger_element()
     {
         var elements = new BinarySearchTree(new[] { 4, 5 }).AsEnumerable();
         Assert.Equal(new[] { 4, 5 }, elements);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Iterating_over_complex_element()
     {
         var elements = new BinarySearchTree(new[] { 4, 2, 1, 3, 6, 7, 5 }).AsEnumerable();

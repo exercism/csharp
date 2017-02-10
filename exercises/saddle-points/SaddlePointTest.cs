@@ -16,7 +16,7 @@ public class SaddlePointTests
         Assert.Equal(new [] { Tuple.Create(1, 0)}, actual);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void No_saddle_point()
     {
         var values = new[,] 
@@ -28,7 +28,7 @@ public class SaddlePointTests
         Assert.Empty(actual);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Saddle_point()
     {
         var values = new[,] 
@@ -40,7 +40,7 @@ public class SaddlePointTests
         Assert.Equal(new[] { Tuple.Create(0, 1) }, actual);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Another_saddle_point()
     {
         var values = new[,] 
@@ -53,7 +53,7 @@ public class SaddlePointTests
         Assert.Equal(new[] { Tuple.Create(2, 2) }, actual);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Multiple_saddle_points()
     {
         var values = new[,]

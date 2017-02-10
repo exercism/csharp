@@ -12,14 +12,14 @@ public class AllergiesTest
         Assert.False(allergies.AllergicTo("strawberries"));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Allergic_to_eggs()
     {
         var allergies = new Allergies(1);
         Assert.True(allergies.AllergicTo("eggs"));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Allergic_to_eggs_in_addition_to_other_stuff()
     {
         var allergies = new Allergies(5);
@@ -28,42 +28,42 @@ public class AllergiesTest
         Assert.False(allergies.AllergicTo("strawberries"));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void No_allergies_at_all()
     {
         var allergies = new Allergies(0);
         Assert.Empty(allergies.List());
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Allergic_to_just_eggs()
     {
         var allergies = new Allergies(1);
         Assert.Equal(new List<string> { "eggs" }, allergies.List());
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Allergic_to_just_peanuts()
     {
         var allergies = new Allergies(2);
         Assert.Equal(new List<string> { "peanuts" }, allergies.List());
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Allergic_to_eggs_and_peanuts()
     {
         var allergies = new Allergies(3);
         Assert.Equal(new List<string> { "eggs", "peanuts" }, allergies.List());
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Allergic_to_lots_of_stuff()
     {
         var allergies = new Allergies(248);
         Assert.Equal(new List<string> { "strawberries", "tomatoes", "chocolate", "pollen", "cats" }, allergies.List());
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Allergic_to_everything()
     {
         var allergies = new Allergies(255);
@@ -81,7 +81,7 @@ public class AllergiesTest
                 allergies.List());
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Ignore_non_allergen_score_parts()
     {
         var allergies = new Allergies(509);

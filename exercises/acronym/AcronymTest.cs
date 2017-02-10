@@ -8,7 +8,7 @@ public class AcronymTest
         Assert.Equal(string.Empty, Acronym.Abbreviate(string.Empty));
     }
 
-    [Theory(Skip="Remove to run test")]
+    [Theory]
     [InlineData("Portable Network Graphics", "PNG")]
     [InlineData("Ruby on Rails", "ROR")]
     [InlineData("HyperText Markup Language", "HTML")]

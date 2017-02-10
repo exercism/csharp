@@ -2,7 +2,7 @@
 
 public class IsogramTest
 {
-    [Theory(Skip="Remove to run test")]
+    [Theory]
     [InlineData("duplicates", true)]
     [InlineData("eleven", false)]
     [InlineData("subdermatoglyphic", true)]

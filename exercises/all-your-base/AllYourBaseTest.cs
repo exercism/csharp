@@ -13,7 +13,7 @@ public class AllYourBaseTest
         Assert.Equal(outputDigits, Base.Rebase(inputBase, inputDigits, outputBase));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Binary_to_single_decimal()
     {
         const int inputBase = 2;
@@ -23,7 +23,7 @@ public class AllYourBaseTest
         Assert.Equal(outputDigits, Base.Rebase(inputBase, inputDigits, outputBase));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Single_decimal_to_binary()
     {  
         const int inputBase = 10;
@@ -33,7 +33,7 @@ public class AllYourBaseTest
         Assert.Equal(outputDigits, Base.Rebase(inputBase, inputDigits, outputBase));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Binary_to_multiple_decimal()
     {
         const int inputBase = 2;
@@ -43,7 +43,7 @@ public class AllYourBaseTest
         Assert.Equal(outputDigits, Base.Rebase(inputBase, inputDigits, outputBase));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Decimal_to_binary()
     {
         const int inputBase = 10;
@@ -53,7 +53,7 @@ public class AllYourBaseTest
         Assert.Equal(outputDigits, Base.Rebase(inputBase, inputDigits, outputBase));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Trinary_to_hexadecimal()
     {
         const int inputBase = 3;
@@ -63,7 +63,7 @@ public class AllYourBaseTest
         Assert.Equal(outputDigits, Base.Rebase(inputBase, inputDigits, outputBase));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Hexadecimal_to_trinary()
     {
         const int inputBase = 16;
@@ -73,7 +73,7 @@ public class AllYourBaseTest
         Assert.Equal(outputDigits, Base.Rebase(inputBase, inputDigits, outputBase));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Using_15_bit_integer()
     {
         const int inputBase = 97;
@@ -83,7 +83,7 @@ public class AllYourBaseTest
         Assert.Equal(outputDigits, Base.Rebase(inputBase, inputDigits, outputBase));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Empty_array()
     {
         const int inputBase = 2;
@@ -92,7 +92,7 @@ public class AllYourBaseTest
         Assert.Throws<ArgumentException>(() => Base.Rebase(inputBase, inputDigits, outputBase));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Single_zero()
     {
         const int inputBase = 10;
@@ -101,7 +101,7 @@ public class AllYourBaseTest
         Assert.Throws<ArgumentException>(() => Base.Rebase(inputBase, inputDigits, outputBase));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Multiple_zeros()
     {
         const int inputBase = 10;
@@ -110,7 +110,7 @@ public class AllYourBaseTest
         Assert.Throws<ArgumentException>(() => Base.Rebase(inputBase, inputDigits, outputBase));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Leading_zeros()
     {
         const int inputBase = 7;
@@ -119,7 +119,7 @@ public class AllYourBaseTest
         Assert.Throws<ArgumentException>(() => Base.Rebase(inputBase, inputDigits, outputBase));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Negative_digit()
     {
         const int inputBase = 2;
@@ -128,7 +128,7 @@ public class AllYourBaseTest
         Assert.Throws<ArgumentException>(() => Base.Rebase(inputBase, inputDigits, outputBase));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Invalid_positive_digit()
     {
         const int inputBase = 2;
@@ -137,7 +137,7 @@ public class AllYourBaseTest
         Assert.Throws<ArgumentException>(() => Base.Rebase(inputBase, inputDigits, outputBase));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void First_base_is_one()
     {
         const int inputBase = 1;
@@ -146,7 +146,7 @@ public class AllYourBaseTest
         Assert.Throws<ArgumentException>(() => Base.Rebase(inputBase, inputDigits, outputBase));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Second_base_is_one()
     {
         const int inputBase = 2;
@@ -155,7 +155,7 @@ public class AllYourBaseTest
         Assert.Throws<ArgumentException>(() => Base.Rebase(inputBase, inputDigits, outputBase));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void First_base_is_zero()
     {
         const int inputBase = 0;
@@ -164,7 +164,7 @@ public class AllYourBaseTest
         Assert.Throws<ArgumentException>(() => Base.Rebase(inputBase, inputDigits, outputBase));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Second_base_is_zero()
     {
         const int inputBase = 10;
@@ -173,7 +173,7 @@ public class AllYourBaseTest
         Assert.Throws<ArgumentException>(() => Base.Rebase(inputBase, inputDigits, outputBase));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void First_base_is_negative()
     {
         const int inputBase = -2;
@@ -182,7 +182,7 @@ public class AllYourBaseTest
         Assert.Throws<ArgumentException>(() => Base.Rebase(inputBase, inputDigits, outputBase));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Second_base_is_negative()
     {
         const int inputBase = 2;
@@ -191,7 +191,7 @@ public class AllYourBaseTest
         Assert.Throws<ArgumentException>(() => Base.Rebase(inputBase, inputDigits, outputBase));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Both_bases_are_negative()
     {
         const int inputBase = -2;

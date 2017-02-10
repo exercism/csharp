@@ -12,7 +12,7 @@ public class MatrixTest
         Assert.Equal(expected, matrix.Row(0));
     }
 
-    [Theory(Skip="Remove to run test")]
+    [Theory]
     [InlineData("5", new[] { 5 })]
     [InlineData("9 7", new[] { 9, 7 })]
     [InlineData("9 8 7\n19 18 17", new[] { 19, 18, 17 })]
@@ -23,7 +23,7 @@ public class MatrixTest
         Assert.Equal(expected, matrix.Row(matrix.Rows - 1));
     }
 
-    [Theory(Skip="Remove to run test")]
+    [Theory]
     [InlineData("55 44", new[] { 55 })]
     [InlineData("89 1903\n18 3", new[] { 89, 18 })]
     [InlineData("1 2 3\n4 5 6\n7 8 9\n8 7 6", new[] { 1, 4, 7, 8 })]
@@ -33,7 +33,7 @@ public class MatrixTest
         Assert.Equal(expected, matrix.Col(0));
     }
 
-    [Theory(Skip="Remove to run test")]
+    [Theory]
     [InlineData("28", new[] { 28 })]
     [InlineData("13\n16\n19", new[] { 13, 16, 19 })]
     [InlineData("289 21903 23\n218 23 21", new[] { 23, 21 })]
@@ -44,7 +44,7 @@ public class MatrixTest
         Assert.Equal(expected, matrix.Col(matrix.Cols - 1));
     }
 
-    [Theory(Skip="Remove to run test")]
+    [Theory]
     [InlineData("28", 1)]
     [InlineData("13\n16", 2)]
     [InlineData("289 21903\n23 218\n23 21", 3)]
@@ -55,7 +55,7 @@ public class MatrixTest
         Assert.Equal(expected, matrix.Rows);
     }
 
-    [Theory(Skip="Remove to run test")]
+    [Theory]
     [InlineData("28", 1)]
     [InlineData("13 2\n16 3\n19 4", 2)]
     [InlineData("289 21903\n23 218\n23 21", 2)]

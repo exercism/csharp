@@ -11,21 +11,21 @@ public class NucleoTideCountTest
         Assert.Equal(expected, dna.NucleotideCounts);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Has_no_adenosine()
     {
         var dna = new DNA("");
         Assert.Equal(0, dna.Count('A'));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Repetitive_cytidine_gets_counts()
     {
         var dna = new DNA("CCCCC");
         Assert.Equal(5, dna.Count('C'));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Repetitive_sequence_has_only_guanosine()
     {
         var dna = new DNA("GGGGGGGG");
@@ -33,14 +33,14 @@ public class NucleoTideCountTest
         Assert.Equal(expected, dna.NucleotideCounts);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Counts_only_thymidine()
     {
         var dna = new DNA("GGGGTAACCCGG");
         Assert.Equal(1, dna.Count('T'));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Counts_a_nucleotide_only_once()
     {
         var dna = new DNA("GGTTGG");
@@ -48,14 +48,14 @@ public class NucleoTideCountTest
         Assert.Equal(2, dna.Count('T'));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Validates_nucleotides()
     {
         var dna = new DNA("GGTTGG");
         Assert.Throws<InvalidNucleotideException>(() => dna.Count('X'));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Counts_all_nucleotides()
     {
         var dna = new DNA("AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC");

@@ -23,7 +23,7 @@ public class ConnectTest
         Assert.Equal(Connect.Winner.None, board.Result());
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void One_by_one_board_with_black_stone()
     {
         var lines = new[] { "X" };
@@ -31,7 +31,7 @@ public class ConnectTest
         Assert.Equal(Connect.Winner.Black, board.Result());
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void One_by_one_board_with_white_stone()
     {
         var lines = new[] { "O" };
@@ -39,7 +39,7 @@ public class ConnectTest
         Assert.Equal(Connect.Winner.White, board.Result());
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Convoluted_path()
     {
         var lines = new[] 
@@ -54,7 +54,7 @@ public class ConnectTest
         Assert.Equal(Connect.Winner.Black, board.Result());
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Rectangle_black_wins()
     {
         var lines = new[] 
@@ -69,7 +69,7 @@ public class ConnectTest
         Assert.Equal(Connect.Winner.Black, board.Result());
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Rectangle_white_wins()
     {
         var lines = new[] 
@@ -84,7 +84,7 @@ public class ConnectTest
         Assert.Equal(Connect.Winner.White, board.Result());
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Spiral_black_wins()
     {
         var lines = new[]
@@ -103,7 +103,7 @@ public class ConnectTest
         Assert.Equal(Connect.Winner.Black, board.Result());
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Spiral_nobody_wins()
     {
         var lines = new[]

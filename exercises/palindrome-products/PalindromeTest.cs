@@ -11,7 +11,7 @@ public class PalindromeTest
         Assert.Equal(new [] { Tuple.Create(1, 9), Tuple.Create(3, 3) }, actual.Factors);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Smallest_palindrome_from_single_digit_factors()
     {
         var actual = Palindrome.Smallest(9);
@@ -19,7 +19,7 @@ public class PalindromeTest
         Assert.Equal(new[] { Tuple.Create(1, 1) }, actual.Factors);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Largest_palindrome_from_double_digit_actors()
     {
         var actual = Palindrome.Largest(10, 99);
@@ -27,7 +27,7 @@ public class PalindromeTest
         Assert.Equal(new[] { Tuple.Create(91, 99) }, actual.Factors);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Smallest_palindrome_from_double_digit_factors()
     {
         var actual = Palindrome.Smallest(10, 99);
@@ -35,7 +35,7 @@ public class PalindromeTest
         Assert.Equal(new[] { Tuple.Create(11, 11) }, actual.Factors);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Largest_palindrome_from_triple_digit_factors()
     {
         var actual = Palindrome.Largest(100, 999);
@@ -43,7 +43,7 @@ public class PalindromeTest
         Assert.Equal(new[] { Tuple.Create(913, 993) }, actual.Factors);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Smallest_palindrome_from_triple_digit_factors()
     {
         var actual = Palindrome.Smallest(100, 999);
@@ -51,7 +51,7 @@ public class PalindromeTest
         Assert.Equal(new[] { Tuple.Create(101, 101) }, actual.Factors);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Largest_palindrome_from_four_digit_factors()
     {
         var actual = Palindrome.Largest(1000, 9999);
@@ -59,7 +59,7 @@ public class PalindromeTest
         Assert.Equal(new[] { Tuple.Create(9901, 9999) }, actual.Factors);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Smallest_palindrome_from_four_digit_factors()
     {
         var actual = Palindrome.Smallest(1000, 9999);

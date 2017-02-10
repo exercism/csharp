@@ -11,7 +11,7 @@ public class AnagramTest
         Assert.Equal(results, detector.Match(words));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Detect_simple_anagram()
     {
         var detector = new Anagram("ant");
@@ -20,7 +20,7 @@ public class AnagramTest
         Assert.Equal(results, detector.Match(words));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Detect_multiple_anagrams()
     {
         var detector = new Anagram("master");
@@ -29,7 +29,7 @@ public class AnagramTest
         Assert.Equal(results, detector.Match(words));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Does_not_confuse_different_duplicates()
     {
         var detector = new Anagram("galea");
@@ -38,7 +38,7 @@ public class AnagramTest
         Assert.Equal(results, detector.Match(words));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Identical_word_is_not_anagram()
     {
         var detector = new Anagram("corn");
@@ -47,7 +47,7 @@ public class AnagramTest
         Assert.Equal(results, detector.Match(words));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Eliminate_anagrams_with_same_checksum()
     {
         var detector = new Anagram("mass");
@@ -56,7 +56,7 @@ public class AnagramTest
         Assert.Equal(results, detector.Match(words));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Eliminate_anagram_subsets()
     {
         var detector = new Anagram("good");
@@ -65,7 +65,7 @@ public class AnagramTest
         Assert.Equal(results, detector.Match(words));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Detect_anagrams()
     {
         var detector = new Anagram("allergy");
@@ -74,7 +74,7 @@ public class AnagramTest
         Assert.Equal(results, detector.Match(words));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Anagrams_are_case_insensitive()
     {
         var detector = new Anagram("Orchestra");

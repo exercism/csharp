@@ -10,7 +10,7 @@ public class ScaleGeneratorTest
         Assert.Equal(expected, major);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Another_major_scale()
     {
         var major = ScaleGenerator.Pitches("G", "MMmMMMm");
@@ -18,7 +18,7 @@ public class ScaleGeneratorTest
         Assert.Equal(expected, major);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Minor_scale()
     {
         var minor = ScaleGenerator.Pitches("f#", "MmMMmMM");
@@ -26,7 +26,7 @@ public class ScaleGeneratorTest
         Assert.Equal(expected, minor);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Another_minor_scale()
     {
         var minor = ScaleGenerator.Pitches("bb", "MmMMmMM");
@@ -34,7 +34,7 @@ public class ScaleGeneratorTest
         Assert.Equal(expected, minor);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Dorian_mode()
     {
         var dorian = ScaleGenerator.Pitches("d", "MmMMMmM");
@@ -42,7 +42,7 @@ public class ScaleGeneratorTest
         Assert.Equal(expected, dorian);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Mixolydian_mode()
     {
         var mixolydian = ScaleGenerator.Pitches("Eb", "MMmMMmM");
@@ -50,7 +50,7 @@ public class ScaleGeneratorTest
         Assert.Equal(expected, mixolydian);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Lydian_mode()
     {
         var lydian = ScaleGenerator.Pitches("a", "MMMmMMm");
@@ -58,7 +58,7 @@ public class ScaleGeneratorTest
         Assert.Equal(expected, lydian);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Phrygian_mode()
     {
         var phrygian = ScaleGenerator.Pitches("e", "mMMMmMM");
@@ -66,7 +66,7 @@ public class ScaleGeneratorTest
         Assert.Equal(expected, phrygian);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Locrian_mode()
     {
         var locrian = ScaleGenerator.Pitches("g", "mMMmMMM");
@@ -74,7 +74,7 @@ public class ScaleGeneratorTest
         Assert.Equal(expected, locrian);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Harmonic_minor()
     {
         var harmonicMinor = ScaleGenerator.Pitches("d", "MmMMmAm");
@@ -82,7 +82,7 @@ public class ScaleGeneratorTest
         Assert.Equal(expected, harmonicMinor);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Octatonic()
     {
         var octatonic = ScaleGenerator.Pitches("C", "MmMmMmMm");
@@ -90,7 +90,7 @@ public class ScaleGeneratorTest
         Assert.Equal(expected, octatonic);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Hexatonic()
     {
         var hexatonic = ScaleGenerator.Pitches("Db", "MMMMMM");
@@ -98,7 +98,7 @@ public class ScaleGeneratorTest
         Assert.Equal(expected, hexatonic);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Pentatonic()
     {
         var pentatonic = ScaleGenerator.Pitches("A", "MMAMA");
@@ -106,7 +106,7 @@ public class ScaleGeneratorTest
         Assert.Equal(expected, pentatonic);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Enigmatic()
     {
         var enigmatic = ScaleGenerator.Pitches("G", "mAMMMmm");

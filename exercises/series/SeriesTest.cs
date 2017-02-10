@@ -3,7 +3,7 @@ using Xunit;
 
 public class SeriesTest
 {
-    private static readonly object[] SliceOneTestData =
+    public static readonly object[] SliceOneTestData =
         {
             new object[] { "01234", new[] { new[] { 0 }, new[] { 1 }, new[] { 2 }, new[] { 3 }, new[] { 4 } } },
             new object[] { "92834", new[] { new[] { 9 }, new[] { 2 }, new[] { 8 }, new[] { 3 }, new[] { 4 } } }
@@ -16,61 +16,61 @@ public class SeriesTest
         Assert.Equal(result, new Series(input).Slices(1));
     }
 
-    private static readonly object[] SliceTwoTestData =
+    public static readonly object[] SliceTwoTestData =
         {
             new object[] { "01234", new[] { new[] { 0, 1 }, new[] { 1, 2 }, new[] { 2, 3 }, new[] { 3, 4 } } },
             new object[] { "98273463", new[] { new[] { 9, 8 }, new[] { 8, 2 }, new[] { 2, 7 }, new[] { 7, 3 }, new[] { 3, 4 }, new[] { 4, 6 }, new[] { 6, 3 } } },
             new object[] { "37103", new[] { new[] { 3, 7 }, new[] { 7, 1 }, new[] { 1, 0 }, new[] { 0, 3 } } }
         };
 
-    [Theory(Skip="Remove to run test")]
+    [Theory]
     [MemberData(nameof(SliceTwoTestData))]
     public void Series_of_two_splits_to_two_digits(string input, int[][] result)
     {
         Assert.Equal(result, new Series(input).Slices(2));
     }
 
-    private static readonly object[] SliceThreeTestData =
+    public static readonly object[] SliceThreeTestData =
         {
             new object[] { "01234", new[] { new[] { 0, 1, 2 }, new[] { 1, 2, 3 }, new[] { 2, 3, 4 } } },
             new object[] { "31001", new[] { new[] { 3, 1, 0 }, new[] { 1, 0, 0 }, new[] { 0, 0, 1 } } },
             new object[] { "982347", new[] { new[] { 9, 8, 2 }, new[] { 8, 2, 3 }, new[] { 2, 3, 4 }, new[] { 3, 4, 7 } } }
         };
 
-    [Theory(Skip="Remove to run test")]
+    [Theory]
     [MemberData(nameof(SliceThreeTestData))]
     public void Series_of_three_splits_to_three_digits(string input, int[][] result)
     {
         Assert.Equal(result, new Series(input).Slices(3));
     }
 
-    private static readonly object[] SliceFourTestData =
+    public static readonly object[] SliceFourTestData =
         {
             new object[] { "01234", new[] { new[] { 0, 1, 2, 3 }, new[] { 1, 2, 3, 4 } } },
             new object[] { "91274", new[] { new[] { 9, 1, 2, 7 }, new[] { 1, 2, 7, 4 } } }
         };
 
-    [Theory(Skip="Remove to run test")]
+    [Theory]
     [MemberData(nameof(SliceFourTestData))]
     public void Series_of_four_splits_to_four_digits(string input, int[][] result)
     {
         Assert.Equal(result, new Series(input).Slices(4));
     }
 
-    private static readonly object[] SliceFiveTestData =
+    public static readonly object[] SliceFiveTestData =
         {
             new object[] { "01234", new[] { new[] { 0, 1, 2, 3, 4 } } },
             new object[] { "81228", new[] { new[] { 8, 1, 2, 2, 8 } } }
         };
 
-    [Theory(Skip="Remove to run test")]
+    [Theory]
     [MemberData(nameof(SliceFiveTestData))]
     public void Series_of_five_splits_to_five_digits(string input, int[][] result)
     {
         Assert.Equal(result, new Series(input).Slices(5));
     }
 
-    [Theory(Skip="Remove to run test")]
+    [Theory]
     [InlineData("01234", 6)]
     [InlineData("01032987583", 19)]
     public void Slice_longer_than_input_is_not_allowed(string input, int slice)

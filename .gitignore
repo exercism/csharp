@@ -1,7 +1,7 @@
 *.swp
 .DS_Store
 tmp
-exercises/obj
+exercises/obj/
 exercises/bin/
 bin/configlet
 bin/configlet.exe

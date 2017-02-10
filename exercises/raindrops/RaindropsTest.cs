@@ -10,7 +10,7 @@ public class RaindropsTest
         Assert.Equal(expected, Raindrops.Convert(number));
     }
 
-    [Theory(Skip="Remove to run test")]
+    [Theory]
     [InlineData(3)]
     [InlineData(6)]
     [InlineData(9)]
@@ -19,7 +19,7 @@ public class RaindropsTest
         Assert.Equal("Pling", Raindrops.Convert(number));
     }
 
-    [Theory(Skip="Remove to run test")]
+    [Theory]
     [InlineData(5)]
     [InlineData(10)]
     [InlineData(25)]
@@ -28,7 +28,7 @@ public class RaindropsTest
         Assert.Equal("Plang", Raindrops.Convert(number));
     }
 
-    [Theory(Skip="Remove to run test")]
+    [Theory]
     [InlineData(7)]
     [InlineData(14)]
     [InlineData(49)]
@@ -37,7 +37,7 @@ public class RaindropsTest
         Assert.Equal("Plong", Raindrops.Convert(number));
     }
 
-    [Theory(Skip="Remove to run test")]
+    [Theory]
     [InlineData(15, "PlingPlang")]
     [InlineData(21, "PlingPlong")]
     [InlineData(35, "PlangPlong")]

@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using System.Linq;
+using Xunit;
 
 public class DotDslTest
 {
@@ -12,7 +13,7 @@ public class DotDslTest
         Assert.Empty(g.Attrs);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Graph_with_one_node()
     {
         var g = new Graph
@@ -25,7 +26,7 @@ public class DotDslTest
         Assert.Empty(g.Attrs);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Graph_with_one_node_with_keywords()
     {
         var g = new Graph
@@ -38,7 +39,7 @@ public class DotDslTest
         Assert.Empty(g.Attrs);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Graph_with_one_edge()
     {
         var g = new Graph
@@ -51,7 +52,7 @@ public class DotDslTest
         Assert.Empty(g.Attrs);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Graph_with_one_attribute()
     {
         var g = new Graph
@@ -64,7 +65,7 @@ public class DotDslTest
         Assert.Equal(new[] { new Attr("foo", "1") }, g.Attrs);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Graph_with_attributes()
     {
         var g = new Graph
@@ -79,8 +80,8 @@ public class DotDslTest
             { "bar", "true" }
         };
 
-        Assert.Equal(new[] { new Node("a") { { "color", "green" } }, new Node("b") { { "label", "Beta!" } }, new Node("c") }, g.Nodes);
-        Assert.Equal(new[] { new Edge("a", "b") { { "color", "blue" } }, new Edge("b", "c") }, g.Edges);
-        Assert.Equal(new[] { new Attr("bar", "true"), new Attr("foo", "1"), new Attr("title", "Testing Attrs") }, g.Attrs);
+        Assert.Equal(new[] { new Node("a") { { "color", "green" } }, new Node("b") { { "label", "Beta!" } }, new Node("c") }.AsEnumerable(), g.Nodes);
+        Assert.Equal(new[] { new Edge("a", "b") { { "color", "blue" } }, new Edge("b", "c") }.AsEnumerable(), g.Edges);
+        Assert.Equal(new[] { new Attr("bar", "true"), new Attr("foo", "1"), new Attr("title", "Testing Attrs") }.AsEnumerable(), g.Attrs);
     }
 }

@@ -11,7 +11,7 @@ public class TransposeTest
         Assert.Equal(expected, Transpose.String(input));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Two_characters()
     {
         const string input =
@@ -24,7 +24,7 @@ public class TransposeTest
         Assert.Equal(expected, Transpose.String(input));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Simple()
     {
         const string input =
@@ -39,7 +39,7 @@ public class TransposeTest
         Assert.Equal(expected, Transpose.String(input));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Single_line()
     {
         const string input =
@@ -62,7 +62,7 @@ public class TransposeTest
         Assert.Equal(expected, Transpose.String(input));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void First_line_longer_than_second_line()
     {
         const string input =
@@ -90,7 +90,7 @@ public class TransposeTest
         Assert.Equal(expected, Transpose.String(input));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Second_line_longer_than_first_line()
     {
         const string input =
@@ -118,7 +118,7 @@ public class TransposeTest
         Assert.Equal(expected, Transpose.String(input));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Square()
     {
         const string input =
@@ -138,7 +138,7 @@ public class TransposeTest
         Assert.Equal(expected, Transpose.String(input));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Rectangle()
     {
         const string input =
@@ -160,7 +160,7 @@ public class TransposeTest
         Assert.Equal(expected, Transpose.String(input));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Triangle()
     {
         const string input =
@@ -182,7 +182,7 @@ public class TransposeTest
         Assert.Equal(expected, Transpose.String(input));
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Many_lines()
     {
         const string input =

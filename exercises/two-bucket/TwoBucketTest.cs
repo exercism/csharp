@@ -18,7 +18,7 @@ public class TwoBucketTest
         Assert.Equal(5, actual.OtherBucketContents);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Second_example()
     {
         var bucketOneSize = 3;
@@ -34,7 +34,7 @@ public class TwoBucketTest
         Assert.Equal(3, actual.OtherBucketContents);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Third_example()
     {
         var bucketOneSize = 7;
@@ -50,7 +50,7 @@ public class TwoBucketTest
         Assert.Equal(11, actual.OtherBucketContents);
     }
 
-    [Fact(Skip="Remove to run test")]
+    [Fact]
     public void Fourth_example()
     {
         var bucketOneSize = 7;
