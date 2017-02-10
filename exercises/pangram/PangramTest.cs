@@ -2,7 +2,7 @@
 
 public class PangramTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Empty_sentence()
     {
         var input = "";

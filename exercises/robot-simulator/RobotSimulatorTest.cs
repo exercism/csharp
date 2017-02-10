@@ -2,7 +2,7 @@
 
 public class RobotSimulatorTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Turn_right_edge_case()
     {
         var robot = new RobotSimulator(Bearing.West, new Coordinate(0, 0));

@@ -2,7 +2,7 @@ using Xunit;
 
 public class AnagramTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void No_matches()
     {
         var detector = new Anagram("diaper");

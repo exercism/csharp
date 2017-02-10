@@ -2,7 +2,7 @@
 
 public class SumOfMultiplesTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Sum_to_1()
     {
         Assert.Equal(0, SumOfMultiples.To(new[] { 3, 5 }, 1));

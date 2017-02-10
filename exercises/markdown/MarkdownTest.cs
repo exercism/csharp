@@ -2,7 +2,7 @@
 
 public class MarkdownTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Parses_normal_text_as_a_paragraph()
     {
         var input = "This will be a paragraph";

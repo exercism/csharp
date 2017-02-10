@@ -3,7 +3,7 @@ using Xunit;
 
 public class GigasecondTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void First_date()
     {
         var date = Gigasecond.Date(new DateTime(2011, 4, 25, 0, 0, 0, DateTimeKind.Utc));

@@ -2,7 +2,7 @@
 
 public class BracketPushTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Paired_square_brackets()
     {
         const string actual = "[]";

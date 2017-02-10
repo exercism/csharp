@@ -87,7 +87,7 @@ public class PovTest
             })
         });
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Reparent_singleton()
     {
         Assert.Equal(singleton_, Pov.FromPOV(x, singleton));

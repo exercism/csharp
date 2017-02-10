@@ -2,7 +2,7 @@ using Xunit;
 
 public class TriangleTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Equilateral_triangles_have_equal_sides()
     {
         Assert.Equal(TriangleKind.Equilateral, Triangle.Kind(2, 2, 2));

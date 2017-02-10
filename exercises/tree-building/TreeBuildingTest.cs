@@ -3,7 +3,7 @@ using Xunit;
 
 public class TreeBuildingTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void One_node()
     {
         var records = new[]

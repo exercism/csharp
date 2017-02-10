@@ -11,7 +11,7 @@ public class ZipperTest
     private static readonly BinTree<int> t3 = new BinTree<int>(1, bt(2, leaf(5), leaf(3)), leaf(4));
     private static readonly BinTree<int> t4 = new BinTree<int>(1, leaf(2), leaf(4));
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Data_is_retained()
     {
         var zipper = Zipper<int>.FromTree(t1);

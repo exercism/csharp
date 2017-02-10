@@ -2,7 +2,7 @@
 
 public class SecretHandshakeTests
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Test_1_handshake_to_wink()
     {
         Assert.Equal(new[] { "wink" }, SecretHandshake.Commands(1));

@@ -2,7 +2,7 @@ using Xunit;
 
 public class SieveTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Finds_first_prime()
     {
         Assert.Equal(new[] { 2 }, Sieve.Primes(2));

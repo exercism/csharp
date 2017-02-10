@@ -5,7 +5,7 @@ using Xunit;
 
 public class DotDslTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Empty_graph()
     {
         var g = new Graph();

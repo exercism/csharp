@@ -2,7 +2,7 @@
 
 public class CustomSetTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Sets_with_no_elements_are_empty()
     {
         var actual = new CustomSet<int>();

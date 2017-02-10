@@ -2,7 +2,7 @@ using Xunit;
 
 public class CryptoSquareTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Strange_characters_are_stripped_during_normalization()
     {
         var crypto = new Crypto("s#$%^&plunk");

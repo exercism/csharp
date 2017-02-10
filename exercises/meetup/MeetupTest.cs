@@ -3,6 +3,7 @@ using Xunit;
 
 public class MeetupTest
 {
+    [Theory]
     [InlineData(5, DayOfWeek.Monday, "2013-5-13")]
     [InlineData(3, DayOfWeek.Tuesday, "2013-3-19")]
     [InlineData(1, DayOfWeek.Wednesday, "2013-1-16")]
@@ -16,7 +17,7 @@ public class MeetupTest
         Assert.Equal(expected, day.ToString("yyyy-M-d"));
     }
 
-    [Theory]
+    [Theory(Skip = "Remove to run test")]
     [InlineData(3, DayOfWeek.Monday, "2013-3-4")]
     [InlineData(5, DayOfWeek.Tuesday, "2013-5-7")]
     [InlineData(7, DayOfWeek.Wednesday, "2013-7-3")]
@@ -30,7 +31,7 @@ public class MeetupTest
         Assert.Equal(expected, day.ToString("yyyy-M-d"));
     }
 
-    [Theory]
+    [Theory(Skip = "Remove to run test")]
     [InlineData(3, DayOfWeek.Monday, "2013-3-11")]
     [InlineData(5, DayOfWeek.Tuesday, "2013-5-14")]
     [InlineData(7, DayOfWeek.Wednesday, "2013-7-10")]
@@ -44,7 +45,7 @@ public class MeetupTest
         Assert.Equal(expected, day.ToString("yyyy-M-d"));
     }
 
-    [Theory]
+    [Theory(Skip = "Remove to run test")]
     [InlineData(3, DayOfWeek.Monday, "2013-3-18")]
     [InlineData(5, DayOfWeek.Tuesday, "2013-5-21")]
     [InlineData(7, DayOfWeek.Wednesday, "2013-7-17")]
@@ -58,7 +59,7 @@ public class MeetupTest
         Assert.Equal(expected, day.ToString("yyyy-M-d"));
     }
 
-    [Theory]
+    [Theory(Skip = "Remove to run test")]
     [InlineData(3, DayOfWeek.Monday, "2013-3-25")]
     [InlineData(5, DayOfWeek.Tuesday, "2013-5-28")]
     [InlineData(7, DayOfWeek.Wednesday, "2013-7-24")]
@@ -72,7 +73,7 @@ public class MeetupTest
         Assert.Equal(expected, day.ToString("yyyy-M-d"));
     }
 
-    [Theory]
+    [Theory(Skip = "Remove to run test")]
     [InlineData(3, DayOfWeek.Monday, "2013-3-25")]
     [InlineData(5, DayOfWeek.Tuesday, "2013-5-28")]
     [InlineData(7, DayOfWeek.Wednesday, "2013-7-31")]

@@ -2,7 +2,7 @@ using Xunit;
 
 public class LeapTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Valid_leap_year()
     {
         Assert.True(Year.IsLeap(1996));

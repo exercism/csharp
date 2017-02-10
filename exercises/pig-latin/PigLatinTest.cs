@@ -13,7 +13,7 @@ public class PigLatinTest
         Assert.Equal(expected, PigLatin.Translate(word));
     }
 
-    [Theory]
+    [Theory(Skip = "Remove to run test")]
     [InlineData("pig", "igpay")]
     [InlineData("koala", "oalakay")]
     [InlineData("yellow", "ellowyay")]

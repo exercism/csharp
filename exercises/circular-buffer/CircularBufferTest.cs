@@ -3,7 +3,7 @@ using Xunit;
 
 public class CircularBufferTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Write_and_read_back_one_item()
     {
         var buffer = new CircularBuffer<char>(1);

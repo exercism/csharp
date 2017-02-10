@@ -3,7 +3,7 @@ using Xunit;
 
 public class WordCountTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Count_one_word()
     {
         var counts = new Dictionary<string,int> {

@@ -2,7 +2,7 @@
 
 public class ZebraPuzzleTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Who_drinks_water()
     {
         Assert.Equal(Nationality.Norwegian, ZebraPuzzle.WhoDrinks(Drink.Water));

@@ -5,7 +5,7 @@ public class RandomKeyCipherTest
 {
     private readonly Cipher cipher = new Cipher();
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Cipher_key_is_made_of_letters()
     {
         Assert.Matches("[a-z]+", cipher.Key);
@@ -49,7 +49,7 @@ public class RandomKeyCipherTest
 
 public class IncorrectKeyCipherTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Cipher_throws_with_an_all_caps_key()
     {
         Assert.Throws<ArgumentException>(() => new Cipher("ABCDEF"));

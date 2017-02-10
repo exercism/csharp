@@ -5,7 +5,7 @@ using Xunit;
 
 public class PascalsTriangleTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void One_row()
     {
         var actual = PascalsTriangle.Calculate(1);

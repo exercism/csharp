@@ -2,7 +2,7 @@
 
 public class HangmanTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Initially_9_failures_are_allowed()
     {
         var game = new HangmanGame("foo");

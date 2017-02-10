@@ -3,7 +3,7 @@ using Xunit;
 
 public class BinarySearchTreeTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Data_is_retained()
     {
         var tree = new BinarySearchTree(4);

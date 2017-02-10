@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class ReactTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Setting_the_value_of_an_input_cell_changes_the_observable_value()
     {
         var reactor = new Reactor();

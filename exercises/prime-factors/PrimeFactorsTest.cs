@@ -2,7 +2,7 @@ using Xunit;
 
 public class PrimeFactorsTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Test_1()
     {
         Assert.Equal(new int[0], PrimeFactors.For(1));

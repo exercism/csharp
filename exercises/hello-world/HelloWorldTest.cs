@@ -2,7 +2,7 @@
 
 public class HelloWorldTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void No_name()
     {
         Assert.Equal("Hello, World!", HelloWorld.Hello(null));

@@ -3,7 +3,7 @@ using Xunit;
 
 public class NucleoTideCountTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Has_no_nucleotides()
     {
         var dna = new DNA("");

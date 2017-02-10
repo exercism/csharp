@@ -4,7 +4,7 @@ using Xunit;
 
 public class StrainTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Empty_keep()
     {
         Assert.Equal(new LinkedList<int>(), new LinkedList<int>().Keep(x => x < 10));

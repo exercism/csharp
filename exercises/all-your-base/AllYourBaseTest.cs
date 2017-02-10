@@ -3,7 +3,7 @@ using Xunit;
 
 public class AllYourBaseTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Single_bit_one_to_decimal()
     {
         const int inputBase = 2;

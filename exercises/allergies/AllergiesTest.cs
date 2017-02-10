@@ -3,7 +3,7 @@ using Xunit;
 
 public class AllergiesTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void No_allergies_means_not_allergic()
     {
         var allergies = new Allergies(0);

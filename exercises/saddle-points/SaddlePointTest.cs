@@ -3,7 +3,7 @@ using Xunit;
 
 public class SaddlePointTests
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Readme_example()
     {
         var values = new[,]

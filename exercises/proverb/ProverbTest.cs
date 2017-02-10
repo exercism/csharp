@@ -2,7 +2,7 @@
 
 public class ProverbTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Line_one()
     {
         Assert.Equal("For want of a nail the shoe was lost.", Proverb.Line(1));

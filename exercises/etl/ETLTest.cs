@@ -3,7 +3,7 @@ using Xunit;
 
 public class ETLTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Transforms_one_value()
     {
         var old = new Dictionary<int, IList<string>> { { 1, new List<string> { "A" } } };

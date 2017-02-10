@@ -2,7 +2,7 @@
 
 public class GrainsTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Test_square_1()
     {
         Assert.Equal(1ul, Grains.Square(1));

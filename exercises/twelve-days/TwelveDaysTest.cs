@@ -4,7 +4,7 @@ public class TwelveDaysTest
 {
     private readonly TwelveDaysSong twelveDaysSong = new TwelveDaysSong();
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Return_verse_1()
     {
         var expected = "On the first day of Christmas my true love gave to me, a Partridge in a Pear Tree.\n";

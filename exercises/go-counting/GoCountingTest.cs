@@ -30,7 +30,7 @@ public class GoCountingTest
                 "   B B   "
             });
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void FiveByFiveTerritoryForBlack()
     {
         var board = new GoCounting(boardFiveByFive);

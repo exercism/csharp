@@ -2,7 +2,7 @@ using Xunit;
 
 public class PhoneNumberTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Cleans_parens_spaces_and_dashes()
     {
         var phone = new PhoneNumber("(123) 456-7890");

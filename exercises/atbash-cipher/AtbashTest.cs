@@ -2,6 +2,7 @@ using Xunit;
 
 public class AtbashTest
 {
+    [Theory]
     [InlineData("no", "ml")]
     [InlineData("yes", "bvh")]
     [InlineData("OMG", "lnt")]

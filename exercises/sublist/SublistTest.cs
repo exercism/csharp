@@ -4,7 +4,7 @@ using Xunit;
 
 public class SublistTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Empty_equals_empty()
     {
         var list1 = new List<int>();

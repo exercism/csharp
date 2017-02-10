@@ -2,7 +2,7 @@ using Xunit;
 
 public class HammingTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void No_difference_between_empty_strands()
     {
         Assert.Equal(0, Hamming.Compute("",""));

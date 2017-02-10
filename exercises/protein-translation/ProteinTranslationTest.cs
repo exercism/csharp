@@ -10,7 +10,7 @@ public class ProteinTranslationTest
         Assert.Equal(new[] { "Methionine" }, ProteinTranslation.Translate(codon));
     }
 
-    [Theory]
+    [Theory(Skip = "Remove to run test")]
     [InlineData("UUU")]
     [InlineData("UUC")]
     public void Identifies_phenylalanine_codons(string codon)
@@ -18,7 +18,7 @@ public class ProteinTranslationTest
         Assert.Equal(new[] { "Phenylalanine" }, ProteinTranslation.Translate(codon));
     }
 
-    [Theory]
+    [Theory(Skip = "Remove to run test")]
     [InlineData("UUA")]
     [InlineData("UUG")]
     public void Identifies_leucine_codons(string codon)
@@ -26,7 +26,7 @@ public class ProteinTranslationTest
         Assert.Equal(new[] { "Leucine" }, ProteinTranslation.Translate(codon));
     }
 
-    [Theory]
+    [Theory(Skip = "Remove to run test")]
     [InlineData("UCU")]
     [InlineData("UCC")]
     [InlineData("UCA")]
@@ -36,7 +36,7 @@ public class ProteinTranslationTest
         Assert.Equal(new[] { "Serine" }, ProteinTranslation.Translate(codon));
     }
 
-    [Theory]
+    [Theory(Skip = "Remove to run test")]
     [InlineData("UAU")]
     [InlineData("UAC")]
     public void Identifies_tyrosine_codons(string codon)
@@ -44,7 +44,7 @@ public class ProteinTranslationTest
         Assert.Equal(new[] { "Tyrosine" }, ProteinTranslation.Translate(codon));
     }
 
-    [Theory]
+    [Theory(Skip = "Remove to run test")]
     [InlineData("UGU")]
     [InlineData("UGC")]
     public void Identifies_cysteine_codons(string codon)
@@ -52,7 +52,7 @@ public class ProteinTranslationTest
         Assert.Equal(new[] { "Cysteine" }, ProteinTranslation.Translate(codon));
     }
 
-    [Theory]
+    [Theory(Skip = "Remove to run test")]
     [InlineData("UGG")]
     public void Identifies_tryptophan_codons(string codon)
     {

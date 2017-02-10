@@ -2,7 +2,7 @@
 
 public class RailFenceCipherTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Encode_with_two_rails()
     {
         var railFenceCipher = new RailFenceCipher(2);

@@ -2,7 +2,7 @@
 
 public class ScaleGeneratorTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Major_scale()
     {
         var major = ScaleGenerator.Pitches("C", "MMmMMMm");

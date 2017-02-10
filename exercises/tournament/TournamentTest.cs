@@ -67,7 +67,7 @@ public class TournamentTest
         }
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Test_good()
     {
         Assert.Equal(expected1, RunTally(input1).Trim());

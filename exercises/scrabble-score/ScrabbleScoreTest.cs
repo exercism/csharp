@@ -2,7 +2,7 @@ using Xunit;
 
 public class ScrabbleScoreTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Empty_word_scores_zero()
     {
         Assert.Equal(0, Scrabble.Score(""));

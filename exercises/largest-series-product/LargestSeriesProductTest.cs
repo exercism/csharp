@@ -3,7 +3,7 @@ using Xunit;
 
 public class LargestSeriesProductTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Can_find_the_largest_product_of_2_with_numbers_in_order()
     {
         const string digits = "0123456789";

@@ -16,7 +16,7 @@ public class WordSearchTest
         "jalaycalmp\n" +
         "clojurermt";
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Should_find_horizontal_words_written_left_to_right()
     {
         var wordSearch = new WordSearch(Puzzle);

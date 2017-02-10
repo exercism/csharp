@@ -8,7 +8,7 @@ public class ConnectTest
         return string.Join("\n", board.Select(x => x.Replace(" ", "")));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Empty_board_has_no_winner()
     {
         var lines = new[] 

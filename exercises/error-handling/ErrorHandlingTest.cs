@@ -5,7 +5,7 @@ public class ErrorHandlingTest
 {
     // Read more about exception handling here:
     // https://msdn.microsoft.com/en-us/library/ms173162.aspx?f=255&MSPPError=-2147217396
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void ThrowException()
     {
         Assert.Throws<Exception>(() => ErrorHandling.HandleErrorByThrowingException());

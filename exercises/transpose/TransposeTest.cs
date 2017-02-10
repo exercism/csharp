@@ -2,7 +2,7 @@
 
 public class TransposeTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Empty_string()
     {
         const string input = "";

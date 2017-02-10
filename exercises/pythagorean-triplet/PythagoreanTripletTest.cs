@@ -3,7 +3,7 @@ using Xunit;
 
 public class PythagoreanTripletTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Calculates_the_sum()
     {
         Assert.Equal(12, new Triplet(3, 4, 5).Sum());
@@ -15,7 +15,7 @@ public class PythagoreanTripletTest
         Assert.Equal(60, new Triplet(3, 4, 5).Product());
     }
 
-    [Theory]
+    [Theory(Skip = "Remove to run test")]
     [InlineData(3, 4, 5, true)]
     [InlineData(5, 6, 7, false)]
     public void Can_recognize_a_valid_pythagorean(int a, int b, int c, bool expected)

@@ -3,7 +3,7 @@ using Xunit;
 
 public class BowlingTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Should_be_able_to_score_a_game_with_all_zeros()
     {
         var rolls = new[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };

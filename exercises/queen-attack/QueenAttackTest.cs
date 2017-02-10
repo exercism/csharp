@@ -3,7 +3,7 @@ using Xunit;
 
 public class QueenAttackTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Cannot_occupy_same_space()
     {
         var white = new Queen(2, 4);

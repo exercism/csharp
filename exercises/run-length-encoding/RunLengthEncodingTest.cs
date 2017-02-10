@@ -2,7 +2,7 @@
 
 public class RunLengthEncodingTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Encode_simple()
     {
         const string input = "AABBBCCCC";

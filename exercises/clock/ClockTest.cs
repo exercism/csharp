@@ -10,7 +10,7 @@ public class ClockTest
         Assert.Equal(expected, new Clock(hours).ToString());
     }
 
-    [Theory]
+    [Theory(Skip = "Remove to run test")]
     [InlineData(11, 9, "11:09")]
     [InlineData(11, 19, "11:19")]
     public void Prints_past_the_hour(int hours, int minutes, string expected)

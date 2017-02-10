@@ -2,7 +2,7 @@ using Xunit;
 
 public class BobTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Stating_something ()
     {
         Assert.Equal("Whatever.", Bob.Hey("Tom-ay-to, tom-aaaah-to."));

@@ -3,7 +3,7 @@ using Xunit;
 
 public class VariableLengthQuantityTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void To_single_byte()
     {
         Assert.Equal(new[] { 0x00u }, VariableLengthQuantity.ToBytes(new[] { 0x00u }));

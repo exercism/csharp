@@ -2,7 +2,7 @@
 
 public class PokerTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void One_hand()
     {
         const string hand = "4S 5S 7H 8D JC";

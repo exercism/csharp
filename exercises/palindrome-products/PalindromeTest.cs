@@ -3,7 +3,7 @@ using Xunit;
 
 public class PalindromeTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Largest_palindrome_from_single_digit_factors()
     {
         var actual = Palindrome.Largest(9);

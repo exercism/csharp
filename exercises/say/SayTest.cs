@@ -3,7 +3,7 @@ using Xunit;
 
 public class SayTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Zero()
     {
         Assert.Equal("zero", Say.InEnglish(0L));

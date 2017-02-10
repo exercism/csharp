@@ -3,7 +3,7 @@ using Xunit;
 
 public class WordProblemTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Can_parse_and_solve_addition_problems()
     {
         Assert.Equal(2, WordProblem.Solve("What is 1 plus 1?"));

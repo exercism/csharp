@@ -2,7 +2,7 @@
 
 public class TwoBucketTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void First_example()
     {
         var bucketOneSize = 3;

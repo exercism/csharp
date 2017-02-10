@@ -3,7 +3,7 @@ using Xunit;
 
 public class DifferenceOfSquaresTests
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Test_square_of_sums_to_5()
     {
         Assert.Equal(225, new Squares(5).SquareOfSums());

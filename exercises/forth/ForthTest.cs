@@ -2,7 +2,7 @@
 
 public class ForthTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void No_input()
     {
         Assert.Equal("", Forth.Eval(""));

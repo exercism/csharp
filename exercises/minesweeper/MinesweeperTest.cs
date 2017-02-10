@@ -2,7 +2,7 @@
 
 public class MinesweeperTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Zero_sized_board()
     {
         var input = "";

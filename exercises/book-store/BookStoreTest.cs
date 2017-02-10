@@ -4,7 +4,7 @@ using Xunit;
 
 public class BookStoreTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Basket_with_single_book()
     {
         Assert.Equal(8, BookStore.CalculateTotalCost(MakeList(1)));

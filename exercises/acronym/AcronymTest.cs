@@ -2,13 +2,13 @@ using Xunit;
 
 public class AcronymTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Empty_string_abbreviated_to_empty_string()
     {
         Assert.Equal(string.Empty, Acronym.Abbreviate(string.Empty));
     }
 
-    [Theory]
+    [Theory(Skip = "Remove to run test")]
     [InlineData("Portable Network Graphics", "PNG")]
     [InlineData("Ruby on Rails", "ROR")]
     [InlineData("HyperText Markup Language", "HTML")]

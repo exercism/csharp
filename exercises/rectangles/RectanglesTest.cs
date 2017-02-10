@@ -2,7 +2,7 @@
 
 public class RectanglesTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void No_rows()
     {
         var input = new string[0];

@@ -3,7 +3,7 @@ using Xunit;
 
 public class ChangeTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Single_coin_change()
     {
         var actual = new[] { 1, 5, 10, 25, 100 };

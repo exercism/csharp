@@ -3,7 +3,7 @@ using Xunit;
 
 public class DominoesTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Empty_input_equals_empty_output()
     {
         var actual = new Tuple<int, int>[0];

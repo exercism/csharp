@@ -5,7 +5,7 @@ using Xunit;
 
 public class FlattenArrayTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Flattens_A_Nested_List()
     {
         var nestedList = new List<object> { new List<object>() };

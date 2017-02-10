@@ -2,7 +2,7 @@
 
 public class KinderGartenGardenTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Missing_child()
     {
         var actual = Garden.DefaultGarden("RC\nGG").GetPlants("Potter");

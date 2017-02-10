@@ -2,7 +2,7 @@
 
 public class LedgerTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Empty_ledger()
     {
         var currency = "USD";

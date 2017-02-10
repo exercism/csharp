@@ -19,7 +19,7 @@ public class ListOpsTest
         return list;
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void LengthOfEmptyList()
     {
         Assert.Equal(0, ListOps.Length(EmptyList));

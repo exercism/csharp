@@ -5,7 +5,7 @@ using Xunit;
 
 public class BankAccountTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Returns_empty_balance_after_opening()
     {
         var account = new BankAccount();

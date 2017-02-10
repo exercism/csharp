@@ -2,7 +2,7 @@
 
 public class FoodChainTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Verse_one()
     {
         const string expected = "I know an old lady who swallowed a fly.\n" +

@@ -21,7 +21,7 @@ public class SgfParsingTest
 
     private static IDictionary<string, string[]> CreateData(string key, params string[] values) => new Dictionary<string, string[]> { [key] = values };
     
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Empty_value()
     {
         const string input = "";

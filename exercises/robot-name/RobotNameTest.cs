@@ -4,7 +4,7 @@ public class RobotNameTest
 {
     private readonly Robot robot = new Robot();
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Robot_has_a_name()
     {
         Assert.Matches(@"[A-Z]{2}\d{3}", robot.Name);

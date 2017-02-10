@@ -2,7 +2,7 @@ using Xunit;
 
 public class ComplementTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Rna_complement_of_cytosine_is_guanine()
     {
         Assert.Equal("G", Complement.OfDna("C"));

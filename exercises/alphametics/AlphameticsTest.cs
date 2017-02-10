@@ -4,7 +4,7 @@ using System;
 
 public class AlphameticsTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Puzzle_with_three_letters()
     {
         var actual = Alphametics.Solve("I + BB == ILL");

@@ -4,7 +4,7 @@ public class DequeTest
 {
     private readonly Deque<int> deque = new Deque<int>();
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Push_and_pop_are_first_in_last_out_order()
     {
         deque.Push(10);

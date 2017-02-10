@@ -56,7 +56,7 @@ That Shepherd, who first taught the chosen Seed
         File.Delete(ParadiseLostFileName);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void One_file_one_match_no_flags()
     {
         const string pattern = "Agamemnon";
@@ -206,7 +206,7 @@ That Shepherd, who first taught the chosen Seed
         Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
-    [Theory]
+    [Theory(Skip = "Remove to run test")]
     [InlineData("")]
     [InlineData("-n")]
     [InlineData("-l")]
@@ -342,7 +342,7 @@ That Shepherd, who first taught the chosen Seed
         Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
-    [Theory]
+    [Theory(Skip = "Remove to run test")]
     [InlineData("")]
     [InlineData("-n")]
     [InlineData("-l")]

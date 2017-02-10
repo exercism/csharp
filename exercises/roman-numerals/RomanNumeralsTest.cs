@@ -2,6 +2,7 @@ using Xunit;
 
 public class RomanNumeralsTest
 {
+    [Theory]
     [InlineData(0, "")]
     [InlineData(1, "I")]
     [InlineData(2, "II")]

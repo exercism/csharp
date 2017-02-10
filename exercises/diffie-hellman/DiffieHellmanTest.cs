@@ -4,7 +4,7 @@ using Xunit;
 
 public class DiffieHellmanTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Private_key_in_range()
     {
         var primeP = new BigInteger(23);

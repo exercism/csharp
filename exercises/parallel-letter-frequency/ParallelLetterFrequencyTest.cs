@@ -37,7 +37,7 @@ public class ParallelLetterParallelLetterFrequency
         "O say does that star-spangled banner yet wave,\n" +
         "O'er the land of the free and the home of the brave?\n";
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void No_texts_mean_no_letters()
     {
         var input = Enumerable.Empty<string>();

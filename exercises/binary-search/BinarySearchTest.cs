@@ -2,7 +2,7 @@
 
 public class BinarySearchTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Should_return_minus_one_when_an_empty_array_is_searched()
     {
         var input = new int[0];

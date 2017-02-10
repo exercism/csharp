@@ -5,7 +5,7 @@ using Xunit;
 
 public class AccumulateTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Empty_accumulation_produces_empty_accumulation()
     {
         Assert.Equal(new int[0], new int[0].Accumulate(x => x * x));

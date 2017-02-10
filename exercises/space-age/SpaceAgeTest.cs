@@ -2,7 +2,7 @@ using Xunit;
 
 public class SpaceAgeTest
 {
-    [Fact(Skip = "Remove to run test")]
+    [Fact]
     public void Age_in_seconds()
     {
         var age = new SpaceAge(1000000);
