@@ -1,8 +1,6 @@
 *.swp
 .DS_Store
 tmp
-exercises/obj/
-exercises/bin/
 bin/configlet
 bin/configlet.exe
 .fake/
@@ -14,3 +12,5 @@ packages/
 paket-files
 TestResult.xml
 junit-results.xml
+exercises/obj/
+exercises/bin/
