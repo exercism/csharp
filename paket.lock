@@ -3,7 +3,6 @@ NUGET
     FAKE (4.37.2)
     Microsoft.NETCore.Platforms (1.0.1) - framework: dnxcore50, netstandard10, >= netstandard12
     Microsoft.NETCore.Targets (1.0.1) - framework: dnxcore50, netstandard10, >= netstandard12
-    NUnit (3.4.1)
     Sprache (2.1)
       System.Globalization (>= 4.0.11) - framework: >= netstandard10
       System.Linq (>= 4.1) - framework: >= netstandard10
@@ -161,7 +160,5 @@ NUGET
       System.Threading.Tasks (>= 4.0) - framework: dnxcore50
       xunit.abstractions (>= 2.0) - framework: dnxcore50
       xunit.extensibility.core (2.1) - framework: >= net45, dnx451, dnxcore50, monoandroid, monotouch, xamarinios, winv4.5, wpv8.0, wpav8.1
+    xunit.runner.console (2.1)
     xunit.runner.visualstudio (2.1)
-GITHUB
-  remote: nunit/nunit-transforms
-    nunit3-junit/nunit3-junit.xslt (2a7c74198375b4b280ff3e79033c3d44e3083850)
