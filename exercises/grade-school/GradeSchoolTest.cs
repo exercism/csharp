@@ -3,13 +3,7 @@ using Xunit;
 public class GradeSchoolTest
 {
     private readonly School school = new School();
-
-    [Fact]
-    public void New_school_has_an_empty_roster()
-    {
-        Assert.Empty(school.Roster(0));
-    }
-
+    
     [Fact]
     public void Adding_a_student_adds_them_to_the_roster_for_the_given_grade()
     {

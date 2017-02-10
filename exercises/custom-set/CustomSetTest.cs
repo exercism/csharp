@@ -43,7 +43,7 @@ public class CustomSetTest
         var actual = new CustomSet<int>().Insert(3);
 
         var expected = new CustomSet<int>(new[] { 3 });
-        Assert.Equal(expected, actual);
+        Assert.True(expected.Equals(actual));
     }
 
     [Fact]
@@ -52,7 +52,7 @@ public class CustomSetTest
         var actual = new CustomSet<int>(new[] { 1, 2, 4 }).Insert(3);
 
         var expected = new CustomSet<int>(new[] { 1, 2, 3, 4 });
-        Assert.Equal(expected, actual);
+        Assert.True(expected.Equals(actual));
     }
 
     [Fact]
@@ -62,7 +62,7 @@ public class CustomSetTest
         actual.Insert(3);
 
         var expected = new CustomSet<int>(new[] { 1, 2, 3 });
-        Assert.Equal(expected, actual);
+        Assert.True(expected.Equals(actual));
     }
 
     [Fact]
@@ -159,7 +159,7 @@ public class CustomSetTest
         var left = new CustomSet<int>();
         var right = new CustomSet<int>();
         var expected = new CustomSet<int>();
-        Assert.Equal(expected, left.Intersection(right));
+        Assert.True(left.Intersection(right).Equals(expected));
     }
 
     [Fact]
@@ -168,7 +168,7 @@ public class CustomSetTest
         var left = new CustomSet<int>();
         var right = new CustomSet<int>(new[] { 3, 2, 5 });
         var expected = new CustomSet<int>();
-        Assert.Equal(expected, left.Intersection(right));
+        Assert.True(left.Intersection(right).Equals(expected));
     }
 
     [Fact]
@@ -177,7 +177,7 @@ public class CustomSetTest
         var left = new CustomSet<int>(new[] { 1, 2, 3, 4 });
         var right = new CustomSet<int>();
         var expected = new CustomSet<int>();
-        Assert.Equal(expected, left.Intersection(right));
+        Assert.True(left.Intersection(right).Equals(expected));
     }
 
     [Fact]
@@ -186,7 +186,7 @@ public class CustomSetTest
         var left = new CustomSet<int>(new[] { 1, 2, 3 });
         var right = new CustomSet<int>(new[] { 4, 5, 6 });
         var expected = new CustomSet<int>();
-        Assert.Equal(expected, left.Intersection(right));
+        Assert.True(left.Intersection(right).Equals(expected));
     }
 
     [Fact]
@@ -195,7 +195,7 @@ public class CustomSetTest
         var left = new CustomSet<int>(new[] { 1, 2, 3, 4 });
         var right = new CustomSet<int>(new[] { 3, 2, 5 });
         var expected = new CustomSet<int>(new[] { 2, 3 });
-        Assert.Equal(expected, left.Intersection(right));
+        Assert.True(left.Intersection(right).Equals(expected));
     }
 
     [Fact]
@@ -204,7 +204,7 @@ public class CustomSetTest
         var left = new CustomSet<int>();
         var right = new CustomSet<int>();
         var expected = new CustomSet<int>();
-        Assert.Equal(expected, left.Difference(right));
+        Assert.True(left.Difference(right).Equals(expected));
     }
 
     [Fact]
@@ -213,7 +213,7 @@ public class CustomSetTest
         var left = new CustomSet<int>();
         var right = new CustomSet<int>(new[] { 3, 2, 5 });
         var expected = new CustomSet<int>();
-        Assert.Equal(expected, left.Difference(right));
+        Assert.True(left.Difference(right).Equals(expected));
     }
 
     [Fact]
@@ -222,7 +222,7 @@ public class CustomSetTest
         var left = new CustomSet<int>(new[] { 1, 2, 3, 4 });
         var right = new CustomSet<int>();
         var expected = new CustomSet<int>(new[] { 1, 2, 3, 4 });
-        Assert.Equal(expected, left.Difference(right));
+        Assert.True(left.Difference(right).Equals(expected));
     }
 
     [Fact]
@@ -231,7 +231,7 @@ public class CustomSetTest
         var left = new CustomSet<int>(new[] { 3, 2, 1 });
         var right = new CustomSet<int>(new[] { 2, 4 });
         var expected = new CustomSet<int>(new[] { 1, 3 });
-        Assert.Equal(expected, left.Difference(right));
+        Assert.True(left.Difference(right).Equals(expected));
     }
 
     [Fact]
@@ -240,7 +240,7 @@ public class CustomSetTest
         var left = new CustomSet<int>();
         var right = new CustomSet<int>();
         var expected = new CustomSet<int>();
-        Assert.Equal(expected, left.Union(right));
+        Assert.True(left.Union(right).Equals(expected));
     }
 
     [Fact]
@@ -249,7 +249,7 @@ public class CustomSetTest
         var left = new CustomSet<int>();
         var right = new CustomSet<int>(new[] { 2 });
         var expected = new CustomSet<int>(new[] { 2 });
-        Assert.Equal(expected, left.Union(right));
+        Assert.True(left.Union(right).Equals(expected));
     }
 
     [Fact]
@@ -258,7 +258,7 @@ public class CustomSetTest
         var left = new CustomSet<int>(new[] { 1, 3 });
         var right = new CustomSet<int>();
         var expected = new CustomSet<int>(new[] { 1, 3 });
-        Assert.Equal(expected, left.Union(right));
+        Assert.True(left.Union(right).Equals(expected));
     }
 
     [Fact]
@@ -267,7 +267,7 @@ public class CustomSetTest
         var left = new CustomSet<int>(new[] { 1, 3 });
         var right = new CustomSet<int>(new[] { 2, 3 });
         var expected = new CustomSet<int>(new[] { 3, 2, 1 });
-        Assert.Equal(expected, left.Union(right));
+        Assert.True(left.Union(right).Equals(expected));
     }
 
     [Fact]
@@ -275,7 +275,7 @@ public class CustomSetTest
     {
         var left = new CustomSet<int>();
         var right = new CustomSet<int>();
-        Assert.Equal(right, left);
+        Assert.True(left.Equals(right));
     }
 
     [Fact]
@@ -283,7 +283,7 @@ public class CustomSetTest
     {
         var left = new CustomSet<int>();
         var right = new CustomSet<int>(new[] { 1, 2, 3 });
-        Assert.NotEqual(right, left);
+        Assert.False(left.Equals(right));
     }
 
     [Fact]
@@ -291,7 +291,7 @@ public class CustomSetTest
     {
         var left = new CustomSet<int>(new[] { 1, 2, 3 });
         var right = new CustomSet<int>();
-        Assert.NotEqual(right, left);
+        Assert.False(left.Equals(right));
     }
 
     [Fact]
@@ -299,7 +299,7 @@ public class CustomSetTest
     {
         var left = new CustomSet<int>(new[] { 1, 2 });
         var right = new CustomSet<int>(new[] { 2, 1 });
-        Assert.Equal(right, left);
+        Assert.True(left.Equals(right));
     }
 
     [Fact]
@@ -307,6 +307,6 @@ public class CustomSetTest
     {
         var left = new CustomSet<int>(new[] { 1, 2, 3 });
         var right = new CustomSet<int>(new[] { 1, 2, 4 });
-        Assert.NotEqual(right, left);
+        Assert.False(left.Equals(right));
     }
 }

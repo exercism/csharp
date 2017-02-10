@@ -100,7 +100,7 @@ public class ListOpsTest
     [Fact]
     public void FoldlIsNotJustFoldrFlip()
     {
-        Assert.Equal("fdsa", string.Concat(ListOps.Foldl((acc, x) => Cons(x, acc), EmptyList, "asdf".ToList())));
+        Assert.Equal("fdsa", new string(ListOps.Foldl((acc, x) => Cons(x, acc), new List<char>(), "asdf".ToList()).ToArray()));
     }
 
     [Fact]

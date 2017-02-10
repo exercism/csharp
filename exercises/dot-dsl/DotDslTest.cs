@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 
 public class DotDslTest
@@ -80,8 +82,20 @@ public class DotDslTest
             { "bar", "true" }
         };
 
-        Assert.Equal(new[] { new Node("a") { { "color", "green" } }, new Node("b") { { "label", "Beta!" } }, new Node("c") }.AsEnumerable(), g.Nodes);
-        Assert.Equal(new[] { new Edge("a", "b") { { "color", "blue" } }, new Edge("b", "c") }.AsEnumerable(), g.Edges);
-        Assert.Equal(new[] { new Attr("bar", "true"), new Attr("foo", "1"), new Attr("title", "Testing Attrs") }.AsEnumerable(), g.Attrs);
+        Assert.Equal(new[] { new Node("a") { { "color", "green" } }, new Node("b") { { "label", "Beta!" } }, new Node("c") }, g.Nodes, EnumerableEqualityComparer<Node>.Instance);
+        Assert.Equal(new[] { new Edge("a", "b") { { "color", "blue" } }, new Edge("b", "c") }, g.Edges, EnumerableEqualityComparer<Edge>.Instance);
+        Assert.Equal(new[] { new Attr("bar", "true"), new Attr("foo", "1"), new Attr("title", "Testing Attrs") }, g.Attrs, EnumerableEqualityComparer<Attr>.Instance);
+    }
+
+    private class EnumerableEqualityComparer<T> : IEqualityComparer<IEnumerable<T>>
+    {
+        public static readonly EnumerableEqualityComparer<T> Instance = new EnumerableEqualityComparer<T>();
+
+        public bool Equals(IEnumerable<T> x, IEnumerable<T> y) => new HashSet<T>(x).SetEquals(y);
+
+        public int GetHashCode(IEnumerable<T> obj)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

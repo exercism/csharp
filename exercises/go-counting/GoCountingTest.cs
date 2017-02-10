@@ -35,8 +35,9 @@ public class GoCountingTest
     {
         var board = new GoCounting(boardFiveByFive);
         var result = board.TerritoryFor(new Point(0, 1));
-        Assert.Equal(GoCounting.Player.Black, result.Item1);
-        Assert.Equal(new[] { new Point(0, 0), new Point(0, 1), new Point(1, 0) }.AsEnumerable(), result.Item2.AsEnumerable());
+        var expected = new HashSet<Point> { new Point(0, 0), new Point(0, 1), new Point(1, 0) };
+        Assert.Equal(GoCounting.Player.Black, result.Item1);        
+        Assert.True(expected.SetEquals(result.Item2));
     }
 
     [Fact]
@@ -44,8 +45,9 @@ public class GoCountingTest
     {
         var board = new GoCounting(boardFiveByFive);
         var result = board.TerritoryFor(new Point(2, 3));
+        var expected = new HashSet<Point> { new Point(2, 3) };
         Assert.Equal(GoCounting.Player.White, result.Item1);
-        Assert.Equal(new[] { new Point(2, 3) }.AsEnumerable(), result.Item2.AsEnumerable());
+        Assert.True(expected.SetEquals(result.Item2));
     }
 
     [Fact]
@@ -53,8 +55,9 @@ public class GoCountingTest
     {
         var board = new GoCounting(boardFiveByFive);
         var result = board.TerritoryFor(new Point(1, 4));
+        var expected = new HashSet<Point> { new Point(0, 3), new Point(0, 4), new Point(1, 4) };
         Assert.Equal(GoCounting.Player.None, result.Item1);
-        Assert.Equal(new[] { new Point(0, 3), new Point(0, 4), new Point(1, 4) }.AsEnumerable(), result.Item2);
+        Assert.True(expected.SetEquals(result.Item2));
     }
 
     [Fact]
@@ -94,13 +97,15 @@ public class GoCountingTest
     {
         var input = " ";
         var board = new GoCounting(input);
+        var actual = board.Territories();
 
         var expected = new Dictionary<GoCounting.Player, IEnumerable<Point>>
         {
-            [GoCounting.Player.None] = new[] { new Point(0, 0) }.AsEnumerable()
+            [GoCounting.Player.None] = new[] { new Point(0, 0) }
         };
-
-        Assert.Equal(expected, board.Territories());
+        
+        Assert.Equal(expected.Keys, actual.Keys);
+        Assert.Equal(expected[GoCounting.Player.None], actual[GoCounting.Player.None]);
     }
 
     [Fact]
@@ -108,13 +113,28 @@ public class GoCountingTest
     {
         var input = string.Join("\n", new[] { " BW ", " BW " });
         var board = new GoCounting(input);
+        var actual = board.Territories();
 
         var expected = new Dictionary<GoCounting.Player, IEnumerable<Point>>
         {
-            [GoCounting.Player.Black] = new[] { new Point(0, 0), new Point(0, 1) }.AsEnumerable(),
-            [GoCounting.Player.White] = new[] { new Point(3, 0), new Point(3, 1) }.AsEnumerable()
+            [GoCounting.Player.Black] = new[] { new Point(0, 0), new Point(0, 1) },
+            [GoCounting.Player.White] = new[] { new Point(3, 0), new Point(3, 1) }
         };
+                
+        Assert.Equal(expected.Keys, actual.Keys);
+        Assert.Equal(expected[GoCounting.Player.Black], actual[GoCounting.Player.Black]);
+        Assert.Equal(expected[GoCounting.Player.White], actual[GoCounting.Player.White]);
+    }
 
-        Assert.Equal(expected, board.Territories());
+    private class EnumerableEqualityComparer<T> : IEqualityComparer<IEnumerable<T>>
+    {
+        public static readonly EnumerableEqualityComparer<T> Instance = new EnumerableEqualityComparer<T>();
+
+        public bool Equals(IEnumerable<T> x, IEnumerable<T> y) => x.SequenceEqual(y);
+
+        public int GetHashCode(IEnumerable<T> obj)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
