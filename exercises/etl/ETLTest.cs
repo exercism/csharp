@@ -3,7 +3,7 @@ using Xunit;
 
 public class ETLTest
 {
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Transforms_one_value()
     {
         var old = new Dictionary<int, IList<string>> { { 1, new List<string> { "A" } } };
@@ -11,7 +11,7 @@ public class ETLTest
         Assert.Equal(expected, ETL.Transform(old));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Transforms_multiple_values()
     {
         var old = new Dictionary<int, IList<string>> { { 1, new List<string> { "A", "E", "I", "O", "U" } } };
@@ -19,7 +19,7 @@ public class ETLTest
         Assert.Equal(expected, ETL.Transform(old));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Transforms_multiple_keys()
     {
         var old = new Dictionary<int, IList<string>> { { 1, new List<string> { "A", "E" } }, { 2, new List<string> { "D", "G" } } };
@@ -27,7 +27,7 @@ public class ETLTest
         Assert.Equal(expected, ETL.Transform(old));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Transforms_a_full_dataset()
     {
         var old = new Dictionary<int, IList<string>>

@@ -3,7 +3,7 @@ using Xunit;
 
 public class WordCountTest
 {
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Count_one_word()
     {
         var counts = new Dictionary<string,int> {
@@ -13,7 +13,7 @@ public class WordCountTest
         Assert.Equal(counts, Phrase.WordCount("word"));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Count_one_of_each()
     {
         var counts = new Dictionary<string,int> {
@@ -25,7 +25,7 @@ public class WordCountTest
         Assert.Equal(counts, Phrase.WordCount("one of each"));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Count_multiple_occurrences()
     {
         var counts = new Dictionary<string,int> {
@@ -39,7 +39,7 @@ public class WordCountTest
         Assert.Equal(counts, Phrase.WordCount("one fish two fish red fish blue fish"));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Count_everything_just_once()
     {
         var counts = new Dictionary<string,int> {
@@ -54,7 +54,7 @@ public class WordCountTest
         Assert.Equal(counts, Phrase.WordCount("all the kings horses and all the kings men"));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Ignore_punctuation()
     {
         var counts = new Dictionary<string,int> {
@@ -68,7 +68,7 @@ public class WordCountTest
         Assert.Equal(counts, Phrase.WordCount("car : carpet as java : javascript!!&@$%^&"));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Handles_cramped_list()
     {
         var counts = new Dictionary<string,int> {
@@ -80,7 +80,7 @@ public class WordCountTest
         Assert.Equal(counts, Phrase.WordCount("one,two,three"));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Include_numbers()
     {
         var counts = new Dictionary<string,int> {
@@ -92,7 +92,7 @@ public class WordCountTest
         Assert.Equal(counts, Phrase.WordCount("testing, 1, 2 testing"));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Normalize_case()
     {
         var counts = new Dictionary<string,int> {
@@ -102,7 +102,7 @@ public class WordCountTest
         Assert.Equal(counts, Phrase.WordCount("go Go GO"));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void With_apostrophes()
     {
         var counts = new Dictionary<string,int> {
@@ -116,7 +116,7 @@ public class WordCountTest
         Assert.Equal(counts, Phrase.WordCount("First: don't laugh. Then: don't cry."));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void With_free_standing_apostrophes()
     {
         var counts = new Dictionary<string, int> {
@@ -126,7 +126,7 @@ public class WordCountTest
         Assert.Equal(counts, Phrase.WordCount("go ' Go '' GO"));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void With_apostrophes_as_quotes()
     {
         var counts = new Dictionary<string, int> {

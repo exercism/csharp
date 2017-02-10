@@ -2,21 +2,21 @@ using Xunit;
 
 public class SpaceAgeTest
 {
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Age_in_seconds()
     {
         var age = new SpaceAge(1000000);
         Assert.Equal(1000000, age.Seconds);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Age_on_earth()
     {
         var age = new SpaceAge(1000000000);
         Assert.Equal(31.69, age.OnEarth());
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Age_on_mercury()
     {
         var age = new SpaceAge(2134835688);
@@ -24,7 +24,7 @@ public class SpaceAgeTest
         Assert.Equal(280.88, age.OnMercury());
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Age_on_venus()
     {
         var age = new SpaceAge(189839836);
@@ -32,7 +32,7 @@ public class SpaceAgeTest
         Assert.Equal(9.78, age.OnVenus());
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Age_on_mars()
     {
         var age = new SpaceAge(2329871239);
@@ -40,7 +40,7 @@ public class SpaceAgeTest
         Assert.Equal(39.25, age.OnMars());
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Age_on_jupiter()
     {
         var age = new SpaceAge(901876382);
@@ -48,7 +48,7 @@ public class SpaceAgeTest
         Assert.Equal(2.41, age.OnJupiter());
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Age_on_saturn()
     {
         var age = new SpaceAge(3000000000);
@@ -56,7 +56,7 @@ public class SpaceAgeTest
         Assert.Equal(3.23, age.OnSaturn());
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Age_on_uranus()
     {
         var age = new SpaceAge(3210123456);
@@ -64,7 +64,7 @@ public class SpaceAgeTest
         Assert.Equal(1.21, age.OnUranus());
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Age_on_neptune()
     {
         var age = new SpaceAge(8210123456);

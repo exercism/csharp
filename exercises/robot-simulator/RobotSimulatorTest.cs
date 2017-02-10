@@ -2,7 +2,7 @@
 
 public class RobotSimulatorTest
 {
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Turn_right_edge_case()
     {
         var robot = new RobotSimulator(Bearing.West, new Coordinate(0, 0));
@@ -10,7 +10,7 @@ public class RobotSimulatorTest
         Assert.Equal(Bearing.North, robot.Bearing);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Turn_left_edge_case()
     {
         var robot = new RobotSimulator(Bearing.North, new Coordinate(0, 0));
@@ -18,7 +18,7 @@ public class RobotSimulatorTest
         Assert.Equal(Bearing.West, robot.Bearing);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Robbie()
     {
         var robbie = new RobotSimulator(Bearing.East, new Coordinate(-2, 1));
@@ -30,7 +30,7 @@ public class RobotSimulatorTest
         Assert.Equal(new Coordinate(0, 2), robbie.Coordinate);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Clutz()
     {
         var clutz = new RobotSimulator(Bearing.North, new Coordinate(0, 0));
@@ -39,7 +39,7 @@ public class RobotSimulatorTest
         Assert.Equal(new Coordinate(-4, 1), clutz.Coordinate);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Sphero()
     {
         var sphero = new RobotSimulator(Bearing.East, new Coordinate(2, -7));
@@ -48,7 +48,7 @@ public class RobotSimulatorTest
         Assert.Equal(new Coordinate(-3, -8), sphero.Coordinate);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Roomba()
     {
         var roomba = new RobotSimulator(Bearing.South, new Coordinate(8, 4));

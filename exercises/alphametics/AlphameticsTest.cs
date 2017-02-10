@@ -4,7 +4,7 @@ using System;
 
 public class AlphameticsTest
 {
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Puzzle_with_three_letters()
     {
         var actual = Alphametics.Solve("I + BB == ILL");
@@ -17,19 +17,19 @@ public class AlphameticsTest
         Assert.Equal(expected, actual);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Solution_must_have_unique_value_for_each_letter()
     {
         Assert.Throws<ArgumentException>(() => Alphametics.Solve("A == B"));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Leading_zero_solution_is_invalid()
     {
         Assert.Throws<ArgumentException>(() => Alphametics.Solve("ACA + DD == BD"));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Puzzle_with_four_letters()
     {
         var actual = Alphametics.Solve("AS + A == MOM");
@@ -43,7 +43,7 @@ public class AlphameticsTest
         Assert.Equal(expected, actual);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Puzzle_with_six_letters()
     {
         var actual = Alphametics.Solve("NO + NO + TOO == LATE");
@@ -59,7 +59,7 @@ public class AlphameticsTest
         Assert.Equal(expected, actual);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Puzzle_with_seven_letters()
     {
         var actual = Alphametics.Solve("HE + SEES + THE == LIGHT");
@@ -76,7 +76,7 @@ public class AlphameticsTest
         Assert.Equal(expected, actual);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Puzzle_with_eight_letters()
     {
         var actual = Alphametics.Solve("SEND + MORE == MONEY");
@@ -94,7 +94,7 @@ public class AlphameticsTest
         Assert.Equal(expected, actual);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Puzzle_with_ten_letters()
     {
         var actual = Alphametics.Solve("AND + A + STRONG + OFFENSE + AS + A + GOOD == DEFENSE");

@@ -2,7 +2,7 @@
 
 public class RunLengthEncodingTest
 {
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Encode_simple()
     {
         const string input = "AABBBCCCC";
@@ -10,7 +10,7 @@ public class RunLengthEncodingTest
         Assert.Equal(expected, RunLengthEncoding.Encode(input));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Decode_simple()
     {
         const string input = "2A3B4C";
@@ -18,7 +18,7 @@ public class RunLengthEncodingTest
         Assert.Equal(expected, RunLengthEncoding.Decode(input));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Encode_with_single_values()
     {
         const string input = "WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB";
@@ -26,7 +26,7 @@ public class RunLengthEncodingTest
         Assert.Equal(expected, RunLengthEncoding.Encode(input));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Decode_with_single_values()
     {
         const string input = "12WB12W3B24WB";
@@ -34,7 +34,7 @@ public class RunLengthEncodingTest
         Assert.Equal(expected, RunLengthEncoding.Decode(input));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Encode_and_then_decode()
     {
         const string input = "zzz ZZ  zZ";
@@ -42,7 +42,7 @@ public class RunLengthEncodingTest
         Assert.Equal(expected, RunLengthEncoding.Decode(RunLengthEncoding.Encode(input)));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Encode_unicode()
     {
         const string input = "⏰⚽⚽⚽⭐⭐⏰";
@@ -50,7 +50,7 @@ public class RunLengthEncodingTest
         Assert.Equal(expected, RunLengthEncoding.Encode(input));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Decode_unicode()
     {
         const string input = "⏰3⚽2⭐⏰";

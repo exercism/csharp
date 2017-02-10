@@ -2,25 +2,25 @@
 
 public class ProverbTest
 {
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Line_one()
     {
         Assert.Equal("For want of a nail the shoe was lost.", Proverb.Line(1));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Line_four()
     {
         Assert.Equal("For want of a rider the message was lost.", Proverb.Line(4));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Line_seven()
     {
         Assert.Equal("And all for the want of a horseshoe nail.", Proverb.Line(7));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void All_lines()
     {
         const string expected = "For want of a nail the shoe was lost.\n" +

@@ -3,7 +3,7 @@ using Xunit;
 
 public class SaddlePointTests
 {
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Readme_example()
     {
         var values = new[,]
@@ -16,7 +16,7 @@ public class SaddlePointTests
         Assert.Equal(new [] { Tuple.Create(1, 0)}, actual);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void No_saddle_point()
     {
         var values = new[,] 
@@ -28,7 +28,7 @@ public class SaddlePointTests
         Assert.Empty(actual);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Saddle_point()
     {
         var values = new[,] 
@@ -40,7 +40,7 @@ public class SaddlePointTests
         Assert.Equal(new[] { Tuple.Create(0, 1) }, actual);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Another_saddle_point()
     {
         var values = new[,] 
@@ -53,7 +53,7 @@ public class SaddlePointTests
         Assert.Equal(new[] { Tuple.Create(2, 2) }, actual);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Multiple_saddle_points()
     {
         var values = new[,]

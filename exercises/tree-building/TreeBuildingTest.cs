@@ -3,7 +3,7 @@ using Xunit;
 
 public class TreeBuildingTest
 {
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void One_node()
     {
         var records = new[]
@@ -16,7 +16,7 @@ public class TreeBuildingTest
         AssertTreeIsLeaf(tree, id: 0);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Three_nodes_in_order()
     {
         var records = new[]
@@ -33,7 +33,7 @@ public class TreeBuildingTest
         AssertTreeIsLeaf(tree.Children[1], id: 2);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Three_nodes_in_reverse_order()
     {
         var records = new[]
@@ -50,7 +50,7 @@ public class TreeBuildingTest
         AssertTreeIsLeaf(tree.Children[1], id: 2);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void More_than_two_children()
     {
         var records = new[]
@@ -69,7 +69,7 @@ public class TreeBuildingTest
         AssertTreeIsLeaf(tree.Children[2], id: 3);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Binary_tree()
     {
         var records = new[]
@@ -95,7 +95,7 @@ public class TreeBuildingTest
         AssertTreeIsLeaf(tree.Children[1].Children[1], id: 6);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Unbalanced_tree()
     {
         var records = new[]
@@ -121,7 +121,7 @@ public class TreeBuildingTest
         AssertTreeIsLeaf(tree.Children[1].Children[2], id: 6);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Empty_input()
     {
         var records = new TreeBuildingRecord[0];
@@ -129,7 +129,7 @@ public class TreeBuildingTest
         Assert.Throws<ArgumentException>(() => TreeBuilder.BuildTree(records));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Root_node_has_parent()
     {
         var records = new[]
@@ -141,7 +141,7 @@ public class TreeBuildingTest
         Assert.Throws<ArgumentException>(() => TreeBuilder.BuildTree(records));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void No_root_node()
     {
         var records = new[]
@@ -153,7 +153,7 @@ public class TreeBuildingTest
     }
 
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Non_continuous()
     {
         var records = new[]
@@ -167,7 +167,7 @@ public class TreeBuildingTest
         Assert.Throws<ArgumentException>(() => TreeBuilder.BuildTree(records));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Cycle_directly()
     {
         var records = new[]
@@ -184,7 +184,7 @@ public class TreeBuildingTest
         Assert.Throws<ArgumentException>(() => TreeBuilder.BuildTree(records));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Cycle_indirectly()
     {
         var records = new[]
@@ -201,7 +201,7 @@ public class TreeBuildingTest
         Assert.Throws<ArgumentException>(() => TreeBuilder.BuildTree(records));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Higher_id_parent_of_lower_id()
     {
         var records = new[]

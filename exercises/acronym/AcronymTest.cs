@@ -2,7 +2,7 @@ using Xunit;
 
 public class AcronymTest
 {
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Empty_string_abbreviated_to_empty_string()
     {
         Assert.Equal(string.Empty, Acronym.Abbreviate(string.Empty));

@@ -59,25 +59,25 @@ public class ProteinTranslationTest
         Assert.Equal(new[] { "Tryptophan" }, ProteinTranslation.Translate(codon));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Translates_rna_strand_into_correct_protein()
     {
         Assert.Equal(new[] { "Methionine", "Phenylalanine", "Tryptophan" }, ProteinTranslation.Translate("AUGUUUUGG"));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Stops_translation_if_stop_codon_present()
     {
         Assert.Equal(new[] { "Methionine", "Phenylalanine" }, ProteinTranslation.Translate("AUGUUUUAA"));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Stops_translation_of_longer_strand()
     {
         Assert.Equal(new[] { "Tryptophan", "Cysteine", "Tyrosine" }, ProteinTranslation.Translate("UGGUGUUAUUAAUGGUUU"));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Throws_for_invalid_codons()
     {
         Assert.Throws<Exception>(() => ProteinTranslation.Translate("CARROT"));

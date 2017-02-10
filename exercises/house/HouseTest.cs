@@ -2,7 +2,7 @@
 
 public class HouseTest
 {
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Rhyme_is_correct()
     {
         const string expected =

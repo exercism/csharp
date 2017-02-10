@@ -2,7 +2,7 @@
 
 public class HangmanTest
 {
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Initially_9_failures_are_allowed()
     {
         var game = new HangmanGame("foo");
@@ -16,7 +16,7 @@ public class HangmanTest
         Assert.Equal(9, lastState.RemainingGuesses);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Initially_no_letters_are_guessed()
     {
         var game = new HangmanGame("foo");
@@ -29,7 +29,7 @@ public class HangmanTest
         Assert.Equal("___", lastState.MaskedWord);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void After_10_failures_the_game_is_over()
     {
         var game = new HangmanGame("foo");
@@ -47,7 +47,7 @@ public class HangmanTest
         Assert.Equal(HangmanGame.Status.Lose, lastState.Status);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Feeding_a_correct_letter_removes_underscores()
     {
         var game = new HangmanGame("foobar");
@@ -70,7 +70,7 @@ public class HangmanTest
         Assert.Equal("_oob__", lastState.MaskedWord);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Feeding_a_correct_letter_twice_counts_as_a_failure()
     {
         var game = new HangmanGame("foobar");
@@ -93,7 +93,7 @@ public class HangmanTest
         Assert.Equal("___b__", lastState.MaskedWord);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Getting_all_the_letters_right_makes_for_a_win()
     {
         var game = new HangmanGame("hello");

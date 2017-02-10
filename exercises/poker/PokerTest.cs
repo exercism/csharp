@@ -2,14 +2,14 @@
 
 public class PokerTest
 {
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void One_hand()
     {
         const string hand = "4S 5S 7H 8D JC";
         Assert.Equal(new[] { hand }, Poker.BestHands(new[] { hand }));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Nothing_vs_one_pair()
     {
         const string nothing = "4S 5H 6S 8D JH";
@@ -17,7 +17,7 @@ public class PokerTest
         Assert.Equal(new[] { pairOf4 }, Poker.BestHands(new[] { nothing, pairOf4 }));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Two_pairs()
     {
         const string pairOf2 = "4S 2H 6S 2D JH";
@@ -25,7 +25,7 @@ public class PokerTest
         Assert.Equal(new[] { pairOf4 }, Poker.BestHands(new[] { pairOf2, pairOf4 }));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void One_pair_vs_double_pair()
     {
         const string pairOf8 = "2S 8H 6S 8D JH";
@@ -33,7 +33,7 @@ public class PokerTest
         Assert.Equal(new[] { doublePair }, Poker.BestHands(new[] { pairOf8, doublePair }));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Two_double_pairs()
     {
         const string doublePair2And8 = "2S 8H 2S 8D JH";
@@ -41,7 +41,7 @@ public class PokerTest
         Assert.Equal(new[] { doublePair2And8 }, Poker.BestHands(new[] { doublePair2And8, doublePair4And5 }));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Double_pair_vs_three()
     {
         const string doublePair2And8 = "2S 8H 2S 8D JH";
@@ -49,7 +49,7 @@ public class PokerTest
         Assert.Equal(new[] { threeOf4 }, Poker.BestHands(new[] { doublePair2And8, threeOf4 }));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Two_threes()
     {
         const string threeOf2 = "2S 2H 2S 8D JH";
@@ -57,7 +57,7 @@ public class PokerTest
         Assert.Equal(new[] { threeOf1 }, Poker.BestHands(new[] { threeOf2, threeOf1 }));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Three_vs_straight()
     {
         const string threeOf4 = "4S 5H 4S 8D 4H";
@@ -65,7 +65,7 @@ public class PokerTest
         Assert.Equal(new[] { straight }, Poker.BestHands(new[] { threeOf4, straight }));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Two_straights()
     {
         const string straightTo8 = "4S 6H 7S 8D 5H";
@@ -77,7 +77,7 @@ public class PokerTest
         Assert.Equal(new[] { straightTo1 }, Poker.BestHands(new[] { straightTo1, straightTo5 }));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Straight_vs_flush()
     {
         const string straightTo8 = "4S 6H 7S 8D 5H";
@@ -85,7 +85,7 @@ public class PokerTest
         Assert.Equal(new[] { flushTo7 }, Poker.BestHands(new[] { straightTo8, flushTo7 }));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Two_flushes()
     {
         const string flushTo8 = "3H 6H 7H 8H 5H";
@@ -93,7 +93,7 @@ public class PokerTest
         Assert.Equal(new[] { flushTo8 }, Poker.BestHands(new[] { flushTo8, flushTo7 }));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Flush_vs_full()
     {
         const string flushTo8 = "3H 6H 7H 8H 5H";
@@ -101,7 +101,7 @@ public class PokerTest
         Assert.Equal(new[] { full }, Poker.BestHands(new[] { full, flushTo8 }));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Two_fulls()
     {
         const string fullOf4By9 = "4H 4S 4D 9S 9D";
@@ -109,7 +109,7 @@ public class PokerTest
         Assert.Equal(new[] { fullOf5By8 }, Poker.BestHands(new[] { fullOf4By9, fullOf5By8 }));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Full_vs_square()
     {
         const string full = "4S 5H 4S 5D 4H";
@@ -117,7 +117,7 @@ public class PokerTest
         Assert.Equal(new[] { squareOf3 }, Poker.BestHands(new[] { full, squareOf3 }));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Two_squares()
     {
         const string squareOf2 = "2S 2H 2S 8D 2H";
@@ -125,7 +125,7 @@ public class PokerTest
         Assert.Equal(new[] { squareOf5 }, Poker.BestHands(new[] { squareOf2, squareOf5 }));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Square_vs_straight_flush()
     {
         const string squareOf5 = "4S 5H 5S 5D 5H";
@@ -133,7 +133,7 @@ public class PokerTest
         Assert.Equal(new[] { straightFlushTo9 }, Poker.BestHands(new[] { squareOf5, straightFlushTo9 }));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Two_straight_flushes()
     {
         const string straightFlushTo8 = "4H 6H 7H 8H 5H";
@@ -141,7 +141,7 @@ public class PokerTest
         Assert.Equal(new[] { straightFlushTo9 }, Poker.BestHands(new[] { straightFlushTo8, straightFlushTo9 }));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Three_hand_with_tie()
     {
         const string spadeStraightTo9 = "9S 8S 7S 6S 5S";

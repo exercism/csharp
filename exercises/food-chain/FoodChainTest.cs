@@ -2,7 +2,7 @@
 
 public class FoodChainTest
 {
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Verse_one()
     {
         const string expected = "I know an old lady who swallowed a fly.\n" +
@@ -11,7 +11,7 @@ public class FoodChainTest
         Assert.Equal(expected, FoodChain.Verse(1));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Verse_two()
     {
         const string expected = "I know an old lady who swallowed a spider.\n" +
@@ -22,7 +22,7 @@ public class FoodChainTest
         Assert.Equal(expected, FoodChain.Verse(2));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Verse_four()
     {
         const string expected = "I know an old lady who swallowed a cat.\n" +
@@ -35,7 +35,7 @@ public class FoodChainTest
         Assert.Equal(expected, FoodChain.Verse(4));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Verse_eight()
     {
         const string expected = "I know an old lady who swallowed a horse.\n" +
@@ -44,7 +44,7 @@ public class FoodChainTest
         Assert.Equal(expected, FoodChain.Verse(8));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Complete_song()
     {
         const string expected = "I know an old lady who swallowed a fly.\n" +

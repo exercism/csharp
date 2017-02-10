@@ -16,7 +16,7 @@ public class WordSearchTest
         "jalaycalmp\n" +
         "clojurermt";
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Should_find_horizontal_words_written_left_to_right()
     {
         var wordSearch = new WordSearch(Puzzle);
@@ -25,7 +25,7 @@ public class WordSearchTest
         Assert.Equal(new Point(7, 10), actual.Item2);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Should_find_horizontal_words_written_right_to_left()
     {
         var wordSearch = new WordSearch(Puzzle);
@@ -34,7 +34,7 @@ public class WordSearchTest
         Assert.Equal(new Point(1, 5), actual.Item2);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Should_find_vertical_words_written_top_to_bottom()
     {
         var wordSearch = new WordSearch(Puzzle);
@@ -43,7 +43,7 @@ public class WordSearchTest
         Assert.Equal(new Point(10, 10), actual.Item2);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Should_find_vertical_words_written_bottom_to_top()
     {
         var wordSearch = new WordSearch(Puzzle);
@@ -52,7 +52,7 @@ public class WordSearchTest
         Assert.Equal(new Point(9, 2), actual.Item2);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Should_find_diagonal_words_written_top_left_to_bottom_right()
     {
         var wordSearch = new WordSearch(Puzzle);
@@ -61,7 +61,7 @@ public class WordSearchTest
         Assert.Equal(new Point(4, 4), actual.Item2);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Should_find_diagonal_upper_written_bottom_right_to_top_left()
     {
         var wordSearch = new WordSearch(Puzzle);
@@ -70,7 +70,7 @@ public class WordSearchTest
         Assert.Equal(new Point(6, 7), actual.Item2);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Should_find_diagonal_upper_written_bottom_left_to_top_right()
     {
         var wordSearch = new WordSearch(Puzzle);
@@ -79,7 +79,7 @@ public class WordSearchTest
         Assert.Equal(new Point(6, 3), actual.Item2);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Should_find_diagonal_upper_written_top_right_to_bottom_left()
     {
         var wordSearch = new WordSearch(Puzzle);
@@ -88,7 +88,7 @@ public class WordSearchTest
         Assert.Equal(new Point(5, 9), actual.Item2);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Should_not_find_words_that_are_not_in_the_puzzle()
     {
         var wordSearch = new WordSearch(Puzzle);
@@ -96,7 +96,7 @@ public class WordSearchTest
         Assert.Null(actual);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Should_be_able_to_search_differently_sized_puzzles()
     {
         const string differentSizePuzzle =

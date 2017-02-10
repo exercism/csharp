@@ -30,7 +30,7 @@ public class GoCountingTest
                 "   B B   "
             });
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void FiveByFiveTerritoryForBlack()
     {
         var board = new GoCounting(boardFiveByFive);
@@ -40,7 +40,7 @@ public class GoCountingTest
         Assert.True(expected.SetEquals(result.Item2));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void FiveByFiveTerritoryForWhite()
     {
         var board = new GoCounting(boardFiveByFive);
@@ -50,7 +50,7 @@ public class GoCountingTest
         Assert.True(expected.SetEquals(result.Item2));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void FiveByFiveOpenTerritory()
     {
         var board = new GoCounting(boardFiveByFive);
@@ -60,28 +60,28 @@ public class GoCountingTest
         Assert.True(expected.SetEquals(result.Item2));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void FiveByFiveNonTerritoryStone()
     {
         var board = new GoCounting(boardFiveByFive);
         Assert.Null(board.TerritoryFor(new Point(1, 1)));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void FiveByFiveNonTerritoryDueToTooLowCoordinate()
     {
         var board = new GoCounting(boardFiveByFive);
         Assert.Null(board.TerritoryFor(new Point(-1, 1)));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void FiveByFiveNonTerritoryDueToTooHighCoordinate()
     {
         var board = new GoCounting(boardFiveByFive);
         Assert.Null(board.TerritoryFor(new Point(1, 5)));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void MinimalBoardWithNoTerritories()
     {
         var input = "B";
@@ -92,7 +92,7 @@ public class GoCountingTest
         Assert.Equal(expected, board.Territories());
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void OneTerritoryCoveringTheWholeBoard()
     {
         var input = " ";
@@ -108,7 +108,7 @@ public class GoCountingTest
         Assert.Equal(expected[GoCounting.Player.None], actual[GoCounting.Player.None]);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void TwoTerritoriesOnRectangularBoard()
     {
         var input = string.Join("\n", new[] { " BW ", " BW " });

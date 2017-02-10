@@ -67,19 +67,19 @@ public class TournamentTest
         }
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Test_good()
     {
         Assert.Equal(expected1, RunTally(input1).Trim());
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Test_ignore_bad_lines()
     {
         Assert.Equal(expected2, RunTally(input2).Trim());
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Test_incomplete_competition()
     {
         Assert.Equal(expected3, RunTally(input3).Trim());

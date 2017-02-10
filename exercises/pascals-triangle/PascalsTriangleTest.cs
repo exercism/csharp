@@ -5,7 +5,7 @@ using Xunit;
 
 public class PascalsTriangleTest
 {
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void One_row()
     {
         var actual = PascalsTriangle.Calculate(1);
@@ -13,7 +13,7 @@ public class PascalsTriangleTest
         Assert.Equal(expected, actual, NestedEnumerableEqualityComparer<int>.Instance);
     }
     
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Two_rows()
     {
         var actual = PascalsTriangle.Calculate(2).ToArray();
@@ -21,7 +21,7 @@ public class PascalsTriangleTest
         Assert.Equal(expected, actual, NestedEnumerableEqualityComparer<int>.Instance);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Three_rows()
     {
         var actual = PascalsTriangle.Calculate(3);
@@ -29,7 +29,7 @@ public class PascalsTriangleTest
         Assert.Equal(expected, actual, NestedEnumerableEqualityComparer<int>.Instance);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Four_rows()
     {
         var actual = PascalsTriangle.Calculate(4);
@@ -37,7 +37,7 @@ public class PascalsTriangleTest
         Assert.Equal(expected, actual, NestedEnumerableEqualityComparer<int>.Instance);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Five_rows()
     {
         var actual = PascalsTriangle.Calculate(5);
@@ -45,7 +45,7 @@ public class PascalsTriangleTest
         Assert.Equal(expected, actual, NestedEnumerableEqualityComparer<int>.Instance);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Twenty_rows()
     {
         var actual = PascalsTriangle.Calculate(20).Last();

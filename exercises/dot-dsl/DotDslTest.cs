@@ -5,7 +5,7 @@ using Xunit;
 
 public class DotDslTest
 {
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Empty_graph()
     {
         var g = new Graph();
@@ -15,7 +15,7 @@ public class DotDslTest
         Assert.Empty(g.Attrs);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Graph_with_one_node()
     {
         var g = new Graph
@@ -28,7 +28,7 @@ public class DotDslTest
         Assert.Empty(g.Attrs);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Graph_with_one_node_with_keywords()
     {
         var g = new Graph
@@ -41,7 +41,7 @@ public class DotDslTest
         Assert.Empty(g.Attrs);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Graph_with_one_edge()
     {
         var g = new Graph
@@ -54,7 +54,7 @@ public class DotDslTest
         Assert.Empty(g.Attrs);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Graph_with_one_attribute()
     {
         var g = new Graph
@@ -67,7 +67,7 @@ public class DotDslTest
         Assert.Equal(new[] { new Attr("foo", "1") }, g.Attrs);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Graph_with_attributes()
     {
         var g = new Graph
