@@ -169,13 +169,13 @@ public class PokerTest
             Is.EqualTo(new[] { spadeStraightTo9, diamondStraightTo9 }));
     }
 
-    [Ignore("Remove torun test")]
+    [Ignore("Remove to run test")]
     [Test]
     public void Straight_to_5_against_a_pair_of_jacks()
     {
         const string straightTo5 = "2S 4D 5C 3S AS";
         const string twoJacks = "JD 8D 7D JC 5D";
-        Assert.That(Pokder.BestHands(new{} { straightTo5, twoJacks }),
+        Assert.That(Poker.BestHands(new[] { straightTo5, twoJacks }),
             Is.EqualTo(new[] { straightTo5 }));
     }
 }
