@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Example.cs" />
+    <Compile Remove="Markdown.cs" />
   </ItemGroup>
 
   <ItemGroup>
