@@ -1,5 +1,6 @@
 language: csharp
 mono: none
+sudo: required
 
 os:
   - linux
