@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using Xunit;
 
 public class WordSearchTest
@@ -21,8 +20,8 @@ public class WordSearchTest
     {
         var wordSearch = new WordSearch(Puzzle);
         var actual = wordSearch.Find("clojure");
-        Assert.Equal(new Point(1, 10), actual.Item1);
-        Assert.Equal(new Point(7, 10), actual.Item2);
+        Assert.Equal(new Tuple<int, int>(1, 10), actual.Item1);
+        Assert.Equal(new Tuple<int, int>(7, 10), actual.Item2);
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -30,8 +29,8 @@ public class WordSearchTest
     {
         var wordSearch = new WordSearch(Puzzle);
         var actual = wordSearch.Find("elixir");
-        Assert.Equal(new Point(6, 5), actual.Item1);
-        Assert.Equal(new Point(1, 5), actual.Item2);
+        Assert.Equal(new Tuple<int, int>(6, 5), actual.Item1);
+        Assert.Equal(new Tuple<int, int>(1, 5), actual.Item2);
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -39,8 +38,8 @@ public class WordSearchTest
     {
         var wordSearch = new WordSearch(Puzzle);
         var actual = wordSearch.Find("ecmascript");
-        Assert.Equal(new Point(10, 1), actual.Item1);
-        Assert.Equal(new Point(10, 10), actual.Item2);
+        Assert.Equal(new Tuple<int, int>(10, 1), actual.Item1);
+        Assert.Equal(new Tuple<int, int>(10, 10), actual.Item2);
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -48,8 +47,8 @@ public class WordSearchTest
     {
         var wordSearch = new WordSearch(Puzzle);
         var actual = wordSearch.Find("rust");
-        Assert.Equal(new Point(9, 5), actual.Item1);
-        Assert.Equal(new Point(9, 2), actual.Item2);
+        Assert.Equal(new Tuple<int, int>(9, 5), actual.Item1);
+        Assert.Equal(new Tuple<int, int>(9, 2), actual.Item2);
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -57,8 +56,8 @@ public class WordSearchTest
     {
         var wordSearch = new WordSearch(Puzzle);
         var actual = wordSearch.Find("java");
-        Assert.Equal(new Point(1, 1), actual.Item1);
-        Assert.Equal(new Point(4, 4), actual.Item2);
+        Assert.Equal(new Tuple<int, int>(1, 1), actual.Item1);
+        Assert.Equal(new Tuple<int, int>(4, 4), actual.Item2);
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -66,8 +65,8 @@ public class WordSearchTest
     {
         var wordSearch = new WordSearch(Puzzle);
         var actual = wordSearch.Find("lua");
-        Assert.Equal(new Point(8, 9), actual.Item1);
-        Assert.Equal(new Point(6, 7), actual.Item2);
+        Assert.Equal(new Tuple<int, int>(8, 9), actual.Item1);
+        Assert.Equal(new Tuple<int, int>(6, 7), actual.Item2);
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -75,8 +74,8 @@ public class WordSearchTest
     {
         var wordSearch = new WordSearch(Puzzle);
         var actual = wordSearch.Find("lisp");
-        Assert.Equal(new Point(3, 6), actual.Item1);
-        Assert.Equal(new Point(6, 3), actual.Item2);
+        Assert.Equal(new Tuple<int, int>(3, 6), actual.Item1);
+        Assert.Equal(new Tuple<int, int>(6, 3), actual.Item2);
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -84,8 +83,8 @@ public class WordSearchTest
     {
         var wordSearch = new WordSearch(Puzzle);
         var actual = wordSearch.Find("ruby");
-        Assert.Equal(new Point(8, 6), actual.Item1);
-        Assert.Equal(new Point(5, 9), actual.Item2);
+        Assert.Equal(new Tuple<int, int>(8, 6), actual.Item1);
+        Assert.Equal(new Tuple<int, int>(5, 9), actual.Item2);
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -106,7 +105,7 @@ public class WordSearchTest
         var wordSearch = new WordSearch(differentSizePuzzle);
 
         var actual = wordSearch.Find("exercism");
-        Assert.Equal(new Point(11, 2), actual.Item1);
-        Assert.Equal(new Point(4, 2), actual.Item2);
+        Assert.Equal(new Tuple<int, int>(11, 2), actual.Item1);
+        Assert.Equal(new Tuple<int, int>(4, 2), actual.Item2);
     }
 }

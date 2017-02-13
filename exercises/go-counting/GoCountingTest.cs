@@ -1,7 +1,6 @@
 ﻿using Xunit;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 
 public class GoCountingTest
@@ -34,8 +33,8 @@ public class GoCountingTest
     public void FiveByFiveTerritoryForBlack()
     {
         var board = new GoCounting(boardFiveByFive);
-        var result = board.TerritoryFor(new Point(0, 1));
-        var expected = new HashSet<Point> { new Point(0, 0), new Point(0, 1), new Point(1, 0) };
+        var result = board.TerritoryFor(new Tuple<int, int>(0, 1));
+        var expected = new HashSet<Tuple<int, int>> { new Tuple<int, int>(0, 0), new Tuple<int, int>(0, 1), new Tuple<int, int>(1, 0) };
         Assert.Equal(GoCounting.Player.Black, result.Item1);        
         Assert.True(expected.SetEquals(result.Item2));
     }
@@ -44,8 +43,8 @@ public class GoCountingTest
     public void FiveByFiveTerritoryForWhite()
     {
         var board = new GoCounting(boardFiveByFive);
-        var result = board.TerritoryFor(new Point(2, 3));
-        var expected = new HashSet<Point> { new Point(2, 3) };
+        var result = board.TerritoryFor(new Tuple<int, int>(2, 3));
+        var expected = new HashSet<Tuple<int, int>> { new Tuple<int, int>(2, 3) };
         Assert.Equal(GoCounting.Player.White, result.Item1);
         Assert.True(expected.SetEquals(result.Item2));
     }
@@ -54,8 +53,8 @@ public class GoCountingTest
     public void FiveByFiveOpenTerritory()
     {
         var board = new GoCounting(boardFiveByFive);
-        var result = board.TerritoryFor(new Point(1, 4));
-        var expected = new HashSet<Point> { new Point(0, 3), new Point(0, 4), new Point(1, 4) };
+        var result = board.TerritoryFor(new Tuple<int, int>(1, 4));
+        var expected = new HashSet<Tuple<int, int>> { new Tuple<int, int>(0, 3), new Tuple<int, int>(0, 4), new Tuple<int, int>(1, 4) };
         Assert.Equal(GoCounting.Player.None, result.Item1);
         Assert.True(expected.SetEquals(result.Item2));
     }
@@ -64,21 +63,21 @@ public class GoCountingTest
     public void FiveByFiveNonTerritoryStone()
     {
         var board = new GoCounting(boardFiveByFive);
-        Assert.Null(board.TerritoryFor(new Point(1, 1)));
+        Assert.Null(board.TerritoryFor(new Tuple<int, int>(1, 1)));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void FiveByFiveNonTerritoryDueToTooLowCoordinate()
     {
         var board = new GoCounting(boardFiveByFive);
-        Assert.Null(board.TerritoryFor(new Point(-1, 1)));
+        Assert.Null(board.TerritoryFor(new Tuple<int, int>(-1, 1)));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void FiveByFiveNonTerritoryDueToTooHighCoordinate()
     {
         var board = new GoCounting(boardFiveByFive);
-        Assert.Null(board.TerritoryFor(new Point(1, 5)));
+        Assert.Null(board.TerritoryFor(new Tuple<int, int>(1, 5)));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -87,7 +86,7 @@ public class GoCountingTest
         var input = "B";
         var board = new GoCounting(input);
 
-        var expected = new Dictionary<GoCounting.Player, IEnumerable<Point>>();
+        var expected = new Dictionary<GoCounting.Player, IEnumerable<Tuple<int, int>>>();
 
         Assert.Equal(expected, board.Territories());
     }
@@ -99,9 +98,9 @@ public class GoCountingTest
         var board = new GoCounting(input);
         var actual = board.Territories();
 
-        var expected = new Dictionary<GoCounting.Player, IEnumerable<Point>>
+        var expected = new Dictionary<GoCounting.Player, IEnumerable<Tuple<int, int>>>
         {
-            [GoCounting.Player.None] = new[] { new Point(0, 0) }
+            [GoCounting.Player.None] = new[] { new Tuple<int, int>(0, 0) }
         };
         
         Assert.Equal(expected.Keys, actual.Keys);
@@ -115,10 +114,10 @@ public class GoCountingTest
         var board = new GoCounting(input);
         var actual = board.Territories();
 
-        var expected = new Dictionary<GoCounting.Player, IEnumerable<Point>>
+        var expected = new Dictionary<GoCounting.Player, IEnumerable<Tuple<int, int>>>
         {
-            [GoCounting.Player.Black] = new[] { new Point(0, 0), new Point(0, 1) },
-            [GoCounting.Player.White] = new[] { new Point(3, 0), new Point(3, 1) }
+            [GoCounting.Player.Black] = new[] { new Tuple<int, int>(0, 0), new Tuple<int, int>(0, 1) },
+            [GoCounting.Player.White] = new[] { new Tuple<int, int>(3, 0), new Tuple<int, int>(3, 1) }
         };
                 
         Assert.Equal(expected.Keys, actual.Keys);
