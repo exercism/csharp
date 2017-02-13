@@ -1,54 +1,48 @@
-// Include Fake library
 #r "./packages/FAKE/tools/FakeLib.dll"
 
 open Fake
-open Fake.Testing.XUnit2
+open Fake.DotNetCli
 
-// Directories
-let buildDir  = "./build/"
-let sourceDir  = "./exercises/"
+let buildDir = "./build/"
+let sourceDir = "./exercises/"
+let projects = !! (buildDir @@ "*/*.csproj")
+let tests = !! (buildDir @@ "**/*Test.cs")
 
-// Files
-let solutionFile = buildDir @@ "/exercises.csproj"
-let compiledOutput = buildDir @@ "xcsharp.dll"
+let restore project = DotNetCli.Restore (fun p -> 
+    { p with NoCache = true
+             Project = project })
 
-// Targets
-Target "PrepareUnchanged" (fun _ -> 
+let build project = DotNetCli.Build (fun p ->
+    { p with Project = project })
+
+let test project = DotNetCli.Test (fun p -> 
+    { p with Project = project })
+
+let restoreAndBuild project = 
+    restore project
+    build project    
+
+let restoreAndTest project =    
+    restore project
+    test project
+
+Target "Clean" (fun _ -> 
     CleanDirs [buildDir]
+)
+
+Target "Copy" (fun _ -> 
     CopyDir buildDir sourceDir allFiles
-)
-
-Target "BuildUnchanged" (fun _ ->
-    MSBuildRelease buildDir "Build" [solutionFile]
-    |> Log "Build unchanged output: "
-)
-
-Target "PrepareTests" (fun _ ->
-    CleanDirs [buildDir]
-    CopyDir buildDir sourceDir allFiles
-
-    let ignorePattern = "Skip\s*=\s*\"Remove to run test\""
-
-    !! (buildDir @@ "**/*Test.cs")
-    |> RegexReplaceInFilesWithEncoding ignorePattern "" System.Text.Encoding.UTF8
-)
-
-Target "BuildTests" (fun _ ->
-    MSBuildRelease buildDir "Build" [solutionFile]
-    |> Log "Build tests output: "
 )
 
 Target "Test" (fun _ ->
-    [compiledOutput]
-    |> xUnit2 (fun p -> { p with ShadowCopy = false })
+    let ignorePattern = "Skip\s*=\s*\"Remove to run test\""
+    RegexReplaceInFilesWithEncoding ignorePattern "" System.Text.Encoding.UTF8 tests
+    
+    Seq.iter restoreAndTest projects
 )
 
-// Build order
-"PrepareUnchanged"
-  ==> "BuildUnchanged"
-  ==> "PrepareTests"
-  ==> "BuildTests"    
+"Clean"
+  ==> "Copy"
   ==> "Test"
 
-// start build
 RunTargetOrDefault "Test"
