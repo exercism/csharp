@@ -8,15 +8,9 @@ let sourceDir = "./exercises/"
 let projects = !! (buildDir @@ "*/*.csproj")
 let tests = !! (buildDir @@ "**/*Test.cs")
 
-let restore project = DotNetCli.Restore (fun p -> 
-    { p with NoCache = true
-             Project = project })
-
-let build project = DotNetCli.Build (fun p ->
-    { p with Project = project })
-
-let test project = DotNetCli.Test (fun p -> 
-    { p with Project = project })
+let restore project = DotNetCli.Restore (fun p -> { p with Project = project })
+let build project = DotNetCli.Build (fun p -> { p with Project = project })
+let test project = DotNetCli.Test (fun p ->  { p with Project = project })
 
 let restoreAndBuild project = 
     restore project
