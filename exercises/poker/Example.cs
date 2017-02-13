@@ -52,7 +52,7 @@ public static class Poker
 
         if (ranks.SequenceEqual(new[] { 14, 5, 4, 3, 2 }))
         {
-            ranks = new[] { 1, 2, 3, 4, 5 };
+            ranks = new[] { 5, 4, 3, 2, 1 };
         }
         
         var flush = suits.Distinct().Count() == 1;
