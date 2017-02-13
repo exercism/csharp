@@ -1,50 +1,50 @@
-using NUnit.Framework;
+using Xunit;
 
-[TestFixture]
 public class RaindropsTest
 {
-    [TestCase(1, ExpectedResult = "1")]
-    [TestCase(52, ExpectedResult = "52")]
-    [TestCase(12121, ExpectedResult = "12121")]
-    public string Non_primes_pass_through(int number)
+    [Theory]
+    [InlineData(1, "1")]
+    [InlineData(52, "52")]
+    [InlineData(12121, "12121")]
+    public void Non_primes_pass_through(int number, string expected)
     {
-        return Raindrops.Convert(number);
+        Assert.Equal(expected, Raindrops.Convert(number));
     }
 
-    [Ignore("Remove to run test")]
-    [TestCase(3)]
-    [TestCase(6)]
-    [TestCase(9)]
+    [Theory(Skip = "Remove to run test")]
+    [InlineData(3)]
+    [InlineData(6)]
+    [InlineData(9)]
     public void Numbers_containing_3_as_a_prime_factor_give_pling(int number)
     {
-        Assert.That(Raindrops.Convert(number), Is.EqualTo("Pling"));
+        Assert.Equal("Pling", Raindrops.Convert(number));
     }
 
-    [Ignore("Remove to run test")]
-    [TestCase(5)]
-    [TestCase(10)]
-    [TestCase(25)]
+    [Theory(Skip = "Remove to run test")]
+    [InlineData(5)]
+    [InlineData(10)]
+    [InlineData(25)]
     public void Numbers_containing_5_as_a_prime_factor_give_plang(int number)
     {
-        Assert.That(Raindrops.Convert(number), Is.EqualTo("Plang"));
+        Assert.Equal("Plang", Raindrops.Convert(number));
     }
 
-    [Ignore("Remove to run test")]
-    [TestCase(7)]
-    [TestCase(14)]
-    [TestCase(49)]
+    [Theory(Skip = "Remove to run test")]
+    [InlineData(7)]
+    [InlineData(14)]
+    [InlineData(49)]
     public void Numbers_containing_7_as_a_prime_factor_give_plong(int number)
     {
-        Assert.That(Raindrops.Convert(number), Is.EqualTo("Plong"));
+        Assert.Equal("Plong", Raindrops.Convert(number));
     }
 
-    [Ignore("Remove to run test")]
-    [TestCase(15, ExpectedResult = "PlingPlang")]
-    [TestCase(21, ExpectedResult = "PlingPlong")]
-    [TestCase(35, ExpectedResult = "PlangPlong")]
-    [TestCase(105, ExpectedResult = "PlingPlangPlong")]
-    public string Numbers_containing_multiple_prime_factors_give_all_results_concatenated(int number)
+    [Theory(Skip = "Remove to run test")]
+    [InlineData(15, "PlingPlang")]
+    [InlineData(21, "PlingPlong")]
+    [InlineData(35, "PlangPlong")]
+    [InlineData(105, "PlingPlangPlong")]
+    public void Numbers_containing_multiple_prime_factors_give_all_results_concatenated(int number, string expected)
     {
-        return Raindrops.Convert(number);
+        Assert.Equal(expected, Raindrops.Convert(number));
     }
 }

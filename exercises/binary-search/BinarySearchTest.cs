@@ -1,76 +1,67 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 
-[TestFixture]
 public class BinarySearchTest
 {
-    [Test]
+    [Fact]
     public void Should_return_minus_one_when_an_empty_array_is_searched()
     {
         var input = new int[0];
-        Assert.That(BinarySearch.Search(input, 6), Is.EqualTo(-1));
+        Assert.Equal(-1, BinarySearch.Search(input, 6));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Should_be_able_to_find_a_value_in_a_single_element_array_with_one_access()
     {
         var input = new[] { 6 };
-        Assert.That(BinarySearch.Search(input, 6), Is.EqualTo(0));
+        Assert.Equal(0, BinarySearch.Search(input, 6));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Should_return_minus_one_if_a_value_is_less_than_the_element_in_a_single_element_array()
     {
         var input = new[] { 94 };
-        Assert.That(BinarySearch.Search(input, 6), Is.EqualTo(-1));
+        Assert.Equal(-1, BinarySearch.Search(input, 6));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Should_return_minus_one_if_a_value_is_greater_than_the_element_in_a_single_element_array()
     {
         var input = new[] { 94 };
-        Assert.That(BinarySearch.Search(input, 602), Is.EqualTo(-1));
+        Assert.Equal(-1, BinarySearch.Search(input, 602));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Should_find_an_element_in_a_longer_array()
     {
         var input = new[] { 6, 67, 123, 345, 456, 457, 490, 2002, 54321, 54322 };
-        Assert.That(BinarySearch.Search(input, 2002), Is.EqualTo(7));
+        Assert.Equal(7, BinarySearch.Search(input, 2002));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Should_find_elements_at_the_beginning_of_an_array()
     {
         var input = new[] { 6, 67, 123, 345, 456, 457, 490, 2002, 54321, 54322 };
-        Assert.That(BinarySearch.Search(input, 6), Is.EqualTo(0));
+        Assert.Equal(0, BinarySearch.Search(input, 6));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Should_find_elements_at_the_end_of_an_array()
     {
         var input = new[] { 6, 67, 123, 345, 456, 457, 490, 2002, 54321, 54322 };
-        Assert.That(BinarySearch.Search(input, 54322), Is.EqualTo(9));
+        Assert.Equal(9, BinarySearch.Search(input, 54322));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Should_return_minus_one_if_a_value_is_less_than_all_elements_in_a_long_array()
     {
         var input = new[] { 6, 67, 123, 345, 456, 457, 490, 2002, 54321, 54322 };
-        Assert.That(BinarySearch.Search(input, 2), Is.EqualTo(-1));
+        Assert.Equal(-1, BinarySearch.Search(input, 2));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Should_return_minus_one_if_a_value_is_greater_than_all_elements_in_a_long_array()
     {
         var input = new[] { 6, 67, 123, 345, 456, 457, 490, 2002, 54321, 54322 };
-        Assert.That(BinarySearch.Search(input, 54323), Is.EqualTo(-1));
+        Assert.Equal(-1, BinarySearch.Search(input, 54323));
     }
 }

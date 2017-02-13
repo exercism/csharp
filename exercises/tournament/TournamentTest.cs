@@ -1,9 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Text;
-using NUnit.Framework;
+using Xunit;
 
-[TestFixture]
 public class TournamentTest
 {
     readonly string input1 = 
@@ -68,23 +67,21 @@ public class TournamentTest
         }
     }
 
-    [Test]
+    [Fact]
     public void Test_good()
     {
-        Assert.That(RunTally(input1).Trim(), Is.EqualTo(expected1));
+        Assert.Equal(expected1, RunTally(input1).Trim());
     }
-    
-    [Test]
-    [Ignore("Remove to run test")]
+
+    [Fact(Skip = "Remove to run test")]
     public void Test_ignore_bad_lines()
     {
-        Assert.That(RunTally(input2).Trim(), Is.EqualTo(expected2));
+        Assert.Equal(expected2, RunTally(input2).Trim());
     }
-    
-    [Test]
-    [Ignore("Remove to run test")]
+
+    [Fact(Skip = "Remove to run test")]
     public void Test_incomplete_competition()
     {
-        Assert.That(RunTally(input3).Trim(), Is.EqualTo(expected3));
+        Assert.Equal(expected3, RunTally(input3).Trim());
     }
 }

@@ -1,30 +1,31 @@
 ﻿using System.Linq;
 using System.Numerics;
-using NUnit.Framework;
+using Xunit;
 
 public class DiffieHellmanTest
 {
-    [Test]
+    [Fact]
     public void Private_key_in_range()
     {
         var primeP = new BigInteger(23);
         var privateKeys = Enumerable.Range(0, 10).Select(_ => DiffieHellman.PrivateKey(primeP)).ToList();
-        Assert.That(privateKeys, Is.All.InRange(new BigInteger(1), primeP - new BigInteger(1)));
+        Assert.All(privateKeys, privateKey => 
+        {
+            Assert.InRange(privateKey, new BigInteger(1), primeP - new BigInteger(1));
+        });
     }
 
     // Note: due to the nature of randomness, there is always a chance that this test fails
     // Be sure to check the actual generated values
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Private_key_randomly_generated()
     {
         var primeP = new BigInteger(7919);
         var privateKeys = Enumerable.Range(0, 5).Select(_ => DiffieHellman.PrivateKey(primeP)).ToList();
-        Assert.That(privateKeys.Count, Is.EqualTo(privateKeys.Distinct().Count()));
+        Assert.Equal(privateKeys.Distinct().Count(), privateKeys.Count);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Public_key_correctly_calculated()
     {
         var primeP = new BigInteger(23);
@@ -32,11 +33,10 @@ public class DiffieHellmanTest
         var privateKey = new BigInteger(6);
 
         var actual = DiffieHellman.PublicKey(primeP, primeG, privateKey);
-        Assert.That(actual, Is.EqualTo(new BigInteger(8)));
+        Assert.Equal(new BigInteger(8), actual);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Secret_key_correctly_calculated()
     {
         var primeP = new BigInteger(23);
@@ -44,11 +44,10 @@ public class DiffieHellmanTest
         var privateKey = new BigInteger(6);
 
         var actual = DiffieHellman.Secret(primeP, publicKey, privateKey);
-        Assert.That(actual, Is.EqualTo(new BigInteger(2)));
+        Assert.Equal(new BigInteger(2), actual);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Secret_key_correctly_calculated_when_using_large_primes()
     {
         var primeP = BigInteger.Parse("120227323036150778550155526710966921740030662694578947298423549235265759593711587341037426347114541533006628856300552706996143592240453345642869233562886752930249953227657883929905072620233073626594386072962776144691433658814261874113232461749035425712805067202910389407991986070558964461330091797026762932543");
@@ -56,11 +55,10 @@ public class DiffieHellmanTest
         var privateKey = BigInteger.Parse("2483479393625932939911081304356888505153797135447327501792696199190469015215177630758617902200417377685436170904594686456961202706692908603181062371925882");
         var expected = BigInteger.Parse("70900735223964890815905879227737819348808518698920446491346508980461201746567735331455825644429877946556431095820785835497384849778344216981228226252639932672153547963980483673419756271345828771971984887453014488572245819864454136618980914729839523581263886740821363010486083940557620831348661126601106717071");
         var actual = DiffieHellman.Secret(primeP, publicKey, privateKey);
-        Assert.That(actual, Is.EqualTo(expected));
+        Assert.Equal(expected, actual);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Test_exchange()
     {
         var primeP = new BigInteger(23);
@@ -75,6 +73,6 @@ public class DiffieHellmanTest
         var secretA = DiffieHellman.Secret(primeP, publicKeyB, privateKeyA);
         var secretB = DiffieHellman.Secret(primeP, publicKeyA, privateKeyB);
 
-        Assert.That(secretA, Is.EqualTo(secretB));
+        Assert.Equal(secretB, secretA);
     }
 }

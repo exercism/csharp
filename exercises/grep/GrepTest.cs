@@ -1,7 +1,8 @@
-﻿using System.IO;
-using NUnit.Framework;
+﻿using System;
+using System.IO;
+using Xunit;
 
-public class GrepTest
+public class GrepTest : IDisposable
 {
     private const string IliadFileName = "iliad.txt";
     private const string IliadContents =
@@ -38,18 +39,16 @@ Sing Heav'nly Muse, that on the secret top
 Of Oreb, or of Sinai, didst inspire
 That Shepherd, who first taught the chosen Seed
 ";
-
-    [OneTimeSetUp]
-    public void SetUp()
+    
+    public GrepTest()
     {
         Directory.SetCurrentDirectory(Path.GetTempPath());
         File.WriteAllText(IliadFileName, IliadContents);
         File.WriteAllText(MidsummerNightFileName, MidsummerNightContents);
         File.WriteAllText(ParadiseLostFileName, ParadiseLostContents);
     }
-
-    [OneTimeTearDown]
-    public void TearDown()
+    
+    public void Dispose()
     {
         Directory.SetCurrentDirectory(Path.GetTempPath());
         File.Delete(IliadFileName);
@@ -57,7 +56,7 @@ That Shepherd, who first taught the chosen Seed
         File.Delete(ParadiseLostFileName);
     }
 
-    [Test]
+    [Fact]
     public void One_file_one_match_no_flags()
     {
         const string pattern = "Agamemnon";
@@ -67,11 +66,10 @@ That Shepherd, who first taught the chosen Seed
         const string expected =
             "Of Atreus, Agamemnon, King of men.\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void One_file_one_match_print_line_numbers_flag()
     {
         const string pattern = "Forbidden";
@@ -81,11 +79,10 @@ That Shepherd, who first taught the chosen Seed
         const string expected =
             "2:Of that Forbidden Tree, whose mortal tast\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void One_file_one_match_case_insensitive_flag()
     {
         const string pattern = "Forbidden";
@@ -95,11 +92,10 @@ That Shepherd, who first taught the chosen Seed
         const string expected =
             "Of that Forbidden Tree, whose mortal tast\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void One_file_one_match_print_file_names_flag()
     {
         const string pattern = "Forbidden";
@@ -109,11 +105,10 @@ That Shepherd, who first taught the chosen Seed
         var expected =
             $"{ParadiseLostFileName}\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void One_file_one_match_match_entire_lines_flag()
     {
         const string pattern = "With loss of Eden, till one greater Man";
@@ -123,11 +118,10 @@ That Shepherd, who first taught the chosen Seed
         const string expected =
             "With loss of Eden, till one greater Man\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void One_file_one_match_multiple_flags()
     {
         const string pattern = "OF ATREUS, Agamemnon, KIng of MEN.";
@@ -136,11 +130,10 @@ That Shepherd, who first taught the chosen Seed
         const string expected =
             "9:Of Atreus, Agamemnon, King of men.\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void One_file_several_matches_no_flags()
     {
         const string pattern = "may";
@@ -152,11 +145,10 @@ That Shepherd, who first taught the chosen Seed
             "But I beseech your grace that I may know\n" +
             "The worst that may befall me in this case,\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void One_file_several_matches_print_line_numbers_flag()
     {
         const string pattern = "may";
@@ -168,11 +160,10 @@ That Shepherd, who first taught the chosen Seed
             "5:But I beseech your grace that I may know\n" +
             "6:The worst that may befall me in this case,\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void One_file_several_matches_match_entire_lines_flag()
     {
         const string pattern = "may";
@@ -181,11 +172,10 @@ That Shepherd, who first taught the chosen Seed
 
         const string expected = "";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void One_file_several_matches_case_insensitive_flag()
     {
         const string pattern = "ACHILLES";
@@ -196,11 +186,10 @@ That Shepherd, who first taught the chosen Seed
             "Achilles sing, O Goddess! Peleus' son;\n" +
             "The noble Chief Achilles from the son\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void One_file_several_matches_inverted_flag()
     {
         const string pattern = "Of";
@@ -214,26 +203,26 @@ That Shepherd, who first taught the chosen Seed
             "Sing Heav'nly Muse, that on the secret top\n" +
             "That Shepherd, who first taught the chosen Seed\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
-    [TestCase("", Ignore = "Remove to run test case")]
-    [TestCase("-n", Ignore = "Remove to run test case")]
-    [TestCase("-l", Ignore = "Remove to run test case")]
-    [TestCase("-x", Ignore = "Remove to run test case")]
-    [TestCase("-i", Ignore = "Remove to run test case")]
-    [TestCase("-n -l -x -i", Ignore = "Remove to run test case")]
+    [Theory(Skip = "Remove to run test")]
+    [InlineData("")]
+    [InlineData("-n")]
+    [InlineData("-l")]
+    [InlineData("-x")]
+    [InlineData("-i")]
+    [InlineData("-n -l -x -i")]
     public void One_file_no_matches_various_flags(string flags)
     {
         const string pattern = "Gandalf";
         var files = new[] { IliadFileName };
         const string expected = "";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Multiple_files_one_match_no_flags()
     {
         const string pattern = "Agamemnon";
@@ -243,11 +232,10 @@ That Shepherd, who first taught the chosen Seed
         var expected =
             $"{IliadFileName}:Of Atreus, Agamemnon, King of men.\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Multiple_files_several_matches_no_flags()
     {
         const string pattern = "may";
@@ -259,11 +247,10 @@ That Shepherd, who first taught the chosen Seed
             $"{MidsummerNightFileName}:But I beseech your grace that I may know\n" +
             $"{MidsummerNightFileName}:The worst that may befall me in this case,\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Multiple_files_several_matches_print_line_numbers_flag()
     {
         const string pattern = "that";
@@ -276,11 +263,10 @@ That Shepherd, who first taught the chosen Seed
             $"{ParadiseLostFileName}:2:Of that Forbidden Tree, whose mortal tast\n" +
             $"{ParadiseLostFileName}:6:Sing Heav'nly Muse, that on the secret top\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Multiple_files_several_matches_print_file_names_flag()
     {
         const string pattern = "who";
@@ -291,11 +277,10 @@ That Shepherd, who first taught the chosen Seed
             $"{IliadFileName}\n" +
             $"{ParadiseLostFileName}\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Multiple_files_several_matches_case_insensitive_flag()
     {
         const string pattern = "TO";
@@ -314,11 +299,10 @@ That Shepherd, who first taught the chosen Seed
             $"{ParadiseLostFileName}:Restore us, and regain the blissful Seat,\n" +
             $"{ParadiseLostFileName}:Sing Heav'nly Muse, that on the secret top\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Multiple_files_several_matches_inverted_flag()
     {
         const string pattern = "a";
@@ -330,11 +314,10 @@ That Shepherd, who first taught the chosen Seed
             $"{IliadFileName}:The noble Chief Achilles from the son\n" +
             $"{MidsummerNightFileName}:If I refuse to wed Demetrius.\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Multiple_files_one_match_match_entire_lines_flag()
     {
         const string pattern = "But I beseech your grace that I may know";
@@ -344,11 +327,10 @@ That Shepherd, who first taught the chosen Seed
         var expected =
             $"{MidsummerNightFileName}:But I beseech your grace that I may know\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Multiple_files_one_match_multiple_flags()
     {
         const string pattern = "WITH LOSS OF EDEN, TILL ONE GREATER MAN";
@@ -357,15 +339,16 @@ That Shepherd, who first taught the chosen Seed
         var expected =
             $"{ParadiseLostFileName}:4:With loss of Eden, till one greater Man\n";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 
-    [TestCase("", Ignore = "Remove to run test case")]
-    [TestCase("-n", Ignore = "Remove to run test case")]
-    [TestCase("-l", Ignore = "Remove to run test case")]
-    [TestCase("-x", Ignore = "Remove to run test case")]
-    [TestCase("-i", Ignore = "Remove to run test case")]
-    [TestCase("-n -l -x -i", Ignore = "Remove to run test case")]
+    [Theory(Skip = "Remove to run test")]
+    [InlineData("")]
+    [InlineData("-n")]
+    [InlineData("-l")]
+    [InlineData("-x")]
+    [InlineData("-i")]
+    [InlineData("-n -l -x -i")]
     public void Multiple_files_no_matches_various_flags(string flags)
     {
         const string pattern = "Frodo";
@@ -373,6 +356,6 @@ That Shepherd, who first taught the chosen Seed
 
         const string expected = "";
 
-        Assert.That(Grep.Find(pattern, flags, files), Is.EqualTo(expected));
+        Assert.Equal(expected, Grep.Find(pattern, flags, files));
     }
 }

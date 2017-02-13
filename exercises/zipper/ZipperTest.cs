@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 
 public class ZipperTest
 {
@@ -11,73 +11,66 @@ public class ZipperTest
     private static readonly BinTree<int> t3 = new BinTree<int>(1, bt(2, leaf(5), leaf(3)), leaf(4));
     private static readonly BinTree<int> t4 = new BinTree<int>(1, leaf(2), leaf(4));
 
-    [Test]
+    [Fact]
     public void Data_is_retained()
     {
         var zipper = Zipper<int>.FromTree(t1);
         var tree = zipper.ToTree();
-        Assert.That(tree, Is.EqualTo(t1));
+        Assert.Equal(t1, tree);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Left_right_and_value()
     {
         var zipper = Zipper<int>.FromTree(t1);
-        Assert.That(zipper.Left().Right().Value, Is.EqualTo(3));
+        Assert.Equal(3, zipper.Left().Right().Value);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Dead_end()
     {
         var zipper = Zipper<int>.FromTree(t1);
-        Assert.That(zipper.Left().Left(), Is.Null);
+        Assert.Null(zipper.Left().Left());
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Tree_from_deep_focus()
     {
         var zipper = Zipper<int>.FromTree(t1);
-        Assert.That(zipper.Left().Right().ToTree(), Is.EqualTo(t1));
+        Assert.Equal(t1, zipper.Left().Right().ToTree());
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Set_value()
     {
         var zipper = Zipper<int>.FromTree(t1);
         var updatedZipper = zipper.Left().SetValue(5);
         var tree = updatedZipper.ToTree();
-        Assert.That(tree, Is.EqualTo(t2));
+        Assert.Equal(t2, tree);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Set_left_with_value()
     {
         var zipper = Zipper<int>.FromTree(t1);
         var updatedZipper = zipper.Left().SetLeft(new BinTree<int>(5, null, null));
         var tree = updatedZipper.ToTree();
-        Assert.That(tree, Is.EqualTo(t3));
+        Assert.Equal(t3, tree);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Set_right_to_null()
     {
         var zipper = Zipper<int>.FromTree(t1);
         var updatedZipper = zipper.Left().SetRight(null);
         var tree = updatedZipper.ToTree();
-        Assert.That(tree, Is.EqualTo(t4));
+        Assert.Equal(t4, tree);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Different_paths_to_same_zipper()
     {
         var zipper = Zipper<int>.FromTree(t1);
-        Assert.That(zipper.Left().Up().Right().ToTree(), Is.EqualTo(zipper.Right().ToTree()));
+        Assert.Equal(zipper.Right().ToTree(), zipper.Left().Up().Right().ToTree());
     }
 }
