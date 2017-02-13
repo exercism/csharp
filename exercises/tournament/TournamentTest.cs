@@ -62,7 +62,7 @@ public class TournamentTest
             using (var outStream = new MemoryStream())
             {
                 Tournament.Tally(inStream, outStream);
-                return encoding.GetString(outStream.GetBuffer());
+                return encoding.GetString(outStream.ToArray());
             }
         }
     }

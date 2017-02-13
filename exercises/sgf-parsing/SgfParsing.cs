@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 public class SgfTree
@@ -9,5 +10,13 @@ public class SgfTree
     {
         Data = data;
         Children = children;
+    }
+}
+
+public class SgfParser
+{
+    public static SgfTree ParseTree(string input)
+    {
+        throw new NotImplementedException();
     }
 }

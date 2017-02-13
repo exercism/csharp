@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Linq;
 
 public static class Rectangles
@@ -35,43 +34,43 @@ public static class Rectangles
 
     private static int Cols(CellType[][] grid) => grid[0].Length;
 
-    private static CellType Cell(Point point, CellType[][] grid) => grid[point.Y][point.X];
+    private static CellType Cell(Tuple<int, int> point, CellType[][] grid) => grid[point.Item2][point.Item1];
 
-    private static Point[] FindCorners(CellType[][] grid) =>
+    private static Tuple<int, int>[] FindCorners(CellType[][] grid) =>
         Enumerable.Range(0, Rows(grid)).SelectMany(y =>
-                    Enumerable.Range(0, Cols(grid)).Select(x => new Point(x, y)))
+                    Enumerable.Range(0, Cols(grid)).Select(x => new Tuple<int, int>(x, y)))
             .Where(point => Cell(point, grid) == CellType.Corner)
             .ToArray();
 
-    private static bool ConnectsVertically(Point point, CellType[][] grid) =>
+    private static bool ConnectsVertically(Tuple<int, int> point, CellType[][] grid) =>
         (Cell(point, grid) == CellType.VerticalLine) ||
         (Cell(point, grid) == CellType.Corner);
 
-    private static bool ConnectedVertically(Point top, Point bottom, CellType[][] grid) =>
-        Enumerable.Range(top.Y + 1, bottom.Y - top.Y - 1).All(y => ConnectsVertically(new Point(top.X, y), grid));
+    private static bool ConnectedVertically(Tuple<int, int> top, Tuple<int, int> bottom, CellType[][] grid) =>
+        Enumerable.Range(top.Item2 + 1, bottom.Item2 - top.Item2 - 1).All(y => ConnectsVertically(new Tuple<int, int>(top.Item1, y), grid));
 
-    private static bool ConnectsHorizontally(Point point, CellType[][] grid) =>
+    private static bool ConnectsHorizontally(Tuple<int, int> point, CellType[][] grid) =>
         (Cell(point, grid) == CellType.HorizontalLine) ||
         (Cell(point, grid) == CellType.Corner);
 
-    private static bool ConnectedHorizontally(Point left, Point right, CellType[][] grid) =>
-        Enumerable.Range(left.X + 1, right.X - left.X - 1).All(x => ConnectsHorizontally(new Point(x, left.Y), grid));
+    private static bool ConnectedHorizontally(Tuple<int, int> left, Tuple<int, int> right, CellType[][] grid) =>
+        Enumerable.Range(left.Item1 + 1, right.Item1 - left.Item1 - 1).All(x => ConnectsHorizontally(new Tuple<int, int>(x, left.Item2), grid));
 
-    private static bool IsTopLineOfRectangle(Point topLeft, Point topRight, CellType[][] grid) =>
-        (topRight.X > topLeft.X) && (topRight.Y == topLeft.Y) && ConnectedHorizontally(topLeft, topRight, grid);
+    private static bool IsTopLineOfRectangle(Tuple<int, int> topLeft, Tuple<int, int> topRight, CellType[][] grid) =>
+        (topRight.Item1 > topLeft.Item1) && (topRight.Item2 == topLeft.Item2) && ConnectedHorizontally(topLeft, topRight, grid);
 
-    private static bool IsRightLineOfRectangle(Point topRight, Point bottomRight, CellType[][] grid) =>
-        (bottomRight.X == topRight.X) && (bottomRight.Y > topRight.Y) &&
+    private static bool IsRightLineOfRectangle(Tuple<int, int> topRight, Tuple<int, int> bottomRight, CellType[][] grid) =>
+        (bottomRight.Item1 == topRight.Item1) && (bottomRight.Item2 > topRight.Item2) &&
         ConnectedVertically(topRight, bottomRight, grid);
 
-    private static bool IsBottomLineOfRectangle(Point bottomLeft, Point bottomRight, CellType[][] grid) =>
-        (bottomRight.X > bottomLeft.X) && (bottomRight.Y == bottomLeft.Y) &&
+    private static bool IsBottomLineOfRectangle(Tuple<int, int> bottomLeft, Tuple<int, int> bottomRight, CellType[][] grid) =>
+        (bottomRight.Item1 > bottomLeft.Item1) && (bottomRight.Item2 == bottomLeft.Item2) &&
         ConnectedHorizontally(bottomLeft, bottomRight, grid);
 
-    private static bool IsLeftLineOfRectangle(Point topLeft, Point bottomLeft, CellType[][] grid) =>
-        (bottomLeft.X == topLeft.X) && (bottomLeft.Y > topLeft.Y) && ConnectedVertically(topLeft, bottomLeft, grid);
+    private static bool IsLeftLineOfRectangle(Tuple<int, int> topLeft, Tuple<int, int> bottomLeft, CellType[][] grid) =>
+        (bottomLeft.Item1 == topLeft.Item1) && (bottomLeft.Item2 > topLeft.Item2) && ConnectedVertically(topLeft, bottomLeft, grid);
 
-    private static int RectangleForCorner(Point topLeft, Point[] corners, CellType[][] grid)
+    private static int RectangleForCorner(Tuple<int, int> topLeft, Tuple<int, int>[] corners, CellType[][] grid)
     {
         return (from topRight in corners.Where(corner => IsTopLineOfRectangle(topLeft, corner, grid))
                 from bottomLeft in corners.Where(corner => IsLeftLineOfRectangle(topLeft, corner, grid))
