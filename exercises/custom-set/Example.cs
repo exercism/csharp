@@ -73,6 +73,11 @@ public class CustomSet<T> : IEnumerable<T>, IEquatable<IEnumerable<T>>
     
     public override bool Equals(object obj) => Equals(obj as IEnumerable<T>);
 
+    public override int GetHashCode() 
+    {
+        throw new NotImplementedException();
+    }
+
     public bool Equals(IEnumerable<T> other)
     {
         return items.Keys.OrderBy(x => x).SequenceEqual(other.Select(o => o.GetHashCode()).OrderBy(x => x));

@@ -5,18 +5,21 @@ open Fake.DotNetCli
 
 let buildDir = "./build/"
 let sourceDir = "./exercises/"
-let projects = !! (buildDir @@ "*/*.csproj")
-let tests = !! (buildDir @@ "**/*Test.cs")
 
-let restore project = DotNetCli.Restore (fun p -> 
-    { p with NoCache = true
-             Project = project })
+let testFiles = !! (buildDir @@ "*/*Test.cs")
+let allProjects = !! (buildDir @@ "*/*.csproj")
+let defaultProjects = 
+    !! (buildDir @@ "*/*.csproj") -- 
+       (buildDir @@ "*/DotDsl.csproj") --
+       (buildDir @@ "*/React.csproj")
+let refactoringProjects = 
+    !! (buildDir @@ "*/TreeBuilding.csproj") ++
+       (buildDir @@ "*/Ledger.csproj")       ++
+       (buildDir @@ "*/Markdown.csproj")
 
-let build project = DotNetCli.Build (fun p ->
-    { p with Project = project })
-
-let test project = DotNetCli.Test (fun p -> 
-    { p with Project = project })
+let restore project = DotNetCli.Restore (fun p -> { p with Project = project })
+let build   project = DotNetCli.Build   (fun p -> { p with Project = project })
+let test    project = DotNetCli.Test    (fun p -> { p with Project = project })
 
 let restoreAndBuild project = 
     restore project
@@ -27,22 +30,52 @@ let restoreAndTest project =
     test project
 
 Target "Clean" (fun _ -> 
-    CleanDirs [buildDir]
+    DeleteDir buildDir
 )
 
-Target "Copy" (fun _ -> 
+Target "CopyExercises" (fun _ -> 
     CopyDir buildDir sourceDir allFiles
 )
 
-Target "Test" (fun _ ->
-    let ignorePattern = "Skip\s*=\s*\"Remove to run test\""
-    RegexReplaceInFilesWithEncoding ignorePattern "" System.Text.Encoding.UTF8 tests
-    
-    Seq.iter restoreAndTest projects
+Target "IgnoreExampleImplementation" (fun _ ->
+    RegexReplaceInFilesWithEncoding 
+        "</PropertyGroup>" 
+        "</PropertyGroup><ItemGroup><Compile Remove=\"Example.cs\" /></ItemGroup>"
+        System.Text.Encoding.UTF8 allProjects
+)
+
+Target "BuildUsingDefaultImplementation" (fun _ ->
+    Seq.iter restoreAndBuild defaultProjects
+)
+
+Target "EnableAllTests" (fun _ ->
+    RegexReplaceInFilesWithEncoding 
+        "Skip\s*=\s*\"Remove to run test\"" 
+        "" 
+        System.Text.Encoding.UTF8 testFiles
+)
+
+Target "TestRefactoringProjects" (fun _ ->
+    Seq.iter restoreAndTest refactoringProjects
+)
+
+Target "TestUsingExampleImplementation" (fun _ ->
+    let useExampleInsteadOfDefaultImplementation project =
+        let projectDir = directory project
+        let exampleFile = projectDir @@ "Example.cs"
+        let defaultFile = projectDir @@ filename project + "" |> changeExt ".cs"
+        CopyFile defaultFile exampleFile
+
+    Seq.iter useExampleInsteadOfDefaultImplementation allProjects
+    Seq.iter restoreAndTest allProjects
 )
 
 "Clean"
-  ==> "Copy"
-  ==> "Test"
+  ==> "CopyExercises"
+  ==> "IgnoreExampleImplementation"
+  ==> "BuildUsingDefaultImplementation"
+  ==> "EnableAllTests"
+  ==> "TestRefactoringProjects"
+  ==> "TestUsingExampleImplementation"
 
-RunTargetOrDefault "Test"
+RunTargetOrDefault "TestUsingExampleImplementation"

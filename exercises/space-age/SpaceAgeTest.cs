@@ -2,13 +2,6 @@ using Xunit;
 
 public class SpaceAgeTest
 {
-    [Fact]
-    public void Age_in_seconds()
-    {
-        var age = new SpaceAge(1000000);
-        Assert.Equal(1000000, age.Seconds);
-    }
-
     [Fact(Skip = "Remove to run test")]
     public void Age_on_earth()
     {

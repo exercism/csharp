@@ -12,26 +12,17 @@ public class Queen
     public int Column { get; }
 }
 
-public class Queens
+public static class Queens
 {
-    private readonly Queen _white;
-    private readonly Queen _black;
-
-    public Queens(Queen white, Queen black)
+    public static bool CanAttack(Queen white, Queen black)
     {
         if (white.Row == black.Row && white.Column == black.Column)
         {
             throw new ArgumentException("The queens cannot be positioned at the same place.");
         }
 
-        _black = black;
-        _white = white;
-    }
-
-    public bool CanAttack()
-    {
-        return _black.Row == _white.Row ||
-               _black.Column == _white.Column ||
-               Math.Abs(_black.Row - _white.Row) == Math.Abs(_black.Column - _white.Column);
+        return black.Row == white.Row ||
+               black.Column == white.Column ||
+               Math.Abs(black.Row - white.Row) == Math.Abs(black.Column - white.Column);
     }
 }

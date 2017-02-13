@@ -8,7 +8,7 @@ public class SpaceAge
         Earth, Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune
     }
 
-    public long Seconds { get; private set; }
+    private readonly long seconds;
 
     private readonly Dictionary<Planet, double> earthYearToPlanetPeriod = new Dictionary<Planet, double>
         {
@@ -24,13 +24,13 @@ public class SpaceAge
 
     public SpaceAge(long seconds)
     {
-        Seconds = seconds;
+        this.seconds = seconds;
     }
 
     private double CalculateAge(double periodInEarthYears)
     {
         const double EARTH_ORBIT_IN_SECONDS = 31557600;
-        return Math.Round(Seconds / (EARTH_ORBIT_IN_SECONDS * periodInEarthYears), 2);
+        return Math.Round(seconds / (EARTH_ORBIT_IN_SECONDS * periodInEarthYears), 2);
     }
 
     public double OnEarth()
