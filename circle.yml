@@ -1,12 +1,8 @@
-machine:
-  environment:
-    TERM: xterm-256color
 dependencies:
   pre:
-    - sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-    - echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list
-    - sudo apt-get update
-    - sudo apt-get install mono-complete
+    - sudo mkdir -p /opt/dotnet
+    - sudo tar zxf https://download.microsoft.com/download/B/4/6/B4678511-01F4-4F97-902B-0E58A985932A/dotnet-dev-debian-x64.1.0.0-rc4-004771.tar.gz -C /opt/dotnet
+    - sudo ln -s /opt/dotnet/dotnet /usr/local/bin
 test:
   override:
     - ./build.sh
