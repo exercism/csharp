@@ -1,67 +1,58 @@
-using NUnit.Framework;
+using Xunit;
 
-[TestFixture]
 public class ScrabbleScoreTest
 {
-    [Test]
+    [Fact]
     public void Empty_word_scores_zero()
     {
-        Assert.That(Scrabble.Score(""), Is.EqualTo(0));
+        Assert.Equal(0, Scrabble.Score(""));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Whitespace_scores_zero()
     {
-        Assert.That(Scrabble.Score(" \t\n"), Is.EqualTo(0));
+        Assert.Equal(0, Scrabble.Score(" \t\n"));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Null_scores_zero()
     {
-        Assert.That(Scrabble.Score(null), Is.EqualTo(0));
+        Assert.Equal(0, Scrabble.Score(null));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Scores_very_short_word()
     {
-        Assert.That(Scrabble.Score("a"), Is.EqualTo(1));
+        Assert.Equal(1, Scrabble.Score("a"));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Scores_other_very_short_word()
     {
-        Assert.That(Scrabble.Score("f"), Is.EqualTo(4));
+        Assert.Equal(4, Scrabble.Score("f"));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Simple_word_scores_the_number_of_letters()
     {
-        Assert.That(Scrabble.Score("street"), Is.EqualTo(6));
+        Assert.Equal(6, Scrabble.Score("street"));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Complicated_word_scores_more()
     {
-        Assert.That(Scrabble.Score("quirky"), Is.EqualTo(22));
+        Assert.Equal(22, Scrabble.Score("quirky"));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Scores_are_case_insensitive()
     {
-        Assert.That(Scrabble.Score("OXYPHENBUTAZONE"), Is.EqualTo(41));
+        Assert.Equal(41, Scrabble.Score("OXYPHENBUTAZONE"));
     }
     
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Entire_alphabet()
     {
-        Assert.That(Scrabble.Score("abcdefghijklmnopqrstuvwxyz"), Is.EqualTo(87));
+        Assert.Equal(87, Scrabble.Score("abcdefghijklmnopqrstuvwxyz"));
     }
 }

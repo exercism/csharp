@@ -1,27 +1,23 @@
-using NUnit.Framework;
+using Xunit;
 
-[TestFixture]
 public class SieveTest
 {
-    [Test]
+    [Fact]
     public void Finds_first_prime()
     {
-        Assert.That(Sieve.Primes(2), Is.EqualTo(new[] { 2 }));
+        Assert.Equal(new[] { 2 }, Sieve.Primes(2));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Finds_primes_up_to_10()
     {
-        Assert.That(Sieve.Primes(10), Is.EqualTo(new[] { 2, 3, 5, 7 }));
+        Assert.Equal(new[] { 2, 3, 5, 7 }, Sieve.Primes(10));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Finds_primes_up_to_1000()
     {
-        Assert.That(Sieve.Primes(1000),
-            Is.EqualTo(new[]
+        Assert.Equal(new[]
                 {
                     2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101,
                     103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199,
@@ -32,6 +28,6 @@ public class SieveTest
                     709, 719, 727, 733, 739, 743, 751, 757, 761, 769, 773, 787, 797, 809, 811, 821, 823, 827, 829, 839,
                     853, 857, 859, 863, 877, 881, 883, 887, 907, 911, 919, 929, 937, 941, 947, 953, 967, 971, 977, 983,
                     991, 997
-                }));
+                }, Sieve.Primes(1000));
     }
 }

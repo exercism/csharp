@@ -29,6 +29,16 @@ public static class Ledger
 
     private static float ParseChange(int change) => change / 100.0f;
 
+    private static CultureInfo CultureInfo(string locale)
+    {
+        switch (locale)
+        {
+            case "en-US": return new CultureInfo("en-US");
+            case "nl-NL": return new CultureInfo("nl-NL");
+            default: throw new ArgumentException("Invalid locale");
+        }
+    }
+
     private static string CurrencySymbol(string currency)
     {
         switch (currency)
@@ -39,12 +49,12 @@ public static class Ledger
         }
     }
 
-    private static CultureInfo CultureInfo(string locale)
+    private static int CurrencyNegativePattern(string locale)
     {
         switch (locale)
         {
-            case "en-US": return new CultureInfo(locale);
-            case "nl-NL": return new CultureInfo(locale);
+            case "en-US": return 0;
+            case "nl-NL": return 12;
             default: throw new ArgumentException("Invalid locale");
         }
     }
@@ -63,6 +73,7 @@ public static class Ledger
     {
         var culture = CultureInfo(locale);
         culture.NumberFormat.CurrencySymbol = CurrencySymbol(currency);
+        culture.NumberFormat.CurrencyNegativePattern = CurrencyNegativePattern(locale);
         culture.DateTimeFormat.ShortDatePattern = ShortDateFormat(locale);
         return culture;
     }
@@ -79,14 +90,14 @@ public static class Ledger
 
     private static string FormatDate(IFormatProvider culture, DateTime date) => date.ToString("d", culture);
 
-    private static string FoormatDescription(string description) =>
+    private static string FormatDescription(string description) =>
         description.Length <= TruncateLength ? description : description.Substring(0, TruncateLength - TruncateSuffix.Length) + TruncateSuffix;
 
     private static string FormatChange(IFormatProvider culture, float change) =>
         change < 0.0 ? change.ToString("C", culture) : change.ToString("C", culture) + " ";
 
     private static string FormatEntry(IFormatProvider culture, LedgerEntry entry) =>
-        string.Format("{0} | {1,-25} | {2,13}", FormatDate(culture, entry.Date), FoormatDescription(entry.Description), FormatChange(culture, entry.Change));
+        string.Format("{0} | {1,-25} | {2,13}", FormatDate(culture, entry.Date), FormatDescription(entry.Description), FormatChange(culture, entry.Change));
 
     private static IEnumerable<LedgerEntry> OrderEntries(LedgerEntry[] entries) =>
         entries

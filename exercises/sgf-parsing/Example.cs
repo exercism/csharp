@@ -34,7 +34,17 @@ public static class SgfParser
                 GameTree().Many().Then(trees => Parse.Char(')')
                     .Select(___ => NodesToTree(nodes, trees)))));
 
-    public static SgfTree ParseTree(string input) => GameTree().Parse(input);
+    public static SgfTree ParseTree(string input)
+    {
+        try
+        {
+            return GameTree().Parse(input);
+        }
+        catch (Exception e)
+        {
+            throw new ArgumentException(nameof(input), e);
+        }        
+    }
     
     private static SgfTree NodesToTree(IEnumerable<IDictionary<string, string[]>> properties, IEnumerable<SgfTree> trees)
     {
