@@ -10,6 +10,7 @@ addons:
     - libssl-dev
     - libunwind8
     - zlib1g
+    - libstdc++6
 env:
   global:
     - DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
