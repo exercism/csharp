@@ -27,6 +27,7 @@ public static class Ledger
    private static CultureInfo CreateCulture(string cur, string loc)
    {
        string curSymb = null;
+       int curNeg = 0;
        string datPat = null;
 
        if (cur != "USD" && cur != "EUR")
@@ -50,10 +51,10 @@ public static class Ledger
                else if (loc == "nl-NL")
                {
                    curSymb = "$";
+                   curNeg = 12;
                    datPat = "dd/MM/yyyy";
                }
            }
-
 
            if (cur == "EUR")
            {
@@ -65,6 +66,7 @@ public static class Ledger
                else if (loc == "nl-NL")
                {
                    curSymb = "€";
+                   curNeg = 12;
                    datPat = "dd/MM/yyyy";
                }
            }
@@ -72,6 +74,7 @@ public static class Ledger
 
        var culture = new CultureInfo(loc);
        culture.NumberFormat.CurrencySymbol = curSymb;
+       culture.NumberFormat.CurrencyNegativePattern = curNeg;
        culture.DateTimeFormat.ShortDatePattern = datPat;
        return culture;
    }
