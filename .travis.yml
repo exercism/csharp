@@ -5,6 +5,18 @@ os:
   - linux
   - osx
 
+osx_image: xcode7.1
+
+addons:
+  apt:
+    packages:
+    - gettext
+    - libcurl4-openssl-dev
+    - libicu-dev
+    - libssl-dev
+    - libunwind8
+    - zlib1g
+
 before_install:
   - curl https://download.microsoft.com/download/B/4/6/B4678511-01F4-4F97-902B-0E58A985932A/dotnet-dev-debian-x64.1.0.0-rc4-004771.tar.gz -o /tmp/dotnet.tar.gz
   - sudo mkdir -p /opt/dotnet
