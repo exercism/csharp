@@ -3,6 +3,7 @@ sudo: required
 dist: trusty
 addons:
   apt:
+    sources: ['ubuntu-toolchain-r-test']
     packages:
     - gettext
     - libcurl4-openssl-dev
