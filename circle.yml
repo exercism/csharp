@@ -7,6 +7,12 @@ dependencies:
     - echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list
     - sudo apt-get update
     - sudo apt-get install mono-complete
+    - sudo apt-get install gettext
+    - sudo apt-get install libcurl4-openssl-dev
+    - sudo apt-get install libicu-dev
+    - sudo apt-get install libssl-dev
+    - sudo apt-get install libunwind8
+    - sudo apt-get install zlib1g
     - curl https://download.microsoft.com/download/B/4/6/B4678511-01F4-4F97-902B-0E58A985932A/dotnet-dev-debian-x64.1.0.0-rc4-004771.tar.gz -o /tmp/dotnet.tar.gz
     - sudo mkdir -p /opt/dotnet
     - sudo tar zxf /tmp/dotnet.tar.gz -C /opt/dotnet
