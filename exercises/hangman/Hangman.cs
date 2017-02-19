@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-public delegate void HangmanChangedEventHandler(object sender, HangmanState state);
-
 public class HangmanState
 {
     public HangmanGame.Status Status { get; set; }
@@ -23,8 +21,6 @@ public class HangmanGame
     public HangmanGame(string word)
     {
     }
-
-    public event HangmanChangedEventHandler StateChanged;
 
     public void Start()
     {

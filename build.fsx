@@ -11,6 +11,7 @@ let allProjects = !! (buildDir @@ "*/*.csproj")
 let defaultProjects = 
     !! (buildDir @@ "*/*.csproj") -- 
        (buildDir @@ "*/DotDsl.csproj") --
+       (buildDir @@ "*/Hangman.csproj") --
        (buildDir @@ "*/React.csproj")
 let refactoringProjects = 
     !! (buildDir @@ "*/TreeBuilding.csproj") ++
@@ -44,7 +45,7 @@ Target "IgnoreExampleImplementation" (fun _ ->
         System.Text.Encoding.UTF8 allProjects
 )
 
-Target "BuildUsingDefaultImplementation" (fun _ ->
+Target "BuildUsingStubImplementation" (fun _ ->
     Seq.iter restoreAndBuild defaultProjects
 )
 
@@ -59,23 +60,28 @@ Target "TestRefactoringProjects" (fun _ ->
     Seq.iter restoreAndTest refactoringProjects
 )
 
-Target "TestUsingExampleImplementation" (fun _ ->
-    let useExampleInsteadOfDefaultImplementation project =
+Target "ReplaceStubWithExampleImplementation" (fun _ ->
+    let replaceStubWithExampleImplementation project =
         let projectDir = directory project
+        let stubFile = projectDir @@ filename project + "" |> changeExt ".cs"
         let exampleFile = projectDir @@ "Example.cs"
-        let defaultFile = projectDir @@ filename project + "" |> changeExt ".cs"
-        CopyFile defaultFile exampleFile
+        
+        CopyFile stubFile exampleFile   
 
-    Seq.iter useExampleInsteadOfDefaultImplementation allProjects
+    Seq.iter replaceStubWithExampleImplementation allProjects
+)
+
+Target "TestUsingExampleImplementation" (fun _ ->
     Seq.iter restoreAndTest allProjects
 )
 
 "Clean"
   ==> "CopyExercises"
   ==> "IgnoreExampleImplementation"
-  ==> "BuildUsingDefaultImplementation"
+  ==> "BuildUsingStubImplementation"
   ==> "EnableAllTests"
   ==> "TestRefactoringProjects"
+  ==> "ReplaceStubWithExampleImplementation"
   ==> "TestUsingExampleImplementation"
 
 RunTargetOrDefault "TestUsingExampleImplementation"

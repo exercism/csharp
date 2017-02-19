@@ -5,11 +5,20 @@ public class ZipperTest
     private static BinTree<int> bt(int v, BinTree<int> l, BinTree<int> r) => new BinTree<int>(v, l, r);
     private static BinTree<int> leaf(int v) => bt(v, null, null);
 
-    private static readonly BinTree<int> empty = null;
-    private static readonly BinTree<int> t1 = new BinTree<int>(1, bt(2, empty, leaf(3)), leaf(4));
-    private static readonly BinTree<int> t2 = new BinTree<int>(1, bt(5, empty, leaf(3)), leaf(4));
-    private static readonly BinTree<int> t3 = new BinTree<int>(1, bt(2, leaf(5), leaf(3)), leaf(4));
-    private static readonly BinTree<int> t4 = new BinTree<int>(1, leaf(2), leaf(4));
+    private readonly BinTree<int> empty;
+    private readonly BinTree<int> t1;
+    private readonly BinTree<int> t2;
+    private readonly BinTree<int> t3;
+    private readonly BinTree<int> t4;
+
+    public ZipperTest()
+    {
+        empty = null;
+        t1 = new BinTree<int>(1, bt(2, empty, leaf(3)), leaf(4));
+        t2 = new BinTree<int>(1, bt(5, empty, leaf(3)), leaf(4));
+        t3 = new BinTree<int>(1, bt(2, leaf(5), leaf(3)), leaf(4));
+        t4 = new BinTree<int>(1, leaf(2), leaf(4));
+    }
 
     [Fact]
     public void Data_is_retained()
