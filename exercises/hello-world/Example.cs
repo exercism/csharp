@@ -1,7 +1,4 @@
-﻿public class HelloWorld
+﻿public static class HelloWorld
 {
-    public static string Hello(string name)
-    {
-        return $"Hello, {name ?? "World"}!";
-    }
+    public static string Hello() => "Hello, World!";
 }
