@@ -5,10 +5,17 @@ public delegate void HangmanChangedEventHandler(object sender, HangmanState stat
 
 public class HangmanState
 {
-    public HangmanGame.Status Status { get; set; }
+    public HangmanStatus Status { get; set; }
     public int RemainingGuesses { get; set; }
     public string MaskedWord { get; set; }
     public HashSet<char> Guesses { get; set; }
+}
+
+public enum HangmanStatus
+{
+    Busy,
+    Win,
+    Lose
 }
 
 public class HangmanGame
@@ -18,13 +25,6 @@ public class HangmanGame
 
     private readonly string word;
     private readonly HangmanState state;
-
-    public enum Status
-    {
-        Busy,
-        Win,
-        Lose
-    }
 
     public HangmanGame(string word)
     {
@@ -76,10 +76,10 @@ public class HangmanGame
     private void UpdateStatus()
     {
         if (state.MaskedWord == word)
-            state.Status = Status.Win;
+            state.Status = HangmanStatus.Win;
         else if (state.RemainingGuesses < 0)
-            state.Status = Status.Lose;        
+            state.Status = HangmanStatus.Lose;        
         else
-            state.Status = Status.Busy;
+            state.Status = HangmanStatus.Busy;
     }
 }

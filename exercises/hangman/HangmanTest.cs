@@ -12,7 +12,7 @@ public class HangmanTest
 
         game.Start();
 
-        Assert.Equal(HangmanGame.Status.Busy, lastState.Status);
+        Assert.Equal(HangmanStatus.Busy, lastState.Status);
         Assert.Equal(9, lastState.RemainingGuesses);
     }
 
@@ -44,7 +44,7 @@ public class HangmanTest
             game.Guess('x');
         }
 
-        Assert.Equal(HangmanGame.Status.Lose, lastState.Status);
+        Assert.Equal(HangmanStatus.Lose, lastState.Status);
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -59,13 +59,13 @@ public class HangmanTest
 
         game.Guess('b');
 
-        Assert.Equal(HangmanGame.Status.Busy, lastState.Status);
+        Assert.Equal(HangmanStatus.Busy, lastState.Status);
         Assert.Equal(9, lastState.RemainingGuesses);
         Assert.Equal("___b__", lastState.MaskedWord);
 
         game.Guess('o');
 
-        Assert.Equal(HangmanGame.Status.Busy, lastState.Status);
+        Assert.Equal(HangmanStatus.Busy, lastState.Status);
         Assert.Equal(9, lastState.RemainingGuesses);
         Assert.Equal("_oob__", lastState.MaskedWord);
     }
@@ -82,13 +82,13 @@ public class HangmanTest
 
         game.Guess('b');
 
-        Assert.Equal(HangmanGame.Status.Busy, lastState.Status);
+        Assert.Equal(HangmanStatus.Busy, lastState.Status);
         Assert.Equal(9, lastState.RemainingGuesses);
         Assert.Equal("___b__", lastState.MaskedWord);
 
         game.Guess('b');
 
-        Assert.Equal(HangmanGame.Status.Busy, lastState.Status);
+        Assert.Equal(HangmanStatus.Busy, lastState.Status);
         Assert.Equal(8, lastState.RemainingGuesses);
         Assert.Equal("___b__", lastState.MaskedWord);
     }
@@ -105,31 +105,31 @@ public class HangmanTest
 
         game.Guess('b');
 
-        Assert.Equal(HangmanGame.Status.Busy, lastState.Status);
+        Assert.Equal(HangmanStatus.Busy, lastState.Status);
         Assert.Equal(8, lastState.RemainingGuesses);
         Assert.Equal("_____", lastState.MaskedWord);
 
         game.Guess('e');
 
-        Assert.Equal(HangmanGame.Status.Busy, lastState.Status);
+        Assert.Equal(HangmanStatus.Busy, lastState.Status);
         Assert.Equal(8, lastState.RemainingGuesses);
         Assert.Equal("_e___", lastState.MaskedWord);
 
         game.Guess('l');
 
-        Assert.Equal(HangmanGame.Status.Busy, lastState.Status);
+        Assert.Equal(HangmanStatus.Busy, lastState.Status);
         Assert.Equal(8, lastState.RemainingGuesses);
         Assert.Equal("_ell_", lastState.MaskedWord);
 
         game.Guess('o');
 
-        Assert.Equal(HangmanGame.Status.Busy, lastState.Status);
+        Assert.Equal(HangmanStatus.Busy, lastState.Status);
         Assert.Equal(8, lastState.RemainingGuesses);
         Assert.Equal("_ello", lastState.MaskedWord);
 
         game.Guess('h');
 
-        Assert.Equal(HangmanGame.Status.Win, lastState.Status);
+        Assert.Equal(HangmanStatus.Win, lastState.Status);
         Assert.Equal("hello", lastState.MaskedWord);
     }
 }

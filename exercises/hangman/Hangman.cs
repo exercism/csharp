@@ -3,21 +3,21 @@ using System.Collections.Generic;
 
 public class HangmanState
 {
-    public HangmanGame.Status Status { get; set; }
+    public HangmanStatus Status { get; set; }
     public int RemainingGuesses { get; set; }
     public string MaskedWord { get; set; }
     public HashSet<char> Guesses { get; set; }
 }
 
+public enum HangmanStatus
+{
+    Busy,
+    Win,
+    Lose
+}
+
 public class HangmanGame
 {
-    public enum Status
-    {
-        Busy,
-        Win,
-        Lose
-    }
-
     public HangmanGame(string word)
     {
     }

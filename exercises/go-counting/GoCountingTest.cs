@@ -35,7 +35,7 @@ public class GoCountingTest
         var board = new GoCounting(boardFiveByFive);
         var result = board.TerritoryFor(new Tuple<int, int>(0, 1));
         var expected = new HashSet<Tuple<int, int>> { new Tuple<int, int>(0, 0), new Tuple<int, int>(0, 1), new Tuple<int, int>(1, 0) };
-        Assert.Equal(GoCounting.Player.Black, result.Item1);        
+        Assert.Equal(GoPlayer.Black, result.Item1);        
         Assert.True(expected.SetEquals(result.Item2));
     }
 
@@ -45,7 +45,7 @@ public class GoCountingTest
         var board = new GoCounting(boardFiveByFive);
         var result = board.TerritoryFor(new Tuple<int, int>(2, 3));
         var expected = new HashSet<Tuple<int, int>> { new Tuple<int, int>(2, 3) };
-        Assert.Equal(GoCounting.Player.White, result.Item1);
+        Assert.Equal(GoPlayer.White, result.Item1);
         Assert.True(expected.SetEquals(result.Item2));
     }
 
@@ -55,7 +55,7 @@ public class GoCountingTest
         var board = new GoCounting(boardFiveByFive);
         var result = board.TerritoryFor(new Tuple<int, int>(1, 4));
         var expected = new HashSet<Tuple<int, int>> { new Tuple<int, int>(0, 3), new Tuple<int, int>(0, 4), new Tuple<int, int>(1, 4) };
-        Assert.Equal(GoCounting.Player.None, result.Item1);
+        Assert.Equal(GoPlayer.None, result.Item1);
         Assert.True(expected.SetEquals(result.Item2));
     }
 
@@ -86,7 +86,7 @@ public class GoCountingTest
         var input = "B";
         var board = new GoCounting(input);
 
-        var expected = new Dictionary<GoCounting.Player, IEnumerable<Tuple<int, int>>>();
+        var expected = new Dictionary<GoPlayer, IEnumerable<Tuple<int, int>>>();
 
         Assert.Equal(expected, board.Territories());
     }
@@ -98,13 +98,13 @@ public class GoCountingTest
         var board = new GoCounting(input);
         var actual = board.Territories();
 
-        var expected = new Dictionary<GoCounting.Player, IEnumerable<Tuple<int, int>>>
+        var expected = new Dictionary<GoPlayer, IEnumerable<Tuple<int, int>>>
         {
-            [GoCounting.Player.None] = new[] { new Tuple<int, int>(0, 0) }
+            [GoPlayer.None] = new[] { new Tuple<int, int>(0, 0) }
         };
         
         Assert.Equal(expected.Keys, actual.Keys);
-        Assert.Equal(expected[GoCounting.Player.None], actual[GoCounting.Player.None]);
+        Assert.Equal(expected[GoPlayer.None], actual[GoPlayer.None]);
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -114,15 +114,15 @@ public class GoCountingTest
         var board = new GoCounting(input);
         var actual = board.Territories();
 
-        var expected = new Dictionary<GoCounting.Player, IEnumerable<Tuple<int, int>>>
+        var expected = new Dictionary<GoPlayer, IEnumerable<Tuple<int, int>>>
         {
-            [GoCounting.Player.Black] = new[] { new Tuple<int, int>(0, 0), new Tuple<int, int>(0, 1) },
-            [GoCounting.Player.White] = new[] { new Tuple<int, int>(3, 0), new Tuple<int, int>(3, 1) }
+            [GoPlayer.Black] = new[] { new Tuple<int, int>(0, 0), new Tuple<int, int>(0, 1) },
+            [GoPlayer.White] = new[] { new Tuple<int, int>(3, 0), new Tuple<int, int>(3, 1) }
         };
                 
         Assert.Equal(expected.Keys, actual.Keys);
-        Assert.Equal(expected[GoCounting.Player.Black], actual[GoCounting.Player.Black]);
-        Assert.Equal(expected[GoCounting.Player.White], actual[GoCounting.Player.White]);
+        Assert.Equal(expected[GoPlayer.Black], actual[GoPlayer.Black]);
+        Assert.Equal(expected[GoPlayer.White], actual[GoPlayer.White]);
     }
 
     private class EnumerableEqualityComparer<T> : IEqualityComparer<IEnumerable<T>>

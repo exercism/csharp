@@ -1,20 +1,20 @@
 ﻿using System;
 
+public enum ConnectWinner
+{
+    White,
+    Black,
+    None
+}
+
 public class Connect
 {
-    public enum Winner
-    {
-        White,
-        Black,
-        None
-    }
-
     public Connect(string input)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
     
-    public Winner Result()
+    public ConnectWinner Result()
     {
         throw new NotImplementedException("You need to implement this function.");
     }

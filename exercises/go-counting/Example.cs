@@ -2,33 +2,33 @@
 using System.Collections.Generic;
 using System.Linq;
 
+public enum GoPlayer
+{
+    None,
+    Black,
+    White
+}
+
 public class GoCounting
 {
-    public enum Player
-    {
-        None,
-        Black,
-        White
-    }
-
-    private readonly Player[][] board;
+    private readonly GoPlayer[][] board;
 
     public GoCounting(string input)
     {
         board = ParseBoard(input);
     }
 
-    private static Player CharToPlayer(char c)
+    private static GoPlayer CharToPlayer(char c)
     {
         switch (c)
         {
-            case 'B': return Player.Black;
-            case 'W': return Player.White;
-            default: return Player.None;
+            case 'B': return GoPlayer.Black;
+            case 'W': return GoPlayer.White;
+            default: return GoPlayer.None;
         }
     }
 
-    private static Player[][] ParseBoard(string input)
+    private static GoPlayer[][] ParseBoard(string input)
     {
         var split = input.Split('\n');
         var rows = split.Length;
@@ -44,9 +44,9 @@ public class GoCounting
         coordinate.Item2 >= 0 && coordinate.Item2 < Rows &&
         coordinate.Item1 >= 0 && coordinate.Item1 < Cols;
 
-    private Player GetPlayer(Tuple<int, int> coordinate) => board[coordinate.Item2][coordinate.Item1];
+    private GoPlayer GetPlayer(Tuple<int, int> coordinate) => board[coordinate.Item2][coordinate.Item1];
 
-    private bool IsEmpty(Tuple<int, int> coordinate) => GetPlayer(coordinate) == Player.None;
+    private bool IsEmpty(Tuple<int, int> coordinate) => GetPlayer(coordinate) == GoPlayer.None;
     private bool IsTaken(Tuple<int, int> coordinate) => !IsEmpty(coordinate);
 
     private IEnumerable<Tuple<int, int>> EmptyCoordinates()
@@ -63,10 +63,10 @@ public class GoCounting
 
         var coords = new[]
         {
-            new Tuple<int, int>(col, row - 1),
+            new Tuple<int, int>(col,   row - 1),
             new Tuple<int, int>(col-1, row),
             new Tuple<int, int>(col+1, row),
-            new Tuple<int, int>(col, row+1)
+            new Tuple<int, int>(col,   row+1)
         };
 
         return coords.Where(IsValidCoordinate);
@@ -78,7 +78,7 @@ public class GoCounting
     private IEnumerable<Tuple<int, int>> EmptyNeighborCoordinates(Tuple<int, int> coordinate) =>
         NeighborCoordinates(coordinate).Where(IsEmpty);
 
-    private Player TerritoryOwner(HashSet<Tuple<int, int>> coords)
+    private GoPlayer TerritoryOwner(HashSet<Tuple<int, int>> coords)
     {
         var neighborColors = coords.SelectMany(TakenNeighborCoordinates).Select(GetPlayer);
         var uniqueNeighborColors = ToSet(neighborColors);
@@ -86,7 +86,7 @@ public class GoCounting
         if (uniqueNeighborColors.Count == 1)
             return uniqueNeighborColors.First();
 
-        return Player.None;
+        return GoPlayer.None;
     }
 
     private HashSet<Tuple<int, int>> TerritoryHelper(HashSet<Tuple<int, int>> remainder, HashSet<Tuple<int, int>> acc)
@@ -107,7 +107,7 @@ public class GoCounting
             ? TerritoryHelper(ToSingletonSet(coordinate), ToSingletonSet(coordinate))
             : new HashSet<Tuple<int, int>>();
 
-    public Tuple<Player, IEnumerable<Tuple<int, int>>> TerritoryFor(Tuple<int, int> coord)
+    public Tuple<GoPlayer, IEnumerable<Tuple<int, int>>> TerritoryFor(Tuple<int, int> coord)
     {
         var coords = Territory(coord);
         if (!coords.Any())
@@ -117,7 +117,7 @@ public class GoCounting
         return Tuple.Create(owner, coords.AsEnumerable());
     }
 
-    private Dictionary<Player, IEnumerable<Tuple<int, int>>> TerritoriesHelper(HashSet<Tuple<int, int>> remainder, Dictionary<Player, IEnumerable<Tuple<int, int>>> acc)
+    private Dictionary<GoPlayer, IEnumerable<Tuple<int, int>>> TerritoriesHelper(HashSet<Tuple<int, int>> remainder, Dictionary<GoPlayer, IEnumerable<Tuple<int, int>>> acc)
     {
         if (!remainder.Any())
             return acc;
@@ -129,17 +129,17 @@ public class GoCounting
         var newRemainder = ToSet(remainder);
         newRemainder.ExceptWith(coords);
 
-        var newAcc = new Dictionary<Player, IEnumerable<Tuple<int, int>>>(acc)
+        var newAcc = new Dictionary<GoPlayer, IEnumerable<Tuple<int, int>>>(acc)
         {
             [owner] = coords
         };
         return TerritoriesHelper(newRemainder, newAcc);
     }
 
-    public Dictionary<Player, IEnumerable<Tuple<int, int>>> Territories()
+    public Dictionary<GoPlayer, IEnumerable<Tuple<int, int>>> Territories()
     {
         var emptyCoords = EmptyCoordinates();
-        return TerritoriesHelper(ToSet(emptyCoords), new Dictionary<Player, IEnumerable<Tuple<int, int>>>());
+        return TerritoriesHelper(ToSet(emptyCoords), new Dictionary<GoPlayer, IEnumerable<Tuple<int, int>>>());
     }
 
     private static HashSet<T> ToSet<T>(IEnumerable<T> value) => new HashSet<T>(value);

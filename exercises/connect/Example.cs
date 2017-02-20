@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 
+public enum ConnectWinner
+{
+    White,
+    Black,
+    None
+}
+
 public class Connect
 {
-    public enum Winner
-    {
-        White,
-        Black,
-        None
-    }
-
-    public enum Cell
+    private enum Cell
     {
         Empty,
         White,
@@ -107,14 +107,14 @@ public class Connect
     private bool WhiteWins() => ColorWins(Cell.White, IsWhiteStop, WhiteStart);
     private bool BlackWins() => ColorWins(Cell.Black, IsBlackStop, BlackStart);        
     
-    public Winner Result()
+    public ConnectWinner Result()
     {
         if (WhiteWins())
-            return Winner.White;
+            return ConnectWinner.White;
 
         if (BlackWins())
-            return Winner.Black;
+            return ConnectWinner.Black;
 
-        return Winner.None;
+        return ConnectWinner.None;
     }
 }
