@@ -3,20 +3,22 @@
 open Fake
 open Fake.DotNetCli
 
+let project = environVarOrDefault "project" "*"
 let buildDir = "./build/"
 let sourceDir = "./exercises/"
+let projectDirs = buildDir @@ project
 
-let testFiles = !! (buildDir @@ "*/*Test.cs")
-let allProjects = !! (buildDir @@ "*/*.csproj")
+let testFiles = !! (projectDirs @@ "*Test.cs")
+let allProjects = !! (projectDirs @@ "*.csproj")
 let defaultProjects = 
-    !! (buildDir @@ "*/*.csproj") -- 
-       (buildDir @@ "*/DotDsl.csproj") --
-       (buildDir @@ "*/Hangman.csproj") --
-       (buildDir @@ "*/React.csproj")
+    !! (projectDirs @@ ".csproj")        -- 
+       (projectDirs @@ "DotDsl.csproj")  --
+       (projectDirs @@ "Hangman.csproj") --
+       (projectDirs @@ "React.csproj")
 let refactoringProjects = 
-    !! (buildDir @@ "*/TreeBuilding.csproj") ++
-       (buildDir @@ "*/Ledger.csproj")       ++
-       (buildDir @@ "*/Markdown.csproj")
+    !! (projectDirs @@ "TreeBuilding.csproj") ++
+       (projectDirs @@ "Ledger.csproj")       ++
+       (projectDirs @@ "Markdown.csproj")
 
 let restore project = DotNetCli.Restore (fun p -> { p with Project = project })
 let build   project = DotNetCli.Build   (fun p -> { p with Project = project })
