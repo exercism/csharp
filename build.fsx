@@ -2,6 +2,7 @@
 
 open Fake
 open Fake.DotNetCli
+open System.Text
 
 let project = environVarOrDefault "project" "*"
 let buildDir = "./build/"
@@ -11,7 +12,7 @@ let projectDirs = buildDir @@ project
 let testFiles = !! (projectDirs @@ "*Test.cs")
 let allProjects = !! (projectDirs @@ "*.csproj")
 let defaultProjects = 
-    !! (projectDirs @@ ".csproj")        -- 
+    !! (projectDirs @@ "*.csproj")        -- 
        (projectDirs @@ "DotDsl.csproj")  --
        (projectDirs @@ "Hangman.csproj") --
        (projectDirs @@ "React.csproj")
@@ -40,22 +41,13 @@ Target "CopyExercises" (fun _ ->
     CopyDir buildDir sourceDir allFiles
 )
 
-Target "IgnoreExampleImplementation" (fun _ ->
-    RegexReplaceInFilesWithEncoding 
-        "</PropertyGroup>" 
-        "</PropertyGroup><ItemGroup><Compile Remove=\"Example.cs\" /></ItemGroup>"
-        System.Text.Encoding.UTF8 allProjects
-)
-
 Target "BuildUsingStubImplementation" (fun _ ->
     Seq.iter restoreAndBuild defaultProjects
 )
 
 Target "EnableAllTests" (fun _ ->
-    RegexReplaceInFilesWithEncoding 
-        "Skip\s*=\s*\"Remove to run test\"" 
-        "" 
-        System.Text.Encoding.UTF8 testFiles
+    let skipProperty = "Skip\s*=\s*\"Remove to run test\""
+    RegexReplaceInFilesWithEncoding skipProperty "" Encoding.UTF8 testFiles
 )
 
 Target "TestRefactoringProjects" (fun _ ->
@@ -64,11 +56,9 @@ Target "TestRefactoringProjects" (fun _ ->
 
 Target "ReplaceStubWithExampleImplementation" (fun _ ->
     let replaceStubWithExampleImplementation project =
-        let projectDir = directory project
-        let stubFile = projectDir @@ filename project + "" |> changeExt ".cs"
-        let exampleFile = projectDir @@ "Example.cs"
-        
-        CopyFile stubFile exampleFile   
+        let stubFile = filename project + "" |> changeExt ".cs"
+        let exampleFile = "Example.cs"
+        RegexReplaceInFileWithEncoding exampleFile stubFile Encoding.UTF8 project
 
     Seq.iter replaceStubWithExampleImplementation allProjects
 )
@@ -79,7 +69,6 @@ Target "TestUsingExampleImplementation" (fun _ ->
 
 "Clean"
   ==> "CopyExercises"
-  ==> "IgnoreExampleImplementation"
   ==> "BuildUsingStubImplementation"
   ==> "EnableAllTests"
   ==> "TestRefactoringProjects"
