@@ -10,6 +10,7 @@
 * [StackOverflow ](http://stackoverflow.com/questions/tagged/c%23) can be used to search for your problem and see if it has been answered already. You can also ask and answer questions.
 * [/r/csharp](https://www.reddit.com/r/csharp) is the C# subreddit.
 * [@dotnet](https://twitter.com/DotNet) is the official .NET Twitter account.
+* [Gitter](https://gitter.im/exercism/xcsharp) is the C# Gitter room, go here to get support and ask questions related to the C# track.
 
 ### Videos
 * In [On .NET](https://www.youtube.com/watch?v=GpLU0UdcGic&list=PL4Sf58qFxdyQuzB1mH5kln_otKpsIuoCO), Bertrand Le Roy interviews people on a wide variety of C#/.NET related subjects.
