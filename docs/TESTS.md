@@ -1,50 +1,33 @@
-### Windows
-All tests have been ignored except the first one for you to work on. To continue, just remove the ```[Ignore]``` attribute on the test to start working on it.
+## Running Tests
 
-Make sure [NUnit](http://nunit.org/?p=download) version 3.x is installed, if not already installed from the setup above.
+To run the tests, you first need to restore the project's dependencies using the following command:
 
-This installation should include the NUnit-Gui executable. Run this, and after compiling, open the assembly from the Gui and you are able to run the tests.
+```bash
+dotnet restore
+```
 
-**Note:** You may need to include the nunit-framework.dll in the same directory as the source code you're compiling if you get an error saying it can't find the ```nunit.framework.dll```.
+You can then run the tests by executing the following command:
 
-If you installed the NUnit runner through NuGet, the runner will be located in the ```\packages\NUnit.Console(version number)\tools``` folder where your project is.
+```bash
+dotnet test
+```
 
-If you installed NUnit manually the runner will be in the ```Program Files (x86)\NUnit(version number)\bin``` folder.
+## Solving the exercise
 
-![NUnit Runner](http://x.exercism.io/v3/tracks/csharp/docs/img/nUnitRunner.png)
+Solving an exercise means making all its tests pass. By default, only one test (the first one) is executed when you run the tests. This is intentional, as it allows you to focus on just making that one test pass. Once it passes, you can enable the next test by removing `Skip = "Remove to run test"` from the test's `[Fact]` or `[Theory]` attribute. When all tests have been enabled and your implementation makes them all pass, you'll have solved the exercise!
 
-Once you have been able to compile the code it will create a DLL in the ```\bin\Debug``` folder of your project. In the NUnit runner, select "Open Project" and select the DLL that was created from compiling. This will load all the tests and allow you to run them.
+To help you get started, each exercise comes with a stub implementation file. You can use this file as a starting point for building your solution. Feel free to remove or change this file if you think it is the right thing to do.
 
-![NUnit Runner Execute Tests](http://x.exercism.io/v3/tracks/csharp/docs/img/nUnitExecuteTests.png)
+## Using packages
 
-The NUnit runner will automatically reload the DLL if it has been updated.
+You should be able to solve most exercises without using any external packages. However, for the exercises where you do want to use an external package, you can add it to your project by running the following command:
 
-##### Visual Studio Integration
+```bash
+dotnet add package <package-name>
+```
 
-Another alternative to running the tests with NUnit-Gui is to run them directly in Visual Studio, which is very convenient if that's your IDE of choice. While the support is natively built in to Visual Studio 2015, for older versions you'll need to install the [NUnit Test Adapter](http://www.nunit.org/index.php?p=vsTestAdapter&r=2.6.2).
+Once the package has been added, you need to update the project's dependencies again to use it in your project:
 
-### Mac
-Xamarin Studio also ships with NUnit. To set the tests up you will have to add an NUnit library project to your solution, name it correctly and set a reference to your solution.
-
-This is the example setup for the "leap" exercise. We assume you created a solution called `LeapCalculator`.
-
-Right-click the solution and choose *Add* -> *Add New Project*.
-![Add Xamarin NUnit Test](http://x.exercism.io/v3/tracks/csharp/docs/img/xamarin-add-new-project.png)
-
-Then from the new project dialog, select an NUnit Library Project.
-![Xamarin NUnit](http://x.exercism.io/v3/tracks/csharp/docs/img/xamarin-nunit.jpg)
-
-For the project name append `.Tests` to the name of your solution. So in our case `LeapCalculator.Tests`
-![Xamarin NUnit](http://x.exercism.io/v3/tracks/csharp/docs/img/xamarin-naming.png)
-
-Set a reference to your solution with right-click on references in your test project. Then choose the Projects tab and tick the box to your solution and  click `ok`.
-
-![Xamarin NUnit](http://x.exercism.io/v3/tracks/csharp/docs/img/xamarin-edit-reference.png)
-
-![Xamarin NUnit](http://x.exercism.io/v3/tracks/csharp/docs/img/xamarin-add-reference.png)
-
-Add some of the tests from the exercise or write your own.
-
-To run the tests open the `Unit Tests` pad within Xamarin (View -> Pads -> Unit Tests) and click `Run All`.
-
-![Xamarin NUnit](http://x.exercism.io/v3/tracks/csharp/docs/img/xamarin-tests.png)
+```bash
+dotnet restore
+```
