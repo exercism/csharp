@@ -15,3 +15,5 @@ TestResult.xml
 junit-results.xml
 obj/
 bin/
+*.userprefs
+.idea/
