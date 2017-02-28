@@ -1,6 +1,6 @@
 using System;
 
-public class WordProblem
+public static class WordProblem
 {
     public static int Solve(string problem)
     {
