@@ -1,6 +1,6 @@
 ﻿using System;
 
-public class Grains
+public static class Grains
 {
     public static ulong Square(int n)
     {
