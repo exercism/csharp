@@ -2,7 +2,7 @@
 using System.Linq;
 using NUnit.Framework;
 
-public class ParallelLetterParallelLetterFrequency
+public class ParallelLetterFrequencyTest
 {
     // Poem by Friedrich Schiller. The corresponding music is the European Anthem.
     private const string OdeAnDieFreude =
