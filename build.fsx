@@ -1,66 +1,78 @@
-// Include Fake library
 #r "./packages/FAKE/tools/FakeLib.dll"
 
 open Fake
-open Fake.Testing.NUnit3
+open Fake.DotNetCli
+open System.Text
 
-// Directories
-let buildDir  = "./build/"
-let sourceDir  = "./exercises/"
+let project = environVarOrDefault "project" "*"
+let buildDir = "./build/"
+let sourceDir = "./exercises/"
+let projectDirs = buildDir @@ project
 
-// Files
-let solutionFile = buildDir @@ "/exercises.csproj"
-let compiledOutput = buildDir @@ "xcsharp.dll"
-let nunitToJunitTransformFile = "./paket-files" @@ "nunit" @@ "nunit-transforms" @@ "nunit3-junit" @@ "nunit3-junit.xslt"
+let testFiles = !! (projectDirs @@ "*Test.cs")
+let allProjects = !! (projectDirs @@ "*.csproj")
+let defaultProjects = 
+    !! (projectDirs @@ "*.csproj")        -- 
+       (projectDirs @@ "DotDsl.csproj")  --
+       (projectDirs @@ "Hangman.csproj") --
+       (projectDirs @@ "React.csproj")
+let refactoringProjects = 
+    !! (projectDirs @@ "TreeBuilding.csproj") ++
+       (projectDirs @@ "Ledger.csproj")       ++
+       (projectDirs @@ "Markdown.csproj")
 
-// Targets
-Target "PrepareUnchanged" (fun _ -> 
-    CleanDirs [buildDir]
+let restore project = DotNetCli.Restore (fun p -> { p with Project = project })
+let build   project = DotNetCli.Build   (fun p -> { p with Project = project })
+let test    project = DotNetCli.Test    (fun p -> { p with Project = project })
+
+let restoreAndBuild project = 
+    restore project
+    build project    
+
+let restoreAndTest project =    
+    restore project
+    test project
+
+Target "Clean" (fun _ -> 
+    DeleteDir buildDir
+)
+
+Target "CopyExercises" (fun _ -> 
     CopyDir buildDir sourceDir allFiles
 )
 
-Target "BuildUnchanged" (fun _ ->
-    MSBuildRelease buildDir "Build" [solutionFile]
-    |> Log "Build unchanged output: "
+Target "BuildUsingStubImplementation" (fun _ ->
+    Seq.iter restoreAndBuild defaultProjects
 )
 
-Target "PrepareTests" (fun _ ->
-    CleanDirs [buildDir]
-    CopyDir buildDir sourceDir allFiles
-
-    let ignorePattern = "(\[Ignore\(\"Remove to run test\"\)]|, Ignore = \"Remove to run test case\")"
-
-    !! (buildDir @@ "**/*Test.cs")
-    |> RegexReplaceInFilesWithEncoding ignorePattern "" System.Text.Encoding.UTF8
+Target "EnableAllTests" (fun _ ->
+    let skipProperty = "Skip\s*=\s*\"Remove to run test\""
+    RegexReplaceInFilesWithEncoding skipProperty "" Encoding.UTF8 testFiles
 )
 
-Target "BuildTests" (fun _ ->
-    MSBuildRelease buildDir "Build" [solutionFile]
-    |> Log "Build tests output: "
+Target "TestRefactoringProjects" (fun _ ->
+    Seq.iter restoreAndTest refactoringProjects
 )
 
-Target "Test" (fun _ ->
-    if getEnvironmentVarAsBool "APPVEYOR" then
-        [compiledOutput]
-        |> NUnit3 (fun p -> { p with 
-                                ShadowCopy = false
-                                ToolPath = "nunit3-console.exe" })
-    else if getEnvironmentVarAsBool "CIRCLECI" then
-        [compiledOutput]
-        |> NUnit3 (fun p -> { p with 
-                                ShadowCopy = false
-                                ResultSpecs = [sprintf "junit-results.xml;transform=%s" nunitToJunitTransformFile] })
-    else
-        [compiledOutput]
-        |> NUnit3 (fun p -> { p with ShadowCopy = false })
+Target "ReplaceStubWithExampleImplementation" (fun _ ->
+    let replaceStubWithExampleImplementation project =
+        let stubFile = filename project + "" |> changeExt ".cs"
+        let exampleFile = "Example.cs"
+        RegexReplaceInFileWithEncoding exampleFile stubFile Encoding.UTF8 project
+
+    Seq.iter replaceStubWithExampleImplementation allProjects
 )
 
-// Build order
-"PrepareUnchanged"
-  ==> "BuildUnchanged"
-  ==> "PrepareTests"
-  ==> "BuildTests"    
-  ==> "Test"
+Target "TestUsingExampleImplementation" (fun _ ->
+    Seq.iter restoreAndTest allProjects
+)
 
-// start build
-RunTargetOrDefault "Test"
+"Clean"
+  ==> "CopyExercises"
+  ==> "BuildUsingStubImplementation"
+  ==> "EnableAllTests"
+  ==> "TestRefactoringProjects"
+  ==> "ReplaceStubWithExampleImplementation"
+  ==> "TestUsingExampleImplementation"
+
+RunTargetOrDefault "TestUsingExampleImplementation"

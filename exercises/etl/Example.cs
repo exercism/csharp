@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-public class ETL
+public static class ETL
 {
     public static IDictionary<string, int> Transform(IDictionary<int, IList<string>> old)
     {

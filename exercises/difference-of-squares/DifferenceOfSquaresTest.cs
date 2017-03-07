@@ -1,82 +1,65 @@
 ﻿using System;
-using NUnit.Framework;
+using Xunit;
 
-[TestFixture]
 public class DifferenceOfSquaresTests
 {
-    [Test]
+    [Fact]
     public void Test_square_of_sums_to_5()
     {
-        Assert.That(new Squares(5).SquareOfSums(), Is.EqualTo(225));
+        Assert.Equal(225, Squares.SquareOfSums(5));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Test_sum_of_squares_to_5()
     {
-        Assert.That(new Squares(5).SumOfSquares(), Is.EqualTo(55));
+        Assert.Equal(55, Squares.SumOfSquares(5));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Test_difference_of_sums_to_5()
     {
-        Assert.That(new Squares(5).DifferenceOfSquares(), Is.EqualTo(170));
+        Assert.Equal(170, Squares.DifferenceOfSquares(5));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Test_square_of_sums_to_10()
     {
-        Assert.That(new Squares(10).SquareOfSums(), Is.EqualTo(3025));
+        Assert.Equal(3025, Squares.SquareOfSums(10));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Test_sum_of_squares_to_10()
     {
-        Assert.That(new Squares(10).SumOfSquares(), Is.EqualTo(385));
+        Assert.Equal(385, Squares.SumOfSquares(10));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Test_difference_of_sums_to_10()
     {
-        Assert.That(new Squares(10).DifferenceOfSquares(), Is.EqualTo(2640));
+        Assert.Equal(2640, Squares.DifferenceOfSquares(10));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Test_square_of_sums_to_100()
     {
-        Assert.That(new Squares(100).SquareOfSums(), Is.EqualTo(25502500));
+        Assert.Equal(25502500, Squares.SquareOfSums(100));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Test_sum_of_squares_to_100()
     {
-        Assert.That(new Squares(100).SumOfSquares(), Is.EqualTo(338350));
+        Assert.Equal(338350, Squares.SumOfSquares(100));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Test_difference_of_sums_to_100()
     {
-        Assert.That(new Squares(100).DifferenceOfSquares(), Is.EqualTo(25164150));
+        Assert.Equal(25164150, Squares.DifferenceOfSquares(100));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Test_difference_of_sums_0()
     {
-        Assert.That(new Squares(0).DifferenceOfSquares(), Is.EqualTo(0));
-    }
-
-    [Ignore("Remove to run test")]
-    [Test]
-    public void Test_negative_numbers_throw_argument_out_of_range_exception()
-    {
-        Assert.That(() => new Squares(-5), Throws.TypeOf<ArgumentOutOfRangeException>());
+        Assert.Equal(0, Squares.DifferenceOfSquares(0));
     }
 }

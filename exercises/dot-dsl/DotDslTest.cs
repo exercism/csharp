@@ -1,19 +1,21 @@
-﻿using NUnit.Framework;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Xunit;
 
 public class DotDslTest
 {
-    [Test]
+    [Fact]
     public void Empty_graph()
     {
         var g = new Graph();
 
-        Assert.That(g.Nodes, Is.Empty);
-        Assert.That(g.Edges, Is.Empty);
-        Assert.That(g.Attrs, Is.Empty);
+        Assert.Empty(g.Nodes);
+        Assert.Empty(g.Edges);
+        Assert.Empty(g.Attrs);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Graph_with_one_node()
     {
         var g = new Graph
@@ -21,13 +23,12 @@ public class DotDslTest
             new Node("a")
         };
 
-        Assert.That(g.Nodes, Is.EquivalentTo(new[] { new Node("a") }));
-        Assert.That(g.Edges, Is.Empty);
-        Assert.That(g.Attrs, Is.Empty);
+        Assert.Equal(new[] { new Node("a") }, g.Nodes);
+        Assert.Empty(g.Edges);
+        Assert.Empty(g.Attrs);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Graph_with_one_node_with_keywords()
     {
         var g = new Graph
@@ -35,13 +36,12 @@ public class DotDslTest
             new Node("a") { { "color", "green" } }
         };
 
-        Assert.That(g.Nodes, Is.EquivalentTo(new[] { new Node("a") { { "color", "green" } } }));
-        Assert.That(g.Edges, Is.Empty);
-        Assert.That(g.Attrs, Is.Empty);
+        Assert.Equal(new[] { new Node("a") { { "color", "green" } } }, g.Nodes);
+        Assert.Empty(g.Edges);
+        Assert.Empty(g.Attrs);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Graph_with_one_edge()
     {
         var g = new Graph
@@ -49,13 +49,12 @@ public class DotDslTest
             new Edge("a", "b")
         };
 
-        Assert.That(g.Nodes, Is.Empty);
-        Assert.That(g.Edges, Is.EquivalentTo(new[] { new Edge("a", "b") }));
-        Assert.That(g.Attrs, Is.Empty);
+        Assert.Empty(g.Nodes);
+        Assert.Equal(new[] { new Edge("a", "b") }, g.Edges);
+        Assert.Empty(g.Attrs);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Graph_with_one_attribute()
     {
         var g = new Graph
@@ -63,13 +62,12 @@ public class DotDslTest
             { "foo", "1" }
         };
 
-        Assert.That(g.Nodes, Is.Empty);
-        Assert.That(g.Edges, Is.Empty);
-        Assert.That(g.Attrs, Is.EquivalentTo(new[] { new Attr("foo", "1") }));
+        Assert.Empty(g.Nodes);
+        Assert.Empty(g.Edges);
+        Assert.Equal(new[] { new Attr("foo", "1") }, g.Attrs);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Graph_with_attributes()
     {
         var g = new Graph
@@ -84,8 +82,20 @@ public class DotDslTest
             { "bar", "true" }
         };
 
-        Assert.That(g.Nodes, Is.EquivalentTo(new[] { new Node("a") { { "color", "green" } }, new Node("b") { { "label", "Beta!" } }, new Node("c") }));
-        Assert.That(g.Edges, Is.EquivalentTo(new[] { new Edge("a", "b") { { "color", "blue" } }, new Edge("b", "c") }));
-        Assert.That(g.Attrs, Is.EquivalentTo(new[] { new Attr("bar", "true"), new Attr("foo", "1"), new Attr("title", "Testing Attrs") }));
+        Assert.Equal(new[] { new Node("a") { { "color", "green" } }, new Node("b") { { "label", "Beta!" } }, new Node("c") }, g.Nodes, EnumerableEqualityComparer<Node>.Instance);
+        Assert.Equal(new[] { new Edge("a", "b") { { "color", "blue" } }, new Edge("b", "c") }, g.Edges, EnumerableEqualityComparer<Edge>.Instance);
+        Assert.Equal(new[] { new Attr("bar", "true"), new Attr("foo", "1"), new Attr("title", "Testing Attrs") }, g.Attrs, EnumerableEqualityComparer<Attr>.Instance);
+    }
+
+    private class EnumerableEqualityComparer<T> : IEqualityComparer<IEnumerable<T>>
+    {
+        public static readonly EnumerableEqualityComparer<T> Instance = new EnumerableEqualityComparer<T>();
+
+        public bool Equals(IEnumerable<T> x, IEnumerable<T> y) => new HashSet<T>(x).SetEquals(y);
+
+        public int GetHashCode(IEnumerable<T> obj)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

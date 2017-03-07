@@ -1,21 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NUnit.Framework;
+using Xunit;
 
 public class BankAccountTest
 {
-    [Test]
+    [Fact]
     public void Returns_empty_balance_after_opening()
     {
         var account = new BankAccount();
         account.Open();
 
-        Assert.That(account.Balance, Is.EqualTo(0));
+        Assert.Equal(0, account.Balance);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Check_basic_balance()
     {
         var account = new BankAccount();
@@ -26,12 +25,11 @@ public class BankAccountTest
         account.UpdateBalance(10);
         var updatedBalance = account.Balance;
 
-        Assert.That(openingBalance, Is.EqualTo(0));
-        Assert.That(updatedBalance, Is.EqualTo(10));
+        Assert.Equal(0, openingBalance);
+        Assert.Equal(10, updatedBalance);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Balance_can_increment_and_decrement()
     {
         var account = new BankAccount();
@@ -44,24 +42,22 @@ public class BankAccountTest
         account.UpdateBalance(-15);
         var subtractedBalance = account.Balance;
 
-        Assert.That(openingBalance, Is.EqualTo(0));
-        Assert.That(addedBalance, Is.EqualTo(10));
-        Assert.That(subtractedBalance, Is.EqualTo(-5));
+        Assert.Equal(0, openingBalance);
+        Assert.Equal(10, addedBalance);
+        Assert.Equal(-5, subtractedBalance);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Closed_account_throws_exception_when_checking_balance()
     {
         var account = new BankAccount();
         account.Open();
         account.Close();
 
-        Assert.That(() => account.Balance, Throws.InvalidOperationException);
+        Assert.Throws<InvalidOperationException>(() => account.Balance);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Change_account_balance_from_multiple_threads()
     {
         var account = new BankAccount();
@@ -84,6 +80,6 @@ public class BankAccountTest
         }
         Task.WaitAll(tasks.ToArray());
 
-        Assert.That(account.Balance, Is.EqualTo(0));
+        Assert.Equal(0, account.Balance);
     }
 }

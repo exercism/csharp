@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-public class WordProblem
+public static class WordProblem
 {
     private static readonly Regex VariableAndOperatorGroupsRegex =
         new Regex(string.Format(@"{0} {1} {0}\s*{1}*\s*{0}*", @"(-?\d+)", "(plus|minus|multiplied by|divided by)"));

@@ -1,18 +1,17 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 
 public class FoodChainTest
 {
-    [Test]
+    [Fact]
     public void Verse_one()
     {
         const string expected = "I know an old lady who swallowed a fly.\n" +
                                 "I don't know why she swallowed the fly. Perhaps she'll die.";
 
-        Assert.That(FoodChain.Verse(1), Is.EqualTo(expected));
+        Assert.Equal(expected, FoodChain.Verse(1));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Verse_two()
     {
         const string expected = "I know an old lady who swallowed a spider.\n" +
@@ -20,11 +19,10 @@ public class FoodChainTest
                                 "She swallowed the spider to catch the fly.\n" +
                                 "I don't know why she swallowed the fly. Perhaps she'll die.";
 
-        Assert.That(FoodChain.Verse(2), Is.EqualTo(expected));
+        Assert.Equal(expected, FoodChain.Verse(2));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Verse_four()
     {
         const string expected = "I know an old lady who swallowed a cat.\n" +
@@ -34,21 +32,19 @@ public class FoodChainTest
                                 "She swallowed the spider to catch the fly.\n" +
                                 "I don't know why she swallowed the fly. Perhaps she'll die.";
 
-        Assert.That(FoodChain.Verse(4), Is.EqualTo(expected));
+        Assert.Equal(expected, FoodChain.Verse(4));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Verse_eight()
     {
         const string expected = "I know an old lady who swallowed a horse.\n" +
                                 "She's dead, of course!";
 
-        Assert.That(FoodChain.Verse(8), Is.EqualTo(expected));
+        Assert.Equal(expected, FoodChain.Verse(8));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Complete_song()
     {
         const string expected = "I know an old lady who swallowed a fly.\n" +
@@ -102,6 +98,6 @@ public class FoodChainTest
                                 "I know an old lady who swallowed a horse.\n" +
                                 "She's dead, of course!";
 
-        Assert.That(FoodChain.Song(), Is.EqualTo(expected));
+        Assert.Equal(expected, FoodChain.Song());
     }
 }

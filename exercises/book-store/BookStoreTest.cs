@@ -1,91 +1,79 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using NUnit.Framework;
+using Xunit;
 
-[TestFixture]
 public class BookStoreTest
 {
-    [Test]
+    [Fact]
     public void Basket_with_single_book()
     {
-        Assert.That(BookStore.CalculateTotalCost(MakeList(1)), Is.EqualTo(8));
+        Assert.Equal(8, BookStore.CalculateTotalCost(MakeList(1)));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Basket_with_two_of_same_book()
     {
-        Assert.That(BookStore.CalculateTotalCost(MakeList(2, 2)), Is.EqualTo(16));
+        Assert.Equal(16, BookStore.CalculateTotalCost(MakeList(2, 2)));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Empty_basket()
     {
-        Assert.That(BookStore.CalculateTotalCost(MakeList()), Is.EqualTo(0));
+        Assert.Equal(0, BookStore.CalculateTotalCost(MakeList()));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Basket_with_two_different_books()
     {
-        Assert.That(BookStore.CalculateTotalCost(MakeList(1, 2)), Is.EqualTo(15.2));
+        Assert.Equal(15.2, BookStore.CalculateTotalCost(MakeList(1, 2)));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Basket_with_three_different_books()
     {
-        Assert.That(BookStore.CalculateTotalCost(MakeList(1, 2, 3)), Is.EqualTo(21.6));
+        Assert.Equal(21.6, BookStore.CalculateTotalCost(MakeList(1, 2, 3)));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Basket_with_four_different_books()
     {
-        Assert.That(BookStore.CalculateTotalCost(MakeList(1, 2, 3, 4)), Is.EqualTo(25.6));
+        Assert.Equal(25.6, BookStore.CalculateTotalCost(MakeList(1, 2, 3, 4)));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Basket_with_five_different_books()
     {
-        Assert.That(BookStore.CalculateTotalCost(MakeList(1, 2, 3, 4, 5)), Is.EqualTo(30));
+        Assert.Equal(30, BookStore.CalculateTotalCost(MakeList(1, 2, 3, 4, 5)));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Basket_with_eight_books()
     {
-        Assert.That(BookStore.CalculateTotalCost(MakeList(1, 1, 2, 2, 3, 3, 4, 5)), Is.EqualTo(51.20));
+        Assert.Equal(51.20, BookStore.CalculateTotalCost(MakeList(1, 1, 2, 2, 3, 3, 4, 5)));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Basket_with_nine_books()
     {
-        Assert.That(BookStore.CalculateTotalCost(MakeList(1, 1, 2, 2, 3, 3, 4, 4, 5)), Is.EqualTo(55.60));
+        Assert.Equal(55.60, BookStore.CalculateTotalCost(MakeList(1, 1, 2, 2, 3, 3, 4, 4, 5)));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Basket_with_ten_books()
     {
-        Assert.That(BookStore.CalculateTotalCost(MakeList(1, 1, 2, 2, 3, 3, 4, 4, 5, 5)), Is.EqualTo(60));
+        Assert.Equal(60, BookStore.CalculateTotalCost(MakeList(1, 1, 2, 2, 3, 3, 4, 4, 5, 5)));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Basket_with_eleven_books()
     {
-        Assert.That(BookStore.CalculateTotalCost(MakeList(1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 1)), Is.EqualTo(68));
+        Assert.Equal(68, BookStore.CalculateTotalCost(MakeList(1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 1)));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Basket_with_twelve_books()
     {
-        Assert.That(BookStore.CalculateTotalCost(MakeList(1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 1, 2)), Is.EqualTo(75.20));
+        Assert.Equal(75.20, BookStore.CalculateTotalCost(MakeList(1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 1, 2)));
     }
 
     private static List<int> MakeList(params int[] values)

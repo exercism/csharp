@@ -1,4 +1,4 @@
-public class Bob
+public static class Bob
 {
     public static string Hey(string statement)
     {
@@ -25,5 +25,4 @@ public class Bob
     {
         return statement.Trim().EndsWith("?");
     }
-
 }

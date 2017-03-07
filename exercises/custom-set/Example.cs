@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-public class CustomSet<T> : IEnumerable<T>
+public class CustomSet<T> : IEnumerable<T>, IEquatable<IEnumerable<T>>
 {
     private readonly Dictionary<int, T> items = new Dictionary<int, T>();
 
@@ -69,4 +70,21 @@ public class CustomSet<T> : IEnumerable<T>
     }
 
     private IEnumerable<T> GetValuesFromKeys(IEnumerable<int> keys) => keys.Select(key => items[key]);
+    
+    public override bool Equals(object obj) => Equals(obj as IEnumerable<T>);
+
+    public override int GetHashCode() 
+    {
+        throw new NotImplementedException();
+    }
+
+    public bool Equals(IEnumerable<T> other)
+    {
+        return items.Keys.OrderBy(x => x).SequenceEqual(other.Select(o => o.GetHashCode()).OrderBy(x => x));
+    }
+
+    public int GetHashCode(IEnumerable<T> obj)
+    {
+        throw new NotImplementedException();
+    }
 }

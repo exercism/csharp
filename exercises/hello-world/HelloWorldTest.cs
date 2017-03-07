@@ -1,11 +1,10 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 
-[TestFixture]
 public class HelloWorldTest
 {
-    [Test]
+    [Fact]
     public void Say_hi()
     {
-        Assert.That(HelloWorld.Hello(), Is.EqualTo("Hello, World!"));
+        Assert.Equal("Hello, World!", HelloWorld.Hello());
     }
 }

@@ -1,20 +1,20 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 
-[TestFixture]
 public class IsogramTest
 {
-    [TestCase("duplicates", ExpectedResult = true)]
-    [TestCase("eleven", ExpectedResult = false, Ignore = "Remove to run test case")]
-    [TestCase("subdermatoglyphic", ExpectedResult = true, Ignore = "Remove to run test case")]
-    [TestCase("Alphabet", ExpectedResult = false, Ignore = "Remove to run test case")]
-    [TestCase("thumbscrew-japingly", ExpectedResult = true, Ignore = "Remove to run test case")]
-    [TestCase("Hjelmqvist-Gryb-Zock-Pfund-Wax", ExpectedResult = true, Ignore = "Remove to run test case")]
-    [TestCase("Heizölrückstoßabdämpfung", ExpectedResult = true, Ignore = "Remove to run test case")]
-    [TestCase("the quick brown fox", ExpectedResult = false, Ignore = "Remove to run test case")]
-    [TestCase("Emily Jung Schwartzkopf", ExpectedResult = true, Ignore = "Remove to run test case")]
-    [TestCase("éléphant", ExpectedResult = false, Ignore = "Remove to run test case")]
-    public bool Isogram_correctly_detects_isograms(string input)
+    [Theory]
+    [InlineData("duplicates", true)]
+    [InlineData("eleven", false)]
+    [InlineData("subdermatoglyphic", true)]
+    [InlineData("Alphabet", false)]
+    [InlineData("thumbscrew-japingly", true)]
+    [InlineData("Hjelmqvist-Gryb-Zock-Pfund-Wax", true)]
+    [InlineData("Heizölrückstoßabdämpfung", true)]
+    [InlineData("the quick brown fox", false)]
+    [InlineData("Emily Jung Schwartzkopf", true)]
+    [InlineData("éléphant", false)]
+    public void Isogram_correctly_detects_isograms(string input, bool expected)
     {
-        return Isogram.IsIsogram(input);
+        Assert.Equal(expected, Isogram.IsIsogram(input));
     }
 }
