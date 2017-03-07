@@ -6,7 +6,7 @@ The C# track is built on top of the [.NET Core](https://www.microsoft.com/net/co
 dotnet --version
 ```
 
-It the output is a version greater than or equal to `1.0.1`, the .NET Core SDK has been installed succesfully.
+It the output is a version greater than or equal to `1.0.0`, the .NET Core SDK has been installed succesfully.
 
 ### Using an IDE
 
