@@ -12,6 +12,12 @@ You can then run the tests by executing the following command:
 dotnet test
 ```
 
+Note: if the .NET CLI fails to detect your latest source code changes, please run the following command before running `dotnet test`:
+
+```bash
+dotnet clean
+```
+
 ## Solving the exercise
 
 Solving an exercise means making all its tests pass. By default, only one test (the first one) is executed when you run the tests. This is intentional, as it allows you to focus on just making that one test pass. Once it passes, you can enable the next test by removing `Skip = "Remove to run test"` from the test's `[Fact]` or `[Theory]` attribute. When all tests have been enabled and your implementation makes them all pass, you'll have solved the exercise!
