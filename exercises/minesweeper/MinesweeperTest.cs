@@ -1,19 +1,17 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 
-[TestFixture]
 public class MinesweeperTest
 {
-    [Test]
+    [Fact]
     public void Zero_sized_board()
     {
         var input = "";
         var expected = "";
 
-        Assert.That(Minesweeper.Annotate(input), Is.EqualTo(expected));
+        Assert.Equal(expected, Minesweeper.Annotate(input));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Empty_board()
     {
         var input = FormatInput(new[]
@@ -30,11 +28,10 @@ public class MinesweeperTest
             "   "
         });
 
-        Assert.That(Minesweeper.Annotate(input), Is.EqualTo(expected));
+        Assert.Equal(expected, Minesweeper.Annotate(input));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Board_full_of_mines()
     {
         var input = FormatInput(new[]
@@ -51,11 +48,10 @@ public class MinesweeperTest
             "***"
         });
 
-        Assert.That(Minesweeper.Annotate(input), Is.EqualTo(expected));
+        Assert.Equal(expected, Minesweeper.Annotate(input));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Surrounded()
     {
         var input = FormatInput(new[]
@@ -72,11 +68,10 @@ public class MinesweeperTest
             "***"
         });
 
-        Assert.That(Minesweeper.Annotate(input), Is.EqualTo(expected));
+        Assert.Equal(expected, Minesweeper.Annotate(input));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Horizontal_line()
     {
         var input = FormatInput(new[]
@@ -89,11 +84,10 @@ public class MinesweeperTest
             "1*2*1"
         });
 
-        Assert.That(Minesweeper.Annotate(input), Is.EqualTo(expected));
+        Assert.Equal(expected, Minesweeper.Annotate(input));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Vertical_line()
     {
         var input = FormatInput(new[]
@@ -114,11 +108,10 @@ public class MinesweeperTest
             "1"
         });
 
-        Assert.That(Minesweeper.Annotate(input), Is.EqualTo(expected));
+        Assert.Equal(expected, Minesweeper.Annotate(input));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Cross()
     {
         var input = FormatInput(new[]
@@ -139,7 +132,7 @@ public class MinesweeperTest
             " 2*2 "
         });
 
-        Assert.That(Minesweeper.Annotate(input), Is.EqualTo(expected));
+        Assert.Equal(expected, Minesweeper.Annotate(input));
     }
     
     private string FormatInput(string[] input)

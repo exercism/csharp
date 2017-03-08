@@ -1,28 +1,26 @@
 using System.Collections.Generic;
+using System.Linq;
 
 public class School
 {
-    public IDictionary<int, IList<string>> Roster { get; private set; }
-
-    public School()
-    {
-        Roster = new Dictionary<int, IList<string>>();
-    }
-
+    private readonly Dictionary<int, IList<string>> roster = new Dictionary<int, IList<string>>();
+    
     public void Add(string student, int grade)
     {
-        if (Roster.ContainsKey(grade))
-            Roster[grade].Add(student);
+        if (roster.ContainsKey(grade))
+            roster[grade].Add(student);
         else
-            Roster.Add(grade, new SortedList<string> { student });
+            roster.Add(grade, new SortedList<string> { student });
     }
 
-    public IList<string> Grade(int grade)
+    public IEnumerable<string> Roster(int grade) => roster[grade];
+
+    public IEnumerable<string> Grade(int grade)
     {
         IList<string> students;
-        if (Roster.TryGetValue(grade, out students))
-            return students;
-        return new List<string>(0);
+        if (roster.TryGetValue(grade, out students))
+            return students.AsEnumerable();
+        return Enumerable.Empty<string>();
     }
 }
 

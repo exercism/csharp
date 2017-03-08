@@ -8,7 +8,7 @@ public static class Say
     {
         if (number < 0L || number >= 1000000000000L)
         {
-            throw new ArgumentException("Number out of range.");
+            throw new ArgumentOutOfRangeException("Number out of range.");
         }
 
         if (number == 0L)

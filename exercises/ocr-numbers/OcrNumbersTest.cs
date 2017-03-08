@@ -1,168 +1,154 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 
 public class OcrNumbersTest
 {
-    [Test]
+    [Fact]
     public void Recognizes_zero()
     {
         var converted = OcrNumbers.Convert(" _ " + "\n" +
                                            "| |" + "\n" +
                                            "|_|" + "\n" +
                                            "   ");
-        Assert.That(converted, Is.EqualTo("0"));
+        Assert.Equal("0", converted);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Recognizes_one()
     {
         var converted = OcrNumbers.Convert("   " + "\n" +
                                            "  |" + "\n" +
                                            "  |" + "\n" +
                                            "   ");
-        Assert.That(converted, Is.EqualTo("1"));
+        Assert.Equal("1", converted);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Recognizes_two()
     {
         var converted = OcrNumbers.Convert(" _ " + "\n" +
                                            " _|" + "\n" +
                                            "|_ " + "\n" +
                                            "   ");
-        Assert.That(converted, Is.EqualTo("2"));
+        Assert.Equal("2", converted);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Recognizes_three()
     {
         var converted = OcrNumbers.Convert(" _ " + "\n" +
                                            " _|" + "\n" +
                                            " _|" + "\n" +
                                            "   ");
-        Assert.That(converted, Is.EqualTo("3"));
+        Assert.Equal("3", converted);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Recognizes_four()
     {
         var converted = OcrNumbers.Convert("   " + "\n" +
                                            "|_|" + "\n" +
                                            "  |" + "\n" +
                                            "   ");
-        Assert.That(converted, Is.EqualTo("4"));
+        Assert.Equal("4", converted);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Recognizes_five()
     {
         var converted = OcrNumbers.Convert(" _ " + "\n" +
                                            "|_ " + "\n" +
                                            " _|" + "\n" +
                                            "   ");
-        Assert.That(converted, Is.EqualTo("5"));
+        Assert.Equal("5", converted);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Recognizes_six()
     {
         var converted = OcrNumbers.Convert(" _ " + "\n" +
                                            "|_ " + "\n" +
                                            "|_|" + "\n" +
                                            "   ");
-        Assert.That(converted, Is.EqualTo("6"));
+        Assert.Equal("6", converted);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Recognizes_seven()
     {
         var converted = OcrNumbers.Convert(" _ " + "\n" +
                                            "  |" + "\n" +
                                            "  |" + "\n" +
                                            "   ");
-        Assert.That(converted, Is.EqualTo("7"));
+        Assert.Equal("7", converted);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Recognizes_eight()
     {
         var converted = OcrNumbers.Convert(" _ " + "\n" +
                                            "|_|" + "\n" +
                                            "|_|" + "\n" +
                                            "   ");
-        Assert.That(converted, Is.EqualTo("8"));
+        Assert.Equal("8", converted);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Recognizes_nine()
     {
         var converted = OcrNumbers.Convert(" _ " + "\n" +
                                            "|_|" + "\n" +
                                            " _|" + "\n" +
                                            "   ");
-        Assert.That(converted, Is.EqualTo("9"));
+        Assert.Equal("9", converted);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Recognizes_garble()
     {
         var converted = OcrNumbers.Convert("   " + "\n" +
                                            "| |" + "\n" +
                                            "| |" + "\n" +
                                            "   ");
-        Assert.That(converted, Is.EqualTo("?"));
+        Assert.Equal("?", converted);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Recognizes_ten()
     {
         var converted = OcrNumbers.Convert("    _ " + "\n" +
                                            "  || |" + "\n" +
                                            "  ||_|" + "\n" +
                                            "      ");
-        Assert.That(converted, Is.EqualTo("10"));
+        Assert.Equal("10", converted);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Recognizes_110101100()
     {
         var converted = OcrNumbers.Convert("       _     _        _  _ " + "\n" +
                                            "  |  || |  || |  |  || || |" + "\n" +
                                            "  |  ||_|  ||_|  |  ||_||_|" + "\n" +
                                            "                           ");
-        Assert.That(converted, Is.EqualTo("110101100"));
+        Assert.Equal("110101100", converted);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Recognizes_numbers_and_garble()
     {
         var converted = OcrNumbers.Convert("       _     _           _ " + "\n" +
                                            "  |  || |  || |     || || |" + "\n" +
                                            "  |  | _|  ||_|  |  ||_||_|" + "\n" +
                                            "                           ");
-        Assert.That(converted, Is.EqualTo("11?10?1?0"));
+        Assert.Equal("11?10?1?0", converted);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Recognizes_1234567890()
     {
         var converted = OcrNumbers.Convert("    _  _     _  _  _  _  _  _ " + "\n" +
                                            "  | _| _||_||_ |_   ||_||_|| |" + "\n" +
                                            "  ||_  _|  | _||_|  ||_| _||_|" + "\n" +
                                            "                              ");
-        Assert.That(converted, Is.EqualTo("1234567890"));
+        Assert.Equal("1234567890", converted);
     }
 }

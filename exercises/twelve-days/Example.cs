@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public class TwelveDaysSong
+public static class TwelveDaysSong
 {
-    public string Sing()
+    public static string Sing()
     {
         return Verses(1, 12);
     }
 
-    public string Verse(int verseNumber)
+    public static string Verse(int verseNumber)
     {
         switch(verseNumber)
         {
@@ -44,7 +44,7 @@ public class TwelveDaysSong
         }
     }
 
-    public string Verses(int start, int end)
+    public static string Verses(int start, int end)
     {
         var stringBuilder = new StringBuilder();
 

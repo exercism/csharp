@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-public class Atbash
+public static class Atbash
 {
     private const string PLAIN = "abcdefghijklmnopqrstuvwxyz";
     private const string CIPHER = "zyxwvutsrqponmlkjihgfedcba";
