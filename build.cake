@@ -1,59 +1,86 @@
 #addin "Cake.FileHelpers"
 
-// TODO:
-// Remove comments
-// Add option to take in project name from command line
-// Beautify
-// Remove limit of 2 from everywhere
-
 var target = Argument("target", "Default");
 var project = Argument("project", "*");
 
 var buildDir = "./build/";
 var sourceDir = "./exercises/";
-var projects = GetFiles(buildDir + "**/" + project + ".csproj");
+var projectDirs = GetFiles(buildDir + "**/" + project + ".csproj");
+
+var allProjects = GetFiles(buildDir + "**/*.csproj");
+
+/** The following exercises provide a stub implementation and the 
+    user has to complete the implementation. Therefore compiling 
+    these will result in failed compilation. Remove these and 
+    test the rest of the exercises.
+*/
+var defaultProjects = allProjects 
+    -  GetFiles(buildDir + "**/DotDsl.csproj")
+    -  GetFiles(buildDir + "**/Hangman.csproj")
+    -  GetFiles(buildDir + "**/React.csproj");
+
+/** These projects have full and working implementations, and have
+    all the tests enabled. These should pass without any changes.
+*/
+var refactoringProjects = GetFiles(buildDir + "**/TreeBuilding.csproj")
+    + GetFiles(buildDir + "**/Ledger.csproj")
+    + GetFiles(buildDir + "**/Markdown.csproj");
 
 
 Task("Clean")
 	.Does(() => {
-		CleanDirectory("./build/");   
+		CleanDirectory(buildDir);   
     });
 
 
-// Copy everything to build so we make no changes in the 
-// actual files.
-Task("Copy-Exercises")
+// Copy everything to build so we make no changes in the actual files.
+Task("CopyExercises")
     .IsDependentOn("Clean")
     .Does(() => {
         CopyDirectory(sourceDir, buildDir);
     });
 
 
-Task("Restore-Nuget-Packages")
-    .IsDependentOn("Copy-Exercises")
+Task("RestoreNugetPackages")
+    .IsDependentOn("CopyExercises")
     .Does(() => {
-       foreach (var project in projects) {
-            DotNetCoreRestore(project.ToString());
+       foreach (var project in projectDirs) {
+           DotNetCoreRestore(project.ToString());
        }
     });
 
 
-Task("Enable-All-Tests")
-    .IsDependentOn("Restore-Nuget-Packages")
+Task("RestoreAndBuildStubImplementations")
+    .IsDependentOn("RestoreNugetPackages")
+    .Does(() => {
+        foreach (var project in defaultProjects) {
+            DotNetCoreBuild(project.ToString());
+        }
+});
+
+Task("EnableAllTests")
+    .IsDependentOn("RestoreAndBuildStubImplementations")
     .Does(() => {
         var testFiles = GetFiles(buildDir + "**/*Test.cs");
         foreach (var testFile in testFiles) {
             var skipRE = @"Skip\s*=\s*""Remove to run test""";
             ReplaceRegexInFiles(buildDir + "**/*Test.cs", skipRE, "");
         }
-
     });
 
-
-Task("Replace-Stub-With-Example")
-    .IsDependentOn("Enable-All-Tests")
+Task("RestoreAndTestRefactoringProjects")
+    .IsDependentOn("EnableAllTests")
     .Does(() => {
-        foreach (var project in projects) {
+        foreach (var project in refactoringProjects) {
+            DotNetCoreTest(project.ToString());
+        }
+});
+
+
+Task("ReplaceStubWithExample")
+    .IsDependentOn("RestoreAndTestRefactoringProjects")
+    .Does(() => {
+        foreach (var project in allProjects) {
             var projectDir = project.GetDirectory();
             var projectName = project.GetFilenameWithoutExtension();
             var stub = projectDir.GetFilePath(projectName).AppendExtension("cs");
@@ -64,27 +91,17 @@ Task("Replace-Stub-With-Example")
         }
     });
 
-
-Task("Build")
-    .IsDependentOn("Replace-Stub-With-Example")
+Task("TestUsingExampleImplementation")
+    .IsDependentOn("ReplaceStubWithExample")
     .Does(() => {
-       foreach (var project in projects) {
-            DotNetCoreBuild(project.ToString());
-       }
-    });
-
-
-Task("Test")
-    .IsDependentOn("Build")
-    .Does(() => {
-        foreach (var project in projects) {
+        foreach (var project in allProjects) {
             DotNetCoreTest(project.ToString());
         }
     });
 
 
 Task("Default")
-    .IsDependentOn("Test")
+    .IsDependentOn("TestUsingExampleImplementation")
     .Does(() => {});
 
 
