@@ -3,20 +3,44 @@ using Xunit;
 public class AcronymTest
 {
     [Fact]
-    public void Empty_string_abbreviated_to_empty_string()
+    public void Basic()
     {
-        Assert.Equal(string.Empty, Acronym.Abbreviate(string.Empty));
+        Assert.Equal("PNG", Acronym.Abbreviate("Portable Network Graphics"));
     }
 
-    [Theory(Skip = "Remove to run test")]
-    [InlineData("Portable Network Graphics", "PNG")]
-    [InlineData("Ruby on Rails", "ROR")]
-    [InlineData("HyperText Markup Language", "HTML")]
-    [InlineData("First In, First Out", "FIFO")]
-    [InlineData("PHP: Hypertext Preprocessor", "PHP")]
-    [InlineData("Complementary metal-oxide semiconductor", "CMOS")]
-    public void Phrase_abbreviated_to_acronym(string phrase, string expected)
+    [Fact(Skip = "Remove to run test")]
+    public void Lowercase_words()
     {
-        Assert.Equal(expected, Acronym.Abbreviate(phrase));
+        Assert.Equal("ROR", Acronym.Abbreviate("Ruby on Rails"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Camelcase()
+    {
+        Assert.Equal("HTML", Acronym.Abbreviate("HyperText Markup Language"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Punctuation()
+    {
+        Assert.Equal("FIFO", Acronym.Abbreviate("First In, First Out"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void All_caps_words()
+    {
+        Assert.Equal("PHP", Acronym.Abbreviate("PHP: Hypertext Preprocessor"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void NonAcronymAllCapsWord()
+    {
+        Assert.Equal("GIMP", Acronym.Abbreviate("GNU Image Manipulation Program"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Hyphenated()
+    {
+        Assert.Equal("CMOS", Acronym.Abbreviate("Complementary metal-oxide semiconductor"));
     }
 }
