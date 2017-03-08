@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
-MinimumVisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 15.0.26124.0
 Project("{13B669BE-BB05-4DDF-9536-439F39A36129}") = "accumulate", "accumulate\accumulate.csproj", "{D063D598-EF0B-4EC7-9524-1CF222700A29}"
 EndProject
 Project("{13B669BE-BB05-4DDF-9536-439F39A36129}") = "acronym", "acronym\acronym.csproj", "{F3F868D6-685C-45C2-B02E-8B9A2F9E7A83}"
