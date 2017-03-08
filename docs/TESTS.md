@@ -12,7 +12,7 @@ You can then run the tests by executing the following command:
 dotnet test
 ```
 
-Note: the .NET CLI sometimes fails to detect your latest source code changes. To fix this, run the following command before running `dotnet test`:
+Note: if the .NET CLI fails to detect your latest source code changes, please run the following command before running `dotnet test`:
 
 ```bash
 dotnet clean
