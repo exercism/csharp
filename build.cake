@@ -1,11 +1,9 @@
 #addin "Cake.FileHelpers"
 
 var target = Argument("target", "Default");
-var project = Argument("project", "*");
 
 var buildDir = "./build/";
 var sourceDir = "./exercises/";
-var projectDirs = GetFiles(buildDir + "**/" + project + ".csproj");
 
 var allProjects = GetFiles(buildDir + "**/*.csproj");
 
@@ -28,7 +26,7 @@ var refactoringProjects = GetFiles(buildDir + "**/TreeBuilding.csproj")
 
 
 Task("Clean")
-	.Does(() => {
+    .Does(() => {
 		CleanDirectory(buildDir);   
     });
 
@@ -44,8 +42,8 @@ Task("CopyExercises")
 Task("RestoreNugetPackages")
     .IsDependentOn("CopyExercises")
     .Does(() => {
-       foreach (var project in projectDirs) {
-           DotNetCoreRestore(project.ToString());
+       foreach (var project in allProjects) {
+           DotNetCoreRestore(project.FullPath);
        }
     });
 
@@ -54,25 +52,24 @@ Task("RestoreAndBuildStubImplementations")
     .IsDependentOn("RestoreNugetPackages")
     .Does(() => {
         foreach (var project in defaultProjects) {
-            DotNetCoreBuild(project.ToString());
+            DotNetCoreBuild(project.FullPath);
         }
 });
+
 
 Task("EnableAllTests")
     .IsDependentOn("RestoreAndBuildStubImplementations")
     .Does(() => {
-        var testFiles = GetFiles(buildDir + "**/*Test.cs");
-        foreach (var testFile in testFiles) {
-            var skipRE = @"Skip\s*=\s*""Remove to run test""";
-            ReplaceRegexInFiles(buildDir + "**/*Test.cs", skipRE, "");
-        }
+        var skipRE = @"Skip\s*=\s*""Remove to run test""";
+        ReplaceRegexInFiles(buildDir + "**/*Test.cs", skipRE, "");
     });
+
 
 Task("RestoreAndTestRefactoringProjects")
     .IsDependentOn("EnableAllTests")
     .Does(() => {
         foreach (var project in refactoringProjects) {
-            DotNetCoreTest(project.ToString());
+            DotNetCoreTest(project.FullPath);
         }
 });
 
@@ -91,18 +88,19 @@ Task("ReplaceStubWithExample")
         }
     });
 
+
 Task("TestUsingExampleImplementation")
     .IsDependentOn("ReplaceStubWithExample")
     .Does(() => {
         foreach (var project in allProjects) {
-            DotNetCoreTest(project.ToString());
+            DotNetCoreTest(project.FullPath);
         }
     });
-
+    
 
 Task("Default")
     .IsDependentOn("TestUsingExampleImplementation")
-    .Does(() => {});
+    .Does(() => { });
 
 
 RunTarget(target);
