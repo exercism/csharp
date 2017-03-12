@@ -1,5 +1,5 @@
-﻿using Newtonsoft.Json;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
 
 namespace Generators
 {
@@ -12,7 +12,8 @@ namespace Generators
         public string Version { get; set; }
 
         public string[] Comments { get; set; }
-
+        
+        [JsonConverter(typeof(CanonicalDataCasesJsonConverter))]
         public CanonicalDataCase[] Cases { get; set; }
     }
 }
