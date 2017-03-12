@@ -1,0 +1,12 @@
+﻿using Xunit;
+
+public class {{ ClassName }}
+{
+{% for testMethod in TestMethods -%}
+    {% if forloop.first %}[Fact]{% else %}
+    [Fact(Skip = "Remove to run test")]{% endif %}
+    public void {{ testMethod.MethodName }}
+    {
+    }
+{% endfor -%}
+}
