@@ -2,7 +2,7 @@
 {
     public abstract class Exercise
     {
-        public Exercise(string name)
+        protected Exercise(string name)
         {
             Name = name;
         }

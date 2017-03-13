@@ -17,9 +17,6 @@ namespace Generators
         public static void Generate(Exercise exercise)
         {
             var testClassContents = GenerateTestClassContents(exercise);
-            
-            System.Console.WriteLine(testClassContents);
-
             SaveTestClassContentsToFile(TestFilePath(exercise), testClassContents);
         }
 
@@ -33,10 +30,8 @@ namespace Generators
         private static void SaveTestClassContentsToFile(string testClassFilePath, string testClassContents) => 
             File.WriteAllText(testClassFilePath, testClassContents);
 
-        private static string TestFilePath(Exercise exercise) =>
-            Path.Combine(@"d:\", TestFileName(exercise));
+        private static string TestFilePath(Exercise exercise) => Path.Combine("..", "exercises", exercise.Name, TestFileName(exercise));
 
-        private static string TestFileName(Exercise exercise) =>
-            $"{exercise.Name}Test.cs";
+        private static string TestFileName(Exercise exercise) => $"{exercise.Name}Test.cs";
     }
 }
