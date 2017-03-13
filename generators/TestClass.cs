@@ -1,4 +1,4 @@
-﻿namespace Generators.Templates
+﻿namespace Generators
 {
     public class TestClass
     {
