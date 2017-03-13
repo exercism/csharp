@@ -3,15 +3,12 @@
 tmp
 bin/configlet
 bin/configlet.exe
-.paket/paket.exe
 .vs/
 .vscode/
 tools/
 build/
 packages/
-paket-files
 TestResult.xml
-junit-results.xml
 obj/
 bin/
 *.userprefs
