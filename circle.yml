@@ -5,22 +5,13 @@ machine:
     DOTNET_CLI_TELEMETRY_OPTOUT: 1
 dependencies:
   pre:
-    - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+    - sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
     - sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
     - echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list
+    - sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
     - sudo apt-get update
+    - sudo apt-get install dotnet-dev-1.0.1
     - sudo apt-get install mono-complete
-    - sudo apt-get install gettext
-    - sudo apt-get install libcurl4-openssl-dev
-    - sudo apt-get install libicu-dev
-    - sudo apt-get install libssl-dev
-    - sudo apt-get install libunwind8
-    - sudo apt-get install zlib1g
-    - sudo apt-get install libstdc++6
-    - curl https://download.microsoft.com/download/B/4/6/B4678511-01F4-4F97-902B-0E58A985932A/dotnet-dev-debian-x64.1.0.0-rc4-004771.tar.gz -o /tmp/dotnet.tar.gz
-    - sudo mkdir -p /opt/dotnet
-    - sudo tar zxf /tmp/dotnet.tar.gz -C /opt/dotnet
-    - sudo ln -s /opt/dotnet/dotnet /usr/local/bin
 test:
   override:
     - ./build.sh
