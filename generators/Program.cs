@@ -1,5 +1,4 @@
-﻿using Generators.Templates;
-using System.Linq;
+﻿using System.Linq;
 
 namespace Generators
 {
@@ -38,25 +37,6 @@ namespace Generators
                 }
             };
 
-            const string testClassTemplate = 
-@"
-using Xunit;
-
-public class {ClassName}Test
-{
-{TestMethods}
-}
-";
-
-            const string testMethodTemplate =
-@"
-    [Fact{Skip}]
-    public void {TestName}()
-    {
-        {TestBody}
-    }
-";
-
             var x1 = new
             {
                 ClassName = testClass.ClassName,
@@ -65,30 +45,29 @@ public class {ClassName}Test
                     select new { MethodName = testMethod.MethodName, testMethod.Body }
             };
 
-            var y = TemplateRenderer.Render("TestClass", x1);
+            var y = TestClassRenderer.Render(testClass);
 
             System.Console.WriteLine(y);
-
-            //var actualTestTemplate = testClassTemplate
-            //    .Replace("{ClassName}", testClass.ClassName)
-            //    .Replace("{TestMethods}", string.Join("", testClass.TestMethods.Select((testMethod, index) =>
-            //        testMethodTemplate
-            //            .Replace("{TestName}", testMethod.MethodName)
-            //            .Replace("{TestBody}", testMethod.Body)
-            //            .Replace("{Skip}", index == 0 ? "" : "(Skip = \"Remove to run test\")"))));
-
-
-            //System.Console.WriteLine(actualTestTemplate);
         }
 
         protected abstract string Generate(CanonicalData canonicalData);
     }
-
-    
     
     public class LeapExerciseGenerator : Generator
     {
         public LeapExerciseGenerator() : base("leap")
+        {
+        }
+
+        protected override string Generate(CanonicalData canonicalData)
+        {
+            return null;
+        }
+    }
+
+    public class PigLatinExerciseGenerator : Generator
+    {
+        public PigLatinExerciseGenerator() : base("pig-latin")
         {
         }
 
