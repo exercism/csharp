@@ -1,4 +1,5 @@
-#addin "Cake.FileHelpers"
+using System.IO;
+using System.Text.RegularExpressions;
 
 var target = Argument("target", "Default");
 
@@ -38,9 +39,17 @@ Task("BuildStubImplementations")
 Task("EnableAllTests")
     .IsDependentOn("BuildStubImplementations")
     .Does(() => {
-        var testFiles = buildDir + "/*/*Test.cs";
-        var skipRegex = @"Skip\s*=\s*""Remove to run test""";
-        ReplaceRegexInFiles(testFiles, skipRegex, "");
+        var skipRegex = new Regex(@"Skip\s*=\s*""Remove to run test""", RegexOptions.Compiled);
+        var testFiles = GetFiles(buildDir + "/*/*Test.cs");
+
+        foreach (var testFile in testFiles) {
+            var contents = System.IO.File.ReadAllText(testFile.FullPath);
+
+            if (skipRegex.IsMatch(contents)) {
+                var updatedContents = skipRegex.Replace(contents, "");
+                System.IO.File.WriteAllText(testFile.FullPath, updatedContents);
+            }
+        }
     });
 
 Task("TestRefactoringProjects")
