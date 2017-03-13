@@ -19,14 +19,15 @@ namespace Generators.Exercises
             };
         }
 
-        private static TestMethod CreateTestMethod(CanonicalDataCase canonicalDataCase)
+        private static TestMethod CreateTestMethod(CanonicalDataCase canonicalDataCase, int index)
         {
             var year = Convert.ToInt32(canonicalDataCase.Input);
             var isTrue = Convert.ToBoolean(canonicalDataCase.Expected);
 
             return new TestMethod
             {
-                MethodName = canonicalDataCase.Description.Underscore(),
+                Index = index,
+                MethodName = canonicalDataCase.Description.Replace(":", " is").Transform(To.TestMethodName),
                 Body =  $"Assert.{isTrue}(Year.IsLeap({year}));"
             };
         }
