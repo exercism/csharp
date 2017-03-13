@@ -3,7 +3,6 @@ sudo: required
 dist: trusty
 addons:
   apt:
-    sources: ['ubuntu-toolchain-r-test']
     packages:
     - gettext
     - libcurl4-openssl-dev
@@ -11,7 +10,6 @@ addons:
     - libssl-dev
     - libunwind8
     - zlib1g
-    - libstdc++6
 env:
   global:
     - DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
@@ -20,12 +18,6 @@ mono:
   - 4.0.5
 os:
   - linux
-
-before_install:
-  - curl https://download.microsoft.com/download/B/4/6/B4678511-01F4-4F97-902B-0E58A985932A/dotnet-dev-debian-x64.1.0.0-rc4-004771.tar.gz -o /tmp/dotnet.tar.gz
-  - sudo mkdir -p /opt/dotnet
-  - sudo tar zxf /tmp/dotnet.tar.gz -C /opt/dotnet
-  - sudo ln -s /opt/dotnet/dotnet /usr/local/bin
 
 script:
   - ./bin/fetch-configlet
