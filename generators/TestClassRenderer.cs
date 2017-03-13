@@ -4,11 +4,8 @@ namespace Generators
 {
     public static class TestClassRenderer
     {
-        public static string Render(TestClass testClass)
-        {
-            const string testClassTemplate =
-@"
-using Xunit;
+        private const string testClassTemplate =
+@"using Xunit;
 
 public class {ClassName}Test
 {
@@ -16,26 +13,9 @@ public class {ClassName}Test
 }
 ";
 
-            const string testMethodTemplate =
-@"
-    [Fact{Skip}]
-    public void {TestName}()
-    {
-        {TestBody}
-    }
-";
-
-
-            var actualTestTemplate = testClassTemplate
+        public static string Render(TestClass testClass) =>
+            testClassTemplate
                 .Replace("{ClassName}", testClass.ClassName)
-                .Replace("{TestMethods}", string.Join("", testClass.TestMethods.Select((testMethod, index) =>
-                    testMethodTemplate
-                        .Replace("{TestName}", testMethod.MethodName)
-                        .Replace("{TestBody}", testMethod.Body)
-                        .Replace("{Skip}", index == 0 ? "" : "(Skip = \"Remove to run test\")"))));
-
-            return actualTestTemplate;
-
-        }
+                .Replace("{TestMethods}", string.Join("\n\n", testClass.TestMethods.Select(TestMethodRenderer.Render)));
     }
 }
