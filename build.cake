@@ -42,6 +42,8 @@ var refactoringProjects = GetFiles(buildPath + "/**/TreeBuilding.csproj")
     + GetFiles(buildPath + "/**/Ledger.csproj")
     + GetFiles(buildPath + "/**/Markdown.csproj");
 
+var dotNetCoreBuildSettings = new DotNetCoreBuildSettings { NoIncremental = true };
+
 
 ///////////////////////////////////////////////////////////////////////////////
 // TASKS
@@ -72,7 +74,7 @@ Task("RestoreNugetPackages")
 Task("RestoreAndBuildStubImplementations")
     .IsDependentOn("RestoreNugetPackages")
     .Does(() => {
-        DotNetCoreBuild(defaultSln);
+        DotNetCoreBuild(defaultSln, dotNetCoreBuildSettings);
 });
 
 
@@ -87,6 +89,8 @@ Task("EnableAllTests")
 Task("RestoreAndTestRefactoringProjects")
     .IsDependentOn("EnableAllTests")
     .Does(() => {
+        DotNetCoreBuild(refactoringSln, dotNetCoreBuildSettings);
+
         foreach (var project in refactoringProjects) {
             DotNetCoreTest(project.FullPath);
         }
@@ -111,6 +115,8 @@ Task("ReplaceStubWithExample")
 Task("TestUsingExampleImplementation")
     .IsDependentOn("ReplaceStubWithExample")
     .Does(() => {
+        DotNetCoreBuild(allSln, dotNetCoreBuildSettings);
+
         foreach (var project in allProjects) {
             DotNetCoreTest(project.FullPath);
         }
