@@ -1,9 +1,8 @@
 #addin "Cake.FileHelpers"
 
 var target = Argument("target", "Default");
-var project = Argument("project", "*");
 
-var sourceDir = "./exercises/";
+var sourceDir = "./exercises";
 var buildDir  = "./build";
 
 var defaultSln     = buildDir + "/Exercises.Default.sln";
