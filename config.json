@@ -857,7 +857,8 @@
   ],
   "ignored": [
     "docs",
-    "img"
+    "img",
+    "generators"
   ],
   "foregone": [    
     "lens-person",
