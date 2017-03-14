@@ -1,17 +1,17 @@
-using NUnit.Framework;
+using Xunit;
 
-[TestFixture]
 public class AtbashTest
 {
-    [TestCase("no", ExpectedResult = "ml")]
-    [TestCase("yes", ExpectedResult = "bvh", Ignore = "Remove to run test case")]
-    [TestCase("OMG", ExpectedResult = "lnt", Ignore = "Remove to run test case")]
-    [TestCase("mindblowingly", ExpectedResult = "nrmwy oldrm tob", Ignore = "Remove to run test case")]
-    [TestCase("Testing, 1 2 3, testing.", ExpectedResult = "gvhgr mt123 gvhgr mt", Ignore = "Remove to run test case")]
-    [TestCase("Truth is fiction.", ExpectedResult = "gifgs rhurx grlm", Ignore = "Remove to run test case")]
-    [TestCase("The quick brown fox jumps over the lazy dog.", ExpectedResult = "gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt", Ignore = "Remove to run test case")]
-    public string Encodes_words_using_atbash_cipher(string words)
+    [Theory]
+    [InlineData("no", "ml")]
+    [InlineData("yes", "bvh")]
+    [InlineData("OMG", "lnt")]
+    [InlineData("mindblowingly", "nrmwy oldrm tob")]
+    [InlineData("Testing, 1 2 3, testing.", "gvhgr mt123 gvhgr mt")]
+    [InlineData("Truth is fiction.", "gifgs rhurx grlm")]
+    [InlineData("The quick brown fox jumps over the lazy dog.", "gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt")]
+    public void Encodes_words_using_atbash_cipher(string words, string expected)
     {
-        return Atbash.Encode(words);
+        Assert.Equal(expected, Atbash.Encode(words));
     }
 }

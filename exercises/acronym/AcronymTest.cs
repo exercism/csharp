@@ -1,25 +1,46 @@
-namespace Exercism
+using Xunit;
+
+public class AcronymTest
 {
-    using NUnit.Framework;
-
-    [TestFixture]
-    public class AcronymTest
+    [Fact]
+    public void Basic()
     {
-        [Test]
-        public void Empty_string_abbreviated_to_empty_string()
-        {
-            Assert.That(Acronym.Abbreviate(string.Empty), Is.EqualTo(string.Empty));
-        }
+        Assert.Equal("PNG", Acronym.Abbreviate("Portable Network Graphics"));
+    }
 
-        [TestCase("Portable Network Graphics", ExpectedResult = "PNG", Ignore = "Remove to run test case")]
-        [TestCase("Ruby on Rails", ExpectedResult = "ROR", Ignore = "Remove to run test case")]
-        [TestCase("HyperText Markup Language", ExpectedResult = "HTML", Ignore = "Remove to run test case")]
-        [TestCase("First In, First Out", ExpectedResult = "FIFO", Ignore = "Remove to run test case")]
-        [TestCase("PHP: Hypertext Preprocessor", ExpectedResult = "PHP", Ignore = "Remove to run test case")]
-        [TestCase("Complementary metal-oxide semiconductor", ExpectedResult = "CMOS", Ignore = "Remove to run test case")]
-        public string Phrase_abbreviated_to_acronym(string phrase)
-        {
-            return Acronym.Abbreviate(phrase);
-        }
+    [Fact(Skip = "Remove to run test")]
+    public void Lowercase_words()
+    {
+        Assert.Equal("ROR", Acronym.Abbreviate("Ruby on Rails"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Camelcase()
+    {
+        Assert.Equal("HTML", Acronym.Abbreviate("HyperText Markup Language"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Punctuation()
+    {
+        Assert.Equal("FIFO", Acronym.Abbreviate("First In, First Out"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void All_caps_words()
+    {
+        Assert.Equal("PHP", Acronym.Abbreviate("PHP: Hypertext Preprocessor"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void NonAcronymAllCapsWord()
+    {
+        Assert.Equal("GIMP", Acronym.Abbreviate("GNU Image Manipulation Program"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Hyphenated()
+    {
+        Assert.Equal("CMOS", Acronym.Abbreviate("Complementary metal-oxide semiconductor"));
     }
 }

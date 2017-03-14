@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-public class BookStore
+public static class BookStore
 {
     public static double CalculateTotalCost(List<int> books)
     {

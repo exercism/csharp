@@ -1,8 +1,8 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 
 public class LedgerTest
 {
-    [Test]
+    [Fact]
     public void Empty_ledger()
     {
         var currency = "USD";
@@ -11,10 +11,10 @@ public class LedgerTest
         var expected =
             "Date       | Description               | Change       ";
 
-        Assert.That(Ledger.Format(currency, locale, entries), Is.EqualTo(expected));
+        Assert.Equal(expected, Ledger.Format(currency, locale, entries));
     }
 
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void One_entry()
     {
         var currency = "USD";
@@ -27,10 +27,10 @@ public class LedgerTest
             "Date       | Description               | Change       \n" +
             "01/01/2015 | Buy present               |      ($10.00)";
 
-        Assert.That(Ledger.Format(currency, locale, entries), Is.EqualTo(expected));
+        Assert.Equal(expected, Ledger.Format(currency, locale, entries));
     }
 
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Credit_and_debit()
     {
         var currency = "USD";
@@ -45,10 +45,10 @@ public class LedgerTest
             "01/01/2015 | Buy present               |      ($10.00)\n" +
             "01/02/2015 | Get present               |       $10.00 ";
 
-        Assert.That(Ledger.Format(currency, locale, entries), Is.EqualTo(expected));
+        Assert.Equal(expected, Ledger.Format(currency, locale, entries));
     }
 
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Multiple_entries_on_same_date_ordered_by_description()
     {
         var currency = "USD";
@@ -63,10 +63,10 @@ public class LedgerTest
             "01/01/2015 | Buy present               |      ($10.00)\n" +
             "01/01/2015 | Get present               |       $10.00 ";
 
-        Assert.That(Ledger.Format(currency, locale, entries), Is.EqualTo(expected));
+        Assert.Equal(expected, Ledger.Format(currency, locale, entries));
     }
 
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Final_order_tie_breaker_is_change()
     {
         var currency = "USD";
@@ -83,10 +83,10 @@ public class LedgerTest
             "01/01/2015 | Something                 |        $0.00 \n" +
             "01/01/2015 | Something                 |        $0.01 ";
 
-        Assert.That(Ledger.Format(currency, locale, entries), Is.EqualTo(expected));
+        Assert.Equal(expected, Ledger.Format(currency, locale, entries));
     }
 
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Overlong_descriptions()
     {
         var currency = "USD";
@@ -99,10 +99,10 @@ public class LedgerTest
             "Date       | Description               | Change       \n" +
             "01/01/2015 | Freude schoner Gotterf... |   ($1,234.56)";
 
-        Assert.That(Ledger.Format(currency, locale, entries), Is.EqualTo(expected));
+        Assert.Equal(expected, Ledger.Format(currency, locale, entries));
     }
 
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Euros()
     {
         var currency = "EUR";
@@ -115,10 +115,10 @@ public class LedgerTest
             "Date       | Description               | Change       \n" +
             "01/01/2015 | Buy present               |      (€10.00)";
 
-        Assert.That(Ledger.Format(currency, locale, entries), Is.EqualTo(expected));
+        Assert.Equal(expected, Ledger.Format(currency, locale, entries));
     }
 
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Dutch_locale()
     {
         var currency = "USD";
@@ -131,10 +131,10 @@ public class LedgerTest
             "Datum      | Omschrijving              | Verandering  \n" +
             "12-03-2015 | Buy present               |   $ 1.234,56 ";
 
-        Assert.That(Ledger.Format(currency, locale, entries), Is.EqualTo(expected));
+        Assert.Equal(expected, Ledger.Format(currency, locale, entries));
     }
 
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Dutch_negative_number_with_3_digits_before_decimal_point()
     {
         var currency = "USD";
@@ -147,10 +147,10 @@ public class LedgerTest
             "Datum      | Omschrijving              | Verandering  \n" +
             "12-03-2015 | Buy present               |     $ -123,45";
 
-        Assert.That(Ledger.Format(currency, locale, entries), Is.EqualTo(expected));
+        Assert.Equal(expected, Ledger.Format(currency, locale, entries));
     }
 
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void American_negative_number_with_3_digits_before_decimal_point()
     {
         var currency = "USD";
@@ -163,6 +163,6 @@ public class LedgerTest
             "Date       | Description               | Change       \n" +
             "03/12/2015 | Buy present               |     ($123.45)";
 
-        Assert.That(Ledger.Format(currency, locale, entries), Is.EqualTo(expected));
+        Assert.Equal(expected, Ledger.Format(currency, locale, entries));
     }
 }

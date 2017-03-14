@@ -17,7 +17,7 @@ public static class ScaleGenerator
     public static string[] Pitches(string tonic, string pattern)
     {
         var scale = Scale(tonic);
-        var index = Array.FindIndex(scale, pitch => string.Equals(pitch, tonic, StringComparison.InvariantCultureIgnoreCase));
+        var index = Array.FindIndex(scale, pitch => string.Equals(pitch, tonic, StringComparison.OrdinalIgnoreCase));
         var shiftedScale = Shift(index, scale);
 
         var pitches = new List<string>();

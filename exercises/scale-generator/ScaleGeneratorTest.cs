@@ -1,129 +1,116 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 
 public class ScaleGeneratorTest
 {
-    [Test]
+    [Fact]
     public void Major_scale()
     {
         var major = ScaleGenerator.Pitches("C", "MMmMMMm");
         var expected = new[] {"C", "D", "E", "F", "G", "A", "B"};
-        Assert.That(major, Is.EqualTo(expected));
+        Assert.Equal(expected, major);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Another_major_scale()
     {
         var major = ScaleGenerator.Pitches("G", "MMmMMMm");
         var expected = new[] {"G", "A", "B", "C", "D", "E", "F#"};
-        Assert.That(major, Is.EqualTo(expected));
+        Assert.Equal(expected, major);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Minor_scale()
     {
         var minor = ScaleGenerator.Pitches("f#", "MmMMmMM");
         var expected = new[] {"F#", "G#", "A", "B", "C#", "D", "E"};
-        Assert.That(minor, Is.EqualTo(expected));
+        Assert.Equal(expected, minor);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Another_minor_scale()
     {
         var minor = ScaleGenerator.Pitches("bb", "MmMMmMM");
         var expected = new[] {"Bb", "C", "Db", "Eb", "F", "Gb", "Ab"};
-        Assert.That(minor, Is.EqualTo(expected));
+        Assert.Equal(expected, minor);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Dorian_mode()
     {
         var dorian = ScaleGenerator.Pitches("d", "MmMMMmM");
         var expected = new[] {"D", "E", "F", "G", "A", "B", "C"};
-        Assert.That(dorian, Is.EqualTo(expected));
+        Assert.Equal(expected, dorian);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Mixolydian_mode()
     {
         var mixolydian = ScaleGenerator.Pitches("Eb", "MMmMMmM");
         var expected = new[] {"Eb", "F", "G", "Ab", "Bb", "C", "Db"};
-        Assert.That(mixolydian, Is.EqualTo(expected));
+        Assert.Equal(expected, mixolydian);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Lydian_mode()
     {
         var lydian = ScaleGenerator.Pitches("a", "MMMmMMm");
         var expected = new[] {"A", "B", "C#", "D#", "E", "F#", "G#"};
-        Assert.That(lydian, Is.EqualTo(expected));
+        Assert.Equal(expected, lydian);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Phrygian_mode()
     {
         var phrygian = ScaleGenerator.Pitches("e", "mMMMmMM");
         var expected = new[] {"E", "F", "G", "A", "B", "C", "D"};
-        Assert.That(phrygian, Is.EqualTo(expected));
+        Assert.Equal(expected, phrygian);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Locrian_mode()
     {
         var locrian = ScaleGenerator.Pitches("g", "mMMmMMM");
         var expected = new[] {"G", "Ab", "Bb", "C", "Db", "Eb", "F"};
-        Assert.That(locrian, Is.EqualTo(expected));
+        Assert.Equal(expected, locrian);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Harmonic_minor()
     {
         var harmonicMinor = ScaleGenerator.Pitches("d", "MmMMmAm");
         var expected = new[] {"D", "E", "F", "G", "A", "Bb", "Db"};
-        Assert.That(harmonicMinor, Is.EqualTo(expected));
+        Assert.Equal(expected, harmonicMinor);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Octatonic()
     {
         var octatonic = ScaleGenerator.Pitches("C", "MmMmMmMm");
         var expected = new[] {"C", "D", "D#", "F", "F#", "G#", "A", "B"};
-        Assert.That(octatonic, Is.EqualTo(expected));
+        Assert.Equal(expected, octatonic);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Hexatonic()
     {
         var hexatonic = ScaleGenerator.Pitches("Db", "MMMMMM");
         var expected = new[] {"Db", "Eb", "F", "G", "A", "B"};
-        Assert.That(hexatonic, Is.EqualTo(expected));
+        Assert.Equal(expected, hexatonic);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Pentatonic()
     {
         var pentatonic = ScaleGenerator.Pitches("A", "MMAMA");
         var expected = new[] {"A", "B", "C#", "E", "F#"};
-        Assert.That(pentatonic, Is.EqualTo(expected));
+        Assert.Equal(expected, pentatonic);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Enigmatic()
     {
         var enigmatic = ScaleGenerator.Pitches("G", "mAMMMmm");
         var expected = new[] {"G", "G#", "B", "C#", "D#", "F", "F#"};
-        Assert.That(enigmatic, Is.EqualTo(expected));
+        Assert.Equal(expected, enigmatic);
     }
 }

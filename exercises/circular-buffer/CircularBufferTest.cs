@@ -1,20 +1,20 @@
-﻿using NUnit.Framework;
+﻿using System;
+using Xunit;
 
 public class CircularBufferTest
 {
-    [Test]
+    [Fact]
     public void Write_and_read_back_one_item()
     {
         var buffer = new CircularBuffer<char>(1);
         buffer.Write('1');
         var val = buffer.Read();
 
-        Assert.That(val, Is.EqualTo('1'));
-        Assert.That(() => buffer.Read(), Throws.Exception);
+        Assert.Equal('1', val);
+        Assert.Throws<InvalidOperationException>(() => buffer.Read());
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Write_and_read_back_multiple_items()
     {
         var buffer = new CircularBuffer<char>(2);
@@ -24,13 +24,12 @@ public class CircularBufferTest
         var val1 = buffer.Read();
         var val2 = buffer.Read();
 
-        Assert.That(val1, Is.EqualTo('1'));
-        Assert.That(val2, Is.EqualTo('2'));
-        Assert.That(() => buffer.Read(), Throws.Exception);
+        Assert.Equal('1', val1);
+        Assert.Equal('2', val2);
+        Assert.Throws<InvalidOperationException>(() => buffer.Read());
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Clearing_buffer()
     {
         var buffer = new CircularBuffer<char>(3);
@@ -40,7 +39,7 @@ public class CircularBufferTest
 
         buffer.Clear();
 
-        Assert.That(() => buffer.Read(), Throws.Exception);
+        Assert.Throws<InvalidOperationException>(() => buffer.Read());
 
         buffer.Write('1');
         buffer.Write('2');
@@ -49,12 +48,11 @@ public class CircularBufferTest
         buffer.Write('3');
         var val2 = buffer.Read();
 
-        Assert.That(val1, Is.EqualTo('1'));
-        Assert.That(val2, Is.EqualTo('2'));
+        Assert.Equal('1', val1);
+        Assert.Equal('2', val2);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Alternate_write_and_read()
     {
         var buffer = new CircularBuffer<char>(2);
@@ -63,12 +61,11 @@ public class CircularBufferTest
         buffer.Write('2');
         var val2 = buffer.Read();
 
-        Assert.That(val1, Is.EqualTo('1'));
-        Assert.That(val2, Is.EqualTo('2'));
+        Assert.Equal('1', val1);
+        Assert.Equal('2', val2);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Reads_back_oldest_item()
     {
         var buffer1 = new CircularBuffer<char>(3);
@@ -79,23 +76,21 @@ public class CircularBufferTest
         buffer1.Write('3');
         var val2 = buffer1.Read();
         var val3 = buffer1.Read();
-        Assert.That(val2, Is.EqualTo('2'));
-        Assert.That(val3, Is.EqualTo('3'));
+        Assert.Equal('2', val2);
+        Assert.Equal('3', val3);
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Writing_to_a_full_buffer_throws_an_exception()
     {
         var buffer = new CircularBuffer<char>(2);
         buffer.Write('1');
         buffer.Write('2');
 
-        Assert.That(() => buffer.Write('A'), Throws.Exception);
+        Assert.Throws<InvalidOperationException>(() => buffer.Write('A'));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Overwriting_oldest_item_in_a_full_buffer()
     {
         var buffer = new CircularBuffer<char>(2);
@@ -106,13 +101,12 @@ public class CircularBufferTest
         var val1 = buffer.Read();
         var val2 = buffer.Read();
 
-        Assert.That(val1, Is.EqualTo('2'));
-        Assert.That(val2, Is.EqualTo('A'));
-        Assert.That(() => buffer.Read(), Throws.Exception);
+        Assert.Equal('2', val1);
+        Assert.Equal('A', val2);
+        Assert.Throws<InvalidOperationException>(() => buffer.Read());
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Forced_writes_to_non_full_buffer_should_behave_like_writes()
     {
         var buffer = new CircularBuffer<char>(2);
@@ -122,13 +116,12 @@ public class CircularBufferTest
         var val1 = buffer.Read();
         var val2 = buffer.Read();
 
-        Assert.That(val1, Is.EqualTo('1'));
-        Assert.That(val2, Is.EqualTo('2'));
-        Assert.That(() => buffer.Read(), Throws.Exception);
+        Assert.Equal('1', val1);
+        Assert.Equal('2', val2);
+        Assert.Throws<InvalidOperationException>(() => buffer.Read());
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Alternate_read_and_write_into_buffer_overflow()
     {
         var buffer = new CircularBuffer<char>(5);
@@ -155,11 +148,11 @@ public class CircularBufferTest
         var val7 = buffer.Read();
         var val8 = buffer.Read();
 
-        Assert.That(val4, Is.EqualTo('6'));
-        Assert.That(val5, Is.EqualTo('7'));
-        Assert.That(val6, Is.EqualTo('8'));
-        Assert.That(val7, Is.EqualTo('A'));
-        Assert.That(val8, Is.EqualTo('B'));
-        Assert.That(() => buffer.Read(), Throws.Exception);
+        Assert.Equal('6', val4);
+        Assert.Equal('7', val5);
+        Assert.Equal('8', val6);
+        Assert.Equal('A', val7);
+        Assert.Equal('B', val8);
+        Assert.Throws<InvalidOperationException>(() => buffer.Read());
     }
 }

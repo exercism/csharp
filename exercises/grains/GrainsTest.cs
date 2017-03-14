@@ -1,60 +1,52 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 
-[TestFixture]
 public class GrainsTest
 {
-    [Test]
+    [Fact]
     public void Test_square_1()
     {
-        Assert.That(Grains.Square(1), Is.EqualTo(1));
+        Assert.Equal(1ul, Grains.Square(1));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Test_square_2()
     {
-        Assert.That(Grains.Square(2), Is.EqualTo(2));
+        Assert.Equal(2ul, Grains.Square(2));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Test_square_3()
     {
-        Assert.That(Grains.Square(3), Is.EqualTo(4));
+        Assert.Equal(4ul, Grains.Square(3));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Test_square_4()
     {
-        Assert.That(Grains.Square(4), Is.EqualTo(8));
+        Assert.Equal(8ul, Grains.Square(4));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Test_square_16()
     {
-        Assert.That(Grains.Square(16), Is.EqualTo(32768));
+        Assert.Equal(32768ul, Grains.Square(16));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Test_square_32()
     {
-        Assert.That(Grains.Square(32), Is.EqualTo(2147483648));
+        Assert.Equal(2147483648ul, Grains.Square(32));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Test_square_64()
     {
-        Assert.That(Grains.Square(64), Is.EqualTo(9223372036854775808));
+        Assert.Equal(9223372036854775808ul, Grains.Square(64));
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Test_total_grains()
     {
-        Assert.That(Grains.Total(), Is.EqualTo(18446744073709551615));
+        Assert.Equal(18446744073709551615ul, Grains.Total());
     }
 }

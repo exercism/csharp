@@ -1,16 +1,15 @@
 machine:
   environment:
-    TERM: xterm-256color
+    DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+    DOTNET_CLI_TELEMETRY_OPTOUT: 1
 dependencies:
   pre:
-    - sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-    - echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list
+    - sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
+    - sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
     - sudo apt-get update
-    - sudo apt-get install mono-complete
+    - sudo apt-get install dotnet-dev-1.0.1
 test:
   override:
+    - ./bin/fetch-configlet
+    - ./bin/configlet .
     - ./build.sh
-  post:
-    - mkdir -p $CIRCLE_TEST_REPORTS/junit/
-    - sed -i '1 s/^\xef\xbb\xbf//' .*/junit-results.xml
-    - find . -type f -regex ".*/junit-results.xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;

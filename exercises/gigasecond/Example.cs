@@ -1,6 +1,6 @@
 using System;
 
-public class Gigasecond
+public static class Gigasecond
 {
     public static DateTime Date(DateTime birthDate)
     {

@@ -10,7 +10,12 @@ public static class Alphametics
         var expression = ExpressionParser.Equation.Parse(equation);
         
         var maps = GetValidMaps(expression.Chars, expression.StartChars);
-        return maps.First(map => expression.Solve(map) == 0);
+        var solution = maps.FirstOrDefault(map => expression.Solve(map) == 0);
+
+        if (solution == null)
+            throw new ArgumentException(nameof(equation));
+
+        return solution;
     }
     
     private static IEnumerable<IDictionary<char, int>> GetValidMaps(HashSet<char> chars, HashSet<char> startChars)

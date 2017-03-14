@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 using System.Linq;
 
 public class ConnectTest
@@ -8,7 +8,7 @@ public class ConnectTest
         return string.Join("\n", board.Select(x => x.Replace(" ", "")));
     }
 
-    [Test]
+    [Fact]
     public void Empty_board_has_no_winner()
     {
         var lines = new[] 
@@ -20,29 +20,26 @@ public class ConnectTest
                 "    . . . . ."
             };
         var board = new Connect(MakeBoard(lines));
-        Assert.That(board.Result(), Is.EqualTo(Connect.Winner.None));
+        Assert.Equal(ConnectWinner.None, board.Result());
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void One_by_one_board_with_black_stone()
     {
         var lines = new[] { "X" };
         var board = new Connect(MakeBoard(lines));
-        Assert.That(board.Result(), Is.EqualTo(Connect.Winner.Black));
+        Assert.Equal(ConnectWinner.Black, board.Result());
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void One_by_one_board_with_white_stone()
     {
         var lines = new[] { "O" };
         var board = new Connect(MakeBoard(lines));
-        Assert.That(board.Result(), Is.EqualTo(Connect.Winner.White));
+        Assert.Equal(ConnectWinner.White, board.Result());
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Convoluted_path()
     {
         var lines = new[] 
@@ -54,11 +51,10 @@ public class ConnectTest
                 "    O O O O O"
             };
         var board = new Connect(MakeBoard(lines));
-        Assert.That(board.Result(), Is.EqualTo(Connect.Winner.Black));
+        Assert.Equal(ConnectWinner.Black, board.Result());
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Rectangle_black_wins()
     {
         var lines = new[] 
@@ -70,11 +66,10 @@ public class ConnectTest
                 "    . O X ."
             };
         var board = new Connect(MakeBoard(lines));
-        Assert.That(board.Result(), Is.EqualTo(Connect.Winner.Black));
+        Assert.Equal(ConnectWinner.Black, board.Result());
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Rectangle_white_wins()
     {
         var lines = new[] 
@@ -86,11 +81,10 @@ public class ConnectTest
                 "    . O X ."
             };
         var board = new Connect(MakeBoard(lines));
-        Assert.That(board.Result(), Is.EqualTo(Connect.Winner.White));
+        Assert.Equal(ConnectWinner.White, board.Result());
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Spiral_black_wins()
     {
         var lines = new[]
@@ -106,11 +100,10 @@ public class ConnectTest
             "XXXXXXXXO"
         };
         var board = new Connect(MakeBoard(lines));
-        Assert.That(board.Result(), Is.EqualTo(Connect.Winner.Black));
+        Assert.Equal(ConnectWinner.Black, board.Result());
     }
 
-    [Ignore("Remove to run test")]
-    [Test]
+    [Fact(Skip = "Remove to run test")]
     public void Spiral_nobody_wins()
     {
         var lines = new[]
@@ -126,6 +119,6 @@ public class ConnectTest
             "XXXXXXXXO"
         };
         var board = new Connect(MakeBoard(lines));
-        Assert.That(board.Result(), Is.EqualTo(Connect.Winner.None));
+        Assert.Equal(ConnectWinner.None, board.Result());
     }
 }
