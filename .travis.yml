@@ -1,10 +1,8 @@
 language: csharp
-sudo: required
 dist: trusty
 dotnet: 1.0.1
 mono: none
-os:
-  - linux
+
 env:
   global:
     - DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
