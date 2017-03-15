@@ -8,7 +8,7 @@ namespace Generators
         private const string TestClassTemplate =
 @"{UsingNamespaces}
 
-public class {ClassName}Test
+public class {ClassName}
 {
 {Body}
 }";
