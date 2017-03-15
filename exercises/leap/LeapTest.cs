@@ -3,26 +3,26 @@ using Xunit;
 public class LeapTest
 {
     [Fact]
-    public void Valid_leap_year()
+    public void Year_not_divisible_by_4_is_common_year()
     {
-        Assert.True(Year.IsLeap(1996));
+        Assert.False(Year.IsLeap(2015));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Invalid_leap_year()
+    public void Year_divisible_by_4_not_divisible_by_100_is_leap_year()
     {
-        Assert.False(Year.IsLeap(1997));
+        Assert.True(Year.IsLeap(2016));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Turn_of_the_20th_century_is_not_a_leap_year()
+    public void Year_divisible_by_100_not_divisible_by_400_is_common_year()
     {
-        Assert.False(Year.IsLeap(1900));
+        Assert.False(Year.IsLeap(2100));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Turn_of_the_25th_century_is_a_leap_year()
+    public void Year_divisible_by_400_is_leap_year()
     {
-        Assert.True(Year.IsLeap(2400));
+        Assert.True(Year.IsLeap(2000));
     }
 }
