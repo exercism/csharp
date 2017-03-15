@@ -1,4 +1,7 @@
-﻿namespace Generators.Exercises
+﻿using System.Linq;
+using Humanizer;
+
+namespace Generators.Exercises
 {
     public abstract class Exercise
     {
@@ -9,6 +12,14 @@
 
         public string Name { get; }
 
-        public abstract TestClass CreateTestClass(CanonicalData canonicalData);
+        public TestClass CreateTestClass(CanonicalData canonicalData)
+        {
+            return new TestClass
+            {
+                ClassName = Name.Transform(To.TestClassName),
+                TestMethods = canonicalData.Cases.Select(CreateTestMethod).ToArray()
+            };
+        }
+        protected abstract TestMethod CreateTestMethod(CanonicalDataCase canonicalDataCase, int index);
     }
 }
