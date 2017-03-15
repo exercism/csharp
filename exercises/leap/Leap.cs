@@ -1,8 +1,8 @@
 using System;
 
-public static class Year
+public static class Leap
 {
-    public static bool IsLeap(int year)
+    public static bool IsLeapYear(int year)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
