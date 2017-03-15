@@ -54,6 +54,6 @@ namespace Generators
 
         private static string TestFilePath(Exercise exercise) => Path.Combine("..", "exercises", exercise.Name, TestFileName(exercise));
 
-        private static string TestFileName(Exercise exercise) => $"{exercise.Name.Transform(Humanizer.To.TitleCase)}Test.cs";
+        private static string TestFileName(Exercise exercise) => $"{exercise.Name.Transform(To.TestClassName)}Test.cs";
     }
 }
