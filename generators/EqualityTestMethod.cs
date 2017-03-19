@@ -13,7 +13,7 @@ namespace Generators
             var testedClassName = GetTestedClassName(testMethodData);
             var testedMethod = GetTestedMethod(testMethodData);
 
-            return $"Assert.Equals({expected}, {testedClassName}.{testedMethod}({input}));";
+            return $"Assert.Equal({expected}, {testedClassName}.{testedMethod}({input}));";
         }
 
         protected virtual object GetInput(TestMethodData testMethodData)
