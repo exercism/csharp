@@ -7,6 +7,6 @@
         }
 
         protected override TestMethod CreateTestMethod(TestMethodData testMethodData)
-            => new BooleanTestMethod(testMethodData);
+            => CreateBooleanTestMethod(testMethodData);
     }
 }
