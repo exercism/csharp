@@ -33,7 +33,7 @@ public class AcronymTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void NonAcronymAllCapsWord()
+    public void Non_acronym_all_caps_word()
     {
         Assert.Equal("GIMP", Acronym.Abbreviate("GNU Image Manipulation Program"));
     }
