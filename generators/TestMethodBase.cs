@@ -4,22 +4,22 @@ namespace Generators
 {
     public abstract class TestMethodBase : TestMethod
     {
-        protected TestMethodBase(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase, int index)
+        protected TestMethodBase(TestMethodData testMethodData)
         {
-            MethodName = GetMethodName(canonicalDataCase);
-            Body = GetBody(canonicalData, canonicalDataCase);
-            Index = index;
+            MethodName = GetMethodName(testMethodData);
+            Body = GetBody(testMethodData);
+            Index = testMethodData.Index;
         }
 
-        protected abstract string GetBody(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase);
+        protected abstract string GetBody(TestMethodData testMethodData);
 
-        protected virtual string GetMethodName(CanonicalDataCase canonicalDataCase)
-            => canonicalDataCase.Description.Replace(":", " is").Transform(To.TestMethodName);    
+        protected virtual string GetMethodName(TestMethodData testMethodData)
+            => testMethodData.CanonicalDataCase.Description.Replace(":", " is").Transform(To.TestMethodName);    
 
-        protected virtual string GetTestedClassName(CanonicalData canonicalData)
-            => canonicalData.Exercise.Transform(To.TestedClassName);
+        protected virtual string GetTestedClassName(TestMethodData testMethodData)
+            => testMethodData.CanonicalData.Exercise.Transform(To.TestedClassName);
 
-        protected virtual string GetTestedMethod(CanonicalDataCase canonicalDataCase)
-            => canonicalDataCase.Property.Transform(To.TestedMethodName);
+        protected virtual string GetTestedMethod(TestMethodData testMethodData)
+            => testMethodData.CanonicalDataCase.Property.Transform(To.TestedMethodName);
     }
 }

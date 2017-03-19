@@ -17,9 +17,15 @@ namespace Generators.Exercises
             return new TestClass
             {
                 ClassName = Name.Transform(To.TestClassName),
-                TestMethods = canonicalData.Cases.Select((canonicalDataCase, index) => CreateTestMethod(canonicalData, canonicalDataCase, index)).ToArray()
+                TestMethods = canonicalData.Cases.Select((canonicalDataCase, index) => CreateTestMethod(new TestMethodData 
+                { 
+                    CanonicalData = canonicalData, 
+                    CanonicalDataCase = canonicalDataCase, 
+                    Index = index
+                })).ToArray()
             };
         }
-        protected abstract TestMethod CreateTestMethod(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase, int index);
+        
+        protected abstract TestMethod CreateTestMethod(TestMethodData testMethodData);
     }
 }

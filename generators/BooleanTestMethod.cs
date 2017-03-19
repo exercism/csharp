@@ -4,23 +4,23 @@ namespace Generators
 {
     public class BooleanTestMethod : TestMethodBase
     {
-        public BooleanTestMethod(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase, int index)
-            : base(canonicalData, canonicalDataCase, index)
+        public BooleanTestMethod(TestMethodData testMethodData) : base(testMethodData)
         {
         }
 
-        protected override string GetBody(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase)
+        protected override string GetBody(TestMethodData testMethodData)
         {
-            var isTrue = Convert.ToBoolean(canonicalDataCase.Expected);
-            var testedClassName = GetTestedClassName(canonicalData);
-            var testedMethod = GetTestedMethod(canonicalDataCase);
+            var isTrue = Convert.ToBoolean(testMethodData.CanonicalDataCase.Expected);
+            var testedClassName = GetTestedClassName(testMethodData);
+            var testedMethod = GetTestedMethod(testMethodData);
+            var input = testMethodData.CanonicalDataCase.Input;
 
-            return $"Assert.{isTrue}({testedClassName}.{testedMethod}({canonicalDataCase.Input}));";
+            return $"Assert.{isTrue}({testedClassName}.{testedMethod}({input}));";
         }
 
-        protected override string GetTestedMethod(CanonicalDataCase canonicalDataCase)
+        protected override string GetTestedMethod(TestMethodData testMethodData)
         {
-            var testedMethod = base.GetTestedMethod(canonicalDataCase);
+            var testedMethod = base.GetTestedMethod(testMethodData);
             return testedMethod.StartsWith("Is") ? testedMethod : "Is" + testedMethod;
         }
     }

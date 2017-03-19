@@ -6,7 +6,7 @@
         {
         }
 
-        protected override TestMethod CreateTestMethod(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase, int index)
-            =>  new BooleanTestMethod(canonicalData, canonicalDataCase, index);
+        protected override TestMethod CreateTestMethod(TestMethodData testMethodData)
+            => new BooleanTestMethod(testMethodData);
     }
 }
