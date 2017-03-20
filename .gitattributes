@@ -1,0 +1,11 @@
+*        text=auto
+
+*.cs     text=auto diff=csharp
+*.csproj text=auto
+*.sln    text=auto eol=crlf
+*.sh     eol=lf
+*.ps1    eol=crlf
+
+*.jpg    binary
+*.png    binary
+*.gif    binary
