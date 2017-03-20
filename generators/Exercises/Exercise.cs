@@ -49,7 +49,7 @@ namespace Generators.Exercises
         protected virtual TestMethod CreateTestMethod(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase, int index)
         {
             var testMethodData = CreateTestMethodData(canonicalData, canonicalDataCase, index);
-
+            
             if (testMethodData.CanonicalDataCase.Expected is JObject jObject)
                 return CreateExceptionTestMethod(testMethodData);
 
@@ -61,8 +61,12 @@ namespace Generators.Exercises
                 {
                     CanonicalData = canonicalData,
                     CanonicalDataCase = canonicalDataCase,
-                    Index = index
+                    Index = index,
+                    Options = CreateTestMethodOptions(canonicalData, canonicalDataCase, index)
                 };
+
+        protected virtual TestMethodOptions CreateTestMethodOptions(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase, int index) 
+            => new TestMethodOptions();
 
         protected virtual TestMethod CreateBooleanTestMethod(TestMethodData testMethodData) 
             => BooleanTestMethodGenerator.Create(testMethodData);
