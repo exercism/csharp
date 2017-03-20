@@ -7,6 +7,6 @@ namespace Generators.Methods
         public CanonicalData CanonicalData { get; set; }
         public CanonicalDataCase CanonicalDataCase { get; set;}
         public int Index { get; set; }
-        public TestMethodOptions Options { get; } = new TestMethodOptions();
+        public TestMethodOptions Options { get; set; } = new TestMethodOptions();
     }
 }

@@ -8,5 +8,6 @@ namespace Generators.Methods
         public bool FormatInput { get; set; } = true;
         public bool FormatExpected { get; set; } = true;
         public Type ExceptionType { get; set; } = typeof(ArgumentException);
+        public TestedMethodType TestedMethodType { get; set; } = TestedMethodType.Static;
     }
 }
