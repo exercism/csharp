@@ -1,6 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Generators.Classes;
+using Generators.Data;
+using Generators.Methods;
 using Humanizer;
+using Newtonsoft.Json.Linq;
+using To = Generators.Helpers.To;
 
 namespace Generators.Exercises
 {
@@ -8,6 +13,7 @@ namespace Generators.Exercises
     {
         private static readonly BooleanTestMethodGenerator BooleanTestMethodGenerator = new BooleanTestMethodGenerator();
         private static readonly EqualityTestMethodGenerator EqualityTestMethodGenerator = new EqualityTestMethodGenerator();
+        private static readonly ExceptionTestMethodGenerator ExceptionTestMethodGenerator = new ExceptionTestMethodGenerator();
 
         protected Exercise(string name)
         {
@@ -16,25 +22,55 @@ namespace Generators.Exercises
 
         public string Name { get; }
 
-        public TestClass CreateTestClass(CanonicalData canonicalData) => new TestClass
+        public TestClass CreateTestClass(CanonicalData canonicalData)
         {
-            ClassName = Name.Transform(To.TestClassName),
-            TestMethods = CreateTestMethods(canonicalData).ToArray()
-        };
-        
-        private IEnumerable<TestMethod> CreateTestMethods(CanonicalData canonicalData)
-            => canonicalData.Cases.Select((canonicalDataCase, index) => CreateTestMethod(new TestMethodData 
-                { 
-                    CanonicalData = canonicalData, 
-                    CanonicalDataCase = canonicalDataCase, 
-                    Index = index
-                }));
+            var testClass = new TestClass
+            {
+                ClassName = Name.Transform(To.TestClassName),
+                TestMethods = CreateTestMethods(canonicalData).ToArray()
+            };
+
+            AddTestMethodUsingNamespaces(testClass);
+
+            return testClass;
+        }
+
+        private static void AddTestMethodUsingNamespaces(TestClass testClass)
+        {
+            foreach (var testMethod in testClass.TestMethods)
+                testClass.UsingNamespaces.UnionWith(testMethod.UsingNamespaces);
+        }
+
         protected abstract TestMethod CreateTestMethod(TestMethodData testMethodData);
 
-        protected TestMethod CreateBooleanTestMethod(TestMethodData testMethodData) 
+        protected virtual IEnumerable<TestMethod> CreateTestMethods(CanonicalData canonicalData) 
+            => canonicalData.Cases.Select((t, i) => CreateTestMethod(canonicalData, t, i));
+        
+        protected virtual TestMethod CreateTestMethod(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase, int index)
+        {
+            var testMethodData = CreateTestMethodData(canonicalData, canonicalDataCase, index);
+
+            if (testMethodData.CanonicalDataCase.Expected is JObject jObject)
+                return CreateExceptionTestMethod(testMethodData);
+
+            return CreateTestMethod(testMethodData);
+        }
+
+        protected virtual TestMethodData CreateTestMethodData(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase, int index) 
+            => new TestMethodData
+                {
+                    CanonicalData = canonicalData,
+                    CanonicalDataCase = canonicalDataCase,
+                    Index = index
+                };
+
+        protected virtual TestMethod CreateBooleanTestMethod(TestMethodData testMethodData) 
             => BooleanTestMethodGenerator.Create(testMethodData);
 
-        protected TestMethod CreateEqualityTestMethod(TestMethodData testMethodData) 
+        protected virtual TestMethod CreateEqualityTestMethod(TestMethodData testMethodData) 
             => EqualityTestMethodGenerator.Create(testMethodData);
+
+        protected virtual TestMethod CreateExceptionTestMethod(TestMethodData testMethodData)
+            => ExceptionTestMethodGenerator.Create(testMethodData);
     }
 }

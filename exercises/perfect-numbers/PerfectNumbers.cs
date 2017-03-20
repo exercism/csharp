@@ -1,6 +1,6 @@
 ﻿using System;
 
-public enum NumberType
+public enum Classification
 {
     Perfect,
     Abundant,
@@ -9,7 +9,7 @@ public enum NumberType
 
 public static class PerfectNumbers
 {
-    public static NumberType Classify(int number)
+    public static Classification Classify(int number)
     {
         throw new NotImplementedException();
     }

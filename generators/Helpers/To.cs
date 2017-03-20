@@ -1,4 +1,7 @@
-﻿namespace Generators
+﻿using Generators.Classes;
+using Generators.Methods;
+
+namespace Generators.Helpers
 {
     public static class To
     {

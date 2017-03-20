@@ -1,12 +1,9 @@
 ﻿namespace Generators.Exercises
 {
-    public class PigLatinExercise : Exercise
+    public class PigLatinExercise : EqualityExercise
     {
         public PigLatinExercise() : base("pig-latin")
         {
         }
-
-        protected override TestMethod CreateTestMethod(TestMethodData testMethodData)
-            => CreateEqualityTestMethod(testMethodData);
     }
 }
