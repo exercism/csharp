@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-public class Isogram
+public static class Isogram
 {
     public static bool IsIsogram(string word)
     {
