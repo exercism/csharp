@@ -1,13 +1,13 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Net.Http;
+using Newtonsoft.Json;
 
-namespace Generators
+namespace Generators.Data
 {
     public static class CanonicalDataParser
     {
-        private static readonly HttpClient httpClient = new HttpClient();
+        private static readonly HttpClient HttpClient = new HttpClient();
 
         public static CanonicalData Parse(string exercise)
         {
@@ -20,7 +20,7 @@ namespace Generators
         }
 
         private static string DownloadCanonicalDataJson(string exercise)
-            => httpClient.GetStringAsync(GetCanonicalDataUrl(exercise)).GetAwaiter().GetResult();
+            => HttpClient.GetStringAsync(GetCanonicalDataUrl(exercise)).GetAwaiter().GetResult();
 
         private static Uri GetCanonicalDataUrl(string exercise)
             => new Uri($"https://raw.githubusercontent.com/exercism/x-common/master/exercises/{exercise}/canonical-data.json");

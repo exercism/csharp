@@ -1,8 +1,8 @@
 using Humanizer;
 
-namespace Generators
+namespace Generators.Methods
 {
-    public class TestedClassNameTransformer : IStringTransformer
+    public class TestedMethodNameTransformer : IStringTransformer
     {
         public string Transform(string input) => input.Dehumanize();
     }

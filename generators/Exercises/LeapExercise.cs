@@ -1,12 +1,9 @@
 ﻿namespace Generators.Exercises
 {
-    public class LeapExercise : Exercise
+    public class LeapExercise : BooleanExercise
     {
         public LeapExercise() : base("leap")
         {
         }
-
-        protected override TestMethod CreateTestMethod(TestMethodData testMethodData)
-            => CreateBooleanTestMethod(testMethodData);
     }
 }

@@ -1,15 +1,20 @@
-﻿namespace Generators.Exercises
+﻿using Generators.Data;
+using Generators.Methods;
+
+namespace Generators.Exercises
 {
-    public class AcronymExercise : Exercise
+    public class AcronymExercise : EqualityExercise
     {
         public AcronymExercise() : base("acronym")
         {
         }
 
-        protected override TestMethod CreateTestMethod(TestMethodData testMethodData)
+        protected override TestMethodData CreateTestMethodData(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase, int index)
         {
-            testMethodData.InputProperty = "phrase";
-            return CreateEqualityTestMethod(testMethodData);
+            var testMethodData = base.CreateTestMethodData(canonicalData, canonicalDataCase, index);
+            testMethodData.Options.InputProperty = "phrase";
+
+            return testMethodData;
         }
     }
 }

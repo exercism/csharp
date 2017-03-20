@@ -1,6 +1,8 @@
-﻿using Humanizer;
+﻿using System.Collections.Generic;
+using Humanizer;
+using To = Generators.Helpers.To;
 
-namespace Generators
+namespace Generators.Methods
 {
     public abstract class TestMethodGenerator
     {
@@ -11,14 +13,18 @@ namespace Generators
             return new TestMethod
             {
                 MethodName = MethodName,
-                Body = GetBody(),
-                Index = TestMethodData.Index
+                Body = Body,
+                Index = TestMethodData.Index,
+                UsingNamespaces = UsingNamespaces
             };
         }
 
         protected TestMethodData TestMethodData { get; private set; }
 
-        protected abstract string GetBody();
+        protected abstract string Body { get; }
+
+        protected virtual ISet<string> UsingNamespaces 
+            => new HashSet<string>();
 
         protected virtual string MethodName
             => TestMethodData.CanonicalDataCase.Description.Replace(":", " is").Transform(To.TestMethodName);    
@@ -29,14 +35,20 @@ namespace Generators
         protected virtual string TestedMethod
             => TestMethodData.CanonicalDataCase.Property.Transform(To.TestedMethodName);
 
-        protected virtual object Input => FormatValue(InputValue);
+        protected virtual object Input => 
+            TestMethodData.Options.FormatInput 
+                ? FormatValue(InputValue) 
+                : InputValue;
 
-        protected virtual object Expected => FormatValue(TestMethodData.CanonicalDataCase.Expected);
+        protected virtual object Expected => 
+            TestMethodData.Options.FormatExpected 
+                ? FormatValue(TestMethodData.CanonicalDataCase.Expected) 
+                : TestMethodData.CanonicalDataCase.Expected;
 
         protected virtual object InputValue 
-            => TestMethodData.InputProperty == null 
+            => TestMethodData.Options.InputProperty == null 
                 ? TestMethodData.CanonicalDataCase.Input 
-                : TestMethodData.CanonicalDataCase.Data[TestMethodData.InputProperty];
+                : TestMethodData.CanonicalDataCase.Data[TestMethodData.Options.InputProperty];
 
         protected virtual object FormatValue(object val)
         {

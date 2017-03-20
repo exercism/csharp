@@ -1,11 +1,11 @@
 using System;
+using Generators.Helpers;
 
-namespace Generators
+namespace Generators.Methods
 {
     public class BooleanTestMethodGenerator : TestMethodGenerator
     {
-        protected override string GetBody()
-            => $"{Assertion}({TestedClassName}.{TestedMethod}({Input}));";
+        protected override string Body => $"{Assertion}({TestedClassName}.{TestedMethod}({Input}));";
 
         private string Assertion
             => $"Assert.{Convert.ToBoolean(TestMethodData.CanonicalDataCase.Expected)}";

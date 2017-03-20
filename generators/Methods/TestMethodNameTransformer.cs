@@ -1,7 +1,7 @@
 using System.Text.RegularExpressions;
 using Humanizer;
 
-namespace Generators
+namespace Generators.Methods
 {
     public class TestMethodNameTransformer : IStringTransformer
     {
