@@ -4,8 +4,11 @@ using System.Linq;
 
 public static class NthPrime
 {
-    public static int Nth(int nth)
+    public static int Prime(int nth)
     {
+        if (nth < 1)
+            throw new ArgumentOutOfRangeException();
+
         return Primes().Skip(nth - 1).First();
     }
 
