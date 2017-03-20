@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace Generators
+namespace Generators.Data
 {
     public class CanonicalDataCaseJsonConverter : JsonConverter
     {

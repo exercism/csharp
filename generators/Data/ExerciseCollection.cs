@@ -1,11 +1,11 @@
-﻿using Generators.Exercises;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Generators.Exercises;
 
-namespace Generators
+namespace Generators.Data
 {
     public class ExerciseCollection : IEnumerable<Exercise>
     {

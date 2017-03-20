@@ -1,6 +1,6 @@
 using Humanizer;
 
-namespace Generators
+namespace Generators.Methods
 {
     public class TestedMethodNameTransformer : IStringTransformer
     {

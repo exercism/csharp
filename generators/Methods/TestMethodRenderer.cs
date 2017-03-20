@@ -1,4 +1,4 @@
-﻿namespace Generators
+﻿namespace Generators.Methods
 {
     public static class TestMethodRenderer
     {

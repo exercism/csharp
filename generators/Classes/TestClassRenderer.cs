@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Generators.Methods;
 
-namespace Generators
+namespace Generators.Classes
 {
     public static class TestClassRenderer
     {
