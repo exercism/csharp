@@ -1,6 +1,6 @@
 using System;
 
-public static class Atbash
+public static class Atbashcipher
 {
     public static string Encode(string plainValue)
     {
