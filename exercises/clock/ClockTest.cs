@@ -111,4 +111,11 @@ public class ClockTest
         var clock2 = new Clock(38, 30);
         Assert.Equal(clock2, clock1);
     }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Can_wrap_around_more_than_one_day()
+    {
+        var clock = new Clock(10).Subtract(7224);
+        Assert.Equal("09:36", clock.ToString());
+    }
 }
