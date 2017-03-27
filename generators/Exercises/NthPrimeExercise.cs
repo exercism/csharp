@@ -1,7 +1,5 @@
 using System;
-using Generators.Data;
 using Generators.Methods;
-using Humanizer;
 
 namespace Generators.Exercises
 {
@@ -13,7 +11,7 @@ namespace Generators.Exercises
 
         protected override TestMethod CreateTestMethod(TestMethodData testMethodData)
         {
-            if (testMethodData.CanonicalDataCase.Expected is bool b)
+            if (testMethodData.CanonicalDataCase.Expected is bool b && !b)
             {
                 testMethodData.Options.ExceptionType = typeof(ArgumentOutOfRangeException);
                 return CreateExceptionTestMethod(testMethodData);
