@@ -14,31 +14,29 @@ public class LuhnTest
         Assert.False(Luhn.IsValid("0"));
     }
 
-
     [Fact(Skip = "Remove to run test")]
-    public void A_simple_valid_SIN_that_remains_valid_if_reversed()
+    public void A_simple_valid_sin_that_remains_valid_if_reversed()
     {
         Assert.True(Luhn.IsValid("059"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void A_simple_valid_SIN_that_becomes_invalid_if_reversed()
+    public void A_simple_valid_sin_that_becomes_invalid_if_reversed()
     {
         Assert.True(Luhn.IsValid("59"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void A_valid_Canadian_SIN()
+    public void A_valid_canadian_sin()
     {
         Assert.True(Luhn.IsValid("055 444 285"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Invalid_Canadian_SIN()
+    public void Invalid_canadian_sin()
     {
         Assert.False(Luhn.IsValid("055 444 286"));
     }
-
 
     [Fact(Skip = "Remove to run test")]
     public void Invalid_credit_card()
@@ -81,5 +79,4 @@ public class LuhnTest
     {
         Assert.True(Luhn.IsValid("091"));
     }
-
 }

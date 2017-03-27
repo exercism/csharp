@@ -1,18 +1,26 @@
-﻿namespace Generators.Methods
+﻿using System.Linq;
+
+namespace Generators.Methods
 {
     public static class TestMethodRenderer
     {
+        private const string Tab = "    ";
+
         private const string TestMethodTemplate =
-@"    [Fact{Skip}]
-    public void {Name}()
-    {
-        {Body}
-    }";
+@"{Tab}[Fact{Skip}]
+{Tab}public void {Name}()
+{Tab}{
+{Body}
+{Tab}}";
 
         public static string Render(TestMethod testMethod) =>
             TestMethodTemplate
+                .Replace("{Tab}", Tab)
                 .Replace("{Name}", testMethod.MethodName)
-                .Replace("{Body}", testMethod.Body)
+                .Replace("{Body}", RenderBody(testMethod))
                 .Replace("{Skip}", testMethod.Index == 0 ? "" : "(Skip = \"Remove to run test\")");
+
+        private static string RenderBody(TestMethod testMethod) 
+            => string.Join("\n", testMethod.Body.Split('\n').Select(line => $"{Tab}{Tab}{line}"));
     }
 }

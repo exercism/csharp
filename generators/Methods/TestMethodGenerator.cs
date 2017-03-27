@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Humanizer;
 using To = Generators.Helpers.To;
 
@@ -37,7 +38,7 @@ namespace Generators.Methods
 
         protected virtual object Input => 
             TestMethodData.Options.FormatInput 
-                ? FormatValue(InputValue) 
+                ? FormatInputValue(InputValue) 
                 : InputValue;
 
         protected virtual object Expected => 
@@ -45,9 +46,9 @@ namespace Generators.Methods
                 ? FormatValue(TestMethodData.CanonicalDataCase.Expected) 
                 : TestMethodData.CanonicalDataCase.Expected;
 
-        protected virtual object InputValue 
-            => TestMethodData.Options.InputProperty == null 
-                ? TestMethodData.CanonicalDataCase.Input 
+        protected virtual object InputValue => 
+            TestMethodData.Options.InputProperty == null 
+                ? TestMethodData.CanonicalDataCase.Input
                 : TestMethodData.CanonicalDataCase.Data[TestMethodData.Options.InputProperty];
 
         protected virtual object FormatValue(object val)
@@ -58,6 +59,17 @@ namespace Generators.Methods
                     return $"\"{s}\"";
                 default:
                     return val;
+            }
+        }
+
+        protected virtual object FormatInputValue(object val)
+        {
+            switch (val)
+            {
+                case IEnumerable<object> inputs when !(val is string):
+                    return string.Join(", ", inputs.Select(FormatValue));
+                default:
+                    return FormatValue(val);
             }
         }
     }
