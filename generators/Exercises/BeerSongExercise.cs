@@ -3,9 +3,9 @@ using Generators.Methods;
 
 namespace Generators.Exercises
 {
-    public class FoodChainExercise : EqualityExercise
+    public class BeerSongExercise : EqualityExercise
     {
-        public FoodChainExercise() : base("food-chain")
+        public BeerSongExercise() : base("beer-song")
         {
         }
 
@@ -14,13 +14,19 @@ namespace Generators.Exercises
             var testMethodData = base.CreateTestMethodData(canonicalData, canonicalDataCase, index);
 
             testMethodData.Options.UseVariableForExpected = true;
+            testMethodData.Options.FormatExpected = true;
+
             testMethodData.CanonicalDataCase.Expected = CanonicalDataValue.ExpectedToMultiLineString(testMethodData.CanonicalDataCase.Expected);
 
-            if (testMethodData.CanonicalDataCase.Data.ContainsKey("end verse"))
-                testMethodData.CanonicalDataCase.Input = new[] { testMethodData.CanonicalDataCase.Data["start verse"], testMethodData.CanonicalDataCase.Data["end verse"] };
+            if (testMethodData.CanonicalDataCase.Property == "verse")
+                testMethodData.Options.InputProperty = "number";
             else
-                testMethodData.Options.InputProperty = "start verse";
-
+                testMethodData.CanonicalDataCase.Input = new[] 
+                { 
+                    testMethodData.CanonicalDataCase.Data["beginning"], 
+                    testMethodData.CanonicalDataCase.Data["end"]
+                };
+                
             return testMethodData;
         }
     }
