@@ -10,5 +10,6 @@ namespace Generators.Methods
         public bool UseVariableForExpected { get; set; } = false;
         public Type ExceptionType { get; set; } = typeof(ArgumentException);
         public TestedMethodType TestedMethodType { get; set; } = TestedMethodType.Static;
+        public Func<object, bool> ThrowExceptionWhenExpectedValueEquals { get; set; } = (x) => false;
     }
 }
