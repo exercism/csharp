@@ -1,101 +1,101 @@
-using System;
 using Xunit;
+using System;
 
-public class WordProblemTest
+public class WordyTest
 {
     [Fact]
-    public void Can_parse_and_solve_addition_problems()
+    public void Addition()
     {
-        Assert.Equal(2, WordProblem.Solve("What is 1 plus 1?"));
+        Assert.Equal(2, Wordy.Answer("What is 1 plus 1?"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Can_add_double_digit_numbers()
+    public void More_addition()
     {
-        Assert.Equal(55, WordProblem.Solve("What is 53 plus 2?"));
+        Assert.Equal(55, Wordy.Answer("What is 53 plus 2?"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Can_add_negative_numbers()
+    public void Addition_with_negative_numbers()
     {
-        Assert.Equal(-11, WordProblem.Solve("What is -1 plus -10?"));
+        Assert.Equal(-11, Wordy.Answer("What is -1 plus -10?"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Can_add_large_numbers()
+    public void Large_addition()
     {
-        Assert.Equal(45801, WordProblem.Solve("What is 123 plus 45678?"));
+        Assert.Equal(45801, Wordy.Answer("What is 123 plus 45678?"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Can_parse_and_solve_subtraction_problems()
+    public void Subtraction()
     {
-        Assert.Equal(16, WordProblem.Solve("What is 4 minus -12"));
+        Assert.Equal(16, Wordy.Answer("What is 4 minus -12?"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Can_parse_and_solve_multiplication_problems()
+    public void Multiplication()
     {
-        Assert.Equal(-75, WordProblem.Solve("What is -3 multiplied by 25?"));
+        Assert.Equal(-75, Wordy.Answer("What is -3 multiplied by 25?"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Can_parse_and_solve_division_problems()
+    public void Division()
     {
-        Assert.Equal(-11, WordProblem.Solve("What is 33 divided by -3?"));
+        Assert.Equal(-11, Wordy.Answer("What is 33 divided by -3?"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Can_add_twice()
+    public void Multiple_additions()
     {
-        Assert.Equal(3, WordProblem.Solve("What is 1 plus 1 plus 1?"));
+        Assert.Equal(3, Wordy.Answer("What is 1 plus 1 plus 1?"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Can_add_then_subtract()
+    public void Addition_and_subtraction()
     {
-        Assert.Equal(8, WordProblem.Solve("What is 1 plus 5 minus -2?"));
+        Assert.Equal(8, Wordy.Answer("What is 1 plus 5 minus -2?"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Can_subtract_twice()
+    public void Multiple_subtraction()
     {
-        Assert.Equal(3, WordProblem.Solve("What is 20 minus 4 minus 13?"));
+        Assert.Equal(3, Wordy.Answer("What is 20 minus 4 minus 13?"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Can_subtract_then_add()
+    public void Subtraction_then_addition()
     {
-        Assert.Equal(14, WordProblem.Solve("What is 17 minus 6 plus 3?"));
+        Assert.Equal(14, Wordy.Answer("What is 17 minus 6 plus 3?"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Can_multiply_twice()
+    public void Multiple_multiplication()
     {
-        Assert.Equal(-12, WordProblem.Solve("What is 2 multiplied by -2 multiplied by 3?"));
+        Assert.Equal(-12, Wordy.Answer("What is 2 multiplied by -2 multiplied by 3?"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Can_add_then_multiply()
+    public void Addition_and_multiplication()
     {
-        Assert.Equal(-8, WordProblem.Solve("What is -3 plus 7 multiplied by -2?"));
+        Assert.Equal(-8, Wordy.Answer("What is -3 plus 7 multiplied by -2?"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Can_divide_twice()
+    public void Multiple_division()
     {
-        Assert.Equal(2, WordProblem.Solve("What is -12 divided by 2 divided by -3?"));
+        Assert.Equal(2, Wordy.Answer("What is -12 divided by 2 divided by -3?"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Cubed_is_too_advanced()
+    public void Unknown_operation()
     {
-        Assert.Throws<ArgumentException>(() => WordProblem.Solve("What is 53 cubed?"));
+        Assert.Throws<ArgumentException>(() => Wordy.Answer("What is 52 cubed?"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Irrelevant_problems_are_not_valid()
+    public void Non_math_question()
     {
-        Assert.Throws<ArgumentException>(() => WordProblem.Solve("Who is the president of the United States?"));
+        Assert.Throws<ArgumentException>(() => Wordy.Answer("Who is the President of the United States?"));
     }
 }
