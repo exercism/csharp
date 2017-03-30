@@ -14,7 +14,7 @@ public class GradeSchoolTest
         Assert.Equal(expected, actual);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Adding_more_students_to_the_same_grade_adds_them_to_the_roster()
     {
         var school = new School();
@@ -28,7 +28,7 @@ public class GradeSchoolTest
         Assert.Equal(expected, actual );
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Adding_students_to_different_grades_adds_them_to_the_roster()
     {
         var school = new School();
@@ -45,7 +45,7 @@ public class GradeSchoolTest
         Assert.Equal(expectedSeven, rosterSeven);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Grade_returns_the_students_in_that_grade_in_alphabetical_order()
     {
         var school = new School();
@@ -59,7 +59,7 @@ public class GradeSchoolTest
         Assert.Equal(expected, actual);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Grade_returns_an_empty_list_if_there_are_no_students_in_that_grade()
     {
         var school = new School();
@@ -69,10 +69,9 @@ public class GradeSchoolTest
         Assert.Empty(actual);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Student_names_in_each_grade_in_roster_are_sorted()
     {
-
         var school = new School();
         school.Add("Jennifer", 4);
         school.Add("Kareem", 6);
