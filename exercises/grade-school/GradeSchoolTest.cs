@@ -1,4 +1,3 @@
-using GradeSchool;
 using Xunit;
 
 public class GradeSchoolTest
@@ -67,7 +66,7 @@ public class GradeSchoolTest
 
         var actual = school.Grade(1); 
 
-        Assert.Empty(school.Grade(1));
+        Assert.Empty(actual);
     }
 
     [Fact]
@@ -89,7 +88,6 @@ public class GradeSchoolTest
 
         var expected4 = new[] { "Christopher", "Jennifer" };
         Assert.Equal(expected4, roster4);
-
 
         var expected6 = new[] { "Kareem" };
         Assert.Equal(expected6, roster6) ;
