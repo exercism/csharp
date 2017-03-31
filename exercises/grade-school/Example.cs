@@ -15,18 +15,16 @@ public class School
 
    public IEnumerable<string> Roster()
    {
-    var students = new List<string>(); 
-
-    foreach (var item in roster)
-    {
-        foreach (var student in item.Value)
+        var students = new List<string>();
+        
+        foreach (var item in roster)
         {
-            students.Add(student); 
-                
+            foreach (var student in item.Value)
+            {
+                students.Add(student); 
+            }
         }
-    }
-
-    return students;
+        return students;
    } 
 
     public IEnumerable<string> Grade(int grade)
