@@ -13,7 +13,21 @@ public class School
             roster.Add(grade, new SortedList<string> { student });
     }
 
-    public IEnumerable<string> Roster(int grade) => roster[grade];
+   public IEnumerable<string> Roster()
+   {
+    var students = new List<string>(); 
+
+    foreach (var item in roster)
+    {
+        foreach (var student in item.Value)
+        {
+            students.Add(student); 
+                
+        }
+    }
+
+    return students;
+   } 
 
     public IEnumerable<string> Grade(int grade)
     {
