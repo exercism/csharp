@@ -25,6 +25,8 @@ namespace Generators
         {
             Log.Information("Start generating tests...");
 
+            TestFileGenerator.Generate(new FoodChainExercise());
+
             foreach (var exercise in new ExerciseCollection())
                 TestFileGenerator.Generate(exercise);
 

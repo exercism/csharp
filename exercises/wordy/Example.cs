@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-public static class WordProblem
+public static class Wordy
 {
     private static readonly Regex VariableAndOperatorGroupsRegex =
         new Regex(string.Format(@"{0} {1} {0}\s*{1}*\s*{0}*", @"(-?\d+)", "(plus|minus|multiplied by|divided by)"));
@@ -14,9 +14,9 @@ public static class WordProblem
             { "divided by", (x, y) => x / y },
         };
 
-    public static int Solve(string problem)
+    public static int Answer(string question)
     {
-        var parsedProblem = ParseProblem(problem);
+        var parsedProblem = ParseProblem(question);
         var firstPass = Operations[parsedProblem.Operation1](parsedProblem.X, parsedProblem.Y);
         if (parsedProblem.Operation2.Length == 0)
             return firstPass;
