@@ -1,15 +1,15 @@
-machine:
-  environment:
-    DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
-    DOTNET_CLI_TELEMETRY_OPTOUT: 1
-dependencies:
-  pre:
-    - sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
-    - sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-    - sudo apt-get update
-    - sudo apt-get install dotnet-dev-1.0.1
-test:
-  override:
-    - ./bin/fetch-configlet
-    - ./bin/configlet .
-    - ./build.sh
+version: 2
+jobs:
+  build:
+    working_directory: /exercism/xcsharp
+    docker:
+      - image: microsoft/dotnet:sdk
+    environment:
+      DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+      DOTNET_CLI_TELEMETRY_OPTOUT: 1
+    steps:
+      - checkout
+      - run: apt-get -qq update; apt-get -y install unzip
+      - run: ./bin/fetch-configlet
+      - run: ./bin/configlet .
+      - run: ./build.sh

@@ -1,6 +1,7 @@
 ﻿using Generators.Exercises;
 using System.IO;
-using Humanizer;
+using Generators.Classes;
+using Generators.Data;
 using Serilog;
 
 namespace Generators
@@ -24,6 +25,8 @@ namespace Generators
         {
             Log.Information("Start generating tests...");
 
+            TestFileGenerator.Generate(new FoodChainExercise());
+
             foreach (var exercise in new ExerciseCollection())
                 TestFileGenerator.Generate(exercise);
 
@@ -35,25 +38,25 @@ namespace Generators
     {   
         public static void Generate(Exercise exercise)
         {
-            var testClassContents = GenerateTestClassContents(exercise);
-            var testClassFilePath = TestFilePath(exercise);
+            var testClass = CreateTestClass(exercise);
+            var testClassContents = TestClassRenderer.Render(testClass);
+            var testClassFilePath = TestFilePath(exercise, testClass);
 
             SaveTestClassContentsToFile(testClassFilePath, testClassContents);
             Log.Information("Generated tests for {Exercise} exercise in {TestFile}.", exercise.Name, testClassFilePath);
         }
 
-        private static string GenerateTestClassContents(Exercise exercise)
+        private static TestClass CreateTestClass(Exercise exercise)
         {
             var canonicalData = CanonicalDataParser.Parse(exercise.Name);
-            var testClass = exercise.CreateTestClass(canonicalData);
-            return TestClassRenderer.Render(testClass);
+            return exercise.CreateTestClass(canonicalData);
         }
 
         private static void SaveTestClassContentsToFile(string testClassFilePath, string testClassContents) => 
             File.WriteAllText(testClassFilePath, testClassContents);
 
-        private static string TestFilePath(Exercise exercise) => Path.Combine("..", "exercises", exercise.Name, TestFileName(exercise));
+        private static string TestFilePath(Exercise exercise, TestClass testClass) => Path.Combine("..", "exercises", exercise.Name, TestFileName(testClass));
 
-        private static string TestFileName(Exercise exercise) => $"{exercise.Name.Transform(Humanizer.To.TitleCase)}Test.cs";
+        private static string TestFileName(TestClass testClass) => $"{testClass.ClassName}.cs";
     }
 }

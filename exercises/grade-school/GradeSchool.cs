@@ -8,7 +8,7 @@ public class School
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public IEnumerable<string> Roster(int grade)
+    public IEnumerable<string> Roster()
     {
         throw new NotImplementedException("You need to implement this function.");
     }

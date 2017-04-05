@@ -1,35 +1,33 @@
-﻿public enum NumberType
+﻿using System;
+
+public enum Classification
 {
     Perfect,
     Abundant,
     Deficient
 }
 
-public class PerfectNumbers
+public static class PerfectNumbers
 {
-    public static NumberType Classify(int number)
+    public static Classification Classify(int number)
     {
+        if (number < 1)
+            throw new ArgumentOutOfRangeException();
+
         int sumOfFactors = 0;
 
         for (int i = 1; i < number; i++)
         {
             if (number % i == 0)
-            {
                 sumOfFactors += i;
-            }
         }
 
         if (sumOfFactors < number)
-        {
-            return NumberType.Deficient;
-        }
-        else if (sumOfFactors == number)
-        {
-            return NumberType.Perfect;
-        }
-        else
-        {
-            return NumberType.Abundant;
-        }
+            return Classification.Deficient;
+            
+        if (sumOfFactors == number)
+            return Classification.Perfect;
+        
+        return Classification.Abundant;
     }
 }

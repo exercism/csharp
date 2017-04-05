@@ -1,6 +1,6 @@
-public class Year
+public static class Leap
 {
-    public static bool IsLeap(int year)
+    public static bool IsLeapYear(int year)
     {
         if (year % 100 == 0)
             return year % 400 == 0;

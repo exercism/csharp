@@ -1,4 +1,4 @@
-public class Raindrops
+public static class Raindrops
 {
     public static string Convert(int number)
     {

@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-public static class Beer
+public static class BeerSong
 {
     public static string Verse(int number)
     {
@@ -17,11 +17,6 @@ public static class Beer
         }
     }
 
-    public static string Sing(int start, int stop)
-    {
-        return Enumerable.Range(stop, start - stop + 1)
-                            .Reverse()
-                            .Select(Verse)
-                            .Aggregate("", (acc, verse) => acc + verse + "\n");
-    }
+    public static string Verses(int begin, int end)
+        => string.Join("\n", Enumerable.Range(end, begin - end + 1).Reverse().Select(Verse));
 }

@@ -1,8 +1,8 @@
 using System;
 
-public static class WordProblem
+public static class Wordy
 {
-    public static int Solve(string problem)
+    public static int Answer(string question)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
