@@ -69,17 +69,17 @@ public class GradeSchoolTest
     public void Student_names_with_grades_are_displayed_in_the_same_sorted_roster()
     {
         var school = new School();
-        school.Add("Jennifer", 4);
-        school.Add("Kareem", 6);
-        school.Add("Christopher", 4);
-        school.Add("Kyle", 3);
+        school.Add("Peter", 2);
+        school.Add("Anna", 1);
+        school.Add("Barb", 1);
+        school.Add("Zoe", 2);
+        school.Add("Alex", 2);
+        school.Add("Jim", 3);
+        school.Add("Charlie", 1);
               
         var actual = school.Roster();
         
-
-        var expected = new[] { "Christopher", "Jennifer", "Kareem", "Kyle" };
+        var expected = new[] { "Anna", "Barb", "Charlie", "Alex", "Peter", "Zoe", "Jim" };
         Assert.Equal(expected, actual);
-
-        
     }
 }

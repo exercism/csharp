@@ -17,7 +17,7 @@ public class School
    {
         var students = new List<string>();
         
-        foreach (var item in roster)
+        foreach (var item in roster.OrderBy(pair => pair.Key))
         {
             foreach (var student in item.Value)
             {
