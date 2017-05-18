@@ -15,7 +15,7 @@ public class AcronymTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Camelcase()
+    public void PascalCase()
     {
         Assert.Equal("HTML", Acronym.Abbreviate("HyperText Markup Language"));
     }
