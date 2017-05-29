@@ -11,8 +11,3 @@ Please see the [contributing guide](https://github.com/exercism/x-api/blob/maste
 ## Support
 Need assitance?   Check out our Gitter Channel at https://gitter.im/exercism/xcsharp where you can get support and ask questions related to the C# track.
 
-## License
-
-The MIT License (MIT)
-
-Copyright (c) 2014 Katrina Owen, _@kytrinyx.com
