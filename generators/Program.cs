@@ -52,8 +52,12 @@ namespace Generators
             return exercise.CreateTestClass(canonicalData);
         }
 
-        private static void SaveTestClassContentsToFile(string testClassFilePath, string testClassContents) => 
+        private static void SaveTestClassContentsToFile(string testClassFilePath, string testClassContents)
+        {
+            Directory.CreateDirectory(Path.GetDirectoryName(testClassFilePath));
             File.WriteAllText(testClassFilePath, testClassContents);
+        }
+            
 
         private static string TestFilePath(Exercise exercise, TestClass testClass) => Path.Combine("..", "exercises", exercise.Name, TestFileName(testClass));
 
