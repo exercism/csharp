@@ -310,6 +310,15 @@
       ]
     },
     {
+      "slug": "rotational-cipher",
+      "difficulty": 4,
+      "topics": [
+        "Strings",
+        "Algorithms",
+        "Transforming"
+      ]
+    },
+    {
       "slug": "largest-series-product",
       "difficulty": 4,
       "topics": [
