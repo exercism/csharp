@@ -468,7 +468,7 @@
         "Parsing",
         "Transforming"
       ]
-    },   
+    },
     {
       "slug": "atbash-cipher",
       "difficulty": 5,
@@ -560,7 +560,7 @@
         "Text formatting",
         "Refactoring"
       ]
-    }, 
+    },
     {
       "slug": "custom-set",
       "difficulty": 5,
@@ -722,7 +722,7 @@
       "difficulty": 7,
       "topics": [
         "Tuples",
-        "Arrays"        
+        "Arrays"
       ]
     },
     {
@@ -864,12 +864,7 @@
     "octal",
     "hexadecimal"
   ],
-  "ignored": [
-    "docs",
-    "img",
-    "generators"
-  ],
-  "foregone": [    
+  "foregone": [
     "lens-person",
     "nucleotide-codons",
     "paasio",
