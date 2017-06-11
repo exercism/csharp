@@ -27,7 +27,8 @@ namespace Generators.Exercises
             var testClass = new TestClass
             {
                 ClassName = Name.Transform(To.TestClassName),
-                TestMethods = CreateTestMethods(canonicalData).ToArray()
+                TestMethods = CreateTestMethods(canonicalData).ToArray(),
+                CanonicalDataVersion = canonicalData.Version
             };
 
             AddTestMethodUsingNamespaces(testClass);

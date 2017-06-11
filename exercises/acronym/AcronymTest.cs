@@ -1,3 +1,5 @@
+// This file was auto-generated based on version 1.1.0 of the canonical data.
+
 using Xunit;
 
 public class AcronymTest
@@ -12,12 +14,6 @@ public class AcronymTest
     public void Lowercase_words()
     {
         Assert.Equal("ROR", Acronym.Abbreviate("Ruby on Rails"));
-    }
-
-    [Fact(Skip = "Remove to run test")]
-    public void PascalCase()
-    {
-        Assert.Equal("HTML", Acronym.Abbreviate("HyperText Markup Language"));
     }
 
     [Fact(Skip = "Remove to run test")]

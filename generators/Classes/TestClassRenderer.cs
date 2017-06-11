@@ -7,7 +7,9 @@ namespace Generators.Classes
     public static class TestClassRenderer
     {
         private const string TestClassTemplate =
-@"{UsingNamespaces}
+@"// This file was auto-generated based on version {CanonicalDataVersion} of the canonical data.
+
+{UsingNamespaces}
 
 public class {ClassName}
 {
@@ -16,6 +18,7 @@ public class {ClassName}
 
         public static string Render(TestClass testClass) =>
             TestClassTemplate
+                .Replace("{CanonicalDataVersion}", testClass.CanonicalDataVersion)
                 .Replace("{UsingNamespaces}", RenderUsingNamespaces(testClass))
                 .Replace("{ClassName}", testClass.ClassName)
                 .Replace("{Body}", RenderBody(testClass));

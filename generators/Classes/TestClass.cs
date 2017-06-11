@@ -10,5 +10,6 @@ namespace Generators.Classes
         public string BeforeTestMethods { get; set; }
         public TestMethod[] TestMethods { get; set; }
         public string AfterTestMethods { get; set; }
+        public string CanonicalDataVersion { get; set; }
     }    
 }
