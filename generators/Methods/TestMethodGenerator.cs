@@ -56,6 +56,10 @@ namespace Generators.Methods
             switch (val)
             {
                 case string s:
+                    s = s
+                        .Replace("\n", "\\n")
+                        .Replace("\r", "\\r")
+                        .Replace("\t", "\\t");
                     return $"\"{s}\"";
                 default:
                     return val;

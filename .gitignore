@@ -13,3 +13,7 @@ obj/
 bin/
 *.userprefs
 .idea/
+.dotnet/
+.fake/
+.paket/
+paket-files/
