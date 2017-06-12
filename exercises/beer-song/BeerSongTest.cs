@@ -1,3 +1,5 @@
+// This file was auto-generated based on version 1.0.0 of the canonical data.
+
 using Xunit;
 
 public class BeerSongTest
@@ -12,7 +14,7 @@ public class BeerSongTest
         Assert.Equal(expected, BeerSong.Verse(99));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Last_generic_verse()
     {
         var expected = 
@@ -22,7 +24,7 @@ public class BeerSongTest
         Assert.Equal(expected, BeerSong.Verse(3));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Verse_2()
     {
         var expected = 
@@ -32,7 +34,7 @@ public class BeerSongTest
         Assert.Equal(expected, BeerSong.Verse(2));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Verse_1()
     {
         var expected = 
@@ -42,7 +44,7 @@ public class BeerSongTest
         Assert.Equal(expected, BeerSong.Verse(1));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Verse_0()
     {
         var expected = 
@@ -52,7 +54,7 @@ public class BeerSongTest
         Assert.Equal(expected, BeerSong.Verse(0));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void First_two_verses()
     {
         var expected = 
@@ -65,7 +67,7 @@ public class BeerSongTest
         Assert.Equal(expected, BeerSong.Verses(99, 98));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void Last_three_verses()
     {
         var expected = 
@@ -81,7 +83,7 @@ public class BeerSongTest
         Assert.Equal(expected, BeerSong.Verses(2, 0));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void All_verses()
     {
         var expected = 

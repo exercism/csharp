@@ -1,3 +1,5 @@
+// This file was auto-generated based on version 1.1.0 of the canonical data.
+
 using Xunit;
 
 public class IsogramTest
@@ -48,5 +50,11 @@ public class IsogramTest
     public void Made_up_name_that_is_an_isogram()
     {
         Assert.True(Isogram.IsIsogram("Emily Jung Schwartzkopf"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Duplicated_character_in_the_middle()
+    {
+        Assert.False(Isogram.IsIsogram("accentor"));
     }
 }
