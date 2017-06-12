@@ -3,16 +3,12 @@ using Generators.Methods;
 
 namespace Generators.Exercises
 {
-    public class AcronymExercise : EqualityExercise
+    public class FoodChain : EqualityExercise
     {
-        public AcronymExercise() : base("acronym")
-        {
-        }
-
         protected override TestMethodData CreateTestMethodData(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase, int index)
         {
             var testMethodData = base.CreateTestMethodData(canonicalData, canonicalDataCase, index);
-            testMethodData.Options.InputProperty = "phrase";
+            testMethodData.Options.ExpectedFormat = ExpectedFormat.FormattedAsMultilineString;
 
             return testMethodData;
         }

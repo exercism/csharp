@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Generators.Helpers;
 using Humanizer;
 using To = Generators.Helpers.To;
 
@@ -36,44 +37,36 @@ namespace Generators.Methods
         protected virtual string TestedMethod
             => TestMethodData.CanonicalDataCase.Property.Transform(To.TestedMethodName);
 
-        protected virtual object Input => 
-            TestMethodData.Options.FormatInput 
-                ? FormatInputValue(InputValue) 
-                : InputValue;
-
-        protected virtual object Expected => 
-            TestMethodData.Options.FormatExpected 
-                ? FormatValue(TestMethodData.CanonicalDataCase.Expected) 
-                : TestMethodData.CanonicalDataCase.Expected;
-
-        protected virtual object InputValue => 
-            TestMethodData.Options.InputProperty == null 
-                ? TestMethodData.CanonicalDataCase.Input
-                : TestMethodData.CanonicalDataCase.Data[TestMethodData.Options.InputProperty];
-
-        protected virtual object FormatValue(object val)
-        {
-            switch (val)
-            {
-                case string s:
-                    s = s
-                        .Replace("\n", "\\n")
-                        .Replace("\r", "\\r")
-                        .Replace("\t", "\\t");
-                    return $"\"{s}\"";
-                default:
-                    return val;
-            }
-        }
+        protected virtual object Input => FormatInputValue(TestMethodData.CanonicalDataCase.Input);
 
         protected virtual object FormatInputValue(object val)
         {
             switch (val)
             {
-                case IEnumerable<object> inputs when !(val is string):
-                    return string.Join(", ", inputs.Select(FormatValue));
+                case IDictionary<string, object> dict:
+                    return string.Join(", ", dict.Values.Select(FormatInputValue));
+                case string s:
+                    return $"\"{s.Replace("\n", "\\n").Replace("\t", "\\t").Replace("\r", "\\r")}\"";
                 default:
-                    return FormatValue(val);
+                    return val;
+            }
+        }
+
+        protected virtual object Expected => 
+            TestMethodData.Options.ExpectedFormat  == ExpectedFormat.Unformatted
+                ? TestMethodData.CanonicalDataCase.Expected
+                : FormatExpectedValue(TestMethodData.CanonicalDataCase.Expected);
+
+        protected virtual object FormatExpectedValue(object val)
+        {
+            switch (val)
+            {
+                case string s:
+                    return $"\"{s}\"";
+                case IEnumerable<string> enumerable:
+                    return enumerable.Select(FormatExpectedValue);
+                default:
+                    return val;
             }
         }
     }

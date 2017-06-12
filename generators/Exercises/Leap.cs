@@ -1,6 +1,6 @@
 ﻿namespace Generators.Exercises
 {
-    public class Bob : EqualityExercise
+    public class Leap : BooleanExercise
     {
     }
 }

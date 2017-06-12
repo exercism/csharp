@@ -1,18 +1,16 @@
-﻿using Generators.Data;
+using System;
+using Generators.Data;
 using Generators.Methods;
 
 namespace Generators.Exercises
 {
-    public class RaindropsExercise : EqualityExercise
+    public class NthPrime : EqualityExercise
     {
-        public RaindropsExercise() : base("raindrops")
-        {
-        }
-
         protected override TestMethodOptions CreateTestMethodOptions(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase, int index)
         {
             var testMethodOptions = base.CreateTestMethodOptions(canonicalData, canonicalDataCase, index);
-            testMethodOptions.InputProperty = "number";
+            testMethodOptions.ExceptionType = typeof(ArgumentOutOfRangeException);
+            testMethodOptions.ThrowExceptionWhenExpectedValueEquals = x => x is bool;
 
             return testMethodOptions;
         }

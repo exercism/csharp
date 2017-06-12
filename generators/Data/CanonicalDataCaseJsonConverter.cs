@@ -7,10 +7,9 @@ namespace Generators.Data
 {
     public class CanonicalDataCaseJsonConverter : JsonConverter
     {
-        public override bool CanConvert(Type objectType)
-        {
-            return typeof(CanonicalDataCase) == objectType;
-        }
+        private static readonly string[] NonInputProperties = {"description", "property", "expected", "comments"};
+
+        public override bool CanConvert(Type objectType) => typeof(CanonicalDataCase) == objectType;
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
@@ -18,15 +17,17 @@ namespace Generators.Data
 
             var canonicalDataCase = new CanonicalDataCase();
             serializer.Populate(new JTokenReader(jToken), canonicalDataCase);
+            
+            var allProperties = jToken.ToObject<IDictionary<string, object>>();
 
-            canonicalDataCase.Data = jToken.ToObject<IDictionary<string, object>>();
+            foreach (var nonInputProperty in NonInputProperties)
+                allProperties.Remove(nonInputProperty);
+
+            canonicalDataCase.Input = allProperties;
 
             return canonicalDataCase;
         }
 
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
-        {
-            throw new NotImplementedException();
-        }
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer) => throw new NotImplementedException();
     }
 }

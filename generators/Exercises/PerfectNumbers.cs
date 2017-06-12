@@ -5,17 +5,13 @@ using Humanizer;
 
 namespace Generators.Exercises
 {
-    public class PerfectNumbersExercise : EqualityExercise
+    public class PerfectNumbers : EqualityExercise
     {
-        public PerfectNumbersExercise() : base("perfect-numbers")
-        {
-        }
-
         protected override TestMethodData CreateTestMethodData(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase, int index)
         {
             var testMethodData = base.CreateTestMethodData(canonicalData, canonicalDataCase, index);
             testMethodData.Options.ExceptionType = typeof(ArgumentOutOfRangeException);
-            testMethodData.Options.FormatExpected = false;
+            testMethodData.Options.ExpectedFormat = ExpectedFormat.Unformatted;
 
             if (testMethodData.CanonicalDataCase.Expected is string classificationType)
                 testMethodData.CanonicalDataCase.Expected = GetClassification(classificationType);

@@ -15,9 +15,9 @@ namespace Generators.Exercises
         private static readonly EqualityTestMethodGenerator EqualityTestMethodGenerator = new EqualityTestMethodGenerator();
         private static readonly ExceptionTestMethodGenerator ExceptionTestMethodGenerator = new ExceptionTestMethodGenerator();
 
-        protected Exercise(string name)
+        protected Exercise()
         {
-            Name = name;
+            Name = GetType().Name.Kebaberize();
         }
 
         public string Name { get; }
@@ -51,20 +51,20 @@ namespace Generators.Exercises
         {
             var testMethodData = CreateTestMethodData(canonicalData, canonicalDataCase, index);
             
-            if (testMethodData.CanonicalDataCase.Expected is JObject jObject)
+            if (testMethodData.CanonicalDataCase.Expected is JObject)
                 return CreateExceptionTestMethod(testMethodData);
 
             return CreateTestMethod(testMethodData);
         }
 
-        protected virtual TestMethodData CreateTestMethodData(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase, int index) 
+        protected virtual TestMethodData CreateTestMethodData(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase, int index)
             => new TestMethodData
-                {
-                    CanonicalData = canonicalData,
-                    CanonicalDataCase = canonicalDataCase,
-                    Index = index,
-                    Options = CreateTestMethodOptions(canonicalData, canonicalDataCase, index)
-                };
+            {
+                CanonicalData = canonicalData,
+                CanonicalDataCase = canonicalDataCase,
+                Index = index,
+                Options = CreateTestMethodOptions(canonicalData, canonicalDataCase, index)
+            };
 
         protected virtual TestMethodOptions CreateTestMethodOptions(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase, int index) 
             => new TestMethodOptions();

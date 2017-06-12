@@ -11,8 +11,6 @@ namespace Generators.Data
         [Required]
         public string Version { get; set; }
 
-        public string[] Comments { get; set; }
-        
         [JsonConverter(typeof(CanonicalDataCasesJsonConverter))]
         public CanonicalDataCase[] Cases { get; set; }
     }
