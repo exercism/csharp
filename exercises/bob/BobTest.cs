@@ -3,110 +3,152 @@ using Xunit;
 public class BobTest
 {
     [Fact]
-    public void Stating_something ()
+    public void Stating_something()
     {
-        Assert.Equal("Whatever.", Bob.Hey("Tom-ay-to, tom-aaaah-to."));
+        Assert.Equal("Whatever.", Bob.Response("Tom-ay-to, tom-aaaah-to."));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Shouting ()
+    public void Shouting()
     {
-        Assert.Equal("Whoa, chill out!", Bob.Hey("WATCH OUT!"));
+        Assert.Equal("Whoa, chill out!", Bob.Response("WATCH OUT!"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Asking_a_question ()
+    public void Shouting_gibberish()
     {
-        Assert.Equal("Sure.", Bob.Hey("Does this cryogenic chamber make me look fat?"));
+        Assert.Equal("Whoa, chill out!", Bob.Response("FCECDFCAAB"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Asking_a_question_with_a_trailing_space()
+    public void Asking_a_question()
     {
-        Assert.Equal("Sure.", Bob.Hey("Do I like my  spacebar  too much?  "));
+        Assert.Equal("Sure.", Bob.Response("Does this cryogenic chamber make me look fat?"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Asking_a_numeric_question ()
+    public void Asking_a_numeric_question()
     {
-        Assert.Equal("Sure.", Bob.Hey("You are, what, like 15?"));
+        Assert.Equal("Sure.", Bob.Response("You are, what, like 15?"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Talking_forcefully ()
+    public void Asking_gibberish()
     {
-        Assert.Equal("Whatever.", Bob.Hey("Let's go make out behind the gym!"));
+        Assert.Equal("Sure.", Bob.Response("fffbbcbeab?"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Using_acronyms_in_regular_search ()
+    public void Talking_forcefully()
     {
-        Assert.Equal("Whatever.", Bob.Hey("It's OK if you don't want to go to the DMV."));
+        Assert.Equal("Whatever.", Bob.Response("Let's go make out behind the gym!"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Forceful_questions ()
+    public void Using_acronyms_in_regular_speech()
     {
-        Assert.Equal("Whoa, chill out!", Bob.Hey("WHAT THE HELL WERE YOU THINKING?"));
+        Assert.Equal("Whatever.", Bob.Response("It's OK if you don't want to go to the DMV."));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Shouting_numbers ()
+    public void Forceful_question()
     {
-        Assert.Equal("Whoa, chill out!", Bob.Hey("1, 2, 3 GO!"));
+        Assert.Equal("Whoa, chill out!", Bob.Response("WHAT THE HELL WERE YOU THINKING?"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Only_numbers ()
+    public void Shouting_numbers()
     {
-        Assert.Equal("Whatever.", Bob.Hey("1, 2, 3"));
+        Assert.Equal("Whoa, chill out!", Bob.Response("1, 2, 3 GO!"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Question_with_only_numbers ()
+    public void Only_numbers()
     {
-        Assert.Equal("Sure.", Bob.Hey("4?"));
+        Assert.Equal("Whatever.", Bob.Response("1, 2, 3"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Shouting_with_special_characters ()
+    public void Question_with_only_numbers()
     {
-        Assert.Equal("Whoa, chill out!", Bob.Hey("ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!"));
+        Assert.Equal("Sure.", Bob.Response("4?"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Shouting_with_no_exclamation_mark ()
+    public void Shouting_with_special_characters()
     {
-        Assert.Equal("Whoa, chill out!", Bob.Hey("I HATE YOU"));
+        Assert.Equal("Whoa, chill out!", Bob.Response("ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Statement_containing_question_mark ()
+    public void Shouting_with_no_exclamation_mark()
     {
-        Assert.Equal("Whatever.", Bob.Hey("Ending with ? means a question."));
+        Assert.Equal("Whoa, chill out!", Bob.Response("I HATE YOU"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Prattling_on ()
+    public void Statement_containing_question_mark()
     {
-        Assert.Equal("Sure.", Bob.Hey("Wait! Hang on. Are you going to be OK?"));
+        Assert.Equal("Whatever.", Bob.Response("Ending with ? means a question."));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Silence ()
+    public void Non_letters_with_question()
     {
-        Assert.Equal("Fine. Be that way!", Bob.Hey(""));
+        Assert.Equal("Sure.", Bob.Response(":) ?"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Prolonged_silence ()
+    public void Prattling_on()
     {
-        Assert.Equal("Fine. Be that way!", Bob.Hey("    "));
+        Assert.Equal("Sure.", Bob.Response("Wait! Hang on. Are you going to be OK?"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Multiple_line_question ()
+    public void Silence()
     {
-        Assert.Equal("Whatever.", Bob.Hey("Does this cryogenic chamber make me look fat?\nno"));
+        Assert.Equal("Fine. Be that way!", Bob.Response(""));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Prolonged_silence()
+    {
+        Assert.Equal("Fine. Be that way!", Bob.Response("          "));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Alternate_silence()
+    {
+        Assert.Equal("Fine. Be that way!", Bob.Response("\t\t\t\t\t\t\t\t\t\t"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Multiple_line_question()
+    {
+        Assert.Equal("Whatever.", Bob.Response("\nDoes this cryogenic chamber make me look fat?\nno"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Starting_with_whitespace()
+    {
+        Assert.Equal("Whatever.", Bob.Response("         hmmmmmmm..."));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Ending_with_whitespace()
+    {
+        Assert.Equal("Sure.", Bob.Response("Okay if like my  spacebar  quite a bit?   "));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Other_whitespace()
+    {
+        Assert.Equal("Fine. Be that way!", Bob.Response("\n\r \t"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Non_question_ending_with_whitespace()
+    {
+        Assert.Equal("Whatever.", Bob.Response("This is a statement ending with whitespace      "));
     }
 }
