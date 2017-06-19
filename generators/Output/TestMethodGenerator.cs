@@ -1,35 +1,34 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Generators.Exercises;
+using Generators.Input;
 
 namespace Generators.Output
 {
     public abstract class TestMethodGenerator
     {
-        public TestMethod Create(TestMethodData testMethodData)
+        public TestMethod Create(CanonicalDataCase canonicalDataCase, Exercise exercise)
         {
-            TestMethodData = testMethodData;
+            CanonicalDataCase = canonicalDataCase;
+            CanonicalData = exercise.CanonicalData;
+            Configuration = exercise.Configuration;
 
-            return new TestMethod
-            {
-                UsingNamespaces = UsingNamespaces,
-                MethodName = TestMethodName,
-                Body = Body
-            };
+            return new TestMethod { MethodName = TestMethodName, Body = Body };
         }
-
-        protected TestMethodData TestMethodData { get; private set; }
+        
+        protected CanonicalDataCase CanonicalDataCase { get; private set; }
+        protected CanonicalData CanonicalData { get; private set; }
+        protected ExerciseConfiguration Configuration { get; private set; }
 
         protected abstract IEnumerable<string> Body { get; }
 
-        protected virtual ISet<string> UsingNamespaces => new HashSet<string>();
+        protected string TestMethodName => CanonicalDataCase.Description.ToTestMethodName();
 
-        protected string TestMethodName => TestMethodData.CanonicalDataCase.Description.ToTestMethodName();
+        protected string TestedClassName => CanonicalData.Exercise.ToTestedClassName();
 
-        protected string TestedClassName => TestMethodData.CanonicalData.Exercise.ToTestedClassName();
+        protected string TestedMethodName => CanonicalDataCase.Property.ToTestedMethodName();
 
-        protected string TestedMethodName => TestMethodData.CanonicalDataCase.Property.ToTestedMethodName();
-
-        protected object Input => FormatInputValue(TestMethodData.CanonicalDataCase.Input);
+        protected object Input => FormatInputValue(CanonicalDataCase.Input);
         
         protected object FormatInputValue(object val)
         {
@@ -44,10 +43,10 @@ namespace Generators.Output
             }
         }
 
-        protected object Expected => 
-            TestMethodData.Configuration.ExpectedFormat == ExpectedFormat.Unformatted
-                ? TestMethodData.CanonicalDataCase.Expected
-                : FormatExpectedValue(TestMethodData.CanonicalDataCase.Expected);
+        protected object Expected =>
+            Configuration.ExpectedFormat == ExpectedFormat.Unformatted
+                ? CanonicalDataCase.Expected
+                : FormatExpectedValue(CanonicalDataCase.Expected);
 
         protected object FormatExpectedValue(object val)
         {

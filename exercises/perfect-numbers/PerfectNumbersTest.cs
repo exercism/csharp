@@ -1,7 +1,6 @@
 // This file was auto-generated based on version 1.0.1 of the canonical data.
 
 using Xunit;
-using System;
 
 public class PerfectNumbersTest
 {

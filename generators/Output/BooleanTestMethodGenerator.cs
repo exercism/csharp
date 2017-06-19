@@ -9,7 +9,7 @@ namespace Generators.Output
         {
             get
             {
-                switch (TestMethodData.Configuration.TestedMethodFormat)
+                switch (Configuration.TestedMethodFormat)
                 {
                     case TestedMethodFormat.Static:
                         return new[] { $"{Assertion}({TestedClassName}.{TestedMethodName}({Input}));" };
@@ -23,6 +23,6 @@ namespace Generators.Output
             }
         }
 
-        private string Assertion => $"Assert.{Convert.ToBoolean(TestMethodData.CanonicalDataCase.Expected)}";
+        private string Assertion => $"Assert.{Convert.ToBoolean(CanonicalDataCase.Expected)}";
     }
 }

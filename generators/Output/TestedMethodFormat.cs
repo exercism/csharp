@@ -2,7 +2,7 @@ namespace Generators.Output
 {
     public enum TestedMethodFormat
     {
-        Static = 0,
+        Static,
         Instance,
         Extension
     }

@@ -11,20 +11,20 @@ namespace Generators.Output
         {
             get
             {
-                switch (TestMethodData.Configuration.TestedMethodFormat)
+                switch (Configuration.TestedMethodFormat)
                 {
                     case TestedMethodFormat.Static:
-                        if (TestMethodData.Configuration.ExpectedFormat == ExpectedFormat.FormattedAsMultilineString)
+                        if (Configuration.ExpectedFormat == ExpectedFormat.FormattedAsMultilineString)
                             return new[] { $"var expected = {FormattedExpectedVariable};", $"Assert.Equal(expected, {TestedClassName}.{TestedMethodName}({Input}));" };
 
                         return new[] { $"Assert.Equal({Expected}, {TestedClassName}.{TestedMethodName}({Input}));" };
                     case TestedMethodFormat.Instance:
-                        if (TestMethodData.Configuration.ExpectedFormat == ExpectedFormat.FormattedAsMultilineString)
+                        if (Configuration.ExpectedFormat == ExpectedFormat.FormattedAsMultilineString)
                             return new[] { $"var expected = {FormattedExpectedVariable};", $"var sut = new {TestedClassName}();", $"Assert.Equal({Expected}, sut.{TestedMethodName}({Input}));" };
 
                         return new[] { $"var sut = new {TestedClassName}();", $"Assert.Equal({Expected}, sut.{TestedMethodName}({Input}));" };
                     case TestedMethodFormat.Extension:
-                        if (TestMethodData.Configuration.ExpectedFormat == ExpectedFormat.FormattedAsMultilineString)
+                        if (Configuration.ExpectedFormat == ExpectedFormat.FormattedAsMultilineString)
                             return new[] { $"var expected = {FormattedExpectedVariable};", $"Assert.Equal(expected, {Input}.{TestedMethodName}());" };
 
                         return new[] { $"Assert.Equal({Expected}, {Input}.{TestedMethodName}());" };
