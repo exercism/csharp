@@ -10,7 +10,7 @@ public class FoodChainTest
         var expected = 
 "I know an old lady who swallowed a fly.\n" +
 "I don't know why she swallowed the fly. Perhaps she'll die.";
-        Assert.Equal(expected, {TestedClassName}.{TestedMethod}({Input}));
+        Assert.Equal(expected, FoodChain.Verse(1));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -21,7 +21,7 @@ public class FoodChainTest
 "It wriggled and jiggled and tickled inside her.\n" +
 "She swallowed the spider to catch the fly.\n" +
 "I don't know why she swallowed the fly. Perhaps she'll die.";
-        Assert.Equal(expected, {TestedClassName}.{TestedMethod}({Input}));
+        Assert.Equal(expected, FoodChain.Verse(2));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -33,7 +33,7 @@ public class FoodChainTest
 "She swallowed the bird to catch the spider that wriggled and jiggled and tickled inside her.\n" +
 "She swallowed the spider to catch the fly.\n" +
 "I don't know why she swallowed the fly. Perhaps she'll die.";
-        Assert.Equal(expected, {TestedClassName}.{TestedMethod}({Input}));
+        Assert.Equal(expected, FoodChain.Verse(3));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -46,7 +46,7 @@ public class FoodChainTest
 "She swallowed the bird to catch the spider that wriggled and jiggled and tickled inside her.\n" +
 "She swallowed the spider to catch the fly.\n" +
 "I don't know why she swallowed the fly. Perhaps she'll die.";
-        Assert.Equal(expected, {TestedClassName}.{TestedMethod}({Input}));
+        Assert.Equal(expected, FoodChain.Verse(4));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -60,7 +60,7 @@ public class FoodChainTest
 "She swallowed the bird to catch the spider that wriggled and jiggled and tickled inside her.\n" +
 "She swallowed the spider to catch the fly.\n" +
 "I don't know why she swallowed the fly. Perhaps she'll die.";
-        Assert.Equal(expected, {TestedClassName}.{TestedMethod}({Input}));
+        Assert.Equal(expected, FoodChain.Verse(5));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -75,7 +75,7 @@ public class FoodChainTest
 "She swallowed the bird to catch the spider that wriggled and jiggled and tickled inside her.\n" +
 "She swallowed the spider to catch the fly.\n" +
 "I don't know why she swallowed the fly. Perhaps she'll die.";
-        Assert.Equal(expected, {TestedClassName}.{TestedMethod}({Input}));
+        Assert.Equal(expected, FoodChain.Verse(6));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -91,7 +91,7 @@ public class FoodChainTest
 "She swallowed the bird to catch the spider that wriggled and jiggled and tickled inside her.\n" +
 "She swallowed the spider to catch the fly.\n" +
 "I don't know why she swallowed the fly. Perhaps she'll die.";
-        Assert.Equal(expected, {TestedClassName}.{TestedMethod}({Input}));
+        Assert.Equal(expected, FoodChain.Verse(7));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -100,7 +100,7 @@ public class FoodChainTest
         var expected = 
 "I know an old lady who swallowed a horse.\n" +
 "She's dead, of course!";
-        Assert.Equal(expected, {TestedClassName}.{TestedMethod}({Input}));
+        Assert.Equal(expected, FoodChain.Verse(8));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -120,7 +120,7 @@ public class FoodChainTest
 "She swallowed the bird to catch the spider that wriggled and jiggled and tickled inside her.\n" +
 "She swallowed the spider to catch the fly.\n" +
 "I don't know why she swallowed the fly. Perhaps she'll die.";
-        Assert.Equal(expected, {TestedClassName}.{TestedMethod}({Input}));
+        Assert.Equal(expected, FoodChain.Verse(1, 3));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -177,6 +177,6 @@ public class FoodChainTest
 "\n" +
 "I know an old lady who swallowed a horse.\n" +
 "She's dead, of course!";
-        Assert.Equal(expected, {TestedClassName}.{TestedMethod}({Input}));
+        Assert.Equal(expected, FoodChain.Verse(1, 8));
     }
 }

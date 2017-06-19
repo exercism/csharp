@@ -4,9 +4,15 @@
     <TargetFramework>netcoreapp1.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="DotLiquid" Version="2.0.145" />
     <PackageReference Include="Humanizer" Version="2.2.0" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="serilog" Version="2.4.0" />
     <PackageReference Include="serilog.sinks.literate" Version="2.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Output\*.liquid">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>

@@ -1,30 +1,26 @@
-﻿using System.Linq;
+﻿using System.IO;
+using System.Linq;
+using DotLiquid;
 
 namespace Generators.Output
 {
     public static class TestClassRenderer
     {
-        private const string TestClassTemplate =
-@"// This file was auto-generated based on version {CanonicalDataVersion} of the canonical data.
+        private static readonly Template TestClassTemplate = Template.Parse(GetTemplateContents());
 
-{UsingNamespaces}
+        public static string Render(TestClass testClass)
+        {
+            var templateData = new
+            {
+                CanonicalDataVersion = testClass.CanonicalDataVersion,
+                UsingNamespaces = testClass.UsingNamespaces,
+                ClassName = testClass.ClassName,
+                TestMethods = testClass.TestMethods.Select(testMethod => new { Name = testMethod.MethodName, Body = testMethod.Body })
+            };
+            
+            return TestClassTemplate.Render(Hash.FromAnonymousObject(templateData));
+        }
 
-public class {ClassName}
-{
-{Body}
-}";
-
-        public static string Render(TestClass testClass) =>
-            TestClassTemplate
-                .Replace("{CanonicalDataVersion}", testClass.CanonicalDataVersion)
-                .Replace("{UsingNamespaces}", RenderUsingNamespaces(testClass))
-                .Replace("{ClassName}", testClass.ClassName)
-                .Replace("{Body}", RenderBody(testClass));
-
-        private static string RenderUsingNamespaces(TestClass testClass) =>
-           string.Join("\n", testClass.UsingNamespaces.Select(usingNamespace => $"using {usingNamespace};"));
-
-        private static string RenderBody(TestClass testClass) =>
-            string.Join("\n\n", testClass.TestMethods.Select(TestMethodRenderer.Render));
+        private static string GetTemplateContents() => File.ReadAllText(Path.Combine("Output", "TestClass.liquid"));
     }
 }

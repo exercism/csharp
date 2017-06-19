@@ -14,7 +14,7 @@ namespace Generators.Output
                     case TestedMethodType.Static:
                         return new[] { $"Assert.Throws<{ExceptionType}>(() => {TestedClassName}.{TestedMethod}({Input}));" };
                     case TestedMethodType.Instance:
-                        return new[] { $"var sut = new {TestedClassName}();", "Assert.Throws<{ExceptionType}>(() => sut.{TestedMethod}({Input}));;" };
+                        return new[] { $"var sut = new {TestedClassName}();", $"Assert.Throws<{ExceptionType}>(() => sut.{TestedMethod}({Input}));;" };
                     case TestedMethodType.Extension:
                         return new[] { $"Assert.Throws<{ExceptionType}>(() => {Input}.{TestedMethod}());" };
                     default:

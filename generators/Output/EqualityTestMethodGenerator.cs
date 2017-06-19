@@ -15,17 +15,17 @@ namespace Generators.Output
                 {
                     case TestedMethodType.Static:
                         if (TestMethodData.Options.ExpectedFormat == ExpectedFormat.FormattedAsMultilineString)
-                            return new[] { $"var expected = {FormattedExpectedVariable};", "Assert.Equal(expected, {TestedClassName}.{TestedMethod}({Input}));" };
+                            return new[] { $"var expected = {FormattedExpectedVariable};", $"Assert.Equal(expected, {TestedClassName}.{TestedMethod}({Input}));" };
 
                         return new[] { $"Assert.Equal({Expected}, {TestedClassName}.{TestedMethod}({Input}));" };
                     case TestedMethodType.Instance:
                         if (TestMethodData.Options.ExpectedFormat == ExpectedFormat.FormattedAsMultilineString)
-                            return new[] { $"var expected = {FormattedExpectedVariable};", "var sut = new {TestedClassName}();", "Assert.Equal({Expected}, sut.{TestedMethod}({Input}));" };
+                            return new[] { $"var expected = {FormattedExpectedVariable};", $"var sut = new {TestedClassName}();", $"Assert.Equal({Expected}, sut.{TestedMethod}({Input}));" };
 
-                        return new[] { $"var sut = new {TestedClassName}();", "Assert.Equal({Expected}, sut.{TestedMethod}({Input}));" };
+                        return new[] { $"var sut = new {TestedClassName}();", $"Assert.Equal({Expected}, sut.{TestedMethod}({Input}));" };
                     case TestedMethodType.Extension:
                         if (TestMethodData.Options.ExpectedFormat == ExpectedFormat.FormattedAsMultilineString)
-                            return new[] { $"var expected = {FormattedExpectedVariable};", "Assert.Equal(expected, {Input}.{TestedMethod}());" };
+                            return new[] { $"var expected = {FormattedExpectedVariable};", $"Assert.Equal(expected, {Input}.{TestedMethod}());" };
 
                         return new[] { $"Assert.Equal({Expected}, {Input}.{TestedMethod}());" };
                     default:

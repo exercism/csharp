@@ -44,10 +44,10 @@ namespace Generators.Exercises
 
         protected abstract TestMethod CreateTestMethod(TestMethodData testMethodData);
 
-        protected virtual IEnumerable<TestMethod> CreateTestMethods(CanonicalData canonicalData) 
+        private IEnumerable<TestMethod> CreateTestMethods(CanonicalData canonicalData) 
             => canonicalData.Cases.Select((t, i) => CreateTestMethod(canonicalData, t, i));
-        
-        protected virtual TestMethod CreateTestMethod(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase, int index) 
+
+        private TestMethod CreateTestMethod(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase, int index) 
             => CreateTestMethod(CreateTestMethodData(canonicalData, canonicalDataCase, index));
 
         protected virtual TestMethodData CreateTestMethodData(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase, int index)

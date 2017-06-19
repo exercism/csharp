@@ -1,0 +1,20 @@
+﻿// This file was auto-generated based on version {{CanonicalDataVersion}} of the canonical data.
+
+{%- for namespace in UsingNamespaces -%}
+using {{ namespace }};
+{%- endfor -%}
+
+public class {{ClassName}}
+{
+{%- for testMethod in TestMethods -%}
+    [Fact{% if forloop.first == false %}(Skip = "Remove to run test"){% endif %}]
+    public void {{testMethod.Name}}()
+    {
+    {%- for line in testMethod.Body -%}
+        {{ line }}
+    {%- endfor -%}
+    }
+{%- if forloop.last == false %}
+{% endif -%}
+{%- endfor -%}
+}

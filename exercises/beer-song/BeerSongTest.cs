@@ -11,7 +11,7 @@ public class BeerSongTest
 ""99 bottles of beer on the wall, 99 bottles of beer.\n" +
 "Take one down and pass it around, 98 bottles of beer on the wall.\n" +
 """;
-        Assert.Equal(expected, {TestedClassName}.{TestedMethod}({Input}));
+        Assert.Equal(expected, BeerSong.Verse(99));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -21,7 +21,7 @@ public class BeerSongTest
 ""3 bottles of beer on the wall, 3 bottles of beer.\n" +
 "Take one down and pass it around, 2 bottles of beer on the wall.\n" +
 """;
-        Assert.Equal(expected, {TestedClassName}.{TestedMethod}({Input}));
+        Assert.Equal(expected, BeerSong.Verse(3));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -31,7 +31,7 @@ public class BeerSongTest
 ""2 bottles of beer on the wall, 2 bottles of beer.\n" +
 "Take one down and pass it around, 1 bottle of beer on the wall.\n" +
 """;
-        Assert.Equal(expected, {TestedClassName}.{TestedMethod}({Input}));
+        Assert.Equal(expected, BeerSong.Verse(2));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -41,7 +41,7 @@ public class BeerSongTest
 ""1 bottle of beer on the wall, 1 bottle of beer.\n" +
 "Take it down and pass it around, no more bottles of beer on the wall.\n" +
 """;
-        Assert.Equal(expected, {TestedClassName}.{TestedMethod}({Input}));
+        Assert.Equal(expected, BeerSong.Verse(1));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -51,7 +51,7 @@ public class BeerSongTest
 ""No more bottles of beer on the wall, no more bottles of beer.\n" +
 "Go to the store and buy some more, 99 bottles of beer on the wall.\n" +
 """;
-        Assert.Equal(expected, {TestedClassName}.{TestedMethod}({Input}));
+        Assert.Equal(expected, BeerSong.Verse(0));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -64,7 +64,7 @@ public class BeerSongTest
 "98 bottles of beer on the wall, 98 bottles of beer.\n" +
 "Take one down and pass it around, 97 bottles of beer on the wall.\n" +
 """;
-        Assert.Equal(expected, {TestedClassName}.{TestedMethod}({Input}));
+        Assert.Equal(expected, BeerSong.Verses(99, 98));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -80,7 +80,7 @@ public class BeerSongTest
 "No more bottles of beer on the wall, no more bottles of beer.\n" +
 "Go to the store and buy some more, 99 bottles of beer on the wall.\n" +
 """;
-        Assert.Equal(expected, {TestedClassName}.{TestedMethod}({Input}));
+        Assert.Equal(expected, BeerSong.Verses(2, 0));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -387,6 +387,6 @@ public class BeerSongTest
 "No more bottles of beer on the wall, no more bottles of beer.\n" +
 "Go to the store and buy some more, 99 bottles of beer on the wall.\n" +
 """;
-        Assert.Equal(expected, {TestedClassName}.{TestedMethod}({Input}));
+        Assert.Equal(expected, BeerSong.Verses(99, 0));
     }
 }
