@@ -6,7 +6,7 @@ namespace Generators.Exercises
     {
         public Leap()
         {
-            Options.TestedMethodType = TestedMethodType.BooleanComparison;
+            Configuration.TestedMethodType = TestedMethodType.BooleanComparison;
         }
     }
 }

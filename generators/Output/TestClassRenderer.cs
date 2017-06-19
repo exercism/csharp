@@ -6,7 +6,9 @@ namespace Generators.Output
 {
     public static class TestClassRenderer
     {
-        private static readonly Template TestClassTemplate = Template.Parse(GetTemplateContents());
+        private static readonly string TemplateContents = File.ReadAllText(Path.Combine("Output", "TestClass.liquid"));
+
+        private static readonly Template TestClassTemplate = Template.Parse(TemplateContents);
 
         public static string Render(TestClass testClass)
         {
@@ -20,7 +22,5 @@ namespace Generators.Output
             
             return TestClassTemplate.Render(Hash.FromAnonymousObject(templateData));
         }
-
-        private static string GetTemplateContents() => File.ReadAllText(Path.Combine("Output", "TestClass.liquid"));
     }
 }

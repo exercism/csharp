@@ -45,7 +45,7 @@ namespace Generators.Output
         }
 
         protected object Expected => 
-            TestMethodData.Options.ExpectedFormat == ExpectedFormat.Unformatted
+            TestMethodData.Configuration.ExpectedFormat == ExpectedFormat.Unformatted
                 ? TestMethodData.CanonicalDataCase.Expected
                 : FormatExpectedValue(TestMethodData.CanonicalDataCase.Expected);
 

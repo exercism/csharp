@@ -4,7 +4,7 @@
     {
         public Wordy()
         {
-            Options.ThrowExceptionWhenExpectedValueEquals = x => x is bool;
+            Configuration.ThrowExceptionWhenExpectedValueEquals = x => x is bool;
         }
     }
 }

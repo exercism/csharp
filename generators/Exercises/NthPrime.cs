@@ -6,8 +6,8 @@ namespace Generators.Exercises
     {
         public NthPrime()
         {
-            Options.ExceptionType = typeof(ArgumentOutOfRangeException);
-            Options.ThrowExceptionWhenExpectedValueEquals = x => x is bool;
+            Configuration.ExceptionType = typeof(ArgumentOutOfRangeException);
+            Configuration.ThrowExceptionWhenExpectedValueEquals = x => x is bool;
         }
     }
 }

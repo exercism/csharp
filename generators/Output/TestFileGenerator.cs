@@ -8,7 +8,7 @@ namespace Generators.Output
     {   
         public static void Generate(Exercise exercise)
         {
-            var testClass = exercise.CreateTestClass();
+            var testClass = TestClassGenerator.Create(exercise);
             var testClassContents = TestClassRenderer.Render(testClass);
             var testClassFilePath = TestFilePath(exercise, testClass);
 

@@ -9,7 +9,7 @@ namespace Generators.Output
         {
             get
             {
-                switch (TestMethodData.Options.TestedMethodFormat)
+                switch (TestMethodData.Configuration.TestedMethodFormat)
                 {
                     case TestedMethodFormat.Static:
                         return new[] { $"{Assertion}({TestedClassName}.{TestedMethodName}({Input}));" };

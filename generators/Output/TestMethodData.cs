@@ -7,6 +7,6 @@ namespace Generators.Output
     {
         public CanonicalData CanonicalData { get; set; }
         public CanonicalDataCase CanonicalDataCase { get; set;}
-        public ExerciseConfiguration Options { get; set; } = new ExerciseConfiguration();
+        public ExerciseConfiguration Configuration { get; set; } = new ExerciseConfiguration();
     }
 }

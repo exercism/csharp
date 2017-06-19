@@ -6,7 +6,7 @@ namespace Generators.Exercises
     {
         public BeerSong()
         {
-            Options.ExpectedFormat = ExpectedFormat.FormattedAsMultilineString;
+            Configuration.ExpectedFormat = ExpectedFormat.FormattedAsMultilineString;
         }
     }
 }

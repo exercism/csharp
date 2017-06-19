@@ -9,7 +9,7 @@ namespace Generators.Output
         {
             get
             {
-                switch (TestMethodData.Options.TestedMethodFormat)
+                switch (TestMethodData.Configuration.TestedMethodFormat)
                 {
                     case TestedMethodFormat.Static:
                         return new[] { $"Assert.Throws<{ExceptionType}>(() => {TestedClassName}.{TestedMethodName}({Input}));" };
@@ -23,8 +23,8 @@ namespace Generators.Output
             }
         }
 
-        protected override ISet<string> UsingNamespaces => new HashSet<string> { TestMethodData.Options.ExceptionType.Namespace };
+        protected override ISet<string> UsingNamespaces => new HashSet<string> { TestMethodData.Configuration.ExceptionType.Namespace };
 
-        protected virtual string ExceptionType => TestMethodData.Options.ExceptionType.Name;
+        protected virtual string ExceptionType => TestMethodData.Configuration.ExceptionType.Name;
     }
 }

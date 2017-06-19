@@ -6,7 +6,7 @@ namespace Generators.Exercises
     {
         public FoodChain()
         {
-            Options.ExpectedFormat = ExpectedFormat.FormattedAsMultilineString;
+            Configuration.ExpectedFormat = ExpectedFormat.FormattedAsMultilineString;
         }
     }
 }
