@@ -7,9 +7,9 @@ namespace Generators.Exercises
         protected override TestMethod CreateTestMethod(TestMethodData testMethodData)
         {
             if (testMethodData.Options.ThrowExceptionWhenExpectedValueEquals(testMethodData.CanonicalDataCase.Expected))
-                return ExceptionTestMethodGenerator.Create(testMethodData);
+                return ExceptionTestMethod.Create(testMethodData);
 
-            return BooleanTestMethodGenerator.Create(testMethodData);
+            return BooleanTestMethod.Create(testMethodData);
         }
     }
 }

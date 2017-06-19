@@ -1,27 +1,19 @@
 ﻿using System.IO;
 using Generators.Exercises;
-using Generators.Input;
-using Generators.Output;
 using Serilog;
 
-namespace Generators
+namespace Generators.Output
 {
     public static class TestFileGenerator
     {   
         public static void Generate(Exercise exercise)
         {
-            var testClass = CreateTestClass(exercise);
+            var testClass = exercise.CreateTestClass();
             var testClassContents = TestClassRenderer.Render(testClass);
             var testClassFilePath = TestFilePath(exercise, testClass);
 
             SaveTestClassContentsToFile(testClassFilePath, testClassContents);
             Log.Information("Generated tests for {Exercise} exercise in {TestFile}.", exercise.Name, testClassFilePath);
-        }
-
-        private static TestClass CreateTestClass(Exercise exercise)
-        {
-            var canonicalData = CanonicalDataParser.Parse(exercise.Name);
-            return exercise.CreateTestClass(canonicalData);
         }
 
         private static void SaveTestClassContentsToFile(string testClassFilePath, string testClassContents)

@@ -7,27 +7,28 @@ namespace Generators.Exercises
 {
     public abstract class Exercise
     {
-        protected static readonly BooleanTestMethodGenerator BooleanTestMethodGenerator = new BooleanTestMethodGenerator();
-        protected static readonly EqualityTestMethodGenerator EqualityTestMethodGenerator = new EqualityTestMethodGenerator();
-        protected static readonly ExceptionTestMethodGenerator ExceptionTestMethodGenerator = new ExceptionTestMethodGenerator();
+        protected static readonly BooleanTestMethodGenerator BooleanTestMethod = new BooleanTestMethodGenerator();
+        protected static readonly EqualityTestMethodGenerator EqualityTestMethod = new EqualityTestMethodGenerator();
+        protected static readonly ExceptionTestMethodGenerator ExceptionTestMethod = new ExceptionTestMethodGenerator();
 
         protected Exercise()
         {
             Name = GetType().Name.Kebaberize();
+            CanonicalData = CanonicalDataParser.Parse(Name);
             Options = new TestMethodOptions();
         }
 
         public string Name { get; }
+        public CanonicalData CanonicalData { get; }
+        public TestMethodOptions Options { get; }
 
-        protected TestMethodOptions Options { get; }
-
-        public TestClass CreateTestClass(CanonicalData canonicalData)
+        public TestClass CreateTestClass()
         {
             var testClass = new TestClass
             {
                 ClassName = Name.ToTestClassName(),
-                TestMethods = canonicalData.Cases.Select((t, i) => CreateTestMethod(canonicalData, t)).ToArray(),
-                CanonicalDataVersion = canonicalData.Version
+                TestMethods = CanonicalData.Cases.Select(CreateTestMethod).ToArray(),
+                CanonicalDataVersion = CanonicalData.Version
             };
 
             AddTestMethodUsingNamespaces(testClass);
@@ -43,15 +44,13 @@ namespace Generators.Exercises
 
         protected abstract TestMethod CreateTestMethod(TestMethodData testMethodData);
 
-        private TestMethod CreateTestMethod(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase) 
-            => CreateTestMethod(CreateTestMethodData(canonicalData, canonicalDataCase));
+        private TestMethod CreateTestMethod(CanonicalDataCase canonicalDataCase) => CreateTestMethod(CreateTestMethodData(canonicalDataCase));
 
-        protected virtual TestMethodData CreateTestMethodData(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase)
-            => new TestMethodData
-            {
-                CanonicalData = canonicalData,
-                CanonicalDataCase = canonicalDataCase,
-                Options = Options
-            };
+        private TestMethodData CreateTestMethodData(CanonicalDataCase canonicalDataCase) => new TestMethodData
+        {
+            CanonicalData = CanonicalData,
+            CanonicalDataCase = canonicalDataCase,
+            Options = Options
+        };
     }
 }

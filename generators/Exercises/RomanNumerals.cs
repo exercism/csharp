@@ -1,5 +1,4 @@
-﻿using Generators.Input;
-using Generators.Output;
+﻿using Generators.Output;
 
 namespace Generators.Exercises
 {
@@ -8,15 +7,12 @@ namespace Generators.Exercises
         public RomanNumerals()
         {
             Options.TestedMethodType = TestedMethodType.Extension;
-        }
 
-        protected override TestMethodData CreateTestMethodData(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase)
-        {
-            var testMethodData = base.CreateTestMethodData(canonicalData, canonicalDataCase);
-            testMethodData.CanonicalDataCase.Property = "ToRoman";
-            testMethodData.CanonicalDataCase.Description = "Number_" + testMethodData.CanonicalDataCase.Description;
-
-            return testMethodData;
+            foreach (var canonicalDataCase in CanonicalData.Cases)
+            {
+                canonicalDataCase.Property = "ToRoman";
+                canonicalDataCase.Description = "Number_" + canonicalDataCase.Description;
+            }
         }
     }
 }

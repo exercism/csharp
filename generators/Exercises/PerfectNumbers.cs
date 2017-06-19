@@ -1,5 +1,4 @@
 using System;
-using Generators.Input;
 using Generators.Output;
 using Humanizer;
 
@@ -11,19 +10,14 @@ namespace Generators.Exercises
         {
             Options.ExceptionType = typeof(ArgumentOutOfRangeException);
             Options.ExpectedFormat = ExpectedFormat.Unformatted;
+
+            foreach (var canonicalDataCase in CanonicalData.Cases)
+            {
+                if (canonicalDataCase.Expected is string classificationType)
+                    canonicalDataCase.Expected = GetClassification(classificationType);
+            }
         }
 
-        protected override TestMethodData CreateTestMethodData(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase)
-        {
-            var testMethodData = base.CreateTestMethodData(canonicalData, canonicalDataCase);
-
-            if (testMethodData.CanonicalDataCase.Expected is string classificationType)
-                testMethodData.CanonicalDataCase.Expected = GetClassification(classificationType);
-
-            return testMethodData;
-        }
-
-        private static string GetClassification(string classificationType) 
-            => $"Classification.{classificationType.Transform(To.TitleCase)}";
+        private static string GetClassification(string classificationType) => $"Classification.{classificationType.Transform(To.TitleCase)}";
     }
 }

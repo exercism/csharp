@@ -12,7 +12,7 @@ namespace Generators.Output
             return new TestMethod
             {
                 UsingNamespaces = UsingNamespaces,
-                MethodName = MethodName,
+                MethodName = TestMethodName,
                 Body = Body
             };
         }
@@ -21,16 +21,15 @@ namespace Generators.Output
 
         protected abstract IEnumerable<string> Body { get; }
 
-        protected virtual ISet<string> UsingNamespaces 
-            => new HashSet<string>();
+        protected virtual ISet<string> UsingNamespaces => new HashSet<string>();
+
+        protected string TestMethodName => TestMethodData.CanonicalDataCase.Description.ToTestMethodName();
 
         protected string TestedClassName => TestMethodData.CanonicalData.Exercise.ToTestedClassName();
 
         protected string TestedMethodName => TestMethodData.CanonicalDataCase.Property.ToTestedMethodName();
 
         protected object Input => FormatInputValue(TestMethodData.CanonicalDataCase.Input);
-
-        protected string MethodName => TestMethodData.CanonicalDataCase.Description.ToTestMethodName();
         
         protected object FormatInputValue(object val)
         {

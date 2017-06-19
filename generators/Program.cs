@@ -1,4 +1,5 @@
 ﻿using Generators.Input;
+using Generators.Output;
 using Serilog;
 
 namespace Generators
