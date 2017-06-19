@@ -20,6 +20,6 @@ namespace Generators.Exercises
         }
 
         private static string GetClassification(string classificationType) 
-            => $"Classification.{classificationType.Transform(Humanizer.To.TitleCase)}";
+            => $"Classification.{classificationType.Transform(To.TitleCase)}";
     }
 }

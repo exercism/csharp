@@ -11,16 +11,19 @@ namespace Generators.Exercises
 {
     public abstract class Exercise
     {
-        private static readonly BooleanTestMethodGenerator BooleanTestMethodGenerator = new BooleanTestMethodGenerator();
-        private static readonly EqualityTestMethodGenerator EqualityTestMethodGenerator = new EqualityTestMethodGenerator();
-        private static readonly ExceptionTestMethodGenerator ExceptionTestMethodGenerator = new ExceptionTestMethodGenerator();
+        protected static readonly BooleanTestMethodGenerator BooleanTestMethodGenerator = new BooleanTestMethodGenerator();
+        protected static readonly EqualityTestMethodGenerator EqualityTestMethodGenerator = new EqualityTestMethodGenerator();
+        protected static readonly ExceptionTestMethodGenerator ExceptionTestMethodGenerator = new ExceptionTestMethodGenerator();
 
         protected Exercise()
         {
             Name = GetType().Name.Kebaberize();
+            Options = new TestMethodOptions();
         }
 
         public string Name { get; }
+
+        protected TestMethodOptions Options { get; }
 
         public TestClass CreateTestClass(CanonicalData canonicalData)
         {
@@ -52,7 +55,7 @@ namespace Generators.Exercises
             var testMethodData = CreateTestMethodData(canonicalData, canonicalDataCase, index);
             
             if (testMethodData.CanonicalDataCase.Expected is JObject)
-                return CreateExceptionTestMethod(testMethodData);
+                return ExceptionTestMethodGenerator.Create(testMethodData);
 
             return CreateTestMethod(testMethodData);
         }
@@ -63,19 +66,7 @@ namespace Generators.Exercises
                 CanonicalData = canonicalData,
                 CanonicalDataCase = canonicalDataCase,
                 Index = index,
-                Options = CreateTestMethodOptions(canonicalData, canonicalDataCase, index)
+                Options = Options
             };
-
-        protected virtual TestMethodOptions CreateTestMethodOptions(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase, int index) 
-            => new TestMethodOptions();
-
-        protected virtual TestMethod CreateBooleanTestMethod(TestMethodData testMethodData) 
-            => BooleanTestMethodGenerator.Create(testMethodData);
-
-        protected virtual TestMethod CreateEqualityTestMethod(TestMethodData testMethodData) 
-            => EqualityTestMethodGenerator.Create(testMethodData);
-
-        protected virtual TestMethod CreateExceptionTestMethod(TestMethodData testMethodData)
-            => ExceptionTestMethodGenerator.Create(testMethodData);
     }
 }

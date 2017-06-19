@@ -42,7 +42,7 @@ namespace Generators.Methods
                 if (lines.Length == 1)
                     return lines[0];
 
-                return "\n" + string.Join("\n", lines.Select(line => $"{Tab}{line}"));
+                return "\n" + string.Join("\n", lines.Select(line => $"{line}"));
             }
         }
 

@@ -15,7 +15,7 @@ namespace Generators.Methods
                     case TestedMethodType.Static:
                         return new[] { $"{Assertion}({TestedClassName}.{TestedMethod}({Input}));" };
                     case TestedMethodType.Instance:
-                        return new[] { $"var sut = new {TestedClassName}();\n{Tab}{Assertion}(sut.{TestedMethod}({Input}));" };
+                        return new[] { $"var sut = new {TestedClassName}();", "{Assertion}(sut.{TestedMethod}({Input}));" };
                     case TestedMethodType.Extension:
                             return new[] { $"{Assertion}({Input}.{TestedMethod}());" };
                     default:
@@ -24,10 +24,8 @@ namespace Generators.Methods
             }
         }
 
-        private string Assertion
-            => $"Assert.{Convert.ToBoolean(TestMethodData.CanonicalDataCase.Expected)}";
+        private string Assertion => $"Assert.{Convert.ToBoolean(TestMethodData.CanonicalDataCase.Expected)}";
 
-        protected override string TestedMethod
-            => base.TestedMethod.EnsureStartsWith("Is");
+        protected override string TestedMethod => base.TestedMethod.EnsureStartsWith("Is");
     }
 }

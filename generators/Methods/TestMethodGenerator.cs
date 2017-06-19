@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Generators.Helpers;
 using Humanizer;
 using To = Generators.Helpers.To;
 
@@ -8,8 +7,6 @@ namespace Generators.Methods
 {
     public abstract class TestMethodGenerator
     {
-        protected const string Tab = "    ";
-
         public TestMethod Create(TestMethodData testMethodData)
         {
             TestMethodData = testMethodData;

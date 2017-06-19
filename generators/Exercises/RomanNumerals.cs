@@ -5,6 +5,11 @@ namespace Generators.Exercises
 {
     public class RomanNumerals : EqualityExercise
     {
+        public RomanNumerals()
+        {
+            Options.TestedMethodType = TestedMethodType.Extension;
+        }
+
         protected override TestMethodData CreateTestMethodData(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase, int index)
         {
             var testMethodData = base.CreateTestMethodData(canonicalData, canonicalDataCase, index);
@@ -12,14 +17,6 @@ namespace Generators.Exercises
             testMethodData.CanonicalDataCase.Description = "Number_" + testMethodData.CanonicalDataCase.Description;
 
             return testMethodData;
-        }
-
-        protected override TestMethodOptions CreateTestMethodOptions(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase, int index) 
-        {
-            var testMethodOptions = new TestMethodOptions();
-            testMethodOptions.TestedMethodType = TestedMethodType.Extension;
-
-            return testMethodOptions;
         }
     }
 }
