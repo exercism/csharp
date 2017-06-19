@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -16,7 +15,7 @@ namespace Generators.Data
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
             var casesToken = JToken.ReadFrom(reader);
-            var caseTokens = casesToken.SelectTokens(TokensPath).ToArray();
+            var caseTokens = new JArray(casesToken.SelectTokens(TokensPath));
             
             return new JArray(caseTokens).ToObject(objectType);            
         }

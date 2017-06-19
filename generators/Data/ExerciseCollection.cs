@@ -9,9 +9,9 @@ namespace Generators.Data
 {
     public class ExerciseCollection : IEnumerable<Exercise>
     {
-        private readonly IEnumerable<Exercise> generators = GetDefinedGenerators();
+        private readonly IEnumerable<Exercise> _generators = GetDefinedGenerators();
 
-        public IEnumerator<Exercise> GetEnumerator() => generators.GetEnumerator();
+        public IEnumerator<Exercise> GetEnumerator() => _generators.GetEnumerator();
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
