@@ -24,18 +24,15 @@ namespace Generators.Output
         protected virtual ISet<string> UsingNamespaces 
             => new HashSet<string>();
 
-        protected virtual string MethodName
-            => TestMethodData.CanonicalDataCase.Description.ToTestMethodName();
+        protected string TestedClassName => TestMethodData.CanonicalData.Exercise.ToTestedClassName();
 
-        protected virtual string TestedClassName
-            => TestMethodData.CanonicalData.Exercise.ToTestedClassName();
+        protected string TestedMethodName => TestMethodData.CanonicalDataCase.Property.ToTestedMethodName();
 
-        protected virtual string TestedMethod
-            => TestMethodData.CanonicalDataCase.Property.ToTestedMethodName();
+        protected object Input => FormatInputValue(TestMethodData.CanonicalDataCase.Input);
 
-        protected virtual object Input => FormatInputValue(TestMethodData.CanonicalDataCase.Input);
-
-        protected virtual object FormatInputValue(object val)
+        protected string MethodName => TestMethodData.CanonicalDataCase.Description.ToTestMethodName();
+        
+        protected object FormatInputValue(object val)
         {
             switch (val)
             {
@@ -48,12 +45,12 @@ namespace Generators.Output
             }
         }
 
-        protected virtual object Expected => 
-            TestMethodData.Options.ExpectedFormat  == ExpectedFormat.Unformatted
+        protected object Expected => 
+            TestMethodData.Options.ExpectedFormat == ExpectedFormat.Unformatted
                 ? TestMethodData.CanonicalDataCase.Expected
                 : FormatExpectedValue(TestMethodData.CanonicalDataCase.Expected);
 
-        protected virtual object FormatExpectedValue(object val)
+        protected object FormatExpectedValue(object val)
         {
             switch (val)
             {

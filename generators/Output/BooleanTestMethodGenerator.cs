@@ -12,11 +12,11 @@ namespace Generators.Output
                 switch (TestMethodData.Options.TestedMethodType)
                 {
                     case TestedMethodType.Static:
-                        return new[] { $"{Assertion}({TestedClassName}.{TestedMethod}({Input}));" };
+                        return new[] { $"{Assertion}({TestedClassName}.{TestedMethodName}({Input}));" };
                     case TestedMethodType.Instance:
-                        return new[] { $"var sut = new {TestedClassName}();", $"{Assertion}(sut.{TestedMethod}({Input}));" };
+                        return new[] { $"var sut = new {TestedClassName}();", $"{Assertion}(sut.{TestedMethodName}({Input}));" };
                     case TestedMethodType.Extension:
-                            return new[] { $"{Assertion}({Input}.{TestedMethod}());" };
+                            return new[] { $"{Assertion}({Input}.{TestedMethodName}());" };
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
@@ -24,7 +24,5 @@ namespace Generators.Output
         }
 
         private string Assertion => $"Assert.{Convert.ToBoolean(TestMethodData.CanonicalDataCase.Expected)}";
-
-        protected override string TestedMethod => base.TestedMethod.EnsureStartsWith("Is");
     }
 }

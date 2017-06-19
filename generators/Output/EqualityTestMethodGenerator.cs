@@ -15,19 +15,19 @@ namespace Generators.Output
                 {
                     case TestedMethodType.Static:
                         if (TestMethodData.Options.ExpectedFormat == ExpectedFormat.FormattedAsMultilineString)
-                            return new[] { $"var expected = {FormattedExpectedVariable};", $"Assert.Equal(expected, {TestedClassName}.{TestedMethod}({Input}));" };
+                            return new[] { $"var expected = {FormattedExpectedVariable};", $"Assert.Equal(expected, {TestedClassName}.{TestedMethodName}({Input}));" };
 
-                        return new[] { $"Assert.Equal({Expected}, {TestedClassName}.{TestedMethod}({Input}));" };
+                        return new[] { $"Assert.Equal({Expected}, {TestedClassName}.{TestedMethodName}({Input}));" };
                     case TestedMethodType.Instance:
                         if (TestMethodData.Options.ExpectedFormat == ExpectedFormat.FormattedAsMultilineString)
-                            return new[] { $"var expected = {FormattedExpectedVariable};", $"var sut = new {TestedClassName}();", $"Assert.Equal({Expected}, sut.{TestedMethod}({Input}));" };
+                            return new[] { $"var expected = {FormattedExpectedVariable};", $"var sut = new {TestedClassName}();", $"Assert.Equal({Expected}, sut.{TestedMethodName}({Input}));" };
 
-                        return new[] { $"var sut = new {TestedClassName}();", $"Assert.Equal({Expected}, sut.{TestedMethod}({Input}));" };
+                        return new[] { $"var sut = new {TestedClassName}();", $"Assert.Equal({Expected}, sut.{TestedMethodName}({Input}));" };
                     case TestedMethodType.Extension:
                         if (TestMethodData.Options.ExpectedFormat == ExpectedFormat.FormattedAsMultilineString)
-                            return new[] { $"var expected = {FormattedExpectedVariable};", $"Assert.Equal(expected, {Input}.{TestedMethod}());" };
+                            return new[] { $"var expected = {FormattedExpectedVariable};", $"Assert.Equal(expected, {Input}.{TestedMethodName}());" };
 
-                        return new[] { $"Assert.Equal({Expected}, {Input}.{TestedMethod}());" };
+                        return new[] { $"Assert.Equal({Expected}, {Input}.{TestedMethodName}());" };
                     default:
                         throw new ArgumentOutOfRangeException();
                 }

@@ -1,16 +1,12 @@
-﻿using Generators.Input;
-using Generators.Output;
+﻿using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class BeerSong : EqualityExercise
     {
-        protected override TestMethodData CreateTestMethodData(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase)
+        public BeerSong()
         {
-            var testMethodData = base.CreateTestMethodData(canonicalData, canonicalDataCase);
-            testMethodData.Options.ExpectedFormat = ExpectedFormat.FormattedAsMultilineString;
-
-            return testMethodData;
+            Options.ExpectedFormat = ExpectedFormat.FormattedAsMultilineString;
         }
     }
 }

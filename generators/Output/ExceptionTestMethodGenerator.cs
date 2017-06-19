@@ -12,11 +12,11 @@ namespace Generators.Output
                 switch (TestMethodData.Options.TestedMethodType)
                 {
                     case TestedMethodType.Static:
-                        return new[] { $"Assert.Throws<{ExceptionType}>(() => {TestedClassName}.{TestedMethod}({Input}));" };
+                        return new[] { $"Assert.Throws<{ExceptionType}>(() => {TestedClassName}.{TestedMethodName}({Input}));" };
                     case TestedMethodType.Instance:
-                        return new[] { $"var sut = new {TestedClassName}();", $"Assert.Throws<{ExceptionType}>(() => sut.{TestedMethod}({Input}));;" };
+                        return new[] { $"var sut = new {TestedClassName}();", $"Assert.Throws<{ExceptionType}>(() => sut.{TestedMethodName}({Input}));;" };
                     case TestedMethodType.Extension:
-                        return new[] { $"Assert.Throws<{ExceptionType}>(() => {Input}.{TestedMethod}());" };
+                        return new[] { $"Assert.Throws<{ExceptionType}>(() => {Input}.{TestedMethodName}());" };
                     default:
                         throw new ArgumentOutOfRangeException();
                 }

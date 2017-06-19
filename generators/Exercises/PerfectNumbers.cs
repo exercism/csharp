@@ -7,11 +7,15 @@ namespace Generators.Exercises
 {
     public class PerfectNumbers : EqualityExercise
     {
+        public PerfectNumbers()
+        {
+            Options.ExceptionType = typeof(ArgumentOutOfRangeException);
+            Options.ExpectedFormat = ExpectedFormat.Unformatted;
+        }
+
         protected override TestMethodData CreateTestMethodData(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase)
         {
             var testMethodData = base.CreateTestMethodData(canonicalData, canonicalDataCase);
-            testMethodData.Options.ExceptionType = typeof(ArgumentOutOfRangeException);
-            testMethodData.Options.ExpectedFormat = ExpectedFormat.Unformatted;
 
             if (testMethodData.CanonicalDataCase.Expected is string classificationType)
                 testMethodData.CanonicalDataCase.Expected = GetClassification(classificationType);
