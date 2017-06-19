@@ -7,9 +7,7 @@ namespace Generators.Methods
 {
     public class EqualityTestMethodGenerator : TestMethodGenerator
     {
-        private const string Tab = "    ";
-
-        protected override string Body 
+        protected override IEnumerable<string> Body 
         {
             get
             {
@@ -17,19 +15,19 @@ namespace Generators.Methods
                 {
                     case TestedMethodType.Static:
                         if (TestMethodData.Options.ExpectedFormat == ExpectedFormat.FormattedAsMultilineString)
-                            return $"var expected = {FormattedExpectedVariable};\nAssert.Equal(expected, {TestedClassName}.{TestedMethod}({Input}));";
+                            return new[] { $"var expected = {FormattedExpectedVariable};", "Assert.Equal(expected, {TestedClassName}.{TestedMethod}({Input}));" };
 
-                        return $"Assert.Equal({Expected}, {TestedClassName}.{TestedMethod}({Input}));";
+                        return new[] { $"Assert.Equal({Expected}, {TestedClassName}.{TestedMethod}({Input}));" };
                     case TestedMethodType.Instance:
                         if (TestMethodData.Options.ExpectedFormat == ExpectedFormat.FormattedAsMultilineString)
-                            return $"var expected = {FormattedExpectedVariable};\nvar sut = new {TestedClassName}();\n    Assert.Equal({Expected}, sut.{TestedMethod}({Input}));";
+                            return new[] { $"var expected = {FormattedExpectedVariable};", "var sut = new {TestedClassName}();", "Assert.Equal({Expected}, sut.{TestedMethod}({Input}));" };
 
-                        return $"var sut = new {TestedClassName}();\n    Assert.Equal({Expected}, sut.{TestedMethod}({Input}));";
+                        return new[] { $"var sut = new {TestedClassName}();", "Assert.Equal({Expected}, sut.{TestedMethod}({Input}));" };
                     case TestedMethodType.Extension:
                         if (TestMethodData.Options.ExpectedFormat == ExpectedFormat.FormattedAsMultilineString)
-                            return $"var expected = {FormattedExpectedVariable};\nAssert.Equal(expected, {Input}.{TestedMethod}());";
+                            return new[] { $"var expected = {FormattedExpectedVariable};", "Assert.Equal(expected, {Input}.{TestedMethod}());" };
 
-                        return $"Assert.Equal({Expected}, {Input}.{TestedMethod}());";
+                        return new[] { $"Assert.Equal({Expected}, {Input}.{TestedMethod}());" };
                     default:
                         throw new ArgumentOutOfRangeException();
                 }

@@ -1,22 +1,23 @@
 using System;
+using System.Collections.Generic;
 using Generators.Helpers;
 
 namespace Generators.Methods
 {
     public class BooleanTestMethodGenerator : TestMethodGenerator
     {
-        protected override string Body
+        protected override IEnumerable<string> Body
         {
             get
             {
                 switch (TestMethodData.Options.TestedMethodType)
                 {
                     case TestedMethodType.Static:
-                        return $"{Assertion}({TestedClassName}.{TestedMethod}({Input}));";
+                        return new[] { $"{Assertion}({TestedClassName}.{TestedMethod}({Input}));" };
                     case TestedMethodType.Instance:
-                        return $"var sut = new {TestedClassName}();\n    {Assertion}(sut.{TestedMethod}({Input}));";
+                        return new[] { $"var sut = new {TestedClassName}();\n{Tab}{Assertion}(sut.{TestedMethod}({Input}));" };
                     case TestedMethodType.Extension:
-                        return $"{Assertion}({Input}.{TestedMethod}());";
+                            return new[] { $"{Assertion}({Input}.{TestedMethod}());" };
                     default:
                         throw new ArgumentOutOfRangeException();
                 }

@@ -21,6 +21,6 @@ namespace Generators.Methods
                 .Replace("{Skip}", testMethod.Index == 0 ? "" : "(Skip = \"Remove to run test\")");
 
         private static string RenderBody(TestMethod testMethod) 
-            => string.Join("\n", testMethod.Body.Split('\n').Select(line => $"{Tab}{Tab}{line}"));
+            => string.Join("\n", testMethod.Body.Select(line => $"{Tab}{Tab}{line}"));
     }
 }

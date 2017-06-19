@@ -5,18 +5,18 @@ namespace Generators.Methods
 {
     public class ExceptionTestMethodGenerator : TestMethodGenerator
     {
-        protected override string Body 
+        protected override IEnumerable<string> Body 
         {
             get
             {
                 switch (TestMethodData.Options.TestedMethodType)
                 {
                     case TestedMethodType.Static:
-                        return $"Assert.Throws<{ExceptionType}>(() => {TestedClassName}.{TestedMethod}({Input}));";
+                        return new[] { $"Assert.Throws<{ExceptionType}>(() => {TestedClassName}.{TestedMethod}({Input}));" };
                     case TestedMethodType.Instance:
-                        return $"var sut = new {TestedClassName}();\n    Assert.Throws<{ExceptionType}>(() => sut.{TestedMethod}({Input}));;";
+                        return new[] { $"var sut = new {TestedClassName}();", "Assert.Throws<{ExceptionType}>(() => sut.{TestedMethod}({Input}));;" };
                     case TestedMethodType.Extension:
-                        return $"Assert.Throws<{ExceptionType}>(() => {Input}.{TestedMethod}());";
+                        return new[] { $"Assert.Throws<{ExceptionType}>(() => {Input}.{TestedMethod}());" };
                     default:
                         throw new ArgumentOutOfRangeException();
                 }

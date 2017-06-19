@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Generators.Methods;
 
 namespace Generators.Classes
@@ -27,14 +26,6 @@ public class {ClassName}
            string.Join("\n", testClass.UsingNamespaces.Select(usingNamespace => $"using {usingNamespace};"));
 
         private static string RenderBody(TestClass testClass) =>
-           string.Join("\n\n", GetBodyParts(testClass));
-
-        private static IEnumerable<string> GetBodyParts(TestClass testClass) =>
-            from bodyPart in new [] { testClass.BeforeTestMethods, RenderTestMethods(testClass), testClass.AfterTestMethods }
-            where !string.IsNullOrWhiteSpace(bodyPart)
-            select bodyPart;
-
-        private static string RenderTestMethods(TestClass testClass) =>
-           string.Join("\n\n", testClass.TestMethods.Select(TestMethodRenderer.Render));
+            string.Join("\n\n", testClass.TestMethods.Select(TestMethodRenderer.Render));
     }
 }

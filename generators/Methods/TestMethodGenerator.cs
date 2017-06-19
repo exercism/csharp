@@ -8,6 +8,8 @@ namespace Generators.Methods
 {
     public abstract class TestMethodGenerator
     {
+        protected const string Tab = "    ";
+
         public TestMethod Create(TestMethodData testMethodData)
         {
             TestMethodData = testMethodData;
@@ -23,7 +25,7 @@ namespace Generators.Methods
 
         protected TestMethodData TestMethodData { get; private set; }
 
-        protected abstract string Body { get; }
+        protected abstract IEnumerable<string> Body { get; }
 
         protected virtual ISet<string> UsingNamespaces 
             => new HashSet<string>();
