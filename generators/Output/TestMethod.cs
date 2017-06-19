@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Generators.Methods
+namespace Generators.Output
 {
     public class TestMethod
     {

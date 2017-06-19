@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 
-namespace Generators.Data
+namespace Generators.Input
 {
     [JsonConverter(typeof(CanonicalDataCaseJsonConverter))]
     public class CanonicalDataCase

@@ -1,4 +1,4 @@
-﻿using Generators.Methods;
+﻿using Generators.Output;
 
 namespace Generators.Exercises
 {

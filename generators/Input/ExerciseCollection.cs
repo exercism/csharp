@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using Generators.Exercises;
 
-namespace Generators.Data
+namespace Generators.Input
 {
     public class ExerciseCollection : IEnumerable<Exercise>
     {

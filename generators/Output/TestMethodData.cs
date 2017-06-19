@@ -1,6 +1,6 @@
-using Generators.Data;
+using Generators.Input;
 
-namespace Generators.Methods
+namespace Generators.Output
 {
     public class TestMethodData
     {

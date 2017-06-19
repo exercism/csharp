@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Net.Http;
 using Newtonsoft.Json;
 
-namespace Generators.Data
+namespace Generators.Input
 {
     public static class CanonicalDataParser
     {

@@ -1,6 +1,6 @@
 using System;
-using Generators.Data;
-using Generators.Methods;
+using Generators.Input;
+using Generators.Output;
 using Humanizer;
 
 namespace Generators.Exercises

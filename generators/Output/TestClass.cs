@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using Generators.Methods;
 
-namespace Generators.Classes
+namespace Generators.Output
 {
     public class TestClass
     {

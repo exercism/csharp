@@ -1,4 +1,4 @@
-namespace Generators.Methods
+namespace Generators.Output
 {
     public enum TestedMethodType
     {

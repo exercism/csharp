@@ -1,5 +1,5 @@
-﻿using Generators.Data;
-using Generators.Methods;
+﻿using Generators.Input;
+using Generators.Output;
 
 namespace Generators.Exercises
 {

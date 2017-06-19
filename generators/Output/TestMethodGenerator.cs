@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Humanizer;
-using To = Generators.Helpers.To;
 
-namespace Generators.Methods
+namespace Generators.Output
 {
     public abstract class TestMethodGenerator
     {
@@ -28,13 +26,13 @@ namespace Generators.Methods
             => new HashSet<string>();
 
         protected virtual string MethodName
-            => TestMethodData.CanonicalDataCase.Description.Replace(":", " is").Transform(To.TestMethodName);    
+            => TestMethodData.CanonicalDataCase.Description.ToTestMethodName();
 
         protected virtual string TestedClassName
-            => TestMethodData.CanonicalData.Exercise.Transform(To.TestedClassName);
+            => TestMethodData.CanonicalData.Exercise.ToTestedClassName();
 
         protected virtual string TestedMethod
-            => TestMethodData.CanonicalDataCase.Property.Transform(To.TestedMethodName);
+            => TestMethodData.CanonicalDataCase.Property.ToTestedMethodName();
 
         protected virtual object Input => FormatInputValue(TestMethodData.CanonicalDataCase.Input);
 

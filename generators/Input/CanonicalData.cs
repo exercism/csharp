@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 
-namespace Generators.Data
+namespace Generators.Input
 {
     public class CanonicalData
     {

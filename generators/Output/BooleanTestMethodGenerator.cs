@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using Generators.Helpers;
 
-namespace Generators.Methods
+namespace Generators.Output
 {
     public class BooleanTestMethodGenerator : TestMethodGenerator
     {

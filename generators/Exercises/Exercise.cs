@@ -1,11 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Generators.Classes;
-using Generators.Data;
-using Generators.Methods;
+using Generators.Input;
+using Generators.Output;
 using Humanizer;
-using Newtonsoft.Json.Linq;
-using To = Generators.Helpers.To;
 
 namespace Generators.Exercises
 {
@@ -29,7 +26,7 @@ namespace Generators.Exercises
         {
             var testClass = new TestClass
             {
-                ClassName = Name.Transform(To.TestClassName),
+                ClassName = Name.ToTestClassName(),
                 TestMethods = CreateTestMethods(canonicalData).ToArray(),
                 CanonicalDataVersion = canonicalData.Version
             };
@@ -50,15 +47,8 @@ namespace Generators.Exercises
         protected virtual IEnumerable<TestMethod> CreateTestMethods(CanonicalData canonicalData) 
             => canonicalData.Cases.Select((t, i) => CreateTestMethod(canonicalData, t, i));
         
-        protected virtual TestMethod CreateTestMethod(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase, int index)
-        {
-            var testMethodData = CreateTestMethodData(canonicalData, canonicalDataCase, index);
-            
-            if (testMethodData.CanonicalDataCase.Expected is JObject)
-                return ExceptionTestMethodGenerator.Create(testMethodData);
-
-            return CreateTestMethod(testMethodData);
-        }
+        protected virtual TestMethod CreateTestMethod(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase, int index) 
+            => CreateTestMethod(CreateTestMethodData(canonicalData, canonicalDataCase, index));
 
         protected virtual TestMethodData CreateTestMethodData(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase, int index)
             => new TestMethodData

@@ -1,7 +1,7 @@
 ﻿using System.IO;
-using Generators.Classes;
-using Generators.Data;
 using Generators.Exercises;
+using Generators.Input;
+using Generators.Output;
 using Serilog;
 
 namespace Generators

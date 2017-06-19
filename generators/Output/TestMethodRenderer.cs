@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace Generators.Methods
+namespace Generators.Output
 {
     public static class TestMethodRenderer
     {
