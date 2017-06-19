@@ -2,7 +2,7 @@
 
 namespace Generators.Exercises
 {
-    public class FoodChain : EqualityExercise
+    public class FoodChain : Exercise
     {
         public FoodChain()
         {

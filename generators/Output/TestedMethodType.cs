@@ -2,8 +2,7 @@ namespace Generators.Output
 {
     public enum TestedMethodType
     {
-        Static,
-        Instance,
-        Extension
+        EqualityCheck = 0,
+        BooleanComparison
     }
 }

@@ -4,7 +4,7 @@ using Humanizer;
 
 namespace Generators.Exercises
 {
-    public class PerfectNumbers : EqualityExercise
+    public class PerfectNumbers : Exercise
     {
         public PerfectNumbers()
         {

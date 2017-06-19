@@ -2,7 +2,7 @@ using System;
 
 namespace Generators.Exercises
 {
-    public class NthPrime : EqualityExercise
+    public class NthPrime : Exercise
     {
         public NthPrime()
         {

@@ -9,13 +9,13 @@ namespace Generators.Output
         {
             get
             {
-                switch (TestMethodData.Options.TestedMethodType)
+                switch (TestMethodData.Options.TestedMethodFormat)
                 {
-                    case TestedMethodType.Static:
+                    case TestedMethodFormat.Static:
                         return new[] { $"{Assertion}({TestedClassName}.{TestedMethodName}({Input}));" };
-                    case TestedMethodType.Instance:
+                    case TestedMethodFormat.Instance:
                         return new[] { $"var sut = new {TestedClassName}();", $"{Assertion}(sut.{TestedMethodName}({Input}));" };
-                    case TestedMethodType.Extension:
+                    case TestedMethodFormat.Extension:
                             return new[] { $"{Assertion}({Input}.{TestedMethodName}());" };
                     default:
                         throw new ArgumentOutOfRangeException();

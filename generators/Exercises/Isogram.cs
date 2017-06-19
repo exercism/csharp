@@ -1,6 +1,12 @@
+using Generators.Output;
+
 namespace Generators.Exercises
 {
-    public class Isogram : BooleanExercise
+    public class Isogram : Exercise
     {
+        public Isogram()
+        {
+            Options.TestedMethodType = TestedMethodType.BooleanComparison;
+        }
     }
 }

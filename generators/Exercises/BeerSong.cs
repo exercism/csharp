@@ -2,7 +2,7 @@
 
 namespace Generators.Exercises
 {
-    public class BeerSong : EqualityExercise
+    public class BeerSong : Exercise
     {
         public BeerSong()
         {

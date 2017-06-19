@@ -1,6 +1,6 @@
 namespace Generators.Exercises
 {
-    public class HelloWorld : EqualityExercise
+    public class HelloWorld : Exercise
     {
     }
 }

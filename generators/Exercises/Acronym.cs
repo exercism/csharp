@@ -1,6 +1,6 @@
 ﻿namespace Generators.Exercises
 {
-    public class Acronym : EqualityExercise
+    public class Acronym : Exercise
     {
     }
 }

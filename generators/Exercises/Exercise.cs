@@ -15,12 +15,12 @@ namespace Generators.Exercises
         {
             Name = GetType().Name.Kebaberize();
             CanonicalData = CanonicalDataParser.Parse(Name);
-            Options = new TestMethodOptions();
+            Options = new ExerciseConfiguration();
         }
 
         public string Name { get; }
         public CanonicalData CanonicalData { get; }
-        public TestMethodOptions Options { get; }
+        public ExerciseConfiguration Options { get; }
 
         public TestClass CreateTestClass()
         {
@@ -42,7 +42,16 @@ namespace Generators.Exercises
                 testClass.UsingNamespaces.UnionWith(testMethod.UsingNamespaces);
         }
 
-        protected abstract TestMethod CreateTestMethod(TestMethodData testMethodData);
+        private static TestMethod CreateTestMethod(TestMethodData testMethodData)
+        {
+            if (testMethodData.Options.ThrowExceptionWhenExpectedValueEquals(testMethodData.CanonicalDataCase.Expected))
+                return ExceptionTestMethod.Create(testMethodData);
+
+            if (testMethodData.Options.TestedMethodType == TestedMethodType.BooleanComparison)
+                return BooleanTestMethod.Create(testMethodData);
+
+            return EqualityTestMethod.Create(testMethodData);
+        }
 
         private TestMethod CreateTestMethod(CanonicalDataCase canonicalDataCase) => CreateTestMethod(CreateTestMethodData(canonicalDataCase));
 

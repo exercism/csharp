@@ -1,6 +1,6 @@
 ﻿namespace Generators.Exercises
 {
-    public class Wordy : EqualityExercise
+    public class Wordy : Exercise
     {
         public Wordy()
         {

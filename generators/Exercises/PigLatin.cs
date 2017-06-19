@@ -1,6 +1,6 @@
 ﻿namespace Generators.Exercises
 {
-    public class PigLatin : EqualityExercise
+    public class PigLatin : Exercise
     {
     }
 }

@@ -2,11 +2,11 @@
 
 namespace Generators.Exercises
 {
-    public class RomanNumerals : EqualityExercise
+    public class RomanNumerals : Exercise
     {
         public RomanNumerals()
         {
-            Options.TestedMethodType = TestedMethodType.Extension;
+            Options.TestedMethodFormat = TestedMethodFormat.Extension;
 
             foreach (var canonicalDataCase in CanonicalData.Cases)
             {
