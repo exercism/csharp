@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Generators.Input;
 using Generators.Output;
 using Humanizer;
@@ -27,7 +26,7 @@ namespace Generators.Exercises
             var testClass = new TestClass
             {
                 ClassName = Name.ToTestClassName(),
-                TestMethods = CreateTestMethods(canonicalData).ToArray(),
+                TestMethods = canonicalData.Cases.Select((t, i) => CreateTestMethod(canonicalData, t)).ToArray(),
                 CanonicalDataVersion = canonicalData.Version
             };
 
@@ -44,18 +43,14 @@ namespace Generators.Exercises
 
         protected abstract TestMethod CreateTestMethod(TestMethodData testMethodData);
 
-        private IEnumerable<TestMethod> CreateTestMethods(CanonicalData canonicalData) 
-            => canonicalData.Cases.Select((t, i) => CreateTestMethod(canonicalData, t, i));
+        private TestMethod CreateTestMethod(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase) 
+            => CreateTestMethod(CreateTestMethodData(canonicalData, canonicalDataCase));
 
-        private TestMethod CreateTestMethod(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase, int index) 
-            => CreateTestMethod(CreateTestMethodData(canonicalData, canonicalDataCase, index));
-
-        protected virtual TestMethodData CreateTestMethodData(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase, int index)
+        protected virtual TestMethodData CreateTestMethodData(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase)
             => new TestMethodData
             {
                 CanonicalData = canonicalData,
                 CanonicalDataCase = canonicalDataCase,
-                Index = index,
                 Options = Options
             };
     }

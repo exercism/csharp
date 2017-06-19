@@ -7,6 +7,5 @@ namespace Generators.Output
         public ISet<string> UsingNamespaces { get; set; } = new HashSet<string>();
         public string MethodName { get; set; }
         public IEnumerable<string> Body { get; set; }
-        public int Index { get; set; }
     }
 }

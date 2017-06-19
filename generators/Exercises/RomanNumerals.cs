@@ -10,9 +10,9 @@ namespace Generators.Exercises
             Options.TestedMethodType = TestedMethodType.Extension;
         }
 
-        protected override TestMethodData CreateTestMethodData(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase, int index)
+        protected override TestMethodData CreateTestMethodData(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase)
         {
-            var testMethodData = base.CreateTestMethodData(canonicalData, canonicalDataCase, index);
+            var testMethodData = base.CreateTestMethodData(canonicalData, canonicalDataCase);
             testMethodData.CanonicalDataCase.Property = "ToRoman";
             testMethodData.CanonicalDataCase.Description = "Number_" + testMethodData.CanonicalDataCase.Description;
 

@@ -11,10 +11,9 @@ namespace Generators.Output
 
             return new TestMethod
             {
+                UsingNamespaces = UsingNamespaces,
                 MethodName = MethodName,
-                Body = Body,
-                Index = TestMethodData.Index,
-                UsingNamespaces = UsingNamespaces
+                Body = Body
             };
         }
 
