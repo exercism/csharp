@@ -6,7 +6,7 @@ namespace Generators.Exercises
     {
         public RomanNumerals()
         {
-            Configuration.TestedMethodFormat = TestedMethodFormat.Extension;
+            Configuration.TestedMethodType = TestedMethodType.Extension;
 
             foreach (var canonicalDataCase in CanonicalData.Cases)
             {

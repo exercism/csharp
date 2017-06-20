@@ -1,6 +1,6 @@
-namespace Generators.Output
+namespace Generators
 {
-    public enum TestedMethodFormat
+    public enum TestedMethodType
     {
         Static,
         Instance,

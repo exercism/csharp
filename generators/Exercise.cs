@@ -1,7 +1,7 @@
 ﻿using Generators.Input;
 using Humanizer;
 
-namespace Generators.Exercises
+namespace Generators
 {
     public abstract class Exercise
     {

@@ -1,4 +1,4 @@
-﻿using Generators.Output;
+﻿using Newtonsoft.Json.Linq;
 
 namespace Generators.Exercises
 {
@@ -6,7 +6,8 @@ namespace Generators.Exercises
     {
         public FoodChain()
         {
-            Configuration.ExpectedFormat = ExpectedFormat.FormattedAsMultilineString;
+            foreach (var canonicalDataCase in CanonicalData.Cases)
+                canonicalDataCase.Expected = string.Join("\n", ((JArray)canonicalDataCase.Expected).Values<string>());
         }
     }
 }
