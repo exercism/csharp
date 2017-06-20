@@ -8,7 +8,6 @@ namespace Generators.Exercises
     {
         public ExpectedFormat ExpectedFormat { get; set; } = ExpectedFormat.Formatted;
         public Type ExceptionType { get; set; } = typeof(ArgumentException);
-        public TestedMethodType TestedMethodType { get; set; } = TestedMethodType.EqualityCheck;
         public TestedMethodFormat TestedMethodFormat { get; set; } = TestedMethodFormat.Static;
         public Func<object, bool> ThrowExceptionWhenExpectedValueEquals { get; set; } = x => x is JObject;
     }

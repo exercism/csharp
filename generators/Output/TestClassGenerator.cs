@@ -23,15 +23,10 @@ namespace Generators.Output
             if (exercise.Configuration.ThrowExceptionWhenExpectedValueEquals(canonicalDataCase.Expected))
                 return ExceptionTestMethod.Create(canonicalDataCase, exercise);
 
-            switch (exercise.Configuration.TestedMethodType)
-            {
-                case TestedMethodType.EqualityCheck:
-                    return EqualityTestMethod.Create(canonicalDataCase, exercise);
-                case TestedMethodType.BooleanComparison:
-                    return BooleanTestMethod.Create(canonicalDataCase, exercise);
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+            if (canonicalDataCase.Expected is bool)
+                return BooleanTestMethod.Create(canonicalDataCase, exercise);
+
+            return EqualityTestMethod.Create(canonicalDataCase, exercise);
         }
     }
 }
