@@ -31,6 +31,6 @@ public class NthPrimeTest
     [Fact(Skip = "Remove to run test")]
     public void There_is_no_zeroth_prime()
     {
-        Assert.Throws<ArgumentOutOfRangeException>(() => NthPrime.Prime(0));
+        Assert.Throws<System.ArgumentOutOfRangeException>(() => NthPrime.Prime(0));
     }
 }

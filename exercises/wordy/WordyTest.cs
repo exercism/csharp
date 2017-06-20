@@ -91,12 +91,12 @@ public class WordyTest
     [Fact(Skip = "Remove to run test")]
     public void Unknown_operation()
     {
-        Assert.Throws<ArgumentException>(() => Wordy.Answer("What is 52 cubed?"));
+        Assert.Throws<System.ArgumentException>(() => Wordy.Answer("What is 52 cubed?"));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Non_math_question()
     {
-        Assert.Throws<ArgumentException>(() => Wordy.Answer("Who is the President of the United States?"));
+        Assert.Throws<System.ArgumentException>(() => Wordy.Answer("Who is the President of the United States?"));
     }
 }

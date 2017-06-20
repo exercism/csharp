@@ -23,6 +23,6 @@ namespace Generators.Output
             }
         }
 
-        protected virtual string ExceptionType => Configuration.ExceptionType.Name;
+        protected virtual string ExceptionType => Configuration.ExceptionType.FullName;
     }
 }
