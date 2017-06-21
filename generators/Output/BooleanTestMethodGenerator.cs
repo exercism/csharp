@@ -16,7 +16,7 @@ namespace Generators.Output
                     case TestedMethodType.Instance:
                         return new[] { $"var sut = new {TestedClassName}();", $"{Assertion}(sut.{TestedMethodName}({Input}));" };
                     case TestedMethodType.Extension:
-                            return new[] { $"{Assertion}({Input}.{TestedMethodName}());" };
+                        return new[] { $"{Assertion}({Input}.{TestedMethodName}());" };
                     default:
                         throw new ArgumentOutOfRangeException();
                 }

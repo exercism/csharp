@@ -1,6 +1,4 @@
-﻿using Generators.Output;
-
-namespace Generators.Exercises
+﻿namespace Generators.Exercises
 {
     public class RomanNumerals : Exercise
     {

@@ -1,5 +1,4 @@
 ﻿using System.IO;
-using Generators.Exercises;
 using Serilog;
 
 namespace Generators.Output
