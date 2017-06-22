@@ -26,5 +26,7 @@ namespace Generators.Output
 
         protected object Input => ValueFormatter.Format(CanonicalDataCase.Input);
         protected object Expected => ValueFormatter.Format(CanonicalDataCase.Expected);
+        protected IEnumerable<string> ExpectedVariableDeclaration => ValueFormatter.FormatVariable(CanonicalDataCase.Expected);
+        protected bool UseVariableForExpected => CanonicalDataCase.Expected is MultiLineString;
     }
 }
