@@ -1,5 +1,4 @@
 ﻿using Generators.Input;
-using Generators.Output;
 using Serilog;
 
 namespace Generators
@@ -24,7 +23,7 @@ namespace Generators
             Log.Information("Generating tests...");
 
             foreach (var exercise in new ExerciseCollection())
-                TestFileGenerator.Generate(exercise);
+                exercise.Generate();
 
             Log.Information("Generated tests.");
         }

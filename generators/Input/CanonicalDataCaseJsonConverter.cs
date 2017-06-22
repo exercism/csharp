@@ -17,15 +17,20 @@ namespace Generators.Input
 
             var canonicalDataCase = new CanonicalDataCase();
             serializer.Populate(new JTokenReader(jToken), canonicalDataCase);
-            
+
+            canonicalDataCase.Input = GetInputProperties(jToken);
+
+            return canonicalDataCase;
+        }
+
+        private static IDictionary<string, object> GetInputProperties(JToken jToken)
+        {
             var allProperties = jToken.ToObject<IDictionary<string, object>>();
 
             foreach (var nonInputProperty in NonInputProperties)
                 allProperties.Remove(nonInputProperty);
 
-            canonicalDataCase.Input = allProperties;
-
-            return canonicalDataCase;
+            return allProperties;
         }
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer) => throw new NotImplementedException();
