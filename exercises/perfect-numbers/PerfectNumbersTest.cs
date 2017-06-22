@@ -1,7 +1,6 @@
 // This file was auto-generated based on version 1.0.1 of the canonical data.
 
 using Xunit;
-using System;
 
 public class PerfectNumbersTest
 {
@@ -74,12 +73,12 @@ public class PerfectNumbersTest
     [Fact(Skip = "Remove to run test")]
     public void Zero_is_rejected_not_a_natural_number_()
     {
-        Assert.Throws<ArgumentOutOfRangeException>(() => PerfectNumbers.Classify(0));
+        Assert.Throws<System.ArgumentOutOfRangeException>(() => PerfectNumbers.Classify(0));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Negative_integer_is_rejected_not_a_natural_number_()
     {
-        Assert.Throws<ArgumentOutOfRangeException>(() => PerfectNumbers.Classify(-1));
+        Assert.Throws<System.ArgumentOutOfRangeException>(() => PerfectNumbers.Classify(-1));
     }
 }
