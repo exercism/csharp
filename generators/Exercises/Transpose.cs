@@ -7,7 +7,9 @@ namespace Generators.Exercises
     {
         public Transpose()
         {
-            foreach (var canonicalDataCase in CanonicalData.Cases) {
+            foreach (var canonicalDataCase in CanonicalData.Cases)
+            {
+                canonicalDataCase.Property = "String";
                 canonicalDataCase.Input = new MultiLineString((JArray)canonicalDataCase.Input);
                 canonicalDataCase.Expected = new MultiLineString((JArray)canonicalDataCase.Expected);
             }

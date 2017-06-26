@@ -9,7 +9,7 @@ public class TransposeTest
     {
         var input = "";
         var expected = "";
-        Assert.Equal(expected, Transpose.Transpose(input));
+        Assert.Equal(expected, Transpose.String(input));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -20,7 +20,7 @@ public class TransposeTest
         var expected = 
             "A\n" +
             "1";
-        Assert.Equal(expected, Transpose.Transpose(input));
+        Assert.Equal(expected, Transpose.String(input));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -31,7 +31,7 @@ public class TransposeTest
             "1";
         var expected = 
             "A1";
-        Assert.Equal(expected, Transpose.Transpose(input));
+        Assert.Equal(expected, Transpose.String(input));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -44,7 +44,7 @@ public class TransposeTest
             "A1\n" +
             "B2\n" +
             "C3";
-        Assert.Equal(expected, Transpose.Transpose(input));
+        Assert.Equal(expected, Transpose.String(input));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -65,7 +65,7 @@ public class TransposeTest
             "n\n" +
             "e\n" +
             ".";
-        Assert.Equal(expected, Transpose.Transpose(input));
+        Assert.Equal(expected, Transpose.String(input));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -91,7 +91,7 @@ public class TransposeTest
             "ne\n" +
             "e.\n" +
             ".";
-        Assert.Equal(expected, Transpose.Transpose(input));
+        Assert.Equal(expected, Transpose.String(input));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -117,7 +117,7 @@ public class TransposeTest
             "en\n" +
             ".e\n" +
             " .";
-        Assert.Equal(expected, Transpose.Transpose(input));
+        Assert.Equal(expected, Transpose.String(input));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -135,7 +135,7 @@ public class TransposeTest
             "ABUSE\n" +
             "RESIN\n" +
             "TREND";
-        Assert.Equal(expected, Transpose.Transpose(input));
+        Assert.Equal(expected, Transpose.String(input));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -155,7 +155,7 @@ public class TransposeTest
             "UNIT\n" +
             "RENT\n" +
             "EDGE";
-        Assert.Equal(expected, Transpose.Transpose(input));
+        Assert.Equal(expected, Transpose.String(input));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -175,7 +175,7 @@ public class TransposeTest
             "   SER\n" +
             "    ER\n" +
             "     R";
-        Assert.Equal(expected, Transpose.Transpose(input));
+        Assert.Equal(expected, Transpose.String(input));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -250,6 +250,6 @@ public class TransposeTest
             "          v  d\n" +
             "          e  .\n" +
             "          ,";
-        Assert.Equal(expected, Transpose.Transpose(input));
+        Assert.Equal(expected, Transpose.String(input));
     }
 }
