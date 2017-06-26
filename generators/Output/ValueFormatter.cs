@@ -23,12 +23,15 @@ namespace Generators.Output
             }
         }
 
-        public static IEnumerable<string> FormatVariable(object val)
+        public static IEnumerable<string> FormatVariable(object val, string name)
         {
             switch (val)
             {
                 case MultiLineString multiLineString:
-                    var lines = new List<string> {"var expected = "};
+                    if (!multiLineString.Any())
+                        return new [] {$"var {name} = {Format("")};"};
+
+                    var lines = new List<string> { $"var {name} = " };
                     return lines.Concat(    
                         multiLineString
                         .Select((t, i) => i < multiLineString.Count() - 1

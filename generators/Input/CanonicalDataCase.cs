@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 
 namespace Generators.Input
@@ -14,7 +13,7 @@ namespace Generators.Input
         public string Property { get; set; }
 
         [JsonIgnore]
-        public IDictionary<string, object> Input { get; set; }
+        public object Input { get; set; }
 
         public object Expected { get; set; }
     }
