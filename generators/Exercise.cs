@@ -1,6 +1,5 @@
 ﻿using Generators.Input;
 using Generators.Output;
-using Humanizer;
 
 namespace Generators
 {
@@ -8,7 +7,7 @@ namespace Generators
     {
         protected Exercise()
         {
-            Name = GetType().Name.Kebaberize();
+            Name = GetType().ToExerciseName();
             CanonicalData = CanonicalDataParser.Parse(Name);
             Configuration = new ExerciseConfiguration();
         }

@@ -5,10 +5,10 @@ namespace Generators
 {
     public static class Program
     {
-        public static void Main()
+        public static void Main(string[] args)
         {
             SetupLogger();
-            GenerateAll();
+            Generate(args);
         }
 
         private static void SetupLogger()
@@ -18,14 +18,17 @@ namespace Generators
                 .CreateLogger();
         }
 
-        private static void GenerateAll()
+        private static void Generate(string[] exerciseNames)
         {
             Log.Information("Generating tests...");
 
-            foreach (var exercise in new ExerciseCollection())
+            foreach (var exercise in GetExercises(exerciseNames))
                 exercise.Generate();
 
             Log.Information("Generated tests.");
         }
+
+        private static ExerciseCollection GetExercises(string[] exerciseNames) 
+            => exerciseNames.Length == 0 ? new ExerciseCollection() : new ExerciseCollection(exerciseNames);
     }
 }

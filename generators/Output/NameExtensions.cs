@@ -1,3 +1,4 @@
+using System;
 using System.Text.RegularExpressions;
 using Humanizer;
 
@@ -5,6 +6,8 @@ namespace Generators.Output
 {
     public static class NameExtensions
     {
+        public static string ToExerciseName(this Type exerciseType) => exerciseType.Name.Kebaberize();
+
         public static string ToTestClassName(this string input) => $"{input.Dehumanize()}Test";
 
         public static string ToTestedClassName(this string input) => input.Dehumanize();
