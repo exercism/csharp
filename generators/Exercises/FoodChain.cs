@@ -8,7 +8,7 @@ namespace Generators.Exercises
         public FoodChain()
         {
             foreach (var canonicalDataCase in CanonicalData.Cases)
-                canonicalDataCase.Expected = new MultiLineString(((JArray)canonicalDataCase.Expected).Values<string>());
+                canonicalDataCase.Expected = new MultiLineString((JArray)canonicalDataCase.Expected);
         }
     }
 }

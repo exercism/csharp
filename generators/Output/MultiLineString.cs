@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
 namespace Generators.Output
 {
@@ -7,10 +8,8 @@ namespace Generators.Output
     {
         private readonly IEnumerable<string> _lines;
 
-        public MultiLineString(string str) : this(str.Split('\n'))
-        {
-        }
-
+        public MultiLineString(string str) => _lines = str.Split('\n');
+        public MultiLineString(JToken jToken) => _lines = jToken.Values<string>();
         public MultiLineString(IEnumerable<string> lines) => _lines = lines;
 
         public IEnumerator<string> GetEnumerator() => _lines.GetEnumerator();

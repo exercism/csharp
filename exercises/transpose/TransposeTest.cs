@@ -1,51 +1,58 @@
-﻿using Xunit;
+// This file was auto-generated based on version 1.0.0 of the canonical data.
+
+using Xunit;
 
 public class TransposeTest
 {
     [Fact]
     public void Empty_string()
     {
-        const string input = "";
-        const string expected = "";
-
+        var input = "";
+        var expected = "";
         Assert.Equal(expected, Transpose.String(input));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Two_characters()
+    public void Two_characters_in_a_row()
     {
-        const string input =
+        var input = 
             "A1";
-
-        const string expected =
+        var expected = 
             "A\n" +
             "1";
+        Assert.Equal(expected, Transpose.String(input));
+    }
 
+    [Fact(Skip = "Remove to run test")]
+    public void Two_characters_in_a_column()
+    {
+        var input = 
+            "A\n" +
+            "1";
+        var expected = 
+            "A1";
         Assert.Equal(expected, Transpose.String(input));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Simple()
     {
-        const string input =
+        var input = 
             "ABC\n" +
             "123";
-
-        const string expected =
+        var expected = 
             "A1\n" +
             "B2\n" +
             "C3";
-
         Assert.Equal(expected, Transpose.String(input));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Single_line()
     {
-        const string input =
+        var input = 
             "Single line.";
-
-        const string expected =
+        var expected = 
             "S\n" +
             "i\n" +
             "n\n" +
@@ -58,18 +65,16 @@ public class TransposeTest
             "n\n" +
             "e\n" +
             ".";
-
         Assert.Equal(expected, Transpose.String(input));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void First_line_longer_than_second_line()
     {
-        const string input =
+        var input = 
             "The fourth line.\n" +
             "The fifth line.";
-
-        const string expected =
+        var expected = 
             "TT\n" +
             "hh\n" +
             "ee\n" +
@@ -86,18 +91,16 @@ public class TransposeTest
             "ne\n" +
             "e.\n" +
             ".";
-
         Assert.Equal(expected, Transpose.String(input));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Second_line_longer_than_first_line()
     {
-        const string input =
+        var input = 
             "The first line.\n" +
             "The second line.";
-
-        const string expected =
+        var expected = 
             "TT\n" +
             "hh\n" +
             "ee\n" +
@@ -114,40 +117,36 @@ public class TransposeTest
             "en\n" +
             ".e\n" +
             " .";
-
         Assert.Equal(expected, Transpose.String(input));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Square()
     {
-        const string input =
+        var input = 
             "HEART\n" +
             "EMBER\n" +
             "ABUSE\n" +
             "RESIN\n" +
             "TREND";
-
-        const string expected =
+        var expected = 
             "HEART\n" +
             "EMBER\n" +
             "ABUSE\n" +
             "RESIN\n" +
             "TREND";
-
         Assert.Equal(expected, Transpose.String(input));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Rectangle()
     {
-        const string input =
+        var input = 
             "FRACTURE\n" +
             "OUTLINED\n" +
             "BLOOMING\n" +
             "SEPTETTE";
-
-        const string expected =
+        var expected = 
             "FOBS\n" +
             "RULE\n" +
             "ATOP\n" +
@@ -156,36 +155,33 @@ public class TransposeTest
             "UNIT\n" +
             "RENT\n" +
             "EDGE";
-
         Assert.Equal(expected, Transpose.String(input));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Triangle()
     {
-        const string input =
+        var input = 
             "T\n" +
             "EE\n" +
             "AAA\n" +
             "SSSS\n" +
             "EEEEE\n" +
             "RRRRRR";
-
-        const string expected =
+        var expected = 
             "TEASER\n" +
             " EASER\n" +
             "  ASER\n" +
             "   SER\n" +
             "    ER\n" +
             "     R";
-
         Assert.Equal(expected, Transpose.String(input));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Many_lines()
     {
-        const string input =
+        var input = 
             "Chor. Two households, both alike in dignity,\n" +
             "In fair Verona, where we lay our scene,\n" +
             "From ancient grudge break to new mutiny,\n" +
@@ -200,8 +196,7 @@ public class TransposeTest
             "Is now the two hours' traffic of our stage;\n" +
             "The which if you with patient ears attend,\n" +
             "What here shall miss, our toil shall strive to mend.";
-
-        const string expected =
+        var expected = 
             "CIFWFAWDTAWITW\n" +
             "hnrhr hohnhshh\n" +
             "o oeopotedi ea\n" +
@@ -254,9 +249,7 @@ public class TransposeTest
             "          o  n\n" +
             "          v  d\n" +
             "          e  .\n" +
-            "          ,  ";
-
-
+            "          ,";
         Assert.Equal(expected, Transpose.String(input));
     }
 }

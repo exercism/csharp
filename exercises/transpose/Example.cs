@@ -1,23 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 
 public static class Transpose
 {
     public static string String(string input)
     {
-        var paddedRows = PadRows(input.Split('\n'));
+        var rows = input.Split('\n');
+        var maxLineLength = rows.Max(x => x.Length);
+        var transposed = new string[maxLineLength];
 
-        return string.Join("\n",
-                paddedRows
-                .SelectMany(s => s.Select((c, i) => Tuple.Create(i, c)))
-                .GroupBy(x => x.Item1)
-                .Select(x => new string(x.Select(y => y.Item2).ToArray())));
-    }
+        for (var i = 0; i < rows.Length; i++)
+        {
+            for (var j = 0; j < rows[i].Length; j++)
+                transposed[j] += rows[i][j];
 
-    private static IEnumerable<string> PadRows(string[] rows)
-    {
-        var maxLength = rows.Max(x => x.Length);
-        return rows.Select((row, i) => i < rows.Length - 1 ? row.PadRight(maxLength) : row);
+            var remainderRowsMaximumLength = rows.Skip(i).Max(x => x.Length);
+            for (var k = rows[i].Length; k < remainderRowsMaximumLength; k++)
+                transposed[k] += " ";
+        }
+        
+        return string.Join("\n", transposed).TrimEnd();
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -18,17 +19,20 @@ namespace Generators.Input
             var canonicalDataCase = new CanonicalDataCase();
             serializer.Populate(new JTokenReader(jToken), canonicalDataCase);
 
-            canonicalDataCase.Input = GetInputProperties(jToken);
+            canonicalDataCase.Input = GetInputProperty(jToken);
 
             return canonicalDataCase;
         }
 
-        private static IDictionary<string, object> GetInputProperties(JToken jToken)
+        private static object GetInputProperty(JToken jToken)
         {
             var allProperties = jToken.ToObject<IDictionary<string, object>>();
 
             foreach (var nonInputProperty in NonInputProperties)
                 allProperties.Remove(nonInputProperty);
+
+            if (allProperties.Keys.Count == 1)
+                return allProperties[allProperties.Keys.First()];
 
             return allProperties;
         }
