@@ -4,14 +4,14 @@ using System.Linq;
 
 public static class BookStore
 {
-    public static double CalculateTotalCost(List<int> books)
+    public static double Total(IEnumerable<int> books)
     {
-        return CalculateTotalCost(books, 0);
+        return Total(books, 0);
     }
 
-    private static double CalculateTotalCost(List<int> books, double priceSoFar)
+    private static double Total(IEnumerable<int> books, double priceSoFar)
     {
-        if (books.Count == 0)
+        if (!books.Any())
         {
             return priceSoFar;
         }
@@ -33,7 +33,7 @@ public static class BookStore
                 remaining.Remove(item);
             }
 
-            var price = CalculateTotalCost(remaining.ToList(), priceSoFar + CostPerGroup(i));
+            var price = Total(remaining.ToList(), priceSoFar + CostPerGroup(i));
             minPrice = Math.Min(minPrice, price);
         }
 

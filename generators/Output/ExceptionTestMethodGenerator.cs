@@ -7,6 +7,6 @@ namespace Generators.Output
     {
         protected override IEnumerable<string> Body => Variables.Append($"Assert.Throws<{ExceptionType}>(() => {TestedMethodInvocation});");
         
-        private string ExceptionType => Configuration.ExceptionType.FullName;
+        private string ExceptionType => CanonicalDataCase.ExceptionThrown.FullName;
     }
 }

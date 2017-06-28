@@ -1,4 +1,7 @@
 using System;
+using Generators.Output;
+using Humanizer;
+using Newtonsoft.Json.Linq;
 
 namespace Generators.Exercises
 {
@@ -6,20 +9,13 @@ namespace Generators.Exercises
     {
         public PerfectNumbers()
         {
-            Configuration.ExceptionType = typeof(ArgumentOutOfRangeException);
-
             foreach (var canonicalDataCase in CanonicalData.Cases)
             {
-                if (canonicalDataCase.Expected is string classificationType)
-                    canonicalDataCase.Expected = Enum.Parse(typeof(Classification), classificationType, true);
-            }
-        }
+                canonicalDataCase.ExceptionThrown = canonicalDataCase.Expected is JObject ? typeof(ArgumentOutOfRangeException) : null;
 
-        private enum Classification
-        {
-            Abundant,
-            Deficient,
-            Perfect,
+                if (canonicalDataCase.Expected is string classificationType)
+                    canonicalDataCase.Expected = new UnescapedValue($"Classification.{classificationType.Transform(To.SentenceCase)}");
+            }
         }
     }
 }

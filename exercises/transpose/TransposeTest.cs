@@ -15,8 +15,7 @@ public class TransposeTest
     [Fact(Skip = "Remove to run test")]
     public void Two_characters_in_a_row()
     {
-        var input = 
-            "A1";
+        var input = "A1";
         var expected = 
             "A\n" +
             "1";
@@ -29,8 +28,7 @@ public class TransposeTest
         var input = 
             "A\n" +
             "1";
-        var expected = 
-            "A1";
+        var expected = "A1";
         Assert.Equal(expected, Transpose.String(input));
     }
 
@@ -50,8 +48,7 @@ public class TransposeTest
     [Fact(Skip = "Remove to run test")]
     public void Single_line()
     {
-        var input = 
-            "Single line.";
+        var input = "Single line.";
         var expected = 
             "S\n" +
             "i\n" +

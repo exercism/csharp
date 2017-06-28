@@ -18,7 +18,7 @@ namespace Generators.Output
 
         private static TestMethod CreateTestMethod(CanonicalDataCase canonicalDataCase, Exercise exercise)
         {
-            if (exercise.Configuration.ThrowExceptionWhenExpectedValueEquals(canonicalDataCase.Expected))
+            if (canonicalDataCase.ExceptionThrown != null)
                 return ExceptionTestMethod.Create(canonicalDataCase, exercise);
 
             if (canonicalDataCase.Expected is bool)

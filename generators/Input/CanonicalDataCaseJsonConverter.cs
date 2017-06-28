@@ -19,6 +19,7 @@ namespace Generators.Input
             var canonicalDataCase = new CanonicalDataCase();
             serializer.Populate(new JTokenReader(jToken), canonicalDataCase);
 
+            canonicalDataCase.Properties = jToken.ToObject<IDictionary<string, object>>();
             canonicalDataCase.Input = GetInputProperty(jToken);
 
             return canonicalDataCase;

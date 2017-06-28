@@ -9,12 +9,10 @@ namespace Generators
         {
             Name = GetType().ToExerciseName();
             CanonicalData = CanonicalDataParser.Parse(Name);
-            Configuration = new ExerciseConfiguration();
         }
 
         public string Name { get; }
         public CanonicalData CanonicalData { get; }
-        public ExerciseConfiguration Configuration { get; }
 
         public void Generate() => TestClassFile.Write(this, Render());
 
