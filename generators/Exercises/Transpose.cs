@@ -1,4 +1,3 @@
-using Generators.Output;
 using Newtonsoft.Json.Linq;
 
 namespace Generators.Exercises
@@ -10,8 +9,10 @@ namespace Generators.Exercises
             foreach (var canonicalDataCase in CanonicalData.Cases)
             {
                 canonicalDataCase.Property = "String";
-                canonicalDataCase.Input = new MultiLineString((JArray)canonicalDataCase.Input);
-                canonicalDataCase.Expected = new MultiLineString((JArray)canonicalDataCase.Expected);
+                canonicalDataCase.Input = string.Join("\n", (JArray)canonicalDataCase.Input);
+                canonicalDataCase.Expected = string.Join("\n", (JArray)canonicalDataCase.Expected);
+                canonicalDataCase.UseInputParameters = true;
+                canonicalDataCase.UseExpectedParameter = true;
             }
         }
     }

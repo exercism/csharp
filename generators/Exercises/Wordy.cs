@@ -1,10 +1,13 @@
-﻿namespace Generators.Exercises
+﻿using System;
+
+namespace Generators.Exercises
 {
     public class Wordy : Exercise
     {
         public Wordy()
         {
-            Configuration.ThrowExceptionWhenExpectedValueEquals = x => x is bool;
+            foreach (var canonicalDataCase in CanonicalData.Cases)
+                canonicalDataCase.ExceptionThrown = canonicalDataCase.Expected is bool ? typeof(ArgumentException) : null;
         }
     }
 }

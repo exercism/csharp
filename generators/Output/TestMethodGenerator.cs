@@ -14,7 +14,6 @@ namespace Generators.Output
         {
             CanonicalDataCase = canonicalDataCase;
             CanonicalData = exercise.CanonicalData;
-            Configuration = exercise.Configuration;
 
             return new TestMethod { MethodName = TestMethodName, Body = Body };
         }
@@ -23,7 +22,6 @@ namespace Generators.Output
 
         protected CanonicalDataCase CanonicalDataCase { get; private set; }
         protected CanonicalData CanonicalData { get; private set; }
-        protected ExerciseConfiguration Configuration { get; private set; }
 
         protected string TestMethodName => CanonicalDataCase.Description.ToTestMethodName();
         protected string TestedClassName => CanonicalData.Exercise.ToTestedClassName();
@@ -32,15 +30,29 @@ namespace Generators.Output
         protected object Input => ValueFormatter.Format(CanonicalDataCase.Input);
         protected object Expected => ValueFormatter.Format(CanonicalDataCase.Expected);
 
+        protected object InputParameters => UseVariablesForInput ? string.Join(", ", InputVariableNames) : Input;
         protected object ExpectedParameter => UseVariableForExpected ? ExpectedVariableName : Expected;
-        protected object InputParameter => UseVariableForInput ? InputVariableName : Input;
 
-        protected IEnumerable<string> InputVariableDeclaration => ValueFormatter.FormatVariable(CanonicalDataCase.Input, InputVariableName);
+        protected IEnumerable<string> InputVariablesDeclaration => ValueFormatter.FormatVariables(CanonicalDataCase.Input, InputVariableNames);
         protected IEnumerable<string> ExpectedVariableDeclaration => ValueFormatter.FormatVariable(CanonicalDataCase.Expected, ExpectedVariableName);
         protected IEnumerable<string> SutVariableDeclaration => new [] {$"var {SutVariableName} = new {TestedClassName}();" };
 
-        protected bool UseVariableForInput => CanonicalDataCase.Input is MultiLineString;
-        protected bool UseVariableForExpected => CanonicalDataCase.Expected is MultiLineString;
+        protected bool UseVariablesForInput => CanonicalDataCase.UseInputParameters;
+        protected bool UseVariableForExpected => CanonicalDataCase.UseExpectedParameter;
+
+        protected IEnumerable<string> InputVariableNames
+        {
+            get
+            {
+                switch (CanonicalDataCase.Input)
+                {
+                    case IDictionary<string, object> dict:
+                        return dict.Keys;
+                    default:
+                        return new [] { InputVariableName };
+                }
+            }
+        }
         
         protected IEnumerable<string> Variables
         {
@@ -48,13 +60,13 @@ namespace Generators.Output
             {
                 var lines = new List<string>();
 
-                if (UseVariableForInput)
-                    lines.AddRange(InputVariableDeclaration);
+                if (UseVariablesForInput)
+                    lines.AddRange(InputVariablesDeclaration);
 
                 if (UseVariableForExpected)
                     lines.AddRange(ExpectedVariableDeclaration);
 
-                if (Configuration.TestedMethodType == TestedMethodType.Instance)
+                if (CanonicalDataCase.TestedMethodType == TestedMethodType.Instance)
                     lines.AddRange(SutVariableDeclaration);
 
                 return lines;
@@ -65,14 +77,14 @@ namespace Generators.Output
         {
             get
             {
-                switch (Configuration.TestedMethodType)
+                switch (CanonicalDataCase.TestedMethodType)
                 {
                     case TestedMethodType.Static:
-                        return $"{TestedClassName}.{TestedMethodName}({InputParameter})";
+                        return $"{TestedClassName}.{TestedMethodName}({InputParameters})";
                     case TestedMethodType.Instance:
-                        return $"{SutVariableName}.{TestedMethodName}({InputParameter})";
+                        return $"{SutVariableName}.{TestedMethodName}({InputParameters})";
                     case TestedMethodType.Extension:
-                        return $"{InputParameter}.{TestedMethodName}()";
+                        return $"{InputParameters}.{TestedMethodName}()";
                     default:
                         throw new ArgumentOutOfRangeException();
                 }

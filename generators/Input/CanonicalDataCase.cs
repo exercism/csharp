@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 
 namespace Generators.Input
@@ -16,5 +18,20 @@ namespace Generators.Input
         public object Input { get; set; }
 
         public object Expected { get; set; }
+
+        [JsonIgnore]
+        public IDictionary<string, object> Properties { get; set; }
+
+        [JsonIgnore]
+        public bool UseInputParameters { get; set; }
+
+        [JsonIgnore]
+        public bool UseExpectedParameter { get; set; }
+
+        [JsonIgnore]
+        public TestedMethodType TestedMethodType { get; set; } = TestedMethodType.Static;
+
+        [JsonIgnore]
+        public Type ExceptionThrown { get; set; }
     }
 }
