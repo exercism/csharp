@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Generators.Input;
 
 namespace Generators.Output
@@ -47,7 +48,7 @@ namespace Generators.Output
                 switch (CanonicalDataCase.Input)
                 {
                     case IDictionary<string, object> dict:
-                        return dict.Keys;
+                        return dict.Keys.Select(key => key.ToVariableName());
                     default:
                         return new [] { InputVariableName };
                 }
