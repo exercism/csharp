@@ -38,7 +38,7 @@ namespace Generators.Output
             switch (val)
             {
                 case IDictionary<string, object> dict:
-                    return dict.Keys.SelectMany(key => FormatVariable(dict[key], key)).ToArray();
+                    return dict.Keys.SelectMany((key, i) => FormatVariable(dict[key], names.ElementAt(i))).ToArray();
                 default:
                     return FormatVariable(val, names.First());
             }

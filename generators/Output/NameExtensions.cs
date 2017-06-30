@@ -29,5 +29,7 @@ namespace Generators.Output
         }
 
         public static string ToTestedMethodName(this string input) => input.Dehumanize();
+
+        public static string ToVariableName(this string input) => input.Camelize();
     }
 }
