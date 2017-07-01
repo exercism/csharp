@@ -1,4 +1,4 @@
-﻿using Generators.Input;
+﻿using CommandLine;
 using Serilog;
 
 namespace Generators
@@ -8,7 +8,9 @@ namespace Generators
         public static void Main(string[] args)
         {
             SetupLogger();
-            Generate(args);
+
+            Parser.Default.ParseArguments<Options>(args)
+                .WithParsed(Generate);
         }
 
         private static void SetupLogger()
@@ -18,17 +20,14 @@ namespace Generators
                 .CreateLogger();
         }
 
-        private static void Generate(string[] exerciseNames)
+        private static void Generate(Options options)
         {
             Log.Information("Generating tests...");
 
-            foreach (var exercise in GetExercises(exerciseNames))
+            foreach (var exercise in new ExerciseCollection(options.Exercises))
                 exercise.Generate();
 
             Log.Information("Generated tests.");
         }
-
-        private static ExerciseCollection GetExercises(string[] exerciseNames) 
-            => exerciseNames.Length == 0 ? new ExerciseCollection() : new ExerciseCollection(exerciseNames);
     }
 }
