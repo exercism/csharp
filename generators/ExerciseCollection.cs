@@ -9,11 +9,10 @@ namespace Generators
 {
     public class ExerciseCollection : IEnumerable<Exercise>
     {
-        private readonly string[] _exerciseNames;
-
-        public ExerciseCollection() => _exerciseNames = null;
-        public ExerciseCollection(IEnumerable<string> exerciseNames) => _exerciseNames = exerciseNames?.ToArray();
+        private readonly HashSet<string> _exerciseNames;
         
+        public ExerciseCollection(IEnumerable<string> exerciseNames) => _exerciseNames = new HashSet<string>(exerciseNames);
+
         public IEnumerator<Exercise> GetEnumerator() => GetDefinedGenerators().GetEnumerator();
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
@@ -27,8 +26,8 @@ namespace Generators
 
         private bool ShouldBeIncluded(Type type) 
             => _exerciseNames == null ||
-               _exerciseNames.Length == 0 ||
-               _exerciseNames.Contains(type.ToExerciseName(), StringComparer.OrdinalIgnoreCase) || 
+               _exerciseNames.Count == 0 ||
+               _exerciseNames.Contains(type.ToExerciseName(), StringComparer.OrdinalIgnoreCase) ||
                _exerciseNames.Contains(type.Name, StringComparer.OrdinalIgnoreCase);
     }
 }
