@@ -1,1 +1,2 @@
-Properties/
+.cache/
+Properties/launchSettings.json

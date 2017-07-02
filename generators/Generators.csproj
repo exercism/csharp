@@ -7,6 +7,7 @@
     <PackageReference Include="CommandLineParser" Version="2.1.1-beta" />
     <PackageReference Include="DotLiquid" Version="2.0.145" />
     <PackageReference Include="Humanizer" Version="2.2.0" />
+    <PackageReference Include="LibGit2Sharp.Portable" Version="0.24.10" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="serilog" Version="2.4.0" />
     <PackageReference Include="serilog.sinks.literate" Version="2.1.0" />
