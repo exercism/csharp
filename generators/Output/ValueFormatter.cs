@@ -33,16 +33,8 @@ namespace Generators.Output
             }
         }
 
-        public static string[] FormatVariables(object val, IEnumerable<string> names)
-        {
-            switch (val)
-            {
-                case IDictionary<string, object> dict:
-                    return dict.Keys.SelectMany((key, i) => FormatVariable(dict[key], names.ElementAt(i))).ToArray();
-                default:
-                    return FormatVariable(val, names.First());
-            }
-        }
+        public static string[] FormatVariables(IDictionary<string, object> dict) 
+            => dict.Keys.SelectMany((key, i) => FormatVariable(dict[key], key.ToVariableName())).ToArray();
 
         public static string[] FormatVariable(object val, string name)
         {

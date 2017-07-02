@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -25,15 +24,12 @@ namespace Generators.Input
             return canonicalDataCase;
         }
 
-        private static object GetInputProperty(JToken jToken)
+        private static IDictionary<string, object> GetInputProperty(JToken jToken)
         {
             var allProperties = jToken.ToObject<IDictionary<string, object>>();
 
             foreach (var nonInputProperty in NonInputProperties)
                 allProperties.Remove(nonInputProperty);
-
-            if (allProperties.Keys.Count == 1)
-                return allProperties[allProperties.Keys.First()];
 
             return allProperties;
         }

@@ -8,7 +8,6 @@ namespace Generators.Output
     public abstract class TestMethodGenerator
     {
         protected const string SutVariableName = "sut";
-        protected const string InputVariableName = "input";
         protected const string ExpectedVariableName = "expected";
 
         public TestMethod Create(CanonicalDataCase canonicalDataCase, Exercise exercise)
@@ -31,29 +30,15 @@ namespace Generators.Output
         protected object Input => ValueFormatter.Format(CanonicalDataCase.Input);
         protected object Expected => ValueFormatter.Format(CanonicalDataCase.Expected);
 
-        protected object InputParameters => UseVariablesForInput ? string.Join(", ", InputVariableNames) : Input;
+        protected object InputParameters => UseVariablesForInput ? string.Join(", ", CanonicalDataCase.Input.Keys.Select(key => key.ToVariableName())) : Input;
         protected object ExpectedParameter => UseVariableForExpected ? ExpectedVariableName : Expected;
 
-        protected IEnumerable<string> InputVariablesDeclaration => ValueFormatter.FormatVariables(CanonicalDataCase.Input, InputVariableNames);
+        protected IEnumerable<string> InputVariablesDeclaration => ValueFormatter.FormatVariables(CanonicalDataCase.Input);
         protected IEnumerable<string> ExpectedVariableDeclaration => ValueFormatter.FormatVariable(CanonicalDataCase.Expected, ExpectedVariableName);
         protected IEnumerable<string> SutVariableDeclaration => new [] {$"var {SutVariableName} = new {TestedClassName}();" };
 
         protected bool UseVariablesForInput => CanonicalDataCase.UseInputParameters;
         protected bool UseVariableForExpected => CanonicalDataCase.UseExpectedParameter;
-
-        protected IEnumerable<string> InputVariableNames
-        {
-            get
-            {
-                switch (CanonicalDataCase.Input)
-                {
-                    case IDictionary<string, object> dict:
-                        return dict.Keys.Select(key => key.ToVariableName());
-                    default:
-                        return new [] { InputVariableName };
-                }
-            }
-        }
         
         protected IEnumerable<string> Variables
         {

@@ -15,7 +15,7 @@ namespace Generators.Input
         public string Property { get; set; }
 
         [JsonIgnore]
-        public object Input { get; set; }
+        public IDictionary<string, object> Input { get; set; }
 
         public object Expected { get; set; }
 

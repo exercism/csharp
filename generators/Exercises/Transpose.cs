@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 
 namespace Generators.Exercises
@@ -9,7 +10,10 @@ namespace Generators.Exercises
             foreach (var canonicalDataCase in CanonicalData.Cases)
             {
                 canonicalDataCase.Property = "String";
-                canonicalDataCase.Input = string.Join("\n", (JArray)canonicalDataCase.Input);
+                canonicalDataCase.Input = new Dictionary<string, object>
+                {
+                    ["input"] = string.Join("\n", (JArray)canonicalDataCase.Input["input"])
+                };
                 canonicalDataCase.Expected = string.Join("\n", (JArray)canonicalDataCase.Expected);
                 canonicalDataCase.UseInputParameters = true;
                 canonicalDataCase.UseExpectedParameter = true;

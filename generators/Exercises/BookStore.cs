@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
 namespace Generators.Exercises
 {
@@ -8,7 +9,10 @@ namespace Generators.Exercises
         {
             foreach (var canonicalDataCase in CanonicalData.Cases)
             {
-                canonicalDataCase.Input = ((JArray)canonicalDataCase.Properties["basket"]).Values<int>();
+                canonicalDataCase.Input = new Dictionary<string, object>
+                {
+                    ["input"] = ((JArray)canonicalDataCase.Input["basket"]).Values<int>()
+                };
                 canonicalDataCase.UseInputParameters = true;
             }
         }
