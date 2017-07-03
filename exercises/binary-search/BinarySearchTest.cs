@@ -1,67 +1,86 @@
-﻿using Xunit;
+// This file was auto-generated based on version 1.0.0 of the canonical data.
+
+using Xunit;
 
 public class BinarySearchTest
 {
     [Fact]
-    public void Should_return_minus_one_when_an_empty_array_is_searched()
+    public void Finds_a_value_in_an_array_with_one_element()
     {
-        var input = new int[0];
-        Assert.Equal(-1, BinarySearch.Search(input, 6));
+        var array = new[] { 6 };
+        var sut = new BinarySearch(array);
+        Assert.Equal(0, sut.Find(6));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Should_be_able_to_find_a_value_in_a_single_element_array_with_one_access()
+    public void Finds_a_value_in_the_middle_of_an_array()
     {
-        var input = new[] { 6 };
-        Assert.Equal(0, BinarySearch.Search(input, 6));
+        var array = new[] { 1, 3, 4, 6, 8, 9, 11 };
+        var sut = new BinarySearch(array);
+        Assert.Equal(3, sut.Find(6));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Should_return_minus_one_if_a_value_is_less_than_the_element_in_a_single_element_array()
+    public void Finds_a_value_at_the_beginning_of_an_array()
     {
-        var input = new[] { 94 };
-        Assert.Equal(-1, BinarySearch.Search(input, 6));
+        var array = new[] { 1, 3, 4, 6, 8, 9, 11 };
+        var sut = new BinarySearch(array);
+        Assert.Equal(0, sut.Find(1));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Should_return_minus_one_if_a_value_is_greater_than_the_element_in_a_single_element_array()
+    public void Finds_a_value_at_the_end_of_an_array()
     {
-        var input = new[] { 94 };
-        Assert.Equal(-1, BinarySearch.Search(input, 602));
+        var array = new[] { 1, 3, 4, 6, 8, 9, 11 };
+        var sut = new BinarySearch(array);
+        Assert.Equal(6, sut.Find(11));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Should_find_an_element_in_a_longer_array()
+    public void Finds_a_value_in_an_array_of_odd_length()
     {
-        var input = new[] { 6, 67, 123, 345, 456, 457, 490, 2002, 54321, 54322 };
-        Assert.Equal(7, BinarySearch.Search(input, 2002));
+        var array = new[] { 1, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 634 };
+        var sut = new BinarySearch(array);
+        Assert.Equal(9, sut.Find(144));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Should_find_elements_at_the_beginning_of_an_array()
+    public void Finds_a_value_in_an_array_of_even_length()
     {
-        var input = new[] { 6, 67, 123, 345, 456, 457, 490, 2002, 54321, 54322 };
-        Assert.Equal(0, BinarySearch.Search(input, 6));
+        var array = new[] { 1, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377 };
+        var sut = new BinarySearch(array);
+        Assert.Equal(5, sut.Find(21));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Should_find_elements_at_the_end_of_an_array()
+    public void Identifies_that_a_value_is_not_included_in_the_array()
     {
-        var input = new[] { 6, 67, 123, 345, 456, 457, 490, 2002, 54321, 54322 };
-        Assert.Equal(9, BinarySearch.Search(input, 54322));
+        var array = new[] { 1, 3, 4, 6, 8, 9, 11 };
+        var sut = new BinarySearch(array);
+        Assert.Equal(-1, sut.Find(7));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Should_return_minus_one_if_a_value_is_less_than_all_elements_in_a_long_array()
+    public void A_value_smaller_than_the_array_s_smallest_value_is_not_included()
     {
-        var input = new[] { 6, 67, 123, 345, 456, 457, 490, 2002, 54321, 54322 };
-        Assert.Equal(-1, BinarySearch.Search(input, 2));
+        var array = new[] { 1, 3, 4, 6, 8, 9, 11 };
+        var sut = new BinarySearch(array);
+        Assert.Equal(-1, sut.Find(0));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Should_return_minus_one_if_a_value_is_greater_than_all_elements_in_a_long_array()
+    public void A_value_larger_than_the_array_s_largest_value_is_not_included()
     {
-        var input = new[] { 6, 67, 123, 345, 456, 457, 490, 2002, 54321, 54322 };
-        Assert.Equal(-1, BinarySearch.Search(input, 54323));
+        var array = new[] { 1, 3, 4, 6, 8, 9, 11 };
+        var sut = new BinarySearch(array);
+        Assert.Equal(-1, sut.Find(13));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Nothing_is_included_in_an_empty_array()
+    {
+        var array = new int[0];
+        var sut = new BinarySearch(array);
+        Assert.Equal(-1, sut.Find(1));
     }
 }
