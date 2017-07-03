@@ -6,12 +6,12 @@ public class Anagram
 {
     private string baseWord;
 
-    public Anagram (string baseWord)
+    public Anagram(string baseWord)
     {
         this.baseWord = baseWord;
     }
 
-    public string[] Match (string[] potentialMatches)
+    public string[] Anagrams(string[] potentialMatches)
     {
         List<string> matches = new List<string>();
 
@@ -23,20 +23,20 @@ public class Anagram
             }
         }
 
-        return matches.OrderBy(word => word).ToArray();
+        return matches.ToArray();
     }
 
-    private bool IsWordAnagramOfBaseWord (string word)
+    private bool IsWordAnagramOfBaseWord(string word)
     {
         return (IsNotTheSameWordAsBaseWord(word) && HasSameLettersAsBaseWord(word));
     }
 
-    private bool IsNotTheSameWordAsBaseWord (string word)
+    private bool IsNotTheSameWordAsBaseWord(string word)
     {
         return ! baseWord.Equals(word,StringComparison.OrdinalIgnoreCase);
     }
 
-    private bool HasSameLettersAsBaseWord (string word)
+    private bool HasSameLettersAsBaseWord(string word)
     {
         return SortedCharArrayForString(baseWord).Equals(SortedCharArrayForString(word));
     }
