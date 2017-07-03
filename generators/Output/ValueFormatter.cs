@@ -14,6 +14,8 @@ namespace Generators.Output
             {
                 case IDictionary<string, object> dict:
                     return string.Join(", ", dict.Values.Select(Format));
+                case IDictionary<char, int> dict:
+                    return $"new Dictionary<char, int> {{ {string.Join(", ", dict.Keys.Select(key => $"[{Format(key)}] = {Format(dict[key])}"))} }}";
                 case Enum enumeration:
                     return $"{enumeration.GetType().Name}.{enumeration}";
                 case JArray jArray:
@@ -28,6 +30,8 @@ namespace Generators.Output
                     return dbl.ToString(CultureInfo.InvariantCulture);
                 case float flt:
                     return flt.ToString(CultureInfo.InvariantCulture);
+                case char c:
+                    return $"'{c}'";
                 default:
                     return val;
             }
@@ -46,6 +50,8 @@ namespace Generators.Output
                     return FormatMultiLineEnumerable(ints.Select(x => x.ToString(CultureInfo.InvariantCulture)), name);
                 case string[] strings when strings.Any():
                     return FormatMultiLineEnumerable(strings, name);
+                case IDictionary<char, int> dict:
+                    return FormatMultiLineEnumerable(dict.Keys.Select((key, i) => $"[{Format(key)}] = {Format(dict[key])}" + (i < dict.Keys.Count - 1 ? "," : "")), name, "new Dictionary<char, int>");
                 default:
                     return new[] {$"var {name} = {Format(val)};"};
             }
@@ -64,13 +70,13 @@ namespace Generators.Output
             return FormatMultiLineVariable(formattedStrings, name);
         }
 
-        private static string[] FormatMultiLineEnumerable(IEnumerable<string> enumerable, string name) 
-            => FormatMultiLineVariable(enumerable.Prepend("{").Append("}"), name);
+        private static string[] FormatMultiLineEnumerable(IEnumerable<string> enumerable, string name, string constructor = null) 
+            => FormatMultiLineVariable(enumerable.Prepend("{").Append("}"), name, constructor);
 
-        private static string[] FormatMultiLineVariable(IEnumerable<string> enumerable, string name) 
-            => enumerable.Select(line => line.Indent())
+        private static string[] FormatMultiLineVariable(IEnumerable<string> enumerable, string name, string constructor = null) 
+            => enumerable.Select(line => line == "{" || line == "}" ? line : line.Indent())
                 .AddTrailingSemicolon()
-                .Prepend($"var {name} = ")
+                .Prepend($"var {name} = {constructor}")
                 .ToArray();
 
         private static string EscapeControlCharacters(this string s)

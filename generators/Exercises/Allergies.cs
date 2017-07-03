@@ -18,7 +18,7 @@ namespace Generators.Exercises
                 else if (canonicalDataCase.Property == "list")
                 { 
                     canonicalDataCase.Expected = ((JArray) canonicalDataCase.Expected).Values<string>();
-                    canonicalDataCase.UseExpectedParameter = true;
+                    canonicalDataCase.UseVariableForExpected = true;
                 }
 
                 canonicalDataCase.ConstructorInput = new Dictionary<string, object>

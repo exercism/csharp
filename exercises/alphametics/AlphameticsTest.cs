@@ -1,6 +1,7 @@
-﻿using Xunit;
+// This file was auto-generated based on version 1.0.0 of the canonical data.
+
+using Xunit;
 using System.Collections.Generic;
-using System;
 
 public class AlphameticsTest
 {
@@ -20,13 +21,13 @@ public class AlphameticsTest
     [Fact(Skip = "Remove to run test")]
     public void Solution_must_have_unique_value_for_each_letter()
     {
-        Assert.Throws<ArgumentException>(() => Alphametics.Solve("A == B"));
+        Assert.Throws<System.ArgumentException>(() => Alphametics.Solve("A == B"));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Leading_zero_solution_is_invalid()
     {
-        Assert.Throws<ArgumentException>(() => Alphametics.Solve("ACA + DD == BD"));
+        Assert.Throws<System.ArgumentException>(() => Alphametics.Solve("ACA + DD == BD"));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -37,7 +38,7 @@ public class AlphameticsTest
         {
             ['A'] = 9,
             ['S'] = 2,
-            ['M'] = 1,            
+            ['M'] = 1,
             ['O'] = 0
         };
         Assert.Equal(expected, actual);
@@ -71,7 +72,7 @@ public class AlphameticsTest
             ['I'] = 0,
             ['L'] = 1,
             ['S'] = 9,
-            ['T'] = 7,
+            ['T'] = 7
         };
         Assert.Equal(expected, actual);
     }
@@ -89,7 +90,7 @@ public class AlphameticsTest
             ['M'] = 1,
             ['O'] = 0,
             ['R'] = 8,
-            ['Y'] = 2,
+            ['Y'] = 2
         };
         Assert.Equal(expected, actual);
     }
@@ -109,7 +110,7 @@ public class AlphameticsTest
             ['O'] = 2,
             ['R'] = 1,
             ['S'] = 6,
-            ['T'] = 9,
+            ['T'] = 9
         };
         Assert.Equal(expected, actual);
     }

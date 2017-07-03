@@ -5,7 +5,7 @@
         public BeerSong()
         {
             foreach (var canonicalDataCase in CanonicalData.Cases)
-                canonicalDataCase.UseExpectedParameter = true;
+                canonicalDataCase.UseVariableForExpected = true;
         }
     }
 }

@@ -14,8 +14,8 @@ namespace Generators.Exercises
                 canonicalDataCase.Input = input;
 
                 canonicalDataCase.ExceptionThrown = canonicalDataCase.Expected is null ? typeof(ArgumentException) : null;
-                canonicalDataCase.UseInputParameters = true;
-                canonicalDataCase.UseExpectedParameter = canonicalDataCase.ExceptionThrown == null;
+                canonicalDataCase.UseVariablesForInput = true;
+                canonicalDataCase.UseVariableForExpected = canonicalDataCase.ExceptionThrown == null;
             }
         }
     }

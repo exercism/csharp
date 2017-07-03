@@ -13,7 +13,7 @@ namespace Generators.Exercises
                 {
                     ["input"] = ((JArray)canonicalDataCase.Input["basket"]).Values<int>()
                 };
-                canonicalDataCase.UseInputParameters = true;
+                canonicalDataCase.UseVariablesForInput = true;
             }
         }
     }
