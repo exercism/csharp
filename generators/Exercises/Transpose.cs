@@ -15,8 +15,8 @@ namespace Generators.Exercises
                     ["input"] = string.Join("\n", (JArray)canonicalDataCase.Input["input"])
                 };
                 canonicalDataCase.Expected = string.Join("\n", (JArray)canonicalDataCase.Expected);
-                canonicalDataCase.UseInputParameters = true;
-                canonicalDataCase.UseExpectedParameter = true;
+                canonicalDataCase.UseVariablesForInput = true;
+                canonicalDataCase.UseVariableForExpected = true;
             }
         }
     }

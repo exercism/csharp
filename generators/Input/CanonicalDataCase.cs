@@ -26,13 +26,16 @@ namespace Generators.Input
         public IDictionary<string, object> Properties { get; set; }
 
         [JsonIgnore]
-        public bool UseInputParameters { get; set; }
+        public bool UseVariablesForInput { get; set; }
 
         [JsonIgnore]
-        public bool UseExpectedParameter { get; set; }
+        public bool UseVariableForExpected { get; set; }
 
         [JsonIgnore]
-        public bool UseConstructorParameters { get; set; }
+        public bool UseVariablesForConstructorParameters { get; set; }
+
+        [JsonIgnore]
+        public bool UseVariableForTested { get; set; }
 
         [JsonIgnore]
         public TestedMethodType TestedMethodType { get; set; } = TestedMethodType.Static;

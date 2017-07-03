@@ -1,6 +1,8 @@
-﻿using Xunit;
-using System.Collections.Generic;
+// This file was auto-generated based on version 1.0.0 of the canonical data.
+
+using Xunit;
 using System;
+using System.Collections.Generic;
 
 public class AlphameticsTest
 {
@@ -37,7 +39,7 @@ public class AlphameticsTest
         {
             ['A'] = 9,
             ['S'] = 2,
-            ['M'] = 1,            
+            ['M'] = 1,
             ['O'] = 0
         };
         Assert.Equal(expected, actual);
@@ -71,7 +73,7 @@ public class AlphameticsTest
             ['I'] = 0,
             ['L'] = 1,
             ['S'] = 9,
-            ['T'] = 7,
+            ['T'] = 7
         };
         Assert.Equal(expected, actual);
     }
@@ -89,7 +91,7 @@ public class AlphameticsTest
             ['M'] = 1,
             ['O'] = 0,
             ['R'] = 8,
-            ['Y'] = 2,
+            ['Y'] = 2
         };
         Assert.Equal(expected, actual);
     }
@@ -109,7 +111,7 @@ public class AlphameticsTest
             ['O'] = 2,
             ['R'] = 1,
             ['S'] = 6,
-            ['T'] = 9,
+            ['T'] = 9
         };
         Assert.Equal(expected, actual);
     }

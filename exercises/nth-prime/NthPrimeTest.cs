@@ -1,6 +1,7 @@
 // This file was auto-generated based on version 1.0.0 of the canonical data.
 
 using Xunit;
+using System;
 
 public class NthPrimeTest
 {
@@ -31,6 +32,6 @@ public class NthPrimeTest
     [Fact(Skip = "Remove to run test")]
     public void There_is_no_zeroth_prime()
     {
-        Assert.Throws<System.ArgumentOutOfRangeException>(() => NthPrime.Prime(0));
+        Assert.Throws<ArgumentOutOfRangeException>(() => NthPrime.Prime(0));
     }
 }

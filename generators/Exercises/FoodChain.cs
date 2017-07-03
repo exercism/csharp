@@ -9,7 +9,7 @@ namespace Generators.Exercises
             foreach (var canonicalDataCase in CanonicalData.Cases)
             {
                 canonicalDataCase.Expected = string.Join("\n", (JArray)canonicalDataCase.Expected);
-                canonicalDataCase.UseExpectedParameter = true;
+                canonicalDataCase.UseVariableForExpected = true;
             }
         }
     }

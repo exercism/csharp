@@ -11,9 +11,9 @@ namespace Generators.Output
             get
             {
                 if (ExpectedIsEmptyEnumerable)
-                    return Variables.Append($"Assert.Empty({TestedMethodInvocation});");
+                    return Variables.Append($"Assert.Empty({TestedValue});");
 
-                return Variables.Append($"Assert.Equal({ExpectedParameter}, {TestedMethodInvocation});");
+                return Variables.Append($"Assert.Equal({ExpectedParameter}, {TestedValue});");
             }
         }
 
