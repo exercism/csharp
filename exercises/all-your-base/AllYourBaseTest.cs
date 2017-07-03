@@ -1,6 +1,7 @@
 // This file was auto-generated based on version 1.1.0 of the canonical data.
 
 using Xunit;
+using System;
 
 public class AllYourBaseTest
 {
@@ -90,7 +91,7 @@ public class AllYourBaseTest
         var inputBase = 2;
         var inputDigits = new int[0];
         var outputBase = 10;
-        Assert.Throws<System.ArgumentException>(() => AllYourBase.Rebase(inputBase, inputDigits, outputBase));
+        Assert.Throws<ArgumentException>(() => AllYourBase.Rebase(inputBase, inputDigits, outputBase));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -99,7 +100,7 @@ public class AllYourBaseTest
         var inputBase = 10;
         var inputDigits = new[] { 0 };
         var outputBase = 2;
-        Assert.Throws<System.ArgumentException>(() => AllYourBase.Rebase(inputBase, inputDigits, outputBase));
+        Assert.Throws<ArgumentException>(() => AllYourBase.Rebase(inputBase, inputDigits, outputBase));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -108,7 +109,7 @@ public class AllYourBaseTest
         var inputBase = 10;
         var inputDigits = new[] { 0, 0, 0 };
         var outputBase = 2;
-        Assert.Throws<System.ArgumentException>(() => AllYourBase.Rebase(inputBase, inputDigits, outputBase));
+        Assert.Throws<ArgumentException>(() => AllYourBase.Rebase(inputBase, inputDigits, outputBase));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -117,7 +118,7 @@ public class AllYourBaseTest
         var inputBase = 7;
         var inputDigits = new[] { 0, 6, 0 };
         var outputBase = 10;
-        Assert.Throws<System.ArgumentException>(() => AllYourBase.Rebase(inputBase, inputDigits, outputBase));
+        Assert.Throws<ArgumentException>(() => AllYourBase.Rebase(inputBase, inputDigits, outputBase));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -126,7 +127,7 @@ public class AllYourBaseTest
         var inputBase = 1;
         var inputDigits = new int[0];
         var outputBase = 10;
-        Assert.Throws<System.ArgumentException>(() => AllYourBase.Rebase(inputBase, inputDigits, outputBase));
+        Assert.Throws<ArgumentException>(() => AllYourBase.Rebase(inputBase, inputDigits, outputBase));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -135,7 +136,7 @@ public class AllYourBaseTest
         var inputBase = 0;
         var inputDigits = new int[0];
         var outputBase = 10;
-        Assert.Throws<System.ArgumentException>(() => AllYourBase.Rebase(inputBase, inputDigits, outputBase));
+        Assert.Throws<ArgumentException>(() => AllYourBase.Rebase(inputBase, inputDigits, outputBase));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -144,7 +145,7 @@ public class AllYourBaseTest
         var inputBase = -2;
         var inputDigits = new[] { 1 };
         var outputBase = 10;
-        Assert.Throws<System.ArgumentException>(() => AllYourBase.Rebase(inputBase, inputDigits, outputBase));
+        Assert.Throws<ArgumentException>(() => AllYourBase.Rebase(inputBase, inputDigits, outputBase));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -153,7 +154,7 @@ public class AllYourBaseTest
         var inputBase = 2;
         var inputDigits = new[] { 1, -1, 1, 0, 1, 0 };
         var outputBase = 10;
-        Assert.Throws<System.ArgumentException>(() => AllYourBase.Rebase(inputBase, inputDigits, outputBase));
+        Assert.Throws<ArgumentException>(() => AllYourBase.Rebase(inputBase, inputDigits, outputBase));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -162,7 +163,7 @@ public class AllYourBaseTest
         var inputBase = 2;
         var inputDigits = new[] { 1, 2, 1, 0, 1, 0 };
         var outputBase = 10;
-        Assert.Throws<System.ArgumentException>(() => AllYourBase.Rebase(inputBase, inputDigits, outputBase));
+        Assert.Throws<ArgumentException>(() => AllYourBase.Rebase(inputBase, inputDigits, outputBase));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -171,7 +172,7 @@ public class AllYourBaseTest
         var inputBase = 2;
         var inputDigits = new[] { 1, 0, 1, 0, 1, 0 };
         var outputBase = 1;
-        Assert.Throws<System.ArgumentException>(() => AllYourBase.Rebase(inputBase, inputDigits, outputBase));
+        Assert.Throws<ArgumentException>(() => AllYourBase.Rebase(inputBase, inputDigits, outputBase));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -180,7 +181,7 @@ public class AllYourBaseTest
         var inputBase = 10;
         var inputDigits = new[] { 7 };
         var outputBase = 0;
-        Assert.Throws<System.ArgumentException>(() => AllYourBase.Rebase(inputBase, inputDigits, outputBase));
+        Assert.Throws<ArgumentException>(() => AllYourBase.Rebase(inputBase, inputDigits, outputBase));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -189,7 +190,7 @@ public class AllYourBaseTest
         var inputBase = 2;
         var inputDigits = new[] { 1 };
         var outputBase = -7;
-        Assert.Throws<System.ArgumentException>(() => AllYourBase.Rebase(inputBase, inputDigits, outputBase));
+        Assert.Throws<ArgumentException>(() => AllYourBase.Rebase(inputBase, inputDigits, outputBase));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -198,6 +199,6 @@ public class AllYourBaseTest
         var inputBase = -2;
         var inputDigits = new[] { 1 };
         var outputBase = -7;
-        Assert.Throws<System.ArgumentException>(() => AllYourBase.Rebase(inputBase, inputDigits, outputBase));
+        Assert.Throws<ArgumentException>(() => AllYourBase.Rebase(inputBase, inputDigits, outputBase));
     }
 }

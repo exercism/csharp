@@ -1,4 +1,5 @@
 using System;
+using Generators.Output;
 using Newtonsoft.Json.Linq;
 
 namespace Generators.Exercises
@@ -17,6 +18,14 @@ namespace Generators.Exercises
                 canonicalDataCase.UseVariablesForInput = true;
                 canonicalDataCase.UseVariableForExpected = canonicalDataCase.ExceptionThrown == null;
             }
+        }
+
+        protected override TestClass CreateTestClass()
+        {
+            var testClass = base.CreateTestClass();
+            testClass.UsingNamespaces.Add(typeof(ArgumentException).Namespace);
+
+            return testClass;
         }
     }
 }

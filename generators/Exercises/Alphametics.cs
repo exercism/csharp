@@ -24,6 +24,7 @@ namespace Generators.Exercises
         protected override TestClass CreateTestClass()
         {
             var testClass = base.CreateTestClass();
+            testClass.UsingNamespaces.Add(typeof(ArgumentException).Namespace);
             testClass.UsingNamespaces.Add(typeof(Dictionary<char, int>).Namespace);
 
             return testClass;

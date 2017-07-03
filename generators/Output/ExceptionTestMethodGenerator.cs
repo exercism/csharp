@@ -10,6 +10,6 @@ namespace Generators.Output
         protected override bool UseVariableForExpected => false;
         protected override bool UseVariableForTested => false;
 
-        private string ExceptionType => CanonicalDataCase.ExceptionThrown.FullName;
+        private string ExceptionType => CanonicalDataCase.ExceptionThrown.Name;
     }
 }

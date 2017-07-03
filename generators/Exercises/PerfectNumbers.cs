@@ -17,5 +17,13 @@ namespace Generators.Exercises
                     canonicalDataCase.Expected = new UnescapedValue($"Classification.{classificationType.Transform(To.SentenceCase)}");
             }
         }
+
+        protected override TestClass CreateTestClass()
+        {
+            var testClass = base.CreateTestClass();
+            testClass.UsingNamespaces.Add(typeof(ArgumentOutOfRangeException).Namespace);
+
+            return testClass;
+        }
     }
 }

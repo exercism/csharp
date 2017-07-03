@@ -1,6 +1,7 @@
 // This file was auto-generated based on version 1.0.0 of the canonical data.
 
 using Xunit;
+using System;
 using System.Collections.Generic;
 
 public class AlphameticsTest
@@ -21,13 +22,13 @@ public class AlphameticsTest
     [Fact(Skip = "Remove to run test")]
     public void Solution_must_have_unique_value_for_each_letter()
     {
-        Assert.Throws<System.ArgumentException>(() => Alphametics.Solve("A == B"));
+        Assert.Throws<ArgumentException>(() => Alphametics.Solve("A == B"));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Leading_zero_solution_is_invalid()
     {
-        Assert.Throws<System.ArgumentException>(() => Alphametics.Solve("ACA + DD == BD"));
+        Assert.Throws<ArgumentException>(() => Alphametics.Solve("ACA + DD == BD"));
     }
 
     [Fact(Skip = "Remove to run test")]
