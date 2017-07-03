@@ -20,6 +20,7 @@ namespace Generators.Input
 
             canonicalDataCase.Properties = jToken.ToObject<IDictionary<string, object>>();
             canonicalDataCase.Input = GetInputProperty(jToken);
+            canonicalDataCase.ConstructorInput = new Dictionary<string, object>();
 
             return canonicalDataCase;
         }

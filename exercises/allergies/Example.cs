@@ -21,7 +21,7 @@ public class Allergies
         this.score = score;
     }
 
-    public bool AllergicTo(string allergy)
+    public bool IsAllergicTo(string allergy)
     {
         return IsInAllergyScore(AvailableAllergies[allergy]);
     }

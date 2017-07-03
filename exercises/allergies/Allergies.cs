@@ -7,7 +7,7 @@ public class Allergies
     {
     }
 
-    public bool AllergicTo(string allergy)
+    public bool IsAllergicTo(string allergy)
     {
         throw new NotImplementedException("You need to implement this function.");
     }

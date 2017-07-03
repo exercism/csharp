@@ -23,7 +23,7 @@ namespace Generators.Output
                 case IEnumerable<int> ints:
                     return ints.Any() ? $"new[] {{ {string.Join(", ", ints)} }}" : "new int[0]";
                 case IEnumerable<string> strings:
-                    return strings.Any() ? $"new[] {{ {string.Join(", ", strings)} }}" : "new string[0]";
+                    return strings.Any() ? $"new[] {{ {string.Join(", ", strings.Select(Format) )} }}" : "new string[0]";
                 case double dbl:
                     return dbl.ToString(CultureInfo.InvariantCulture);
                 case float flt:

@@ -17,6 +17,9 @@ namespace Generators.Input
         [JsonIgnore]
         public IDictionary<string, object> Input { get; set; }
 
+        [JsonIgnore]
+        public IDictionary<string, object> ConstructorInput { get; set; }
+
         public object Expected { get; set; }
 
         [JsonIgnore]
@@ -27,6 +30,9 @@ namespace Generators.Input
 
         [JsonIgnore]
         public bool UseExpectedParameter { get; set; }
+
+        [JsonIgnore]
+        public bool UseConstructorParameters { get; set; }
 
         [JsonIgnore]
         public TestedMethodType TestedMethodType { get; set; } = TestedMethodType.Static;

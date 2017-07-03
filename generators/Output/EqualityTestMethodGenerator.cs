@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -5,6 +6,22 @@ namespace Generators.Output
 {
     public class EqualityTestMethodGenerator : TestMethodGenerator
     {
-        protected override IEnumerable<string> Body => Variables.Append($"Assert.Equal({ExpectedParameter}, {TestedMethodInvocation});");
+        protected override IEnumerable<string> Body
+        {
+            get
+            {
+                if (ExpectedIsEmptyEnumerable)
+                    return Variables.Append($"Assert.Empty({TestedMethodInvocation});");
+
+                return Variables.Append($"Assert.Equal({ExpectedParameter}, {TestedMethodInvocation});");
+            }
+        }
+
+        protected override bool UseVariableForExpected => base.UseVariableForExpected && !ExpectedIsEmptyEnumerable;
+
+        private bool ExpectedIsEmptyEnumerable =>
+            !(CanonicalDataCase.Expected is string) &&
+            CanonicalDataCase.Expected is IEnumerable enumerable 
+            && enumerable.GetEnumerator().MoveNext() == false;
     }
 }

@@ -1,4 +1,5 @@
-using System.Collections.Generic;
+// This file was auto-generated based on version 1.0.0 of the canonical data.
+
 using Xunit;
 
 public class AllergiesTest
@@ -6,94 +7,96 @@ public class AllergiesTest
     [Fact]
     public void No_allergies_means_not_allergic()
     {
-        var allergies = new Allergies(0);
-        Assert.False(allergies.AllergicTo("peanuts"));
-        Assert.False(allergies.AllergicTo("cats"));
-        Assert.False(allergies.AllergicTo("strawberries"));
+        var sut = new Allergies(0);
+        Assert.False(sut.IsAllergicTo("peanuts"));
+        Assert.False(sut.IsAllergicTo("cats"));
+        Assert.False(sut.IsAllergicTo("strawberries"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Allergic_to_eggs()
+    public void Is_allergic_to_eggs()
     {
-        var allergies = new Allergies(1);
-        Assert.True(allergies.AllergicTo("eggs"));
+        var sut = new Allergies(1);
+        Assert.True(sut.IsAllergicTo("eggs"));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Allergic_to_eggs_in_addition_to_other_stuff()
     {
-        var allergies = new Allergies(5);
-        Assert.True(allergies.AllergicTo("eggs"));
-        Assert.True(allergies.AllergicTo("shellfish"));
-        Assert.False(allergies.AllergicTo("strawberries"));
+        var sut = new Allergies(5);
+        Assert.True(sut.IsAllergicTo("eggs"));
+        Assert.True(sut.IsAllergicTo("shellfish"));
+        Assert.False(sut.IsAllergicTo("strawberries"));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void No_allergies_at_all()
     {
-        var allergies = new Allergies(0);
-        Assert.Empty(allergies.List());
+        var sut = new Allergies(0);
+        Assert.Empty(sut.List());
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Allergic_to_just_eggs()
     {
-        var allergies = new Allergies(1);
-        Assert.Equal(new List<string> { "eggs" }, allergies.List());
+        var sut = new Allergies(1);
+        var expected = new[] { "eggs" };
+        Assert.Equal(expected, sut.List());
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Allergic_to_just_peanuts()
     {
-        var allergies = new Allergies(2);
-        Assert.Equal(new List<string> { "peanuts" }, allergies.List());
+        var sut = new Allergies(2);
+        var expected = new[] { "peanuts" };
+        Assert.Equal(expected, sut.List());
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Allergic_to_just_strawberries()
+    {
+        var sut = new Allergies(8);
+        var expected = new[] { "strawberries" };
+        Assert.Equal(expected, sut.List());
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Allergic_to_eggs_and_peanuts()
     {
-        var allergies = new Allergies(3);
-        Assert.Equal(new List<string> { "eggs", "peanuts" }, allergies.List());
+        var sut = new Allergies(3);
+        var expected = new[] { "eggs", "peanuts" };
+        Assert.Equal(expected, sut.List());
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Allergic_to_more_than_eggs_but_not_peanuts()
+    {
+        var sut = new Allergies(5);
+        var expected = new[] { "eggs", "shellfish" };
+        Assert.Equal(expected, sut.List());
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Allergic_to_lots_of_stuff()
     {
-        var allergies = new Allergies(248);
-        Assert.Equal(new List<string> { "strawberries", "tomatoes", "chocolate", "pollen", "cats" }, allergies.List());
+        var sut = new Allergies(248);
+        var expected = new[] { "strawberries", "tomatoes", "chocolate", "pollen", "cats" };
+        Assert.Equal(expected, sut.List());
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Allergic_to_everything()
     {
-        var allergies = new Allergies(255);
-        Assert.Equal(new List<string>
-                {
-                    "eggs",
-                    "peanuts",
-                    "shellfish",
-                    "strawberries",
-                    "tomatoes",
-                    "chocolate",
-                    "pollen",
-                    "cats"
-                },
-                allergies.List());
+        var sut = new Allergies(255);
+        var expected = new[] { "eggs", "peanuts", "shellfish", "strawberries", "tomatoes", "chocolate", "pollen", "cats" };
+        Assert.Equal(expected, sut.List());
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Ignore_non_allergen_score_parts()
     {
-        var allergies = new Allergies(509);
-        Assert.Equal(new List<string>
-                {
-                    "eggs",
-                    "shellfish",
-                    "strawberries",
-                    "tomatoes",
-                    "chocolate",
-                    "pollen",
-                    "cats"
-                }, allergies.List());
+        var sut = new Allergies(509);
+        var expected = new[] { "eggs", "shellfish", "strawberries", "tomatoes", "chocolate", "pollen", "cats" };
+        Assert.Equal(expected, sut.List());
     }
 }
