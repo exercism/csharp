@@ -15,7 +15,7 @@ namespace Generators.Output
             CanonicalDataCase = canonicalDataCase;
             CanonicalData = exercise.CanonicalData;
 
-            return new TestMethod { MethodName = TestMethodName, Body = Body };
+            return new TestMethod { MethodName = TestMethodName, Body = Body, GeneratedFrom = CanonicalDataCase };
         }
 
         protected abstract IEnumerable<string> Body { get; }
@@ -29,16 +29,20 @@ namespace Generators.Output
 
         protected object Input => ValueFormatter.Format(CanonicalDataCase.Input);
         protected object Expected => ValueFormatter.Format(CanonicalDataCase.Expected);
+        protected object ConstructorInput => ValueFormatter.Format(CanonicalDataCase.ConstructorInput);
 
         protected object InputParameters => UseVariablesForInput ? string.Join(", ", CanonicalDataCase.Input.Keys.Select(key => key.ToVariableName())) : Input;
         protected object ExpectedParameter => UseVariableForExpected ? ExpectedVariableName : Expected;
+        protected object ConstructorParameters => UseVariablesForConstructor ? string.Join(", ", CanonicalDataCase.ConstructorInput.Keys.Select(key => key.ToVariableName())) : ConstructorInput;
 
         protected IEnumerable<string> InputVariablesDeclaration => ValueFormatter.FormatVariables(CanonicalDataCase.Input);
         protected IEnumerable<string> ExpectedVariableDeclaration => ValueFormatter.FormatVariable(CanonicalDataCase.Expected, ExpectedVariableName);
-        protected IEnumerable<string> SutVariableDeclaration => new [] {$"var {SutVariableName} = new {TestedClassName}();" };
+        protected IEnumerable<string> ConstructorVariablesDeclaration => ValueFormatter.FormatVariables(CanonicalDataCase.ConstructorInput);
+        protected IEnumerable<string> SutVariableDeclaration => new [] {$"var {SutVariableName} = new {TestedClassName}({ConstructorParameters});" };
 
-        protected bool UseVariablesForInput => CanonicalDataCase.UseInputParameters;
-        protected bool UseVariableForExpected => CanonicalDataCase.UseExpectedParameter;
+        protected virtual bool UseVariablesForInput => CanonicalDataCase.UseInputParameters;
+        protected virtual bool UseVariablesForConstructor => CanonicalDataCase.UseConstructorParameters;
+        protected virtual bool UseVariableForExpected => CanonicalDataCase.UseExpectedParameter;
         
         protected IEnumerable<string> Variables
         {
@@ -49,11 +53,14 @@ namespace Generators.Output
                 if (UseVariablesForInput)
                     lines.AddRange(InputVariablesDeclaration);
 
-                if (UseVariableForExpected)
-                    lines.AddRange(ExpectedVariableDeclaration);
+                if (UseVariablesForConstructor)
+                    lines.AddRange(ConstructorVariablesDeclaration);
 
                 if (CanonicalDataCase.TestedMethodType == TestedMethodType.Instance)
                     lines.AddRange(SutVariableDeclaration);
+
+                if (UseVariableForExpected)
+                    lines.AddRange(ExpectedVariableDeclaration);
 
                 return lines;
             }
