@@ -2,7 +2,7 @@
 
 public static class BracketPush
 {
-    public static bool Matched(string input)
+    public static bool IsPaired(string input)
     {
         var brackets = new string(input.Where(c => "[]{}()".Contains(c)).ToArray());
         var previousLength = brackets.Length;
@@ -12,9 +12,9 @@ public static class BracketPush
             brackets = brackets.Replace("[]", "").Replace("{}", "").Replace("()", "");
 
             if (brackets.Length == previousLength)
-            {
                 return false;
-            }
+
+            previousLength = brackets.Length;
         }
 
         return true;
