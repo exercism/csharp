@@ -1,8 +1,13 @@
 ﻿using System;
 
-public static class BinarySearch
+public class BinarySearch
 {
-    public static int Search(int[] input, int target)
+    public BinarySearch(int[] input)
+    {
+        throw new NotImplementedException("You need to implement this function.");
+    }
+
+    public int Find(int value)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
