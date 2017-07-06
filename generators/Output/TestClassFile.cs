@@ -12,7 +12,7 @@ namespace Generators.Output
             Directory.CreateDirectory(Path.GetDirectoryName(testClassFilePath));
             File.WriteAllText(testClassFilePath, contents);
 
-            Log.Information("Generated tests for {Exercise} exercise in {TestFile}.", exercise.Name, testClassFilePath);
+            Log.Information("Generated tests for {Exercise} exercise in {TestFile}", exercise.Name, testClassFilePath);
         }
 
         private static string TestClassFilePath(Exercise exercise) => Path.Combine("..", "exercises", exercise.Name, TestClassFileName(exercise));

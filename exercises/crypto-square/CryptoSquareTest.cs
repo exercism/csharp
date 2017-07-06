@@ -1,116 +1,101 @@
+// This file was auto-generated based on version 2.0.0 of the canonical data.
+
 using Xunit;
 
 public class CryptoSquareTest
 {
     [Fact]
-    public void Strange_characters_are_stripped_during_normalization()
+    public void Lowercase()
     {
-        var crypto = new Crypto("s#$%^&plunk");
-        Assert.Equal("splunk", crypto.NormalizePlaintext);
+        var plaintext = "Hello";
+        var expected = "hello";
+        Assert.Equal(expected, CryptoSquare.NormalizedPlaintext(plaintext));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Letters_are_lowercased_during_normalization()
+    public void Remove_spaces()
     {
-        var crypto = new Crypto("WHOA HEY!");
-        Assert.Equal("whoahey", crypto.NormalizePlaintext);
+        var plaintext = "Hi there";
+        var expected = "hithere";
+        Assert.Equal(expected, CryptoSquare.NormalizedPlaintext(plaintext));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Numbers_are_kept_during_normalization()
+    public void Remove_punctuation()
     {
-        var crypto = new Crypto("1, 2, 3, GO!");
-        Assert.Equal("123go", crypto.NormalizePlaintext);
+        var plaintext = "@1, 2%, 3 Go!";
+        var expected = "123go";
+        Assert.Equal(expected, CryptoSquare.NormalizedPlaintext(plaintext));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Smallest_square_size_is_2()
+    public void Empty_plaintext_results_in_an_empty_rectangle()
     {
-        var crypto = new Crypto("1234");
-        Assert.Equal(2, crypto.Size);
+        var plaintext = "";
+        Assert.Empty(CryptoSquare.PlaintextSegments(plaintext));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Size_of_text_whose_length_is_a_perfect_square_is_its_square_root()
+    public void Number_4_character_plaintext_results_in_an_2x2_rectangle()
     {
-        var crypto = new Crypto("123456789");
-        Assert.Equal(3, crypto.Size);
+        var plaintext = "Ab Cd";
+        var expected = new[] { "ab", "cd" };
+        Assert.Equal(expected, CryptoSquare.PlaintextSegments(plaintext));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Size_of_text_whose_length_is_not_a_perfect_square_is_next_biggest_square_root()
+    public void Number_9_character_plaintext_results_in_an_3x3_rectangle()
     {
-        var crypto = new Crypto("123456789abc");
-        Assert.Equal(4, crypto.Size);
+        var plaintext = "This is fun!";
+        var expected = new[] { "thi", "sis", "fun" };
+        Assert.Equal(expected, CryptoSquare.PlaintextSegments(plaintext));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Size_is_determined_by_normalized_text()
+    public void Number_54_character_plaintext_results_in_an_8x7_rectangle()
     {
-        var crypto = new Crypto("Oh hey, this is nuts!");
-        Assert.Equal(4, crypto.Size);
+        var plaintext = "If man was meant to stay on the ground, god would have given us roots.";
+        var expected = new[] { "ifmanwas", "meanttos", "tayonthe", "groundgo", "dwouldha", "vegivenu", "sroots" };
+        Assert.Equal(expected, CryptoSquare.PlaintextSegments(plaintext));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Segments_are_split_by_square_size()
+    public void Empty_plaintext_results_in_an_empty_encode()
     {
-        var crypto = new Crypto("Never vex thine heart with idle woes");
-        Assert.Equal(new[] { "neverv", "exthin", "eheart", "withid", "lewoes" }, crypto.PlaintextSegments());
+        var plaintext = "";
+        var expected = "";
+        Assert.Equal(expected, CryptoSquare.Encoded(plaintext));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Segments_are_split_by_square_size_until_text_runs_out()
+    public void Non_empty_plaintext_results_in_the_combined_plaintext_segments()
     {
-        var crypto = new Crypto("ZOMG! ZOMBIES!!!");
-        Assert.Equal(new[] { "zomg", "zomb", "ies" }, crypto.PlaintextSegments());
+        var plaintext = "If man was meant to stay on the ground, god would have given us roots.";
+        var expected = "imtgdvsfearwermayoogoanouuiontnnlvtwttddesaohghnsseoau";
+        Assert.Equal(expected, CryptoSquare.Encoded(plaintext));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Ciphertext_combines_text_by_column()
+    public void Empty_plaintext_results_in_an_empty_ciphertext()
     {
-        var crypto = new Crypto("First, solve the problem. Then, write the code.");
-        Assert.Equal("foeewhilpmrervrticseohtottbeedshlnte", crypto.Ciphertext());
+        var plaintext = "";
+        var expected = "";
+        Assert.Equal(expected, CryptoSquare.Ciphertext(plaintext));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Ciphertext_skips_cells_with_no_text()
+    public void Number_9_character_plaintext_results_in_3_chunks_of_3_characters()
     {
-        var crypto = new Crypto("Time is an illusion. Lunchtime doubly so.");
-        Assert.Equal("tasneyinicdsmiohooelntuillibsuuml", crypto.Ciphertext());
+        var plaintext = "This is fun!";
+        var expected = "tsf hiu isn";
+        Assert.Equal(expected, CryptoSquare.Ciphertext(plaintext));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Normalized_ciphertext_is_split_by_height_of_square()
+    public void Number_54_character_plaintext_results_in_7_chunks_the_last_two_padded_with_spaces()
     {
-        var crypto = new Crypto("Vampires are people too!");
-        Assert.Equal("vrel aepe mset paoo irpo", crypto.NormalizeCiphertext());
-    }
-
-    [Fact(Skip = "Remove to run test")]
-    public void Normalized_ciphertext_not_exactly_divisible_by_5_spills_into_a_smaller_segment()
-    {
-        var crypto = new Crypto("Madness, and then illumination.");
-        Assert.Equal("msemo aanin dnin ndla etlt shui", crypto.NormalizeCiphertext());
-    }
-
-    [Fact(Skip = "Remove to run test")]
-    public void Normalized_ciphertext_is_split_into_segements_of_correct_size()
-    {
-        var crypto = new Crypto("If man was meant to stay on the ground god would have given us roots");
-        Assert.Equal("imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghn sseoau", crypto.NormalizeCiphertext());
-    }
-
-    [Fact(Skip = "Remove to run test")]
-    public void Normalized_ciphertext_is_split_into_segements_of_correct_size_with_punctuation()
-    {
-        var crypto = new Crypto("Have a nice day. Feed the dog & chill out!");
-        Assert.Equal("hifei acedl veeol eddgo aatcu nyhht", crypto.NormalizeCiphertext());
-    }
-
-    [Fact(Skip = "Remove to run test")]
-    public void Normalized_ciphertext_is_split_into_segements_of_correct_size_when_just_less_than_full_square()
-    {
-        var crypto = new Crypto("I am");
-        Assert.Equal("im a", crypto.NormalizeCiphertext());
+        var plaintext = "If man was meant to stay on the ground, god would have given us roots.";
+        var expected = "imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghn  sseoau ";
+        Assert.Equal(expected, CryptoSquare.Ciphertext(plaintext));
     }
 }

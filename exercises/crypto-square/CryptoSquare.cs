@@ -1,41 +1,25 @@
 using System;
 using System.Collections.Generic;
 
-public class Crypto
+public static class CryptoSquare
 {
-    public Crypto(string input)
+    public static string NormalizedPlaintext(string plaintext)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public int Size
-    { 
-        get
-        {
-            throw new NotImplementedException("Please implement this function");
-        }
-    }
-
-    public string NormalizePlaintext 
-    { 
-        get
-        {
-            throw new NotImplementedException("Please implement this function");
-        }
-    }
-
-    public string NormalizeCiphertext()
+    public static IEnumerable<string> PlaintextSegments(string plaintext)
     {
-        throw new NotImplementedException("Please implement this function");
+        throw new NotImplementedException("You need to implement this function.");
     }
 
-    public string Ciphertext()
+    public static string Encoded(string plaintext)
     {
-        throw new NotImplementedException("Please implement this function");
+        throw new NotImplementedException("You need to implement this function.");
     }
 
-    public IEnumerable<string> PlaintextSegments()
+    public static string Ciphertext(string plaintext)
     {
-        throw new NotImplementedException("Please implement this function");
+        throw new NotImplementedException("You need to implement this function.");
     }
 }
