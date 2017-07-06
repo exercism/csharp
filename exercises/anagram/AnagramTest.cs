@@ -1,3 +1,5 @@
+// This file was auto-generated based on version 1.0.1 of the canonical data.
+
 using Xunit;
 
 public class AnagramTest
@@ -5,82 +7,136 @@ public class AnagramTest
     [Fact]
     public void No_matches()
     {
-        var detector = new Anagram("diaper");
-        var words = new[] { "hello", "world", "zombies", "pants" };
-        var results = new string[0];
-        Assert.Equal(results, detector.Match(words));
+        var candidates = new[] { "hello", "world", "zombies", "pants" };
+        var sut = new Anagram("diaper");
+        Assert.Empty(sut.Anagrams(candidates));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Detect_simple_anagram()
+    public void Detects_simple_anagram()
     {
-        var detector = new Anagram("ant");
-        var words = new[] { "tan", "stand", "at" };
-        var results = new[] { "tan" };
-        Assert.Equal(results, detector.Match(words));
+        var candidates = new[] { "tan", "stand", "at" };
+        var sut = new Anagram("ant");
+        var expected = new[] { "tan" };
+        Assert.Equal(expected, sut.Anagrams(candidates));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Detect_multiple_anagrams()
+    public void Does_not_detect_false_positives()
     {
-        var detector = new Anagram("master");
-        var words = new[] { "stream", "pigeon", "maters" };
-        var results = new[] { "maters", "stream" };
-        Assert.Equal(results, detector.Match(words));
+        var candidates = new[] { "eagle" };
+        var sut = new Anagram("galea");
+        Assert.Empty(sut.Anagrams(candidates));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Does_not_confuse_different_duplicates()
+    public void Detects_two_anagrams()
     {
-        var detector = new Anagram("galea");
-        var words = new[] { "eagle" };
-        var results = new string[0];
-        Assert.Equal(results, detector.Match(words));
+        var candidates = new[] { "stream", "pigeon", "maters" };
+        var sut = new Anagram("master");
+        var expected = new[] { "stream", "maters" };
+        Assert.Equal(expected, sut.Anagrams(candidates));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Identical_word_is_not_anagram()
+    public void Does_not_detect_anagram_subsets()
     {
-        var detector = new Anagram("corn");
-        var words = new[] { "corn", "dark", "Corn", "rank", "CORN", "cron", "park" };
-        var results = new[] { "cron" };
-        Assert.Equal(results, detector.Match(words));
+        var candidates = new[] { "dog", "goody" };
+        var sut = new Anagram("good");
+        Assert.Empty(sut.Anagrams(candidates));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Eliminate_anagrams_with_same_checksum()
+    public void Detects_anagram()
     {
-        var detector = new Anagram("mass");
-        var words = new[] { "last" };
-        var results = new string[0];
-        Assert.Equal(results, detector.Match(words));
+        var candidates = new[] { "enlists", "google", "inlets", "banana" };
+        var sut = new Anagram("listen");
+        var expected = new[] { "inlets" };
+        Assert.Equal(expected, sut.Anagrams(candidates));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Eliminate_anagram_subsets()
+    public void Detects_three_anagrams()
     {
-        var detector = new Anagram("good");
-        var words = new[] { "dog", "goody" };
-        var results = new string[0];
-        Assert.Equal(results, detector.Match(words));
+        var candidates = new[] { "gallery", "ballerina", "regally", "clergy", "largely", "leading" };
+        var sut = new Anagram("allergy");
+        var expected = new[] { "gallery", "regally", "largely" };
+        Assert.Equal(expected, sut.Anagrams(candidates));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Detect_anagrams()
+    public void Does_not_detect_identical_words()
     {
-        var detector = new Anagram("allergy");
-        var words = new[] { "gallery", "ballerina", "regally", "clergy", "largely", "leading" };
-        var results = new[] { "gallery", "largely", "regally" };
-        Assert.Equal(results, detector.Match(words));
+        var candidates = new[] { "corn", "dark", "Corn", "rank", "CORN", "cron", "park" };
+        var sut = new Anagram("corn");
+        var expected = new[] { "cron" };
+        Assert.Equal(expected, sut.Anagrams(candidates));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Anagrams_are_case_insensitive()
+    public void Does_not_detect_non_anagrams_with_identical_checksum()
     {
-        var detector = new Anagram("Orchestra");
-        var words = new[] { "cashregister", "Carthorse", "radishes" };
-        var results = new[] { "Carthorse" };
-        Assert.Equal(results, detector.Match(words));
+        var candidates = new[] { "last" };
+        var sut = new Anagram("mass");
+        Assert.Empty(sut.Anagrams(candidates));
     }
 
+    [Fact(Skip = "Remove to run test")]
+    public void Detects_anagrams_case_insensitively()
+    {
+        var candidates = new[] { "cashregister", "Carthorse", "radishes" };
+        var sut = new Anagram("Orchestra");
+        var expected = new[] { "Carthorse" };
+        Assert.Equal(expected, sut.Anagrams(candidates));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Detects_anagrams_using_case_insensitive_subject()
+    {
+        var candidates = new[] { "cashregister", "carthorse", "radishes" };
+        var sut = new Anagram("Orchestra");
+        var expected = new[] { "carthorse" };
+        Assert.Equal(expected, sut.Anagrams(candidates));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Detects_anagrams_using_case_insensitive_possible_matches()
+    {
+        var candidates = new[] { "cashregister", "Carthorse", "radishes" };
+        var sut = new Anagram("orchestra");
+        var expected = new[] { "Carthorse" };
+        Assert.Equal(expected, sut.Anagrams(candidates));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Does_not_detect_a_word_as_its_own_anagram()
+    {
+        var candidates = new[] { "Banana" };
+        var sut = new Anagram("banana");
+        Assert.Empty(sut.Anagrams(candidates));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Does_not_detect_a_anagram_if_the_original_word_is_repeated()
+    {
+        var candidates = new[] { "go Go GO" };
+        var sut = new Anagram("go");
+        Assert.Empty(sut.Anagrams(candidates));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Anagrams_must_use_all_letters_exactly_once()
+    {
+        var candidates = new[] { "patter" };
+        var sut = new Anagram("tapper");
+        Assert.Empty(sut.Anagrams(candidates));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Capital_word_is_not_own_anagram()
+    {
+        var candidates = new[] { "Banana" };
+        var sut = new Anagram("BANANA");
+        Assert.Empty(sut.Anagrams(candidates));
+    }
 }
