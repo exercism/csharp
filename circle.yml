@@ -11,5 +11,5 @@ jobs:
       - checkout
       - run: apt-get -qq update; apt-get -y install unzip
       - run: ./bin/fetch-configlet
-      - run: ./bin/configlet .
+      - run: ./bin/configlet lint .
       - run: ./build.sh

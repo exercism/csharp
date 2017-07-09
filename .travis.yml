@@ -8,5 +8,5 @@ env:
     - DOTNET_CLI_TELEMETRY_OPTOUT: 1
 script:
   - ./bin/fetch-configlet
-  - ./bin/configlet .
+  - ./bin/configlet lint .
   - ./build.sh
