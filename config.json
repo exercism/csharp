@@ -1171,26 +1171,6 @@
         "Recursion",
         "Searching"
       ]
-    },
-    {
-      "uuid": "0b6acd72-5f95-46f1-8c0e-4863f5a141b4",
-      "slug": "binary",
-      "deprecated": true
-    },
-    {
-      "uuid": "a2e62b5b-20f4-4b20-b146-1422359d3899",
-      "slug": "trinary",
-      "deprecated": true
-    },
-    {
-      "uuid": "3611d603-829f-4882-93af-470dcc8aa661",
-      "slug": "octal",
-      "deprecated": true
-    },
-    {
-      "uuid": "b27e1667-02a0-432b-a942-1676e77b5757",
-      "slug": "hexadecimal",
-      "deprecated": true
     }
   ],
   "foregone": [
