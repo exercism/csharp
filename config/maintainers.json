@@ -2,12 +2,12 @@
   "maintainers": [
     {
       "github_username": "ErikSchierboom",
-      "show_on_website": false,
+      "show_on_website": true,
       "alumnus": false,
-      "name": null,
+      "name": "Erik Schierboom",
       "bio": null,
-      "link_text": null,
-      "link_url": null,
+      "link_text": "My blog",
+      "link_url": "http://www.erikschierboom.com/",
       "avatar_url": null
     },
     {
