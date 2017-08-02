@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
-using Generators.Output;
+using Generators.Input;
 using Newtonsoft.Json.Linq;
 
 namespace Generators.Exercises
 {
     public class Alphametics : Exercise
     {
-        public Alphametics()
+        protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
             foreach (var canonicalDataCase in CanonicalData.Cases)
             {
@@ -21,13 +21,12 @@ namespace Generators.Exercises
             }
         }
 
-        protected override TestClass CreateTestClass()
+        protected override HashSet<string> GetUsingNamespaces()
         {
-            var testClass = base.CreateTestClass();
-            testClass.UsingNamespaces.Add(typeof(ArgumentException).Namespace);
-            testClass.UsingNamespaces.Add(typeof(Dictionary<char, int>).Namespace);
+            var usingNamespaces = base.GetUsingNamespaces();
+            usingNamespaces.Add(typeof(Dictionary<char, int>).Namespace);
 
-            return testClass;
+            return usingNamespaces;
         }
     }
 }

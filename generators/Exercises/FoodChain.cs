@@ -1,14 +1,14 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Generators.Input;
 
 namespace Generators.Exercises
 {
     public class FoodChain : Exercise
     {
-        public FoodChain()
+        protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
             foreach (var canonicalDataCase in CanonicalData.Cases)
             {
-                canonicalDataCase.Expected = string.Join("\n", (JArray)canonicalDataCase.Expected);
+                canonicalDataCase.Expected = canonicalDataCase.Expected.ConvertMultiLineString();
                 canonicalDataCase.UseVariableForExpected = true;
             }
         }

@@ -1,16 +1,27 @@
-﻿using CommandLine;
+﻿using System;
+using CommandLine;
+using Generators.Input;
 using Serilog;
 
 namespace Generators
 {
     public static class Program
     {
-        public static void Main(string[] args)
+        public static int Main(string[] args)
         {
             SetupLogger();
 
-            Parser.Default.ParseArguments<Options>(args)
-                .WithParsed(Generate);
+            try
+            {
+                Parser.Default.ParseArguments<Options>(args)
+                    .WithParsed(RegenerateTestClasses);
+                return 0;
+            }
+            catch (Exception exception)
+            {
+                Log.Error(exception, "Exception occured: {Message}", exception.Message);
+                return 1;
+            }
         }
 
         private static void SetupLogger()
@@ -20,14 +31,29 @@ namespace Generators
                 .CreateLogger();
         }
 
-        private static void Generate(Options options)
+        private static void RegenerateTestClasses(Options options)
         {
-            Log.Information("Generating tests...");
+            Log.Information("Re-generating test classes...");
+            
+            var canonicalDataParser = CreateCanonicalDataParser(options);
 
             foreach (var exercise in new ExerciseCollection(options.Exercises))
-                exercise.Generate();
+            {
+                var canonicalData = canonicalDataParser.Parse(exercise);
+                exercise.Regenerate(canonicalData);
+            }
 
-            Log.Information("Generated tests.");
+            Log.Information("Re-generated test classes.");
+        }
+
+        private static CanonicalDataParser CreateCanonicalDataParser(Options options)
+        {
+            var canonicalDataOptions = new CanonicalDataOptions
+            {
+                CanonicalDataDirectory = options.CanonicalDataDirectory,
+                CacheCanonicalData = options.CacheCanonicalData
+            };
+            return new CanonicalDataParser(canonicalDataOptions);
         }
     }
 }

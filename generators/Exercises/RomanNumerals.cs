@@ -1,8 +1,10 @@
-﻿namespace Generators.Exercises
+﻿using Generators.Input;
+
+namespace Generators.Exercises
 {
     public class RomanNumerals : Exercise
     {
-        public RomanNumerals()
+        protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
             foreach (var canonicalDataCase in CanonicalData.Cases)
             {

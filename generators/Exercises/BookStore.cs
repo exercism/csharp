@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
-using Newtonsoft.Json.Linq;
+using Generators.Input;
 
 namespace Generators.Exercises
 {
     public class BookStore : Exercise
     {
-        public BookStore()
+        protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
             foreach (var canonicalDataCase in CanonicalData.Cases)
             {
                 canonicalDataCase.Input = new Dictionary<string, object>
                 {
-                    ["input"] = ((JArray)canonicalDataCase.Input["basket"]).Values<int>()
+                    ["input"] = canonicalDataCase.Input["basket"].ConvertToEnumerable<int>()
                 };
                 canonicalDataCase.UseVariablesForInput = true;
             }

@@ -13,8 +13,6 @@
     <PackageReference Include="serilog.sinks.literate" Version="2.1.0" />
   </ItemGroup>
   <ItemGroup>
-    <None Update="Output\*.liquid">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <EmbeddedResource Include="Output\Templates\*.liquid" />
   </ItemGroup>
 </Project>

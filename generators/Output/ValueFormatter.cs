@@ -78,16 +78,7 @@ namespace Generators.Output
                 .AddTrailingSemicolon()
                 .Prepend($"var {name} = {constructor}")
                 .ToArray();
-
-        private static string EscapeControlCharacters(this string s)
-            => s.Replace("\n", "\\n")
-                .Replace("\t", "\\t")
-                .Replace("\r", "\\r");
-
-        private static string Quote(this string s) => $"\"{s}\"";
-
-        private static string Indent(this string s, int level = 1) => $"{new string(' ', 4 * level)}{s}";
-
+        
         private static IEnumerable<string> AddTrailingSemicolon(this IEnumerable<string> enumerable)
         {
             var array = enumerable.ToArray();

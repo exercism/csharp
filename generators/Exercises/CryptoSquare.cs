@@ -1,10 +1,11 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Generators.Input;
+using Newtonsoft.Json.Linq;
 
 namespace Generators.Exercises
 {
     public class CryptoSquare : Exercise
     {
-        public CryptoSquare()
+        protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
             foreach (var canonicalDataCase in CanonicalData.Cases)
             {

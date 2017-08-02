@@ -17,3 +17,4 @@ bin/
 .fake/
 .paket/
 paket-files/
+/generators/.problem-specifications/
