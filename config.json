@@ -5,17 +5,28 @@
     {
       "uuid": "6c88f46b-5acb-4fae-a6ec-b48ae3f8168f",
       "slug": "hello-world",
-      "core": false,
+      "core": true,
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-        "Text formatting"
+        "Strings"
+      ]
+    },
+    {
+      "uuid": "8ba15933-29a2-49b1-a9ce-70474bad3007",
+      "slug": "leap",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "Integers",
+        "Control-flow (if-else statements)"
       ]
     },
     {
       "uuid": "da00f894-dbc8-485e-adba-a79d5ebee3ad",
       "slug": "bob",
-      "core": false,
+      "core": true,
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
@@ -24,15 +35,139 @@
       ]
     },
     {
-      "uuid": "8ba15933-29a2-49b1-a9ce-70474bad3007",
-      "slug": "leap",
-      "core": false,
+      "uuid": "d985d4a9-1a2b-4bb1-ad08-961b8d36ee2e",
+      "slug": "sum-of-multiples",
+      "core": true,
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-        "Integers"
+        "Arrays",
+        "Transforming"
       ]
     },
+    {
+      "uuid": "29ae7f8e-a009-4175-9350-a8c684c89730",
+      "slug": "raindrops",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 2,
+      "topics": [
+        "Text formatting",
+        "Filtering"
+      ]
+    },
+    {
+      "uuid": "caca1c6a-b998-431e-b6af-ca2d47b7708f",
+      "slug": "nucleotide-count",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 2,
+      "topics": [
+        "Dictionaries",
+        "Strings"
+      ]
+    },
+    {
+      "uuid": "3c0563dc-665a-45b4-9b29-f133e235efd0",
+      "slug": "accumulate",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 2,
+      "topics": [
+        "Extension methods",
+        "Sequences",
+        "Transforming"
+      ]
+    },
+    {
+      "uuid": "ec1cc254-8e66-40d0-87bf-971d54c541c4",
+      "slug": "grade-school",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 2,
+      "topics": [
+        "Lists",
+        "Sorting"
+      ]
+    },
+    {
+      "uuid": "b7458404-2534-4ed8-8350-7060fa4b5786",
+      "slug": "kindergarten-garden",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 3,
+      "topics": [
+        "Parsing",
+        "Enumerations"
+      ]
+    },
+    {
+      "uuid": "83e4cb1e-456f-4c74-ae82-6895f0bd73ae",
+      "slug": "clock",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 3,
+      "topics": [
+        "Classes",
+        "Structural equality"
+      ]
+    },
+    {
+      "uuid": "f92ff94a-73e6-41cb-a376-835c2368b358",
+      "slug": "binary-search",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 3,
+      "topics": [
+        "Searching",
+        "Arrays"
+      ]
+    },
+    {
+      "uuid": "2ac228d8-7bf0-4946-8352-6541df02c0a2",
+      "slug": "allergies",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 4,
+      "topics": [
+        "Bitwise operations",
+        "Filtering"
+      ]
+    },
+    {
+      "uuid": "cb755a7d-e01d-4758-92ab-9d2e6518a3eb",
+      "slug": "saddle-points",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 4,
+      "topics": [
+        "Matrices",
+        "Arrays",
+        "Tuples"
+      ]
+    },
+    {
+      "uuid": "dee4abe1-c75f-4cb8-b5f3-5b5b77e1c7aa",
+      "slug": "markdown",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 5,
+      "topics": [
+        "Parsing",
+        "Transforming",
+        "Refactoring"
+      ]
+    },
+    {
+      "uuid": "8288d3e0-75a4-4a18-94c7-2fab3228dc58",
+      "slug": "book-store",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 5,
+      "topics": [
+        "Recursion"
+      ]
+    },    
     {
       "uuid": "b7116dfb-1107-4546-9f95-f15acdb6f6a4",
       "slug": "gigasecond",
@@ -42,17 +177,7 @@
       "topics": [
         "Dates"
       ]
-    },
-    {
-      "uuid": "5554c048-0de3-4a85-b043-7577f429cba4",
-      "slug": "difference-of-squares",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-        "Integers"
-      ]
-    },
+    }, 
     {
       "uuid": "440b0b23-220d-4706-98f0-9a89fce85acb",
       "slug": "rna-transcription",
@@ -63,18 +188,7 @@
         "Strings",
         "Transforming"
       ]
-    },
-    {
-      "uuid": "d985d4a9-1a2b-4bb1-ad08-961b8d36ee2e",
-      "slug": "sum-of-multiples",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-        "Arrays",
-        "Transforming"
-      ]
-    },
+    },    
     {
       "uuid": "612f058b-c6d9-4c97-913a-eeeb59ef61e1",
       "slug": "space-age",
@@ -86,10 +200,21 @@
       ]
     },
     {
+      "uuid": "5554c048-0de3-4a85-b043-7577f429cba4",
+      "slug": "difference-of-squares",
+      "core": false,
+      "unlocked_by": "leap",
+      "difficulty": 1,
+      "topics": [
+        "Integers",
+        "Control-flow (loops)"
+      ]
+    },
+    {
       "uuid": "05162ee0-38ac-40ad-a591-d70a74b6963a",
       "slug": "hamming",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "hello-world",
       "difficulty": 2,
       "topics": [
         "Strings",
@@ -100,7 +225,7 @@
       "uuid": "372c71b6-6256-4fe2-bddc-55667e3861af",
       "slug": "grains",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "leap",
       "difficulty": 2,
       "topics": [
         "Integers"
@@ -110,72 +235,17 @@
       "uuid": "a595d7a1-81d3-48f2-9921-e53b9b22e072",
       "slug": "pangram",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "hello-world",
       "difficulty": 2,
       "topics": [
         "Strings"
-      ]
-    },
-    {
-      "uuid": "29ae7f8e-a009-4175-9350-a8c684c89730",
-      "slug": "raindrops",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 2,
-      "topics": [
-        "Text formatting",
-        "Filtering"
-      ]
-    },
-    {
-      "uuid": "caca1c6a-b998-431e-b6af-ca2d47b7708f",
-      "slug": "nucleotide-count",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 2,
-      "topics": [
-        "Dictionaries",
-        "Strings"
-      ]
-    },
-    {
-      "uuid": "3c0563dc-665a-45b4-9b29-f133e235efd0",
-      "slug": "accumulate",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 2,
-      "topics": [
-        "Extension methods",
-        "Sequences",
-        "Transforming"
-      ]
-    },
-    {
-      "uuid": "96c641c8-4c3c-47ff-9e32-9722b5ca2c37",
-      "slug": "bank-account",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 2,
-      "topics": [
-        "Classes"
-      ]
-    },
-    {
-      "uuid": "ec1cc254-8e66-40d0-87bf-971d54c541c4",
-      "slug": "grade-school",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 2,
-      "topics": [
-        "Lists",
-        "Sorting"
       ]
     },
     {
       "uuid": "36b7602c-44e2-4589-a97d-127a0277b2a2",
       "slug": "etl",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "nucleotide-count",
       "difficulty": 2,
       "topics": [
         "Dictionaries",
@@ -187,7 +257,7 @@
       "uuid": "5675771e-1a46-40bd-8923-f6e09642cc0c",
       "slug": "phone-number",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "sum-of-multiples",
       "difficulty": 3,
       "topics": [
         "Parsing",
@@ -198,7 +268,7 @@
       "uuid": "fdb19da7-28df-429b-83e5-d024abe97870",
       "slug": "strain",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "raindrops",
       "difficulty": 3,
       "topics": [
         "Sequences",
@@ -209,7 +279,7 @@
       "uuid": "89c42da3-72a6-423d-a9c7-7caccbd9b1e6",
       "slug": "scrabble-score",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "sum-of-multiples",
       "difficulty": 3,
       "topics": [
         "Transforming"
@@ -219,7 +289,7 @@
       "uuid": "b0a978a6-9c3f-427e-8ada-0a3951ca14fd",
       "slug": "proverb",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "raindrops",
       "difficulty": 3,
       "topics": [
         "Text formatting",
@@ -230,7 +300,7 @@
       "uuid": "46b8aea8-1528-43cb-a754-495ec2790ce2",
       "slug": "robot-name",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "hello-world",
       "difficulty": 3,
       "topics": [
         "Randomness",
@@ -239,31 +309,10 @@
       ]
     },
     {
-      "uuid": "77e46f6b-1070-4267-a1b5-a2aac931975a",
-      "slug": "error-handling",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 3,
-      "topics": [
-        "Exception handling"
-      ]
-    },
-    {
-      "uuid": "b7458404-2534-4ed8-8350-7060fa4b5786",
-      "slug": "kindergarten-garden",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 3,
-      "topics": [
-        "Parsing",
-        "Enumerations"
-      ]
-    },
-    {
       "uuid": "75a2d5f0-5f5e-46a3-9dd2-3da415690e18",
       "slug": "protein-translation",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "hello-world",
       "difficulty": 3,
       "topics": [
         "Strings",
@@ -272,31 +321,30 @@
       ]
     },
     {
+      "uuid": "77e46f6b-1070-4267-a1b5-a2aac931975a",
+      "slug": "error-handling",
+      "core": false,
+      "unlocked_by": "bob",
+      "difficulty": 3,
+      "topics": [
+        "Exception handling"
+      ]
+    },
+    {
       "uuid": "142c97b6-ae31-4b5f-944c-3eb789d9e051",
       "slug": "perfect-numbers",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "leap",
       "difficulty": 3,
       "topics": [
         "Integers"
       ]
     },
     {
-      "uuid": "83e4cb1e-456f-4c74-ae82-6895f0bd73ae",
-      "slug": "clock",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 3,
-      "topics": [
-        "Time",
-        "Structural equality"
-      ]
-    },
-    {
       "uuid": "5b1713c7-1597-4e67-ac97-f305b207bc38",
       "slug": "triangle",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "leap",
       "difficulty": 3,
       "topics": [
         "Integers",
@@ -307,7 +355,7 @@
       "uuid": "4ae402a7-5345-429a-a6af-e95ec5b95e13",
       "slug": "beer-song",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "raindrops",
       "difficulty": 3,
       "topics": [
         "Text formatting",
@@ -318,7 +366,7 @@
       "uuid": "1897605a-afd4-49fe-b6ee-cd822f0d8acc",
       "slug": "sieve",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "raindrops",
       "difficulty": 3,
       "topics": [
         "Filtering",
@@ -329,28 +377,17 @@
       "uuid": "5c56211a-ae1e-4836-80b5-f22f5801b7a2",
       "slug": "queen-attack",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "clock",
       "difficulty": 3,
       "topics": [
         "Classes"
       ]
     },
     {
-      "uuid": "f92ff94a-73e6-41cb-a376-835c2368b358",
-      "slug": "binary-search",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 3,
-      "topics": [
-        "Searching",
-        "Arrays"
-      ]
-    },
-    {
       "uuid": "babd38cc-cf21-42ca-9d33-f2ad75c82871",
       "slug": "robot-simulator",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "clock",
       "difficulty": 3,
       "topics": [
         "Classes",
@@ -361,7 +398,7 @@
       "uuid": "4b7b65be-f777-4f64-94a0-4f9832f17a52",
       "slug": "isogram",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "hello-world",
       "difficulty": 3,
       "topics": [
         "Strings",
@@ -372,7 +409,7 @@
       "uuid": "1ad236a9-7035-42e6-90ec-f6a4b94ad495",
       "slug": "secret-handshake",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "sum-of-multiples",
       "difficulty": 3,
       "topics": [
         "Bitwise operations",
@@ -380,32 +417,21 @@
       ]
     },
     {
-      "uuid": "2ac228d8-7bf0-4946-8352-6541df02c0a2",
-      "slug": "allergies",
+      "uuid": "96c641c8-4c3c-47ff-9e32-9722b5ca2c37",
+      "slug": "bank-account",
       "core": false,
-      "unlocked_by": null,
-      "difficulty": 4,
-      "topics": [
-        "Bitwise operations",
-        "Filtering"
-      ]
-    },
-    {
-      "uuid": "2d68e971-d717-4196-a348-d4675a47283a",
-      "slug": "simple-linked-list",
-      "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "clock",
       "difficulty": 4,
       "topics": [
         "Classes",
-        "Lists"
+        "Concurrency"
       ]
     },
     {
       "uuid": "ddfb0a0e-8c58-4b9e-ad62-57d06ef10f5f",
       "slug": "acronym",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "hello-world",
       "difficulty": 4,
       "topics": [
         "Strings",
@@ -413,10 +439,21 @@
       ]
     },
     {
+      "uuid": "2d68e971-d717-4196-a348-d4675a47283a",
+      "slug": "simple-linked-list",
+      "core": false,
+      "unlocked_by": "clock",
+      "difficulty": 4,
+      "topics": [
+        "Classes",
+        "Lists"
+      ]
+    },
+    {
       "uuid": "73509caa-9b3e-4d09-933f-364c1a7e5519",
       "slug": "matrix",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "kindergarten-garden",
       "difficulty": 4,
       "topics": [
         "Matrices",
@@ -427,7 +464,7 @@
       "uuid": "8a0a291d-8330-4901-bdbe-f974e163158e",
       "slug": "rotational-cipher",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "bob",
       "difficulty": 4,
       "topics": [
         "Strings",
@@ -439,7 +476,7 @@
       "uuid": "4a6621bb-e55a-4ae2-89e3-3aa7e37a8656",
       "slug": "largest-series-product",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "leap",
       "difficulty": 4,
       "topics": [
         "Strings",
@@ -451,7 +488,7 @@
       "uuid": "97aa0e82-2fc3-49e2-ad27-faef2873b328",
       "slug": "house",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "raindrops",
       "difficulty": 4,
       "topics": [
         "Text formatting",
@@ -459,22 +496,10 @@
       ]
     },
     {
-      "uuid": "cb755a7d-e01d-4758-92ab-9d2e6518a3eb",
-      "slug": "saddle-points",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 4,
-      "topics": [
-        "Matrices",
-        "Arrays",
-        "Tuples"
-      ]
-    },
-    {
       "uuid": "4d5a53df-3d6b-46cb-a964-71c676f3cd93",
       "slug": "pythagorean-triplet",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "leap",
       "difficulty": 4,
       "topics": [
         "Overloading",
@@ -486,7 +511,7 @@
       "uuid": "9ca46617-4995-45cc-a2dd-b8630eaa288b",
       "slug": "series",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "sum-of-multiples",
       "difficulty": 4,
       "topics": [
         "Strings",
@@ -498,7 +523,7 @@
       "uuid": "2627fb4f-7884-4494-8f49-5888107643f1",
       "slug": "twelve-days",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "bob",
       "difficulty": 4,
       "topics": [
         "Text formatting",
@@ -509,7 +534,7 @@
       "uuid": "790216d1-4fd9-4a9b-94f8-e1e07a18c2b7",
       "slug": "anagram",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "bob",
       "difficulty": 4,
       "topics": [
         "Strings",
@@ -520,7 +545,7 @@
       "uuid": "6e8717a7-6888-474a-96ad-0760c6d3ff92",
       "slug": "word-count",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "bob",
       "difficulty": 4,
       "topics": [
         "Strings",
@@ -532,7 +557,7 @@
       "uuid": "456ffe2c-e241-4373-8bea-d4d328f815e9",
       "slug": "prime-factors",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "leap",
       "difficulty": 4,
       "topics": [
         "Integers",
@@ -543,7 +568,7 @@
       "uuid": "064096c1-89b0-4656-bd3e-08ca833aa0b1",
       "slug": "meetup",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "accumulate",
       "difficulty": 4,
       "topics": [
         "Dates"
@@ -553,7 +578,7 @@
       "uuid": "de5e2eff-2b80-4996-a322-dc59ebe25edd",
       "slug": "all-your-base",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "accumulate",
       "difficulty": 4,
       "topics": [
         "Integers",
@@ -564,7 +589,7 @@
       "uuid": "d5d48857-5325-45d2-9969-95a0d7bba370",
       "slug": "pascals-triangle",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "accumulate",
       "difficulty": 4,
       "topics": [
         "Control-flow (loops)",
@@ -576,7 +601,7 @@
       "uuid": "3b5b11b0-9476-4d9b-a4c5-c5c48d3d32a8",
       "slug": "list-ops",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "grade-school",
       "difficulty": 5,
       "topics": [
         "Lists",
@@ -587,7 +612,7 @@
       "uuid": "54649fb0-6b14-44df-85af-ae1f7a62449d",
       "slug": "simple-cipher",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "accumulate",
       "difficulty": 5,
       "topics": [
         "Strings",
@@ -599,7 +624,7 @@
       "uuid": "d3702b93-7bb3-4e0a-8cd7-974ad93b0d3d",
       "slug": "roman-numerals",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "accumulate",
       "difficulty": 5,
       "topics": [
         "Control-flow (loops)",
@@ -610,7 +635,7 @@
       "uuid": "9ad05373-a049-47f9-a06a-80ad0a7b38fd",
       "slug": "flatten-array",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "grade-school",
       "difficulty": 5,
       "topics": [
         "Lists",
@@ -621,7 +646,7 @@
       "uuid": "d40541a8-d7d6-4dab-8560-27c5055adbd0",
       "slug": "binary-search-tree",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "grade-school",
       "difficulty": 5,
       "topics": [
         "Searching",
@@ -633,7 +658,7 @@
       "uuid": "466f17d4-13d0-4d6e-8564-c8bdfede35d1",
       "slug": "minesweeper",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "kindergarten-garden",
       "difficulty": 5,
       "topics": [
         "Parsing",
@@ -641,10 +666,22 @@
       ]
     },
     {
+      "uuid": "5863c898-2072-4543-9ab5-045fd6691de4",
+      "slug": "parallel-letter-frequency",
+      "core": false,
+      "unlocked_by": "nucleotide-count",
+      "difficulty": 5,
+      "topics": [
+        "Parallellism",
+        "Transforming",
+        "Dictionaries"
+      ]
+    },
+    {
       "uuid": "0c5918d5-15cc-401f-b038-5fb2cd515ec7",
       "slug": "atbash-cipher",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "grade-school",
       "difficulty": 5,
       "topics": [
         "Strings",
@@ -656,7 +693,7 @@
       "uuid": "3a09736e-4002-41aa-acf9-ff10a9392b24",
       "slug": "food-chain",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "allergies",
       "difficulty": 5,
       "topics": [
         "Text formatting",
@@ -667,7 +704,7 @@
       "uuid": "a9909a03-ce2e-45d9-85f8-a77f44fb2466",
       "slug": "grep",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "markdown",
       "difficulty": 5,
       "topics": [
         "Text formatting",
@@ -679,7 +716,7 @@
       "uuid": "89d3b074-190f-4520-8f87-cde6368fc58e",
       "slug": "sublist",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "grade-school",
       "difficulty": 5,
       "topics": [
         "Lists"
@@ -689,7 +726,7 @@
       "uuid": "b31bff08-a609-40ec-a1ee-46ba24e671f2",
       "slug": "tree-building",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by":  "allergies",
       "difficulty": 5,
       "topics": [
         "Trees",
@@ -700,7 +737,7 @@
       "uuid": "c7d5acc6-68a6-4cd8-a28b-359dceb1e56f",
       "slug": "scale-generator",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "kindergarten-garden",
       "difficulty": 5,
       "topics": [
         "Parsing",
@@ -711,30 +748,19 @@
       "uuid": "a2070019-e56d-4d48-994b-300411598707",
       "slug": "bracket-push",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "bob",
       "difficulty": 5,
       "topics": [
         "Parsing",
         "Strings"
       ]
     },
-    {
-      "uuid": "5863c898-2072-4543-9ab5-045fd6691de4",
-      "slug": "parallel-letter-frequency",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 5,
-      "topics": [
-        "Parallellism",
-        "Transforming",
-        "Dictionaries"
-      ]
-    },
+
     {
       "uuid": "49b557ad-0bf0-451b-9a12-6dd9eb0291a2",
       "slug": "linked-list",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "clock",
       "difficulty": 5,
       "topics": [
         "Classes",
@@ -745,7 +771,7 @@
       "uuid": "dd95f3d8-6da4-4bb4-b5c1-bf00c818d586",
       "slug": "crypto-square",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "allergies",
       "difficulty": 5,
       "topics": [
         "Strings",
@@ -757,7 +783,7 @@
       "uuid": "c1cc752e-99a2-4da3-8d0c-82e08f1c6110",
       "slug": "ledger",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "allergies",
       "difficulty": 5,
       "topics": [
         "Globalization",
@@ -769,7 +795,7 @@
       "uuid": "a6dff389-07ea-42cb-98ec-271ce7cfeda3",
       "slug": "custom-set",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "book-store",
       "difficulty": 5,
       "topics": [
         "Sets"
@@ -779,7 +805,7 @@
       "uuid": "d128ec4b-190f-4726-b3e7-870be09531aa",
       "slug": "dot-dsl",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "clock",
       "difficulty": 5,
       "topics": [
         "Domain-specific languages",
@@ -791,7 +817,7 @@
       "uuid": "2a5ddf5e-e677-4eef-b759-087d71e15986",
       "slug": "ocr-numbers",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "kindergarten-garden",
       "difficulty": 5,
       "topics": [
         "Parsing",
@@ -802,7 +828,7 @@
       "uuid": "657ac368-9b17-4f87-b815-decfe2bc0b5d",
       "slug": "circular-buffer",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "markdown",
       "difficulty": 5,
       "topics": [
         "Queues",
@@ -813,7 +839,7 @@
       "uuid": "20fe4853-0eee-4171-b3c1-8ef871b99d13",
       "slug": "luhn",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "markdown",
       "difficulty": 5,
       "topics": [
         "Strings",
@@ -822,22 +848,10 @@
       ]
     },
     {
-      "uuid": "dee4abe1-c75f-4cb8-b5f3-5b5b77e1c7aa",
-      "slug": "markdown",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 5,
-      "topics": [
-        "Parsing",
-        "Transforming",
-        "Refactoring"
-      ]
-    },
-    {
       "uuid": "4ad0d49a-e10b-4f8b-b454-623b9396d559",
       "slug": "run-length-encoding",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "markdown",
       "difficulty": 5,
       "topics": [
         "Algorithms",
@@ -845,20 +859,10 @@
       ]
     },
     {
-      "uuid": "8288d3e0-75a4-4a18-94c7-2fab3228dc58",
-      "slug": "book-store",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 5,
-      "topics": [
-        "Recursion"
-      ]
-    },
-    {
       "uuid": "d9359f25-dc94-496c-adc3-57fe541857fe",
       "slug": "tournament",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "kindergarten-garden",
       "difficulty": 6,
       "topics": [
         "Text formatting",
@@ -869,7 +873,7 @@
       "uuid": "2b05d7dd-0f0b-4fa4-a2bf-9d7fa28a7543",
       "slug": "word-search",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "markdown",
       "difficulty": 6,
       "topics": [
         "Searching",
@@ -880,7 +884,7 @@
       "uuid": "64eff1cb-990d-45bc-a9e7-8f574e114ece",
       "slug": "bowling",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "markdown",
       "difficulty": 6,
       "topics": [
         "Algorithms",
@@ -891,7 +895,7 @@
       "uuid": "2634c53c-ba4d-4729-b936-a7ec387f4789",
       "slug": "transpose",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "markdown",
       "difficulty": 6,
       "topics": [
         "Strings",
@@ -902,7 +906,7 @@
       "uuid": "60ef0713-70e2-4ee7-9207-86910e616ec1",
       "slug": "nth-prime",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "book-store",
       "difficulty": 6,
       "topics": [
         "Mathematics"
@@ -912,7 +916,7 @@
       "uuid": "63bdd2d4-b395-41ca-8c58-b3d94bf1e696",
       "slug": "pig-latin",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "book-store",
       "difficulty": 6,
       "topics": [
         "Strings",
@@ -923,7 +927,7 @@
       "uuid": "e338fed5-f850-4922-88b2-7e9ec0eb7299",
       "slug": "rail-fence-cipher",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "book-store",
       "difficulty": 6,
       "topics": [
         "Strings",
@@ -935,7 +939,7 @@
       "uuid": "44796c6c-39b3-41c7-8ea5-ffb9738423b8",
       "slug": "change",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "binary-search",
       "difficulty": 6,
       "topics": [
         "Integers",
@@ -946,7 +950,7 @@
       "uuid": "165b8599-726d-43dd-8511-1401525810de",
       "slug": "palindrome-products",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "saddle-points",
       "difficulty": 6,
       "topics": [
         "Strings",
@@ -958,7 +962,7 @@
       "uuid": "d03a9508-336a-4425-8f47-f04317d1ba15",
       "slug": "poker",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "kindergarten-garden",
       "difficulty": 7,
       "topics": [
         "Parsing",
@@ -970,7 +974,7 @@
       "uuid": "3bea029d-ccc2-48be-90f3-84bf2d5b825b",
       "slug": "diffie-hellman",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "book-store",
       "difficulty": 7,
       "topics": [
         "Integers",
@@ -982,7 +986,7 @@
       "uuid": "0409f45f-b65e-4404-a9e7-2ef432d834b2",
       "slug": "dominoes",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "binary-search",
       "difficulty": 7,
       "topics": [
         "Tuples",
@@ -993,7 +997,7 @@
       "uuid": "817ccde1-0593-4091-85a5-616f4f8823f0",
       "slug": "rectangles",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "kindergarten-garden",
       "difficulty": 7,
       "topics": [
         "Parsing",
@@ -1004,7 +1008,7 @@
       "uuid": "57ef1936-d187-4915-888b-374f09c794c7",
       "slug": "wordy",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "kindergarten-garden",
       "difficulty": 7,
       "topics": [
         "Parsing",
@@ -1016,7 +1020,7 @@
       "uuid": "e167479e-e77d-4734-b8c0-a7cd686c74a3",
       "slug": "zebra-puzzle",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "book-store",
       "difficulty": 8,
       "topics": [
         "Logic"
@@ -1026,7 +1030,7 @@
       "uuid": "c9b12d50-09dc-4f43-9e7e-66b277432347",
       "slug": "hangman",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "saddle-points",
       "difficulty": 8,
       "topics": [
         "Reactive programming",
@@ -1037,7 +1041,7 @@
       "uuid": "2f3faeb7-7cc3-42ed-9525-cd9c73922a8d",
       "slug": "diamond",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "saddle-points",
       "difficulty": 8,
       "topics": [
         "Text formatting",
@@ -1048,7 +1052,7 @@
       "uuid": "b33c3b86-e04b-4529-bdf5-9d553ad59f87",
       "slug": "two-bucket",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "saddle-points",
       "difficulty": 8,
       "topics": [
         "Logic"
@@ -1058,7 +1062,7 @@
       "uuid": "ca56c362-c9f5-4403-9a2d-2e31e54b35e3",
       "slug": "connect",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "kindergarten-garden",
       "difficulty": 8,
       "topics": [
         "Parsing",
@@ -1069,7 +1073,7 @@
       "uuid": "34518ea7-c202-443a-b28f-e873f3207f89",
       "slug": "say",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "kindergarten-garden",
       "difficulty": 8,
       "topics": [
         "Strings",
@@ -1081,7 +1085,7 @@
       "uuid": "3e86c66d-c66e-4e28-834d-09b33b2ee2d2",
       "slug": "react",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "saddle-points",
       "difficulty": 9,
       "topics": [
         "Reactive programming",
@@ -1093,7 +1097,7 @@
       "uuid": "4c49ea84-8765-42b0-b4ab-5dead802eeee",
       "slug": "variable-length-quantity",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "allergies",
       "difficulty": 9,
       "topics": [
         "Bitwise operations",
@@ -1104,7 +1108,7 @@
       "uuid": "1abbc58c-9a04-4b6f-afe1-85d3e4d202e1",
       "slug": "go-counting",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "saddle-points",
       "difficulty": 9,
       "topics": [
         "Parsing",
@@ -1116,7 +1120,7 @@
       "uuid": "da255a02-8007-41e4-8a9e-7e2cfbe81be5",
       "slug": "sgf-parsing",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "kindergarten-garden",
       "difficulty": 9,
       "topics": [
         "Parsing",
@@ -1127,7 +1131,7 @@
       "uuid": "db77fbd1-29d9-40e6-a32e-9fb89acdc9fc",
       "slug": "zipper",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "markdown",
       "difficulty": 10,
       "topics": [
         "Trees",
@@ -1139,7 +1143,7 @@
       "uuid": "c6961cae-5e93-470a-98ce-e7cd6b9cfcbf",
       "slug": "alphametics",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "nucleotide-count",
       "difficulty": 10,
       "topics": [
         "Parsing",
@@ -1150,7 +1154,7 @@
       "uuid": "a2ba6202-f6e0-46f4-95e4-5921656f2e1a",
       "slug": "forth",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "markdown",
       "difficulty": 10,
       "topics": [
         "Parsing",
@@ -1161,12 +1165,21 @@
       "uuid": "a5794706-58d2-48f7-8aab-78639d7bce77",
       "slug": "pov",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "markdown",
       "difficulty": 10,
       "topics": [
         "Graphs",
         "Recursion",
         "Searching"
+      ]
+    },
+    {
+      "slug": "two-fer",
+      "core": true,
+      "unlocked_by": "hello-world",
+      "difficulty": 1,
+      "topics": [
+        "Strings"
       ]
     }
   ],
