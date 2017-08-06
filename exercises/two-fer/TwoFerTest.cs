@@ -9,7 +9,7 @@ namespace TwoFer
         [Fact]
         public void No_name_given()
         {
-            Assert.Equal("One for you, one for me.", TwoFer.GetResponse(""));
+            Assert.Equal("One for you, one for me.", TwoFer.GetResponse());
         }
 
         [Fact(Skip = "Remove to run test")]
@@ -19,9 +19,9 @@ namespace TwoFer
         }
 
         [Fact(Skip = "Remove to run test")]
-        public void Null_is_given()
+        public void Another_name_is_given()
         {
-            Assert.Equal("One for you, one for me.", TwoFer.GetResponse(null));
+            Assert.Equal("One for Bob, one for me.", TwoFer.GetResponse("Bob"));
         }
     }
 }
