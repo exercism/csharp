@@ -1174,12 +1174,14 @@
       ]
     },
     {
+      "uuid": "57f02d0e-7b75-473b-892d-26a7d980c4ce",
       "slug": "two-fer",
       "core": true,
-      "unlocked_by": "hello-world",
+      "unlocked_by": "null",
       "difficulty": 1,
       "topics": [
-        "Strings"
+        "Strings",
+        "Optional values"
       ]
     }
   ],
