@@ -46,6 +46,17 @@
       ]
     },
     {
+      "uuid": "57f02d0e-7b75-473b-892d-26a7d980c4ce",
+      "slug": "two-fer",
+      "core": true,
+      "unlocked_by": "null",
+      "difficulty": 1,
+      "topics": [
+        "Strings",
+        "Optional values"
+      ]
+    },
+    {
       "uuid": "29ae7f8e-a009-4175-9350-a8c684c89730",
       "slug": "raindrops",
       "core": true,
@@ -1171,17 +1182,6 @@
         "Graphs",
         "Recursion",
         "Searching"
-      ]
-    },
-    {
-      "uuid": "57f02d0e-7b75-473b-892d-26a7d980c4ce",
-      "slug": "two-fer",
-      "core": true,
-      "unlocked_by": "null",
-      "difficulty": 1,
-      "topics": [
-        "Strings",
-        "Optional values"
       ]
     }
   ],
