@@ -216,6 +216,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwoFer", "two-fer\TwoFer.cs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpiralMatrix", "spiral-matrix\SpiralMatrix.csproj", "{05EF2C70-B5B0-4351-B940-041A03A6BB84}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollatzConjecture", "collatz-conjecture\CollatzConjecture.csproj", "{18BC2EE7-E798-40DE-A346-0B803137E67D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1510,6 +1512,18 @@ Global
 		{05EF2C70-B5B0-4351-B940-041A03A6BB84}.Release|x64.Build.0 = Release|Any CPU
 		{05EF2C70-B5B0-4351-B940-041A03A6BB84}.Release|x86.ActiveCfg = Release|Any CPU
 		{05EF2C70-B5B0-4351-B940-041A03A6BB84}.Release|x86.Build.0 = Release|Any CPU
+		{18BC2EE7-E798-40DE-A346-0B803137E67D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18BC2EE7-E798-40DE-A346-0B803137E67D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18BC2EE7-E798-40DE-A346-0B803137E67D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{18BC2EE7-E798-40DE-A346-0B803137E67D}.Debug|x64.Build.0 = Debug|Any CPU
+		{18BC2EE7-E798-40DE-A346-0B803137E67D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{18BC2EE7-E798-40DE-A346-0B803137E67D}.Debug|x86.Build.0 = Debug|Any CPU
+		{18BC2EE7-E798-40DE-A346-0B803137E67D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18BC2EE7-E798-40DE-A346-0B803137E67D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18BC2EE7-E798-40DE-A346-0B803137E67D}.Release|x64.ActiveCfg = Release|Any CPU
+		{18BC2EE7-E798-40DE-A346-0B803137E67D}.Release|x64.Build.0 = Release|Any CPU
+		{18BC2EE7-E798-40DE-A346-0B803137E67D}.Release|x86.ActiveCfg = Release|Any CPU
+		{18BC2EE7-E798-40DE-A346-0B803137E67D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
