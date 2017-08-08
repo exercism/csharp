@@ -1,6 +1,6 @@
 ﻿namespace SpiralMatrix
 {
-    public static class Example
+    public class SpiralMatrix
     {
         public static int[,] GetMatrix(int size)
         {
