@@ -870,6 +870,17 @@
       ]
     },
     {
+      "uuid": "bae1f3a4-b63d-4efd-921a-133b3d5e379c",
+      "slug": "spiral-matrix",
+      "core": false,
+      "unlocked_by": "matrix",
+      "difficulty": 5,
+      "topics": [
+        "Algorithms",
+        "Matrices"
+      ]
+    },
+    {
       "uuid": "d9359f25-dc94-496c-adc3-57fe541857fe",
       "slug": "tournament",
       "core": false,
