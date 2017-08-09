@@ -1,10 +1,12 @@
-﻿namespace CollatzConjecture
+﻿using System;
+
+namespace CollatzConjecture
 {
     public class CollatzConjecture
     {
         public static int GetSteps(int input)
         {
-            return 0;
+            throw new NotImplementedException("You need to implement this function");
         }
     }
 }
