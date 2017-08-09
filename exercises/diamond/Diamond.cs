@@ -1,9 +1,12 @@
 ﻿using System;
 
-public static class Diamond
+namespace Diamond
 {
-    public static string Make(char target)
+    public static class Diamond
     {
-        throw new NotImplementedException("Please implement this function");
+        public static string Make(char target)
+        {
+            throw new NotImplementedException("Please implement this function");
+        }
     }
 }
