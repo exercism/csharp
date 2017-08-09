@@ -2,7 +2,7 @@
 
 namespace CollatzConjecture
 {
-    public class CollatzConjecture
+    public static class CollatzConjecture
     {
         public static int GetSteps(int input)
         {
