@@ -103,6 +103,20 @@
       ]
     },
     {
+      "uuid": "c4efbf8a-8e76-4700-807d-830a4938f4d0",
+      "slug": "collatz-conjecture",
+      "core": false,
+      "unlocked_by": "sum-of-multiples",
+      "difficulty": 2,
+      "topics": [
+        "Control-flow (loops)",
+        "Control-flow (conditionals)",
+        "Integers",
+        "Algorithms",
+        "Mathematics"
+      ]
+    },
+    {
       "uuid": "b7458404-2534-4ed8-8350-7060fa4b5786",
       "slug": "kindergarten-garden",
       "core": true,
