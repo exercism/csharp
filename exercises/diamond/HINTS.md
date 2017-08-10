@@ -6,4 +6,6 @@ The tests in this exercise are different from your usual tests. Normally, a test
 
 For this exercise, the tests all verify a property of the diamond shape your code should be producing. Furthermore, all tests check if the property they test holds for all valid input letters ('A' to 'Z').
 
-For more information on property-based testing, see [this article](http://www.erikschierboom.com/2016/02/22/property-based-testing/).
+In order to facilitate propery-based testing, the tests in this exercise leverage the [FsCheck](https://www.nuget.org/packages/FsCheck) and [FsCheck.Xunit](https://packages.nuget.org/packages/FsCheck.Xunit/2.2.0) packages. To learn more about FsCheck, the documentation on the framework can be found [here](https://fscheck.github.io/FsCheck/).
+
+If you would like more information on property-based testing, see [this article](http://www.erikschierboom.com/2016/02/22/property-based-testing/).
