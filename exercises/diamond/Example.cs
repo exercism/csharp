@@ -22,7 +22,7 @@ public static class Diamond
         var letter = rowLetter.Item1;
         var row = rowLetter.Item2;
         var outerSpaces = "".PadRight(letterCount - row - 1);
-        var innerSpaces = "".PadRight(row == 0 ? 0 : row*2 - 1);
+        var innerSpaces = "".PadRight(row == 0 ? 0 : row * 2 - 1);
 
         return letter == 'A' ? $"{outerSpaces}{letter}{outerSpaces}" : $"{outerSpaces}{letter}{innerSpaces}{letter}{outerSpaces}";
     }
