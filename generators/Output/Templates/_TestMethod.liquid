@@ -1,0 +1,5 @@
+﻿[Fact{% if Skip %}(Skip = "Remove to run test"){% endif %}]
+public void {{ Name }}()
+{
+{{ Body | indent }}
+}

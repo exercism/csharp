@@ -1,20 +1,20 @@
 using System.Collections.Generic;
-using Newtonsoft.Json.Linq;
+using Generators.Input;
 
 namespace Generators.Exercises
 {
     public class Transpose : Exercise
     {
-        public Transpose()
+        protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
             foreach (var canonicalDataCase in CanonicalData.Cases)
             {
                 canonicalDataCase.Property = "String";
                 canonicalDataCase.Input = new Dictionary<string, object>
                 {
-                    ["input"] = string.Join("\n", (JArray)canonicalDataCase.Input["input"])
+                    ["input"] = canonicalDataCase.Input["input"].ConvertMultiLineString()
                 };
-                canonicalDataCase.Expected = string.Join("\n", (JArray)canonicalDataCase.Expected);
+                canonicalDataCase.Expected = canonicalDataCase.Expected.ConvertMultiLineString();
                 canonicalDataCase.UseVariablesForInput = true;
                 canonicalDataCase.UseVariableForExpected = true;
             }

@@ -3,11 +3,19 @@ using Newtonsoft.Json;
 
 namespace Generators.Input
 {
-    public static class CanonicalDataParser
+    public class CanonicalDataParser
     {
-        public static CanonicalData Parse(string exercise)
+        private readonly CanonicalDataFile _canonicalDataFile;
+
+        public CanonicalDataParser(CanonicalDataOptions options)
         {
-            var canonicalDataJson = CanonicalDataFile.Contents(exercise);
+            _canonicalDataFile = new CanonicalDataFile(options);
+            _canonicalDataFile.DownloadData();
+        }
+
+        public CanonicalData Parse(Exercise exercise)
+        {
+            var canonicalDataJson = _canonicalDataFile.Contents(exercise.Name);
             var canonicalData = JsonConvert.DeserializeObject<CanonicalData>(canonicalDataJson);
             
             Validator.ValidateObject(canonicalData, new ValidationContext(canonicalData));

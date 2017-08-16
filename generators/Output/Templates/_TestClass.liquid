@@ -6,14 +6,8 @@ using {{ namespace }};
 
 public class {{ClassName}}
 {
-{%- for testMethod in TestMethods -%}
-    [Fact{% if forloop.first == false %}(Skip = "Remove to run test"){% endif %}]
-    public void {{testMethod.Name}}()
-    {
-    {%- for line in testMethod.Body -%}
-        {{ line }}
-    {%- endfor -%}
-    }
+{%- for method in Methods -%}
+{{ method | indent }}
 {%- if forloop.last == false %}
 {% endif -%}
 {%- endfor -%}

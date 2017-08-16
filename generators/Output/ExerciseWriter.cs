@@ -3,14 +3,15 @@ using Serilog;
 
 namespace Generators.Output
 {
-    public static class TestClassFile
+    public class ExerciseWriter
     {
-        public static void Write(Exercise exercise, string contents)
+        public virtual void WriteToFile(Exercise exercise)
         {
             var testClassFilePath = TestClassFilePath(exercise);
+            var testClassContents = exercise.Render();
 
             Directory.CreateDirectory(Path.GetDirectoryName(testClassFilePath));
-            File.WriteAllText(testClassFilePath, contents);
+            File.WriteAllText(testClassFilePath, testClassContents);
 
             Log.Information("Generated tests for {Exercise} exercise in {TestFile}", exercise.Name, testClassFilePath);
         }

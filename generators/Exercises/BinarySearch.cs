@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
-using Newtonsoft.Json.Linq;
+using Generators.Input;
 
 namespace Generators.Exercises
 {
     public class BinarySearch : Exercise
     {
-        public BinarySearch()
+        protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
             foreach (var canonicalDataCase in CanonicalData.Cases)
             {
                 canonicalDataCase.ConstructorInput = new Dictionary<string, object>
                 {
-                    ["array"] = ((JArray)canonicalDataCase.Input["array"]).Values<int>()
+                    ["array"] = canonicalDataCase.Input["array"].ConvertToEnumerable<int>()
                 };
                 canonicalDataCase.Input.Remove("array");
 

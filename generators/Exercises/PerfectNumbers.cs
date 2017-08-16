@@ -1,4 +1,5 @@
 using System;
+using Generators.Input;
 using Generators.Output;
 using Humanizer;
 using Newtonsoft.Json.Linq;
@@ -7,7 +8,7 @@ namespace Generators.Exercises
 {
     public class PerfectNumbers : Exercise
     {
-        public PerfectNumbers()
+        protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
             foreach (var canonicalDataCase in CanonicalData.Cases)
             {
@@ -16,14 +17,6 @@ namespace Generators.Exercises
                 if (canonicalDataCase.Expected is string classificationType)
                     canonicalDataCase.Expected = new UnescapedValue($"Classification.{classificationType.Transform(To.SentenceCase)}");
             }
-        }
-
-        protected override TestClass CreateTestClass()
-        {
-            var testClass = base.CreateTestClass();
-            testClass.UsingNamespaces.Add(typeof(ArgumentOutOfRangeException).Namespace);
-
-            return testClass;
         }
     }
 }

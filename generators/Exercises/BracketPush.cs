@@ -1,8 +1,10 @@
-﻿namespace Generators.Exercises
+﻿using Generators.Input;
+
+namespace Generators.Exercises
 {
     public class BracketPush : Exercise
     {
-        public BracketPush()
+        protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
             foreach (var canonicalDataCase in CanonicalData.Cases)
             {

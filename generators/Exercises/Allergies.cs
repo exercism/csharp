@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Generators.Input;
 using Generators.Output;
 using Newtonsoft.Json.Linq;
 
@@ -7,7 +8,7 @@ namespace Generators.Exercises
 {
     public class Allergies : Exercise
     {
-        public Allergies()
+        protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
             foreach (var canonicalDataCase in CanonicalData.Cases)
             {
@@ -17,7 +18,7 @@ namespace Generators.Exercises
                 }
                 else if (canonicalDataCase.Property == "list")
                 { 
-                    canonicalDataCase.Expected = ((JArray) canonicalDataCase.Expected).Values<string>();
+                    canonicalDataCase.Expected = canonicalDataCase.Expected.ConvertToEnumerable<string>();
                     canonicalDataCase.UseVariableForExpected = true;
                 }
 
@@ -30,28 +31,30 @@ namespace Generators.Exercises
             }
         }
 
-        protected override TestClass CreateTestClass()
+        protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            var testClass = base.CreateTestClass();
-            
-            foreach (var testMethod in testClass.TestMethods.Where(x => x.GeneratedFrom.Property == "IsAllergicTo"))
-                testMethod.Body = UpdateIsAllergicToTestMethod(testMethod);
+            if (testMethodBody.CanonicalDataCase.Property == "IsAllergicTo")
+                return RenderIsAllergicToAssert(testMethodBody);
 
-            return testClass;
+            return base.RenderTestMethodBodyAssert(testMethodBody);
         }
 
-        private static IEnumerable<string> UpdateIsAllergicToTestMethod(TestMethod testMethod)
+        private static string RenderIsAllergicToAssert(TestMethodBody testMethodBody)
         {
-            var lines = testMethod.Body.ToList();
-            lines.RemoveAt(lines.Count - 1);
-            lines.AddRange(((JArray) testMethod.GeneratedFrom.Expected).Children().Select(CreateIsAllergicToAssertion));
-            return lines;
-        }
+            const string template =
+                @"{%- for allergy in Allergies -%}
+Assert.{% if allergy.Result %}True{% else %}False{% endif %}(sut.IsAllergicTo(""{{ allergy.Substance }}""));
+{%- endfor -%}";
 
-        private static string CreateIsAllergicToAssertion(JToken jToken)
-        {
-            var equalityMethod = jToken["result"].Value<bool>() ? "True" : "False";
-            return $"Assert.{equalityMethod}(sut.IsAllergicTo({ValueFormatter.Format(jToken["substance"].Value<string>())}));";
+            var templateParameters = new
+            {
+                Allergies = ((JArray) testMethodBody.CanonicalDataCase.Expected)
+                .Children<JObject>()
+                .Select(x => new {Result = x["result"].Value<bool>(), Substance = x["substance"].Value<string>()})
+                .ToArray()
+            };
+
+            return TemplateRenderer.RenderInline(template, templateParameters);
         }
     }
 }

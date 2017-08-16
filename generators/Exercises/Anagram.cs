@@ -1,11 +1,11 @@
 using System.Collections.Generic;
-using Newtonsoft.Json.Linq;
+using Generators.Input;
 
 namespace Generators.Exercises
 {
     public class Anagram : Exercise
     {
-        public Anagram()
+        protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
             foreach (var canonicalDataCase in CanonicalData.Cases)
             {
@@ -14,8 +14,8 @@ namespace Generators.Exercises
                     ["subject"] = canonicalDataCase.Input["subject"]
                 };
                 canonicalDataCase.Input.Remove("subject");
-                canonicalDataCase.Input["candidates"] = ((JArray)canonicalDataCase.Input["candidates"]).Values<string>();
-                canonicalDataCase.Expected = ((JArray)canonicalDataCase.Expected).Values<string>();
+                canonicalDataCase.Input["candidates"] = canonicalDataCase.Input["candidates"].ConvertToEnumerable<string>();
+                canonicalDataCase.Expected = canonicalDataCase.Expected.ConvertToEnumerable<string>();
 
                 canonicalDataCase.UseVariablesForInput = true;
                 canonicalDataCase.UseVariableForExpected = true;

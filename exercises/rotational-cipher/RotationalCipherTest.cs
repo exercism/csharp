@@ -1,10 +1,16 @@
-// This file was auto-generated based on version 1.0.0 of the canonical data.
+// This file was auto-generated based on version 1.1.0 of the canonical data.
 
 using Xunit;
 
 public class RotationalCipherTest
 {
     [Fact]
+    public void Rotate_a_by_0_same_output_as_input()
+    {
+        Assert.Equal("a", RotationalCipher.Rotate("a", 0));
+    }
+
+    [Fact(Skip = "Remove to run test")]
     public void Rotate_a_by_1()
     {
         Assert.Equal("b", RotationalCipher.Rotate("a", 1));
@@ -14,12 +20,6 @@ public class RotationalCipherTest
     public void Rotate_a_by_26_same_output_as_input()
     {
         Assert.Equal("a", RotationalCipher.Rotate("a", 26));
-    }
-
-    [Fact(Skip = "Remove to run test")]
-    public void Rotate_a_by_0_same_output_as_input()
-    {
-        Assert.Equal("a", RotationalCipher.Rotate("a", 0));
     }
 
     [Fact(Skip = "Remove to run test")]
