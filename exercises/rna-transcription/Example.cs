@@ -8,8 +8,13 @@ public class Complement
             { 'G', 'C' }, { 'C', 'G' }, { 'T', 'A' }, { 'A', 'U' }
         };
 
-    public static string OfDna(string nucleotide)
+    public static string ToRna(string nucleotide)
     {
+        if (nucleotide.Any(x => !DnaToRna.ContainsKey(x)))
+        {
+            return null;
+        }
+
         return string.Concat(nucleotide.Select(x => DnaToRna[x]));
     }
 }
