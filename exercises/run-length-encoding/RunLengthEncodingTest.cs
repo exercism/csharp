@@ -1,60 +1,84 @@
-﻿using Xunit;
+// This file was auto-generated based on version 1.0.0 of the canonical data.
+
+using Xunit;
 
 public class RunLengthEncodingTest
 {
     [Fact]
-    public void Encode_simple()
+    public void Encode_empty_string()
     {
-        const string input = "AABBBCCCC";
-        const string expected = "2A3B4C";
-        Assert.Equal(expected, RunLengthEncoding.Encode(input));
+        Assert.Equal("", RunLengthEncoding.Encode(""));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Decode_simple()
+    public void Encode_single_characters_only_are_encoded_without_count()
     {
-        const string input = "2A3B4C";
-        const string expected = "AABBBCCCC";
-        Assert.Equal(expected, RunLengthEncoding.Decode(input));
+        Assert.Equal("XYZ", RunLengthEncoding.Encode("XYZ"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Encode_with_single_values()
+    public void Encode_string_with_no_single_characters()
     {
-        const string input = "WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB";
-        const string expected = "12WB12W3B24WB";
-        Assert.Equal(expected, RunLengthEncoding.Encode(input));
+        Assert.Equal("2A3B4C", RunLengthEncoding.Encode("AABBBCCCC"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Decode_with_single_values()
+    public void Encode_single_characters_mixed_with_repeated_characters()
     {
-        const string input = "12WB12W3B24WB";
-        const string expected = "WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB";
-        Assert.Equal(expected, RunLengthEncoding.Decode(input));
+        Assert.Equal("12WB12W3B24WB", RunLengthEncoding.Encode("WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Encode_and_then_decode()
+    public void Encode_multiple_whitespace_mixed_in_string()
     {
-        const string input = "zzz ZZ  zZ";
-        const string expected = "zzz ZZ  zZ";
-        Assert.Equal(expected, RunLengthEncoding.Decode(RunLengthEncoding.Encode(input)));
+        Assert.Equal("2 hs2q q2w2 ", RunLengthEncoding.Encode("  hsqq qww  "));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Encode_unicode()
+    public void Encode_lowercase_characters()
     {
-        const string input = "⏰⚽⚽⚽⭐⭐⏰";
-        const string expected = "⏰3⚽2⭐⏰";
-        Assert.Equal(expected, RunLengthEncoding.Encode(input));
+        Assert.Equal("2a3b4c", RunLengthEncoding.Encode("aabbbcccc"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Decode_unicode()
+    public void Decode_empty_string()
     {
-        const string input = "⏰3⚽2⭐⏰";
-        const string expected = "⏰⚽⚽⚽⭐⭐⏰";
-        Assert.Equal(expected, RunLengthEncoding.Decode(input));
+        Assert.Equal("", RunLengthEncoding.Decode(""));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Decode_single_characters_only()
+    {
+        Assert.Equal("XYZ", RunLengthEncoding.Decode("XYZ"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Decode_string_with_no_single_characters()
+    {
+        Assert.Equal("AABBBCCCC", RunLengthEncoding.Decode("2A3B4C"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Decode_single_characters_with_repeated_characters()
+    {
+        Assert.Equal("WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB", RunLengthEncoding.Decode("12WB12W3B24WB"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Decode_multiple_whitespace_mixed_in_string()
+    {
+        Assert.Equal("  hsqq qww  ", RunLengthEncoding.Decode("2 hs2q q2w2 "));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Decode_lower_case_string()
+    {
+        Assert.Equal("aabbbcccc", RunLengthEncoding.Decode("2a3b4c"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Consistency_encode_followed_by_decode_gives_original_string()
+    {
+        Assert.Equal("zzz ZZ  zZ", RunLengthEncoding.Decode(RunLengthEncoding.Encode("zzz ZZ  zZ")));
     }
 }
