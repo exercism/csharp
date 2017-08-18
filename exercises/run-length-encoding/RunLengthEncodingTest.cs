@@ -79,6 +79,6 @@ public class RunLengthEncodingTest
     [Fact(Skip = "Remove to run test")]
     public void Consistency_encode_followed_by_decode_gives_original_string()
     {
-        Assert.Equal("zzz ZZ  zZ", RunLengthEncoding.Consistency("zzz ZZ  zZ"));
+        Assert.Equal("zzz ZZ  zZ", RunLengthEncoding.Decode(RunLengthEncoding.Encode("zzz ZZ  zZ")));
     }
 }
