@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 public class PrimeFactors
 {
-    public static int[] For(long number)
+    public static int[] Factors(long number)
     {
         var primes = new List<int>();
         int divisor = 2;
