@@ -2,24 +2,24 @@
 
 public static class CollatzConjecture
 {
-    public static int GetSteps(int input)
+    public static int Steps(int number)
     {
-        if(input <= 0)
+        if(number <= 0)
         {
             throw new ArgumentException("Only positive numbers are allowed");
         }
 
         int stepCount = 0;
 
-        while(input != 1)
+        while(number != 1)
         {
-            if(input % 2 == 0)
+            if(number % 2 == 0)
             {
-                input /= 2;
+                number /= 2;
             }
             else
             {
-                input = (input * 3) + 1;
+                number = (number * 3) + 1;
             }
 
             stepCount++;
