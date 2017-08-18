@@ -8,7 +8,9 @@ namespace Generators.Input
     public class CanonicalDataFile
     {
         private const string ProblemSpecificationsGitUrl = "https://github.com/exercism/problem-specifications.git";
-        private const string ProblemSpecificationsRemoteName = "origin";
+        private const string ProblemSpecificationsBranch = "master";
+        private const string ProblemSpecificationsRemote = "origin";
+        private const string ProblemSpecificationsRemoteBranch = ProblemSpecificationsRemote + "/" + ProblemSpecificationsBranch;
 
         private readonly CanonicalDataOptions _options;
 
@@ -30,7 +32,7 @@ namespace Generators.Input
             if (_options.CacheCanonicalData)
                 return;
 
-            FetchBranch();
+            UpdateToLatestVersion();
         }
 
         private void CloneRepository()
@@ -45,12 +47,17 @@ namespace Generators.Input
             Log.Information("Repository cloned.");
         }
 
-        private void FetchBranch()
+        private void UpdateToLatestVersion()
         {
             Log.Information("Updating repository to latest version...");
 
             using (var repository = new Repository(_options.CanonicalDataDirectory))
-                Commands.Fetch(repository, ProblemSpecificationsRemoteName, Enumerable.Empty<string>(), new FetchOptions(), null);
+            {
+                Commands.Fetch(repository, ProblemSpecificationsRemote, Enumerable.Empty<string>(), new FetchOptions(), null);
+                
+                var remoteBranch = repository.Branches[ProblemSpecificationsRemoteBranch];
+                repository.Reset(ResetMode.Hard, remoteBranch.Tip);
+            }   
 
             Log.Information("Updated repository to latest version.");
         }
