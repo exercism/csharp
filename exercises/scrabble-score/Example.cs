@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-public class Scrabble
+public class ScrabbleScore
 {
     private static readonly Dictionary<char, int> LetterScores = new Dictionary<char, int>
         {
