@@ -1,53 +1,90 @@
+// This file was auto-generated based on version 1.2.0 of the canonical data.
+
 using Xunit;
 
 public class PhoneNumberTest
 {
     [Fact]
-    public void Cleans_parens_spaces_and_dashes()
+    public void Cleans_the_number()
     {
-        var phone = new PhoneNumber("(123) 456-7890");
-        Assert.Equal("1234567890", phone.Number);
+        var phrase = "(223) 456-7890";
+        Assert.Equal("2234567890", PhoneNumber.Clean(phrase));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Cleans_numbers_with_dots()
     {
-        var phone = new PhoneNumber("123.456.7890");
-        Assert.Equal("1234567890", phone.Number);
+        var phrase = "223.456.7890";
+        Assert.Equal("2234567890", PhoneNumber.Clean(phrase));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Allows_us_country_code()
+    public void Cleans_numbers_with_multiple_spaces()
     {
-        var phone = new PhoneNumber("11234567890");
-        Assert.Equal("1234567890", phone.Number);
-    }
-
-    [Fact(Skip = "Remove to run test")]
-    public void Invalid_when_11_digits()
-    {
-        var phone = new PhoneNumber("21234567890");
-        Assert.Equal("0000000000", phone.Number);
+        var phrase = "223 456   7890   ";
+        Assert.Equal("2234567890", PhoneNumber.Clean(phrase));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Invalid_when_9_digits()
     {
-        var phone = new PhoneNumber("123456789");
-        Assert.Equal("0000000000", phone.Number);
+        var phrase = "123456789";
+        Assert.Null(PhoneNumber.Clean(phrase));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Has_an_area_code()
+    public void Invalid_when_11_digits_does_not_start_with_a_1()
     {
-        var phone = new PhoneNumber("1234567890");
-        Assert.Equal("123", phone.AreaCode);
+        var phrase = "22234567890";
+        Assert.Null(PhoneNumber.Clean(phrase));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Formats_a_number()
+    public void Valid_when_11_digits_and_starting_with_1()
     {
-        var phone = new PhoneNumber("1234567890");
-        Assert.Equal("(123) 456-7890", phone.ToString());
+        var phrase = "12234567890";
+        Assert.Equal("2234567890", PhoneNumber.Clean(phrase));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Valid_when_11_digits_and_starting_with_1_even_with_punctuation()
+    {
+        var phrase = "+1 (223) 456-7890";
+        Assert.Equal("2234567890", PhoneNumber.Clean(phrase));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Invalid_when_more_than_11_digits()
+    {
+        var phrase = "321234567890";
+        Assert.Null(PhoneNumber.Clean(phrase));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Invalid_with_letters()
+    {
+        var phrase = "123-abc-7890";
+        Assert.Null(PhoneNumber.Clean(phrase));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Invalid_with_punctuations()
+    {
+        var phrase = "123-@:!-7890";
+        Assert.Null(PhoneNumber.Clean(phrase));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Invalid_if_area_code_does_not_start_with_2_9()
+    {
+        var phrase = "(123) 456-7890";
+        Assert.Null(PhoneNumber.Clean(phrase));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Invalid_if_exchange_code_does_not_start_with_2_9()
+    {
+        var phrase = "(223) 056-7890";
+        Assert.Null(PhoneNumber.Clean(phrase));
     }
 }

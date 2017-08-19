@@ -1,70 +1,48 @@
+// This file was auto-generated based on version 1.0.0 of the canonical data.
+
 using Xunit;
 
 public class PrimeFactorsTest
 {
     [Fact]
-    public void Test_1()
+    public void No_factors()
     {
-        Assert.Equal(new int[0], PrimeFactors.For(1));
+        Assert.Empty(PrimeFactors.Factors(1));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Test_2()
+    public void Prime_number()
     {
-        Assert.Equal(new[] { 2 }, PrimeFactors.For(2));
+        Assert.Equal(new[] { 2 }, PrimeFactors.Factors(2));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Test_3()
+    public void Square_of_a_prime()
     {
-        Assert.Equal(new[] { 3 }, PrimeFactors.For(3));
+        Assert.Equal(new[] { 3, 3 }, PrimeFactors.Factors(9));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Test_4()
+    public void Cube_of_a_prime()
     {
-        Assert.Equal(new[] { 2, 2 }, PrimeFactors.For(4));
+        Assert.Equal(new[] { 2, 2, 2 }, PrimeFactors.Factors(8));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Test_6()
+    public void Product_of_primes_and_non_primes()
     {
-        Assert.Equal(new[] { 2, 3 }, PrimeFactors.For(6));
+        Assert.Equal(new[] { 2, 2, 3 }, PrimeFactors.Factors(12));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Test_8()
+    public void Product_of_primes()
     {
-        Assert.Equal(new[] { 2, 2, 2 }, PrimeFactors.For(8));
+        Assert.Equal(new[] { 5, 17, 23, 461 }, PrimeFactors.Factors(901255));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Test_9()
+    public void Factors_include_a_large_prime()
     {
-        Assert.Equal(new[] { 3, 3 }, PrimeFactors.For(9));
-    }
-
-    [Fact(Skip = "Remove to run test")]
-    public void Test_27()
-    {
-        Assert.Equal(new[] { 3, 3, 3 }, PrimeFactors.For(27));
-    }
-
-    [Fact(Skip = "Remove to run test")]
-    public void Test_625()
-    {
-        Assert.Equal(new[] { 5, 5, 5, 5 }, PrimeFactors.For(625));
-    }
-
-    [Fact(Skip = "Remove to run test")]
-    public void Test_901255()
-    {
-        Assert.Equal(new[] { 5, 17, 23, 461 }, PrimeFactors.For(901255));
-    }
-
-    [Fact(Skip = "Remove to run test")]
-    public void Test_93819012551()
-    {
-        Assert.Equal(new[] { 11, 9539, 894119 }, PrimeFactors.For(93819012551));
+        Assert.Equal(new[] { 11, 9539, 894119 }, PrimeFactors.Factors(93819012551));
     }
 }

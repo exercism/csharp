@@ -1,50 +1,23 @@
+using System.Linq;
 using System.Text.RegularExpressions;
 
 public class PhoneNumber
 {
-    private static readonly Regex DigitsOnly = new Regex(@"[^\d]");
+    private static readonly Regex phoneNumberFormat = new Regex("^1?([2-9][0-9]{2}[2-9][0-9]{6})$");
 
-    public string Number { get; private set; }
-    public string AreaCode { get; private set; }
-
-    public PhoneNumber(string phoneNumber)
+    public static string Clean(string phoneNumber)
     {
-        Number = GetValidatedPhoneNumber(phoneNumber);
-        AreaCode = Number.Substring(0, 3);
-    }
+        var digits = string.Join(string.Empty, phoneNumber.Where(l => l >= '0' && l <= '9'));
 
-    private static string GetValidatedPhoneNumber(string phoneNumber)
-    {
-        var stripped = StripOutNonNumerics(phoneNumber);
+        var match = phoneNumberFormat.Match(digits);
 
-        if (IsInvalidPhoneNumber(stripped))
-            return GetInvalidPhoneNumberReplacement(stripped);
-
-        return stripped;
-    }
-
-    private static string StripOutNonNumerics(string value)
-    {
-        return DigitsOnly.Replace(value, "");
-    }
-
-    private static bool IsInvalidPhoneNumber(string phoneNumber)
-    {
-        return phoneNumber.Length != 10;
-    }
-
-    private static string GetInvalidPhoneNumberReplacement(string phoneNumber)
-    {
-        return IsPhoneNumberWithUSAreaCode(phoneNumber) ? phoneNumber.Substring(1) : "0000000000";
-    }
-
-    private static bool IsPhoneNumberWithUSAreaCode(string value)
-    {
-        return value.Length == 11 && value.StartsWith("1");
-    }
-
-    public override string ToString()
-    {
-        return string.Format("({0}) {1}-{2}", AreaCode, Number.Substring(3, 3), Number.Substring(6));
+        if (match.Success)
+        {
+            return match.Groups[1].ToString();
+        }
+        else
+        {
+            return null;
+        }
     }
 }
