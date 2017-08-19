@@ -1,6 +1,7 @@
-﻿// This file was auto-generated based on version 1.0.0 of the canonical data.
+// This file was auto-generated based on version 1.0.0 of the canonical data.
 
 using Xunit;
+using System;
 
 public class SayTest
 {
@@ -85,12 +86,12 @@ public class SayTest
     [Fact(Skip = "Remove to run test")]
     public void Numbers_below_zero_are_out_of_range()
     {
-        Assert.Equal("-1", Say.InEnglish(-1));
+        Assert.Throws<ArgumentOutOfRangeException>(() => Say.InEnglish(-1));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Numbers_above_999_999_999_999_are_out_of_range()
     {
-        Assert.Equal("-1", Say.InEnglish(1000000000000));
+        Assert.Throws<ArgumentOutOfRangeException>(() => Say.InEnglish(1000000000000));
     }
 }

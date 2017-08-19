@@ -1,4 +1,5 @@
-﻿using Generators.Input;
+﻿using System;
+using Generators.Input;
 
 namespace Generators.Exercises
 {
@@ -14,10 +15,7 @@ namespace Generators.Exercises
                     canonicalDataCase.Property = "in_english";
                 }
 
-                if (canonicalDataCase.Expected is long)
-                {
-                    canonicalDataCase.Expected = canonicalDataCase.Expected.ToString();
-                }
+                canonicalDataCase.ExceptionThrown = canonicalDataCase.Expected is long ? typeof(ArgumentOutOfRangeException) : null;
             }
         }
     }
