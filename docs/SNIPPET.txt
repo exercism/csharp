@@ -1,0 +1,7 @@
+class HelloWorld
+{
+    string Hello()
+    {
+        return "Hello, world!";
+    }
+}
