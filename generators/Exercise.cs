@@ -78,7 +78,7 @@ namespace Generators
                 return new TestMethodBodyWithBooleanCheck(canonicalDataCase, CanonicalData);
             }
 
-            if(canonicalDataCase.Expected is null)
+            if (canonicalDataCase.Expected is null)
             {
                 return new TestMethodBodyWithNullCheck(canonicalDataCase, CanonicalData);
             }
