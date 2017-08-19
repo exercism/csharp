@@ -42,10 +42,10 @@
     },
     {
       "github_username": "robkeim",
-      "show_on_website": false,
+      "show_on_website": true,
       "alumnus": false,
-      "name": null,
-      "bio": null,
+      "name": "Rob Keim",
+      "bio": "I stumbled upon this site when I was trying to learn about functional programming and F#. Little did I know, I'd wind up becoming a contributor and learning a whole lot more than what I originally intended to. I had never contributed to an open source project before, and it's been a very rewarding experience.",
       "link_text": null,
       "link_url": null,
       "avatar_url": null
