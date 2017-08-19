@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -12,7 +13,7 @@ public static class RnaTranscription
     {
         if (nucleotide.Any(x => !DnaToRna.ContainsKey(x)))
         {
-            return null;
+            throw new ArgumentException("invalid nucleotide");
         }
 
         return string.Concat(nucleotide.Select(x => DnaToRna[x]));
