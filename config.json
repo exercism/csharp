@@ -47,17 +47,6 @@
       ]
     },
     {
-      "uuid": "57f02d0e-7b75-473b-892d-26a7d980c4ce",
-      "slug": "two-fer",
-      "core": true,
-      "unlocked_by": "null",
-      "difficulty": 1,
-      "topics": [
-        "Strings",
-        "Optional values"
-      ]
-    },
-    {
       "uuid": "29ae7f8e-a009-4175-9350-a8c684c89730",
       "slug": "raindrops",
       "core": true,
@@ -66,6 +55,17 @@
       "topics": [
         "Text formatting",
         "Filtering"
+      ]
+    },
+    {
+      "uuid": "57f02d0e-7b75-473b-892d-26a7d980c4ce",
+      "slug": "two-fer",
+      "core": true,
+      "unlocked_by": "null",
+      "difficulty": 1,
+      "topics": [
+        "Strings",
+        "Optional values"
       ]
     },
     {
@@ -338,7 +338,7 @@
       "uuid": "75a2d5f0-5f5e-46a3-9dd2-3da415690e18",
       "slug": "protein-translation",
       "core": false,
-      "unlocked_by": "hello-world",
+      "unlocked_by": "two-fer",
       "difficulty": 3,
       "topics": [
         "Strings",
@@ -424,7 +424,7 @@
       "uuid": "4b7b65be-f777-4f64-94a0-4f9832f17a52",
       "slug": "isogram",
       "core": false,
-      "unlocked_by": "hello-world",
+      "unlocked_by": "two-fer",
       "difficulty": 3,
       "topics": [
         "Strings",
@@ -457,7 +457,7 @@
       "uuid": "ddfb0a0e-8c58-4b9e-ad62-57d06ef10f5f",
       "slug": "acronym",
       "core": false,
-      "unlocked_by": "hello-world",
+      "unlocked_by": "two-fer",
       "difficulty": 4,
       "topics": [
         "Strings",
