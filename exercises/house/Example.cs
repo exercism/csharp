@@ -33,14 +33,14 @@ public static class House
         "belonged to",
         ""
     };
-
-    public static string Rhyme()
+    
+    public static string Verses(int first, int last)
     {
-        var numberOfBlocks = Subjects.Length;
-        return string.Join("\n\n", Enumerable.Range(1, numberOfBlocks).Select(Block));
+        var numberOfVerses = last - first + 1;
+        return string.Join("\n\n", Enumerable.Range(first, numberOfVerses).Select(Verse));
     }
 
-    private static string Block(int number)
+    public static string Verse(int number)
     {
         return string.Join("\n", Enumerable.Range(1, number).Reverse().Select(index => Line(number, index)));
     }
