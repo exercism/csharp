@@ -1,6 +1,7 @@
 // This file was auto-generated based on version 1.2.0 of the canonical data.
 
 using Xunit;
+using System;
 
 public class PhoneNumberTest
 {
@@ -29,14 +30,14 @@ public class PhoneNumberTest
     public void Invalid_when_9_digits()
     {
         var phrase = "123456789";
-        Assert.Null(PhoneNumber.Clean(phrase));
+        Assert.Throws<ArgumentException>(() => PhoneNumber.Clean(phrase));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Invalid_when_11_digits_does_not_start_with_a_1()
     {
         var phrase = "22234567890";
-        Assert.Null(PhoneNumber.Clean(phrase));
+        Assert.Throws<ArgumentException>(() => PhoneNumber.Clean(phrase));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -57,34 +58,34 @@ public class PhoneNumberTest
     public void Invalid_when_more_than_11_digits()
     {
         var phrase = "321234567890";
-        Assert.Null(PhoneNumber.Clean(phrase));
+        Assert.Throws<ArgumentException>(() => PhoneNumber.Clean(phrase));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Invalid_with_letters()
     {
         var phrase = "123-abc-7890";
-        Assert.Null(PhoneNumber.Clean(phrase));
+        Assert.Throws<ArgumentException>(() => PhoneNumber.Clean(phrase));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Invalid_with_punctuations()
     {
         var phrase = "123-@:!-7890";
-        Assert.Null(PhoneNumber.Clean(phrase));
+        Assert.Throws<ArgumentException>(() => PhoneNumber.Clean(phrase));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Invalid_if_area_code_does_not_start_with_2_9()
     {
         var phrase = "(123) 456-7890";
-        Assert.Null(PhoneNumber.Clean(phrase));
+        Assert.Throws<ArgumentException>(() => PhoneNumber.Clean(phrase));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Invalid_if_exchange_code_does_not_start_with_2_9()
     {
         var phrase = "(223) 056-7890";
-        Assert.Null(PhoneNumber.Clean(phrase));
+        Assert.Throws<ArgumentException>(() => PhoneNumber.Clean(phrase));
     }
 }
