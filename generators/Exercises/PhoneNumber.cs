@@ -1,5 +1,4 @@
 ﻿using Generators.Input;
-using Generators.Output;
 
 namespace Generators.Exercises
 {
@@ -10,7 +9,6 @@ namespace Generators.Exercises
             foreach (var canonicalDataCase in CanonicalData.Cases)
             {
                 canonicalDataCase.UseVariablesForInput = true;
-                canonicalDataCase.Expected = canonicalDataCase.Expected ?? new UnescapedValue("null");
             }
         }
     }

@@ -69,10 +69,19 @@ namespace Generators
         protected virtual TestMethodBody CreateTestMethodBody(CanonicalDataCase canonicalDataCase)
         {
             if (canonicalDataCase.ExceptionThrown != null)
+            {
                 return new TestMethodBodyWithExceptionCheck(canonicalDataCase, CanonicalData);
+            }
 
             if (canonicalDataCase.Expected is bool)
+            {
                 return new TestMethodBodyWithBooleanCheck(canonicalDataCase, CanonicalData);
+            }
+
+            if (canonicalDataCase.Expected is null)
+            {
+                return new TestMethodBodyWithNullCheck(canonicalDataCase, CanonicalData);
+            }
 
             return new TestMethodBodyWithEqualityCheck(canonicalDataCase, CanonicalData);
         }
