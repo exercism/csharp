@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -17,7 +18,7 @@ public class PhoneNumber
         }
         else
         {
-            return null;
+            throw new ArgumentException("invalid phone number");
         }
     }
 }

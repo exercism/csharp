@@ -1,6 +1,7 @@
 // This file was auto-generated based on version 1.0.1 of the canonical data.
 
 using Xunit;
+using System;
 
 public class RnaTranscriptionTest
 {
@@ -37,18 +38,18 @@ public class RnaTranscriptionTest
     [Fact(Skip = "Remove to run test")]
     public void Correctly_handles_invalid_input_rna_instead_of_dna_()
     {
-        Assert.Null(RnaTranscription.ToRna("U"));
+        Assert.Throws<ArgumentException>(() => RnaTranscription.ToRna("U"));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Correctly_handles_completely_invalid_dna_input()
     {
-        Assert.Null(RnaTranscription.ToRna("XXX"));
+        Assert.Throws<ArgumentException>(() => RnaTranscription.ToRna("XXX"));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Correctly_handles_partially_invalid_dna_input()
     {
-        Assert.Null(RnaTranscription.ToRna("ACGTXXXCTTAA"));
+        Assert.Throws<ArgumentException>(() => RnaTranscription.ToRna("ACGTXXXCTTAA"));
     }
 }
