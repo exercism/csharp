@@ -37,18 +37,18 @@ public class RnaTranscriptionTest
     [Fact(Skip = "Remove to run test")]
     public void Correctly_handles_invalid_input_rna_instead_of_dna_()
     {
-        Assert.Equal(null, RnaTranscription.ToRna("U"));
+        Assert.Null(RnaTranscription.ToRna("U"));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Correctly_handles_completely_invalid_dna_input()
     {
-        Assert.Equal(null, RnaTranscription.ToRna("XXX"));
+        Assert.Null(RnaTranscription.ToRna("XXX"));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Correctly_handles_partially_invalid_dna_input()
     {
-        Assert.Equal(null, RnaTranscription.ToRna("ACGTXXXCTTAA"));
+        Assert.Null(RnaTranscription.ToRna("ACGTXXXCTTAA"));
     }
 }
