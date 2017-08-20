@@ -996,6 +996,17 @@
       ]
     },
     {
+      "uuid": "0ed2de0f-70da-4f04-834e-01bfb0aa48d3",
+      "slug": "complex-numbers",
+      "core": false,
+      "unlocked_by": "leap",
+      "difficulty": 6,
+      "topics": [
+        "Tuples",
+        "Mathematics"
+      ]
+    },
+    {
       "uuid": "d03a9508-336a-4425-8f47-f04317d1ba15",
       "slug": "poker",
       "core": false,
