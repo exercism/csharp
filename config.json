@@ -53,7 +53,7 @@
       "unlocked_by": null,
       "difficulty": 2,
       "topics": [
-        "Text formatting",
+        "Strings",
         "Filtering"
       ]
     },
@@ -318,7 +318,7 @@
       "unlocked_by": "raindrops",
       "difficulty": 3,
       "topics": [
-        "Text formatting",
+        "Strings",
         "Algorithms"
       ]
     },
@@ -384,7 +384,7 @@
       "unlocked_by": "raindrops",
       "difficulty": 3,
       "topics": [
-        "Text formatting",
+        "Strings",
         "Algorithms"
       ]
     },
@@ -517,7 +517,7 @@
       "unlocked_by": "raindrops",
       "difficulty": 4,
       "topics": [
-        "Text formatting",
+        "Strings",
         "Algorithms"
       ]
     },
@@ -552,7 +552,7 @@
       "unlocked_by": "bob",
       "difficulty": 4,
       "topics": [
-        "Text formatting",
+        "Strings",
         "Algorithms"
       ]
     },
@@ -722,7 +722,7 @@
       "unlocked_by": "allergies",
       "difficulty": 5,
       "topics": [
-        "Text formatting",
+        "Strings",
         "Algorithms"
       ]
     },
@@ -733,7 +733,7 @@
       "unlocked_by": "markdown",
       "difficulty": 5,
       "topics": [
-        "Text formatting",
+        "Strings",
         "Files",
         "Searching"
       ]
@@ -813,7 +813,7 @@
       "difficulty": 5,
       "topics": [
         "Globalization",
-        "Text formatting",
+        "Strings",
         "Refactoring"
       ]
     },
@@ -902,7 +902,7 @@
       "unlocked_by": "kindergarten-garden",
       "difficulty": 6,
       "topics": [
-        "Text formatting",
+        "Strings",
         "Parsing"
       ]
     },
@@ -1081,7 +1081,7 @@
       "unlocked_by": "saddle-points",
       "difficulty": 8,
       "topics": [
-        "Text formatting",
+        "Strings",
         "Algorithms"
       ]
     },
@@ -1114,8 +1114,7 @@
       "difficulty": 8,
       "topics": [
         "Strings",
-        "Transforming",
-        "Text formatting"
+        "Transforming"
       ]
     },
     {
