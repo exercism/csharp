@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="Cake Ruleset" ToolsVersion="12.0">
+
+  <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
+    <Rule Id="SA1202" Action="None" />
+    <Rule Id="SA1649" Action="None" />
+    <Rule Id="SA1633" Action="None" />
+    <Rule Id="SA1600" Action="None" />
+    <Rule Id="SA0001" Action="None" />
+  </Rules>
+
+</RuleSet>
