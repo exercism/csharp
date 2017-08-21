@@ -11,13 +11,13 @@ public class RomanNumeralsTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Number_2_is_two_i_s()
+    public void Number_2_is_two_is()
     {
         Assert.Equal("II", 2.ToRoman());
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Number_3_is_three_i_s()
+    public void Number_3_is_three_is()
     {
         Assert.Equal("III", 3.ToRoman());
     }
@@ -47,7 +47,7 @@ public class RomanNumeralsTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Number_20_is_two_x_s()
+    public void Number_20_is_two_xs()
     {
         Assert.Equal("XXVII", 27.ToRoman());
     }
@@ -107,7 +107,7 @@ public class RomanNumeralsTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Number_3000_is_three_m_s()
+    public void Number_3000_is_three_ms()
     {
         Assert.Equal("MMM", 3000.ToRoman());
     }

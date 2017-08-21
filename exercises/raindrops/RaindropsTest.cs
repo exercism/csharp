@@ -59,13 +59,13 @@ public class RaindropsTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void The_sound_for_15_is_pling_plang_as_it_has_factors_3_and_5()
+    public void The_sound_for_15_is_plingplang_as_it_has_factors_3_and_5()
     {
         Assert.Equal("PlingPlang", Raindrops.Convert(15));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void The_sound_for_21_is_pling_plong_as_it_has_factors_3_and_7()
+    public void The_sound_for_21_is_plingplong_as_it_has_factors_3_and_7()
     {
         Assert.Equal("PlingPlong", Raindrops.Convert(21));
     }
@@ -83,7 +83,7 @@ public class RaindropsTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void The_sound_for_35_is_plang_plong_as_it_has_factors_5_and_7()
+    public void The_sound_for_35_is_plangplong_as_it_has_factors_5_and_7()
     {
         Assert.Equal("PlangPlong", Raindrops.Convert(35));
     }
@@ -101,7 +101,7 @@ public class RaindropsTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void The_sound_for_105_is_pling_plang_plong_as_it_has_factors_3_5_and_7()
+    public void The_sound_for_105_is_plingplangplong_as_it_has_factors_3_5_and_7()
     {
         Assert.Equal("PlingPlangPlong", Raindrops.Convert(105));
     }

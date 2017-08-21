@@ -10,7 +10,6 @@ namespace Generators.Exercises
             {
                 canonicalDataCase.TestedMethodType = TestedMethodType.Extension;
                 canonicalDataCase.Property = "ToRoman";
-                canonicalDataCase.Description = "Number_" + canonicalDataCase.Description;
             }
         }
     }
