@@ -16,6 +16,8 @@ namespace Generators.Output
                     return string.Join(", ", dict.Values.Select(Format));
                 case IDictionary<char, int> dict:
                     return $"new Dictionary<char, int> {{ {string.Join(", ", dict.Keys.Select(key => $"[{Format(key)}] = {Format(dict[key])}"))} }}";
+                case IDictionary<string, int> dict:
+                    return $"new Dictionary<string, int> {{ {string.Join(", ", dict.Keys.Select(key => $"[{Format(key)}] = {Format(dict[key])}"))} }}";
                 case Enum enumeration:
                     return $"{enumeration.GetType().Name}.{enumeration}";
                 case JArray jArray:
@@ -52,6 +54,8 @@ namespace Generators.Output
                     return FormatMultiLineEnumerable(strings, name);
                 case IDictionary<char, int> dict:
                     return FormatMultiLineEnumerable(dict.Keys.Select((key, i) => $"[{Format(key)}] = {Format(dict[key])}" + (i < dict.Keys.Count - 1 ? "," : "")), name, "new Dictionary<char, int>");
+                case IDictionary<string, int> dict:
+                    return FormatMultiLineEnumerable(dict.Keys.Select((key, i) => $"[{Format(key)}] = {Format(dict[key])}" + (i < dict.Keys.Count - 1 ? "," : "")), name, "new Dictionary<string, int>");
                 default:
                     return new[] {$"var {name} = {Format(val)};"};
             }
