@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 
-public static class Phrase
+public static class WordCount
 {
-    public static IDictionary<string, int> WordCount(string phrase)
+    public static IDictionary<string, int> Countwords(string phrase)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
