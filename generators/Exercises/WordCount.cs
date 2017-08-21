@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Generators.Exercises
 {
-    class WordCount : Exercise
+    public class WordCount : Exercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
