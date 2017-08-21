@@ -1,43 +1,50 @@
 using System;
 
+public struct ComplexNumber
+{
+    public int Real { get; set; }
+
+    public int Imaginary { get; set; }
+}
+
 public static class ComplexNumbers
 {
-    public static Tuple<int, int> Mul(Tuple<int, int> value1, Tuple<int, int> value2)
+    public static ComplexNumber Mul(ComplexNumber z1, ComplexNumber z2)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public static Tuple<int, int> Add(Tuple<int, int> value1, Tuple<int, int> value2)
+    public static ComplexNumber Add(ComplexNumber z1, ComplexNumber z2)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public static Tuple<int, int> Sub(Tuple<int, int> value1, Tuple<int, int> value2)
+    public static ComplexNumber Sub(ComplexNumber z1, ComplexNumber z2)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public static Tuple<int, int> Div(Tuple<int, int> value1, Tuple<int, int> value2)
+    public static ComplexNumber Div(ComplexNumber z1, ComplexNumber z2)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public static int Abs(Tuple<int, int> value)
+    public static int Abs(ComplexNumber input)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public static Tuple<int, int> Conjugate(Tuple<int, int> value)
+    public static ComplexNumber Conjugate(ComplexNumber input)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public static int Real(Tuple<int, int> value)
+    public static int Real(ComplexNumber input)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public static int Imaginary(Tuple<int, int> value)
+    public static int Imaginary(ComplexNumber input)
     {
         throw new NotImplementedException("You need to implement this function.");
     }

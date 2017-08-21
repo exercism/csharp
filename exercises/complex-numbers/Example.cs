@@ -1,104 +1,75 @@
 using System;
 
+public struct ComplexNumber
+{
+    public int Real { get; set; }
+
+    public int Imaginary { get; set; }
+}
+
 public static class ComplexNumbers
 {
-    public static Tuple<int, int> Mul(Tuple<int, int> value1, Tuple<int, int> value2)
+    public static ComplexNumber Mul(ComplexNumber z1, ComplexNumber z2)
     {
-        var num1 = new ComplexNumber(value1);
-        var num2 = new ComplexNumber(value2);
-
-        var result = new ComplexNumber(
-            num1.Real * num2.Real - num1.Imaginary * num2.Imaginary,
-            num1.Imaginary * num2.Real + num1.Real * num2.Imaginary);
-
-        return result.ToTuple;
-    }
-
-    public static Tuple<int, int> Add(Tuple<int, int> value1, Tuple<int, int> value2)
-    {
-        var num1 = new ComplexNumber(value1);
-        var num2 = new ComplexNumber(value2);
-
-        var result = new ComplexNumber(
-            num1.Real + num2.Real,
-            num1.Imaginary + num2.Imaginary);
-
-        return result.ToTuple;
-    }
-
-    public static Tuple<int, int> Sub(Tuple<int, int> value1, Tuple<int, int> value2)
-    {
-        var num1 = new ComplexNumber(value1);
-        var num2 = new ComplexNumber(value2);
-
-        var result = new ComplexNumber(
-            num1.Real - num2.Real,
-            num1.Imaginary - num2.Imaginary);
-
-        return result.ToTuple;
-    }
-
-    public static Tuple<int, int> Div(Tuple<int, int> value1, Tuple<int, int> value2)
-    {
-        var num1 = new ComplexNumber(value1);
-        var num2 = new ComplexNumber(value2);
-
-        var denominator = num2.Real * num2.Real + num2.Imaginary * num2.Imaginary;
-        var real = (num1.Real * num2.Real + num1.Imaginary * num2.Imaginary) / denominator;
-        var imaginary = (num1.Imaginary * num2.Real - num1.Real * num1.Real * num2.Imaginary) / denominator;
-
-        var result = new ComplexNumber(real, imaginary);
-
-        return result.ToTuple;
-    }
-
-    public static int Abs(Tuple<int, int> value)
-    {
-        var num = new ComplexNumber(value);
-
-        return (int)Math.Sqrt(num.Real * num.Real + num.Imaginary * num.Imaginary);
-    }
-
-    public static Tuple<int, int> Conjugate(Tuple<int, int> value)
-    {
-        var num = new ComplexNumber(value);
-  
-        var result = new ComplexNumber(num.Real, -1 * num.Imaginary);
-
-        return result.ToTuple;
-    }
-
-    public static int Real(Tuple<int, int> value)
-    {
-        var num = new ComplexNumber(value);
-
-        return num.Real;
-    }
-
-    public static int Imaginary(Tuple<int, int> value)
-    {
-        var num = new ComplexNumber(value);
-
-        return num.Imaginary;
-    }
-
-    public class ComplexNumber
-    {
-        public ComplexNumber(Tuple<int, int> input)
-            : this(input.Item1, input.Item2)
+        return new ComplexNumber
         {
-        }
+            Real = z1.Real * z2.Real - z1.Imaginary * z2.Imaginary,
+            Imaginary = z1.Imaginary * z2.Real + z1.Real * z2.Imaginary
+        };
+    }
 
-        public ComplexNumber(int real, int imaginary)
+    public static ComplexNumber Add(ComplexNumber z1, ComplexNumber z2)
+    {
+        return new ComplexNumber
         {
-            Real = real;
-            Imaginary = imaginary;
-        }
+            Real = z1.Real + z2.Real,
+            Imaginary = z1.Imaginary + z2.Imaginary
+        };
+    }
 
-        public int Real { get; }
+    public static ComplexNumber Sub(ComplexNumber z1, ComplexNumber z2)
+    {
+        return new ComplexNumber
+        {
+            Real = z1.Real - z2.Real,
+            Imaginary = z1.Imaginary - z2.Imaginary
+        };
+    }
 
-        public int Imaginary { get; }
+    public static ComplexNumber Div(ComplexNumber z1, ComplexNumber z2)
+    {
+        var denominator = z2.Real * z2.Real + z2.Imaginary * z2.Imaginary;
+        var real = (z1.Real * z2.Real + z1.Imaginary * z2.Imaginary) / denominator;
+        var imaginary = (z1.Imaginary * z2.Real - z1.Real * z1.Real * z2.Imaginary) / denominator;
 
-        public Tuple<int, int> ToTuple => new Tuple<int, int>(Real, Imaginary);
+        return new ComplexNumber
+        {
+            Real = real,
+            Imaginary = imaginary
+        };
+    }
+
+    public static int Abs(ComplexNumber input)
+    {
+        return (int)Math.Sqrt(input.Real * input.Real + input.Imaginary * input.Imaginary);
+    }
+
+    public static ComplexNumber Conjugate(ComplexNumber input)
+    {
+        return new ComplexNumber
+        {
+            Real = input.Real,
+            Imaginary = -1 * input.Imaginary
+        };
+    }
+
+    public static int Real(ComplexNumber input)
+    {
+        return input.Real;
+    }
+
+    public static int Imaginary(ComplexNumber input)
+    {
+        return input.Imaginary;
     }
 }
