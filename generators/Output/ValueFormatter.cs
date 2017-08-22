@@ -61,7 +61,7 @@ namespace Generators.Output
             }
         }
 
-        private static string FormatString(this string s) => s.EscapeControlCharacters().Quote();
+        private static string FormatString(this string s) => s.EscapeSpecialCharacters().Quote();
 
         private static string[] FormatMultiLineString(string name, string str)
         {
