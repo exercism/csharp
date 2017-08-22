@@ -14,10 +14,12 @@ namespace Generators.Output
 
         public static string ToTestMethodName(this string input)
         {
-            var methodName = 
-                Regex.Replace(input.Replace(":", " is"), @"[^\w]+", "_", RegexOptions.Compiled)
-                    .Underscore()
-                    .Transform(To.TitleCase);
+            var methodName = input
+                .Replace(":", " is")
+                .Replace("'", "");
+
+            methodName = Regex.Replace(methodName, @"[^\w]+", "_", RegexOptions.Compiled)
+                .Transform(To.TitleCase);
 
             if (char.IsDigit(methodName[0]))
                 return "Number_" + methodName;
