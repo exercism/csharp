@@ -99,7 +99,12 @@ Task("TestUsingExampleImplementation")
         DotNetCoreBuild(allSln, dotNetCoreBuildSettings);
 
         var allProjects = GetFiles(buildDir + "/*/*.csproj");
-        Parallel.ForEach(allProjects, (project) => DotNetCoreTest(project.FullPath));
+        var parallelOptions = new ParallelOptions 
+        {
+            MaxDegreeOfParallelism = 16
+        };
+
+        Parallel.ForEach(allProjects, parallelOptions, (project) => DotNetCoreTest(project.FullPath));
     });
 
 Task("Default")
