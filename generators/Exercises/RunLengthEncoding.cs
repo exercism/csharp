@@ -7,7 +7,7 @@ namespace Generators.Exercises
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
-            foreach (var canonicalDataCase in CanonicalData.Cases)
+            foreach (var canonicalDataCase in canonicalData.Cases)
             {
                 // Prefix the test name with encode/decode because both functions are tested with the same cases
                 canonicalDataCase.Description = $"{canonicalDataCase.Property} {canonicalDataCase.Description}";

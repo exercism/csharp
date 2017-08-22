@@ -7,13 +7,13 @@ namespace Generators.Exercises
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
-            foreach (var canonicalDataCase in CanonicalData.Cases)
+            foreach (var canonicalDataCase in canonicalData.Cases)
             {
                 canonicalDataCase.Input["input_digits"] = canonicalDataCase.Input["input_digits"].ConvertToEnumerable<int>();
 
                 canonicalDataCase.ExceptionThrown = canonicalDataCase.Expected is null ? typeof(ArgumentException) : null;
                 canonicalDataCase.UseVariablesForInput = true;
-                canonicalDataCase.UseVariableForExpected = canonicalDataCase.ExceptionThrown == null;
+                canonicalDataCase.UseVariableForExpected = true;
             }
         }
     }

@@ -11,7 +11,7 @@ namespace Generators
         
         public string Name => GetType().ToExerciseName();
 
-        protected CanonicalData CanonicalData { get; private set; }
+        private CanonicalData CanonicalData { get; set; }
         
         public void Regenerate(CanonicalData canonicalData)
         {

@@ -7,14 +7,9 @@ namespace Generators.Exercises
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
-            foreach (var canonicalDataCase in CanonicalData.Cases)
+            foreach (var canonicalDataCase in canonicalData.Cases)
             {
-                // Rename the property to avoid it being considered a constructor
-                if (canonicalDataCase.Property == "say")
-                {
-                    canonicalDataCase.Property = "in_english";
-                }
-
+                canonicalDataCase.Property = "InEnglish";
                 canonicalDataCase.ExceptionThrown = canonicalDataCase.Expected is long ? typeof(ArgumentOutOfRangeException) : null;
             }
         }

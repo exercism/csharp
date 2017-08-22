@@ -7,7 +7,7 @@ namespace Generators.Exercises
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
-            foreach (var canonicalDataCase in CanonicalData.Cases)
+            foreach (var canonicalDataCase in canonicalData.Cases)
             {
                 canonicalDataCase.UseVariableForExpected = true;
                 canonicalDataCase.ExceptionThrown = (long)canonicalDataCase.Input["limit"] < 2 ? typeof(ArgumentOutOfRangeException) : null;
