@@ -1,5 +1,6 @@
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 var target = Argument("target", "Default");
 
@@ -10,7 +11,16 @@ var defaultSln     = buildDir + "/Exercises.Default.sln";
 var allSln         = buildDir + "/Exercises.All.sln";
 var refactoringSln = buildDir + "/Exercises.Refactoring.sln";
 
-var dotNetCoreBuildSettings = new DotNetCoreBuildSettings { NoIncremental = true };
+var dotNetCoreMSBuildSettings = new DotNetCoreMSBuildSettings
+{
+    MaxCpuCount = 0
+};
+
+var dotNetCoreBuildSettings = new DotNetCoreBuildSettings 
+{ 
+    NoIncremental = true,
+    MSBuildSettings = dotNetCoreMSBuildSettings 
+};
 
 Task("Clean")
     .Does(() => {
@@ -64,9 +74,7 @@ Task("TestRefactoringProjects")
             + GetFiles(buildDir + "/*/Ledger.csproj")
             + GetFiles(buildDir + "/*/Markdown.csproj");
 
-        foreach (var refactoringProject in refactoringProjects) {
-            DotNetCoreTest(refactoringProject.FullPath);
-        }
+        Parallel.ForEach(refactoringProjects, (project) => DotNetCoreTest(project.FullPath));
 });
 
 Task("ReplaceStubWithExample")
@@ -91,10 +99,7 @@ Task("TestUsingExampleImplementation")
         DotNetCoreBuild(allSln, dotNetCoreBuildSettings);
 
         var allProjects = GetFiles(buildDir + "/*/*.csproj");
-
-        foreach (var project in allProjects) {
-            DotNetCoreTest(project.FullPath);
-        }
+        Parallel.ForEach(allProjects, (project) => DotNetCoreTest(project.FullPath));
     });
 
 Task("Default")
