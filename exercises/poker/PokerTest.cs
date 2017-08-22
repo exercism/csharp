@@ -1,160 +1,230 @@
-﻿using Xunit;
+// This file was auto-generated based on version 1.0.0 of the canonical data.
+
+using Xunit;
 
 public class PokerTest
 {
     [Fact]
-    public void One_hand()
+    public void Single_hand_always_wins()
     {
-        const string hand = "4S 5S 7H 8D JC";
-        Assert.Equal(new[] { hand }, Poker.BestHands(new[] { hand }));
+        var actual = Poker.BestHands(new[] { "4S 5S 7H 8D JC" });
+        var expected = new[] { "4S 5S 7H 8D JC" };
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Nothing_vs_one_pair()
+    public void Highest_card_out_of_all_hands_wins()
     {
-        const string nothing = "4S 5H 6S 8D JH";
-        const string pairOf4 = "2S 4H 6S 4D JH";
-        Assert.Equal(new[] { pairOf4 }, Poker.BestHands(new[] { nothing, pairOf4 }));
+        var actual = Poker.BestHands(new[] { "4D 5S 6S 8D 3C", "2S 4C 7S 9H 10H", "3S 4S 5D 6H JH" });
+        var expected = new[] { "3S 4S 5D 6H JH" };
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Two_pairs()
+    public void A_tie_has_multiple_winners()
     {
-        const string pairOf2 = "4S 2H 6S 2D JH";
-        const string pairOf4 = "2S 4H 6S 4D JH";
-        Assert.Equal(new[] { pairOf4 }, Poker.BestHands(new[] { pairOf2, pairOf4 }));
+        var actual = Poker.BestHands(new[] { "4D 5S 6S 8D 3C", "2S 4C 7S 9H 10H", "3S 4S 5D 6H JH", "3H 4H 5C 6C JD" });
+        var expected = new[] { "3S 4S 5D 6H JH", "3H 4H 5C 6C JD" };
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void One_pair_vs_double_pair()
+    public void Multiple_hands_with_the_same_high_cards_tie_compares_next_highest_ranked_down_to_last_card()
     {
-        const string pairOf8 = "2S 8H 6S 8D JH";
-        const string doublePair = "4S 5H 4S 8D 5H";
-        Assert.Equal(new[] { doublePair }, Poker.BestHands(new[] { pairOf8, doublePair }));
+        var actual = Poker.BestHands(new[] { "3S 5H 6S 8D 7H", "2S 5D 6D 8C 7S" });
+        var expected = new[] { "3S 5H 6S 8D 7H" };
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Two_double_pairs()
+    public void One_pair_beats_high_card()
     {
-        const string doublePair2And8 = "2S 8H 2S 8D JH";
-        const string doublePair4And5 = "4S 5H 4S 8D 5H";
-        Assert.Equal(new[] { doublePair2And8 }, Poker.BestHands(new[] { doublePair2And8, doublePair4And5 }));
+        var actual = Poker.BestHands(new[] { "4S 5H 6C 8D KH", "2S 4H 6S 4D JH" });
+        var expected = new[] { "2S 4H 6S 4D JH" };
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Double_pair_vs_three()
+    public void Highest_pair_wins()
     {
-        const string doublePair2And8 = "2S 8H 2S 8D JH";
-        const string threeOf4 = "4S 5H 4S 8D 4H";
-        Assert.Equal(new[] { threeOf4 }, Poker.BestHands(new[] { doublePair2And8, threeOf4 }));
+        var actual = Poker.BestHands(new[] { "4S 2H 6S 2D JH", "2S 4H 6C 4D JD" });
+        var expected = new[] { "2S 4H 6C 4D JD" };
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Two_threes()
+    public void Two_pairs_beats_one_pair()
     {
-        const string threeOf2 = "2S 2H 2S 8D JH";
-        const string threeOf1 = "4S AH AS 8D AH";
-        Assert.Equal(new[] { threeOf1 }, Poker.BestHands(new[] { threeOf2, threeOf1 }));
+        var actual = Poker.BestHands(new[] { "2S 8H 6S 8D JH", "4S 5H 4C 8C 5C" });
+        var expected = new[] { "4S 5H 4C 8C 5C" };
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Three_vs_straight()
+    public void Both_hands_have_two_pairs_highest_ranked_pair_wins()
     {
-        const string threeOf4 = "4S 5H 4S 8D 4H";
-        const string straight = "3S 4H 2S 6D 5H";
-        Assert.Equal(new[] { straight }, Poker.BestHands(new[] { threeOf4, straight }));
+        var actual = Poker.BestHands(new[] { "2S 8H 2D 8D 3H", "4S 5H 4C 8S 5D" });
+        var expected = new[] { "2S 8H 2D 8D 3H" };
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Two_straights()
+    public void Both_hands_have_two_pairs_with_the_same_highest_ranked_pair_tie_goes_to_low_pair()
     {
-        const string straightTo8 = "4S 6H 7S 8D 5H";
-        const string straightTo9 = "5S 7H 8S 9D 6H";
-        Assert.Equal(new[] { straightTo9 }, Poker.BestHands(new[] { straightTo8, straightTo9 }));
-        
-        const string straightTo1 = "AS QH KS TD JH";
-        const string straightTo5 = "4S AH 3S 2D 5H";
-        Assert.Equal(new[] { straightTo1 }, Poker.BestHands(new[] { straightTo1, straightTo5 }));
+        var actual = Poker.BestHands(new[] { "2S QS 2C QD JH", "JD QH JS 8D QC" });
+        var expected = new[] { "JD QH JS 8D QC" };
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Straight_vs_flush()
+    public void Both_hands_have_two_identically_ranked_pairs_tie_goes_to_remaining_card_kicker_()
     {
-        const string straightTo8 = "4S 6H 7S 8D 5H";
-        const string flushTo7 = "2S 4S 5S 6S 7S";
-        Assert.Equal(new[] { flushTo7 }, Poker.BestHands(new[] { straightTo8, flushTo7 }));
+        var actual = Poker.BestHands(new[] { "JD QH JS 8D QC", "JS QS JC 2D QD" });
+        var expected = new[] { "JD QH JS 8D QC" };
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Two_flushes()
+    public void Three_of_a_kind_beats_two_pair()
     {
-        const string flushTo8 = "3H 6H 7H 8H 5H";
-        const string flushTo7 = "2S 4S 5S 6S 7S";
-        Assert.Equal(new[] { flushTo8 }, Poker.BestHands(new[] { flushTo8, flushTo7 }));
+        var actual = Poker.BestHands(new[] { "2S 8H 2H 8D JH", "4S 5H 4C 8S 4H" });
+        var expected = new[] { "4S 5H 4C 8S 4H" };
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Flush_vs_full()
+    public void Both_hands_have_three_of_a_kind_tie_goes_to_highest_ranked_triplet()
     {
-        const string flushTo8 = "3H 6H 7H 8H 5H";
-        const string full = "4S 5H 4S 5D 4H";
-        Assert.Equal(new[] { full }, Poker.BestHands(new[] { full, flushTo8 }));
+        var actual = Poker.BestHands(new[] { "2S 2H 2C 8D JH", "4S AH AS 8C AD" });
+        var expected = new[] { "4S AH AS 8C AD" };
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Two_fulls()
+    public void With_multiple_decks_two_players_can_have_same_three_of_a_kind_ties_go_to_highest_remaining_cards()
     {
-        const string fullOf4By9 = "4H 4S 4D 9S 9D";
-        const string fullOf5By8 = "5H 5S 5D 8S 8D";
-        Assert.Equal(new[] { fullOf5By8 }, Poker.BestHands(new[] { fullOf4By9, fullOf5By8 }));
+        var actual = Poker.BestHands(new[] { "4S AH AS 7C AD", "4S AH AS 8C AD" });
+        var expected = new[] { "4S AH AS 8C AD" };
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Full_vs_square()
+    public void A_straight_beats_three_of_a_kind()
     {
-        const string full = "4S 5H 4S 5D 4H";
-        const string squareOf3 = "3S 3H 2S 3D 3H";
-        Assert.Equal(new[] { squareOf3 }, Poker.BestHands(new[] { full, squareOf3 }));
+        var actual = Poker.BestHands(new[] { "4S 5H 4C 8D 4H", "3S 4D 2S 6D 5C" });
+        var expected = new[] { "3S 4D 2S 6D 5C" };
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Two_squares()
+    public void Aces_can_end_a_straight_10_j_q_k_a_()
     {
-        const string squareOf2 = "2S 2H 2S 8D 2H";
-        const string squareOf5 = "4S 5H 5S 5D 5H";
-        Assert.Equal(new[] { squareOf5 }, Poker.BestHands(new[] { squareOf2, squareOf5 }));
+        var actual = Poker.BestHands(new[] { "4S 5H 4C 8D 4H", "10D JH QS KD AC" });
+        var expected = new[] { "10D JH QS KD AC" };
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Square_vs_straight_flush()
+    public void Aces_can_start_a_straight_a_2_3_4_5_()
     {
-        const string squareOf5 = "4S 5H 5S 5D 5H";
-        const string straightFlushTo9 = "5S 7S 8S 9S 6S";
-        Assert.Equal(new[] { straightFlushTo9 }, Poker.BestHands(new[] { squareOf5, straightFlushTo9 }));
+        var actual = Poker.BestHands(new[] { "4S 5H 4C 8D 4H", "4D AH 3S 2D 5C" });
+        var expected = new[] { "4D AH 3S 2D 5C" };
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Two_straight_flushes()
+    public void Both_hands_with_a_straight_tie_goes_to_highest_ranked_card()
     {
-        const string straightFlushTo8 = "4H 6H 7H 8H 5H";
-        const string straightFlushTo9 = "5S 7S 8S 9S 6S";
-        Assert.Equal(new[] { straightFlushTo9 }, Poker.BestHands(new[] { straightFlushTo8, straightFlushTo9 }));
+        var actual = Poker.BestHands(new[] { "4S 6C 7S 8D 5H", "5S 7H 8S 9D 6H" });
+        var expected = new[] { "5S 7H 8S 9D 6H" };
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Three_hand_with_tie()
+    public void Even_though_an_ace_is_usually_high_a_5_high_straight_is_the_lowest_scoring_straight()
     {
-        const string spadeStraightTo9 = "9S 8S 7S 6S 5S";
-        const string diamondStraightTo9 = "9D 8D 7D 6D 5D";
-        const string threeOf4 = "4D 4S 4H QS KS";
-        Assert.Equal(new[] { spadeStraightTo9, diamondStraightTo9 }, Poker.BestHands(new[] { spadeStraightTo9, diamondStraightTo9, threeOf4 }));
+        var actual = Poker.BestHands(new[] { "2H 3C 4D 5D 6H", "4S AH 3S 2D 5H" });
+        var expected = new[] { "2H 3C 4D 5D 6H" };
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Straight_to_5_against_a_pair_of_jacks()
+    public void Flush_beats_a_straight()
     {
-        const string straightTo5 = "2S 4D 5C 3S AS";
-        const string twoJacks = "JD 8D 7D JC 5D";
-        Assert.Equal(new[] { straightTo5 }, Poker.BestHands(new[] { straightTo5, twoJacks }));
+        var actual = Poker.BestHands(new[] { "4C 6H 7D 8D 5H", "2S 4S 5S 6S 7S" });
+        var expected = new[] { "2S 4S 5S 6S 7S" };
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Both_hands_have_a_flush_tie_goes_to_high_card_down_to_the_last_one_if_necessary()
+    {
+        var actual = Poker.BestHands(new[] { "4H 7H 8H 9H 6H", "2S 4S 5S 6S 7S" });
+        var expected = new[] { "4H 7H 8H 9H 6H" };
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Full_house_beats_a_flush()
+    {
+        var actual = Poker.BestHands(new[] { "3H 6H 7H 8H 5H", "4S 5H 4C 5D 4H" });
+        var expected = new[] { "4S 5H 4C 5D 4H" };
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Both_hands_have_a_full_house_tie_goes_to_highest_ranked_triplet()
+    {
+        var actual = Poker.BestHands(new[] { "4H 4S 4D 9S 9D", "5H 5S 5D 8S 8D" });
+        var expected = new[] { "5H 5S 5D 8S 8D" };
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void With_multiple_decks_both_hands_have_a_full_house_with_the_same_triplet_tie_goes_to_the_pair()
+    {
+        var actual = Poker.BestHands(new[] { "5H 5S 5D 9S 9D", "5H 5S 5D 8S 8D" });
+        var expected = new[] { "5H 5S 5D 9S 9D" };
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Four_of_a_kind_beats_a_full_house()
+    {
+        var actual = Poker.BestHands(new[] { "4S 5H 4D 5D 4H", "3S 3H 2S 3D 3C" });
+        var expected = new[] { "3S 3H 2S 3D 3C" };
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Both_hands_have_four_of_a_kind_tie_goes_to_high_quad()
+    {
+        var actual = Poker.BestHands(new[] { "2S 2H 2C 8D 2D", "4S 5H 5S 5D 5C" });
+        var expected = new[] { "4S 5H 5S 5D 5C" };
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void With_multiple_decks_both_hands_with_identical_four_of_a_kind_tie_determined_by_kicker()
+    {
+        var actual = Poker.BestHands(new[] { "3S 3H 2S 3D 3C", "3S 3H 4S 3D 3C" });
+        var expected = new[] { "3S 3H 4S 3D 3C" };
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Straight_flush_beats_four_of_a_kind()
+    {
+        var actual = Poker.BestHands(new[] { "4S 5H 5S 5D 5C", "7S 8S 9S 6S 10S" });
+        var expected = new[] { "7S 8S 9S 6S 10S" };
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Both_hands_have_straight_flush_tie_goes_to_highest_ranked_card()
+    {
+        var actual = Poker.BestHands(new[] { "4H 6H 7H 8H 5H", "5S 7S 8S 9S 6S" });
+        var expected = new[] { "5S 7S 8S 9S 6S" };
+        Assert.Equal(expected, actual);
     }
 }
