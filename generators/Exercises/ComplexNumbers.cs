@@ -14,7 +14,7 @@ namespace Generators.Exercises
 
             canonicalData.Cases = canonicalData.Cases.Where(c => c.Property != "exp").ToArray();
             
-            foreach (var canonicalDataCase in CanonicalData.Cases)
+            foreach (var canonicalDataCase in canonicalData.Cases)
             {
                 canonicalDataCase.TestedMethodType = TestedMethodType.Instance;
 
