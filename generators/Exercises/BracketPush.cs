@@ -6,7 +6,7 @@ namespace Generators.Exercises
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
-            foreach (var canonicalDataCase in CanonicalData.Cases)
+            foreach (var canonicalDataCase in canonicalData.Cases)
             {
                 canonicalDataCase.Input["input"] = ((string)canonicalDataCase.Input["input"]).Replace("\\", "\\\\");
                 canonicalDataCase.UseVariablesForInput = true;
