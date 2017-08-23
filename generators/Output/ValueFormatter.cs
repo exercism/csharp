@@ -32,8 +32,6 @@ namespace Generators.Output
                     return flt.ToString(CultureInfo.InvariantCulture);
                 case char c:
                     return $"'{c}'";
-                case Tuple<int, int> tuple:
-                    return $"new Tuple<int, int>({tuple.Item1}, {tuple.Item2})";
                 default:
                     return val;
             }

@@ -2,49 +2,46 @@ using System;
 
 public struct ComplexNumber
 {
-    public int Real { get; set; }
+    public ComplexNumber(int real, int imaginary)
+    {
+    }
 
-    public int Imaginary { get; set; }
-}
-
-public static class ComplexNumbers
-{
-    public static ComplexNumber Mul(ComplexNumber z1, ComplexNumber z2)
+    public ComplexNumber Mul(ComplexNumber other)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public static ComplexNumber Add(ComplexNumber z1, ComplexNumber z2)
+    public ComplexNumber Add(ComplexNumber other)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public static ComplexNumber Sub(ComplexNumber z1, ComplexNumber z2)
+    public ComplexNumber Sub(ComplexNumber other)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public static ComplexNumber Div(ComplexNumber z1, ComplexNumber z2)
+    public ComplexNumber Div(ComplexNumber other)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public static int Abs(ComplexNumber input)
+    public int Abs()
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public static ComplexNumber Conjugate(ComplexNumber input)
+    public ComplexNumber Conjugate()
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public static int Real(ComplexNumber input)
+    public int Real()
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public static int Imaginary(ComplexNumber input)
+    public int Imaginary()
     {
         throw new NotImplementedException("You need to implement this function.");
     }

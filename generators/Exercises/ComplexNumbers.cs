@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Generators.Input;
 using Generators.Output;
 using Newtonsoft.Json.Linq;
@@ -9,17 +10,31 @@ namespace Generators.Exercises
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
-            canonicalData.Cases = canonicalData.Cases.Where(c => c.Property != "exp").ToArray();
+            canonicalData.Exercise = "complex-number";
 
+            canonicalData.Cases = canonicalData.Cases.Where(c => c.Property != "exp").ToArray();
+            
             foreach (var canonicalDataCase in CanonicalData.Cases)
             {
-                canonicalDataCase.UseVariablesForInput = true;
+                canonicalDataCase.TestedMethodType = TestedMethodType.Instance;
 
                 if (IsComplexNumber(canonicalDataCase.Expected))
                 {
                     canonicalDataCase.UseVariableForExpected = true;
                     canonicalDataCase.Expected = ConvertToComplexNumber(canonicalDataCase.Expected);
                 }
+
+                var constructorParamName = canonicalDataCase.Input.ContainsKey("input") ? "input" : "z1";
+
+                var value = canonicalDataCase.Input[constructorParamName].ConvertToEnumerable<int>().ToArray();
+
+                canonicalDataCase.ConstructorInput = new Dictionary<string, object>
+                {
+                    ["real"] = value[0],
+                    ["imaginary"] = value[1]
+                };
+
+                canonicalDataCase.Input.Remove(constructorParamName);
 
                 var keys = canonicalDataCase.Input.Keys.ToArray();
 
@@ -41,7 +56,7 @@ namespace Generators.Exercises
         private UnescapedValue ConvertToComplexNumber(object rawValue)
         {
             var array = rawValue.ConvertToEnumerable<int>().ToArray();
-            return new UnescapedValue($"new ComplexNumber {{ Real = {array[0]}, Imaginary = {array[1]} }}");
+            return new UnescapedValue($"new ComplexNumber({array[0]}, {array[1]})");
         }
     }
 }

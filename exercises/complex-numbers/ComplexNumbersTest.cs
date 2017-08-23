@@ -7,218 +7,205 @@ public class ComplexNumbersTest
     [Fact]
     public void Imaginary_unit()
     {
-        var z1 = new ComplexNumber { Real = 0, Imaginary = 1 };
-        var z2 = new ComplexNumber { Real = 0, Imaginary = 1 };
-        var expected = new ComplexNumber { Real = -1, Imaginary = 0 };
-        Assert.Equal(expected, ComplexNumbers.Mul(z1, z2));
+        var sut = new ComplexNumber(0, 1);
+        var expected = new ComplexNumber(-1, 0);
+        Assert.Equal(expected, sut.Mul(new ComplexNumber(0, 1)));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Add_purely_real_numbers()
     {
-        var z1 = new ComplexNumber { Real = 1, Imaginary = 0 };
-        var z2 = new ComplexNumber { Real = 2, Imaginary = 0 };
-        var expected = new ComplexNumber { Real = 3, Imaginary = 0 };
-        Assert.Equal(expected, ComplexNumbers.Add(z1, z2));
+        var sut = new ComplexNumber(1, 0);
+        var expected = new ComplexNumber(3, 0);
+        Assert.Equal(expected, sut.Add(new ComplexNumber(2, 0)));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Add_purely_imaginary_numbers()
     {
-        var z1 = new ComplexNumber { Real = 0, Imaginary = 1 };
-        var z2 = new ComplexNumber { Real = 0, Imaginary = 2 };
-        var expected = new ComplexNumber { Real = 0, Imaginary = 3 };
-        Assert.Equal(expected, ComplexNumbers.Add(z1, z2));
+        var sut = new ComplexNumber(0, 1);
+        var expected = new ComplexNumber(0, 3);
+        Assert.Equal(expected, sut.Add(new ComplexNumber(0, 2)));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Add_numbers_with_real_and_imaginary_part()
     {
-        var z1 = new ComplexNumber { Real = 1, Imaginary = 2 };
-        var z2 = new ComplexNumber { Real = 3, Imaginary = 4 };
-        var expected = new ComplexNumber { Real = 4, Imaginary = 6 };
-        Assert.Equal(expected, ComplexNumbers.Add(z1, z2));
+        var sut = new ComplexNumber(1, 2);
+        var expected = new ComplexNumber(4, 6);
+        Assert.Equal(expected, sut.Add(new ComplexNumber(3, 4)));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Subtract_purely_real_numbers()
     {
-        var z1 = new ComplexNumber { Real = 1, Imaginary = 0 };
-        var z2 = new ComplexNumber { Real = 2, Imaginary = 0 };
-        var expected = new ComplexNumber { Real = -1, Imaginary = 0 };
-        Assert.Equal(expected, ComplexNumbers.Sub(z1, z2));
+        var sut = new ComplexNumber(1, 0);
+        var expected = new ComplexNumber(-1, 0);
+        Assert.Equal(expected, sut.Sub(new ComplexNumber(2, 0)));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Subtract_purely_imaginary_numbers()
     {
-        var z1 = new ComplexNumber { Real = 0, Imaginary = 1 };
-        var z2 = new ComplexNumber { Real = 0, Imaginary = 2 };
-        var expected = new ComplexNumber { Real = 0, Imaginary = -1 };
-        Assert.Equal(expected, ComplexNumbers.Sub(z1, z2));
+        var sut = new ComplexNumber(0, 1);
+        var expected = new ComplexNumber(0, -1);
+        Assert.Equal(expected, sut.Sub(new ComplexNumber(0, 2)));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Subtract_numbers_with_real_and_imaginary_part()
     {
-        var z1 = new ComplexNumber { Real = 1, Imaginary = 2 };
-        var z2 = new ComplexNumber { Real = 3, Imaginary = 4 };
-        var expected = new ComplexNumber { Real = -2, Imaginary = -2 };
-        Assert.Equal(expected, ComplexNumbers.Sub(z1, z2));
+        var sut = new ComplexNumber(1, 2);
+        var expected = new ComplexNumber(-2, -2);
+        Assert.Equal(expected, sut.Sub(new ComplexNumber(3, 4)));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Multiply_purely_real_numbers()
     {
-        var z1 = new ComplexNumber { Real = 1, Imaginary = 0 };
-        var z2 = new ComplexNumber { Real = 2, Imaginary = 0 };
-        var expected = new ComplexNumber { Real = 2, Imaginary = 0 };
-        Assert.Equal(expected, ComplexNumbers.Mul(z1, z2));
+        var sut = new ComplexNumber(1, 0);
+        var expected = new ComplexNumber(2, 0);
+        Assert.Equal(expected, sut.Mul(new ComplexNumber(2, 0)));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Multiply_purely_imaginary_numbers()
     {
-        var z1 = new ComplexNumber { Real = 0, Imaginary = 1 };
-        var z2 = new ComplexNumber { Real = 0, Imaginary = 2 };
-        var expected = new ComplexNumber { Real = -2, Imaginary = 0 };
-        Assert.Equal(expected, ComplexNumbers.Mul(z1, z2));
+        var sut = new ComplexNumber(0, 1);
+        var expected = new ComplexNumber(-2, 0);
+        Assert.Equal(expected, sut.Mul(new ComplexNumber(0, 2)));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Multiply_numbers_with_real_and_imaginary_part()
     {
-        var z1 = new ComplexNumber { Real = 1, Imaginary = 2 };
-        var z2 = new ComplexNumber { Real = 3, Imaginary = 4 };
-        var expected = new ComplexNumber { Real = -5, Imaginary = 10 };
-        Assert.Equal(expected, ComplexNumbers.Mul(z1, z2));
+        var sut = new ComplexNumber(1, 2);
+        var expected = new ComplexNumber(-5, 10);
+        Assert.Equal(expected, sut.Mul(new ComplexNumber(3, 4)));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Divide_purely_real_numbers()
     {
-        var z1 = new ComplexNumber { Real = 1, Imaginary = 0 };
-        var z2 = new ComplexNumber { Real = 2, Imaginary = 0 };
-        var expected = new ComplexNumber { Real = 0, Imaginary = 0 };
-        Assert.Equal(expected, ComplexNumbers.Div(z1, z2));
+        var sut = new ComplexNumber(1, 0);
+        var expected = new ComplexNumber(0, 0);
+        Assert.Equal(expected, sut.Div(new ComplexNumber(2, 0)));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Divide_purely_imaginary_numbers()
     {
-        var z1 = new ComplexNumber { Real = 0, Imaginary = 1 };
-        var z2 = new ComplexNumber { Real = 0, Imaginary = 2 };
-        var expected = new ComplexNumber { Real = 0, Imaginary = 0 };
-        Assert.Equal(expected, ComplexNumbers.Div(z1, z2));
+        var sut = new ComplexNumber(0, 1);
+        var expected = new ComplexNumber(0, 0);
+        Assert.Equal(expected, sut.Div(new ComplexNumber(0, 2)));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Divide_numbers_with_real_and_imaginary_part()
     {
-        var z1 = new ComplexNumber { Real = 1, Imaginary = 2 };
-        var z2 = new ComplexNumber { Real = 3, Imaginary = 4 };
-        var expected = new ComplexNumber { Real = 0, Imaginary = 0 };
-        Assert.Equal(expected, ComplexNumbers.Div(z1, z2));
+        var sut = new ComplexNumber(1, 2);
+        var expected = new ComplexNumber(0, 0);
+        Assert.Equal(expected, sut.Div(new ComplexNumber(3, 4)));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Absolute_value_of_a_positive_purely_real_number()
     {
-        var input = new ComplexNumber { Real = 5, Imaginary = 0 };
-        Assert.Equal(5, ComplexNumbers.Abs(input));
+        var sut = new ComplexNumber(5, 0);
+        Assert.Equal(5, sut.Abs());
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Absolute_value_of_a_negative_purely_real_number()
     {
-        var input = new ComplexNumber { Real = -5, Imaginary = 0 };
-        Assert.Equal(5, ComplexNumbers.Abs(input));
+        var sut = new ComplexNumber(-5, 0);
+        Assert.Equal(5, sut.Abs());
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Absolute_value_of_a_purely_imaginary_number_with_positive_imaginary_part()
     {
-        var input = new ComplexNumber { Real = 0, Imaginary = 5 };
-        Assert.Equal(5, ComplexNumbers.Abs(input));
+        var sut = new ComplexNumber(0, 5);
+        Assert.Equal(5, sut.Abs());
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Absolute_value_of_a_purely_imaginary_number_with_negative_imaginary_part()
     {
-        var input = new ComplexNumber { Real = 0, Imaginary = -5 };
-        Assert.Equal(5, ComplexNumbers.Abs(input));
+        var sut = new ComplexNumber(0, -5);
+        Assert.Equal(5, sut.Abs());
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Absolute_value_of_a_number_with_real_and_imaginary_part()
     {
-        var input = new ComplexNumber { Real = 3, Imaginary = 4 };
-        Assert.Equal(5, ComplexNumbers.Abs(input));
+        var sut = new ComplexNumber(3, 4);
+        Assert.Equal(5, sut.Abs());
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Conjugate_a_purely_real_number()
     {
-        var input = new ComplexNumber { Real = 5, Imaginary = 0 };
-        var expected = new ComplexNumber { Real = 5, Imaginary = 0 };
-        Assert.Equal(expected, ComplexNumbers.Conjugate(input));
+        var sut = new ComplexNumber(5, 0);
+        var expected = new ComplexNumber(5, 0);
+        Assert.Equal(expected, sut.Conjugate());
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Conjugate_a_purely_imaginary_number()
     {
-        var input = new ComplexNumber { Real = 0, Imaginary = 5 };
-        var expected = new ComplexNumber { Real = 0, Imaginary = -5 };
-        Assert.Equal(expected, ComplexNumbers.Conjugate(input));
+        var sut = new ComplexNumber(0, 5);
+        var expected = new ComplexNumber(0, -5);
+        Assert.Equal(expected, sut.Conjugate());
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Conjugate_a_number_with_real_and_imaginary_part()
     {
-        var input = new ComplexNumber { Real = 1, Imaginary = 1 };
-        var expected = new ComplexNumber { Real = 1, Imaginary = -1 };
-        Assert.Equal(expected, ComplexNumbers.Conjugate(input));
+        var sut = new ComplexNumber(1, 1);
+        var expected = new ComplexNumber(1, -1);
+        Assert.Equal(expected, sut.Conjugate());
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Real_part_of_a_purely_real_number()
     {
-        var input = new ComplexNumber { Real = 1, Imaginary = 0 };
-        Assert.Equal(1, ComplexNumbers.Real(input));
+        var sut = new ComplexNumber(1, 0);
+        Assert.Equal(1, sut.Real());
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Real_part_of_a_purely_imaginary_number()
     {
-        var input = new ComplexNumber { Real = 0, Imaginary = 1 };
-        Assert.Equal(0, ComplexNumbers.Real(input));
+        var sut = new ComplexNumber(0, 1);
+        Assert.Equal(0, sut.Real());
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Real_part_of_a_number_with_real_and_imaginary_part()
     {
-        var input = new ComplexNumber { Real = 1, Imaginary = 2 };
-        Assert.Equal(1, ComplexNumbers.Real(input));
+        var sut = new ComplexNumber(1, 2);
+        Assert.Equal(1, sut.Real());
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Imaginary_part_of_a_purely_real_number()
     {
-        var input = new ComplexNumber { Real = 1, Imaginary = 0 };
-        Assert.Equal(0, ComplexNumbers.Imaginary(input));
+        var sut = new ComplexNumber(1, 0);
+        Assert.Equal(0, sut.Imaginary());
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Imaginary_part_of_a_purely_imaginary_number()
     {
-        var input = new ComplexNumber { Real = 0, Imaginary = 1 };
-        Assert.Equal(1, ComplexNumbers.Imaginary(input));
+        var sut = new ComplexNumber(0, 1);
+        Assert.Equal(1, sut.Imaginary());
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Imaginary_part_of_a_number_with_real_and_imaginary_part()
     {
-        var input = new ComplexNumber { Real = 1, Imaginary = 2 };
-        Assert.Equal(2, ComplexNumbers.Imaginary(input));
+        var sut = new ComplexNumber(1, 2);
+        Assert.Equal(2, sut.Imaginary());
     }
 }

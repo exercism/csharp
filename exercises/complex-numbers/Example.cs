@@ -1,75 +1,63 @@
-using System;
-
 public struct ComplexNumber
 {
-    public int Real { get; set; }
+    private readonly int _real;
+    private readonly int _imaginary;
 
-    public int Imaginary { get; set; }
-}
-
-public static class ComplexNumbers
-{
-    public static ComplexNumber Mul(ComplexNumber z1, ComplexNumber z2)
+    public ComplexNumber(int real, int imaginary)
     {
-        return new ComplexNumber
-        {
-            Real = z1.Real * z2.Real - z1.Imaginary * z2.Imaginary,
-            Imaginary = z1.Imaginary * z2.Real + z1.Real * z2.Imaginary
-        };
+        _real = real;
+        _imaginary = imaginary;
     }
 
-    public static ComplexNumber Add(ComplexNumber z1, ComplexNumber z2)
+    public ComplexNumber Mul(ComplexNumber other)
     {
-        return new ComplexNumber
-        {
-            Real = z1.Real + z2.Real,
-            Imaginary = z1.Imaginary + z2.Imaginary
-        };
+        return new ComplexNumber(
+            _real * other._real - _imaginary * other._imaginary,
+            _imaginary * other._real + _real * other._imaginary);
     }
 
-    public static ComplexNumber Sub(ComplexNumber z1, ComplexNumber z2)
+    public ComplexNumber Add(ComplexNumber other)
     {
-        return new ComplexNumber
-        {
-            Real = z1.Real - z2.Real,
-            Imaginary = z1.Imaginary - z2.Imaginary
-        };
+        return new ComplexNumber(
+            _real + other._real,
+            _imaginary + other._imaginary);
     }
 
-    public static ComplexNumber Div(ComplexNumber z1, ComplexNumber z2)
+    public ComplexNumber Sub(ComplexNumber other)
     {
-        var denominator = z2.Real * z2.Real + z2.Imaginary * z2.Imaginary;
-        var real = (z1.Real * z2.Real + z1.Imaginary * z2.Imaginary) / denominator;
-        var imaginary = (z1.Imaginary * z2.Real - z1.Real * z1.Real * z2.Imaginary) / denominator;
-
-        return new ComplexNumber
-        {
-            Real = real,
-            Imaginary = imaginary
-        };
+        return new ComplexNumber(
+            _real - other._real,
+            _imaginary - other._imaginary);
     }
 
-    public static int Abs(ComplexNumber input)
+    public ComplexNumber Div(ComplexNumber other)
     {
-        return (int)Math.Sqrt(input.Real * input.Real + input.Imaginary * input.Imaginary);
+        var denominator = other._real * other._real + other._imaginary * other._imaginary;
+        var real = (_real * other._real + _imaginary * other._imaginary) / denominator;
+        var imaginary = (_imaginary * other._real - _real * _real * other._imaginary) / denominator;
+
+        return new ComplexNumber(real, imaginary);
     }
 
-    public static ComplexNumber Conjugate(ComplexNumber input)
+    public int Abs()
     {
-        return new ComplexNumber
-        {
-            Real = input.Real,
-            Imaginary = -1 * input.Imaginary
-        };
+        return (int)Math.Sqrt(_real * _real + _imaginary * _imaginary);
     }
 
-    public static int Real(ComplexNumber input)
+    public ComplexNumber Conjugate()
     {
-        return input.Real;
+        return new ComplexNumber(
+            _real,
+            -1 * _imaginary);
     }
 
-    public static int Imaginary(ComplexNumber input)
+    public int Real()
     {
-        return input.Imaginary;
+        return _real;
+    }
+
+    public int Imaginary()
+    {
+        return _imaginary;
     }
 }
