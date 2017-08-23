@@ -1,16 +1,30 @@
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 var target = Argument("target", "Default");
 
 var sourceDir = "./exercises";
 var buildDir  = "./build";
 
-var defaultSln     = buildDir + "/Exercises.Default.sln";
 var allSln         = buildDir + "/Exercises.All.sln";
 var refactoringSln = buildDir + "/Exercises.Refactoring.sln";
 
-var dotNetCoreBuildSettings = new DotNetCoreBuildSettings { NoIncremental = true };
+var dotNetCoreMSBuildSettings = new DotNetCoreMSBuildSettings
+{
+    MaxCpuCount = 0
+};
+
+var dotNetCoreBuildSettings = new DotNetCoreBuildSettings 
+{ 
+    NoIncremental = true,
+    MSBuildSettings = dotNetCoreMSBuildSettings 
+};
+
+var dotNetCoreTestSettings = new DotNetCoreTestSettings
+{
+    NoBuild = true
+};
 
 Task("Clean")
     .Does(() => {
@@ -30,14 +44,8 @@ Task("RestoreNugetPackages")
         DotNetCoreRestore(allSln);
     });
 
-Task("BuildStubImplementations")
-    .IsDependentOn("RestoreNugetPackages")
-    .Does(() => {
-        DotNetCoreBuild(defaultSln, dotNetCoreBuildSettings);
-});
-
 Task("EnableAllTests")
-    .IsDependentOn("BuildStubImplementations")
+    .IsDependentOn("RestoreNugetPackages")
     .Does(() => {
         var skipRegex = new Regex(@"Skip\s*=\s*""Remove to run test""", RegexOptions.Compiled);
         var testFiles = GetFiles(buildDir + "/*/*Test.cs");
@@ -64,9 +72,7 @@ Task("TestRefactoringProjects")
             + GetFiles(buildDir + "/*/Ledger.csproj")
             + GetFiles(buildDir + "/*/Markdown.csproj");
 
-        foreach (var refactoringProject in refactoringProjects) {
-            DotNetCoreTest(refactoringProject.FullPath);
-        }
+        Parallel.ForEach(refactoringProjects, (project) => DotNetCoreTest(project.FullPath, dotNetCoreTestSettings));
 });
 
 Task("ReplaceStubWithExample")
@@ -89,12 +95,13 @@ Task("TestUsingExampleImplementation")
     .IsDependentOn("ReplaceStubWithExample")
     .Does(() => {
         DotNetCoreBuild(allSln, dotNetCoreBuildSettings);
+        var parallelOptions = new ParallelOptions 
+        {
+            MaxDegreeOfParallelism = System.Environment.ProcessorCount
+        };
 
         var allProjects = GetFiles(buildDir + "/*/*.csproj");
-
-        foreach (var project in allProjects) {
-            DotNetCoreTest(project.FullPath);
-        }
+        Parallel.ForEach(allProjects, parallelOptions, (project) => DotNetCoreTest(project.FullPath, dotNetCoreTestSettings));
     });
 
 Task("Default")
