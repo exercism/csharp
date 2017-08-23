@@ -9,7 +9,7 @@ namespace Generators.Exercises
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
-            foreach (var canonicalDataCase in CanonicalData.Cases)
+            foreach (var canonicalDataCase in canonicalData.Cases)
             {
                 // Update input
                 var input = DateTime.Parse(canonicalDataCase.Input["input"].ToString());

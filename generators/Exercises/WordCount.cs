@@ -1,11 +1,10 @@
-using System;
-using System.Collections.Generic;
-using Generators.Input;
+﻿using Generators.Input;
 using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 
 namespace Generators.Exercises
 {
-    public class Alphametics : Exercise
+    public class WordCount : Exercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
@@ -13,18 +12,14 @@ namespace Generators.Exercises
             {
                 canonicalDataCase.UseVariableForExpected = true;
                 canonicalDataCase.UseVariableForTested = true;
-
-                if (canonicalDataCase.Expected == null)
-                    canonicalDataCase.ExceptionThrown = typeof(ArgumentException);
-                else
-                    canonicalDataCase.Expected = ((JObject)canonicalDataCase.Expected).ToObject<Dictionary<char, int>>();
+                canonicalDataCase.Expected = ((JObject)canonicalDataCase.Expected).ToObject<Dictionary<string, int>>();
             }
         }
 
         protected override HashSet<string> GetUsingNamespaces()
         {
             var usingNamespaces = base.GetUsingNamespaces();
-            usingNamespaces.Add(typeof(Dictionary<char, int>).Namespace);
+            usingNamespaces.Add(typeof(Dictionary<string, int>).Namespace);
 
             return usingNamespaces;
         }

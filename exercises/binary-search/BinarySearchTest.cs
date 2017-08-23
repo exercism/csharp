@@ -61,7 +61,7 @@ public class BinarySearchTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void A_value_smaller_than_the_array_s_smallest_value_is_not_included()
+    public void A_value_smaller_than_the_arrays_smallest_value_is_not_included()
     {
         var array = new[] { 1, 3, 4, 6, 8, 9, 11 };
         var sut = new BinarySearch(array);
@@ -69,7 +69,7 @@ public class BinarySearchTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void A_value_larger_than_the_array_s_largest_value_is_not_included()
+    public void A_value_larger_than_the_arrays_largest_value_is_not_included()
     {
         var array = new[] { 1, 3, 4, 6, 8, 9, 11 };
         var sut = new BinarySearch(array);

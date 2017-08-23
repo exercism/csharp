@@ -8,15 +8,14 @@ namespace Generators
     public abstract class Exercise
     {
         private static readonly ExerciseWriter ExerciseWriter = new ExerciseWriter();
-        
+        private CanonicalData _canonicalData { get; set; }
+
         public string Name => GetType().ToExerciseName();
 
-        protected CanonicalData CanonicalData { get; private set; }
-        
         public void Regenerate(CanonicalData canonicalData)
         {
-            CanonicalData = canonicalData;
-            UpdateCanonicalData(CanonicalData);
+            _canonicalData = canonicalData;
+            UpdateCanonicalData(canonicalData);
 
             ExerciseWriter.WriteToFile(this);
         }
@@ -31,7 +30,7 @@ namespace Generators
         {
             ClassName = Name.ToTestClassName(),
             Methods = RenderTestMethods(),
-            CanonicalDataVersion = CanonicalData.Version,
+            CanonicalDataVersion = _canonicalData.Version,
             UsingNamespaces = GetUsingNamespaces()
         };
 
@@ -39,13 +38,13 @@ namespace Generators
         {
             var usingNamespaces = new HashSet<string> { "Xunit" };
 
-            foreach (var canonicalDataCase in CanonicalData.Cases.Where(canonicalDataCase => canonicalDataCase.ExceptionThrown != null))
+            foreach (var canonicalDataCase in _canonicalData.Cases.Where(canonicalDataCase => canonicalDataCase.ExceptionThrown != null))
                 usingNamespaces.Add(canonicalDataCase.ExceptionThrown.Namespace);
 
             return usingNamespaces;
         }
 
-        protected virtual string[] RenderTestMethods() => CanonicalData.Cases.Select(RenderTestMethod).ToArray();
+        protected virtual string[] RenderTestMethods() => _canonicalData.Cases.Select(RenderTestMethod).ToArray();
 
         protected virtual string RenderTestMethod(CanonicalDataCase canonicalDataCase, int index) => CreateTestMethod(canonicalDataCase, index).Render();
 
@@ -70,20 +69,20 @@ namespace Generators
         {
             if (canonicalDataCase.ExceptionThrown != null)
             {
-                return new TestMethodBodyWithExceptionCheck(canonicalDataCase, CanonicalData);
+                return new TestMethodBodyWithExceptionCheck(canonicalDataCase, _canonicalData);
             }
 
             if (canonicalDataCase.Expected is bool)
             {
-                return new TestMethodBodyWithBooleanCheck(canonicalDataCase, CanonicalData);
+                return new TestMethodBodyWithBooleanCheck(canonicalDataCase, _canonicalData);
             }
 
             if (canonicalDataCase.Expected is null)
             {
-                return new TestMethodBodyWithNullCheck(canonicalDataCase, CanonicalData);
+                return new TestMethodBodyWithNullCheck(canonicalDataCase, _canonicalData);
             }
 
-            return new TestMethodBodyWithEqualityCheck(canonicalDataCase, CanonicalData);
+            return new TestMethodBodyWithEqualityCheck(canonicalDataCase, _canonicalData);
         }
 
         protected virtual string RenderTestMethodBodyArrange(TestMethodBody testMethodBody)
