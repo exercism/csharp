@@ -95,9 +95,13 @@ Task("TestUsingExampleImplementation")
     .IsDependentOn("ReplaceStubWithExample")
     .Does(() => {
         DotNetCoreBuild(allSln, dotNetCoreBuildSettings);
+        var parallelOptions = new ParallelOptions 
+        {
+            MaxDegreeOfParallelism = System.Environment.ProcessorCount
+        };
 
         var allProjects = GetFiles(buildDir + "/*/*.csproj");
-        Parallel.ForEach(allProjects, (project) => DotNetCoreTest(project.FullPath, dotNetCoreTestSettings));
+        Parallel.ForEach(allProjects, parallelOptions, (project) => DotNetCoreTest(project.FullPath, dotNetCoreTestSettings));
     });
 
 Task("Default")
