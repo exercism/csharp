@@ -7,9 +7,7 @@ var target = Argument("target", "Default");
 var sourceDir = "./exercises";
 var buildDir  = "./build";
 
-var defaultSln     = buildDir + "/Exercises.Default.sln";
 var allSln         = buildDir + "/Exercises.All.sln";
-var refactoringSln = buildDir + "/Exercises.Refactoring.sln";
 
 var dotNetCoreMSBuildSettings = new DotNetCoreMSBuildSettings
 {
@@ -20,6 +18,11 @@ var dotNetCoreBuildSettings = new DotNetCoreBuildSettings
 { 
     NoIncremental = true,
     MSBuildSettings = dotNetCoreMSBuildSettings 
+};
+
+var dotNetCoreTestSettings = new DotNetCoreTestSettings
+{
+    NoBuild = true
 };
 
 Task("Clean")
@@ -40,45 +43,8 @@ Task("RestoreNugetPackages")
         DotNetCoreRestore(allSln);
     });
 
-Task("BuildStubImplementations")
-    .IsDependentOn("RestoreNugetPackages")
-    .Does(() => {
-        DotNetCoreBuild(defaultSln, dotNetCoreBuildSettings);
-});
-
-Task("EnableAllTests")
-    .IsDependentOn("BuildStubImplementations")
-    .Does(() => {
-        var skipRegex = new Regex(@"Skip\s*=\s*""Remove to run test""", RegexOptions.Compiled);
-        var testFiles = GetFiles(buildDir + "/*/*Test.cs");
-
-        foreach (var testFile in testFiles) {
-            var contents = System.IO.File.ReadAllText(testFile.FullPath);
-
-            if (skipRegex.IsMatch(contents)) {
-                var updatedContents = skipRegex.Replace(contents, "");
-                System.IO.File.WriteAllText(testFile.FullPath, updatedContents);
-            }
-        }
-    });
-
-Task("TestRefactoringProjects")
-    .IsDependentOn("EnableAllTests")
-    .Does(() => {
-        DotNetCoreBuild(refactoringSln, dotNetCoreBuildSettings);
-
-        // These projects have a working default implementation, and have
-        // all the tests enabled. These should pass without any changes.
-        var refactoringProjects = 
-              GetFiles(buildDir + "/*/TreeBuilding.csproj")
-            + GetFiles(buildDir + "/*/Ledger.csproj")
-            + GetFiles(buildDir + "/*/Markdown.csproj");
-
-        Parallel.ForEach(refactoringProjects, (project) => DotNetCoreTest(project.FullPath));
-});
-
 Task("ReplaceStubWithExample")
-    .IsDependentOn("TestRefactoringProjects")
+    .IsDependentOn("RestoreNugetPackages")
     .Does(() => {
         var allProjects = GetFiles(buildDir + "/*/*.csproj");
 
@@ -93,10 +59,31 @@ Task("ReplaceStubWithExample")
         }
     });
 
-Task("TestUsingExampleImplementation")
+Task("EnableAllTests")
     .IsDependentOn("ReplaceStubWithExample")
     .Does(() => {
+        var skipRegex = new Regex(@"Skip\s*=\s*""Remove to run test""", RegexOptions.Compiled);
+        var testFiles = GetFiles(buildDir + "/*/*Test.cs");
+
+        foreach (var testFile in testFiles) {
+            var contents = System.IO.File.ReadAllText(testFile.FullPath);
+
+            if (skipRegex.IsMatch(contents)) {
+                var updatedContents = skipRegex.Replace(contents, "");
+                System.IO.File.WriteAllText(testFile.FullPath, updatedContents);
+            }
+        }
+    });
+
+Task("BuildStubImplementations")
+    .IsDependentOn("EnableAllTests")
+    .Does(() => {
         DotNetCoreBuild(allSln, dotNetCoreBuildSettings);
+});
+
+Task("TestUsingExampleImplementation")
+    .IsDependentOn("BuildStubImplementations")
+    .Does(() => {
 
         var allProjects = GetFiles(buildDir + "/*/*.csproj");
         var parallelOptions = new ParallelOptions 
@@ -104,7 +91,7 @@ Task("TestUsingExampleImplementation")
             MaxDegreeOfParallelism = 16
         };
 
-        Parallel.ForEach(allProjects, parallelOptions, (project) => DotNetCoreTest(project.FullPath));
+        Parallel.ForEach(allProjects, parallelOptions, (project) => DotNetCoreTest(project.FullPath, dotNetCoreTestSettings));
     });
 
 Task("Default")
