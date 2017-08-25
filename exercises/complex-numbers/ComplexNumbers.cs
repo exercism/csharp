@@ -45,4 +45,9 @@ public struct ComplexNumber
     {
         throw new NotImplementedException("You need to implement this function.");
     }
+
+    public ComplexNumber Exp()
+    {
+        throw new NotImplementedException("You need to implement this function.");
+    }
 }

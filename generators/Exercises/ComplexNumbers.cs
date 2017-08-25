@@ -13,8 +13,6 @@ namespace Generators.Exercises
         {
             canonicalData.Exercise = "complex-number";
 
-            canonicalData.Cases = canonicalData.Cases.Where(c => c.Property != "exp").ToArray();
-            
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
                 canonicalDataCase.TestedMethodType = TestedMethodType.Instance;
@@ -30,7 +28,10 @@ namespace Generators.Exercises
                 // Process constructor param
                 var constructorParamName = canonicalDataCase.Input.ContainsKey("input") ? "input" : "z1";
 
-                var constructorParamValues = canonicalDataCase.Input[constructorParamName].ConvertToEnumerable<double>().ToArray();
+                var constructorParamValues = canonicalDataCase.Input[constructorParamName]
+                    .ConvertToEnumerable<string>()
+                    .Select(v => ConvertMathDouble(v))
+                    .ToArray();
 
                 canonicalDataCase.ConstructorInput = new Dictionary<string, object>
                 {
@@ -63,7 +64,7 @@ namespace Generators.Exercises
             }
             else if (rawValue is string)
             {
-                return double.Parse(rawValue as string);
+                return ConvertMathDouble((string)rawValue);
             }
             else
             {
@@ -74,6 +75,19 @@ namespace Generators.Exercises
         private bool IsComplexNumber(object rawValue)
         {
             return rawValue is JArray;
+        }
+
+        private double ConvertMathDouble(string value)
+        {
+            switch (value)
+            {
+                case "e":
+                    return Math.E;
+                case "pi":
+                    return Math.PI;
+                default:
+                    return double.Parse(value);
+            }
         }
     }
 }

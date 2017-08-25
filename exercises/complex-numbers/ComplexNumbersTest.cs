@@ -208,4 +208,28 @@ public class ComplexNumbersTest
         var sut = new ComplexNumber(1, 2);
         Assert.Equal(2, sut.Imaginary());
     }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Eulers_identity_formula()
+    {
+        var sut = new ComplexNumber(0, 3.14159265358979);
+        var expected = new ComplexNumber(-1, 0);
+        Assert.Equal(expected, sut.Exp());
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Exponential_of_0()
+    {
+        var sut = new ComplexNumber(0, 0);
+        var expected = new ComplexNumber(1, 0);
+        Assert.Equal(expected, sut.Exp());
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Exponential_of_a_purely_real_number()
+    {
+        var sut = new ComplexNumber(1, 0);
+        var expected = new ComplexNumber(2.71828182845905, 0);
+        Assert.Equal(expected, sut.Exp());
+    }
 }
