@@ -2,7 +2,7 @@ using System;
 
 public struct ComplexNumber
 {
-    public ComplexNumber(int real, int imaginary)
+    public ComplexNumber(double real, double imaginary)
     {
     }
 
@@ -26,7 +26,7 @@ public struct ComplexNumber
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public int Abs()
+    public double Abs()
     {
         throw new NotImplementedException("You need to implement this function.");
     }
@@ -36,12 +36,12 @@ public struct ComplexNumber
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public int Real()
+    public double Real()
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public int Imaginary()
+    public double Imaginary()
     {
         throw new NotImplementedException("You need to implement this function.");
     }

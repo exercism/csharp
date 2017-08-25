@@ -1,9 +1,11 @@
+using System;
+
 public struct ComplexNumber
 {
-    private readonly int _real;
-    private readonly int _imaginary;
+    private readonly double _real;
+    private readonly double _imaginary;
 
-    public ComplexNumber(int real, int imaginary)
+    public ComplexNumber(double real, double imaginary)
     {
         _real = real;
         _imaginary = imaginary;
@@ -39,9 +41,9 @@ public struct ComplexNumber
         return new ComplexNumber(real, imaginary);
     }
 
-    public int Abs()
+    public double Abs()
     {
-        return (int)Math.Sqrt(_real * _real + _imaginary * _imaginary);
+        return Math.Sqrt(_real * _real + _imaginary * _imaginary);
     }
 
     public ComplexNumber Conjugate()
@@ -51,12 +53,12 @@ public struct ComplexNumber
             -1 * _imaginary);
     }
 
-    public int Real()
+    public double Real()
     {
         return _real;
     }
 
-    public int Imaginary()
+    public double Imaginary()
     {
         return _imaginary;
     }
