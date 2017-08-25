@@ -88,7 +88,7 @@ public class ComplexNumbersTest
     public void Divide_purely_real_numbers()
     {
         var sut = new ComplexNumber(1, 0);
-        var expected = new ComplexNumber(0, 0);
+        var expected = new ComplexNumber(0.5, 0);
         Assert.Equal(expected, sut.Div(new ComplexNumber(2, 0)));
     }
 
@@ -96,7 +96,7 @@ public class ComplexNumbersTest
     public void Divide_purely_imaginary_numbers()
     {
         var sut = new ComplexNumber(0, 1);
-        var expected = new ComplexNumber(0, 0);
+        var expected = new ComplexNumber(0.5, 0);
         Assert.Equal(expected, sut.Div(new ComplexNumber(0, 2)));
     }
 
@@ -104,7 +104,7 @@ public class ComplexNumbersTest
     public void Divide_numbers_with_real_and_imaginary_part()
     {
         var sut = new ComplexNumber(1, 2);
-        var expected = new ComplexNumber(0, 0);
+        var expected = new ComplexNumber(0.44, 0.08);
         Assert.Equal(expected, sut.Div(new ComplexNumber(3, 4)));
     }
 
