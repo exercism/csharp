@@ -51,6 +51,14 @@ namespace Generators.Exercises
             }
         }
 
+        protected override HashSet<string> GetUsingNamespaces()
+        {
+            var usingNamespaces = base.GetUsingNamespaces();
+            usingNamespaces.Add(typeof(Math).Namespace);
+
+            return usingNamespaces;
+        }
+
         private object ConvertToType(object rawValue)
         {
             if (IsComplexNumber(rawValue))
@@ -77,14 +85,14 @@ namespace Generators.Exercises
             return rawValue is JArray;
         }
 
-        private double ConvertMathDouble(string value)
+        private object ConvertMathDouble(string value)
         {
             switch (value)
             {
                 case "e":
-                    return Math.E;
+                    return new UnescapedValue("Math.E");
                 case "pi":
-                    return Math.PI;
+                    return new UnescapedValue("Math.PI");
                 default:
                     return double.Parse(value);
             }

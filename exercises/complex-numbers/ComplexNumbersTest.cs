@@ -1,6 +1,7 @@
 // This file was auto-generated based on version 1.0.0 of the canonical data.
 
 using Xunit;
+using System;
 
 public class ComplexNumbersTest
 {
@@ -212,7 +213,7 @@ public class ComplexNumbersTest
     [Fact(Skip = "Remove to run test")]
     public void Eulers_identity_formula()
     {
-        var sut = new ComplexNumber(0, 3.14159265358979);
+        var sut = new ComplexNumber(0, Math.PI);
         var expected = new ComplexNumber(-1, 0);
         Assert.Equal(expected, sut.Exp());
     }
@@ -229,7 +230,7 @@ public class ComplexNumbersTest
     public void Exponential_of_a_purely_real_number()
     {
         var sut = new ComplexNumber(1, 0);
-        var expected = new ComplexNumber(2.71828182845905, 0);
+        var expected = new ComplexNumber(Math.E, 0);
         Assert.Equal(expected, sut.Exp());
     }
 }
