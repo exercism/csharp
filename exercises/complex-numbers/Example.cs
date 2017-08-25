@@ -1,5 +1,7 @@
 using System;
+using System.Diagnostics;
 
+[DebuggerDisplay("{_real} + {_imaginary}i")]
 public struct ComplexNumber
 {
     private readonly double _real;
@@ -61,5 +63,16 @@ public struct ComplexNumber
     public double Imaginary()
     {
         return _imaginary;
+    }
+
+    public ComplexNumber Exp()
+    {
+        var real = Math.Cos(_imaginary);
+        var imaginary = Math.Sin(_imaginary);
+        var factor = Math.Exp(_real);
+
+        return new ComplexNumber(
+            real * factor,
+            imaginary * factor);
     }
 }
