@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.4
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accumulate", "accumulate\Accumulate.csproj", "{F16C0EE1-6923-4328-B015-363CF24FF867}"
 EndProject
@@ -217,6 +217,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpiralMatrix", "spiral-matrix\SpiralMatrix.csproj", "{05EF2C70-B5B0-4351-B940-041A03A6BB84}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollatzConjecture", "collatz-conjecture\CollatzConjecture.csproj", "{18BC2EE7-E798-40DE-A346-0B803137E67D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComplexNumbers", "complex-numbers\ComplexNumbers.csproj", "{D0399EAC-5563-4234-9828-0C607BAF7623}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -1524,6 +1526,18 @@ Global
 		{18BC2EE7-E798-40DE-A346-0B803137E67D}.Release|x64.Build.0 = Release|Any CPU
 		{18BC2EE7-E798-40DE-A346-0B803137E67D}.Release|x86.ActiveCfg = Release|Any CPU
 		{18BC2EE7-E798-40DE-A346-0B803137E67D}.Release|x86.Build.0 = Release|Any CPU
+		{D0399EAC-5563-4234-9828-0C607BAF7623}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0399EAC-5563-4234-9828-0C607BAF7623}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0399EAC-5563-4234-9828-0C607BAF7623}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D0399EAC-5563-4234-9828-0C607BAF7623}.Debug|x64.Build.0 = Debug|Any CPU
+		{D0399EAC-5563-4234-9828-0C607BAF7623}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D0399EAC-5563-4234-9828-0C607BAF7623}.Debug|x86.Build.0 = Debug|Any CPU
+		{D0399EAC-5563-4234-9828-0C607BAF7623}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0399EAC-5563-4234-9828-0C607BAF7623}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0399EAC-5563-4234-9828-0C607BAF7623}.Release|x64.ActiveCfg = Release|Any CPU
+		{D0399EAC-5563-4234-9828-0C607BAF7623}.Release|x64.Build.0 = Release|Any CPU
+		{D0399EAC-5563-4234-9828-0C607BAF7623}.Release|x86.ActiveCfg = Release|Any CPU
+		{D0399EAC-5563-4234-9828-0C607BAF7623}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
