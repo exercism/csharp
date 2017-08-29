@@ -10,3 +10,6 @@ script:
   - ./bin/fetch-configlet
   - ./bin/configlet lint .
   - ./build.sh
+cache:
+  directories:
+  - $HOME/.nuget/packages
