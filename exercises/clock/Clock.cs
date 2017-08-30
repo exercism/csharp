@@ -2,11 +2,6 @@ using System;
 
 public class Clock
 {
-    public Clock(int hours)
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
-
     public Clock(int hours, int minutes)
     {
         throw new NotImplementedException("You need to implement this function.");
@@ -18,6 +13,11 @@ public class Clock
     }
 
     public Clock Subtract(int minutesToSubtract)
+    {
+        throw new NotImplementedException("You need to implement this function.");
+    }
+
+    public override string ToString()
     {
         throw new NotImplementedException("You need to implement this function.");
     }

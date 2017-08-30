@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using CommandLine;
 using Generators.Input;
 using Serilog;
@@ -17,7 +18,7 @@ namespace Generators
                     .WithParsed(RegenerateTestClasses);
                 return 0;
             }
-            catch (Exception exception)
+            catch (Exception exception) when (!Debugger.IsAttached)
             {
                 Log.Error(exception, "Exception occured: {Message}", exception.Message);
                 return 1;
