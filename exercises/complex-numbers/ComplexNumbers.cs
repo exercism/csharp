@@ -6,6 +6,16 @@ public struct ComplexNumber
     {
     }
 
+    public double Real()
+    {
+        throw new NotImplementedException("You need to implement this function.");
+    }
+
+    public double Imaginary()
+    {
+        throw new NotImplementedException("You need to implement this function.");
+    }
+
     public ComplexNumber Mul(ComplexNumber other)
     {
         throw new NotImplementedException("You need to implement this function.");
@@ -35,17 +45,7 @@ public struct ComplexNumber
     {
         throw new NotImplementedException("You need to implement this function.");
     }
-
-    public double Real()
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
-
-    public double Imaginary()
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
-
+    
     public ComplexNumber Exp()
     {
         throw new NotImplementedException("You need to implement this function.");

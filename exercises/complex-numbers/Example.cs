@@ -12,6 +12,16 @@ public struct ComplexNumber
         _real = real;
         _imaginary = imaginary;
     }
+    
+    public double Real()
+    {
+        return _real;
+    }
+
+    public double Imaginary()
+    {
+        return _imaginary;
+    }
 
     public ComplexNumber Mul(ComplexNumber other)
     {
@@ -53,16 +63,6 @@ public struct ComplexNumber
         return new ComplexNumber(
             _real,
             -1 * _imaginary);
-    }
-
-    public double Real()
-    {
-        return _real;
-    }
-
-    public double Imaginary()
-    {
-        return _imaginary;
     }
 
     public ComplexNumber Exp()
