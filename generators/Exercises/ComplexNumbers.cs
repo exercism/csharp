@@ -13,6 +13,9 @@ namespace Generators.Exercises
         {
             canonicalData.Exercise = "complex-number";
 
+            // Ensure the Real and Imaginary methods are tested first as they're used later to assert equality between complex numbers
+            canonicalData.Cases = canonicalData.Cases.OrderBy(c => c.Property == "real" || c.Property == "imaginary" ? 0 : 1).ToArray();
+
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
                 canonicalDataCase.TestedMethodType = TestedMethodType.Instance;
@@ -49,6 +52,21 @@ namespace Generators.Exercises
                     canonicalDataCase.Input[key] = ConvertToType(canonicalDataCase.Input[key]);
                 }
             }
+        }
+
+        protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        {
+            if (testMethodBody.UseVariableForExpected)
+                return RenderComplexNumberAssert(testMethodBody);
+
+            return base.RenderTestMethodBodyAssert(testMethodBody);
+        }
+
+        private static string RenderComplexNumberAssert(TestMethodBody testMethodBody)
+        {
+            var tmeplate = "Assert.Equal({{ ExpectedParameter }}.Real(), {{ TestedValue }}.Real(), 15);\r\nAssert.Equal({{ ExpectedParameter }}.Imaginary(), {{ TestedValue }}.Imaginary(), 15);";
+
+            return TemplateRenderer.RenderInline(tmeplate, testMethodBody.AssertTemplateParameters);
         }
 
         protected override HashSet<string> GetUsingNamespaces()
