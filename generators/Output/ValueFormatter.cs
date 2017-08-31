@@ -32,6 +32,8 @@ namespace Generators.Output
                     return dbl.ToString(CultureInfo.InvariantCulture);
                 case float flt:
                     return flt.ToString(CultureInfo.InvariantCulture);
+                case ulong ulng:
+                    return $"{ulng}UL";
                 case char c:
                     return $"'{c}'";
                 default:

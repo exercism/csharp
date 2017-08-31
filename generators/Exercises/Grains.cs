@@ -1,6 +1,5 @@
 ﻿using System;
 using Generators.Input;
-using Generators.Output;
 
 namespace Generators.Exercises
 {
@@ -16,7 +15,7 @@ namespace Generators.Exercises
                 }
                 else
                 {
-                    canonicalDataCase.Expected =  new UnescapedValue($"{canonicalDataCase.Expected}UL");
+                    canonicalDataCase.Expected = ulong.Parse(canonicalDataCase.Expected.ToString());
                 }
             }
         }
