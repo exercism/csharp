@@ -15,6 +15,7 @@ namespace Generators.Exercises
 
         private const string propertyCreate = "create";
         private const string propertyEqual = "equal";
+        private const string propertyEquals = "equals";
         private const string propertyToString = "to_string";
 
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
@@ -23,8 +24,6 @@ namespace Generators.Exercises
 
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
-                canonicalDataCase.TestedMethodType = TestedMethodType.Instance;
-
                 if (canonicalDataCase.Property != propertyEqual)
                 {
                     canonicalDataCase.ConstructorInput = new Dictionary<string, object>
@@ -32,9 +31,6 @@ namespace Generators.Exercises
                         [paramHour] = canonicalDataCase.Input[paramHour],
                         [paramMinute] = canonicalDataCase.Input[paramMinute]
                     };
-
-                    canonicalDataCase.Input.Remove(paramHour);
-                    canonicalDataCase.Input.Remove(paramMinute);
                 }
                 else
                 {
@@ -49,18 +45,26 @@ namespace Generators.Exercises
                 {
                     canonicalDataCase.Property = propertyToString;
                 }
+                else if (canonicalDataCase.Property == propertyEqual)
+                {
+                    canonicalDataCase.Property = propertyEquals;
+                }
+                else
+                {
+                    //  Don't modify the property
+                }
             }
         }
 
         protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            if (testMethodBody.CanonicalDataCase.Property == propertyEqual)
+            if (testMethodBody.CanonicalDataCase.Property == propertyEquals)
             {
                 return base.RenderTestMethodBodyAssert(testMethodBody);
             }
             else if (testMethodBody.CanonicalDataCase.Property != propertyToString)
             {
-                return RenderConsistencyToAssert(testMethodBody, false, true);
+                return RenderConsistencyToAssert(testMethodBody);
             }
             else
             {
@@ -68,12 +72,9 @@ namespace Generators.Exercises
             }
         }
 
-        private static string RenderConsistencyToAssert(TestMethodBody testMethodBody, bool addToStringForExpected, bool addToStringForTested)
+        private static string RenderConsistencyToAssert(TestMethodBody testMethodBody)
         {
-            var expectedStringSuffix = addToStringForExpected ? ".ToString()" : string.Empty;
-            var testedStringSuffix = addToStringForTested ? ".ToString()" : string.Empty;
-
-            var template = $"Assert.Equal({{{{ ExpectedParameter }}}}{expectedStringSuffix}, {{{{ TestedValue }}}}{testedStringSuffix});";
+            var template = $"Assert.Equal({{{{ ExpectedParameter }}}}, {{{{ TestedValue }}}}.ToString());";
 
             return TemplateRenderer.RenderInline(template, testMethodBody.AssertTemplateParameters);
         }
