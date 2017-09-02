@@ -13,8 +13,7 @@ namespace Generators.Exercises
                 {
                     ["rails"] = canonicalDataCase.Properties["rails"]
                 };
-                canonicalDataCase.Input.Remove("rails");
-                canonicalDataCase.TestedMethodType = TestedMethodType.Instance;
+
                 canonicalDataCase.UseVariablesForInput = true;
                 canonicalDataCase.UseVariableForExpected = true;
             }

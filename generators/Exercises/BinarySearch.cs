@@ -13,10 +13,8 @@ namespace Generators.Exercises
                 {
                     ["array"] = canonicalDataCase.Input["array"].ConvertToEnumerable<int>()
                 };
-                canonicalDataCase.Input.Remove("array");
 
                 canonicalDataCase.UseVariablesForConstructorParameters = true;
-                canonicalDataCase.TestedMethodType = TestedMethodType.Instance;
             }
         }
     }
