@@ -1,6 +1,6 @@
 using System;
 
-public struct Clock
+public struct Clock : IEquatable<Clock>
 {
     public Clock(int hours, int minutes)
     {
@@ -18,6 +18,11 @@ public struct Clock
     }
 
     public override string ToString()
+    {
+        throw new NotImplementedException("You need to implement this function.");
+    }
+
+    public bool Equals(Clock other)
     {
         throw new NotImplementedException("You need to implement this function.");
     }

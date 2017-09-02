@@ -1,4 +1,6 @@
-public struct Clock
+using System;
+
+public struct Clock : IEquatable<Clock>
 {
     private readonly int hours;
     private readonly int minutes;
@@ -27,5 +29,10 @@ public struct Clock
     private static int Mod(double x, double y)
     {
         return (int)((x % y + y) % y);
+    }
+
+    public bool Equals(Clock other)
+    {
+        return other.hours == hours && other.minutes == minutes;
     }
 }
