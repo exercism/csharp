@@ -26,8 +26,6 @@ namespace Generators.Exercises
                 {
                     ["score"] = canonicalDataCase.Properties["score"]
                 };
-                canonicalDataCase.Input.Remove("score");
-                canonicalDataCase.TestedMethodType = TestedMethodType.Instance;
             }
         }
 
