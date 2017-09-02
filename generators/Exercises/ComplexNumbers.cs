@@ -18,8 +18,6 @@ namespace Generators.Exercises
 
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
-                canonicalDataCase.TestedMethodType = TestedMethodType.Instance;
-
                 // Process expected
                 if (IsComplexNumber(canonicalDataCase.Expected))
                 {
