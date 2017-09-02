@@ -16,12 +16,12 @@ namespace Generators.Exercises
             }
         }
 
-        protected override HashSet<string> GetUsingNamespaces()
+        protected override HashSet<string> AddAdditionalNamespaces()
         {
-            var usingNamespaces = base.GetUsingNamespaces();
-            usingNamespaces.Add(typeof(Dictionary<string, int>).Namespace);
-
-            return usingNamespaces;
+            return new HashSet<string>()
+            {
+                typeof(Dictionary<string, int>).Namespace
+            };
         }
     }
 }

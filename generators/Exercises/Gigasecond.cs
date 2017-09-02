@@ -20,12 +20,12 @@ namespace Generators.Exercises
             }
         }
 
-        protected override HashSet<string> GetUsingNamespaces()
+        protected override HashSet<string> AddAdditionalNamespaces()
         {
-            var usingNamespaces = base.GetUsingNamespaces();
-            usingNamespaces.Add(typeof(DateTime).Namespace);
-
-            return usingNamespaces;
+            return new HashSet<string>()
+            {
+                typeof(DateTime).Namespace
+            };
         }
 
         private string FormatDateTime(DateTime dateTime)
