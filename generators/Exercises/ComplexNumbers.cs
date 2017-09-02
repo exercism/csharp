@@ -62,17 +62,17 @@ namespace Generators.Exercises
 
         private static string RenderComplexNumberAssert(TestMethodBody testMethodBody)
         {
-            var tmeplate = "Assert.Equal({{ ExpectedParameter }}.Real(), {{ TestedValue }}.Real(), 15);\r\nAssert.Equal({{ ExpectedParameter }}.Imaginary(), {{ TestedValue }}.Imaginary(), 15);";
+            var template = "Assert.Equal({{ ExpectedParameter }}.Real(), {{ TestedValue }}.Real(), 15);\r\nAssert.Equal({{ ExpectedParameter }}.Imaginary(), {{ TestedValue }}.Imaginary(), 15);";
 
-            return TemplateRenderer.RenderInline(tmeplate, testMethodBody.AssertTemplateParameters);
+            return TemplateRenderer.RenderInline(template, testMethodBody.AssertTemplateParameters);
         }
 
-        protected override HashSet<string> GetUsingNamespaces()
+        protected override HashSet<string> AddAdditionalNamespaces()
         {
-            var usingNamespaces = base.GetUsingNamespaces();
-            usingNamespaces.Add(typeof(Math).Namespace);
-
-            return usingNamespaces;
+            return new HashSet<string>()
+            {
+                typeof(Math).Namespace
+            };
         }
 
         private object ConvertToType(object rawValue)
