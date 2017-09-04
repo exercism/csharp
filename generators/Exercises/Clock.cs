@@ -19,8 +19,6 @@ namespace Generators.Exercises
 
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
-            //canonicalData.Cases = canonicalData.Cases.Where(c => c.Property != "equal").ToArray();
-
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
                 if (canonicalDataCase.Property != propertyEqual)
@@ -47,10 +45,6 @@ namespace Generators.Exercises
                 else if (canonicalDataCase.Property == propertyEqual)
                 {
                     canonicalDataCase.Property = propertyEquals;
-                }
-                else
-                {
-                    //  Don't modify the property
                 }
             }
         }
