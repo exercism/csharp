@@ -7,22 +7,9 @@ var target = Argument("target", "Default");
 var sourceDir = "./exercises";
 var buildDir  = "./build";
 
-var allSln = buildDir + "/Exercises.sln";
-
-var dotNetCoreMSBuildSettings = new DotNetCoreMSBuildSettings
+var parallelOptions = new ParallelOptions 
 {
-    MaxCpuCount = 0
-};
-
-var dotNetCoreBuildSettings = new DotNetCoreBuildSettings 
-{ 
-    NoIncremental = true,
-    MSBuildSettings = dotNetCoreMSBuildSettings 
-};
-
-var dotNetCoreTestSettings = new DotNetCoreTestSettings
-{
-    NoBuild = true
+    MaxDegreeOfParallelism = System.Environment.ProcessorCount
 };
 
 Task("Clean")
@@ -37,14 +24,8 @@ Task("CopyExercises")
         CopyDirectory(sourceDir, buildDir);
     });
 
-Task("RestoreNugetPackages")
-    .IsDependentOn("CopyExercises")
-    .Does(() => {
-        DotNetCoreRestore(allSln);
-    });
-
 Task("EnableAllTests")
-    .IsDependentOn("RestoreNugetPackages")
+    .IsDependentOn("CopyExercises")
     .Does(() => {
         var skipRegex = new Regex(@"Skip\s*=\s*""Remove to run test""", RegexOptions.Compiled);
         var testFiles = GetFiles(buildDir + "/*/*Test.cs");
@@ -69,10 +50,7 @@ Task("TestRefactoringProjects")
             + GetFiles(buildDir + "/*/Ledger.csproj")
             + GetFiles(buildDir + "/*/Markdown.csproj");
 
-        Parallel.ForEach(refactoringProjects, (project) => {
-            DotNetCoreBuild(project.FullPath, dotNetCoreBuildSettings);
-            DotNetCoreTest(project.FullPath, dotNetCoreTestSettings);
-        });
+        Parallel.ForEach(refactoringProjects, parallelOptions, (project) => DotNetCoreTest(project.FullPath));
 });
 
 Task("ReplaceStubWithExample")
@@ -94,14 +72,8 @@ Task("ReplaceStubWithExample")
 Task("TestUsingExampleImplementation")
     .IsDependentOn("ReplaceStubWithExample")
     .Does(() => {
-        DotNetCoreBuild(allSln, dotNetCoreBuildSettings);
-        var parallelOptions = new ParallelOptions 
-        {
-            MaxDegreeOfParallelism = System.Environment.ProcessorCount
-        };
-
         var allProjects = GetFiles(buildDir + "/*/*.csproj");
-        Parallel.ForEach(allProjects, parallelOptions, (project) => DotNetCoreTest(project.FullPath, dotNetCoreTestSettings));
+        Parallel.ForEach(allProjects, parallelOptions, (project) => DotNetCoreTest(project.FullPath));
     });
 
 Task("Default")
