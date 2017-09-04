@@ -3,6 +3,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 var target = Argument("target", "Default");
+var exercise = Argument<string>("exercise", null);
 
 var sourceDir = "./exercises";
 var buildDir  = "./build";
@@ -21,7 +22,7 @@ Task("Clean")
 Task("CopyExercises")
     .IsDependentOn("Clean")
     .Does(() => {
-        CopyDirectory(sourceDir, buildDir);
+        CopyDirectory($"{sourceDir}/{exercise}", $"{buildDir}/{exercise}");
     });
 
 Task("EnableAllTests")
