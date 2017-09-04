@@ -1,6 +1,6 @@
 $CakeVersion = "0.21.1"
-$DotNetVersion = "1.0.4";
-$DotNetInstallerUri = "https://dot.net/v1/dotnet-install.ps1";
+$DotNetVersion = "2.0.0";
+$DotNetInstallerUri = "https://raw.githubusercontent.com/dotnet/cli/master/scripts/obtain/dotnet-install.ps1";
 
 # Make sure tools folder exists
 $PSScriptRoot = Split-Path $MyInvocation.MyCommand.Path -Parent
