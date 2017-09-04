@@ -7,8 +7,7 @@ var target = Argument("target", "Default");
 var sourceDir = "./exercises";
 var buildDir  = "./build";
 
-var allSln         = buildDir + "/Exercises.All.sln";
-var refactoringSln = buildDir + "/Exercises.Refactoring.sln";
+var allSln = buildDir + "/Exercises.sln";
 
 var dotNetCoreMSBuildSettings = new DotNetCoreMSBuildSettings
 {
@@ -63,8 +62,6 @@ Task("EnableAllTests")
 Task("TestRefactoringProjects")
     .IsDependentOn("EnableAllTests")
     .Does(() => {
-        DotNetCoreBuild(refactoringSln, dotNetCoreBuildSettings);
-
         // These projects have a working default implementation, and have
         // all the tests enabled. These should pass without any changes.
         var refactoringProjects = 
@@ -72,7 +69,10 @@ Task("TestRefactoringProjects")
             + GetFiles(buildDir + "/*/Ledger.csproj")
             + GetFiles(buildDir + "/*/Markdown.csproj");
 
-        Parallel.ForEach(refactoringProjects, (project) => DotNetCoreTest(project.FullPath, dotNetCoreTestSettings));
+        Parallel.ForEach(refactoringProjects, (project) => {
+            DotNetCoreBuild(project.FullPath, dotNetCoreBuildSettings);
+            DotNetCoreTest(project.FullPath, dotNetCoreTestSettings);
+        });
 });
 
 Task("ReplaceStubWithExample")
