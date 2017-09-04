@@ -35,7 +35,7 @@ namespace Generators.Exercises
                     canonicalDataCase.Input.Remove(paramClock1);
 
                     var result = ((JObject)canonicalDataCase.Input[paramClock2]).ToObject<Dictionary<string, object>>();
-                    canonicalDataCase.Input[paramClock2] = new UnescapedValue($"new Clock({result[paramHour]},{result[paramMinute]})");
+                    canonicalDataCase.Input[paramClock2] = new UnescapedValue($"new Clock({result[paramHour]}, {result[paramMinute]})");
                 }
 
                 if (canonicalDataCase.Property == propertyCreate)
