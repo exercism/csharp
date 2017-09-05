@@ -10,9 +10,9 @@ namespace Generators.Exercises
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
-            foreach(var canonicalDataCase in canonicalData.Cases)
+            foreach (var canonicalDataCase in canonicalData.Cases)
             {
-                if(canonicalDataCase.Property == "create")
+                if (canonicalDataCase.Property == "create")
                 {
                     SetCreatePropertyData(canonicalDataCase);
                 }
@@ -26,7 +26,7 @@ namespace Generators.Exercises
                 return RenderCanAttackAssert(testMethodBody);
             }
 
-            if(testMethodBody.UseVariableForTested)
+            if (testMethodBody.UseVariableForTested)
             {
                 return string.Empty;
             }
@@ -70,8 +70,9 @@ Assert.{% if Expected %}True{% else %}False{% endif %}(QueenAttack.CanAttack(whi
         {
             var validExpected = (long)canonicalDataCase.Expected >= 0;
 
-            canonicalDataCase.ExceptionThrown = validExpected ? null : typeof(ArgumentOutOfRangeException);
             canonicalDataCase.UseVariableForTested = validExpected;
+            canonicalDataCase.ExceptionThrown = validExpected ? null : typeof(ArgumentOutOfRangeException);
+            canonicalDataCase.Description = validExpected ? canonicalDataCase.Description + " does not throw exception" : canonicalDataCase.Description;
 
             var coordinates = GetCoordinatesFromPosition(canonicalDataCase.Input["queen"]);
             canonicalDataCase.Input = new Dictionary<string, object>
