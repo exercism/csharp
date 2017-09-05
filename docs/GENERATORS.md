@@ -1,6 +1,6 @@
 # Test Generators
 
-Test generators allow tracks to generate tests automatically without having to write them ourselves. Each test generator reads from the exercises `canonical data`, which defines the name of the test, its inputs, and outputs. You can read more about exercisms approach to test suites [here](https://github.com/exercism/docs/blob/master/language-tracks/exercises/anatomy/test-suites.md).
+Test generators allow tracks to generate tests automatically without having to write them ourselves. Each test generator reads from the exercise's `canonical data`, which defines the name of the test, its inputs, and outputs. You can read more about exercisms approach to test suites [here](https://github.com/exercism/docs/blob/master/language-tracks/exercises/anatomy/test-suites.md).
 
 Generating tests automatically removes any sort of user error when creating tests. We want the tests to be accurate with respect to its canonical data. Test generation also makes it much easier to keep tests up to date. As the canonical data changes, our tests will be automatically updated when the generator for that test is run.
 
@@ -18,7 +18,7 @@ When looking through the canonical data and the generator code base, we use a lo
 - Expected - The expected value when running the test case.
 
 ## Adding A Simple Generator
-Adding a generator file is quite simple. Simply add a new file to the generators folder with the name of the test (in CamelCase), and extend the Exercise abstract class.
+Adding a generator file is quite simple. Simply add a new file to the generators folder with the name of the exercise (in CamelCase), and extend the `Exercise` abstract class.
 
 An example of a simple generator would be the Bob exercise. The source is below, but you can freely view it on the repository [here](https://github.com/exercism/csharp/blob/master/generators/Exercises/Bob.cs).
 
@@ -31,7 +31,7 @@ namespace Generators.Exercises
 }
 ```
 
-This is a fully working generator, no other code needs to be written. However, it's simplicity stems from the fact that the test suite and the program itself is reletively trivial.
+This is a fully working generator, no other code needs to be written. However, it's simplicity stems from the fact that the test suite and the program itself is relatively trivial.
 
 ## Adding A Complex Generator
 
@@ -42,7 +42,7 @@ The `Exercise` abstract class currently exposes five methods that are used for o
 ### void UpdateCanonicalData(CanonicalData canonicalData)
 Update the canonical data for a given test. 
 
-The most common use for this override is to iterate through each of the canonical data's case.
+The most common use for this override is to iterate over each of the canonical data cases.
 
 As an example, if you wanted to change the default behavior so that when the `Input` value of a test is a negative number, an exception should be thrown, the code would look like this.
 
@@ -89,15 +89,15 @@ It is possible that an existing exercise does not match the canonical data. It i
 Also, if you find an issue with one of the existing generators or test suites simply open up the generator that you would like to update, make your changes, and then run the generators.
 
 ## Running The Generators
-This repository is coded against .NET Core. To run all of the generators all you need to do is run the following command in the generators directory:
+This repository is coded against [.NET Core](https://www.microsoft.com/net/core). To run all of the generators all you need to do is run the following command in the generators directory:
 
-`dotnet run generators`
+`dotnet run`
 
 This command will take all of the generators that are in the `Exercises` folder, and generate all of the test cases for that exercise. We use reflection to get all of the exercises, so if you are adding a new test, the test will be automatically included when running the generator.
 
-Once the generator has been ran, you can view the output of your generation by navigating to the test file for that exercise. As an example, the test suite for the Bob exercise can be found at:
+Once the generator has been run, you can view the output of your generation by navigating to the test file for that exercise. As an example, the test suite for the Bob exercise can be found at:
 
-`csharp/exercises/bob/BobTest.cs`
+`exercises/bob/BobTest.cs`
 
 ## Submitting A Generator
 If you are satisfied with the output of your generator, we would love for you to submit a pull request! Please include your generator, updated test suite, and any other corresponding files that you may have changed.
