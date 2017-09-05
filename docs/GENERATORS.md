@@ -17,7 +17,7 @@ When looking through the canonical data and the generator code base, we use a lo
 - Expected - The expected value when running the test case.
 
 ## Adding A Simple Generator
-Adding a test generator file is straightforward. Simply add a new file to the generators folder with the name of the exercise (in CamelCase), and extend the `Exercise` abstract class.
+Adding a test generator file is straightforward. Simply add a new file to the generators folder with the name of the exercise (in PascalCase), and extend the `Exercise` abstract class.
 
 An example of a simple generator would be the Bob exercise. The source is below, but you can freely view it in the repository [here](https://github.com/exercism/csharp/blob/master/generators/Exercises/Bob.cs).
 
@@ -71,7 +71,7 @@ protected override HashSet<string> AddAdditionalNamespaces()
 }
 ```
 
-This snippet would add the namespace that the `Dictionary<char,int>` collection lives in (`System.Collections.Generic`).
+This snippet would add the namespace that the `Dictionary<char, int>` collection lives in (`System.Collections.Generic`).
 
 ### string RenderTestMethodBody[Arrange/Act/Assert]
 Override the default behavior when rendering a test methods arrange, act, and/or assert sections.
@@ -93,6 +93,10 @@ This repository is coded against [.NET Core](https://www.microsoft.com/net/core)
 `dotnet run`
 
 This command will take all of the generators that are in the `Exercises` folder, and generate all of the test cases for that exercise. We use reflection to get all of the exercises, so if you are adding a new test, the test will be automatically included when running the generator.
+
+If you only need to run a single generator, you can do so by running the following command:
+
+`dotnet run -e <exercise>`
 
 Once the generator has been run, you can view the output of your generation by navigating to the test file for that exercise. As an example, the test suite for the Bob exercise can be found at:
 
