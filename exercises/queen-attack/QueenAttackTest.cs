@@ -1,55 +1,93 @@
-﻿using System;
+// This file was auto-generated based on version 1.0.0 of the canonical data.
+
 using Xunit;
+using System;
 
 public class QueenAttackTest
 {
     [Fact]
-    public void Cannot_occupy_same_space()
+    public void Queen_with_a_valid_position_does_not_throw_exception()
     {
-        var white = new Queen(2, 4);
-        var black = new Queen(2, 4);
-        Assert.Throws<ArgumentException>(() => Queens.CanAttack(white, black));
+        var actual = QueenAttack.Create(2, 2);
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Cannot_attack()
+    public void Queen_must_have_positive_rank()
     {
-        Assert.False(Queens.CanAttack(new Queen(2, 3), new Queen(4, 7)));
+        Assert.Throws<ArgumentOutOfRangeException>(() => QueenAttack.Create(-2, 2));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Can_attack_on_same_row()
+    public void Queen_must_have_rank_on_board()
     {
-        Assert.True(Queens.CanAttack(new Queen(2, 4), new Queen(2, 7)));
+        Assert.Throws<ArgumentOutOfRangeException>(() => QueenAttack.Create(8, 4));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Can_attack_on_same_column()
+    public void Queen_must_have_positive_file()
     {
-        Assert.True(Queens.CanAttack(new Queen(5, 4), new Queen(2, 4)));
+        Assert.Throws<ArgumentOutOfRangeException>(() => QueenAttack.Create(2, -2));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Can_attack_on_diagonal()
+    public void Queen_must_have_file_on_board()
     {
-        Assert.True(Queens.CanAttack(new Queen(1, 1), new Queen(6, 6)));
+        Assert.Throws<ArgumentOutOfRangeException>(() => QueenAttack.Create(4, 8));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Can_attack_on_other_diagonal()
+    public void Can_not_attack()
     {
-        Assert.True(Queens.CanAttack(new Queen(0, 6), new Queen(1, 7)));
+        var whiteQueen = QueenAttack.Create(2,4);
+        var blackQueen = QueenAttack.Create(6,6);
+        Assert.False(QueenAttack.CanAttack(whiteQueen, blackQueen));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Can_attack_on_yet_another_diagonal()
+    public void Can_attack_on_same_rank()
     {
-        Assert.True(Queens.CanAttack(new Queen(4, 1), new Queen(6, 3)));
+        var whiteQueen = QueenAttack.Create(2,4);
+        var blackQueen = QueenAttack.Create(2,6);
+        Assert.True(QueenAttack.CanAttack(whiteQueen, blackQueen));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Can_attack_on_a_diagonal_slanted_the_other_way()
+    public void Can_attack_on_same_file()
     {
-        Assert.True(Queens.CanAttack(new Queen(6, 1), new Queen(1, 6)));
+        var whiteQueen = QueenAttack.Create(4,5);
+        var blackQueen = QueenAttack.Create(2,5);
+        Assert.True(QueenAttack.CanAttack(whiteQueen, blackQueen));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Can_attack_on_first_diagonal()
+    {
+        var whiteQueen = QueenAttack.Create(2,2);
+        var blackQueen = QueenAttack.Create(0,4);
+        Assert.True(QueenAttack.CanAttack(whiteQueen, blackQueen));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Can_attack_on_second_diagonal()
+    {
+        var whiteQueen = QueenAttack.Create(2,2);
+        var blackQueen = QueenAttack.Create(3,1);
+        Assert.True(QueenAttack.CanAttack(whiteQueen, blackQueen));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Can_attack_on_third_diagonal()
+    {
+        var whiteQueen = QueenAttack.Create(2,2);
+        var blackQueen = QueenAttack.Create(1,1);
+        Assert.True(QueenAttack.CanAttack(whiteQueen, blackQueen));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Can_attack_on_fourth_diagonal()
+    {
+        var whiteQueen = QueenAttack.Create(2,2);
+        var blackQueen = QueenAttack.Create(5,5);
+        Assert.True(QueenAttack.CanAttack(whiteQueen, blackQueen));
     }
 }
