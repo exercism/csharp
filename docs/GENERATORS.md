@@ -6,7 +6,6 @@ Generating tests automatically removes any sort of user error when creating test
 
 An example of a canonical data file can be found [here](https://github.com/exercism/problem-specifications/blob/master/exercises/bob/canonical-data.json)
 
-
 ## Common Terms
 When looking through the canonical data and the generator code base, we use a lot of common terminology. This list hopefully clarifies what they represent.
 
@@ -18,7 +17,7 @@ When looking through the canonical data and the generator code base, we use a lo
 - Expected - The expected value when running the test case.
 
 ## Adding A Simple Generator
-Adding a generator file is quite simple. Simply add a new file to the generators folder with the name of the exercise (in CamelCase), and extend the `Exercise` abstract class.
+Adding a generator file is straightforward. Simply add a new file to the generators folder with the name of the exercise (in CamelCase), and extend the `Exercise` abstract class.
 
 An example of a simple generator would be the Bob exercise. The source is below, but you can freely view it on the repository [here](https://github.com/exercism/csharp/blob/master/generators/Exercises/Bob.cs).
 
@@ -51,7 +50,7 @@ protected override void UpdateCanonicalData(CanonicalData canonicalData)
 {
   foreach (var canonicalDataCase in canonicalData.Cases)
   {
-    var caseInputLessThanZero = (long)canonicalDataCase.Input["number"] <= 0;
+    var caseInputLessThanZero = (long)canonicalDataCase.Input["number"] < 0;
     canonicalDataCase.ExceptionThrown = caseInputLessTanZero ? typeof(ArgumentException) : null;
   }
 }
@@ -81,7 +80,7 @@ More advanced tests may need to leverage a `template`. A template allows you to 
 
 An example of this is the [RunLengthEncoding](https://github.com/exercism/csharp/blob/master/generators/Exercises/RunLengthEncoding.cs) test.
 
-Here the **Assert** is being overridden, as the Assert needs to call additional functions, but only if the property is consistency. Otherwise, render the assert as usual.
+Here the **Assert** is being overridden, as the Assert needs to call additional functions, but only if the property is `consistency`. Otherwise, render the assert as usual.
 
 ## Updating Existing Files
 It is possible that an existing exercise does not match the canonical data. It is OK to update the exercise stub and/or the exercise example to follow the canonical data! An example might be that an exercise is named SumOfMultiples, but the SumOfMultiples.cs and Example.cs files both use `Multiples` as the name of the class.
