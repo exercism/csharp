@@ -1,8 +1,8 @@
 # Test Generators
 
-Test generators allow tracks to generate tests automatically without having to write them ourselves. Each test generator reads from the exercise's `canonical data`, which defines the name of the test, its inputs, and outputs. You can read more about exercisms approach to test suites [here](https://github.com/exercism/docs/blob/master/language-tracks/exercises/anatomy/test-suites.md).
+Test generators allow tracks to generate tests automatically without having to write them ourselves. Each test generator reads from the exercise's `canonical data`, which defines the name of the test, its inputs, and outputs. You can read more about exercism's approach to test suites [here](https://github.com/exercism/docs/blob/master/language-tracks/exercises/anatomy/test-suites.md).
 
-Generating tests automatically removes any sort of user error when creating tests. We want the tests to be accurate with respect to its canonical data. Test generation also makes it much easier to keep tests up to date. As the canonical data changes, our tests will be automatically updated when the generator for that test is run.
+Generating tests automatically removes any sort of user error when creating tests. We want the tests to be accurate with respect to its canonical data. Test generation also makes it much easier to keep tests up to date. As the canonical data changes, the tests will be automatically updated when the generator for that test is run.
 
 An example of a canonical data file can be found [here](https://github.com/exercism/problem-specifications/blob/master/exercises/bob/canonical-data.json)
 
@@ -17,9 +17,9 @@ When looking through the canonical data and the generator code base, we use a lo
 - Expected - The expected value when running the test case.
 
 ## Adding A Simple Generator
-Adding a generator file is straightforward. Simply add a new file to the generators folder with the name of the exercise (in CamelCase), and extend the `Exercise` abstract class.
+Adding a test generator file is straightforward. Simply add a new file to the generators folder with the name of the exercise (in CamelCase), and extend the `Exercise` abstract class.
 
-An example of a simple generator would be the Bob exercise. The source is below, but you can freely view it on the repository [here](https://github.com/exercism/csharp/blob/master/generators/Exercises/Bob.cs).
+An example of a simple generator would be the Bob exercise. The source is below, but you can freely view it in the repository [here](https://github.com/exercism/csharp/blob/master/generators/Exercises/Bob.cs).
 
 ```csharp
 namespace Generators.Exercises
@@ -30,7 +30,7 @@ namespace Generators.Exercises
 }
 ```
 
-This is a fully working generator, no other code needs to be written. However, it's simplicity stems from the fact that the test suite and the program itself is relatively trivial.
+This is a fully working generator, no other code needs to be written. However, it's simplicity stems from the fact that the test suite and the program itself are relatively trivial.
 
 ## Adding A Complex Generator
 
@@ -51,7 +51,7 @@ protected override void UpdateCanonicalData(CanonicalData canonicalData)
   foreach (var canonicalDataCase in canonicalData.Cases)
   {
     var caseInputLessThanZero = (long)canonicalDataCase.Input["number"] < 0;
-    canonicalDataCase.ExceptionThrown = caseInputLessTanZero ? typeof(ArgumentException) : null;
+    canonicalDataCase.ExceptionThrown = caseInputLessThanZero ? typeof(ArgumentException) : null;
   }
 }
 ```
@@ -59,7 +59,7 @@ protected override void UpdateCanonicalData(CanonicalData canonicalData)
 ### HashSet\<string\> AddAdditionalNamespaces()
 Allows more namespaces to be added to the test suite. 
 
-The tests use `Xunit` so all tests will automatically include the `Xunit` namespace. However, more advanced tests will require additional namespaces.
+The tests use `Xunit` so all tests will automatically include the `Xunit` namespace. However, more advanced tests may require additional namespaces.
 
 ```csharp
 protected override HashSet<string> AddAdditionalNamespaces()
@@ -80,7 +80,7 @@ More advanced tests may need to leverage a `template`. A template allows you to 
 
 An example of this is the [RunLengthEncoding](https://github.com/exercism/csharp/blob/master/generators/Exercises/RunLengthEncoding.cs) test.
 
-Here the **Assert** is being overridden, as the Assert needs to call additional functions, but only if the property is `consistency`. Otherwise, render the assert as usual.
+Here the **Assert** is being overridden. The assert needs to call additional functions, but only if the property is `consistency`. Otherwise, render the assert as usual.
 
 ## Updating Existing Files
 It is possible that an existing exercise does not match the canonical data. It is OK to update the exercise stub and/or the exercise example to follow the canonical data! An example might be that an exercise is named SumOfMultiples, but the SumOfMultiples.cs and Example.cs files both use `Multiples` as the name of the class.
@@ -88,7 +88,7 @@ It is possible that an existing exercise does not match the canonical data. It i
 Also, if you find an issue with one of the existing generators or test suites simply open up the generator that you would like to update, make your changes, and then run the generators.
 
 ## Running The Generators
-This repository is coded against [.NET Core](https://www.microsoft.com/net/core). To run all of the generators all you need to do is run the following command in the generators directory:
+This repository is coded against [.NET Core](https://www.microsoft.com/net/core). To run the generators all you need to do is run the following command in the generators directory:
 
 `dotnet run`
 
