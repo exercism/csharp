@@ -13,14 +13,9 @@ namespace Generators.Exercises
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
                 if (canonicalDataCase.Property == "allergicTo")
-                {
                     canonicalDataCase.Property = "IsAllergicTo";
-                }
                 else if (canonicalDataCase.Property == "list")
-                { 
-                    canonicalDataCase.Expected = canonicalDataCase.Expected.ConvertToEnumerable<string>();
                     canonicalDataCase.UseVariableForExpected = true;
-                }
 
                 canonicalDataCase.ConstructorInput = new Dictionary<string, object>
                 {

@@ -11,7 +11,7 @@ namespace Generators.Exercises
             {
                 canonicalDataCase.Input = new Dictionary<string, object>
                 {
-                    ["input"] = canonicalDataCase.Input["basket"].ConvertToEnumerable<int>()
+                    ["input"] = canonicalDataCase.Input["basket"]
                 };
                 canonicalDataCase.UseVariablesForInput = true;
             }

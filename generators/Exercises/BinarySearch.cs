@@ -11,7 +11,7 @@ namespace Generators.Exercises
             {
                 canonicalDataCase.ConstructorInput = new Dictionary<string, object>
                 {
-                    ["array"] = canonicalDataCase.Input["array"].ConvertToEnumerable<int>()
+                    ["array"] = canonicalDataCase.Input["array"]
                 };
 
                 canonicalDataCase.UseVariablesForConstructorParameters = true;

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using Generators.Input;
+﻿using Generators.Input;
 
 namespace Generators.Exercises
 {
@@ -10,12 +8,12 @@ namespace Generators.Exercises
         {
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
-                var hasFactors = canonicalDataCase.Input["factors"].ConvertToEnumerable<long>().Any();
+                //var hasFactors = canonicalDataCase.Input["factors"].ConvertToEnumerable<long>().Any();
 
-                if (!hasFactors)
-                {
-                    canonicalDataCase.Input["factors"] = Enumerable.Empty<int>();
-                }
+                //if (!hasFactors)
+                //{
+                //    canonicalDataCase.Input["factors"] = Enumerable.Empty<int>();
+                //}
             }
         }
     }

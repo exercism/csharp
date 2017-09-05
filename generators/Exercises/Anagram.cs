@@ -13,8 +13,6 @@ namespace Generators.Exercises
                 {
                     ["subject"] = canonicalDataCase.Input["subject"]
                 };
-                canonicalDataCase.Input["candidates"] = canonicalDataCase.Input["candidates"].ConvertToEnumerable<string>();
-                canonicalDataCase.Expected = canonicalDataCase.Expected.ConvertToEnumerable<string>();
 
                 canonicalDataCase.UseVariablesForInput = true;
                 canonicalDataCase.UseVariableForExpected = true;

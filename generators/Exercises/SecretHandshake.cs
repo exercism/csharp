@@ -1,15 +1,6 @@
-﻿using Generators.Input;
-
-namespace Generators.Exercises
+﻿namespace Generators.Exercises
 {
     public class SecretHandshake : Exercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
-        {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-            {
-                canonicalDataCase.Expected = canonicalDataCase.Expected.ConvertToEnumerable<string>();
-            }
-        }
     }
 }
