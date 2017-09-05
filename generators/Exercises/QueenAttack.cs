@@ -68,7 +68,7 @@ Assert.{% if Expected %}True{% else %}False{% endif %}(QueenAttack.CanAttack(whi
 
         private static void SetCreatePropertyData(CanonicalDataCase canonicalDataCase)
         {
-            var validExpected = (long)canonicalDataCase.Expected >= 0;
+            var validExpected = canonicalDataCase.Expected >= 0;
 
             canonicalDataCase.UseVariableForTested = validExpected;
             canonicalDataCase.ExceptionThrown = validExpected ? null : typeof(ArgumentOutOfRangeException);
