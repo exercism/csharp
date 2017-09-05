@@ -23,10 +23,7 @@ namespace Generators.Input
         [JsonIgnore]
         public IDictionary<string, object> ConstructorInput
         {
-            get
-            {
-                return _constructorInput;
-            }
+            get => _constructorInput;
             set
             {
                 RemoveDuplicateInputEntries(value);
@@ -36,7 +33,12 @@ namespace Generators.Input
             }
         }
 
-        public object Expected { get; set; }
+        [JsonIgnore]
+        public object Expected
+        {
+            get => Properties["expected"];
+            set => Properties["expected"] = value;
+        }
 
         [JsonIgnore]
         public IDictionary<string, object> Properties { get; set; }
