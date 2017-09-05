@@ -6,7 +6,7 @@ using System;
 public class QueenAttackTest
 {
     [Fact]
-    public void Queen_with_a_valid_position()
+    public void Queen_with_a_valid_position_does_not_throw_exception()
     {
         var actual = QueenAttack.Create(2, 2);
     }
