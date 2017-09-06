@@ -50,10 +50,6 @@ namespace Generators.Output
             {
                 case string str when str.Contains("\n"):
                     return FormatMultiLineString(name, str);
-                case int[] ints when ints.Any():
-                    return FormatMultiLineEnumerable(ints.Select(x => x.ToString(CultureInfo.InvariantCulture)), name);
-                case string[] strings when strings.Any():
-                    return FormatMultiLineEnumerable(strings, name);
                 case IDictionary<char, int> dict:
                     return FormatMultiLineEnumerable(dict.Keys.Select((key, i) => $"[{Format(key)}] = {Format(dict[key])}" + (i < dict.Keys.Count - 1 ? "," : "")), name, "new Dictionary<char, int>");
                 case IDictionary<string, int> dict:

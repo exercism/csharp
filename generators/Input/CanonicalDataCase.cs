@@ -9,7 +9,7 @@ namespace Generators.Input
     [JsonConverter(typeof(CanonicalDataCaseJsonConverter))]
     public class CanonicalDataCase
     {
-        private IDictionary<string, object> _constructorInput;
+        private IDictionary<string, dynamic> _constructorInput;
 
         [Required]
         public string Description { get; set; }
@@ -18,10 +18,10 @@ namespace Generators.Input
         public string Property { get; set; }
 
         [JsonIgnore]
-        public IDictionary<string, object> Input { get; set; }
+        public IDictionary<string, dynamic> Input { get; set; }
 
         [JsonIgnore]
-        public IDictionary<string, object> ConstructorInput
+        public IDictionary<string, dynamic> ConstructorInput
         {
             get => _constructorInput;
             set
@@ -34,14 +34,14 @@ namespace Generators.Input
         }
 
         [JsonIgnore]
-        public object Expected
+        public dynamic Expected
         {
             get => Properties["expected"];
             set => Properties["expected"] = value;
         }
 
         [JsonIgnore]
-        public IDictionary<string, object> Properties { get; set; }
+        public IDictionary<string, dynamic> Properties { get; set; }
 
         [JsonIgnore]
         public bool UseVariablesForInput { get; set; }
@@ -61,7 +61,7 @@ namespace Generators.Input
         [JsonIgnore]
         public Type ExceptionThrown { get; set; }
 
-        private void RemoveDuplicateInputEntries(IDictionary<string, object> constructorInputDictionary)
+        private void RemoveDuplicateInputEntries(IDictionary<string, dynamic> constructorInputDictionary)
         {
             foreach (var key in constructorInputDictionary.Keys)
             {
@@ -72,7 +72,7 @@ namespace Generators.Input
             }
         }
 
-        private void UpdateInstanceType(IDictionary<string, object> constructorInputDictionary)
+        private void UpdateInstanceType(IDictionary<string, dynamic> constructorInputDictionary)
         {
             if (constructorInputDictionary.Keys.Any())
             {

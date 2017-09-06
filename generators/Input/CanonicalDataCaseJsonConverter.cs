@@ -19,9 +19,9 @@ namespace Generators.Input
             var canonicalDataCase = new CanonicalDataCase();
             serializer.Populate(new JTokenReader(jToken), canonicalDataCase);
 
-            canonicalDataCase.Properties = jToken.ToObject<IDictionary<string, object>>();
+            canonicalDataCase.Properties = jToken.ToObject<IDictionary<string, dynamic>>();
             canonicalDataCase.Input = GetInputProperty(jToken);
-            canonicalDataCase.ConstructorInput = new Dictionary<string, object>();
+            canonicalDataCase.ConstructorInput = new Dictionary<string, dynamic>();
 
             NormalizeJsonValues(canonicalDataCase.Properties);
             NormalizeJsonValues(canonicalDataCase.Input);
@@ -29,7 +29,7 @@ namespace Generators.Input
             return canonicalDataCase;
         }
 
-        private static void NormalizeJsonValues(IDictionary<string, object> properties)
+        private static void NormalizeJsonValues(IDictionary<string, dynamic> properties)
         {
             for (var i = 0; i < properties.Count; i++)
             {
@@ -39,6 +39,10 @@ namespace Generators.Input
                 {
                     // We can't determine the type of the array if the array is empty
                     if (!jArray.Any())
+                        continue;
+
+                    // We can only convert when all values have the same type
+                    if (jArray.Select(x => x.Type).Distinct().Count() != 1)
                         continue;
 
                     switch (jArray[0].Type)
@@ -83,9 +87,9 @@ namespace Generators.Input
             }
         }
 
-        private static IDictionary<string, object> GetInputProperty(JToken jToken)
+        private static IDictionary<string, dynamic> GetInputProperty(JToken jToken)
         {
-            var allProperties = jToken.ToObject<IDictionary<string, object>>();
+            var allProperties = jToken.ToObject<IDictionary<string, dynamic>>();
 
             foreach (var nonInputProperty in NonInputProperties)
                 allProperties.Remove(nonInputProperty);

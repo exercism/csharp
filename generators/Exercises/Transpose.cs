@@ -12,9 +12,9 @@ namespace Generators.Exercises
                 canonicalDataCase.Property = "String";
                 canonicalDataCase.Input = new Dictionary<string, object>
                 {
-                    ["input"] = canonicalDataCase.Input["input"].ConvertMultiLineString()
+                    ["input"] = Convert.ToMultiLineString(canonicalDataCase.Input["input"])
                 };
-                canonicalDataCase.Expected = canonicalDataCase.Expected.ConvertMultiLineString();
+                canonicalDataCase.Expected = Convert.ToMultiLineString(canonicalDataCase.Expected);
                 canonicalDataCase.UseVariablesForInput = true;
                 canonicalDataCase.UseVariableForExpected = true;
             }
