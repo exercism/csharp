@@ -2,6 +2,6 @@ class HelloWorld
 {
     string Hello()
     {
-        return "Hello, world!";
+        return "Hello, World!";
     }
 }
