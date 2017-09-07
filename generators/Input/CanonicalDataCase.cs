@@ -36,7 +36,7 @@ namespace Generators.Input
             }
         }
 
-        public object Expected { get; set; }
+        public dynamic Expected { get; set; }
 
         [JsonIgnore]
         public IDictionary<string, object> Properties { get; set; }
