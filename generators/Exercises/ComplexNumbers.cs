@@ -32,6 +32,7 @@ namespace Generators.Exercises
                     ["real"] = ConvertMathDouble(canonicalDataCase.Input[constructorParamName][0]),
                     ["imaginary"] = ConvertMathDouble(canonicalDataCase.Input[constructorParamName][1])
                 };
+                canonicalDataCase.TestedMethodType = TestedMethodType.Instance;
 
                 canonicalDataCase.Input.Remove(constructorParamName);
 

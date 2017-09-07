@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Generators.Input;
 using Generators.Output;
 using Newtonsoft.Json.Linq;
@@ -17,10 +16,7 @@ namespace Generators.Exercises
                 else if (canonicalDataCase.Property == "list")
                     canonicalDataCase.UseVariableForExpected = true;
 
-                canonicalDataCase.ConstructorInput = new Dictionary<string, object>
-                {
-                    ["score"] = canonicalDataCase.Properties["score"]
-                };
+                canonicalDataCase.AddConstructorParameter("score");
             }
         }
 

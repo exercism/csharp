@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
-using System.Linq;
 
 namespace Generators.Input
 {
     [JsonConverter(typeof(CanonicalDataCaseJsonConverter))]
     public class CanonicalDataCase
     {
-        private IDictionary<string, dynamic> _constructorInput;
-
         [Required]
         public string Description { get; set; }
 
@@ -21,17 +18,7 @@ namespace Generators.Input
         public IDictionary<string, dynamic> Input { get; set; }
 
         [JsonIgnore]
-        public IDictionary<string, dynamic> ConstructorInput
-        {
-            get => _constructorInput;
-            set
-            {
-                RemoveDuplicateInputEntries(value);
-                UpdateInstanceType(value);
-
-                _constructorInput = value;
-            }
-        }
+        public IDictionary<string, dynamic> ConstructorInput { get; set; }
 
         [JsonIgnore]
         public dynamic Expected
@@ -61,23 +48,14 @@ namespace Generators.Input
         [JsonIgnore]
         public Type ExceptionThrown { get; set; }
 
-        private void RemoveDuplicateInputEntries(IDictionary<string, dynamic> constructorInputDictionary)
+        public void AddConstructorParameter(string parameterName)
         {
-            foreach (var key in constructorInputDictionary.Keys)
-            {
-                if (Input.ContainsKey(key))
-                {
-                    Input.Remove(key);
-                }
-            }
-        }
+            ConstructorInput[parameterName] = Properties[parameterName];
 
-        private void UpdateInstanceType(IDictionary<string, dynamic> constructorInputDictionary)
-        {
-            if (constructorInputDictionary.Keys.Any())
-            {
-                TestedMethodType = TestedMethodType.Instance;
-            }
+            if (Input.ContainsKey(parameterName))
+                Input.Remove(parameterName);
+
+            TestedMethodType = TestedMethodType.Instance;
         }
     }
 }
