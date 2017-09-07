@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
+  <PropertyGroup>    
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
