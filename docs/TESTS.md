@@ -1,21 +1,9 @@
 ## Running Tests
 
-To run the tests, you first need to restore the project's dependencies using the following command:
-
-```bash
-dotnet restore
-```
-
-You can then run the tests by executing the following command:
+To run the tests, execute the following command:
 
 ```bash
 dotnet test
-```
-
-Note: if the .NET CLI fails to detect your latest source code changes, please run the following command before running `dotnet test`:
-
-```bash
-dotnet clean
 ```
 
 ## Solving the exercise
@@ -30,10 +18,4 @@ You should be able to solve most exercises without using any external packages. 
 
 ```bash
 dotnet add package <package-name>
-```
-
-Once the package has been added, you need to update the project's dependencies again to use it in your project:
-
-```bash
-dotnet restore
 ```
