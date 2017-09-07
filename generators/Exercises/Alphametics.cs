@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Generators.Input;
-using Newtonsoft.Json.Linq;
 
 namespace Generators.Exercises
 {
@@ -17,16 +16,10 @@ namespace Generators.Exercises
                 if (canonicalDataCase.Expected == null)
                     canonicalDataCase.ExceptionThrown = typeof(ArgumentException);
                 else
-                    canonicalDataCase.Expected = ((JObject)canonicalDataCase.Expected).ToObject<Dictionary<char, int>>();
+                    canonicalDataCase.Expected = canonicalDataCase.Expected.ToObject<Dictionary<char, int>>();
             }
         }
 
-        protected override HashSet<string> AddAdditionalNamespaces()
-        {
-            return new HashSet<string>()
-            {
-                typeof(Dictionary<char, int>).Namespace
-            };
-        }
+        protected override HashSet<string> AddAdditionalNamespaces() => new HashSet<string> { typeof(Dictionary<char, int>).Namespace };
     }
 }
