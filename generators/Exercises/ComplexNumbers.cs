@@ -20,9 +20,7 @@ namespace Generators.Exercises
             {
                 // Process expected
                 if (IsComplexNumber(canonicalDataCase.Expected))
-                {
                     canonicalDataCase.UseVariableForExpected = true;
-                }
 
                 canonicalDataCase.Expected = ConvertToType(canonicalDataCase.Expected);
 
@@ -41,9 +39,7 @@ namespace Generators.Exercises
                 var keys = canonicalDataCase.Input.Keys.ToArray();
 
                 foreach (var key in keys)
-                {
                     canonicalDataCase.Input[key] = ConvertToType(canonicalDataCase.Input[key]);
-                }
             }
         }
 
@@ -70,12 +66,12 @@ namespace Generators.Exercises
         private static object ConvertToType(dynamic rawValue)
         {
             if (IsComplexNumber(rawValue))
-                return new UnescapedValue($"new ComplexNumber({ConvertMathDouble(rawValue[0])}, {rawValue[1]})");
+                return new UnescapedValue($"new ComplexNumber({ValueFormatter.Format(ConvertMathDouble(rawValue[0]))}, {ValueFormatter.Format(ConvertMathDouble(rawValue[1]))})");
 
             return rawValue;
         }
 
-        private static bool IsComplexNumber(object rawValue) => rawValue is JArray;
+        private static bool IsComplexNumber(object rawValue) => rawValue is int[] || rawValue is double[] || rawValue is float[] || rawValue is JArray;
 
         private static object ConvertMathDouble(dynamic value)
         {
@@ -86,7 +82,7 @@ namespace Generators.Exercises
                 case "pi":
                     return new UnescapedValue("Math.PI");
                 default:
-                    return (double)value;
+                    return double.Parse(value.ToString());
             }
         }
     }
