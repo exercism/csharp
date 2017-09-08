@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Generators.Input;
+﻿using Generators.Input;
 
 namespace Generators.Exercises
 {
@@ -9,10 +8,7 @@ namespace Generators.Exercises
         {
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
-                canonicalDataCase.Input = new Dictionary<string, object>
-                {
-                    ["input"] = canonicalDataCase.Input["basket"]
-                };
+                canonicalDataCase.SetInputParameters("basket");
                 canonicalDataCase.UseVariablesForInput = true;
             }
         }

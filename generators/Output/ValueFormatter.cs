@@ -41,8 +41,8 @@ namespace Generators.Output
             }
         }
 
-        public static string[] FormatVariables(IDictionary<string, object> dict) 
-            => dict.Keys.SelectMany((key, i) => FormatVariable(dict[key], key.ToVariableName())).ToArray();
+        public static string[] FormatVariables(IReadOnlyDictionary<string, object> dict) 
+            => dict.Keys.SelectMany(key => FormatVariable(dict[key], key.ToVariableName())).ToArray();
 
         public static string[] FormatVariable(object val, string name)
         {

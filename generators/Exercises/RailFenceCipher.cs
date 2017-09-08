@@ -10,7 +10,7 @@ namespace Generators.Exercises
             {
                 canonicalDataCase.UseVariablesForInput = true;
                 canonicalDataCase.UseVariableForExpected = true;
-                canonicalDataCase.AddConstructorParameter("rails");
+                canonicalDataCase.SetConstructorInputParameters("rails");
             }
         }
     }

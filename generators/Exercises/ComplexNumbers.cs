@@ -27,22 +27,22 @@ namespace Generators.Exercises
                 // Process constructor param
                 var constructorParamName = canonicalDataCase.Input.ContainsKey("input") ? "input" : "z1";
 
-                canonicalDataCase.ConstructorInput = new Dictionary<string, object>
-                {
-                    ["real"] = ConvertMathDouble(canonicalDataCase.Input[constructorParamName][0]),
-                    ["imaginary"] = ConvertMathDouble(canonicalDataCase.Input[constructorParamName][1])
-                };
-                canonicalDataCase.TestedMethodType = TestedMethodType.Instance;
+                canonicalDataCase.Properties["real"] = ConvertMathDouble(canonicalDataCase.Input[constructorParamName][0]);
+                canonicalDataCase.Properties["imaginary"] = ConvertMathDouble(canonicalDataCase.Input[constructorParamName][1]);
 
-                canonicalDataCase.Input.Remove(constructorParamName);
+                canonicalDataCase.SetConstructorInputParameters("real", "imaginary");
+                canonicalDataCase.SetInputParameters(GetInputParameters(canonicalDataCase, constructorParamName));
 
                 // Process function param
                 var keys = canonicalDataCase.Input.Keys.ToArray();
 
                 foreach (var key in keys)
-                    canonicalDataCase.Input[key] = ConvertToType(canonicalDataCase.Input[key]);
+                    canonicalDataCase.Properties[key] = ConvertToType(canonicalDataCase.Properties[key]);
             }
         }
+
+        private static string[] GetInputParameters(CanonicalDataCase canonicalDataCase, string constructorParamName) 
+            => canonicalDataCase.Input.Keys.Where(x => x != constructorParamName).ToArray();
 
         protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {

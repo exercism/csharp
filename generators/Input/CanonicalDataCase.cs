@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using Newtonsoft.Json;
 
 namespace Generators.Input
@@ -8,6 +9,9 @@ namespace Generators.Input
     [JsonConverter(typeof(CanonicalDataCaseJsonConverter))]
     public class CanonicalDataCase
     {
+        private readonly HashSet<string> _inputParameters = new HashSet<string>();
+        private readonly HashSet<string> _constructorInputParameters = new HashSet<string>();
+
         [Required]
         public string Description { get; set; }
 
@@ -15,10 +19,15 @@ namespace Generators.Input
         public string Property { get; set; }
 
         [JsonIgnore]
-        public IDictionary<string, dynamic> Input { get; set; }
+        public IReadOnlyDictionary<string, dynamic> Input
+            => _inputParameters.ToDictionary(parameter => parameter, parameter => Properties[parameter]);
 
         [JsonIgnore]
-        public IDictionary<string, dynamic> ConstructorInput { get; set; }
+        public IReadOnlyDictionary<string, dynamic> ConstructorInput 
+            => _constructorInputParameters.ToDictionary(parameter => parameter, parameter => Properties[parameter]);
+
+        [JsonIgnore]
+        public IDictionary<string, dynamic> Properties { get; set; }
 
         [JsonIgnore]
         public dynamic Expected
@@ -26,9 +35,6 @@ namespace Generators.Input
             get => Properties["expected"];
             set => Properties["expected"] = value;
         }
-
-        [JsonIgnore]
-        public IDictionary<string, dynamic> Properties { get; set; }
 
         [JsonIgnore]
         public bool UseVariablesForInput { get; set; }
@@ -48,12 +54,20 @@ namespace Generators.Input
         [JsonIgnore]
         public Type ExceptionThrown { get; set; }
 
-        public void AddConstructorParameter(string parameterName)
+        public void SetInputParameters(params string[] properties)
         {
-            ConstructorInput[parameterName] = Properties[parameterName];
+            _inputParameters.Clear();
+            _inputParameters.UnionWith(properties);
 
-            if (Input.ContainsKey(parameterName))
-                Input.Remove(parameterName);
+            _constructorInputParameters.ExceptWith(properties);
+        }
+
+        public void SetConstructorInputParameters(params string[] properties)
+        {
+            _constructorInputParameters.Clear();
+            _constructorInputParameters.UnionWith(properties);
+            
+            _inputParameters.ExceptWith(properties);
 
             TestedMethodType = TestedMethodType.Instance;
         }

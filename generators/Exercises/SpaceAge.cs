@@ -9,8 +9,8 @@ namespace Generators.Exercises
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
                 canonicalDataCase.Property = $"On_{canonicalDataCase.Input["planet"]}";
-                canonicalDataCase.Input.Remove("planet");
-                canonicalDataCase.AddConstructorParameter("seconds");
+                canonicalDataCase.SetInputParameters();
+                canonicalDataCase.SetConstructorInputParameters("seconds");
             }
         }
     }

@@ -75,11 +75,10 @@ Assert.{% if Expected %}True{% else %}False{% endif %}(QueenAttack.CanAttack(whi
             canonicalDataCase.Description = validExpected ? canonicalDataCase.Description + " does not throw exception" : canonicalDataCase.Description;
 
             var coordinates = GetCoordinatesFromPosition(canonicalDataCase.Input["queen"]);
-            canonicalDataCase.Input = new Dictionary<string, object>
-            {
-                ["X"] = coordinates.Item1,
-                ["Y"] = coordinates.Item2
-            };
+            canonicalDataCase.Properties["X"] = coordinates.Item1;
+            canonicalDataCase.Properties["Y"] = coordinates.Item2;
+            
+            canonicalDataCase.SetInputParameters("X", "Y");
         }
     }
 }

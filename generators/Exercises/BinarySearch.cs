@@ -9,7 +9,7 @@ namespace Generators.Exercises
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
                 canonicalDataCase.UseVariablesForConstructorParameters = true;
-                canonicalDataCase.AddConstructorParameter("array");
+                canonicalDataCase.SetConstructorInputParameters("array");
             }
         }
     }

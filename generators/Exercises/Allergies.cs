@@ -16,7 +16,7 @@ namespace Generators.Exercises
                 else if (canonicalDataCase.Property == "list")
                     canonicalDataCase.UseVariableForExpected = true;
 
-                canonicalDataCase.AddConstructorParameter("score");
+                canonicalDataCase.SetConstructorInputParameters("score");
             }
         }
 
