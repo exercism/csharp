@@ -1,6 +1,6 @@
 ﻿using Generators.Input;
-using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Generators.Exercises
 {
@@ -12,16 +12,13 @@ namespace Generators.Exercises
             {
                 canonicalDataCase.UseVariableForExpected = true;
                 canonicalDataCase.UseVariableForTested = true;
-                canonicalDataCase.Expected = ((JObject)canonicalDataCase.Expected).ToObject<Dictionary<string, int>>();
+                canonicalDataCase.Expected = ConvertExpected(canonicalDataCase.Expected);
             }
         }
 
-        protected override HashSet<string> AddAdditionalNamespaces()
-        {
-            return new HashSet<string>()
-            {
-                typeof(Dictionary<string, int>).Namespace
-            };
-        }
+        private static dynamic ConvertExpected(dynamic expected)
+            => ((Dictionary<string, object>)expected).ToDictionary(kv => kv.Key, kv => int.Parse(kv.Value.ToString()));
+
+        protected override HashSet<string> AddAdditionalNamespaces() => new HashSet<string> { typeof(Dictionary<string, int>).Namespace };
     }
 }

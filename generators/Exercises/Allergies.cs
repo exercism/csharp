@@ -1,7 +1,5 @@
-﻿using System.Linq;
-using Generators.Input;
+﻿using Generators.Input;
 using Generators.Output;
-using Newtonsoft.Json.Linq;
 
 namespace Generators.Exercises
 {
@@ -32,17 +30,10 @@ namespace Generators.Exercises
         {
             const string template =
                 @"{%- for allergy in Allergies -%}
-Assert.{% if allergy.Result %}True{% else %}False{% endif %}(sut.IsAllergicTo(""{{ allergy.Substance }}""));
+Assert.{% if allergy.result %}True{% else %}False{% endif %}(sut.IsAllergicTo(""{{ allergy.substance }}""));
 {%- endfor -%}";
-
-            var templateParameters = new
-            {
-                Allergies = ((JArray) testMethodBody.CanonicalDataCase.Expected)
-                .Children<JObject>()
-                .Select(x => new {Result = x["result"].Value<bool>(), Substance = x["substance"].Value<string>()})
-                .ToArray()
-            };
-
+            
+            var templateParameters = new { Allergies = testMethodBody.CanonicalDataCase.Expected };
             return TemplateRenderer.RenderInline(template, templateParameters);
         }
     }

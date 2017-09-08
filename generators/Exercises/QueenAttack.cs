@@ -1,8 +1,7 @@
 ﻿using Generators.Input;
 using Generators.Output;
-using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
+using System.Linq;
 
 namespace Generators.Exercises
 {
@@ -10,26 +9,17 @@ namespace Generators.Exercises
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-            {
-                if (canonicalDataCase.Property == "create")
-                {
-                    SetCreatePropertyData(canonicalDataCase);
-                }
-            }
+            foreach (var canonicalDataCase in canonicalData.Cases.Where(canonicalDataCase => canonicalDataCase.Property == "create"))
+                SetCreatePropertyData(canonicalDataCase);
         }
 
         protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             if (testMethodBody.CanonicalDataCase.Property == "canAttack")
-            {
                 return RenderCanAttackAssert(testMethodBody);
-            }
 
             if (testMethodBody.UseVariableForTested)
-            {
                 return string.Empty;
-            }
 
             return base.RenderTestMethodBodyAssert(testMethodBody);
         }
@@ -56,9 +46,9 @@ Assert.{% if Expected %}True{% else %}False{% endif %}(QueenAttack.CanAttack(whi
             return TemplateRenderer.RenderInline(template, templateParameters);
         }
 
-        private static Tuple<int, int> GetCoordinatesFromPosition(object rawPosition)
+        private static Tuple<int, int> GetCoordinatesFromPosition(dynamic expected)
         {
-            var coordinates = ((JObject)rawPosition).ToObject<Dictionary<string, string>>()["position"].Split(',');
+            var coordinates = expected["position"].Split(',');
 
             var positionX = int.Parse(coordinates[0].TrimStart('('));
             var positionY = int.Parse(coordinates[1].TrimEnd(')'));
