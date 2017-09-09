@@ -41,8 +41,8 @@ namespace Generators.Output
             }
         }
 
-        public static string[] FormatVariables(IDictionary<string, object> dict) 
-            => dict.Keys.SelectMany((key, i) => FormatVariable(dict[key], key.ToVariableName())).ToArray();
+        public static string[] FormatVariables(IReadOnlyDictionary<string, object> dict) 
+            => dict.Keys.SelectMany(key => FormatVariable(dict[key], key.ToVariableName())).ToArray();
 
         public static string[] FormatVariable(object val, string name)
         {
@@ -50,10 +50,6 @@ namespace Generators.Output
             {
                 case string str when str.Contains("\n"):
                     return FormatMultiLineString(name, str);
-                case int[] ints when ints.Any():
-                    return FormatMultiLineEnumerable(ints.Select(x => x.ToString(CultureInfo.InvariantCulture)), name);
-                case string[] strings when strings.Any():
-                    return FormatMultiLineEnumerable(strings, name);
                 case IDictionary<char, int> dict:
                     return FormatMultiLineEnumerable(dict.Keys.Select((key, i) => $"[{Format(key)}] = {Format(dict[key])}" + (i < dict.Keys.Count - 1 ? "," : "")), name, "new Dictionary<char, int>");
                 case IDictionary<string, int> dict:

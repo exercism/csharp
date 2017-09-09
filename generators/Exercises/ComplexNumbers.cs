@@ -20,37 +20,29 @@ namespace Generators.Exercises
             {
                 // Process expected
                 if (IsComplexNumber(canonicalDataCase.Expected))
-                {
                     canonicalDataCase.UseVariableForExpected = true;
-                }
 
                 canonicalDataCase.Expected = ConvertToType(canonicalDataCase.Expected);
 
                 // Process constructor param
                 var constructorParamName = canonicalDataCase.Input.ContainsKey("input") ? "input" : "z1";
 
-                var constructorParamValues = canonicalDataCase.Input[constructorParamName]
-                    .ConvertToEnumerable<string>()
-                    .Select(v => ConvertMathDouble(v))
-                    .ToArray();
+                canonicalDataCase.Properties["real"] = ConvertMathDouble(canonicalDataCase.Input[constructorParamName][0]);
+                canonicalDataCase.Properties["imaginary"] = ConvertMathDouble(canonicalDataCase.Input[constructorParamName][1]);
 
-                canonicalDataCase.ConstructorInput = new Dictionary<string, object>
-                {
-                    ["real"] = constructorParamValues[0],
-                    ["imaginary"] = constructorParamValues[1]
-                };
-
-                canonicalDataCase.Input.Remove(constructorParamName);
+                canonicalDataCase.SetConstructorInputParameters("real", "imaginary");
+                canonicalDataCase.SetInputParameters(GetInputParameters(canonicalDataCase, constructorParamName));
 
                 // Process function param
                 var keys = canonicalDataCase.Input.Keys.ToArray();
 
                 foreach (var key in keys)
-                {
-                    canonicalDataCase.Input[key] = ConvertToType(canonicalDataCase.Input[key]);
-                }
+                    canonicalDataCase.Properties[key] = ConvertToType(canonicalDataCase.Properties[key]);
             }
         }
+
+        private static string[] GetInputParameters(CanonicalDataCase canonicalDataCase, string constructorParamName) 
+            => canonicalDataCase.Input.Keys.Where(x => x != constructorParamName).ToArray();
 
         protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
@@ -62,55 +54,36 @@ namespace Generators.Exercises
 
         private static string RenderComplexNumberAssert(TestMethodBody testMethodBody)
         {
-            var template = "Assert.Equal({{ ExpectedParameter }}.Real(), {{ TestedValue }}.Real(), 15);\r\nAssert.Equal({{ ExpectedParameter }}.Imaginary(), {{ TestedValue }}.Imaginary(), 15);";
+            const string template = "Assert.Equal({{ ExpectedParameter }}.Real(), {{ TestedValue }}.Real(), precision: 15);\r\nAssert.Equal({{ ExpectedParameter }}.Imaginary(), {{ TestedValue }}.Imaginary(), precision: 15);";
 
             return TemplateRenderer.RenderInline(template, testMethodBody.AssertTemplateParameters);
         }
 
-        protected override HashSet<string> AddAdditionalNamespaces()
+        protected override HashSet<string> AddAdditionalNamespaces() => new HashSet<string>
         {
-            return new HashSet<string>()
-            {
-                typeof(Math).Namespace
-            };
-        }
+            typeof(Math).Namespace
+        };
 
-        private object ConvertToType(object rawValue)
+        private static object ConvertToType(dynamic rawValue)
         {
             if (IsComplexNumber(rawValue))
-            {
-                var array = rawValue
-                    .ConvertToEnumerable<string>()
-                    .Select(rv => ConvertToType(rv))
-                    .ToArray();
+                return new UnescapedValue($"new ComplexNumber({ValueFormatter.Format(ConvertMathDouble(rawValue[0]))}, {ValueFormatter.Format(ConvertMathDouble(rawValue[1]))})");
 
-                return new UnescapedValue($"new ComplexNumber({array[0]}, {array[1]})");
-            }
-            else if (rawValue is string)
-            {
-                return ConvertMathDouble((string)rawValue);
-            }
-            else
-            {
-                return rawValue;
-            }
+            return rawValue;
         }
 
-        private bool IsComplexNumber(object rawValue)
-        {
-            return rawValue is JArray;
-        }
+        private static bool IsComplexNumber(object rawValue) => rawValue is int[] || rawValue is double[] || rawValue is float[] || rawValue is JArray;
 
-        private object ConvertMathDouble(string value)
+        private static object ConvertMathDouble(dynamic value)
         {
-            switch (value)
+            switch (value.ToString())
             {
                 case "e":
                     return new UnescapedValue("Math.E");
                 case "pi":
                     return new UnescapedValue("Math.PI");
                 default:
-                    return double.Parse(value);
+                    return double.Parse(value.ToString());
             }
         }
     }

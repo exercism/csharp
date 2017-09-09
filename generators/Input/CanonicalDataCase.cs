@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Newtonsoft.Json;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace Generators.Input
 {
     [JsonConverter(typeof(CanonicalDataCaseJsonConverter))]
     public class CanonicalDataCase
     {
-        private IDictionary<string, object> _constructorInput;
+        private readonly HashSet<string> _inputParameters = new HashSet<string>();
+        private readonly HashSet<string> _constructorInputParameters = new HashSet<string>();
 
         [Required]
         public string Description { get; set; }
@@ -18,28 +19,22 @@ namespace Generators.Input
         public string Property { get; set; }
 
         [JsonIgnore]
-        public IDictionary<string, object> Input { get; set; }
+        public IReadOnlyDictionary<string, dynamic> Input
+            => _inputParameters.ToDictionary(parameter => parameter, parameter => Properties[parameter]);
 
         [JsonIgnore]
-        public IDictionary<string, object> ConstructorInput
+        public IReadOnlyDictionary<string, dynamic> ConstructorInput 
+            => _constructorInputParameters.ToDictionary(parameter => parameter, parameter => Properties[parameter]);
+
+        [JsonIgnore]
+        public IDictionary<string, dynamic> Properties { get; set; }
+
+        [JsonIgnore]
+        public dynamic Expected
         {
-            get
-            {
-                return _constructorInput;
-            }
-            set
-            {
-                RemoveDuplicateInputEntries(value);
-                UpdateInstanceType(value);
-
-                _constructorInput = value;
-            }
+            get => Properties["expected"];
+            set => Properties["expected"] = value;
         }
-
-        public object Expected { get; set; }
-
-        [JsonIgnore]
-        public IDictionary<string, object> Properties { get; set; }
 
         [JsonIgnore]
         public bool UseVariablesForInput { get; set; }
@@ -59,23 +54,22 @@ namespace Generators.Input
         [JsonIgnore]
         public Type ExceptionThrown { get; set; }
 
-        private void RemoveDuplicateInputEntries(IDictionary<string, object> constructorInputDictionary)
+        public void SetInputParameters(params string[] properties)
         {
-            foreach (var key in constructorInputDictionary.Keys)
-            {
-                if (Input.ContainsKey(key))
-                {
-                    Input.Remove(key);
-                }
-            }
+            _inputParameters.Clear();
+            _inputParameters.UnionWith(properties);
+
+            _constructorInputParameters.ExceptWith(properties);
         }
 
-        private void UpdateInstanceType(IDictionary<string, object> constructorInputDictionary)
+        public void SetConstructorInputParameters(params string[] properties)
         {
-            if (constructorInputDictionary.Keys.Any())
-            {
-                TestedMethodType = TestedMethodType.Instance;
-            }
+            _constructorInputParameters.Clear();
+            _constructorInputParameters.UnionWith(properties);
+            
+            _inputParameters.ExceptWith(properties);
+
+            TestedMethodType = TestedMethodType.Instance;
         }
     }
 }

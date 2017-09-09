@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Generators.Input;
+﻿using Generators.Input;
 using Generators.Output;
-using Newtonsoft.Json.Linq;
 
 namespace Generators.Exercises
 {
@@ -13,19 +10,11 @@ namespace Generators.Exercises
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
                 if (canonicalDataCase.Property == "allergicTo")
-                {
                     canonicalDataCase.Property = "IsAllergicTo";
-                }
                 else if (canonicalDataCase.Property == "list")
-                { 
-                    canonicalDataCase.Expected = canonicalDataCase.Expected.ConvertToEnumerable<string>();
                     canonicalDataCase.UseVariableForExpected = true;
-                }
 
-                canonicalDataCase.ConstructorInput = new Dictionary<string, object>
-                {
-                    ["score"] = canonicalDataCase.Properties["score"]
-                };
+                canonicalDataCase.SetConstructorInputParameters("score");
             }
         }
 
@@ -41,17 +30,10 @@ namespace Generators.Exercises
         {
             const string template =
                 @"{%- for allergy in Allergies -%}
-Assert.{% if allergy.Result %}True{% else %}False{% endif %}(sut.IsAllergicTo(""{{ allergy.Substance }}""));
+Assert.{% if allergy.result %}True{% else %}False{% endif %}(sut.IsAllergicTo(""{{ allergy.substance }}""));
 {%- endfor -%}";
-
-            var templateParameters = new
-            {
-                Allergies = ((JArray) testMethodBody.CanonicalDataCase.Expected)
-                .Children<JObject>()
-                .Select(x => new {Result = x["result"].Value<bool>(), Substance = x["substance"].Value<string>()})
-                .ToArray()
-            };
-
+            
+            var templateParameters = new { Allergies = testMethodBody.CanonicalDataCase.Expected };
             return TemplateRenderer.RenderInline(template, templateParameters);
         }
     }

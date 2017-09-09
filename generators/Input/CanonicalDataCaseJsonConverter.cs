@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -7,7 +8,7 @@ namespace Generators.Input
 {
     public class CanonicalDataCaseJsonConverter : JsonConverter
     {
-        private static readonly string[] NonInputProperties = {"description", "property", "expected", "comments"};
+        private static readonly string[] NonInputProperties = { "description", "property", "expected", "comments" };
 
         public override bool CanConvert(Type objectType) => typeof(CanonicalDataCase) == objectType;
 
@@ -17,23 +18,14 @@ namespace Generators.Input
 
             var canonicalDataCase = new CanonicalDataCase();
             serializer.Populate(new JTokenReader(jToken), canonicalDataCase);
-
-            canonicalDataCase.Properties = jToken.ToObject<IDictionary<string, object>>();
-            canonicalDataCase.Input = GetInputProperty(jToken);
-            canonicalDataCase.ConstructorInput = new Dictionary<string, object>();
-
+            
+            canonicalDataCase.Properties = CanonicalDataCaseJson.ToDictionary(jToken);
+            canonicalDataCase.SetInputParameters(GetInputProperties(canonicalDataCase.Properties));
+            
             return canonicalDataCase;
         }
 
-        private static IDictionary<string, object> GetInputProperty(JToken jToken)
-        {
-            var allProperties = jToken.ToObject<IDictionary<string, object>>();
-
-            foreach (var nonInputProperty in NonInputProperties)
-                allProperties.Remove(nonInputProperty);
-
-            return allProperties;
-        }
+        private static string[] GetInputProperties(IDictionary<string, dynamic> properties) => properties.Keys.Except(NonInputProperties).ToArray();
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer) => throw new NotImplementedException();
     }

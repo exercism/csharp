@@ -11,24 +11,16 @@ namespace Generators.Exercises
         {
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
-                // Update input
-                var input = DateTime.Parse(canonicalDataCase.Input["input"].ToString());
-                canonicalDataCase.Input["input"] = new UnescapedValue(FormatDateTime(input));
-
-                // Update expected
+                var input = DateTime.Parse(canonicalDataCase.Properties["input"].ToString());
+                canonicalDataCase.Properties["input"] = new UnescapedValue(FormatDateTime(input));
+                
                 canonicalDataCase.Expected = new UnescapedValue(FormatDateTime((DateTime)canonicalDataCase.Expected));                
             }
         }
 
-        protected override HashSet<string> AddAdditionalNamespaces()
-        {
-            return new HashSet<string>()
-            {
-                typeof(DateTime).Namespace
-            };
-        }
+        protected override HashSet<string> AddAdditionalNamespaces() => new HashSet<string> { typeof(DateTime).Namespace };
 
-        private string FormatDateTime(DateTime dateTime)
+        private static string FormatDateTime(DateTime dateTime)
         {
             return dateTime.Hour == 0 && dateTime.Minute == 0 && dateTime.Second == 0
                 ? $"new DateTime({dateTime.Year}, {dateTime.Month}, {dateTime.Day})"

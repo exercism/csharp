@@ -10,9 +10,6 @@ namespace Generators.Exercises
             {
                 canonicalDataCase.UseVariableForExpected = true;
                 canonicalDataCase.UseVariableForTested = true;
-
-                canonicalDataCase.Expected = canonicalDataCase.Expected.ConvertToEnumerable<string>();
-                canonicalDataCase.Input["input"] = canonicalDataCase.Input["input"].ConvertToEnumerable<string>();
             }
         }
     }

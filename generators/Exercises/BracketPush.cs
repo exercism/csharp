@@ -8,7 +8,7 @@ namespace Generators.Exercises
         {
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
-                canonicalDataCase.Input["input"] = ((string)canonicalDataCase.Input["input"]).Replace("\\", "\\\\");
+                canonicalDataCase.Properties["input"] = canonicalDataCase.Properties["input"].Replace("\\", "\\\\");
                 canonicalDataCase.UseVariablesForInput = true;
             }
         }
