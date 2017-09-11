@@ -9,8 +9,8 @@ namespace Generators.Exercises
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
                 canonicalDataCase.Property = "String";
-                canonicalDataCase.Properties["input"] = Convert.ToMultiLineString(canonicalDataCase.Properties["input"]);
-                canonicalDataCase.Expected = Convert.ToMultiLineString(canonicalDataCase.Expected);
+                canonicalDataCase.Properties["input"] = ConvertHelper.ToMultiLineString(canonicalDataCase.Properties["input"]);
+                canonicalDataCase.Expected = ConvertHelper.ToMultiLineString(canonicalDataCase.Expected);
 
                 canonicalDataCase.UseVariablesForInput = true;
                 canonicalDataCase.UseVariableForExpected = true;
