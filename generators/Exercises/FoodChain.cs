@@ -8,7 +8,7 @@ namespace Generators.Exercises
         {
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
-                canonicalDataCase.Expected = Convert.ToMultiLineString(canonicalDataCase.Expected);
+                canonicalDataCase.Expected = ConvertHelper.ToMultiLineString(canonicalDataCase.Expected);
                 canonicalDataCase.UseVariableForExpected = true;
             }
         }
