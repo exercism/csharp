@@ -74,7 +74,9 @@ Task("TestUsingExampleImplementation")
     .IsDependentOn("ReplaceStubWithExample")
     .Does(() => {
         var allProjects = GetFiles(buildDir + "/*/*.csproj");
-        Parallel.ForEach(allProjects, parallelOptions, (project) => DotNetCoreTest(project.FullPath));
+       Parallel.ForEach(refactoringProjects, (project) => {
+           DotNetCoreBuild(project.FullPath, dotNetCoreBuildSettings);
+           DotNetCoreTest(project.FullPath, dotNetCoreTestSettings);
     });
 
 Task("Default")
