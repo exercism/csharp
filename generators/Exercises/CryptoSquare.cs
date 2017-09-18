@@ -1,5 +1,4 @@
 ﻿using Generators.Input;
-using Newtonsoft.Json.Linq;
 
 namespace Generators.Exercises
 {
@@ -11,9 +10,6 @@ namespace Generators.Exercises
             {
                 canonicalDataCase.UseVariablesForInput = true;
                 canonicalDataCase.UseVariableForExpected = true;
-
-                if (canonicalDataCase.Expected is JArray expected)
-                    canonicalDataCase.Expected = expected.Values<string>();
             }
         }
     }

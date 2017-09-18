@@ -6,11 +6,11 @@ The C# track is built on top of the [.NET Core](https://www.microsoft.com/net/co
 dotnet --version
 ```
 
-It the output is a version greater than or equal to `1.0.0`, the .NET Core SDK has been installed succesfully.
+If the output is a version greater than or equal to `1.0.0`, the .NET Core SDK has been installed succesfully.
 
 ### Using an IDE
 
-If you want a more full-featured editing experience, you probably want to to use an IDE. These are the most popular IDE's that support building .NET Core projects:
+If you want a more full-featured editing experience, you probably want to use an IDE. These are the most popular IDE's that support building .NET Core projects:
 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/)
 * [Visual Studio Code](https://code.visualstudio.com/download) with the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)

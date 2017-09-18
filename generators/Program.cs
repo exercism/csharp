@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 using CommandLine;
 using Generators.Input;
 using Serilog;
@@ -51,10 +52,13 @@ namespace Generators
         {
             var canonicalDataOptions = new CanonicalDataOptions
             {
-                CanonicalDataDirectory = options.CanonicalDataDirectory,
+                CanonicalDataDirectory = options.CanonicalDataDirectory ?? DefaultCanonicalDataDirectory,
                 CacheCanonicalData = options.CacheCanonicalData
             };
             return new CanonicalDataParser(canonicalDataOptions);
         }
+
+        private static string DefaultCanonicalDataDirectory 
+            => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "exercism", "problem-specifications");
     }
 }

@@ -10,7 +10,7 @@ namespace Generators.Exercises
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
                 canonicalDataCase.UseVariableForExpected = true;
-                canonicalDataCase.ExceptionThrown = (long)canonicalDataCase.Input["limit"] < 2 ? typeof(ArgumentOutOfRangeException) : null;
+                canonicalDataCase.ExceptionThrown = canonicalDataCase.Input["limit"] < 2 ? typeof(ArgumentOutOfRangeException) : null;
             }
         }
     }

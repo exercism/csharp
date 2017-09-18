@@ -19,7 +19,7 @@ namespace Generators.Output
         }
 
         public object TestedValue => _testMethodBody.UseVariableForTested ? TestedVariableName : TestedMethodInvocation;
-        public object InputParameters => _testMethodBody.UseVariablesForInput ? string.Join(", ", CanonicalDataCase.Input.Keys.Select(key => NameExtensions.ToVariableName(key))) : Input;
+        public object InputParameters => _testMethodBody.UseVariablesForInput ? string.Join(", ", CanonicalDataCase.Input.Keys.Select(key => key.ToVariableName())) : Input;
         public object ExpectedParameter => _testMethodBody.UseVariableForExpected ? ExpectedVariableName : Expected;
         public object ConstructorParameters => _testMethodBody.UseVariablesForConstructorParameters ? string.Join(", ", CanonicalDataCase.ConstructorInput.Keys.Select(key => key.ToVariableName())) : ConstructorInput;
 

@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Generators.Input;
 
 namespace Generators.Exercises
@@ -10,11 +9,9 @@ namespace Generators.Exercises
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
                 canonicalDataCase.Property = "String";
-                canonicalDataCase.Input = new Dictionary<string, object>
-                {
-                    ["input"] = canonicalDataCase.Input["input"].ConvertMultiLineString()
-                };
-                canonicalDataCase.Expected = canonicalDataCase.Expected.ConvertMultiLineString();
+                canonicalDataCase.Properties["input"] = ConvertHelper.ToMultiLineString(canonicalDataCase.Properties["input"]);
+                canonicalDataCase.Expected = ConvertHelper.ToMultiLineString(canonicalDataCase.Expected);
+
                 canonicalDataCase.UseVariablesForInput = true;
                 canonicalDataCase.UseVariableForExpected = true;
             }

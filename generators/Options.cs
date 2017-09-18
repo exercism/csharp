@@ -9,7 +9,7 @@ namespace Generators
             HelpText = "Exercises to generate (if not specified, defaults to all exercises).")]
         public IEnumerable<string> Exercises { get; set; }
         
-        [Option('d', "canonicaldatadirectory", Required = false, Default = "./.problem-specifications",
+        [Option('d', "canonicaldatadirectory", Required = false,
             HelpText = "Canonical data directory. If the directory does not exist, the canonical data will be downloaded.")]
         public string CanonicalDataDirectory { get; set; }
 

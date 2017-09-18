@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Generators.Input;
 
 namespace Generators.Exercises
@@ -9,15 +8,9 @@ namespace Generators.Exercises
         {
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
-                canonicalDataCase.ConstructorInput = new Dictionary<string, object>
-                {
-                    ["subject"] = canonicalDataCase.Input["subject"]
-                };
-                canonicalDataCase.Input["candidates"] = canonicalDataCase.Input["candidates"].ConvertToEnumerable<string>();
-                canonicalDataCase.Expected = canonicalDataCase.Expected.ConvertToEnumerable<string>();
-
                 canonicalDataCase.UseVariablesForInput = true;
                 canonicalDataCase.UseVariableForExpected = true;
+                canonicalDataCase.SetConstructorInputParameters("subject");
             }
         }
     }

@@ -2,7 +2,6 @@ using System;
 using Generators.Input;
 using Generators.Output;
 using Humanizer;
-using Newtonsoft.Json.Linq;
 
 namespace Generators.Exercises
 {
@@ -12,10 +11,10 @@ namespace Generators.Exercises
         {
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
-                canonicalDataCase.ExceptionThrown = canonicalDataCase.Expected is JObject ? typeof(ArgumentOutOfRangeException) : null;
-
                 if (canonicalDataCase.Expected is string classificationType)
                     canonicalDataCase.Expected = new UnescapedValue($"Classification.{classificationType.Transform(To.SentenceCase)}");
+                else
+                    canonicalDataCase.ExceptionThrown = typeof(ArgumentOutOfRangeException);
             }
         }
     }
