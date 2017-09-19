@@ -9,7 +9,6 @@
                 .Replace("\t", "\\t")
                 .Replace("\r", "\\r")
                 .Replace("\"", "\\\"");
-                
 
         public static string Quote(this string s) => $"\"{s}\"";
     }
