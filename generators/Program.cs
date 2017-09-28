@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
 using CommandLine;
 using Generators.Input;
@@ -19,7 +18,7 @@ namespace Generators
                     .WithParsed(RegenerateTestClasses);
                 return 0;
             }
-            catch (Exception exception) when (!Debugger.IsAttached)
+            catch (Exception exception)
             {
                 Log.Error(exception, "Exception occured: {Message}", exception.Message);
                 return 1;
