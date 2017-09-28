@@ -1,61 +1,55 @@
 ﻿using System.Collections.Generic;
 using Generators.Input;
 using Generators.Output;
-using Newtonsoft.Json.Linq;
 
 namespace Generators.Exercises
 {
     public class Clock : Exercise
     {
-        private const string paramClock1 = "clock1";
-        private const string paramClock2 = "clock2";
-        private const string paramHour = "hour";
-        private const string paramMinute = "minute";
+        private const string ParamClock1 = "clock1";
+        private const string ParamClock2 = "clock2";
+        private const string ParamHour = "hour";
+        private const string ParamMinute = "minute";
 
-        private const string propertyCreate = "create";
-        private const string propertyEqual = "equal";
-        private const string propertyEquals = "equals";
-        private const string propertyToString = "to_string";
+        private const string PropertyCreate = "create";
+        private const string PropertyEqual = "equal";
+        private const string PropertyEquals = "equals";
+        private const string PropertyToString = "to_string";
 
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
-                if (canonicalDataCase.Property != propertyEqual)
+                if (canonicalDataCase.Property != PropertyEqual)
                 {
-                    canonicalDataCase.ConstructorInput = new Dictionary<string, object>
-                    {
-                        [paramHour] = canonicalDataCase.Input[paramHour],
-                        [paramMinute] = canonicalDataCase.Input[paramMinute]
-                    };
+                    canonicalDataCase.SetConstructorInputParameters(ParamHour, ParamMinute);
                 }
                 else
                 {
-                    canonicalDataCase.ConstructorInput = ((JObject)canonicalDataCase.Input[paramClock1]).ToObject<Dictionary<string, object>>();
-                    canonicalDataCase.Input.Remove(paramClock1);
+                    canonicalDataCase.SetConstructorInputParameters(ParamClock1);
 
-                    var result = ((JObject)canonicalDataCase.Input[paramClock2]).ToObject<Dictionary<string, object>>();
-                    canonicalDataCase.Input[paramClock2] = new UnescapedValue($"new Clock({result[paramHour]}, {result[paramMinute]})");
+                    var result = (Dictionary<string, object>)canonicalDataCase.Properties[ParamClock2];
+                    canonicalDataCase.Properties[ParamClock2] = new UnescapedValue($"new Clock({result[ParamHour]}, {result[ParamMinute]})");
                 }
 
-                if (canonicalDataCase.Property == propertyCreate)
+                if (canonicalDataCase.Property == PropertyCreate)
                 {
-                    canonicalDataCase.Property = propertyToString;
+                    canonicalDataCase.Property = PropertyToString;
                 }
-                else if (canonicalDataCase.Property == propertyEqual)
+                else if (canonicalDataCase.Property == PropertyEqual)
                 {
-                    canonicalDataCase.Property = propertyEquals;
+                    canonicalDataCase.Property = PropertyEquals;
                 }
             }
         }
 
         protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            if (testMethodBody.CanonicalDataCase.Property == propertyEquals)
+            if (testMethodBody.CanonicalDataCase.Property == PropertyEquals)
             {
                 return base.RenderTestMethodBodyAssert(testMethodBody);
             }
-            else if (testMethodBody.CanonicalDataCase.Property != propertyToString)
+            else if (testMethodBody.CanonicalDataCase.Property != PropertyToString)
             {
                 return RenderConsistencyToAssert(testMethodBody);
             }
