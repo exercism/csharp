@@ -1,30 +1,27 @@
-using System;
-
 public struct Clock
 {
+    private readonly int hours;
+    private readonly int minutes;
+
     public Clock(int hours, int minutes = 0)
     {
-        Hours = Mod((hours * 60 + minutes) / 60.0, 24);
-        Minutes = Mod(minutes, 60);
+        this.hours = Mod((hours * 60 + minutes) / 60.0, 24);
+        this.minutes = Mod(minutes, 60);
     }
-    
-    public int Hours { get; }
-
-    public int Minutes { get; }
 
     public Clock Add(int minutesToAdd)
     {
-        return new Clock(Hours, Minutes + minutesToAdd);
+        return new Clock(hours, minutes + minutesToAdd);
     }
 
     public Clock Subtract(int minutesToSubtract)
     {
-        return new Clock(Hours, Minutes - minutesToSubtract);
+        return new Clock(hours, minutes - minutesToSubtract);
     }
 
     public override string ToString()
     {
-        return $"{Hours:00}:{Minutes:00}";
+        return $"{hours:00}:{minutes:00}";
     }
 
     private static int Mod(double x, double y)

@@ -1,26 +1,15 @@
 using System;
 
-public struct Clock
+public class Clock
 {
-    public Clock(int hours, int minutes)
+    public Clock(int hours)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public int Hours
+    public Clock(int hours, int minutes)
     {
-        get
-        {
-            throw new NotImplementedException("You need to implement this function.");
-        }
-    }
-
-    public int Minutes
-    {
-        get
-        {
-            throw new NotImplementedException("You need to implement this function.");
-        }
+        throw new NotImplementedException("You need to implement this function.");
     }
 
     public Clock Add(int minutesToAdd)
@@ -29,11 +18,6 @@ public struct Clock
     }
 
     public Clock Subtract(int minutesToSubtract)
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
-
-    public override string ToString()
     {
         throw new NotImplementedException("You need to implement this function.");
     }
