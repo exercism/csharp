@@ -50,7 +50,7 @@ namespace Generators.Input
         }
 
         private static IEnumerable<CanonicalDataCase> GetEmptyJArrays(IGrouping<string, CanonicalDataCase> groupedCanonicalDataCases, IGrouping<string, KeyValuePair<string, dynamic>> groupedProperties) 
-            => groupedCanonicalDataCases.Where(canonicalDataCase => IsEmptyJArray(canonicalDataCase, groupedProperties));
+            => groupedCanonicalDataCases.Where(canonicalDataCase => canonicalDataCase.Properties.ContainsKey(groupedProperties.Key) && IsEmptyJArray(canonicalDataCase, groupedProperties));
 
         private static bool IsEmptyJArray(CanonicalDataCase x, IGrouping<string, KeyValuePair<string, dynamic>> groupedProperties) 
             => x.Properties[groupedProperties.Key] is JArray jArray && jArray.Count == 0;
