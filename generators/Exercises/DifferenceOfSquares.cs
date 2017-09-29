@@ -3,7 +3,7 @@ using System;
 
 namespace Generators.Exercises
 {
-    public class DifferenceOfSquares : Exercise
+    public class Squares : Exercise
     {        
     }
 }
