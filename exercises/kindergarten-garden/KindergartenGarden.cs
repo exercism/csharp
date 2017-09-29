@@ -9,18 +9,17 @@ public enum Plant
     Grass
 }
 
-public class Garden
-{
-    public Garden(IEnumerable<string> children, string windowSills)
+public class KindergartenGarden
+{    
+    public KindergartenGarden(string diagram)
     {
     }
 
-    public IEnumerable<Plant> GetPlants(string child)
+    public KindergartenGarden(string diagram, IEnumerable<string> students)
     {
-        throw new NotImplementedException("You need to implement this function.");
     }
 
-    public static Garden DefaultGarden(string windowSills)
+    public IEnumerable<Plant> Plants(string student)
     {
         throw new NotImplementedException("You need to implement this function.");
     }

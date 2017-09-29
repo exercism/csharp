@@ -21,12 +21,29 @@ namespace Generators.Input
             
             canonicalDataCase.Properties = CanonicalDataCaseJson.ToDictionary(jTokenReader.CurrentToken);
             canonicalDataCase.SetInputParameters(GetInputProperties(canonicalDataCase.Properties));
+            canonicalDataCase.DescriptionPath = GetDescriptionPath(jTokenReader.CurrentToken);
 
             return canonicalDataCase;
         }
 
         private static string[] GetInputProperties(IDictionary<string, dynamic> properties) => properties.Keys.Except(NonInputProperties).ToArray();
-        
+
+        private static string[] GetDescriptionPath(JToken canonicalDataCaseToken)
+        {
+            var descriptionPath = new Stack<string>();
+            var currentToken = canonicalDataCaseToken;
+
+            while (currentToken != null)
+            {
+                if (currentToken.Type == JTokenType.Object)
+                    descriptionPath.Push(currentToken.SelectToken("description").ToObject<string>());
+
+                currentToken = currentToken.Parent;
+            }
+            
+            return descriptionPath.Where(x => !string.IsNullOrEmpty(x)).ToArray();
+        }
+
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer) => throw new NotImplementedException();
     }
 }

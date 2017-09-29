@@ -67,9 +67,14 @@ namespace Generators
         private TestMethod CreateTestMethod(CanonicalDataCase canonicalDataCase, int index) => new TestMethod
         {
             Skip = index > 0,
-            Name = canonicalDataCase.Description.ToTestMethodName(),
+            Name = ToTestMethodName(canonicalDataCase),
             Body = RenderTestMethodBody(canonicalDataCase)
         };
+
+        private static string ToTestMethodName(CanonicalDataCase canonicalDataCase) 
+            => canonicalDataCase.UseFullDescriptionPath 
+                ? string.Join(" - ", canonicalDataCase.DescriptionPath).ToTestMethodName()
+                : canonicalDataCase.Description.ToTestMethodName();
 
         private string RenderTestMethodBody(CanonicalDataCase canonicalDataCase)
         {
