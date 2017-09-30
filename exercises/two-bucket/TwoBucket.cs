@@ -9,18 +9,18 @@ public enum Bucket
 public class TwoBucketResult
 {
     public int Moves { get; set; }
-    public Bucket GoalBucket { get; set; }
-    public int OtherBucketContents { get; set; }
+    public Bucket Goal_bucket { get; set; }
+    public int Other_bucket { get; set; }
 }
 
-public class TwoBuckets
+public class TwoBucket
 {
-    public TwoBuckets(int bucketOneSize, int bucketTwoSize, Bucket startBucket)
+    public TwoBucket(int bucket_one, int bucket_two, Bucket start_bucket)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public TwoBucketResult Solve(int goal)
+    public TwoBucketResult Measure(int goal)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
