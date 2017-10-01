@@ -10,7 +10,7 @@ public enum Plant
     Grass
 }
 
-public class Garden
+public class KindergartenGarden
 {
     private const int PlantsPerChildPerRow = 2;
     private const char RowSeparator = '\n';
@@ -32,22 +32,21 @@ public class Garden
 
     private readonly IDictionary<string, IEnumerable<Plant>> plantsByChild;
 
-    public Garden(IEnumerable<string> children, string windowSills)
+    public KindergartenGarden(string diagram) : this(diagram, DefaultChildren)
     {
-        var plantsPerChild = PlantsPerChild(windowSills);
-        plantsByChild = children.OrderBy(c => c)
+    }
+
+    public KindergartenGarden(string diagram, IEnumerable<string> students)
+    {
+        var plantsPerChild = PlantsPerChild(diagram);
+        plantsByChild = students.OrderBy(c => c)
                                 .Zip(plantsPerChild, Tuple.Create)
                                 .ToDictionary(kv => kv.Item1, kv => kv.Item2);
     }
 
-    public IEnumerable<Plant> GetPlants(string child)
+    public IEnumerable<Plant> Plants(string child)
     {
         return plantsByChild.ContainsKey(child) ? plantsByChild[child] : Enumerable.Empty<Plant>();
-    }
-
-    public static Garden DefaultGarden(string windowSills)
-    {
-        return new Garden(DefaultChildren, windowSills);
     }
 
     private static Plant PlantFromCode(char code)

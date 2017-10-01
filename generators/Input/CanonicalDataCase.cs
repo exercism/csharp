@@ -13,10 +13,13 @@ namespace Generators.Input
         private readonly HashSet<string> _constructorInputParameters = new HashSet<string>();
 
         [Required]
-        public string Description { get; set; }
+        public string Property { get; set; }
 
         [Required]
-        public string Property { get; set; }
+        public string Description { get; set; }
+
+        [JsonIgnore]
+        public string[] DescriptionPath { get; set; }
 
         [JsonIgnore]
         public IReadOnlyDictionary<string, dynamic> Input
@@ -47,6 +50,9 @@ namespace Generators.Input
 
         [JsonIgnore]
         public bool UseVariableForTested { get; set; }
+
+        [JsonIgnore]
+        public bool UseFullDescriptionPath { get; set; }
 
         [JsonIgnore]
         public TestedMethodType TestedMethodType { get; set; }
