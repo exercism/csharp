@@ -10,7 +10,7 @@ namespace Generators.Exercises
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
                 canonicalDataCase.TestedMethodType = TestedMethodType.Instance;
-                canonicalDataCase.SetConstructorInputParameters(new [] { "bucket_one", "bucket_two", "start_bucket"});
+                canonicalDataCase.SetConstructorInputParameters("bucket_one", "bucket_two", "start_bucket");
 
                 var start_bucket = canonicalDataCase.Properties["start_bucket"];
                 canonicalDataCase.Properties["start_bucket"] = new UnescapedValue(start_bucket == "two" ? "Bucket.Two" : "Bucket.One");
@@ -33,8 +33,8 @@ namespace Generators.Exercises
         {
             const string template =
 @"Assert.Equal({{MovesExpected}}, result.Moves);
-Assert.Equal({{OtherBucketExpected}}, result.Other_bucket);
-Assert.Equal({% if GoalBucketExpected == 'two' %}Bucket.Two{% else %}Bucket.One{% endif %}, result.Goal_bucket);";
+Assert.Equal({{OtherBucketExpected}}, result.OtherBucket);
+Assert.Equal({% if GoalBucketExpected == 'two' %}Bucket.Two{% else %}Bucket.One{% endif %}, result.GoalBucket);";
 
             var templateParameters = new
             {

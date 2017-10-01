@@ -10,8 +10,8 @@ public class TwoBucketTest
         var sut = new TwoBucket(3, 5, Bucket.One);
         var result = sut.Measure(1);
         Assert.Equal(4, result.Moves);
-        Assert.Equal(5, result.Other_bucket);
-        Assert.Equal(Bucket.One, result.Goal_bucket);
+        Assert.Equal(5, result.OtherBucket);
+        Assert.Equal(Bucket.One, result.GoalBucket);
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -20,8 +20,8 @@ public class TwoBucketTest
         var sut = new TwoBucket(3, 5, Bucket.Two);
         var result = sut.Measure(1);
         Assert.Equal(8, result.Moves);
-        Assert.Equal(3, result.Other_bucket);
-        Assert.Equal(Bucket.Two, result.Goal_bucket);
+        Assert.Equal(3, result.OtherBucket);
+        Assert.Equal(Bucket.Two, result.GoalBucket);
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -30,8 +30,8 @@ public class TwoBucketTest
         var sut = new TwoBucket(7, 11, Bucket.One);
         var result = sut.Measure(2);
         Assert.Equal(14, result.Moves);
-        Assert.Equal(11, result.Other_bucket);
-        Assert.Equal(Bucket.One, result.Goal_bucket);
+        Assert.Equal(11, result.OtherBucket);
+        Assert.Equal(Bucket.One, result.GoalBucket);
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -40,8 +40,8 @@ public class TwoBucketTest
         var sut = new TwoBucket(7, 11, Bucket.Two);
         var result = sut.Measure(2);
         Assert.Equal(18, result.Moves);
-        Assert.Equal(7, result.Other_bucket);
-        Assert.Equal(Bucket.Two, result.Goal_bucket);
+        Assert.Equal(7, result.OtherBucket);
+        Assert.Equal(Bucket.Two, result.GoalBucket);
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -50,8 +50,8 @@ public class TwoBucketTest
         var sut = new TwoBucket(1, 3, Bucket.Two);
         var result = sut.Measure(3);
         Assert.Equal(1, result.Moves);
-        Assert.Equal(0, result.Other_bucket);
-        Assert.Equal(Bucket.Two, result.Goal_bucket);
+        Assert.Equal(0, result.OtherBucket);
+        Assert.Equal(Bucket.Two, result.GoalBucket);
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -60,7 +60,7 @@ public class TwoBucketTest
         var sut = new TwoBucket(2, 3, Bucket.One);
         var result = sut.Measure(3);
         Assert.Equal(4, result.Moves);
-        Assert.Equal(1, result.Other_bucket);
-        Assert.Equal(Bucket.Two, result.Goal_bucket);
+        Assert.Equal(1, result.OtherBucket);
+        Assert.Equal(Bucket.Two, result.GoalBucket);
     }
 }
