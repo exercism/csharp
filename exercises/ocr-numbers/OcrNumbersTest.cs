@@ -1,6 +1,7 @@
 // This file was auto-generated based on version 1.0.0 of the canonical data.
 
 using Xunit;
+using System;
 
 public class OcrNumbersTest
 {
@@ -43,8 +44,7 @@ public class OcrNumbersTest
         var input =  " _ " + "\n" +
                      "| |" + "\n" +
                      "   ";
-        var actual = OcrNumbers.Convert(input);
-        Assert.Equal("-1", actual);
+        Assert.Throws<ArgumentException>(() => OcrNumbers.Convert(input));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -54,8 +54,7 @@ public class OcrNumbersTest
                      "   |" + "\n" +
                      "   |" + "\n" +
                      "    ";
-        var actual = OcrNumbers.Convert(input);
-        Assert.Equal("-1", actual);
+        Assert.Throws<ArgumentException>(() => OcrNumbers.Convert(input));
     }
 
     [Fact(Skip = "Remove to run test")]
