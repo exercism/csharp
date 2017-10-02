@@ -10,7 +10,23 @@ public enum TriangleKind
 
 public static class Triangle
 {
-    public static TriangleKind Kind(decimal side1, decimal side2, decimal side3)
+    
+    public bool IsScalene(decimal side1, decimal side2, decimal side3)
+    {
+        return Kind(side1, side2, side3) == TriangleKind.Scalene;
+    }
+
+    public bool IsIsosceles(decimal side1, decimal side2, decimal side3) 
+    {
+        return Kind(side1, side2, side3) == TriangleKind.Isosceles;
+    }
+
+    public bool IsEquilaterial(decimal side1, decimal side2, decimal side3) 
+    {
+        return Kind(side1, side2, side3) == TriangleKind.Equilateral;
+    }
+
+    private static TriangleKind Kind(decimal side1, decimal side2, decimal side3)
     {
         if (AllSidesAreZero(side1, side2, side3) ||
             HasImpossibleSides(side1, side2, side3) ||

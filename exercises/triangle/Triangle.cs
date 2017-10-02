@@ -9,7 +9,22 @@ public enum TriangleKind
 
 public static class Triangle
 {
-    public static TriangleKind Kind(decimal side1, decimal side2, decimal side3)
+    public bool IsScalene(decimal side1, decimal side2, decimal side3)
+    {
+        throw new NotImplementedException("You need to implement this function.");
+    }
+
+    public bool IsIsosceles(decimal side1, decimal side2, decimal side3) 
+    {
+        throw new NotImplementedException("You need to implement this function.");
+    }
+
+    public bool IsEquilaterial(decimal side1, decimal side2, decimal side3) 
+    {
+        throw new NotImplementedException("You need to implement this function.");
+    }
+    
+    private static TriangleKind Kind(decimal side1, decimal side2, decimal side3)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
