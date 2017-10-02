@@ -49,13 +49,13 @@ public class BucketContainer
     public bool CanPourTo(BucketContainer other) => !IsEmpty && !other.IsFull;
 }
 
-public class TwoBuckets
+public class TwoBucket
 {
     private readonly BucketContainer bucketOne;
     private readonly BucketContainer bucketTwo;
     private readonly Action strategy;
 
-    public TwoBuckets(int bucketOneSize, int bucketTwoSize, Bucket startBucket)
+    public TwoBucket(int bucketOneSize, int bucketTwoSize, Bucket startBucket)
     {
         bucketOne = new BucketContainer(startBucket == Bucket.One ? bucketOneSize : 0, bucketOneSize);
         bucketTwo = new BucketContainer(startBucket == Bucket.Two ? bucketTwoSize : 0, bucketTwoSize);
