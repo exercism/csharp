@@ -1,5 +1,4 @@
-﻿using System.Text;
-using Generators.Input;
+﻿using Generators.Input;
 using Generators.Output;
 
 namespace Generators.Exercises
@@ -10,35 +9,17 @@ namespace Generators.Exercises
         {
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
-                canonicalDataCase.Properties["input"] = ToDigit(canonicalDataCase.Properties["input"]);
+                canonicalDataCase.Properties["input"] = ToDigitStringRepresentation(canonicalDataCase.Properties["input"]);
+                canonicalDataCase.Expected = canonicalDataCase.Expected.ToString();
+                canonicalDataCase.UseVariableForTested = true;
+                canonicalDataCase.UseVariablesForInput = true;
             }
         }
-
-        protected override string RenderTestMethodBodyAct(TestMethodBody testMethodBody)
+       
+        private UnescapedValue ToDigitStringRepresentation(string[] input)
         {
-            const string template = @"var converted = {{MethodInvocation}};";
-
-            var templateParameters = new
-            {
-                MethodInvocation = testMethodBody.Data.TestedMethodInvocation
-            };
-
-            return TemplateRenderer.RenderInline(template, templateParameters);
-        }
-
-        protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
-        {
-            const string template = @"Assert.Equal(""{{Expected}}"", converted);";
-
-            var templateParameters = new { Expected = testMethodBody.CanonicalDataCase.Expected };
-
-            return TemplateRenderer.RenderInline(template, templateParameters);
-        }
-
-        private UnescapedValue ToDigit(string[] input)
-        {
-            const string template = @"{% for item in {{input}} %}
-""{{item}}""{% if forloop.last == false %} + ""\n"" +{% endif %}{% endfor %}";
+            const string template = @" {% for item in {{input}} %}{% if forloop.first == true %}""{{item}}"" + ""\n"" +{% continue %}{% endif %}
+             ""{{item}}""{% if forloop.last == false %} + ""\n"" +{% endif %}{% endfor %}";
 
             return new UnescapedValue(TemplateRenderer.RenderInline(template, new { input }));
         }
