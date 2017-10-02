@@ -10,7 +10,7 @@ public class TwoBucketResult
 {
     public int Moves { get; set; }
     public Bucket GoalBucket { get; set; }
-    public int OtherBucketContents { get; set; }
+    public int OtherBucket { get; set; }
 }
 
 public class BucketContainer
@@ -72,10 +72,10 @@ public class TwoBucket
             moves++;
 
             if (bucketOne.Contents == goal)
-                return new TwoBucketResult { Moves = moves, GoalBucket = Bucket.One, OtherBucketContents = bucketTwo.Contents };
+                return new TwoBucketResult { Moves = moves, GoalBucket = Bucket.One, OtherBucket = bucketTwo.Contents };
 
             if (bucketTwo.Contents == goal)
-                return new TwoBucketResult { Moves = moves, GoalBucket = Bucket.Two, OtherBucketContents = bucketOne.Contents };
+                return new TwoBucketResult { Moves = moves, GoalBucket = Bucket.Two, OtherBucket = bucketOne.Contents };
 
             strategy();
         }
