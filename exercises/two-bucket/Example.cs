@@ -10,7 +10,7 @@ public class TwoBucketResult
 {
     public int Moves { get; set; }
     public Bucket GoalBucket { get; set; }
-    public int OtherBucketContents { get; set; }
+    public int OtherBucket { get; set; }
 }
 
 public class BucketContainer
@@ -49,13 +49,13 @@ public class BucketContainer
     public bool CanPourTo(BucketContainer other) => !IsEmpty && !other.IsFull;
 }
 
-public class TwoBuckets
+public class TwoBucket
 {
     private readonly BucketContainer bucketOne;
     private readonly BucketContainer bucketTwo;
     private readonly Action strategy;
 
-    public TwoBuckets(int bucketOneSize, int bucketTwoSize, Bucket startBucket)
+    public TwoBucket(int bucketOneSize, int bucketTwoSize, Bucket startBucket)
     {
         bucketOne = new BucketContainer(startBucket == Bucket.One ? bucketOneSize : 0, bucketOneSize);
         bucketTwo = new BucketContainer(startBucket == Bucket.Two ? bucketTwoSize : 0, bucketTwoSize);
@@ -63,7 +63,7 @@ public class TwoBuckets
 
     }
 
-    public TwoBucketResult Solve(int goal)
+    public TwoBucketResult Measure(int goal)
     {
         var moves = 0;
 
@@ -72,10 +72,10 @@ public class TwoBuckets
             moves++;
 
             if (bucketOne.Contents == goal)
-                return new TwoBucketResult { Moves = moves, GoalBucket = Bucket.One, OtherBucketContents = bucketTwo.Contents };
+                return new TwoBucketResult { Moves = moves, GoalBucket = Bucket.One, OtherBucket = bucketTwo.Contents };
 
             if (bucketTwo.Contents == goal)
-                return new TwoBucketResult { Moves = moves, GoalBucket = Bucket.Two, OtherBucketContents = bucketOne.Contents };
+                return new TwoBucketResult { Moves = moves, GoalBucket = Bucket.Two, OtherBucket = bucketOne.Contents };
 
             strategy();
         }
@@ -94,7 +94,7 @@ public class TwoBuckets
         else
             throw new InvalidOperationException("Cannot transition from current state.");
     }
-    
+
     public void StartFromSecondBucket()
     {
         if (bucketOne.IsFull)
