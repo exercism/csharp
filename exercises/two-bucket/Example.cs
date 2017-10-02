@@ -63,7 +63,7 @@ public class TwoBucket
 
     }
 
-    public TwoBucketResult Solve(int goal)
+    public TwoBucketResult Measure(int goal)
     {
         var moves = 0;
 
@@ -94,7 +94,7 @@ public class TwoBucket
         else
             throw new InvalidOperationException("Cannot transition from current state.");
     }
-    
+
     public void StartFromSecondBucket()
     {
         if (bucketOne.IsFull)
