@@ -1,4 +1,5 @@
-﻿using Generators.Input;
+﻿using System.Text;
+using Generators.Input;
 using Generators.Output;
 
 namespace Generators.Exercises
@@ -9,7 +10,7 @@ namespace Generators.Exercises
         {
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
-                canonicalDataCase.Properties["input"] = ToDigitRepresentation(canonicalDataCase.Properties["input"]);
+                canonicalDataCase.Properties["input"] = ToDigit(canonicalDataCase.Properties["input"]);
             }
         }
 
@@ -34,7 +35,7 @@ namespace Generators.Exercises
             return TemplateRenderer.RenderInline(template, templateParameters);
         }
 
-        private UnescapedValue ToDigitRepresentation(string[] input)
+        private UnescapedValue ToDigit(string[] input)
         {
             const string template = @"{% for item in {{input}} %}
 ""{{item}}""{% if forloop.last == false %} + ""\n"" +{% endif %}{% endfor %}";
