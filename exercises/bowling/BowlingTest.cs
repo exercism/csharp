@@ -198,7 +198,7 @@ public class BowlingTest
         Assert.Null(sut.Score());
     }
 
-    [Fact()]
+    [Fact(Skip = "Remove to run test")]
     public void Two_rolls_in_a_frame_cannot_score_more_than_10_points()
     {
         var previousRolls = new int[] {5};
@@ -299,7 +299,7 @@ public class BowlingTest
         Assert.Null(sut.Score());
     }
 
-    [Fact()]
+    [Fact(Skip = "Remove to run test")]
     public void Cannot_roll_if_game_already_has_ten_frames()
     {
         var previousRolls = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
