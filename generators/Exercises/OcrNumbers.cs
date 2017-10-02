@@ -1,4 +1,5 @@
-﻿using Generators.Input;
+﻿using System;
+using Generators.Input;
 using Generators.Output;
 
 namespace Generators.Exercises
@@ -9,6 +10,7 @@ namespace Generators.Exercises
         {
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
+                canonicalDataCase.ExceptionThrown = (canonicalDataCase.Expected is long && canonicalDataCase.Expected <= 0) ? typeof(ArgumentException) : null;
                 canonicalDataCase.Properties["input"] = ToDigitStringRepresentation(canonicalDataCase.Properties["input"]);
                 canonicalDataCase.Expected = canonicalDataCase.Expected.ToString();
                 canonicalDataCase.UseVariableForTested = true;
