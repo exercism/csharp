@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Example.cs" />
+    <Compile Remove="OcrNumbers.cs" />
   </ItemGroup>
 
   <ItemGroup>
