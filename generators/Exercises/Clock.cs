@@ -15,6 +15,7 @@ namespace Generators.Exercises
         private const string PropertyEqual = "equal";
         private const string PropertyEquals = "equals";
         private const string PropertyToString = "to_string";
+        private const string PropertyEqualityExpectance = "expected";
 
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
@@ -47,7 +48,7 @@ namespace Generators.Exercises
         {
             if (testMethodBody.CanonicalDataCase.Property == PropertyEquals)
             {
-                return base.RenderTestMethodBodyAssert(testMethodBody);
+                return RenderEqualToAssert(testMethodBody);
             }
             else if (testMethodBody.CanonicalDataCase.Property != PropertyToString)
             {
@@ -62,6 +63,21 @@ namespace Generators.Exercises
         private static string RenderConsistencyToAssert(TestMethodBody testMethodBody)
         {
             var template = $"Assert.Equal({{{{ ExpectedParameter }}}}, {{{{ TestedValue }}}}.ToString());";
+
+            return TemplateRenderer.RenderInline(template, testMethodBody.AssertTemplateParameters);
+        }
+
+        private static string RenderEqualToAssert(TestMethodBody testMethodBody)
+        {
+            var ExpectedParameter = testMethodBody.CanonicalDataCase.Input[ParamClock2];
+            var TestedValue = "sut";
+            var expectedEqual = testMethodBody.CanonicalDataCase.Properties[PropertyEqualityExpectance];
+
+            testMethodBody.AssertTemplateParameters = new { ExpectedParameter, TestedValue};
+
+            var template = expectedEqual
+                ? $"Assert.Equal({{{{ ExpectedParameter }}}}, {{{{ TestedValue }}}}); "
+                : $"Assert.NotEqual({{{{ ExpectedParameter }}}}, {{{{ TestedValue }}}});";
 
             return TemplateRenderer.RenderInline(template, testMethodBody.AssertTemplateParameters);
         }
