@@ -69,7 +69,6 @@ namespace Generators.Exercises
 
         private static string RenderEqualToAssert(TestMethodBody testMethodBody)
         {
-            testMethodBody.AssertTemplateName = "AssertEquals";
             var ExpectedParameter = testMethodBody.CanonicalDataCase.Input[ParamClock2];
             var TestedValue = "sut";
             var expectedEqual = testMethodBody.CanonicalDataCase.Properties[PropertyEqualityExpectance];
@@ -78,7 +77,7 @@ namespace Generators.Exercises
 
             var template = expectedEqual
                 ? $"Assert.Equal({{{{ ExpectedParameter }}}}, {{{{ TestedValue }}}}); "
-                : $"Assert.NotSame({{{{ ExpectedParameter }}}}, {{{{ TestedValue }}}});";
+                : $"Assert.NotEqual({{{{ ExpectedParameter }}}}, {{{{ TestedValue }}}});";
 
             return TemplateRenderer.RenderInline(template, testMethodBody.AssertTemplateParameters);
         }

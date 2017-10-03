@@ -260,14 +260,14 @@ public class ClockTest
     public void Clocks_a_minute_apart()
     {
         var sut = new Clock(15, 36);
-        Assert.NotSame(new Clock(15, 37), sut);
+        Assert.NotEqual(new Clock(15, 37), sut);
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Clocks_an_hour_apart()
     {
         var sut = new Clock(14, 37);
-        Assert.NotSame(new Clock(15, 37), sut);
+        Assert.NotEqual(new Clock(15, 37), sut);
     }
 
     [Fact(Skip = "Remove to run test")]
