@@ -82,6 +82,13 @@ An example of this is the [RunLengthEncoding](https://github.com/exercism/csharp
 
 Here the **Assert** is being overridden. The assert needs to call additional functions, but only if the property is `consistency`. Otherwise, render the assert as usual.
 
+### string[] RenderAdditionalMethods()
+Allow additional methods to be added to the test suite.
+
+There may exist cases where a suite of unit tests will need to reuse the same logic in each of the tests. Rather than duplicating code, this method allows you to provide helper methods for the tests.
+
+Additional methods added using this override will be added to the bottom of the test suite.
+
 ## Updating Existing Files
 It is possible that an existing exercise does not match the canonical data. It is OK to update the exercise stub and/or the exercise example to follow the canonical data! An example might be that an exercise is named SumOfMultiples, but the SumOfMultiples.cs and Example.cs files both use `Multiples` as the name of the class.
 
