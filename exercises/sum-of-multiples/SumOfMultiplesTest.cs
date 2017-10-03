@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.0.0 of the canonical data.
+// This file was auto-generated based on version 1.1.0 of the canonical data.
 
 using Xunit;
 
@@ -14,6 +14,12 @@ public class SumOfMultiplesTest
     public void Multiples_of_3_or_5_up_to_4()
     {
         Assert.Equal(3, SumOfMultiples.Sum(new[] { 3, 5 }, 4));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Multiples_of_3_up_to_7()
+    {
+        Assert.Equal(9, SumOfMultiples.Sum(new[] { 3 }, 7));
     }
 
     [Fact(Skip = "Remove to run test")]

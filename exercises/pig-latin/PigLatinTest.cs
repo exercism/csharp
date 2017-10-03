@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.0.0 of the canonical data.
+// This file was auto-generated based on version 1.1.0 of the canonical data.
 
 using Xunit;
 
@@ -50,12 +50,6 @@ public class PigLatinTest
     public void Word_beginning_with_k()
     {
         Assert.Equal("oalakay", PigLatin.Translate("koala"));
-    }
-
-    [Fact(Skip = "Remove to run test")]
-    public void Word_beginning_with_y()
-    {
-        Assert.Equal("ellowyay", PigLatin.Translate("yellow"));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -116,6 +110,24 @@ public class PigLatinTest
     public void Word_beginning_with_xr()
     {
         Assert.Equal("xrayay", PigLatin.Translate("xray"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Y_is_treated_like_a_consonant_at_the_beginning_of_a_word()
+    {
+        Assert.Equal("ellowyay", PigLatin.Translate("yellow"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Y_is_treated_like_a_vowel_at_the_end_of_a_consonant_cluster()
+    {
+        Assert.Equal("ythmrhay", PigLatin.Translate("rhythm"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Y_as_second_letter_in_two_letter_word()
+    {
+        Assert.Equal("ymay", PigLatin.Translate("my"));
     }
 
     [Fact(Skip = "Remove to run test")]
