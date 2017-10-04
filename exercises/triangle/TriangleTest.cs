@@ -1,94 +1,108 @@
+// This file was auto-generated based on version 1.0.0 of the canonical data.
+
 using Xunit;
 
 public class TriangleTest
 {
     [Fact]
-    public void Equilateral_triangles_have_equal_sides()
+    public void Returns_true_if_the_triangle_is_equilateral_true_if_all_sides_are_equal()
     {
-        Assert.Equal(TriangleKind.Equilateral, Triangle.Kind(2, 2, 2));
+        Assert.True(Triangle.IsEquilateral(2,2,2));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Larger_equilateral_triangles_also_have_equal_sides()
+    public void Returns_true_if_the_triangle_is_equilateral_false_if_any_side_is_unequal()
     {
-        Assert.Equal(TriangleKind.Equilateral, Triangle.Kind(10, 10, 10));
+        Assert.False(Triangle.IsEquilateral(2,3,2));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Isosceles_triangles_have_last_two_sides_equal()
+    public void Returns_true_if_the_triangle_is_equilateral_false_if_no_sides_are_equal()
     {
-        Assert.Equal(TriangleKind.Isosceles, Triangle.Kind(3, 4, 4));
+        Assert.False(Triangle.IsEquilateral(5,4,6));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Isosceles_triangles_have_first_and_last_sides_equal()
+    public void Returns_true_if_the_triangle_is_equilateral_all_zero_sides_are_illegal_so_the_triangle_is_not_equilateral()
     {
-        Assert.Equal(TriangleKind.Isosceles, Triangle.Kind(4, 3, 4));
+        Assert.False(Triangle.IsEquilateral(0,0,0));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Isosceles_triangles_have_two_first_sides_equal()
+    public void Returns_true_if_the_triangle_is_equilateral_sides_may_be_floats()
     {
-        Assert.Equal(TriangleKind.Isosceles, Triangle.Kind(4, 4, 3));
+        Assert.True(Triangle.IsEquilateral(0.5,0.5,0.5));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Isosceles_triangles_have_in_fact_exactly_two_sides_equal()
+    public void Returns_true_if_the_triangle_is_isosceles_true_if_last_two_sides_are_equal()
     {
-        Assert.Equal(TriangleKind.Isosceles, Triangle.Kind(10, 10, 2));
+        Assert.True(Triangle.IsIsosceles(3,4,4));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Scalene_triangles_have_no_equal_sides()
+    public void Returns_true_if_the_triangle_is_isosceles_true_if_first_two_sides_are_equal()
     {
-        Assert.Equal(TriangleKind.Scalene, Triangle.Kind(3, 4, 5));
+        Assert.True(Triangle.IsIsosceles(4,4,3));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Scalene_triangles_have_no_equal_sides_at_a_larger_scale_too()
+    public void Returns_true_if_the_triangle_is_isosceles_true_if_first_and_last_sides_are_equal()
     {
-        Assert.Equal(TriangleKind.Scalene, Triangle.Kind(10, 11, 12));
+        Assert.True(Triangle.IsIsosceles(4,3,4));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Scalene_triangles_have_no_equal_sides_in_descending_order_either()
+    public void Returns_true_if_the_triangle_is_isosceles_equilateral_triangles_are_also_isosceles()
     {
-        Assert.Equal(TriangleKind.Scalene, Triangle.Kind(5, 4, 2));
+        Assert.True(Triangle.IsIsosceles(4,4,4));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Very_small_triangles_are_legal()
+    public void Returns_true_if_the_triangle_is_isosceles_false_if_no_sides_are_equal()
     {
-        Assert.Equal(TriangleKind.Scalene, Triangle.Kind(0.4m, 0.6m, 0.3m));
+        Assert.False(Triangle.IsIsosceles(2,3,4));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Triangles_with_no_size_are_illegal()
+    public void Returns_true_if_the_triangle_is_isosceles_sides_that_violate_triangle_inequality_are_not_isosceles_even_if_two_are_equal()
     {
-        Assert.Throws<TriangleException>(() => Triangle.Kind(0, 0, 0));
+        Assert.False(Triangle.IsIsosceles(1,1,3));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Triangles_with_negative_sides_are_illegal()
+    public void Returns_true_if_the_triangle_is_isosceles_sides_may_be_floats()
     {
-        Assert.Throws<TriangleException>(() => Triangle.Kind(3, 4, -5));
+        Assert.True(Triangle.IsIsosceles(0.5,0.4,0.5));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Triangles_violating_triangle_inequality_are_illegal()
+    public void Returns_true_if_the_triangle_is_scalene_true_if_no_sides_are_equal()
     {
-        Assert.Throws<TriangleException>(() => Triangle.Kind(1, 1, 3));
+        Assert.True(Triangle.IsScalene(5,4,6));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Triangles_violating_triangle_inequality_are_illegal_2()
+    public void Returns_true_if_the_triangle_is_scalene_false_if_all_sides_are_equal()
     {
-        Assert.Throws<TriangleException>(() => Triangle.Kind(2, 4, 2));
+        Assert.False(Triangle.IsScalene(4,4,4));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Triangles_violating_triangle_inequality_are_illegal_3()
+    public void Returns_true_if_the_triangle_is_scalene_false_if_two_sides_are_equal()
     {
-        Assert.Throws<TriangleException>(() => Triangle.Kind(7, 3, 2));
+        Assert.False(Triangle.IsScalene(4,4,3));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Returns_true_if_the_triangle_is_scalene_sides_that_violate_triangle_inequality_are_not_scalene_even_if_they_are_all_different()
+    {
+        Assert.False(Triangle.IsScalene(7,3,2));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Returns_true_if_the_triangle_is_scalene_sides_may_be_floats()
+    {
+        Assert.True(Triangle.IsScalene(0.5,0.4,0.6));
     }
 }
