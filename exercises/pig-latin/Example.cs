@@ -14,7 +14,7 @@ public class PigLatin
             return word + "ay";
         if (WordStartsWithPrefixes(word, "thr", "sch"))
             return word.Substring(3) + word.Substring(0, 3) + "ay";
-        if (WordStartsWithPrefixes(word, "ch", "qu", "th"))
+        if (WordStartsWithPrefixes(word, "ch", "qu", "th", "rh"))
             return word.Substring(2) + word.Substring(0, 2) + "ay";
         if (WordStartsWithConsonantAndQu(word))
             return word.Substring(3) + word[0] + "quay";
