@@ -40,8 +40,8 @@ namespace Generators.Exercises
 
             var templateParameters = new
             {
-                TestedMethodName = NameExtensions.ToTestedMethodName(testMethodBody.CanonicalDataCase.Property)
-            }
+                TestedMethodName = testMethodBody.CanonicalDataCase.Property.ToTestedMethodName()
+            };
 
             return TemplateRenderer.RenderInline(template, templateParameters);
         }
