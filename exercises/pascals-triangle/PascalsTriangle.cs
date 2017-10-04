@@ -7,4 +7,14 @@ public static class PascalsTriangle
     {
         throw new NotImplementedException();
     }
+
+    private static IEnumerable<int> Row(int row)
+    {
+        throw new NotImplementedException();
+    }
+
+    private static IEnumerable<IEnumerable<int>> ItterateRows(int rows) 
+    {
+        throw new NotImplementedException();
+    }
 }
