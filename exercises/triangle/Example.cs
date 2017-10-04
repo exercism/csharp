@@ -11,17 +11,17 @@ public enum TriangleKind
 public static class Triangle
 {
     
-    public bool IsScalene(decimal side1, decimal side2, decimal side3)
+    public static bool IsScalene(decimal side1, decimal side2, decimal side3)
     {
         return Kind(side1, side2, side3) == TriangleKind.Scalene;
     }
 
-    public bool IsIsosceles(decimal side1, decimal side2, decimal side3) 
+    public static bool IsIsosceles(decimal side1, decimal side2, decimal side3) 
     {
         return Kind(side1, side2, side3) == TriangleKind.Isosceles;
     }
 
-    public bool IsEquilaterial(decimal side1, decimal side2, decimal side3) 
+    public static bool IsEquilaterial(decimal side1, decimal side2, decimal side3) 
     {
         return Kind(side1, side2, side3) == TriangleKind.Equilateral;
     }
