@@ -84,7 +84,7 @@ public class Tournament
         writer.WriteLine(
             "{0,-30:S} | {1,2:D} | {2,2:D} | {3,2:D} | {4,2:D} | {5,2:D}",
             "Team", "MP", "W", "D", "L", "P");
-        foreach (var pair in this.teams.OrderByDescending(pair => pair.Value.Score)) {
+        foreach (var pair in this.teams.OrderByDescending(pair => pair.Value.Score).ThenBy(pair => pair.Key)) {
             writer.WriteLine(
                 "{0,-30:S} | {1,2:D} | {2,2:D} | {3,2:D} | {4,2:D} | {5,2:D}",
                 pair.Key, pair.Value.Played, pair.Value.Wins,
