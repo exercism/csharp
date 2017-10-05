@@ -7,4 +7,5 @@ public static class PascalsTriangle
     {
         throw new NotImplementedException();
     }
+
 }

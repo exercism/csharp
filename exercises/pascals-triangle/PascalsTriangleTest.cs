@@ -1,80 +1,47 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+// This file was auto-generated based on version 1.0.0 of the canonical data.
+
 using Xunit;
+using System;
 
 public class PascalsTriangleTest
 {
     [Fact]
-    public void One_row()
+    public void Zero_rows()
     {
-        var actual = PascalsTriangle.Calculate(1);
-        var expected = new[] { new[] { 1 } };
-        Assert.Equal(expected, actual, NestedEnumerableEqualityComparer<int>.Instance);
+        Assert.Empty(PascalsTriangle.Calculate(0));
     }
-    
+
+    [Fact(Skip = "Remove to run test")]
+    public void Single_row()
+    {
+        var expected = new[] { new[] { 1 } };
+        Assert.Equal(expected, PascalsTriangle.Calculate(1));
+    }
+
     [Fact(Skip = "Remove to run test")]
     public void Two_rows()
     {
-        var actual = PascalsTriangle.Calculate(2).ToArray();
         var expected = new[] { new[] { 1 }, new[] { 1, 1 } };
-        Assert.Equal(expected, actual, NestedEnumerableEqualityComparer<int>.Instance);
+        Assert.Equal(expected, PascalsTriangle.Calculate(2));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Three_rows()
     {
-        var actual = PascalsTriangle.Calculate(3);
         var expected = new[] { new[] { 1 }, new[] { 1, 1 }, new[] { 1, 2, 1 } };
-        Assert.Equal(expected, actual, NestedEnumerableEqualityComparer<int>.Instance);
+        Assert.Equal(expected, PascalsTriangle.Calculate(3));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Four_rows()
     {
-        var actual = PascalsTriangle.Calculate(4);
         var expected = new[] { new[] { 1 }, new[] { 1, 1 }, new[] { 1, 2, 1 }, new[] { 1, 3, 3, 1 } };
-        Assert.Equal(expected, actual, NestedEnumerableEqualityComparer<int>.Instance);
+        Assert.Equal(expected, PascalsTriangle.Calculate(4));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Five_rows()
+    public void Negative_rows()
     {
-        var actual = PascalsTriangle.Calculate(5);
-        var expected = new[] { new[] { 1 }, new[] { 1, 1 }, new[] { 1, 2, 1 }, new[] { 1, 3, 3, 1 }, new[] { 1, 4, 6, 4, 1 } };
-        Assert.Equal(expected, actual, NestedEnumerableEqualityComparer<int>.Instance);
-    }
-
-    [Fact(Skip = "Remove to run test")]
-    public void Twenty_rows()
-    {
-        var actual = PascalsTriangle.Calculate(20).Last();
-        var expected = new[] { 1, 19, 171, 969, 3876, 11628, 27132, 50388, 75582, 92378, 92378, 75582, 50388, 27132, 11628, 3876, 969, 171, 19, 1 };
-        Assert.Equal(expected, actual);
-    }
-
-    private class EnumerableEqualityComparer<T> : IEqualityComparer<IEnumerable<T>>
-    {
-        public static readonly EnumerableEqualityComparer<T> Instance = new EnumerableEqualityComparer<T>();
-
-        public bool Equals(IEnumerable<T> x, IEnumerable<T> y) => x.SequenceEqual(y);
-
-        public int GetHashCode(IEnumerable<T> obj)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    private class NestedEnumerableEqualityComparer<T> : IEqualityComparer<IEnumerable<IEnumerable<T>>>
-    {
-        public static readonly NestedEnumerableEqualityComparer<T> Instance = new NestedEnumerableEqualityComparer<T>();
-
-        public bool Equals(IEnumerable<IEnumerable<T>> x, IEnumerable<IEnumerable<T>> y)
-            => x.SequenceEqual(y, EnumerableEqualityComparer<T>.Instance);
-
-        public int GetHashCode(IEnumerable<IEnumerable<T>> obj)
-        {
-            throw new NotImplementedException();
-        }
+        Assert.Throws<ArgumentOutOfRangeException>(() => PascalsTriangle.Calculate(-1));
     }
 }
