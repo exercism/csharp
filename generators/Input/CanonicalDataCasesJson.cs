@@ -11,8 +11,8 @@ namespace Generators.Input
 
         public static CanonicalDataCase[] ToArray(JToken casesToken)
         {
-            var caseTokens = new JArray(casesToken.SelectTokens(TokensPath));
-            var canonicalDataCases = new JArray(caseTokens).ToObject<CanonicalDataCase[]>();
+            var caseTokens = casesToken.SelectTokens(TokensPath);
+            var canonicalDataCases = caseTokens.Select(x => x.ToObject<CanonicalDataCase>()).ToArray();
 
             ConvertEmptyJArrayToArray(canonicalDataCases);
 
@@ -49,10 +49,10 @@ namespace Generators.Input
             return null;
         }
 
-        private static IEnumerable<CanonicalDataCase> GetEmptyJArrays(IGrouping<string, CanonicalDataCase> groupedCanonicalDataCases, IGrouping<string, KeyValuePair<string, dynamic>> groupedProperties) 
-            => groupedCanonicalDataCases.Where(canonicalDataCase => IsEmptyJArray(canonicalDataCase, groupedProperties));
+        private static IEnumerable<CanonicalDataCase> GetEmptyJArrays(IGrouping<string, CanonicalDataCase> groupedCanonicalDataCases, IGrouping<string, KeyValuePair<string, dynamic>> groupedProperties)
+            => groupedCanonicalDataCases.Where(canonicalDataCase => canonicalDataCase.Properties.ContainsKey(groupedProperties.Key) && IsEmptyJArray(canonicalDataCase, groupedProperties));
 
-        private static bool IsEmptyJArray(CanonicalDataCase x, IGrouping<string, KeyValuePair<string, dynamic>> groupedProperties) 
+        private static bool IsEmptyJArray(CanonicalDataCase x, IGrouping<string, KeyValuePair<string, dynamic>> groupedProperties)
             => x.Properties[groupedProperties.Key] is JArray jArray && jArray.Count == 0;
     }
 }

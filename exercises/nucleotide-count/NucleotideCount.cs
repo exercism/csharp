@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 
-public class DNA
+public class NucleotideCount
 {
-    public DNA(string sequence)
+    public NucleotideCount(string sequence)
     {
     }
 
@@ -13,11 +13,6 @@ public class DNA
         {
             throw new NotImplementedException("You need to implement this function.");
         }
-    }
-
-    public int Count(char nucleotide)
-    {
-        throw new NotImplementedException("You need to implement this function.");
     }
 }
 

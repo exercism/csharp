@@ -10,17 +10,17 @@ public class TwoBucketResult
 {
     public int Moves { get; set; }
     public Bucket GoalBucket { get; set; }
-    public int OtherBucketContents { get; set; }
+    public int OtherBucket { get; set; }
 }
 
-public class TwoBuckets
+public class TwoBucket
 {
-    public TwoBuckets(int bucketOneSize, int bucketTwoSize, Bucket startBucket)
+    public TwoBucket(int bucketOne, int bucketTwo, Bucket startBucket)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public TwoBucketResult Solve(int goal)
+    public TwoBucketResult Measure(int goal)
     {
         throw new NotImplementedException("You need to implement this function.");
     }

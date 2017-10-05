@@ -40,6 +40,11 @@ namespace Generators
         protected virtual string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
             => TemplateRenderer.RenderPartial(testMethodBody.AssertTemplateName, testMethodBody.AssertTemplateParameters);
 
+        protected virtual string[] RenderAdditionalMethods()
+        {
+            return new string[] { };
+        }
+
         private HashSet<string> GetUsingNamespaces()
         {
             var usingNamespaces = new HashSet<string> { "Xunit" };
@@ -52,7 +57,7 @@ namespace Generators
             return usingNamespaces;
         }
 
-        private string[] RenderTestMethods() => _canonicalData.Cases.Select(RenderTestMethod).ToArray();
+        private string[] RenderTestMethods() => _canonicalData.Cases.Select(RenderTestMethod).Concat(RenderAdditionalMethods()).ToArray();
 
         private TestClass CreateTestClass() => new TestClass
         {
@@ -67,9 +72,14 @@ namespace Generators
         private TestMethod CreateTestMethod(CanonicalDataCase canonicalDataCase, int index) => new TestMethod
         {
             Skip = index > 0,
-            Name = canonicalDataCase.Description.ToTestMethodName(),
+            Name = ToTestMethodName(canonicalDataCase),
             Body = RenderTestMethodBody(canonicalDataCase)
         };
+
+        private static string ToTestMethodName(CanonicalDataCase canonicalDataCase) 
+            => canonicalDataCase.UseFullDescriptionPath 
+                ? string.Join(" - ", canonicalDataCase.DescriptionPath).ToTestMethodName()
+                : canonicalDataCase.Description.ToTestMethodName();
 
         private string RenderTestMethodBody(CanonicalDataCase canonicalDataCase)
         {

@@ -28,6 +28,8 @@ namespace Generators.Output
                     return ints.Any() ? $"new[] {{ {string.Join(", ", ints)} }}" : "new int[0]";
                 case IEnumerable<string> strings:
                     return strings.Any() ? $"new[] {{ {string.Join(", ", strings.Select(Format) )} }}" : "new string[0]";
+                case IEnumerable<UnescapedValue> unescapedValues when unescapedValues.Any():
+                    return $"new[] {{ {string.Join(", ", unescapedValues.Select(Format) )} }}";
                 case double dbl:
                     return dbl.ToString(CultureInfo.InvariantCulture);
                 case float flt:
