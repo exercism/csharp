@@ -8,13 +8,4 @@ public static class PascalsTriangle
         throw new NotImplementedException();
     }
 
-    private static IEnumerable<int> Row(int row)
-    {
-        throw new NotImplementedException();
-    }
-
-    private static IEnumerable<IEnumerable<int>> IterateRows(int rows) 
-    {
-        throw new NotImplementedException();
-    }
 }
