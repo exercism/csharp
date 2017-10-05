@@ -24,7 +24,7 @@ namespace Generators.Output
                     return $"new[] {{ {string.Join(", ", jArray.Select(Format))} }}";
                 case int[,] multidimensionalArray:
                     return multidimensionalArray.GetLength(0) > 1
-                            ? $"new[,]\r\n{{\r\n\t{string.Join(",\r\n\t", Enumerable.Range(0, multidimensionalArray.GetUpperBound(0) + 1).Select(x => multidimensionalArray.SliceRow(x).ToNestedArray()))}\r\n}}"
+                            ? $"new[,]\r\n{{\r\n    {string.Join(",\r\n    ", Enumerable.Range(0, multidimensionalArray.GetUpperBound(0) + 1).Select(x => multidimensionalArray.SliceRow(x).ToNestedArray()))}\r\n}}"
                             : "new int[,] { }";
                 case IEnumerable<Tuple<string, object>> tuples:
                     return $"new[] {{ {string.Join(", ", tuples.Select(Format))} }}";

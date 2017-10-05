@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Generators.Input;
-using Generators.Output;
 using Newtonsoft.Json.Linq;
 
 namespace Generators.Exercises
@@ -22,7 +21,7 @@ namespace Generators.Exercises
 
                 canonicalDataCase.Properties["input"] = (canonicalDataCase.Properties["input"] as JArray).ToObject<int[,]>();
 
-                var array = (canonicalDataCase.Expected as Array);
+                var array = canonicalDataCase.Expected as Array;
 
                 if (array != null)
                 {
@@ -47,6 +46,5 @@ namespace Generators.Exercises
                 yield return new Tuple<string, object>(current["row"].ToString(), current["column"].ToString());
             }
         }
-
     }
 }

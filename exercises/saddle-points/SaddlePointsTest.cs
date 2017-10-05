@@ -10,9 +10,9 @@ public class SaddlePointsTest
     {
         var input = new[,]
         {
-        	{ 9, 8, 7 },
-        	{ 5, 3, 2 },
-        	{ 6, 6, 7 }
+            { 9, 8, 7 },
+            { 5, 3, 2 },
+            { 6, 6, 7 }
         };
         var sut = new SaddlePoints(input);
         var actual = sut.Calculate();
@@ -34,9 +34,9 @@ public class SaddlePointsTest
     {
         var input = new[,]
         {
-        	{ 1, 2, 3 },
-        	{ 3, 1, 2 },
-        	{ 2, 3, 1 }
+            { 1, 2, 3 },
+            { 3, 1, 2 },
+            { 2, 3, 1 }
         };
         var sut = new SaddlePoints(input);
         var actual = sut.Calculate();
@@ -48,9 +48,9 @@ public class SaddlePointsTest
     {
         var input = new[,]
         {
-        	{ 4, 5, 4 },
-        	{ 3, 5, 5 },
-        	{ 1, 5, 4 }
+            { 4, 5, 4 },
+            { 3, 5, 5 },
+            { 1, 5, 4 }
         };
         var sut = new SaddlePoints(input);
         var actual = sut.Calculate();
@@ -63,9 +63,9 @@ public class SaddlePointsTest
     {
         var input = new[,]
         {
-        	{ 8, 7, 9 },
-        	{ 6, 7, 6 },
-        	{ 3, 2, 5 }
+            { 8, 7, 9 },
+            { 6, 7, 6 },
+            { 3, 2, 5 }
         };
         var sut = new SaddlePoints(input);
         var actual = sut.Calculate();
