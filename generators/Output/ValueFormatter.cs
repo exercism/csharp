@@ -22,6 +22,14 @@ namespace Generators.Output
                     return $"{enumeration.GetType().Name}.{enumeration}";
                 case JArray jArray:
                     return $"new[] {{ {string.Join(", ", jArray.Select(Format))} }}";
+                case int[,] multidimensionalArray:
+                    return multidimensionalArray.GetLength(0) > 1
+                            ? $"new[,]\r\n{{\r\n\t{string.Join(",\r\n\t", Enumerable.Range(0, multidimensionalArray.GetUpperBound(0) + 1).Select(x => multidimensionalArray.SliceRow(x).ToNestedArray()))}\r\n}}"
+                            : "new int[,] { }";
+                case IEnumerable<Tuple<string, object>> tuples:
+                    return $"new[] {{ {string.Join(", ", tuples.Select(Format))} }}";
+                case Tuple<string, object> tuple:
+                    return $"Tuple.Create({tuple.Item1}, {tuple.Item2})";
                 case string str:
                     return str.FormatString();
                 case IEnumerable<int> ints:
@@ -88,6 +96,27 @@ namespace Generators.Output
             var array = enumerable.ToArray();
             array[array.Length - 1] += ";";
             return array;
+        }
+
+        private static IEnumerable<T> SliceRow<T>(this T[,] array, int row)
+        {
+            for (var i = array.GetLowerBound(1); i <= array.GetUpperBound(1); i++)
+            {
+                yield return array[row, i];
+            }
+        }
+
+        private static IEnumerable<T> SliceColumn<T>(this T[,] array, int column)
+        {
+            for (var i = array.GetLowerBound(0); i <= array.GetUpperBound(0); i++)
+            {
+                yield return array[i, column];
+            }
+        }
+
+        private static string ToNestedArray<T>(this IEnumerable<T> enumerable)
+        {
+            return enumerable.Any() ? $"{{ {string.Join(", ", enumerable)} }}" : string.Empty;
         }
     }
 }
