@@ -8,10 +8,10 @@ public static class PascalsTriangle
         if (rows < 0)
             throw new ArgumentOutOfRangeException();
 
-        return ItterateRows(rows);
+        return IterateRows(rows);
     }
     
-    private static IEnumerable<IEnumerable<int>> ItterateRows(int rows)
+    private static IEnumerable<IEnumerable<int>> IterateRows(int rows)
     {
         for (var i = 1; i <= rows; i++)
         {

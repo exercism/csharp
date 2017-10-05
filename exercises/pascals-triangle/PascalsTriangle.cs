@@ -13,7 +13,7 @@ public static class PascalsTriangle
         throw new NotImplementedException();
     }
 
-    private static IEnumerable<IEnumerable<int>> ItterateRows(int rows) 
+    private static IEnumerable<IEnumerable<int>> IterateRows(int rows) 
     {
         throw new NotImplementedException();
     }

@@ -44,10 +44,4 @@ public class PascalsTriangleTest
     {
         Assert.Throws<ArgumentOutOfRangeException>(() => PascalsTriangle.Calculate(-1));
     }
-
-    [Fact(Skip = "Remove to run test")]
-    public void Null_no_rows()
-    {
-        Assert.Throws<ArgumentOutOfRangeException>(() => PascalsTriangle.Calculate(-1));
-    }
 }

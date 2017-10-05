@@ -1,6 +1,6 @@
 using System;
+using System.Linq;
 using Generators.Input;
-using Generators.Output;
 using Newtonsoft.Json.Linq;
 
 namespace Generators.Exercises
@@ -9,14 +9,19 @@ namespace Generators.Exercises
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
-            foreach (var dataCases in canonicalData.Cases)
+            //remove null case until canonical data is updated
+            var cases = canonicalData.Cases.ToList();
+            cases.RemoveAll(x => x.Properties["count"] == null);
+            canonicalData.Cases = cases.ToArray();
+
+            foreach (var canonicalDataCase in canonicalData.Cases)
             {
-                dataCases.UseVariableForExpected = true;
-                dataCases.Property = "calculate";
-                if (!(dataCases.Expected is JArray))
-                    dataCases.ExceptionThrown = typeof(ArgumentOutOfRangeException);
-                if (dataCases.Properties["count"] == null)
-                    dataCases.Properties["count"] = -1;
+                canonicalDataCase.UseVariableForExpected = true;
+                canonicalDataCase.Property = "calculate";
+                if (!(canonicalDataCase.Expected is JArray))
+                    canonicalDataCase.ExceptionThrown = typeof(ArgumentOutOfRangeException);
+                if (canonicalDataCase.Properties["count"] == null)
+                    canonicalDataCase.Properties["count"] = -1;
             }
         }
     }
