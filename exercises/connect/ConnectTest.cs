@@ -1,124 +1,86 @@
-﻿using Xunit;
-using System.Linq;
+// This file was auto-generated based on version 1.0.0 of the canonical data.
+
+using Xunit;
 
 public class ConnectTest
 {
-    private static string MakeBoard(string[] board)
-    {
-        return string.Join("\n", board.Select(x => x.Replace(" ", "")));
-    }
-
     [Fact]
-    public void Empty_board_has_no_winner()
+    public void An_empty_board_has_no_winner()
     {
-        var lines = new[] 
-            {
-                ". . . . .    ",
-                " . . . . .   ",
-                "  . . . . .  ",
-                "   . . . . . ",
-                "    . . . . ."
-            };
-        var board = new Connect(MakeBoard(lines));
-        Assert.Equal(ConnectWinner.None, board.Result());
+        var board = new[] { ".....", ".....", ".....", ".....", "....." };
+        var sut = new Connect(board);
+        Assert.Equal(ConnectWinner.None, sut.Result());
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void One_by_one_board_with_black_stone()
+    public void X_can_win_on_a_1x1_board()
     {
-        var lines = new[] { "X" };
-        var board = new Connect(MakeBoard(lines));
-        Assert.Equal(ConnectWinner.Black, board.Result());
+        var board = new[] { "X" };
+        var sut = new Connect(board);
+        Assert.Equal(ConnectWinner.Black, sut.Result());
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void One_by_one_board_with_white_stone()
+    public void O_can_win_on_a_1x1_board()
     {
-        var lines = new[] { "O" };
-        var board = new Connect(MakeBoard(lines));
-        Assert.Equal(ConnectWinner.White, board.Result());
+        var board = new[] { "O" };
+        var sut = new Connect(board);
+        Assert.Equal(ConnectWinner.White, sut.Result());
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Convoluted_path()
+    public void Only_edges_does_not_make_a_winner()
     {
-        var lines = new[] 
-            {
-                ". X X . .    ",
-                " X . X . X   ",
-                "  . X . X .  ",
-                "   . X X . . ",
-                "    O O O O O"
-            };
-        var board = new Connect(MakeBoard(lines));
-        Assert.Equal(ConnectWinner.Black, board.Result());
+        var board = new[] { "OOOX", "X..X", "X..X", "XOOO" };
+        var sut = new Connect(board);
+        Assert.Equal(ConnectWinner.None, sut.Result());
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Rectangle_black_wins()
+    public void Illegal_diagonal_does_not_make_a_winner()
     {
-        var lines = new[] 
-            {
-                ". O . .    ",
-                " O X X X   ",
-                "  O X O .  ",
-                "   X X O X ",
-                "    . O X ."
-            };
-        var board = new Connect(MakeBoard(lines));
-        Assert.Equal(ConnectWinner.Black, board.Result());
+        var board = new[] { "XO..", "OXXX", "OXO.", ".OX.", "XXOO" };
+        var sut = new Connect(board);
+        Assert.Equal(ConnectWinner.None, sut.Result());
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Rectangle_white_wins()
+    public void Nobody_wins_crossing_adjacent_angles()
     {
-        var lines = new[] 
-            {
-                ". O . .    ",
-                " O X X X   ",
-                "  O O O .  ",
-                "   X X O X ",
-                "    . O X ."
-            };
-        var board = new Connect(MakeBoard(lines));
-        Assert.Equal(ConnectWinner.White, board.Result());
+        var board = new[] { "X...", ".XO.", "O.XO", ".O.X", "..O." };
+        var sut = new Connect(board);
+        Assert.Equal(ConnectWinner.None, sut.Result());
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Spiral_black_wins()
+    public void X_wins_crossing_from_left_to_right()
     {
-        var lines = new[]
-            {
-            "OXXXXXXXX",
-            "OXOOOOOOO",
-            "OXOXXXXXO",
-            "OXOXOOOXO",
-            "OXOXXXOXO",
-            "OXOOOXOXO",
-            "OXXXXXOXO",
-            "OOOOOOOXO",
-            "XXXXXXXXO"
-        };
-        var board = new Connect(MakeBoard(lines));
-        Assert.Equal(ConnectWinner.Black, board.Result());
+        var board = new[] { ".O..", "OXXX", "OXO.", "XXOX", ".OX." };
+        var sut = new Connect(board);
+        Assert.Equal(ConnectWinner.Black, sut.Result());
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Spiral_nobody_wins()
+    public void O_wins_crossing_from_top_to_bottom()
     {
-        var lines = new[]
-            {
-            "OXXXXXXXX",
-            "OXOOOOOOO",
-            "OXOXXXXXO",
-            "OXOXOOOXO",
-            "OXOX.XOXO",
-            "OXOOOXOXO",
-            "OXXXXXOXO",
-            "OOOOOOOXO",
-            "XXXXXXXXO"
-        };
-        var board = new Connect(MakeBoard(lines));
-        Assert.Equal(ConnectWinner.None, board.Result());
+        var board = new[] { ".O..", "OXXX", "OOO.", "XXOX", ".OX." };
+        var sut = new Connect(board);
+        Assert.Equal(ConnectWinner.White, sut.Result());
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void X_wins_using_a_convoluted_path()
+    {
+        var board = new[] { ".XX..", "X.X.X", ".X.X.", ".XX..", "OOOOO" };
+        var sut = new Connect(board);
+        Assert.Equal(ConnectWinner.Black, sut.Result());
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void X_wins_using_a_spiral_path()
+    {
+        var board = new[] { "OXXXXXXXX", "OXOOOOOOO", "OXOXXXXXO", "OXOXOOOXO", "OXOXXXOXO", "OXOOOXOXO", "OXXXXXOXO", "OOOOOOOXO", "XXXXXXXXO" };
+        var sut = new Connect(board);
+        Assert.Equal(ConnectWinner.Black, sut.Result());
     }
 }

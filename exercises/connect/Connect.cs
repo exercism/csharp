@@ -9,7 +9,7 @@ public enum ConnectWinner
 
 public class Connect
 {
-    public Connect(string input)
+    public Connect(string[] input)
     {
         throw new NotImplementedException("You need to implement this function.");
     }

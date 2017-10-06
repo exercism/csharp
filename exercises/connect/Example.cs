@@ -20,7 +20,7 @@ public class Connect
 
     private readonly Cell[][] board;
 
-    public Connect(string input)
+    public Connect(string[] input)
     {
         board = ParseBoard(input);
     }
@@ -35,13 +35,12 @@ public class Connect
         }
     }
 
-    private static Cell[][] ParseBoard(string input)
+    private static Cell[][] ParseBoard(string[] input)
     {
-        var split = input.Split('\n');
-        var rows = split.Length;
-        var cols = split[0].Length;
+        var rows = input.Length;
+        var cols = input[0].Length;
 
-        return split.Select(row => row.Select(CharToCell).ToArray()).ToArray();
+        return input.Select(row => row.Select(CharToCell).ToArray()).ToArray();
     }
 
     private int Cols => board[0].Length;
