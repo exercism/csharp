@@ -32,21 +32,14 @@ namespace Generators.Exercises
             }
         }
 
-        protected override HashSet<string> AddAdditionalNamespaces()
-        {
-            return new HashSet<string>
-            {
-                typeof(Environment).Namespace
-            };
-        }
-
         private UnescapedValue ToMultiLineString(string[] input)
         {
-            const string template = @"new [] 
-                { 
-                    {% if input.size == 0 %}string.Empty{% else %}{% for item in {{input}} %}{% if forloop.length == 1 %}""{{item}}""{% break %}{% endif %}""{{item}}""{% if forloop.last == false %},{% endif %}
-                    {% endfor %}
-                } {% endif %}";
+            const string template = 
+@"new [] 
+{ 
+    {% if input.size == 0 %}string.Empty{% else %}{% for item in {{input}} %}{% if forloop.length == 1 %}""{{item}}""{% break %}{% endif %}""{{item}}""{% if forloop.last == false %},{% else %}{{string.Empty}}{% endif %}
+    {% endfor %}{% endif %} 
+}";
 
             return new UnescapedValue(TemplateRenderer.RenderInline(template, new { input }));
         }
