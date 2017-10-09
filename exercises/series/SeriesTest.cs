@@ -3,10 +3,10 @@ using Xunit;
 
 public class SeriesTest
 {
-    public static readonly object[] SliceOneTestData =
+    public static readonly TheoryData<string, int[][]> SliceOneTestData = new TheoryData<string, int[][]>
         {
-            new object[] { "01234", new[] { new[] { 0 }, new[] { 1 }, new[] { 2 }, new[] { 3 }, new[] { 4 } } },
-            new object[] { "92834", new[] { new[] { 9 }, new[] { 2 }, new[] { 8 }, new[] { 3 }, new[] { 4 } } }
+            { "01234", new[] { new[] { 0 }, new[] { 1 }, new[] { 2 }, new[] { 3 }, new[] { 4 } } },
+            { "92834", new[] { new[] { 9 }, new[] { 2 }, new[] { 8 }, new[] { 3 }, new[] { 4 } } }
         };
 
     [Theory]
@@ -16,11 +16,11 @@ public class SeriesTest
         Assert.Equal(result, new Series(input).Slices(1));
     }
 
-    public static readonly object[] SliceTwoTestData =
+    public static readonly TheoryData<string, int[][]> SliceTwoTestData = new TheoryData<string, int[][]>
         {
-            new object[] { "01234", new[] { new[] { 0, 1 }, new[] { 1, 2 }, new[] { 2, 3 }, new[] { 3, 4 } } },
-            new object[] { "98273463", new[] { new[] { 9, 8 }, new[] { 8, 2 }, new[] { 2, 7 }, new[] { 7, 3 }, new[] { 3, 4 }, new[] { 4, 6 }, new[] { 6, 3 } } },
-            new object[] { "37103", new[] { new[] { 3, 7 }, new[] { 7, 1 }, new[] { 1, 0 }, new[] { 0, 3 } } }
+            { "01234", new[] { new[] { 0, 1 }, new[] { 1, 2 }, new[] { 2, 3 }, new[] { 3, 4 } } },
+            { "98273463", new[] { new[] { 9, 8 }, new[] { 8, 2 }, new[] { 2, 7 }, new[] { 7, 3 }, new[] { 3, 4 }, new[] { 4, 6 }, new[] { 6, 3 } } },
+            { "37103", new[] { new[] { 3, 7 }, new[] { 7, 1 }, new[] { 1, 0 }, new[] { 0, 3 } } }
         };
 
     [Theory(Skip = "Remove to run test")]
@@ -30,11 +30,11 @@ public class SeriesTest
         Assert.Equal(result, new Series(input).Slices(2));
     }
 
-    public static readonly object[] SliceThreeTestData =
+    public static readonly TheoryData<string, int[][]> SliceThreeTestData = new TheoryData<string, int[][]>
         {
-            new object[] { "01234", new[] { new[] { 0, 1, 2 }, new[] { 1, 2, 3 }, new[] { 2, 3, 4 } } },
-            new object[] { "31001", new[] { new[] { 3, 1, 0 }, new[] { 1, 0, 0 }, new[] { 0, 0, 1 } } },
-            new object[] { "982347", new[] { new[] { 9, 8, 2 }, new[] { 8, 2, 3 }, new[] { 2, 3, 4 }, new[] { 3, 4, 7 } } }
+            { "01234", new[] { new[] { 0, 1, 2 }, new[] { 1, 2, 3 }, new[] { 2, 3, 4 } } },
+            { "31001", new[] { new[] { 3, 1, 0 }, new[] { 1, 0, 0 }, new[] { 0, 0, 1 } } },
+            { "982347", new[] { new[] { 9, 8, 2 }, new[] { 8, 2, 3 }, new[] { 2, 3, 4 }, new[] { 3, 4, 7 } } }
         };
 
     [Theory(Skip = "Remove to run test")]
@@ -44,10 +44,10 @@ public class SeriesTest
         Assert.Equal(result, new Series(input).Slices(3));
     }
 
-    public static readonly object[] SliceFourTestData =
+    public static readonly TheoryData<string, int[][]> SliceFourTestData = new TheoryData<string, int[][]>
         {
-            new object[] { "01234", new[] { new[] { 0, 1, 2, 3 }, new[] { 1, 2, 3, 4 } } },
-            new object[] { "91274", new[] { new[] { 9, 1, 2, 7 }, new[] { 1, 2, 7, 4 } } }
+            { "01234", new[] { new[] { 0, 1, 2, 3 }, new[] { 1, 2, 3, 4 } } },
+            { "91274", new[] { new[] { 9, 1, 2, 7 }, new[] { 1, 2, 7, 4 } } }
         };
 
     [Theory(Skip = "Remove to run test")]
@@ -57,10 +57,10 @@ public class SeriesTest
         Assert.Equal(result, new Series(input).Slices(4));
     }
 
-    public static readonly object[] SliceFiveTestData =
+    public static readonly TheoryData<string, int[][]> SliceFiveTestData = new TheoryData<string, int[][]>
         {
-            new object[] { "01234", new[] { new[] { 0, 1, 2, 3, 4 } } },
-            new object[] { "81228", new[] { new[] { 8, 1, 2, 2, 8 } } }
+            { "01234", new[] { new[] { 0, 1, 2, 3, 4 } } },
+            { "81228", new[] { new[] { 8, 1, 2, 2, 8 } } }
         };
 
     [Theory(Skip = "Remove to run test")]
