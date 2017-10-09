@@ -26,7 +26,7 @@ namespace Generators.Exercises
 
         private UnescapedValue SplitArrayToValues(IEnumerable input)
         {
-            const string template = "{% for item in {{input}} %}{{item}}{% if forloop.last == false %},{% endif %}{% endfor %}";
+            const string template = "{% for item in {{input}} %}{{item}}{% if forloop.last == false %}, {% endif %}{% endfor %}";
 
             return new UnescapedValue(TemplateRenderer.RenderInline(template, new { input }));
         }
