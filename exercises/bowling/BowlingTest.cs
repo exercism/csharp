@@ -12,7 +12,7 @@ public class BowlingTest
         var previousRolls = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
         var sut = new BowlingGame();
         DoRoll(previousRolls, sut);
-        Assert.Equal(0, actual);
+        Assert.Equal(0, sut.Score());
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -21,7 +21,7 @@ public class BowlingTest
         var previousRolls = new int[] {3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6, 3, 6};
         var sut = new BowlingGame();
         DoRoll(previousRolls, sut);
-        Assert.Equal(90, actual);
+        Assert.Equal(90, sut.Score());
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -30,7 +30,7 @@ public class BowlingTest
         var previousRolls = new int[] {6, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
         var sut = new BowlingGame();
         DoRoll(previousRolls, sut);
-        Assert.Equal(10, actual);
+        Assert.Equal(10, sut.Score());
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -39,7 +39,7 @@ public class BowlingTest
         var previousRolls = new int[] {6, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
         var sut = new BowlingGame();
         DoRoll(previousRolls, sut);
-        Assert.Equal(16, actual);
+        Assert.Equal(16, sut.Score());
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -48,7 +48,7 @@ public class BowlingTest
         var previousRolls = new int[] {5, 5, 3, 7, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
         var sut = new BowlingGame();
         DoRoll(previousRolls, sut);
-        Assert.Equal(31, actual);
+        Assert.Equal(31, sut.Score());
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -57,7 +57,7 @@ public class BowlingTest
         var previousRolls = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 3, 7};
         var sut = new BowlingGame();
         DoRoll(previousRolls, sut);
-        Assert.Equal(17, actual);
+        Assert.Equal(17, sut.Score());
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -66,7 +66,7 @@ public class BowlingTest
         var previousRolls = new int[] {10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
         var sut = new BowlingGame();
         DoRoll(previousRolls, sut);
-        Assert.Equal(10, actual);
+        Assert.Equal(10, sut.Score());
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -75,7 +75,7 @@ public class BowlingTest
         var previousRolls = new int[] {10, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
         var sut = new BowlingGame();
         DoRoll(previousRolls, sut);
-        Assert.Equal(26, actual);
+        Assert.Equal(26, sut.Score());
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -84,7 +84,7 @@ public class BowlingTest
         var previousRolls = new int[] {10, 10, 10, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
         var sut = new BowlingGame();
         DoRoll(previousRolls, sut);
-        Assert.Equal(81, actual);
+        Assert.Equal(81, sut.Score());
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -93,7 +93,7 @@ public class BowlingTest
         var previousRolls = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 7, 1};
         var sut = new BowlingGame();
         DoRoll(previousRolls, sut);
-        Assert.Equal(18, actual);
+        Assert.Equal(18, sut.Score());
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -102,7 +102,7 @@ public class BowlingTest
         var previousRolls = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 7, 3};
         var sut = new BowlingGame();
         DoRoll(previousRolls, sut);
-        Assert.Equal(20, actual);
+        Assert.Equal(20, sut.Score());
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -111,7 +111,7 @@ public class BowlingTest
         var previousRolls = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 10};
         var sut = new BowlingGame();
         DoRoll(previousRolls, sut);
-        Assert.Equal(30, actual);
+        Assert.Equal(30, sut.Score());
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -120,7 +120,7 @@ public class BowlingTest
         var previousRolls = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 3, 10};
         var sut = new BowlingGame();
         DoRoll(previousRolls, sut);
-        Assert.Equal(20, actual);
+        Assert.Equal(20, sut.Score());
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -129,7 +129,7 @@ public class BowlingTest
         var previousRolls = new int[] {10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10};
         var sut = new BowlingGame();
         DoRoll(previousRolls, sut);
-        Assert.Equal(300, actual);
+        Assert.Equal(300, sut.Score());
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -138,7 +138,7 @@ public class BowlingTest
         var previousRolls = new int[] {};
         var sut = new BowlingGame();
         DoRoll(previousRolls, sut);
-        Assert.Throws<ArgumentException>(() => Bowling.Roll(-1));
+        Assert.Throws<ArgumentException>(() => sut.Roll(-1));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -147,7 +147,7 @@ public class BowlingTest
         var previousRolls = new int[] {};
         var sut = new BowlingGame();
         DoRoll(previousRolls, sut);
-        Assert.Throws<ArgumentException>(() => Bowling.Roll(11));
+        Assert.Throws<ArgumentException>(() => sut.Roll(11));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -156,7 +156,7 @@ public class BowlingTest
         var previousRolls = new int[] {5};
         var sut = new BowlingGame();
         DoRoll(previousRolls, sut);
-        Assert.Throws<ArgumentException>(() => Bowling.Roll(6));
+        Assert.Throws<ArgumentException>(() => sut.Roll(6));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -165,7 +165,7 @@ public class BowlingTest
         var previousRolls = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10};
         var sut = new BowlingGame();
         DoRoll(previousRolls, sut);
-        Assert.Throws<ArgumentException>(() => Bowling.Roll(11));
+        Assert.Throws<ArgumentException>(() => sut.Roll(11));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -174,7 +174,7 @@ public class BowlingTest
         var previousRolls = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 5};
         var sut = new BowlingGame();
         DoRoll(previousRolls, sut);
-        Assert.Throws<ArgumentException>(() => Bowling.Roll(6));
+        Assert.Throws<ArgumentException>(() => sut.Roll(6));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -183,7 +183,7 @@ public class BowlingTest
         var previousRolls = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 6};
         var sut = new BowlingGame();
         DoRoll(previousRolls, sut);
-        Assert.Equal(26, actual);
+        Assert.Equal(26, sut.Score());
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -192,7 +192,7 @@ public class BowlingTest
         var previousRolls = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 6};
         var sut = new BowlingGame();
         DoRoll(previousRolls, sut);
-        Assert.Throws<ArgumentException>(() => Bowling.Roll(10));
+        Assert.Throws<ArgumentException>(() => sut.Roll(10));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -201,7 +201,7 @@ public class BowlingTest
         var previousRolls = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10};
         var sut = new BowlingGame();
         DoRoll(previousRolls, sut);
-        Assert.Throws<ArgumentException>(() => Bowling.Roll(11));
+        Assert.Throws<ArgumentException>(() => sut.Roll(11));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -210,7 +210,7 @@ public class BowlingTest
         var previousRolls = new int[] {};
         var sut = new BowlingGame();
         DoRoll(previousRolls, sut);
-        Assert.Throws<ArgumentException>(() => Bowling.Score());
+        Assert.Throws<ArgumentException>(() => sut.Score());
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -219,7 +219,7 @@ public class BowlingTest
         var previousRolls = new int[] {0, 0};
         var sut = new BowlingGame();
         DoRoll(previousRolls, sut);
-        Assert.Throws<ArgumentException>(() => Bowling.Score());
+        Assert.Throws<ArgumentException>(() => sut.Score());
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -228,7 +228,7 @@ public class BowlingTest
         var previousRolls = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
         var sut = new BowlingGame();
         DoRoll(previousRolls, sut);
-        Assert.Throws<ArgumentException>(() => Bowling.Roll(0));
+        Assert.Throws<ArgumentException>(() => sut.Roll(0));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -237,7 +237,7 @@ public class BowlingTest
         var previousRolls = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10};
         var sut = new BowlingGame();
         DoRoll(previousRolls, sut);
-        Assert.Throws<ArgumentException>(() => Bowling.Score());
+        Assert.Throws<ArgumentException>(() => sut.Score());
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -246,7 +246,7 @@ public class BowlingTest
         var previousRolls = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10};
         var sut = new BowlingGame();
         DoRoll(previousRolls, sut);
-        Assert.Throws<ArgumentException>(() => Bowling.Score());
+        Assert.Throws<ArgumentException>(() => sut.Score());
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -255,7 +255,7 @@ public class BowlingTest
         var previousRolls = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 3};
         var sut = new BowlingGame();
         DoRoll(previousRolls, sut);
-        Assert.Throws<ArgumentException>(() => Bowling.Score());
+        Assert.Throws<ArgumentException>(() => sut.Score());
     }
 
     public void DoRoll(ICollection<int> rolls, BowlingGame sut)
