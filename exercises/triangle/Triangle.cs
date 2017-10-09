@@ -1,12 +1,5 @@
 using System;
 
-public enum TriangleKind
-{
-    Equilateral,
-    Isosceles,
-    Scalene
-}
-
 public static class Triangle
 {
     public static bool IsScalene(double side1, double side2, double side3)
@@ -24,10 +17,6 @@ public static class Triangle
         throw new NotImplementedException("You need to implement this function.");
     }
     
-    private static TriangleKind Kind(double side1, double side2, double side3)
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
 }
 
 public class TriangleException : Exception { }
