@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 public enum ConnectWinner
 {
@@ -39,8 +40,12 @@ public class Connect
     {
         var rows = input.Length;
         var cols = input[0].Length;
-
-        return input.Select(row => row.Select(CharToCell).ToArray()).ToArray();
+        var filtered = new List<string>();
+        foreach (var str in input)
+        {
+            filtered.Add(Regex.Replace(str, @"\s+", ""));
+        }
+        return filtered.Select(row => row.Select(CharToCell).ToArray()).ToArray();
     }
 
     private int Cols => board[0].Length;

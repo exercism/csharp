@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Text.RegularExpressions;
+﻿using System;
+using System.Collections.Generic;
 using Generators.Input;
 using Generators.Output;
 
@@ -13,16 +13,8 @@ namespace Generators.Exercises
             {
                 canonicalDataCase.UseVariablesForConstructorParameters = true;
                 canonicalDataCase.SetConstructorInputParameters("board");
-
-                //remove whitespace
-                var trimBoard = new List<string>();
-                foreach (var row in canonicalDataCase.Properties["board"])
-                {
-                    trimBoard.Add(Regex.Replace(row, @"\s+", ""));
-                }
-
-                canonicalDataCase.Properties["board"] = trimBoard.ToArray();
                 canonicalDataCase.Property = "result";
+                canonicalDataCase.Properties["board"] = ToMultiLineString(canonicalDataCase.Properties["board"]);
 
                 //convert to enum
                 switch (canonicalDataCase.Properties["expected"])
@@ -38,6 +30,25 @@ namespace Generators.Exercises
                         break;
                 }
             }
+        }
+
+        protected override HashSet<string> AddAdditionalNamespaces()
+        {
+            return new HashSet<string>
+            {
+                typeof(Environment).Namespace
+            };
+        }
+
+        private UnescapedValue ToMultiLineString(string[] input)
+        {
+            const string template = @"new [] 
+                { 
+                    {% if input.size == 0 %}string.Empty{% else %}{% for item in {{input}} %}{% if forloop.length == 1 %}""{{item}}""{% break %}{% endif %}""{{item}}""{% if forloop.last == false %},{% endif %}
+                    {% endfor %}
+                } {% endif %}";
+
+            return new UnescapedValue(TemplateRenderer.RenderInline(template, new { input }));
         }
     }
 }
