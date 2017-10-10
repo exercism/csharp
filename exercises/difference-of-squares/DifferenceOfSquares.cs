@@ -1,18 +1,18 @@
 ﻿using System;
 
-public static class Squares
+public static class DifferenceOfSquares
 {
-    public static int SquareOfSums(int max)
+    public static int CalculateSquareOfSum(int max)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public static int SumOfSquares(int max)
+    public static int CalculateSumOfSquares(int max)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public static int DifferenceOfSquares(int max)
+    public static int CalculateDifferenceOfSquares(int max)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
