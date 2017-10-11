@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 public class Minesweeper
 {
-    public static string Annotate(string input)
+    public static string[] Annotate(string[] input)
     {
         var results = new List<string>();
 
-        var board = input.Split("\n".ToCharArray());
+        var board = input;
 
         for (int i = 0; i < board.Length; i++)
         {
@@ -31,7 +31,7 @@ public class Minesweeper
             results.Add(result);
         }
 
-        return string.Join("\n", results);
+        return results.ToArray();
     }
 
     private static int GetCountForSquare(string[] board, int x, int y)
