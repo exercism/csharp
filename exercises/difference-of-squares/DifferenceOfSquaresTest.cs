@@ -1,65 +1,60 @@
-﻿using System;
+// This file was auto-generated based on version 1.1.0 of the canonical data.
+
 using Xunit;
 
-public class DifferenceOfSquaresTests
+public class DifferenceOfSquaresTest
 {
     [Fact]
-    public void Test_square_of_sums_to_5()
+    public void Square_of_sum_1()
     {
-        Assert.Equal(225, Squares.SquareOfSums(5));
+        Assert.Equal(1, DifferenceOfSquares.CalculateSquareOfSum(1));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Test_sum_of_squares_to_5()
+    public void Square_of_sum_5()
     {
-        Assert.Equal(55, Squares.SumOfSquares(5));
+        Assert.Equal(225, DifferenceOfSquares.CalculateSquareOfSum(5));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Test_difference_of_sums_to_5()
+    public void Square_of_sum_100()
     {
-        Assert.Equal(170, Squares.DifferenceOfSquares(5));
+        Assert.Equal(25502500, DifferenceOfSquares.CalculateSquareOfSum(100));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Test_square_of_sums_to_10()
+    public void Sum_of_squares_1()
     {
-        Assert.Equal(3025, Squares.SquareOfSums(10));
+        Assert.Equal(1, DifferenceOfSquares.CalculateSumOfSquares(1));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Test_sum_of_squares_to_10()
+    public void Sum_of_squares_5()
     {
-        Assert.Equal(385, Squares.SumOfSquares(10));
+        Assert.Equal(55, DifferenceOfSquares.CalculateSumOfSquares(5));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Test_difference_of_sums_to_10()
+    public void Sum_of_squares_100()
     {
-        Assert.Equal(2640, Squares.DifferenceOfSquares(10));
+        Assert.Equal(338350, DifferenceOfSquares.CalculateSumOfSquares(100));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Test_square_of_sums_to_100()
+    public void Difference_of_squares_1()
     {
-        Assert.Equal(25502500, Squares.SquareOfSums(100));
+        Assert.Equal(0, DifferenceOfSquares.CalculateDifferenceOfSquares(1));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Test_sum_of_squares_to_100()
+    public void Difference_of_squares_5()
     {
-        Assert.Equal(338350, Squares.SumOfSquares(100));
+        Assert.Equal(170, DifferenceOfSquares.CalculateDifferenceOfSquares(5));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Test_difference_of_sums_to_100()
+    public void Difference_of_squares_100()
     {
-        Assert.Equal(25164150, Squares.DifferenceOfSquares(100));
-    }
-
-    [Fact(Skip = "Remove to run test")]
-    public void Test_difference_of_sums_0()
-    {
-        Assert.Equal(0, Squares.DifferenceOfSquares(0));
+        Assert.Equal(25164150, DifferenceOfSquares.CalculateDifferenceOfSquares(100));
     }
 }
