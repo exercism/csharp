@@ -1,112 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+// This file was auto-generated based on version 1.1.0 of the canonical data.
+
 using Xunit;
 
 public class FlattenArrayTest
 {
     [Fact]
-    public void Flattens_A_Nested_List()
+    public void No_nesting()
     {
-        var nestedList = new List<object> { new List<object>() };
-        Assert.Empty(Flattener.Flatten(nestedList));
+        Assert.Equal(new[] { 0, 1, 2 }, FlattenArray.Flatten(new[] { 0, 1, 2 }));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Flattens_2_Level_Nested_List()
+    public void Flattens_array_with_just_integers_present()
     {
-        var nestedList = new List<object> { 1, new List<object> { 2, 3, 4 }, 5 };
-        Assert.Equal(new List<int> { 1, 2, 3, 4, 5 }, Flattener.Flatten(nestedList).Cast<int>());
+        Assert.Equal(new[] { 1, 2, 3, 4, 5, 6, 7, 8 }, FlattenArray.Flatten(new[] { 1, new[] { 2, 3, 4, 5, 6, 7 }, 8 }));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Flattens_3_Level_Nested_List()
+    public void Number_5_level_nesting()
     {
-        var nestedList = new List<object>
-        {
-            1,
-            new List<object> { 2, 3, 4 },
-            5,
-            new List<object> { 6, new List<object> { 7, 8 } }
-        };
-        Assert.Equal(new List<int> { 1, 2, 3, 4, 5, 6, 7, 8 }, Flattener.Flatten(nestedList).Cast<int>());
+        Assert.Equal(new[] { 0, 2, 2, 3, 8, 100, 4, 50, -2 }, FlattenArray.Flatten(new[] { 0, 2, new[] { new[] { 2, 3 }, 8, 100, 4, new[] { new[] { new[] { 50 } } } }, -2 }));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Flattens_5_Level_Nested_List()
+    public void Number_6_level_nesting()
     {
-        var nestedList = new List<object>
-        {
-            0,
-            2,
-            new List<object>
-            {
-                new List<object> { 2, 3 },
-                8,
-                100,
-                4,
-                new List<object> { new List<object> { new List<object> { 50 } } },
-                -2
-            }
-        };
-        Assert.Equal(new List<int> { 0, 2, 2, 3, 8, 100, 4, 50, -2 }, Flattener.Flatten(nestedList).Cast<int>());
+        Assert.Equal(new[] { 1, 2, 3, 4, 5, 6, 7, 8 }, FlattenArray.Flatten(new[] { 1, new[] { 2, new[] { new[] { 3 } }, new[] { 4, new[] { new[] { 5 } } }, 6, 7 }, 8 }));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Flattens_6_Level_Nested_List()
+    public void Number_6_level_nest_list_with_null_values()
     {
-        var nestedList = new List<object>
-        {
-            1,
-            new List<object>
-            {
-                2,
-                new List<object> { new List<object> { 3 } },
-                new List<object> { 4, new List<object> { new List<object> { 5 } } },
-                6,
-                7
-            },
-            8
-        };
-        Assert.Equal(new List<int> { 1, 2, 3, 4, 5, 6, 7, 8 }, Flattener.Flatten(nestedList).Cast<int>());
+        Assert.Equal(new[] { 0, 2, 2, 3, 8, 100, -2 }, FlattenArray.Flatten(new[] { 0, 2, new[] { new[] { 2, 3 }, 8, new[] { new[] { 100 } }, , new[] { new[] {  } } }, -2 }));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Flattens_6_Level_Nested_List_With_Nulls()
+    public void All_values_in_nested_list_are_null()
     {
-        var nestedList = new List<object>
-        {
-            1,
-            new List<object>
-            {
-                2,
-                null,
-                new List<object> { new List<object> { 3 }, null },
-                new List<object> { 4, new List<object> { new List<object> { 5 } } },
-                6,
-                7,
-                new List<object> { new List<object> { null } }
-            },
-            8,
-            null
-        };
-        Assert.Equal(new List<int> { 1, 2, 3, 4, 5, 6, 7, 8 }, Flattener.Flatten(nestedList).Cast<int>());
-    }
-
-    [Fact(Skip = "Remove to run test")]
-    public void All_Null_Nested_List_Returns_Empty_List()
-    {
-        var nestedList = new List<object>
-        {
-            null,
-            new List<object>
-            {
-                null,
-                new List<object> { null },
-                new List<object> { new List<object> { new List<object> { null } } }
-            },
-            null
-        };
-        Assert.Empty(Flattener.Flatten(nestedList));
+        Assert.Empty(FlattenArray.Flatten(new[] { , new[] { new[] { new[] {  } } }, , , new[] { new[] { ,  },  },  }));
     }
 }
