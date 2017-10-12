@@ -20,7 +20,7 @@ public class ErrorHandlingTest
         Assert.Equal(1, successfulResult);
 
         var failureResult = ErrorHandling.HandleErrorByReturningNullableType("a");
-        Assert.Equal(null, failureResult);
+        Assert.Null(failureResult);
     }
 
     // Read more about out parameters here:
@@ -30,11 +30,11 @@ public class ErrorHandlingTest
     {
         int result;
         var successfulResult = ErrorHandling.HandleErrorWithOutParam("1", out result);
-        Assert.Equal(true, successfulResult);
+        Assert.True(successfulResult);
         Assert.Equal(1, result);
         
         var failureResult = ErrorHandling.HandleErrorWithOutParam("a", out result);
-        Assert.Equal(false, failureResult);
+        Assert.False(failureResult);
         // The value of result is meaningless here (it could be anything) so it shouldn't be used and it's not validated 
     }
 
@@ -56,6 +56,6 @@ public class ErrorHandlingTest
         var disposableResource = new DisposableResource();
 
         Assert.Throws<Exception>(() => ErrorHandling.DisposableResourcesAreDisposedWhenExceptionIsThrown(disposableResource));
-        Assert.Equal(true, disposableResource.IsDisposed);
+        Assert.True(disposableResource.IsDisposed);
     }
 }
