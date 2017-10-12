@@ -1,142 +1,240 @@
-﻿using Xunit;
+// This file was auto-generated based on version 1.0.0 of the canonical data.
+
+using Xunit;
 
 public class MinesweeperTest
 {
     [Fact]
-    public void Zero_sized_board()
+    public void No_rows()
     {
-        var input = "";
-        var expected = "";
-
+        var input = new string[] 
+        { 
+             
+        };
+        var expected = new string[] 
+        { 
+             
+        };
         Assert.Equal(expected, Minesweeper.Annotate(input));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Empty_board()
+    public void No_columns()
     {
-        var input = FormatInput(new[]
-        {
+        var input = new string[] 
+        { 
+            "" 
+        };
+        var expected = new string[] 
+        { 
+            "" 
+        };
+        Assert.Equal(expected, Minesweeper.Annotate(input));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void No_mines()
+    {
+        var input = new string[] 
+        { 
             "   ",
             "   ",
             "   "
-        });
-
-        var expected = FormatInput(new[]
-        {
+             
+        };
+        var expected = new string[] 
+        { 
             "   ",
             "   ",
             "   "
-        });
-
+             
+        };
         Assert.Equal(expected, Minesweeper.Annotate(input));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Board_full_of_mines()
+    public void Board_with_only_mines()
     {
-        var input = FormatInput(new[]
-        {
+        var input = new string[] 
+        { 
             "***",
             "***",
             "***"
-        });
-
-        var expected = FormatInput(new[]
-        {
+             
+        };
+        var expected = new string[] 
+        { 
             "***",
             "***",
             "***"
-        });
-
+             
+        };
         Assert.Equal(expected, Minesweeper.Annotate(input));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Surrounded()
+    public void Mine_surrounded_by_spaces()
     {
-        var input = FormatInput(new[]
-        {
+        var input = new string[] 
+        { 
+            "   ",
+            " * ",
+            "   "
+             
+        };
+        var expected = new string[] 
+        { 
+            "111",
+            "1*1",
+            "111"
+             
+        };
+        Assert.Equal(expected, Minesweeper.Annotate(input));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Space_surrounded_by_mines()
+    {
+        var input = new string[] 
+        { 
             "***",
             "* *",
             "***"
-        });
-
-        var expected = FormatInput(new[]
-        {
+             
+        };
+        var expected = new string[] 
+        { 
             "***",
             "*8*",
             "***"
-        });
-
+             
+        };
         Assert.Equal(expected, Minesweeper.Annotate(input));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Horizontal_line()
     {
-        var input = FormatInput(new[]
-        {
-            " * * "
-        });
+        var input = new string[] 
+        { 
+            " * * " 
+        };
+        var expected = new string[] 
+        { 
+            "1*2*1" 
+        };
+        Assert.Equal(expected, Minesweeper.Annotate(input));
+    }
 
-        var expected = FormatInput(new[]
-        {
-            "1*2*1"
-        });
-
+    [Fact(Skip = "Remove to run test")]
+    public void Horizontal_line_mines_at_edges()
+    {
+        var input = new string[] 
+        { 
+            "*   *" 
+        };
+        var expected = new string[] 
+        { 
+            "*1 1*" 
+        };
         Assert.Equal(expected, Minesweeper.Annotate(input));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Vertical_line()
     {
-        var input = FormatInput(new[]
-        {
+        var input = new string[] 
+        { 
             " ",
             "*",
             " ",
             "*",
             " "
-        });
-
-        var expected = FormatInput(new[]
-        {
+             
+        };
+        var expected = new string[] 
+        { 
             "1",
             "*",
             "2",
             "*",
             "1"
-        });
+             
+        };
+        Assert.Equal(expected, Minesweeper.Annotate(input));
+    }
 
+    [Fact(Skip = "Remove to run test")]
+    public void Vertical_line_mines_at_edges()
+    {
+        var input = new string[] 
+        { 
+            "*",
+            " ",
+            " ",
+            " ",
+            "*"
+             
+        };
+        var expected = new string[] 
+        { 
+            "*",
+            "1",
+            " ",
+            "1",
+            "*"
+             
+        };
         Assert.Equal(expected, Minesweeper.Annotate(input));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Cross()
     {
-        var input = FormatInput(new[]
-        {
+        var input = new string[] 
+        { 
             "  *  ",
             "  *  ",
             "*****",
             "  *  ",
             "  *  "
-        });
-
-        var expected = FormatInput(new[]
-        {
+             
+        };
+        var expected = new string[] 
+        { 
             " 2*2 ",
             "25*52",
             "*****",
             "25*52",
             " 2*2 "
-        });
-
+             
+        };
         Assert.Equal(expected, Minesweeper.Annotate(input));
     }
-    
-    private string FormatInput(string[] input)
+
+    [Fact(Skip = "Remove to run test")]
+    public void Large_board()
     {
-        return string.Join("\n", input);
+        var input = new string[] 
+        { 
+            " *  * ",
+            "  *   ",
+            "    * ",
+            "   * *",
+            " *  * ",
+            "      "
+             
+        };
+        var expected = new string[] 
+        { 
+            "1*22*1",
+            "12*322",
+            " 123*2",
+            "112*4*",
+            "1*22*2",
+            "111111"
+             
+        };
+        Assert.Equal(expected, Minesweeper.Annotate(input));
     }
 }
