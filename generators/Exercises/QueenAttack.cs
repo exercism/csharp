@@ -48,10 +48,10 @@ Assert.{% if Expected %}True{% else %}False{% endif %}(QueenAttack.CanAttack(whi
 
         private static Tuple<int, int> GetCoordinatesFromPosition(dynamic expected)
         {
-            var coordinates = expected["position"].Split(',');
+            var coordinates = expected["position"];
 
-            var positionX = int.Parse(coordinates[0].TrimStart('('));
-            var positionY = int.Parse(coordinates[1].TrimEnd(')'));
+            var positionX = (int)coordinates["row"];
+            var positionY = (int)coordinates["column"];
 
             return Tuple.Create(positionX, positionY);
         }
