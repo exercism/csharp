@@ -59,8 +59,8 @@ public class TwoBucketTest
     {
         var sut = new TwoBucket(2, 3, Bucket.One);
         var result = sut.Measure(3);
-        Assert.Equal(4, result.Moves);
-        Assert.Equal(1, result.OtherBucket);
+        Assert.Equal(2, result.Moves);
+        Assert.Equal(2, result.OtherBucket);
         Assert.Equal(Bucket.Two, result.GoalBucket);
     }
 }

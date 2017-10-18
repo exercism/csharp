@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 public enum Bucket
 {
@@ -13,97 +15,69 @@ public class TwoBucketResult
     public int OtherBucket { get; set; }
 }
 
-public class BucketContainer
-{
-    public BucketContainer(int contents, int capacity)
-    {
-        Contents = contents;
-        Capacity = capacity;
-    }
-
-    public int Contents { get; set; }
-
-    public int Capacity { get; }
-
-    public bool IsEmpty => Contents == 0;
-
-    public bool IsFull => Contents == Capacity;
-
-    public void Fill()
-    {
-        Contents = Capacity;
-    }
-
-    public void Empty()
-    {
-        Contents = 0;
-    }
-
-    public void PourTo(BucketContainer other)
-    {
-        var amount = Math.Min(other.Capacity - other.Contents, Contents);
-        Contents -= amount;
-        other.Contents += amount;
-    }
-
-    public bool CanPourTo(BucketContainer other) => !IsEmpty && !other.IsFull;
-}
-
 public class TwoBucket
 {
-    private readonly BucketContainer bucketOne;
-    private readonly BucketContainer bucketTwo;
-    private readonly Action strategy;
-
-    public TwoBucket(int bucketOneSize, int bucketTwoSize, Bucket startBucket)
+    private int[] sizes;
+    private int startBucket;
+    public TwoBucket(int bucketOne, int bucketTwo, Bucket startBucket)
     {
-        bucketOne = new BucketContainer(startBucket == Bucket.One ? bucketOneSize : 0, bucketOneSize);
-        bucketTwo = new BucketContainer(startBucket == Bucket.Two ? bucketTwoSize : 0, bucketTwoSize);
-        strategy = startBucket == Bucket.One ? (Action)StartFromFirstBucket : StartFromSecondBucket;
+        this.sizes = new[] {bucketOne, bucketTwo};
+        this.startBucket = (int)startBucket;
+    }
 
+    private int[] Empty(int[] _buckets, int i) =>
+            i == 0 ? new[] {0, _buckets[1]} : new[] {_buckets[0], 0};
+
+    private int[] Fill(int[] _buckets, int i) =>
+            i == 0 ? new[] {sizes[0], _buckets[1]} : new[] {_buckets[0], sizes[1]};
+
+    private int[] Consolidate(int[] _buckets, int i)
+    {
+        var amount = new[]{_buckets[1 - i], sizes[i] - _buckets[i]}.Min();
+        var target = _buckets[i] + amount;
+        var src = _buckets[1 - i] - amount;
+        return i == 0 ? new[] {target, src} : new[] {src, target};
     }
 
     public TwoBucketResult Measure(int goal)
     {
-        var moves = 0;
-
-        while (true)
+        var invalid = new[]{0,0};
+        invalid[1 - startBucket] = sizes[1 - startBucket];
+        var invalidStr = string.Join(",",invalid);
+        var buckets = new[]{0,0};
+        buckets[startBucket] = sizes[startBucket];
+        var toVisit = new Queue<(int[], int)>();
+        var visited = new HashSet<string>();
+        var count = 1;
+        var goalBucket = Array.IndexOf(buckets, goal);
+        while (goalBucket < 0)
         {
-            moves++;
-
-            if (bucketOne.Contents == goal)
-                return new TwoBucketResult { Moves = moves, GoalBucket = Bucket.One, OtherBucket = bucketTwo.Contents };
-
-            if (bucketTwo.Contents == goal)
-                return new TwoBucketResult { Moves = moves, GoalBucket = Bucket.Two, OtherBucket = bucketOne.Contents };
-
-            strategy();
+            var key = string.Join(",",buckets);
+            if (!visited.Contains(key) && !key.Equals(invalidStr))
+            {
+                visited.Add(key);
+                var nc = count + 1;
+                for (int i=0;i<2;i++)
+                {
+                    if (buckets[i] != 0)
+                        toVisit.Enqueue((Empty(buckets, i), nc));
+                    if (buckets[i] != sizes[i])
+                    {
+                        toVisit.Enqueue((Fill(buckets, i), nc));
+                        toVisit.Enqueue((Consolidate(buckets, i), nc));
+                    }
+                }
+            }
+            if (!toVisit.Any())
+                throw new ArgumentException("no more moves!");
+            (buckets, count) = toVisit.Dequeue();
+            goalBucket = Array.IndexOf(buckets, goal);
         }
-
-        throw new NotImplementedException();
-    }
-
-    public void StartFromFirstBucket()
-    {
-        if (bucketOne.IsEmpty)
-            bucketOne.Fill();
-        else if (bucketTwo.IsFull)
-            bucketTwo.Empty();
-        else if (bucketOne.CanPourTo(bucketTwo))
-            bucketOne.PourTo(bucketTwo);
-        else
-            throw new InvalidOperationException("Cannot transition from current state.");
-    }
-
-    public void StartFromSecondBucket()
-    {
-        if (bucketOne.IsFull)
-            bucketOne.Empty();
-        else if (bucketTwo.IsEmpty)
-            bucketTwo.Fill();
-        else if (bucketTwo.CanPourTo(bucketOne))
-            bucketTwo.PourTo(bucketOne);
-        else
-            throw new InvalidOperationException("Cannot transition from current state.");
+        return new TwoBucketResult
+        {
+            Moves = count,
+            GoalBucket = (Bucket)goalBucket,
+            OtherBucket = buckets[1 - goalBucket]
+        };
     }
 }
