@@ -14,6 +14,9 @@ public class BowlingGame
         var score = 0;
         var frameIndex = 0;
 
+        if (rolls.Count < 12 || rolls.Count > 21)
+            return null;
+
         for (var i = 1; i <= NumberOfFrames; i++)
         {
             if (rolls.Count <= frameIndex)
@@ -29,7 +32,7 @@ public class BowlingGame
                 }
 
                 var strikeBonus = StrikeBonus(frameIndex);
-                if (strikeBonus > MaximumFrameScore && !IsStrike(frameIndex + 1))
+                if ((strikeBonus > MaximumFrameScore && !IsStrike(frameIndex + 1)) || strikeBonus > 20)
                 {
                     return null;
                 }
@@ -59,7 +62,7 @@ public class BowlingGame
                 frameIndex += 2;
             }
         }
-        
+
         return CorrectNumberOfRolls(frameIndex) ? score : (int?)null;
     }
 
