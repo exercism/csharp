@@ -15,13 +15,18 @@ namespace Generators.Exercises
         {
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
-                if (!(canonicalDataCase.Expected is long))
+                if(!(canonicalDataCase.Expected is long))
                 {
-                    canonicalDataCase.Expected = null;
+                    canonicalDataCase.ExceptionThrown = typeof(ArgumentException);
+                }
+                else 
+                {
+                    canonicalDataCase.UseVariableForTested = true;
+
                 }
                 canonicalDataCase.SetInputParameters();
-                canonicalDataCase.UseVariableForTested = true;
-                canonicalDataCase.Property = "score";
+                
+                //canonicalDataCase.Property = "score";
 
             }
         }
@@ -42,11 +47,38 @@ namespace Generators.Exercises
             return builder.ToString();
         }
 
+        protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        {
+            var template = string.Empty;
+            if(testMethodBody.CanonicalDataCase.ExceptionThrown != null && testMethodBody.CanonicalDataCase.Properties.ContainsKey("roll"))
+            {
+                template = "Assert.Throws<ArgumentException>(() => sut.Roll({{RollVal}}));";
+                var templateParams = new
+                {
+                    RollVal = testMethodBody.CanonicalDataCase.Properties["roll"]
+                };
+                return TemplateRenderer.RenderInline(template, templateParams);
+            }
+            else if (testMethodBody.CanonicalDataCase.ExceptionThrown != null && testMethodBody.CanonicalDataCase.Property == "score") 
+            {
+                template = "Assert.Throws<ArgumentException>(() => sut.Score());";
+                return template;
+            }
+            
+
+            return base.RenderTestMethodBodyAssert(testMethodBody);
+        }
+
         protected override string RenderTestMethodBodyAct(TestMethodBody testMethodBody)
         {
             var template =
 @"DoRoll(previousRolls, sut);
 ";
+
+            if(testMethodBody.CanonicalDataCase.ExceptionThrown != null)
+            {
+                return template;
+            }
 
             if (testMethodBody.CanonicalDataCase.Properties.ContainsKey("roll"))
             {

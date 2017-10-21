@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System;
 
 public class BowlingGame
 {
@@ -7,7 +8,21 @@ public class BowlingGame
 
     private readonly List<int> rolls = new List<int>();
 
-    public void Roll(int pins) => rolls.Add(pins);
+    public void Roll(int pins) 
+    {
+        if(rolls.Count >=21 || pins < 0 || pins > 10 || 
+          (rolls.Count + 1 % 2 == 0 && (rolls[rolls.Count -1] + pins) > 10) )
+          {
+            throw new ArgumentException();
+          }
+            
+        if(rolls.Count == 20 && rolls[18] != 10)
+        {
+            throw new ArgumentException();
+        }
+            
+        rolls.Add(pins);
+    } 
 
     public int? Score()
     {
@@ -15,26 +30,26 @@ public class BowlingGame
         var frameIndex = 0;
 
         if (rolls.Count < 12 || rolls.Count > 21)
-            return null;
+            throw new ArgumentException();
 
         for (var i = 1; i <= NumberOfFrames; i++)
         {
             if (rolls.Count <= frameIndex)
             {
-                return null;
+                throw new ArgumentException();
             }
 
             if (IsStrike(frameIndex))
             {
                 if (rolls.Count <= frameIndex + 2)
                 {
-                    return null;
+                    throw new ArgumentException();
                 }
 
                 var strikeBonus = StrikeBonus(frameIndex);
                 if ((strikeBonus > MaximumFrameScore && !IsStrike(frameIndex + 1)) || strikeBonus > 20)
                 {
-                    return null;
+                    throw new ArgumentException();
                 }
 
                 score += 10 + strikeBonus;
@@ -44,7 +59,7 @@ public class BowlingGame
             {
                 if (rolls.Count <= frameIndex + 2)
                 {
-                    return null;
+                    throw new ArgumentException();
                 }
 
                 score += 10 + SpareBonus(frameIndex);
@@ -55,7 +70,7 @@ public class BowlingGame
                 var frameScore = FrameScore(frameIndex);
                 if (frameScore < 0 || frameScore > 10)
                 {
-                    return null;
+                    throw new ArgumentException();
                 }
 
                 score += frameScore;
