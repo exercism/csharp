@@ -1,65 +1,65 @@
 {
+  "docs_url": "https://github.com/exercism/docs/blob/master/maintaining-a-track/maintainer-configuration.md",
   "maintainers": [
     {
-      "github_username": "ErikSchierboom",
-      "show_on_website": true,
       "alumnus": false,
-      "name": "Erik Schierboom",
+      "avatar_url": null,
       "bio": null,
+      "github_username": "ErikSchierboom",
       "link_text": "My blog",
       "link_url": "http://www.erikschierboom.com/",
-      "avatar_url": null
+      "name": "Erik Schierboom",
+      "show_on_website": true
     },
     {
+      "alumnus": false,
+      "avatar_url": null,
+      "bio": null,
       "github_username": "burtlo",
-      "show_on_website": false,
-      "alumnus": false,
-      "name": null,
-      "bio": null,
       "link_text": null,
       "link_url": null,
-      "avatar_url": null
+      "name": null,
+      "show_on_website": false
     },
     {
+      "alumnus": false,
+      "avatar_url": null,
+      "bio": null,
       "github_username": "bressain",
-      "show_on_website": false,
-      "alumnus": false,
-      "name": null,
-      "bio": null,
       "link_text": null,
       "link_url": null,
-      "avatar_url": null
+      "name": null,
+      "show_on_website": false
     },
     {
+      "alumnus": false,
+      "avatar_url": null,
+      "bio": null,
       "github_username": "jwood803",
-      "show_on_website": false,
-      "alumnus": false,
+      "link_text": null,
+      "link_url": null,
       "name": null,
-      "bio": null,
-      "link_text": null,
-      "link_url": null,
-      "avatar_url": null
+      "show_on_website": false
     },
     {
-      "github_username": "robkeim",
-      "show_on_website": true,
       "alumnus": false,
-      "name": "Rob Keim",
+      "avatar_url": null,
       "bio": "I stumbled upon this site when I was trying to learn about functional programming and F#. Little did I know, I'd wind up becoming a contributor and learning a whole lot more than what I originally intended to. I had never contributed to an open source project before, and it's been a very rewarding experience.",
+      "github_username": "robkeim",
       "link_text": null,
       "link_url": null,
-      "avatar_url": null
+      "name": "Rob Keim",
+      "show_on_website": true
     },
     {
-      "github_username": "jpreese",
-      "show_on_website": true,
       "alumnus": false,
-      "name": "John Reese",
+      "avatar_url": null,
       "bio": "I am a software engineer with a passion for testing and C#. If you have any questions about the C# track or the language in general, feel free to ask; I'd love to hear them.",
+      "github_username": "jpreese",
       "link_text": "I sometimes write about stuff",
       "link_url": "http://www.reesespieces.io/",
-      "avatar_url": null
+      "name": "John Reese",
+      "show_on_website": true
     }
-  ],
-  "docs_url": "https://github.com/exercism/docs/blob/master/maintaining-a-track/maintainer-configuration.md"
+  ]
 }
