@@ -25,9 +25,6 @@ namespace Generators.Exercises
 
                 }
                 canonicalDataCase.SetInputParameters();
-                
-                //canonicalDataCase.Property = "score";
-
             }
         }
 
