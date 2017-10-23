@@ -87,7 +87,7 @@ Allow additional methods to be added to the test suite.
 
 There may exist cases where a suite of unit tests will need to reuse the same logic in each of the tests. Rather than duplicating code, this method allows you to provide helper methods for the tests.
 
-An example of this is the [Tournament](https://github.com/exercism/csharp/blob/master/generators/Exercises/Tournament.cs)
+An example of this is the [Tournament](https://github.com/exercism/csharp/blob/master/generators/Exercises/Tournament.cs#L45) generator.
 
 Additional methods added using this override will be added to the bottom of the test suite.
 
