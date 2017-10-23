@@ -8,21 +8,13 @@ public class BowlingGame
 
     private readonly List<int> rolls = new List<int>();
 
-    public void Roll(int pins) 
+    public void Roll(int pins)
     {
-        if(rolls.Count >=21 || pins < 0 || pins > 10 || 
-          (rolls.Count + 1 % 2 == 0 && (rolls[rolls.Count -1] + pins) > 10) )
-          {
+        if (!ValidInput(pins))
             throw new ArgumentException();
-          }
-            
-        if(rolls.Count == 20 && rolls[18] != 10)
-        {
-            throw new ArgumentException();
-        }
-            
+
         rolls.Add(pins);
-    } 
+    }
 
     public int? Score()
     {
@@ -90,4 +82,33 @@ public class BowlingGame
     private int SpareBonus(int frameIndex) => rolls[frameIndex + 2];
 
     private int FrameScore(int frameIndex) => rolls[frameIndex] + rolls[frameIndex + 1];
+
+    private bool ValidInput(int pins)
+    {
+        if (rolls.Count >= 21 || pins < 0 || pins > 10 ||
+            rolls.Count + 1 % 2 == 0 && rolls[rolls.Count - 1] + pins > 10)
+        {
+            return false;
+        }
+
+        if ((rolls.Count + 1) % 2 == 0 && rolls[rolls.Count - 1] != 10 && rolls[rolls.Count - 1] + pins > 10)
+        {
+            return false;
+        }
+
+        if (rolls.Count == 20)
+        {
+            if (rolls[18] != 10 && rolls[18] + rolls[19] != 10)
+                return false;
+
+            if (pins == 10 && (rolls[18] != 10 || rolls[19] != 10 || rolls[19] + pins > 10 && rolls[19] + pins != 20) &&
+                rolls[18] + rolls[19] != 10)
+                return false;
+
+            if (pins != 10 && rolls[19] + pins > 10 && rolls[19] != 10)
+                return false;
+        }
+
+        return true;
+    }
 }
