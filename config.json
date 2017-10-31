@@ -624,6 +624,19 @@
     },
     {
       "core": false,
+      "difficulty": 4,
+      "slug": "isbn-verifier",
+      "topics": [
+        "conditionals",
+        "loops",
+        "pattern_matching",
+        "strings"
+      ],
+      "unlocked_by": "bob",
+      "uuid": "d714b1e6-48b5-44d6-9661-d0acd3dd657b"
+    },
+    {
+      "core": false,
       "difficulty": 5,
       "slug": "list-ops",
       "topics": [

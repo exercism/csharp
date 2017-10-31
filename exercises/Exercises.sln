@@ -220,6 +220,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollatzConjecture", "collat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComplexNumbers", "complex-numbers\ComplexNumbers.csproj", "{D0399EAC-5563-4234-9828-0C607BAF7623}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsbnVerifier", "isbn-verifier\IsbnVerifier.csproj", "{72432190-8D4D-4E64-B622-F83BE80A3CBB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -662,6 +664,10 @@ Global
 		{D0399EAC-5563-4234-9828-0C607BAF7623}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0399EAC-5563-4234-9828-0C607BAF7623}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0399EAC-5563-4234-9828-0C607BAF7623}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72432190-8D4D-4E64-B622-F83BE80A3CBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72432190-8D4D-4E64-B622-F83BE80A3CBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72432190-8D4D-4E64-B622-F83BE80A3CBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72432190-8D4D-4E64-B622-F83BE80A3CBB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
