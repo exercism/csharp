@@ -1,7 +1,7 @@
 using System;
 using System.Text.RegularExpressions;
 
-public static class Isbn
+public static class IsbnVerifier
 {
     public static bool IsValid(string number)
     {

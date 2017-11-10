@@ -6,7 +6,6 @@ namespace Generators.Exercises
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
-            canonicalData.Exercise = "Isbn";
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
                 canonicalDataCase.Property = "IsValid";
