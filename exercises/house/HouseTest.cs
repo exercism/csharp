@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.0.0 of the canonical data.
+// This file was auto-generated based on version 2.0.0 of the canonical data.
 
 using Xunit;
 
@@ -8,7 +8,7 @@ public class HouseTest
     public void Verse_one_the_house_that_jack_built()
     {
         var expected = "This is the house that Jack built.";
-        Assert.Equal(expected, House.Verse(1));
+        Assert.Equal(expected, House.Recite(1, 1));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -17,7 +17,7 @@ public class HouseTest
         var expected = 
             "This is the malt\n" +
             "that lay in the house that Jack built.";
-        Assert.Equal(expected, House.Verse(2));
+        Assert.Equal(expected, House.Recite(2, 2));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -27,7 +27,7 @@ public class HouseTest
             "This is the rat\n" +
             "that ate the malt\n" +
             "that lay in the house that Jack built.";
-        Assert.Equal(expected, House.Verse(3));
+        Assert.Equal(expected, House.Recite(3, 3));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -38,7 +38,7 @@ public class HouseTest
             "that killed the rat\n" +
             "that ate the malt\n" +
             "that lay in the house that Jack built.";
-        Assert.Equal(expected, House.Verse(4));
+        Assert.Equal(expected, House.Recite(4, 4));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -50,7 +50,7 @@ public class HouseTest
             "that killed the rat\n" +
             "that ate the malt\n" +
             "that lay in the house that Jack built.";
-        Assert.Equal(expected, House.Verse(5));
+        Assert.Equal(expected, House.Recite(5, 5));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -63,7 +63,7 @@ public class HouseTest
             "that killed the rat\n" +
             "that ate the malt\n" +
             "that lay in the house that Jack built.";
-        Assert.Equal(expected, House.Verse(6));
+        Assert.Equal(expected, House.Recite(6, 6));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -77,7 +77,7 @@ public class HouseTest
             "that killed the rat\n" +
             "that ate the malt\n" +
             "that lay in the house that Jack built.";
-        Assert.Equal(expected, House.Verse(7));
+        Assert.Equal(expected, House.Recite(7, 7));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -92,7 +92,7 @@ public class HouseTest
             "that killed the rat\n" +
             "that ate the malt\n" +
             "that lay in the house that Jack built.";
-        Assert.Equal(expected, House.Verse(8));
+        Assert.Equal(expected, House.Recite(8, 8));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -108,7 +108,7 @@ public class HouseTest
             "that killed the rat\n" +
             "that ate the malt\n" +
             "that lay in the house that Jack built.";
-        Assert.Equal(expected, House.Verse(9));
+        Assert.Equal(expected, House.Recite(9, 9));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -125,7 +125,7 @@ public class HouseTest
             "that killed the rat\n" +
             "that ate the malt\n" +
             "that lay in the house that Jack built.";
-        Assert.Equal(expected, House.Verse(10));
+        Assert.Equal(expected, House.Recite(10, 10));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -143,7 +143,7 @@ public class HouseTest
             "that killed the rat\n" +
             "that ate the malt\n" +
             "that lay in the house that Jack built.";
-        Assert.Equal(expected, House.Verse(11));
+        Assert.Equal(expected, House.Recite(11, 11));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -162,7 +162,7 @@ public class HouseTest
             "that killed the rat\n" +
             "that ate the malt\n" +
             "that lay in the house that Jack built.";
-        Assert.Equal(expected, House.Verse(12));
+        Assert.Equal(expected, House.Recite(12, 12));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -203,7 +203,7 @@ public class HouseTest
             "that killed the rat\n" +
             "that ate the malt\n" +
             "that lay in the house that Jack built.";
-        Assert.Equal(expected, House.Verses(4, 8));
+        Assert.Equal(expected, House.Recite(4, 8));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -299,6 +299,6 @@ public class HouseTest
             "that killed the rat\n" +
             "that ate the malt\n" +
             "that lay in the house that Jack built.";
-        Assert.Equal(expected, House.Verses(1, 12));
+        Assert.Equal(expected, House.Recite(1, 12));
     }
 }

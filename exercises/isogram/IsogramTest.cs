@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.1.0 of the canonical data.
+// This file was auto-generated based on version 1.2.0 of the canonical data.
 
 using Xunit;
 
@@ -41,9 +41,9 @@ public class IsogramTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Isogram_with_duplicated_non_letter_character()
+    public void Isogram_with_duplicated_hyphen()
     {
-        Assert.True(Isogram.IsIsogram("Hjelmqvist-Gryb-Zock-Pfund-Wax"));
+        Assert.True(Isogram.IsIsogram("six-year-old"));
     }
 
     [Fact(Skip = "Remove to run test")]

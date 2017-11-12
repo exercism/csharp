@@ -2,12 +2,7 @@
 
 public static class FoodChain
 {
-    public static string Verse(int number) 
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
-
-    public static string Verse(int begin, int end) 
+    public static string Recite(int startVerse, int endVerse)
     {
         throw new NotImplementedException("You need to implement this function.");
     }

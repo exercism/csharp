@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.0.0 of the canonical data.
+// This file was auto-generated based on version 1.2.0 of the canonical data.
 
 using Xunit;
 using System.Collections.Generic;
@@ -14,6 +14,20 @@ public class NucleotideCountTest
             ['A'] = 0,
             ['C'] = 0,
             ['G'] = 0,
+            ['T'] = 0
+        };
+        Assert.Equal(expected, sut.NucleotideCounts);
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Can_count_one_nucleotide_in_single_character_input()
+    {
+        var sut = new NucleotideCount("G");
+        var expected = new Dictionary<char, int>
+        {
+            ['A'] = 0,
+            ['C'] = 0,
+            ['G'] = 1,
             ['T'] = 0
         };
         Assert.Equal(expected, sut.NucleotideCounts);
