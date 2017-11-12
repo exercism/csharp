@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.3
+VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accumulate", "accumulate\Accumulate.csproj", "{F16C0EE1-6923-4328-B015-363CF24FF867}"
 EndProject
@@ -220,7 +220,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollatzConjecture", "collat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComplexNumbers", "complex-numbers\ComplexNumbers.csproj", "{D0399EAC-5563-4234-9828-0C607BAF7623}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsbnVerifier", "isbn-verifier\IsbnVerifier.csproj", "{72432190-8D4D-4E64-B622-F83BE80A3CBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IsbnVerifier", "isbn-verifier\IsbnVerifier.csproj", "{72432190-8D4D-4E64-B622-F83BE80A3CBB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReverseString", "reverse-string\ReverseString.csproj", "{D2105979-EE3B-432B-8016-172BA949DE2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -668,6 +670,10 @@ Global
 		{72432190-8D4D-4E64-B622-F83BE80A3CBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72432190-8D4D-4E64-B622-F83BE80A3CBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72432190-8D4D-4E64-B622-F83BE80A3CBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2105979-EE3B-432B-8016-172BA949DE2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2105979-EE3B-432B-8016-172BA949DE2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2105979-EE3B-432B-8016-172BA949DE2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2105979-EE3B-432B-8016-172BA949DE2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
