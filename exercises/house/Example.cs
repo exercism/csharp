@@ -34,13 +34,13 @@ public static class House
         ""
     };
     
-    public static string Verses(int first, int last)
+    public static string Recite(int startVerse, int endVerse)
     {
-        var numberOfVerses = last - first + 1;
-        return string.Join("\n\n", Enumerable.Range(first, numberOfVerses).Select(Verse));
+        var numberOfVerses = endVerse - startVerse + 1;
+        return string.Join("\n\n", Enumerable.Range(startVerse, numberOfVerses).Select(Verse));
     }
 
-    public static string Verse(int number)
+    private static string Verse(int number)
     {
         return string.Join("\n", Enumerable.Range(1, number).Reverse().Select(index => Line(number, index)));
     }
