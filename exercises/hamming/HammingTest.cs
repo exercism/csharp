@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 2.0.0 of the canonical data.
+// This file was auto-generated based on version 2.0.1 of the canonical data.
 
 using Xunit;
 using System;
@@ -56,13 +56,13 @@ public class HammingTest
     [Fact(Skip = "Remove to run test")]
     public void Non_unique_character_in_first_strand()
     {
-        Assert.Equal(1, Hamming.Distance("AGA", "AGG"));
+        Assert.Equal(1, Hamming.Distance("AAG", "AAA"));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Non_unique_character_in_second_strand()
     {
-        Assert.Equal(1, Hamming.Distance("AGG", "AGA"));
+        Assert.Equal(1, Hamming.Distance("AAA", "AAG"));
     }
 
     [Fact(Skip = "Remove to run test")]

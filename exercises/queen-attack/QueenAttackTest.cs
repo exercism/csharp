@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.0.0 of the canonical data.
+// This file was auto-generated based on version 2.0.0 of the canonical data.
 
 using Xunit;
 using System;
@@ -12,25 +12,25 @@ public class QueenAttackTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Queen_must_have_positive_rank()
+    public void Queen_must_have_positive_row()
     {
         Assert.Throws<ArgumentOutOfRangeException>(() => QueenAttack.Create(-2, 2));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Queen_must_have_rank_on_board()
+    public void Queen_must_have_row_on_board()
     {
         Assert.Throws<ArgumentOutOfRangeException>(() => QueenAttack.Create(8, 4));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Queen_must_have_positive_file()
+    public void Queen_must_have_positive_column()
     {
         Assert.Throws<ArgumentOutOfRangeException>(() => QueenAttack.Create(2, -2));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Queen_must_have_file_on_board()
+    public void Queen_must_have_column_on_board()
     {
         Assert.Throws<ArgumentOutOfRangeException>(() => QueenAttack.Create(4, 8));
     }
@@ -44,7 +44,7 @@ public class QueenAttackTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Can_attack_on_same_rank()
+    public void Can_attack_on_same_row()
     {
         var whiteQueen = QueenAttack.Create(2,4);
         var blackQueen = QueenAttack.Create(2,6);
@@ -52,7 +52,7 @@ public class QueenAttackTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Can_attack_on_same_file()
+    public void Can_attack_on_same_column()
     {
         var whiteQueen = QueenAttack.Create(4,5);
         var blackQueen = QueenAttack.Create(2,5);

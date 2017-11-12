@@ -66,32 +66,4 @@ public class KindergartenGardenTest
         var sut = new KindergartenGarden("VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV");
         Assert.Equal(new[] { Plant.Grass, Plant.Violets, Plant.Clover, Plant.Violets }, sut.Plants("Larry"));
     }
-
-    [Fact(Skip = "Remove to run test")]
-    public void Non_alphabetical_student_list_first_students_garden()
-    {
-        var sut = new KindergartenGarden("VCRRGVRG\nRVGCCGCV", new[] { "Samantha", "Patricia", "Xander", "Roger" });
-        Assert.Equal(new[] { Plant.Violets, Plant.Clover, Plant.Radishes, Plant.Violets }, sut.Plants("Patricia"));
-    }
-
-    [Fact(Skip = "Remove to run test")]
-    public void Non_alphabetical_student_list_second_students_garden()
-    {
-        var sut = new KindergartenGarden("VCRRGVRG\nRVGCCGCV", new[] { "Samantha", "Patricia", "Xander", "Roger" });
-        Assert.Equal(new[] { Plant.Radishes, Plant.Radishes, Plant.Grass, Plant.Clover }, sut.Plants("Roger"));
-    }
-
-    [Fact(Skip = "Remove to run test")]
-    public void Non_alphabetical_student_list_third_students_garden()
-    {
-        var sut = new KindergartenGarden("VCRRGVRG\nRVGCCGCV", new[] { "Samantha", "Patricia", "Xander", "Roger" });
-        Assert.Equal(new[] { Plant.Grass, Plant.Violets, Plant.Clover, Plant.Grass }, sut.Plants("Samantha"));
-    }
-
-    [Fact(Skip = "Remove to run test")]
-    public void Non_alphabetical_student_list_fourth_last_students_garden()
-    {
-        var sut = new KindergartenGarden("VCRRGVRG\nRVGCCGCV", new[] { "Samantha", "Patricia", "Xander", "Roger" });
-        Assert.Equal(new[] { Plant.Radishes, Plant.Grass, Plant.Clover, Plant.Violets }, sut.Plants("Xander"));
-    }
 }
