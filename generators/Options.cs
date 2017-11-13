@@ -1,13 +1,12 @@
-﻿using System.Collections.Generic;
-using CommandLine;
+﻿using CommandLine;
 
 namespace Generators
 {
     public class Options
     {
-        [Option('e', "exercises", Required = false, 
-            HelpText = "Exercises to generate (if not specified, defaults to all exercises).")]
-        public IEnumerable<string> Exercises { get; set; }
+        [Option('e', "exercise", Required = false, 
+            HelpText = "Exercise to generate (if not specified, defaults to all exercises).")]
+        public string Exercise { get; set; }
         
         [Option('d', "canonicaldatadirectory", Required = false,
             HelpText = "Canonical data directory. If the directory does not exist, the canonical data will be downloaded.")]

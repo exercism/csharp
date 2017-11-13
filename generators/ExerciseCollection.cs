@@ -9,9 +9,9 @@ namespace Generators
 {
     public class ExerciseCollection : IEnumerable<Exercise>
     {
-        private readonly HashSet<string> _exerciseNames;
+        private readonly string _filteredExercise;
         
-        public ExerciseCollection(IEnumerable<string> exerciseNames) => _exerciseNames = new HashSet<string>(exerciseNames);
+        public ExerciseCollection(string filteredExercise) => _filteredExercise = filteredExercise;
 
         public IEnumerator<Exercise> GetEnumerator() => GetDefinedGenerators().GetEnumerator();
 
@@ -25,9 +25,8 @@ namespace Generators
         private static bool IsConcreteExercise(Type type) => typeof(Exercise).IsAssignableFrom(type) && !type.GetTypeInfo().IsAbstract;
 
         private bool ShouldBeIncluded(Type type) 
-            => _exerciseNames == null ||
-               _exerciseNames.Count == 0 ||
-               _exerciseNames.Contains(type.ToExerciseName(), StringComparer.OrdinalIgnoreCase) ||
-               _exerciseNames.Contains(type.Name, StringComparer.OrdinalIgnoreCase);
+            => _filteredExercise == null ||
+               string.Equals(_filteredExercise, type.ToExerciseName(), StringComparison.OrdinalIgnoreCase) ||
+               string.Equals(_filteredExercise, type.Name, StringComparison.OrdinalIgnoreCase);
     }
 }

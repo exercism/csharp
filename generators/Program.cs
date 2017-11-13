@@ -39,7 +39,7 @@ namespace Generators
             
             var canonicalDataParser = CreateCanonicalDataParser(options);
 
-            foreach (var exercise in new ExerciseCollection(options.Exercises))
+            foreach (var exercise in new ExerciseCollection(options.Exercise))
             {
                 var canonicalData = canonicalDataParser.Parse(exercise);
                 exercise.Regenerate(canonicalData);
