@@ -2,7 +2,7 @@ using Generators.Input;
 
 namespace Generators.Exercises
 {
-    public class Anagram : Exercise
+    public class Anagram : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

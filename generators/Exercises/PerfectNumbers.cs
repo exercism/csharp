@@ -5,7 +5,7 @@ using Humanizer;
 
 namespace Generators.Exercises
 {
-    public class PerfectNumbers : Exercise
+    public class PerfectNumbers : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

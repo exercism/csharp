@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Generators.Exercises
 {
-    public class PascalsTriangle : Exercise
+    public class PascalsTriangle : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

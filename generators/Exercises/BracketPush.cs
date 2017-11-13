@@ -2,7 +2,7 @@
 
 namespace Generators.Exercises
 {
-    public class BracketPush : Exercise
+    public class BracketPush : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

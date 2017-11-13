@@ -3,7 +3,7 @@ using Generators.Output;
 
 namespace Generators.Exercises
 {
-    public class Connect : Exercise
+    public class Connect : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

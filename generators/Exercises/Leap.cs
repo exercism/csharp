@@ -2,7 +2,7 @@
 
 namespace Generators.Exercises
 {
-    public class Leap : Exercise
+    public class Leap : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

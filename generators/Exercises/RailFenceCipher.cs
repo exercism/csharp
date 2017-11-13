@@ -2,7 +2,7 @@
 
 namespace Generators.Exercises
 {
-    public class RailFenceCipher : Exercise
+    public class RailFenceCipher : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

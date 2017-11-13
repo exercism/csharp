@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Generators.Exercises
 {
-    public class SaddlePoints : Exercise
+    public class SaddlePoints : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

@@ -1,6 +1,6 @@
 namespace Generators.Exercises
 {
-    public class RotationalCipher : Exercise
+    public class RotationalCipher : GeneratorExercise
     {
     }
 }

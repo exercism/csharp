@@ -4,7 +4,7 @@ using Generators.Output;
 
 namespace Generators.Exercises
 {
-    public class Tournament : Exercise
+    public class Tournament : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

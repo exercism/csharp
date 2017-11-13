@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Generators.Exercises
 {
-    public class QueenAttack : Exercise
+    public class QueenAttack : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

@@ -2,7 +2,7 @@ using Generators.Input;
 
 namespace Generators.Exercises
 {
-    public class Luhn : Exercise
+    public class Luhn : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

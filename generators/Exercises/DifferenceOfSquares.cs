@@ -2,7 +2,7 @@ using Generators.Input;
 
 namespace Generators.Exercises
 {
-    public class DifferenceOfSquares : Exercise
+    public class DifferenceOfSquares : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

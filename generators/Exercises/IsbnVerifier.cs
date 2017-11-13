@@ -1,6 +1,6 @@
 ﻿namespace Generators.Exercises
 {
-    public class IsbnVerifier : Exercise
+    public class IsbnVerifier : GeneratorExercise
     {
     }
 }

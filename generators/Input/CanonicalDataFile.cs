@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 using LibGit2Sharp;
 using Serilog;
@@ -12,18 +13,19 @@ namespace Generators.Input
         private const string ProblemSpecificationsRemote = "origin";
         private const string ProblemSpecificationsRemoteBranch = ProblemSpecificationsRemote + "/" + ProblemSpecificationsBranch;
 
-        private readonly CanonicalDataOptions _options;
+        private readonly Options _options;
 
-        public CanonicalDataFile(CanonicalDataOptions options)
+        public CanonicalDataFile(Options options)
         {
             _options = options;
         }
-        
-        public string Contents(string exercise)
-        {
-            var exerciseCanonicalDataPath = Path.Combine(_options.CanonicalDataDirectory, "exercises", exercise, "canonical-data.json");
-            return File.ReadAllText(exerciseCanonicalDataPath);
-        }
+
+        public bool Exists(string exercise) => File.Exists(GetExerciseCanonicalDataPath(exercise));
+
+        public string Contents(string exercise) => File.ReadAllText(GetExerciseCanonicalDataPath(exercise));
+
+        private string GetExerciseCanonicalDataPath(string exercise) 
+            => Path.Combine(_options.CanonicalDataDirectory, "exercises", exercise, "canonical-data.json");
 
         public void DownloadData()
         {

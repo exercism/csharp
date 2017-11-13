@@ -3,7 +3,7 @@ using Generators.Output;
 
 namespace Generators.Exercises
 {
-    public class Allergies : Exercise
+    public class Allergies : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

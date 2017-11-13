@@ -2,7 +2,7 @@
 
 namespace Generators.Exercises
 {
-    public class Poker : Exercise
+    public class Poker : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

@@ -3,7 +3,7 @@ using Generators.Output;
 
 namespace Generators.Exercises
 {
-    public class Minesweeper : Exercise
+    public class Minesweeper : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

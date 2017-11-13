@@ -3,7 +3,7 @@ using Generators.Output;
 
 namespace Generators.Exercises
 {
-    public class TwoBucket : Exercise
+    public class TwoBucket : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

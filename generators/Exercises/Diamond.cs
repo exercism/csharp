@@ -1,6 +1,6 @@
 ﻿namespace Generators.Exercises
 {
-    public class Pangram : GeneratorExercise
+    public class Diamond : CustomExercise
     {
     }
 }

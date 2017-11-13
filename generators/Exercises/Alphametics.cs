@@ -5,7 +5,7 @@ using Generators.Input;
 
 namespace Generators.Exercises
 {
-    public class Alphametics : Exercise
+    public class Alphametics : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

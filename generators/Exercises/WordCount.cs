@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Generators.Exercises
 {
-    public class WordCount : Exercise
+    public class WordCount : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

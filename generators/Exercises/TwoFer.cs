@@ -1,6 +1,6 @@
 ﻿namespace Generators.Exercises
 {
-    public class TwoFer : Exercise
+    public class TwoFer : GeneratorExercise
     {
     }
 }

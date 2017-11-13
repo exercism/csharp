@@ -2,7 +2,7 @@
 
 namespace Generators.Exercises
 {
-    public class FoodChain : Exercise
+    public class FoodChain : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

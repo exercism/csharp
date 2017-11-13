@@ -5,7 +5,7 @@ using Generators.Output;
 
 namespace Generators.Exercises
 {
-    public class Gigasecond : Exercise
+    public class Gigasecond : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

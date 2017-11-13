@@ -4,7 +4,7 @@ using Generators.Output;
 
 namespace Generators.Exercises
 {
-    public class Clock : Exercise
+    public class Clock : GeneratorExercise
     {
         private const string ParamClock1 = "clock1";
         private const string ParamClock2 = "clock2";

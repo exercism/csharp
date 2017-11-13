@@ -2,7 +2,7 @@
 
 namespace Generators.Exercises
 {
-    public class RomanNumerals : Exercise
+    public class RomanNumerals : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
