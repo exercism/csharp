@@ -76,9 +76,28 @@ namespace Generators
         }
 
         private static bool ShouldBeSkipped(Exercise exercise, Options options) 
-            => DoesNotMatchFilteredExercise(exercise, options);
+            => DoesNotMatchFilteredExercise(exercise, options) || DoesNotMatchFilteredStatus(exercise, options);
 
         private static bool DoesNotMatchFilteredExercise(Exercise exercise, Options options) 
             => options.Exercise != null && !string.Equals(exercise.Name, options.Exercise.ToExerciseName(), StringComparison.OrdinalIgnoreCase);
+
+        private static bool DoesNotMatchFilteredStatus(Exercise exercise, Options options)
+        {
+            switch (options.Status)
+            {
+                case GeneratorStatus.All:
+                    return false;
+                case GeneratorStatus.Implemented:
+                    return !(exercise is GeneratorExercise);
+                case GeneratorStatus.Unimplemented:
+                    return !(exercise is UnimplementedExercise);
+                case GeneratorStatus.MissingData:
+                    return !(exercise is MissingDataExercise);
+                case GeneratorStatus.Custom:
+                    return !(exercise is CustomExercise);
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
     }
 }
