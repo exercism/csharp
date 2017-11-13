@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Generators.Input;
+﻿using Generators.Input;
 using Generators.Output;
 
 namespace Generators.Exercises

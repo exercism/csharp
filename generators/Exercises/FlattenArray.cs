@@ -1,6 +1,5 @@
 using Generators.Input;
 using Generators.Output;
-using System.Collections;
 
 namespace Generators.Exercises
 {

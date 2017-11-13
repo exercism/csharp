@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using Generators.Input;
 using Generators.Output;
 namespace Generators.Exercises

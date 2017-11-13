@@ -1,6 +1,4 @@
-﻿using Generators.Input;
-
-namespace Generators.Exercises
+﻿namespace Generators.Exercises
 {
     public class IsbnVerifier : Exercise
     {
