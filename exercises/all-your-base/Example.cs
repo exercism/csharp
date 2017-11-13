@@ -8,16 +8,20 @@ public static class AllYourBase
     {
         if (inputBase < 2) throw new ArgumentException("Invalid input base.");
         if (outputBase < 2) throw new ArgumentException("Invalid output base.");
-        if (inputDigits.Length == 0) throw new ArgumentException("Empty input digits.");
 
-        return ToDigits(outputBase, FromDigits(inputBase, inputDigits));
+        var inputDigitsWithoutLeadingZeros = inputDigits.SkipWhile(digit => digit == 0).ToArray();
+
+        if (inputDigitsWithoutLeadingZeros.Length == 0) 
+            return new[] { 0 };
+
+        return ToDigits(outputBase, FromDigits(inputBase, inputDigitsWithoutLeadingZeros));
     }
 
     private static int FromDigits(int fromBase, int[] fromDigits)
     {
         return fromDigits.Aggregate(0, (acc, x) =>
         {
-            if (x < 0 || x >= fromBase || (x == 0 & acc == 0)) throw new ArgumentException("Invalid input digit");
+            if (x < 0 || x >= fromBase) throw new ArgumentException("Invalid input digit");
 
             return acc*fromBase + x;
         });
