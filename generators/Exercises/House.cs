@@ -2,7 +2,7 @@
 
 namespace Generators.Exercises
 {
-    public class House : Exercise
+    public class House : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

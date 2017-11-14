@@ -6,7 +6,7 @@ using Humanizer;
 
 namespace Generators.Exercises
 {
-    public class Meetup : Exercise
+    public class Meetup : GeneratorExercise
     {
         private const string ParamYear = "year";
         private const string ParamMonth = "month";

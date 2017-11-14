@@ -3,7 +3,7 @@ using Generators.Input;
 
 namespace Generators.Exercises
 {
-    public class Sieve : Exercise
+    public class Sieve : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

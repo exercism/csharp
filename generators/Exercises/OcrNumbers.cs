@@ -4,7 +4,7 @@ using Generators.Output;
 
 namespace Generators.Exercises
 {
-    public class OcrNumbers : Exercise
+    public class OcrNumbers : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

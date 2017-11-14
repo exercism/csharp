@@ -2,7 +2,7 @@
 
 namespace Generators.Exercises
 {
-    public class BeerSong : Exercise
+    public class BeerSong : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

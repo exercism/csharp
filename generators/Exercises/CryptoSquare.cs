@@ -2,7 +2,7 @@
 
 namespace Generators.Exercises
 {
-    public class CryptoSquare : Exercise
+    public class CryptoSquare : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

@@ -3,7 +3,7 @@ using Generators.Input;
 
 namespace Generators.Exercises
 {
-    public class PhoneNumber : Exercise
+    public class PhoneNumber : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

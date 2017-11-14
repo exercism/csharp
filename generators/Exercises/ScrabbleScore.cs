@@ -1,6 +1,6 @@
 ﻿namespace Generators.Exercises
 {
-    public class ScrabbleScore : Exercise
+    public class ScrabbleScore : GeneratorExercise
     {
     }
 }

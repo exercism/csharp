@@ -3,7 +3,7 @@ using Generators.Output;
 
 namespace Generators.Exercises
 {
-    public class RunLengthEncoding : Exercise
+    public class RunLengthEncoding : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

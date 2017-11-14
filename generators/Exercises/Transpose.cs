@@ -2,7 +2,7 @@ using Generators.Input;
 
 namespace Generators.Exercises
 {
-    public class Transpose : Exercise
+    public class Transpose : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

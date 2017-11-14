@@ -7,7 +7,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Generators.Exercises
 {
-    public class Dominoes : Exercise
+    public class Dominoes : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

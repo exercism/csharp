@@ -1,10 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using Generators.Input;
 using Generators.Output;
 namespace Generators.Exercises
 {
-    public class Triangle : Exercise
+    public class Triangle : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

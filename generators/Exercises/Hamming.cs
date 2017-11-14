@@ -3,7 +3,7 @@ using Generators.Input;
 
 namespace Generators.Exercises
 {
-    public class Hamming : Exercise
+    public class Hamming : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

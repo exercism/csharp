@@ -3,7 +3,7 @@ using Generators.Input;
 
 namespace Generators.Exercises
 {
-    public class Wordy : Exercise
+    public class Wordy : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

@@ -1,6 +1,6 @@
 ﻿namespace Generators.Exercises
 {
-    public class SecretHandshake : Exercise
+    public class SecretHandshake : GeneratorExercise
     {
     }
 }

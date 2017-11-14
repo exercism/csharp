@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Generators.Exercises
 {
-    public class Etl : Exercise
+    public class Etl : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

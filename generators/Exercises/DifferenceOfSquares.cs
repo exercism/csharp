@@ -1,9 +1,8 @@
 using Generators.Input;
-using System;
 
 namespace Generators.Exercises
 {
-    public class DifferenceOfSquares : Exercise
+    public class DifferenceOfSquares : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

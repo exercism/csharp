@@ -1,6 +1,6 @@
 ﻿namespace Generators.Exercises
 {
-    public class PigLatin : Exercise
+    public class PigLatin : GeneratorExercise
     {
     }
 }

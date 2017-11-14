@@ -1,6 +1,6 @@
 ﻿namespace Generators.Exercises
 {
-    public class ReverseString : Exercise
+    public class ReverseString : GeneratorExercise
     {
     }
 }

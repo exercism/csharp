@@ -2,7 +2,7 @@ using Generators.Input;
 
 namespace Generators.Exercises
 {
-    public class LargestSeriesProduct : Exercise
+    public class LargestSeriesProduct : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

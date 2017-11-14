@@ -6,7 +6,7 @@ using Humanizer;
 
 namespace Generators.Exercises
 {
-    public class KindergartenGarden : Exercise
+    public class KindergartenGarden : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

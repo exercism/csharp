@@ -1,10 +1,9 @@
 using Generators.Input;
 using Generators.Output;
-using System.Collections;
 
 namespace Generators.Exercises
 {
-    public class FlattenArray : Exercise
+    public class FlattenArray : GeneratorExercise
     {
     	protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

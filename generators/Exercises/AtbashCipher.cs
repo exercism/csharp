@@ -1,6 +1,6 @@
 ﻿namespace Generators.Exercises
 {
-    public class AtbashCipher : Exercise
+    public class AtbashCipher : GeneratorExercise
     {
     }
 }

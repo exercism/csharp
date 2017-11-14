@@ -3,7 +3,7 @@ using System;
 
 namespace Generators.Exercises
 {
-    public class CollatzConjecture : Exercise
+    public class CollatzConjecture : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

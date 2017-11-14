@@ -17,14 +17,14 @@ When looking through the canonical data and the generator code base, we use a lo
 - Expected - The expected value when running the test case.
 
 ## Adding A Simple Generator
-Adding a test generator file is straightforward. Simply add a new file to the generators folder with the name of the exercise (in PascalCase), and extend the `Exercise` abstract class.
+Adding a test generator file is straightforward. Simply add a new file to the generators folder with the name of the exercise (in PascalCase), and extend the `GeneratorExercise` abstract class.
 
 An example of a simple generator would be the Bob exercise. The source is below, but you can freely view it in the repository [here](https://github.com/exercism/csharp/blob/master/generators/Exercises/Bob.cs).
 
 ```csharp
 namespace Generators.Exercises
 {
-    public class Bob : Exercise
+    public class Bob : GeneratorExercise
     {
     }
 }
@@ -36,7 +36,7 @@ This is a fully working generator, no other code needs to be written. However, i
 
 A more *complex* generator would be the ComplexNumbers generator found [here](https://github.com/exercism/csharp/blob/master/generators/Exercises/ComplexNumbers.cs).
 
-The `Exercise` abstract class currently exposes five methods that are used for overriding the default behavior when generating an exercise.
+The `GeneratorExercise` abstract class currently exposes five methods that are used for overriding the default behavior when generating an exercise.
 
 ### void UpdateCanonicalData(CanonicalData canonicalData)
 Update the canonical data for a given test. 

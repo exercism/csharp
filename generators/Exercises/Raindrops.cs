@@ -1,6 +1,6 @@
 ﻿namespace Generators.Exercises
 {
-    public class Raindrops : Exercise
+    public class Raindrops : GeneratorExercise
     {
     }
 }

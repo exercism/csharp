@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Generators.Exercises
 {
-    public class NucleotideCount : Exercise
+    public class NucleotideCount : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

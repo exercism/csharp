@@ -2,7 +2,7 @@
 
 namespace Generators.Exercises
 {
-    public class SpaceAge : Exercise
+    public class SpaceAge : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

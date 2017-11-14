@@ -2,7 +2,7 @@
 
 namespace Generators.Exercises
 {
-    public class BinarySearch : Exercise
+    public class BinarySearch : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {

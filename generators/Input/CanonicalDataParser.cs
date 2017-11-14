@@ -7,15 +7,14 @@ namespace Generators.Input
     {
         private readonly CanonicalDataFile _canonicalDataFile;
 
-        public CanonicalDataParser(CanonicalDataOptions options)
+        public CanonicalDataParser(CanonicalDataFile canonicalDataFile)
         {
-            _canonicalDataFile = new CanonicalDataFile(options);
-            _canonicalDataFile.DownloadData();
+            _canonicalDataFile = canonicalDataFile;
         }
-
-        public CanonicalData Parse(Exercise exercise)
+        
+        public CanonicalData Parse(string exercise)
         {
-            var canonicalDataJson = _canonicalDataFile.Contents(exercise.Name);
+            var canonicalDataJson = _canonicalDataFile.Contents(exercise);
             var canonicalData = JsonConvert.DeserializeObject<CanonicalData>(canonicalDataJson);
             
             Validator.ValidateObject(canonicalData, new ValidationContext(canonicalData));

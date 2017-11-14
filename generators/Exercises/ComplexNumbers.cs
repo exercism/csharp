@@ -7,7 +7,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Generators.Exercises
 {
-    public class ComplexNumbers : Exercise
+    public class ComplexNumbers : GeneratorExercise
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
