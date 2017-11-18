@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 2.0.0 of the canonical data.
+// This file was auto-generated based on version 2.0.1 of the canonical data.
 
 using Xunit;
 using System;
@@ -126,7 +126,7 @@ public class AllYourBaseTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void First_base_is_one()
+    public void Input_base_is_one()
     {
         var inputBase = 1;
         var inputDigits = new int[0];
@@ -135,7 +135,7 @@ public class AllYourBaseTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void First_base_is_zero()
+    public void Input_base_is_zero()
     {
         var inputBase = 0;
         var inputDigits = new int[0];
@@ -144,7 +144,7 @@ public class AllYourBaseTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void First_base_is_negative()
+    public void Input_base_is_negative()
     {
         var inputBase = -2;
         var inputDigits = new[] { 1 };
@@ -171,7 +171,7 @@ public class AllYourBaseTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Second_base_is_one()
+    public void Output_base_is_one()
     {
         var inputBase = 2;
         var inputDigits = new[] { 1, 0, 1, 0, 1, 0 };
@@ -180,7 +180,7 @@ public class AllYourBaseTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Second_base_is_zero()
+    public void Output_base_is_zero()
     {
         var inputBase = 10;
         var inputDigits = new[] { 7 };
@@ -189,7 +189,7 @@ public class AllYourBaseTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Second_base_is_negative()
+    public void Output_base_is_negative()
     {
         var inputBase = 2;
         var inputDigits = new[] { 1 };
