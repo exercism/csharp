@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Generators.Input;
 
 namespace Generators.Exercises
@@ -8,7 +9,7 @@ namespace Generators.Exercises
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
             foreach (var canonicalDataCase in canonicalData.Cases)
-                canonicalDataCase.ExceptionThrown = canonicalDataCase.Expected is bool ? typeof(ArgumentOutOfRangeException) : null;
+                canonicalDataCase.ExceptionThrown = canonicalDataCase.Expected is Dictionary<string, object> ? typeof(ArgumentOutOfRangeException) : null;
         }
     }
 }

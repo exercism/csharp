@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.1.0 of the canonical data.
+// This file was auto-generated based on version 2.0.0 of the canonical data.
 
 using Xunit;
 using System;
@@ -91,7 +91,8 @@ public class AllYourBaseTest
         var inputBase = 2;
         var inputDigits = new int[0];
         var outputBase = 10;
-        Assert.Throws<ArgumentException>(() => AllYourBase.Rebase(inputBase, inputDigits, outputBase));
+        var expected = new[] { 0 };
+        Assert.Equal(expected, AllYourBase.Rebase(inputBase, inputDigits, outputBase));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -100,7 +101,8 @@ public class AllYourBaseTest
         var inputBase = 10;
         var inputDigits = new[] { 0 };
         var outputBase = 2;
-        Assert.Throws<ArgumentException>(() => AllYourBase.Rebase(inputBase, inputDigits, outputBase));
+        var expected = new[] { 0 };
+        Assert.Equal(expected, AllYourBase.Rebase(inputBase, inputDigits, outputBase));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -109,7 +111,8 @@ public class AllYourBaseTest
         var inputBase = 10;
         var inputDigits = new[] { 0, 0, 0 };
         var outputBase = 2;
-        Assert.Throws<ArgumentException>(() => AllYourBase.Rebase(inputBase, inputDigits, outputBase));
+        var expected = new[] { 0 };
+        Assert.Equal(expected, AllYourBase.Rebase(inputBase, inputDigits, outputBase));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -118,7 +121,8 @@ public class AllYourBaseTest
         var inputBase = 7;
         var inputDigits = new[] { 0, 6, 0 };
         var outputBase = 10;
-        Assert.Throws<ArgumentException>(() => AllYourBase.Rebase(inputBase, inputDigits, outputBase));
+        var expected = new[] { 4, 2 };
+        Assert.Equal(expected, AllYourBase.Rebase(inputBase, inputDigits, outputBase));
     }
 
     [Fact(Skip = "Remove to run test")]
