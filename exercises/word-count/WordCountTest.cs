@@ -140,4 +140,16 @@ public class WordCountTest
         };
         Assert.Equal(expected, actual);
     }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Multiple_spaces_not_detected_as_a_word()
+    {
+        var actual = WordCount.Countwords(" multiple   whitespaces");
+        var expected = new Dictionary<string, int>
+        {
+            ["multiple"] = 1,
+            ["whitespaces"] = 1
+        };
+        Assert.Equal(expected, actual);
+    }
 }
