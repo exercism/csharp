@@ -4,6 +4,8 @@ public static class Bob
     {
         if (IsSilence(statement))
             return "Fine. Be that way!";
+        if (IsYelling(statement) && IsQuestion(statement))
+            return "Calm down, I know what I'm doing!";
         if (IsYelling(statement))
             return "Whoa, chill out!";
         if (IsQuestion(statement))
