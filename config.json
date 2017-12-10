@@ -126,6 +126,16 @@
       "uuid": "c4efbf8a-8e76-4700-807d-830a4938f4d0"
     },
     {
+      "core": false,
+      "difficulty": 2,
+      "slug": "armstrong-numbers",
+      "topics": [
+        "mathematics"
+      ],
+      "unlocked_by": "sum-of-multiples",
+      "uuid": "8150604d-4cdc-414a-a523-dd65ac536f0e"
+    },
+    {
       "core": true,
       "difficulty": 3,
       "slug": "kindergarten-garden",
