@@ -1250,6 +1250,30 @@
       ],
       "unlocked_by": "markdown",
       "uuid": "a5794706-58d2-48f7-8aab-78639d7bce77"
+    },
+    {
+      "core": false,
+      "deprecated": true,
+      "slug": "binary",
+      "uuid": "cef7deef-54ce-4201-b263-7cd2098533f8"
+    },
+    {
+      "core": false,
+      "deprecated": true,
+      "slug": "trinary",
+      "uuid": "c7dd8467-87e2-4997-a96e-a04cb8b891e8"
+    },
+    {
+      "core": false,
+      "deprecated": true,
+      "slug": "octal",
+      "uuid": "c8555f37-9976-4f52-a5db-6a680ec8d53b"
+    },
+    {
+      "core": false,
+      "deprecated": true,
+      "slug": "hexadecimal",
+      "uuid": "5d30c5a0-0f69-4b79-8c7e-3b1fe6a5707f"
     }
   ],
   "foregone": [
