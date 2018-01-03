@@ -43,7 +43,7 @@ public class BobTest
     [Fact(Skip = "Remove to run test")]
     public void Talking_forcefully()
     {
-        Assert.Equal("Whatever.", Bob.Response("Let's go make out behind the gym!"));
+        Assert.Equal("Whoa, chill out!", Bob.Response("Let's go make out behind the gym!"));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -55,7 +55,7 @@ public class BobTest
     [Fact(Skip = "Remove to run test")]
     public void Forceful_question()
     {
-        Assert.Equal("Calm down, I know what I'm doing!", Bob.Response("WHAT THE HELL WERE YOU THINKING?"));
+        Assert.Equal("Sure.", Bob.Response("WHAT THE HELL WERE YOU THINKING?"));
     }
 
     [Fact(Skip = "Remove to run test")]
