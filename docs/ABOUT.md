@@ -1,5 +1,7 @@
-C# is a modern, object oriented language developed and maintained by Microsoft. The learning curve is small, reduced even if the developer has experience with other 'C-Style' languages.
+C# is a multiparadigm language with lots of features. While at its core it's still an object oriented language that's modeled after Java it supports first class functions, SQL-like syntax to access containers, automatic getters and setters, pattern matching, direct memory access in an otherwise garbage collected environment, statically typed, dynamically typed and (to a certain degree) type inferred programming and many other features in a constantly growing feature set.
 
-C# is a carefully designed language with lots of great features, such as type-inference and async/await. The official [documentation](https://docs.microsoft.com/en-us/dotnet/csharp/) is very extensive and well-written.
+C# is typically compiled to Microsoft's IL code, which means that it can interact seamlessly with other such languages like F#, Visual Basic or derivates of otherwise non-IL-compatible languages (https://en.wikipedia.org/wiki/List_of_CLI_languages).
 
-Although .NET used to be Windows-only, with the release of [.NET Core](https://www.microsoft.com/net/core) you can also use C# on Mac or Unix-based systems.
+That IL code is run in a virtual machine, and while the default implementation by Microsoft (the ".NET framework runtime") is supplied for Windows only, the open source [Mono project](http://www.mono-project.com/) and the new [.NET Core](https://www.microsoft.com/net/core) project by Microsoft allow C# to be used on other platforms like MacOS or Unix-based systems.
+
+For further information please refer to the official [documentation](https://docs.microsoft.com/en-us/dotnet/csharp/).
