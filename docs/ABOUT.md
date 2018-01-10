@@ -12,7 +12,7 @@ __Generic__ means that algorithms are written in terms of types to-be-specified-
 
 __Lazy__ (a.k.a "non-strict") means that the compiler will put off evaluating a thing until absolutely neccessary. This lets you safely do weird stuff like operating on an infinite list--the language will only create it up to the last value you actually use.
 
-__Integrated Querying__ means the C# language feaure called [LINQ "Language-Integrated Query"](https://msdn.microsoft.com/en-us/library/bb308959.aspx), which enables querying directly within the language, not only its own objects but, also, external data sources through formats such as XML, Json, SQL, NoSQL DBs and event streams.  
+__Integrated Querying__ means the language feature called [LINQ "Language-Integrated Query"](https://msdn.microsoft.com/en-us/library/bb308959.aspx), which enables querying directly within the language, not only its own objects but, also, external data sources through formats such as XML, Json, SQL, NoSQL DBs and event streams.  
 
 __Type inference__ means that the compiler will often figure out the type of an identifier by itself so you don't have to specify it. Scala and F# both do this.
 
