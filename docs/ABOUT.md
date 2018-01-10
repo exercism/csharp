@@ -18,6 +18,6 @@ __Type inference__ means that the compiler will often figure out the type of an 
 
 __Syntax__ is similar to that of other C-style languages such as C, C++ and Java.
 
-__.NET__ is the managed environment within which C# runs. This used to be Windows-only but, with the release of [.NET Core](https://www.microsoft.com/net/core) -- as well as [MONO](http://www.mono-project.com/) -- you can also use C# on Mac, Linux or Unix-based systems.
+__.NET__ is the managed environment within which C# runs. This used to be Windows-only but, with the release of [.NET Core](https://www.microsoft.com/net/core) -- as well as [MONO](http://www.mono-project.com/) -- you can also use C# on Mac, Linux or Unix-based systems. C# allows one to program .
 
-C# also has features to enable programming multiple threads, multiple processes, parallelisation and asynchrony easier. It is developed and maintained by Microsoft, who provides the official [documentation](https://docs.microsoft.com/en-us/dotnet/csharp/).
+C# also has features, amongst others, to enable programming multiple threads, multiple processes, parallelisation, asynchrony, unmanaged code in a managed environment and language interoperability easier. It is developed and maintained by Microsoft, who provides the official [documentation](https://docs.microsoft.com/en-us/dotnet/csharp/).
