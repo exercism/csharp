@@ -1,4 +1,4 @@
-C# is a multi-paradigm statically-typed programming language with object-oriented, declarative, functional, generic, lazy integrated querying features and type inference. 
+C# is a multi-paradigm, statically-typed programming language with object-oriented, declarative, functional, generic, lazy, integrated querying features and type inference. 
 
 __Statically-typed__ means that identifiers have a type set at compile time--like those in Java, C++ or Haskell--instead of holding data of any type like those in Python, Ruby or JavaScript.
 
@@ -8,16 +8,16 @@ __Declarative__ means programming what is to be done, as opposed to how it is do
 
 __Functional__ means that functions are first-class data types that can be passed as arguments to and returned from other functions.
 
-__Generic__ means that algorithms are written in terms of types to-be-specified-later that are then instantiated when needed for specific types provided as parameters. 
+__Generic__ means that algorithms are written in terms of types to-be-specified-later that are then instantiated, when needed, for the specific types provided as parameters. 
 
-__Lazy__ (a.k.a "non-strict") means that the compiler will put off evaluating a thing until absolutely neccessary. This lets you safely do weird stuff like operating on an infinite list--the language will only create it up to the last value you actually use.
+__Lazy__ (a.k.a "deferred execution") means that the compiler will put off evaluating an item until required. This lets one safely do weird stuff like operating on an infinite list--the language will only create the list up to the last value needed.
 
-__Integrated Querying__ means the language feature called [LINQ "Language-Integrated Query"](https://msdn.microsoft.com/en-us/library/bb308959.aspx), which enables querying directly within the language, not only its own objects but, also, external data sources through formats such as XML, Json, SQL, NoSQL DBs and event streams.  
+__Integrated Querying__ means the language feature called [LINQ "Language-Integrated Query"](https://msdn.microsoft.com/en-us/library/bb308959.aspx), which enables lazy querying directly within the language, not only its own objects but, also, external data sources through formats such as XML, JSON, SQL, NoSQL DBs and event streams.  
 
 __Type inference__ means that the compiler will often figure out the type of an identifier by itself so you don't have to specify it. Scala and F# both do this.
 
 __Syntax__ is similar to that of other C-style languages such as C, C++ and Java.
 
-__.NET__ is the managed environment within which C# runs and, so, you get access to the entire .NET ecosystem, including all packages on [nuget.org](http://www.nuget.org). .NET used to be Windows-only but, with the release of [.NET Core](https://www.microsoft.com/net/core) -- as well as [MONO](http://www.mono-project.com/) -- you can also use C# on Mac, Linux or Unix-based systems. 
+__.NET__ is the managed environment within which C# runs and, so, you get access to the entire .NET ecosystem, including all packages on [nuget.org](http://www.nuget.org). .NET used to be Windows-only but, with the release of [.NET Core](https://www.microsoft.com/net/core) -- as well as [Mono](http://www.mono-project.com/) -- you can also use C# on Mac, Linux or Unix-based systems and on mobile platforms too. 
 
 C# also has features, amongst others, to make programming multiple threads, multiple processors, parallelisation, asynchrony, unmanaged code in a managed environment and language interoperability easier. It is developed and maintained by Microsoft, who provides the official [documentation](https://docs.microsoft.com/en-us/dotnet/csharp/).
