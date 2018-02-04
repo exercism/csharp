@@ -28,6 +28,7 @@ like these examples:
 Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/<exerciseName>` directory.
 
 For example, if you're submitting `bob.cs` for the Bob exercise, the submit command would be something like `exercism submit <path_to_exercism_dir>/csharp/bob/bob.cs`.
+
 ## Source
 
 Reddit r/dailyprogrammer challenge #320 [Easy] Spiral Ascension. [https://www.reddit.com/r/dailyprogrammer/comments/6i60lr/20170619_challenge_320_easy_spiral_ascension/](https://www.reddit.com/r/dailyprogrammer/comments/6i60lr/20170619_challenge_320_easy_spiral_ascension/)

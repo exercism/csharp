@@ -45,6 +45,7 @@ Now, it's even trickier since the check digit of an ISBN-10 may be 'X' (represen
 Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/<exerciseName>` directory.
 
 For example, if you're submitting `bob.cs` for the Bob exercise, the submit command would be something like `exercism submit <path_to_exercism_dir>/csharp/bob/bob.cs`.
+
 ## Source
 
 Converting a string into a number and some basic processing utilizing a relatable real world example. [https://en.wikipedia.org/wiki/International_Standard_Book_Number#ISBN-10_check_digit_calculation](https://en.wikipedia.org/wiki/International_Standard_Book_Number#ISBN-10_check_digit_calculation)
