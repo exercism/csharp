@@ -32,7 +32,6 @@ Use Flats:
 F, Bb, Eb, Ab, Db, Gb major
 d, g, c, f, bb, eb minor
 
-
 The diatonic scales, and all other scales that derive from the
 chromatic scale, are built upon intervals. An interval is the space
 between two pitches.

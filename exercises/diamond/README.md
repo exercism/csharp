@@ -1,7 +1,7 @@
 # Diamond
 
-The diamond kata takes as its input a letter, and outputs it in a diamond 
-shape. Given a letter, it prints a diamond starting with 'A', with the 
+The diamond kata takes as its input a letter, and outputs it in a diamond
+shape. Given a letter, it prints a diamond starting with 'A', with the
 supplied letter at the widest point.
 
 ## Requirements
@@ -15,7 +15,7 @@ supplied letter at the widest point.
 * The diamond has a square shape (width equals height).
 * The letters form a diamond shape.
 * The top half has the letters in ascending order.
-* The bottom half has the letters in descending order. 
+* The bottom half has the letters in descending order.
 * The four corners (containing the spaces) are triangles.
 
 ## Examples
@@ -24,13 +24,13 @@ In the following examples, spaces are indicated by `·` characters.
 
 Diamond for letter 'A':
 
-```plain
+```text
 A
 ```
 
 Diamond for letter 'C':
 
-```plain
+```text
 ··A··
 ·B·B·
 C···C
@@ -40,7 +40,7 @@ C···C
 
 Diamond for letter 'E':
 
-```plain
+```text
 ····A····
 ···B·B···
 ··C···C··
@@ -60,7 +60,9 @@ The tests in this exercise are different from your usual tests. Normally, a test
 
 For this exercise, the tests all verify a property of the diamond shape your code should be producing. Furthermore, all tests check if the property they test holds for all valid input letters ('A' to 'Z').
 
-For more information on property-based testing, see [this article](http://www.erikschierboom.com/2016/02/22/property-based-testing/).
+In order to facilitate propery-based testing, the tests in this exercise leverage the [FsCheck](https://www.nuget.org/packages/FsCheck) and [FsCheck.Xunit](https://packages.nuget.org/packages/FsCheck.Xunit/2.2.0) packages. To learn more about FsCheck, the documentation on the framework can be found [here](https://fscheck.github.io/FsCheck/).
+
+If you would like more information on property-based testing, see [this article](http://www.erikschierboom.com/2016/02/22/property-based-testing/).
 
 ### Submitting Exercises
 
