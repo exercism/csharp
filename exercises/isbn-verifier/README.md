@@ -42,9 +42,7 @@ Now, it's even trickier since the check digit of an ISBN-10 may be 'X' (represen
 * Generate valid ISBN, maybe even from a given starting ISBN.
 ### Submitting Exercises
 
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/<exerciseName>` directory.
-
-For example, if you're submitting `bob.cs` for the Bob exercise, the submit command would be something like `exercism submit <path_to_exercism_dir>/csharp/bob/bob.cs`.
+Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/isbn-verifier` directory.
 
 ## Source
 
