@@ -1,4 +1,4 @@
-# Ocr Numbers
+# OCR Numbers
 
 Given a 3 x 4 grid of pipes, underscores, and spaces, determine which number is
 represented, or whether it is garbled.
@@ -9,7 +9,7 @@ To begin with, convert a simple binary font to a string containing 0 or 1.
 
 The binary font uses pipes and underscores, four rows high and three columns wide.
 
-```
+```text
      _   #
     | |  # zero.
     |_|  #
@@ -18,7 +18,7 @@ The binary font uses pipes and underscores, four rows high and three columns wid
 
 Is converted to "0"
 
-```
+```text
          #
       |  # one.
       |  #
@@ -39,7 +39,7 @@ Update your program to recognize multi-character binary strings, replacing garbl
 
 Update your program to recognize all numbers 0 through 9, both individually and as part of a larger string.
 
-```
+```text
  _ 
  _|
 |_ 
@@ -48,7 +48,7 @@ Update your program to recognize all numbers 0 through 9, both individually and 
 
 Is converted to "2"
 
-```
+```text
       _  _     _  _  _  _  _  _  #
     | _| _||_||_ |_   ||_||_|| | # decimal numbers.
     ||_  _|  | _||_|  ||_| _||_| #
@@ -61,7 +61,7 @@ Is converted to "1234567890"
 
 Update your program to handle multiple numbers, one per line. When converting several lines, join the lines with commas.
 
-```
+```text
     _  _ 
   | _| _|
   ||_  _|
@@ -80,9 +80,8 @@ Is converted to "123,456,789"
 
 ### Submitting Exercises
 
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/<exerciseName>` directory.
+Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/ocr-numbers` directory.
 
-For example, if you're submitting `bob.cs` for the Bob exercise, the submit command would be something like `exercism submit <path_to_exercism_dir>/csharp/bob/bob.cs`.
 ## Source
 
 Inspired by the Bank OCR kata [http://codingdojo.org/cgi-bin/wiki.pl?KataBankOCR](http://codingdojo.org/cgi-bin/wiki.pl?KataBankOCR)

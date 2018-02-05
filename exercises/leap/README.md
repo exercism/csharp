@@ -4,7 +4,7 @@ Given a year, report if it is a leap year.
 
 The tricky thing here is that a leap year in the Gregorian calendar occurs:
 
-```plain
+```text
 on every year that is evenly divisible by 4
   except every year that is evenly divisible by 100
     unless the year is also evenly divisible by 400
@@ -28,9 +28,8 @@ phenomenon, go watch [this youtube video][video].
 
 ### Submitting Exercises
 
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/<exerciseName>` directory.
+Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/leap` directory.
 
-For example, if you're submitting `bob.cs` for the Bob exercise, the submit command would be something like `exercism submit <path_to_exercism_dir>/csharp/bob/bob.cs`.
 ## Source
 
 JavaRanch Cattle Drive, exercise 3 [http://www.javaranch.com/leap.jsp](http://www.javaranch.com/leap.jsp)

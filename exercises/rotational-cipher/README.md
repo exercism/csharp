@@ -13,7 +13,7 @@ The most commonly used rotational cipher is `ROT13`.
 
 A `ROT13` on the Latin alphabet would be as follows:
 
-```plain
+```text
 Plain:  abcdefghijklmnopqrstuvwxyz
 Cipher: nopqrstuvwxyzabcdefghijklm
 ```
@@ -23,6 +23,7 @@ It is stronger than the Atbash cipher because it has 27 possible keys, and 25 us
 Ciphertext is written out in the same formatting as the input including spaces and punctuation.
 
 ## Examples
+
 - ROT5  `omg` gives `trl`
 - ROT0  `c` gives `c`
 - ROT26 `Cool` gives `Cool`
@@ -31,9 +32,8 @@ Ciphertext is written out in the same formatting as the input including spaces a
 
 ### Submitting Exercises
 
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/<exerciseName>` directory.
+Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/rotational-cipher` directory.
 
-For example, if you're submitting `bob.cs` for the Bob exercise, the submit command would be something like `exercism submit <path_to_exercism_dir>/csharp/bob/bob.cs`.
 ## Source
 
 Wikipedia [https://en.wikipedia.org/wiki/Caesar_cipher](https://en.wikipedia.org/wiki/Caesar_cipher)

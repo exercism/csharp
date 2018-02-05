@@ -16,7 +16,7 @@ only horizontal and vertical neighbours count. In the following diagram
 the stones which matter are marked "O" and the stones that don't are
 marked "I" (ignored).  Empty spaces represent empty intersections.
 
-```
+```text
 +----+
 |IOOI|
 |O  O|
@@ -35,9 +35,7 @@ Library](http://senseis.xmp.net/).
 
 ### Submitting Exercises
 
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/<exerciseName>` directory.
-
-For example, if you're submitting `bob.cs` for the Bob exercise, the submit command would be something like `exercism submit <path_to_exercism_dir>/csharp/bob/bob.cs`.
+Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/go-counting` directory.
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

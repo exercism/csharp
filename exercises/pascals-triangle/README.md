@@ -1,11 +1,11 @@
-# Pascals Triangle
+# Pascal's Triangle
 
 Compute Pascal's triangle up to a given number of rows.
 
 In Pascal's Triangle each number is computed by adding the numbers to
 the right and left of the current position in the previous row.
 
-```plain
+```text
     1
    1 1
   1 2 1
@@ -16,9 +16,8 @@ the right and left of the current position in the previous row.
 
 ### Submitting Exercises
 
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/<exerciseName>` directory.
+Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/pascals-triangle` directory.
 
-For example, if you're submitting `bob.cs` for the Bob exercise, the submit command would be something like `exercism submit <path_to_exercism_dir>/csharp/bob/bob.cs`.
 ## Source
 
 Pascal's Triangle at Wolfram Math World [http://mathworld.wolfram.com/PascalsTriangle.html](http://mathworld.wolfram.com/PascalsTriangle.html)

@@ -10,7 +10,7 @@ This is a [cumulative song](http://en.wikipedia.org/wiki/Cumulative_song) of unk
 
 This is one of many common variants.
 
-```plain
+```text
 I know an old lady who swallowed a fly.
 I don't know why she swallowed the fly. Perhaps she'll die.
 
@@ -69,9 +69,8 @@ She's dead, of course!
 
 ### Submitting Exercises
 
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/<exerciseName>` directory.
+Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/food-chain` directory.
 
-For example, if you're submitting `bob.cs` for the Bob exercise, the submit command would be something like `exercism submit <path_to_exercism_dir>/csharp/bob/bob.cs`.
 ## Source
 
 Wikipedia [http://en.wikipedia.org/wiki/There_Was_an_Old_Lady_Who_Swallowed_a_Fly](http://en.wikipedia.org/wiki/There_Was_an_Old_Lady_Who_Swallowed_a_Fly)

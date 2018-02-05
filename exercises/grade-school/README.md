@@ -21,7 +21,6 @@ In the end, you should be able to:
 Note that all our students only have one name.  (It's a small town, what
 do you want?)
 
-
 ## For bonus points
 
 Did you get the tests passing and the code clean? If you want to, these
@@ -37,9 +36,8 @@ experiment make the code better? Worse? Did you learn anything from it?
 
 ### Submitting Exercises
 
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/<exerciseName>` directory.
+Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/grade-school` directory.
 
-For example, if you're submitting `bob.cs` for the Bob exercise, the submit command would be something like `exercism submit <path_to_exercism_dir>/csharp/bob/bob.cs`.
 ## Source
 
 A pairing session with Phil Battos at gSchool [http://gschool.it](http://gschool.it)

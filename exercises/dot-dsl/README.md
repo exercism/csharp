@@ -1,4 +1,4 @@
-# Dot Dsl
+# DOT DSL
 
 Write a Domain Specific Language similar to the Graphviz dot language.
 
@@ -29,9 +29,7 @@ This exercise requires you to implement classes with a custom equality check. Fo
 
 ### Submitting Exercises
 
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/<exerciseName>` directory.
-
-For example, if you're submitting `bob.cs` for the Bob exercise, the submit command would be something like `exercism submit <path_to_exercism_dir>/csharp/bob/bob.cs`.
+Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/dot-dsl` directory.
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

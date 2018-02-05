@@ -29,15 +29,13 @@ allergens that score 256, 512, 1024, etc.).  Your program should
 ignore those components of the score.  For example, if the allergy
 score is 257, your program should only report the eggs (1) allergy.
 
-
 ## Hints
 This exercise requires you to use bitwise operations. For more information, see [this page](https://msdn.microsoft.com/en-us/library/6a71f45d.aspx). 
 
 ### Submitting Exercises
 
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/<exerciseName>` directory.
+Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/allergies` directory.
 
-For example, if you're submitting `bob.cs` for the Bob exercise, the submit command would be something like `exercism submit <path_to_exercism_dir>/csharp/bob/bob.cs`.
 ## Source
 
 Jumpstart Lab Warm-up [http://jumpstartlab.com](http://jumpstartlab.com)

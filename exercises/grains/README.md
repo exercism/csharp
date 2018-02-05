@@ -15,7 +15,6 @@ Write code that shows:
 - how many grains were on each square, and
 - the total number of grains
 
-
 ## For bonus points
 
 Did you get the tests passing and the code clean? If you want to, these
@@ -29,9 +28,8 @@ experiment make the code better? Worse? Did you learn anything from it?
 
 ### Submitting Exercises
 
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/<exerciseName>` directory.
+Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/grains` directory.
 
-For example, if you're submitting `bob.cs` for the Bob exercise, the submit command would be something like `exercism submit <path_to_exercism_dir>/csharp/bob/bob.cs`.
 ## Source
 
 JavaRanch Cattle Drive, exercise 6 [http://www.javaranch.com/grains.jsp](http://www.javaranch.com/grains.jsp)

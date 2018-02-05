@@ -11,7 +11,7 @@ A chessboard can be represented by an 8 by 8 array.
 So if you're told the white queen is at (2, 3) and the black queen at
 (5, 6), then you'd know you've got a set-up like so:
 
-```plain
+```text
 _ _ _ _ _ _ _ _
 _ _ _ _ _ _ _ _
 _ _ _ W _ _ _ _
@@ -28,9 +28,8 @@ share a diagonal.
 
 ### Submitting Exercises
 
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/<exerciseName>` directory.
+Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/queen-attack` directory.
 
-For example, if you're submitting `bob.cs` for the Bob exercise, the submit command would be something like `exercism submit <path_to_exercism_dir>/csharp/bob/bob.cs`.
 ## Source
 
 J Dalbey's Programming Practice problems [http://users.csc.calpoly.edu/~jdalbey/103/Projects/ProgrammingPractice.html](http://users.csc.calpoly.edu/~jdalbey/103/Projects/ProgrammingPractice.html)

@@ -8,15 +8,15 @@ He answers 'Whoa, chill out!' if you yell at him.
 
 He answers 'Calm down, I know what I'm doing!' if you yell a question at him.
 
-He says 'Fine. Be that way!' if you address him without actually saying anything.
+He says 'Fine. Be that way!' if you address him without actually saying
+anything.
 
 He answers 'Whatever.' to anything else.
 
 ### Submitting Exercises
 
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/<exerciseName>` directory.
+Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/bob` directory.
 
-For example, if you're submitting `bob.cs` for the Bob exercise, the submit command would be something like `exercism submit <path_to_exercism_dir>/csharp/bob/bob.cs`.
 ## Source
 
 Inspired by the 'Deaf Grandma' exercise in Chris Pine's Learn to Program tutorial. [http://pine.fm/LearnToProgram/?Chapter=06](http://pine.fm/LearnToProgram/?Chapter=06)

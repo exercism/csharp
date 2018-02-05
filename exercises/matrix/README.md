@@ -5,13 +5,15 @@ that matrix.
 
 So given a string with embedded newlines like:
 
-> 9 8 7  
-> 5 3 2  
-> 6 6 7  
+```text
+9 8 7
+5 3 2
+6 6 7
+```
 
 representing this matrix:
 
-```plain
+```text
     0  1  2
   |---------
 0 | 9  8  7
@@ -40,9 +42,8 @@ And its columns:
 
 ### Submitting Exercises
 
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/<exerciseName>` directory.
+Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/matrix` directory.
 
-For example, if you're submitting `bob.cs` for the Bob exercise, the submit command would be something like `exercism submit <path_to_exercism_dir>/csharp/bob/bob.cs`.
 ## Source
 
 Warmup to the `saddle-points` warmup. [http://jumpstartlab.com](http://jumpstartlab.com)

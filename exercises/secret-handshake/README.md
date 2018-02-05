@@ -6,7 +6,7 @@
 You and your fellow cohort of those in the "know" when it comes to
 binary decide to come up with a secret "handshake".
 
-```
+```text
 1 = wink
 10 = double blink
 100 = close your eyes
@@ -30,9 +30,8 @@ has caused the array to be reversed.
 
 ### Submitting Exercises
 
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/<exerciseName>` directory.
+Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/secret-handshake` directory.
 
-For example, if you're submitting `bob.cs` for the Bob exercise, the submit command would be something like `exercism submit <path_to_exercism_dir>/csharp/bob/bob.cs`.
 ## Source
 
 Bert, in Mary Poppins [http://www.imdb.com/title/tt0058331/quotes/qt0437047](http://www.imdb.com/title/tt0058331/quotes/qt0437047)

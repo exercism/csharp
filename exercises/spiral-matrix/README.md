@@ -1,4 +1,4 @@
-﻿# Spiral Matrix
+# Spiral Matrix
 
 Given the size, return a square matrix of numbers in spiral order.
 
@@ -6,17 +6,17 @@ The matrix should be filled with natural numbers, starting from 1
 in the top-left corner, increasing in an inward, clockwise spiral order,
 like these examples:
 
-##### Spiral matrix of size 3
+###### Spiral matrix of size 3
 
-```plain
+```text
 1 2 3
 8 9 4
 7 6 5
 ```
 
-##### Spiral matrix of size 4
+###### Spiral matrix of size 4
 
-```plain
+```text
  1  2  3 4
 12 13 14 5
 11 16 15 6
@@ -25,11 +25,10 @@ like these examples:
 
 ### Submitting Exercises
 
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/<exerciseName>` directory.
-
-For example, if you're submitting `bob.cs` for the Bob exercise, the submit command would be something like `exercism submit <path_to_exercism_dir>/csharp/bob/bob.cs`.
+Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/spiral-matrix` directory.
 
 ## Source
+
 Reddit r/dailyprogrammer challenge #320 [Easy] Spiral Ascension. [https://www.reddit.com/r/dailyprogrammer/comments/6i60lr/20170619_challenge_320_easy_spiral_ascension/](https://www.reddit.com/r/dailyprogrammer/comments/6i60lr/20170619_challenge_320_easy_spiral_ascension/)
 
 ## Submitting Incomplete Solutions

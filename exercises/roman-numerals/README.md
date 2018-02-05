@@ -14,7 +14,7 @@ The Romans wrote numbers using letters - I, V, X, L, C, D, M. (notice
 these letters have lots of straight lines and are hence easy to hack
 into stone tablets).
 
-```
+```text
  1  => I
 10  => X
  7  => VII
@@ -48,9 +48,8 @@ This exercise requires you to write an extension method. For more information, s
 
 ### Submitting Exercises
 
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/<exerciseName>` directory.
+Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/roman-numerals` directory.
 
-For example, if you're submitting `bob.cs` for the Bob exercise, the submit command would be something like `exercism submit <path_to_exercism_dir>/csharp/bob/bob.cs`.
 ## Source
 
 The Roman Numeral Kata [http://codingdojo.org/cgi-bin/index.pl?KataRomanNumerals](http://codingdojo.org/cgi-bin/index.pl?KataRomanNumerals)

@@ -2,7 +2,6 @@
 
 Parse and evaluate simple math word problems returning the answer as an integer.
 
-
 ## Iteration 1 — Addition
 
 Add two numbers together.
@@ -12,7 +11,6 @@ Add two numbers together.
 Evaluates to 18.
 
 Handle large numbers and negative numbers.
-
 
 ## Iteration 2 — Subtraction, Multiplication and Division
 
@@ -30,7 +28,6 @@ Now, perform the other three operations.
 
 5
 
-
 ## Iteration 3 — Multiple Operations
 
 Handle a set of operations, in sequence.
@@ -46,7 +43,6 @@ left-to-right, _ignoring the typical order of operations._
 
 15  (i.e. not 9)
 
-
 ## Bonus — Exponentials
 
 If you'd like, handle exponentials.
@@ -55,16 +51,14 @@ If you'd like, handle exponentials.
 
 32
 
-
 ## Hints
 - To parse the text, you could try to use the [Sprache](https://github.com/sprache/Sprache/blob/develop/README.md) library. You can also find a good tutorial [here](https://www.thomaslevesque.com/2017/02/23/easy-text-parsing-in-c-with-sprache/).
 
 
 ### Submitting Exercises
 
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/<exerciseName>` directory.
+Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/wordy` directory.
 
-For example, if you're submitting `bob.cs` for the Bob exercise, the submit command would be something like `exercism submit <path_to_exercism_dir>/csharp/bob/bob.cs`.
 ## Source
 
 Inspired by one of the generated questions in the Extreme Startup game. [https://github.com/rchatley/extreme_startup](https://github.com/rchatley/extreme_startup)

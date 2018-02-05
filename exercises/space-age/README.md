@@ -12,16 +12,15 @@ Given an age in seconds, calculate how old someone would be on:
    - Neptune: orbital period 164.79132 Earth years
 
 So if you were told someone were 1,000,000,000 seconds old, you should
-be able to say that they're 31 Earth-years old.
+be able to say that they're 31.69 Earth-years old.
 
 If you're wondering why Pluto didn't make the cut, go watch [this
 youtube video](http://www.youtube.com/watch?v=Z_2gbGXzFbs).
 
 ### Submitting Exercises
 
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/<exerciseName>` directory.
+Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/space-age` directory.
 
-For example, if you're submitting `bob.cs` for the Bob exercise, the submit command would be something like `exercism submit <path_to_exercism_dir>/csharp/bob/bob.cs`.
 ## Source
 
 Partially inspired by Chapter 1 in Chris Pine's online Learn to Program tutorial. [http://pine.fm/LearnToProgram/?Chapter=01](http://pine.fm/LearnToProgram/?Chapter=01)

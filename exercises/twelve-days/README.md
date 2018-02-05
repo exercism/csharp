@@ -2,7 +2,7 @@
 
 Output the lyrics to 'The Twelve Days of Christmas'.
 
-```
+```text
 On the first day of Christmas my true love gave to me, a Partridge in a Pear Tree.
 
 On the second day of Christmas my true love gave to me, two Turtle Doves, and a Partridge in a Pear Tree.
@@ -34,9 +34,8 @@ On the twelfth day of Christmas my true love gave to me, twelve Drummers Drummin
 
 ### Submitting Exercises
 
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/<exerciseName>` directory.
+Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/twelve-days` directory.
 
-For example, if you're submitting `bob.cs` for the Bob exercise, the submit command would be something like `exercism submit <path_to_exercism_dir>/csharp/bob/bob.cs`.
 ## Source
 
 Wikipedia [http://en.wikipedia.org/wiki/The_Twelve_Days_of_Christmas_(song)](http://en.wikipedia.org/wiki/The_Twelve_Days_of_Christmas_(song))

@@ -3,7 +3,7 @@
 Creating a zipper for a binary tree.
 
 [Zippers](https://en.wikipedia.org/wiki/Zipper_%28data_structure%29) are
-a way purely functional of navigating within a data structure and
+a purely functional way of navigating within a data structure and
 manipulating it.  They essentially contain a data structure and a
 pointer into that data structure (called the focus).
 
@@ -33,9 +33,7 @@ This exercise deals with custom equality. For more information see [this page.](
 
 ### Submitting Exercises
 
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/<exerciseName>` directory.
-
-For example, if you're submitting `bob.cs` for the Bob exercise, the submit command would be something like `exercism submit <path_to_exercism_dir>/csharp/bob/bob.cs`.
+Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/zipper` directory.
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

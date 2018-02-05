@@ -5,7 +5,7 @@ Nicomachus' (60 - 120 CE) classification scheme for natural numbers.
 
 The Greek mathematician [Nicomachus](https://en.wikipedia.org/wiki/Nicomachus) devised a classification scheme for natural numbers, identifying each as belonging uniquely to the categories of **perfect**, **abundant**, or **deficient** based on their [aliquot sum](https://en.wikipedia.org/wiki/Aliquot_sum). The aliquot sum is defined as the sum of the factors of a number not including the number itself. For example, the aliquot sum of 15 is (1 + 3 + 5) = 9
 
-- **Perfect**: aliquot sum = number 
+- **Perfect**: aliquot sum = number
   - 6 is a perfect number because (1 + 2 + 3) = 6
   - 28 is a perfect number because (1 + 2 + 4 + 7 + 14) = 28
 - **Abundant**: aliquot sum > number
@@ -14,14 +14,13 @@ The Greek mathematician [Nicomachus](https://en.wikipedia.org/wiki/Nicomachus) d
 - **Deficient**: aliquot sum < number
   - 8 is a deficient number because (1 + 2 + 4) = 7
   - Prime numbers are deficient
-  
+
 Implement a way to determine whether a given number is **perfect**. Depending on your language track, you may also need to implement a way to determine whether a given number is **abundant** or **deficient**.
 
 ### Submitting Exercises
 
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/<exerciseName>` directory.
+Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/perfect-numbers` directory.
 
-For example, if you're submitting `bob.cs` for the Bob exercise, the submit command would be something like `exercism submit <path_to_exercism_dir>/csharp/bob/bob.cs`.
 ## Source
 
 Taken from Chapter 2 of Functional Thinking by Neal Ford. [http://shop.oreilly.com/product/0636920029687.do](http://shop.oreilly.com/product/0636920029687.do)
