@@ -33,9 +33,6 @@ Keep your hands off that filter/reject/whatchamacallit functionality
 provided by your standard library!  Solve this one yourself using other
 basic tools instead.
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/strain` directory.
 
 ## Source
 

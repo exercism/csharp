@@ -29,9 +29,6 @@ To conclude, the only valid moves are:
 
 Written with <3 at [Fullstack Academy](http://www.fullstackacademy.com/) by [Lindsay](http://lindsaylevine.com).
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/two-bucket` directory.
 
 ## Source
 

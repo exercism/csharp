@@ -18,9 +18,6 @@ each nucleotide with its complement:
 * `T` -> `A`
 * `A` -> `U`
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/rna-transcription` directory.
 
 ## Source
 

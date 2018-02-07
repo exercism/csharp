@@ -17,9 +17,6 @@ Convert a number to a string, the contents of which depend on the number's facto
 - 34 has four factors: 1, 2, 17, and 34.
   - In raindrop-speak, this would be "34".
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/raindrops` directory.
 
 ## Source
 

@@ -27,9 +27,6 @@ Create a DSL similar to the dot language.
 ## Hints
 This exercise requires you to implement classes with a custom equality check. For more information, see [this page](https://msdn.microsoft.com/en-us/library/bsc2ak47(v=vs.110).aspx).
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/dot-dsl` directory.
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

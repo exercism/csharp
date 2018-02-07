@@ -37,9 +37,6 @@ The largest palindrome product is `9009`. Its factors are `(91, 99)`.
 For this exercise, you will need to create a set of factors using tuples.
 For more information on tuples, see [this link](https://msdn.microsoft.com/en-us/library/system.tuple(v=vs.110).aspx).
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/palindrome-products` directory.
 
 ## Source
 

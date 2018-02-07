@@ -22,9 +22,6 @@ To be able to compare data, the IComparable interface is used.
 For more information, see [this page](https://msdn.microsoft.com/en-us/library/system.icomparable(v=vs.110).aspx).
 
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/sublist` directory.
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

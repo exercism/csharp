@@ -50,9 +50,6 @@ the buffer is once again full.
 
     [D][7][8][9][A][B][C]
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/circular-buffer` directory.
 
 ## Source
 

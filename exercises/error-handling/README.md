@@ -9,9 +9,6 @@ This exercise requires you to handle various errors. Because error handling
 is rather programming language specific you'll have to refer to the tests
 for your track to see what's exactly required.
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/error-handling` directory.
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

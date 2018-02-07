@@ -12,9 +12,6 @@ If the given name is "Alice", the result should be "One for Alice, one for me."
 If no name is given, the result should be "One for you, one for me."
 
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/two-fer` directory.
 
 ## Source
 

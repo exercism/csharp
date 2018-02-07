@@ -59,9 +59,6 @@ While asking for Bob's plants would yield:
 
 - Clover, grass, clover, clover
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/kindergarten-garden` directory.
 
 ## Source
 

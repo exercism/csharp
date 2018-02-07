@@ -53,9 +53,6 @@ And if we then added 1, 5, and 7, it would look like this
      / \     / \
     1   3   5   7
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/binary-search-tree` directory.
 
 ## Source
 

@@ -39,9 +39,6 @@ And to total:
 - You can play a double or a triple letter.
 - You can play a double or a triple word.
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/scrabble-score` directory.
 
 ## Source
 

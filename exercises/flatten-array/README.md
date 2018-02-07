@@ -10,9 +10,6 @@ input: [1,[2,3,null,4],[null],5]
 
 output: [1,2,3,4,5]
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/flatten-array` directory.
 
 ## Source
 

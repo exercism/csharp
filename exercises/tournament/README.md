@@ -64,9 +64,6 @@ Devastating Donkeys;Courageous Californians;draw
 
 Means that the Devastating Donkeys and Courageous Californians tied.
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/tournament` directory.
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

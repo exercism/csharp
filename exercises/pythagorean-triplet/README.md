@@ -17,9 +17,6 @@ There exists exactly one Pythagorean triplet for which a + b + c = 1000.
 
 Find the product a * b * c.
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/pythagorean-triplet` directory.
 
 ## Source
 

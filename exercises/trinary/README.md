@@ -21,9 +21,6 @@ is the 3's place, the third to last is the 9's place, etc.
 If your language provides a method in the standard library to perform the
 conversion, pretend it doesn't exist and implement it yourself.
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/trinary` directory.
 
 ## Source
 

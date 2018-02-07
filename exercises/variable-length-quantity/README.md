@@ -36,9 +36,6 @@ This exercise requires you to use bitwise operations. For more information, see 
 (https://msdn.microsoft.com/en-us/library/6a71f45d.aspx). 
 
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/variable-length-quantity` directory.
 
 ## Source
 

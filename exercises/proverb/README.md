@@ -20,9 +20,6 @@ Note that the list of inputs may vary; your solution should be able to handle li
 
 Try to capture the structure of the song in your code, where you build up the song by composing its parts.
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/proverb` directory.
 
 ## Source
 

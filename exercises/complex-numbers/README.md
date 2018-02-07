@@ -31,9 +31,6 @@ Implement the following operations:
 
 Assume the programming language you are using does not have an implementation of complex numbers.
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/complex-numbers` directory.
 
 ## Source
 

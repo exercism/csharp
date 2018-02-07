@@ -30,9 +30,6 @@ This exercise requires you to process a collection of data. You can simplify you
 For more information, see [this page](https://xosfaere.wordpress.com/2010/03/21/lazy-evaluation-in-csharp/).
 
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/zebra-puzzle` directory.
 
 ## Source
 

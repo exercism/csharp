@@ -31,9 +31,6 @@ but the tests for this exercise follow the above unambiguous definition.
 For this exercise, you will need to create a set of factors using tuples.
 For more information on tuples, see [this link](https://msdn.microsoft.com/en-us/library/system.tuple(v=vs.110).aspx).
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/saddle-points` directory.
 
 ## Source
 

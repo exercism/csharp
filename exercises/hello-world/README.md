@@ -14,9 +14,6 @@ The objectives are simple:
 
 If everything goes well, you will be ready to fetch your first real exercise.
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/hello-world` directory.
 
 ## Source
 

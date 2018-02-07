@@ -323,9 +323,6 @@ experiment make the code better? Worse? Did you learn anything from it?
 ## Hints
 - Try to capture the structure of the song in your code, where you build up the song by composing its parts.
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/beer-song` directory.
 
 ## Source
 

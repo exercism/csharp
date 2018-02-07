@@ -16,9 +16,6 @@ See [this article](https://blogs.msdn.microsoft.com/pedram/2007/06/02/lazy-evalu
 
 Note: to help speedup calculation, you should not check numbers which you know beforehand will never be prime. For more information, see the [Sieve of Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes).
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/nth-prime` directory.
 
 ## Source
 

@@ -31,9 +31,6 @@ list of child nodes) a zipper might support these operations:
 This exercise deals with custom equality. For more information see [this page.](http://www.loganfranken.com/blog/687/overriding-equals-in-c-part-1/)
 
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/zipper` directory.
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.
