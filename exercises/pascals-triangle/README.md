@@ -14,9 +14,6 @@ the right and left of the current position in the previous row.
 # ... etc
 ```
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/pascals-triangle` directory.
 
 ## Source
 

@@ -19,9 +19,6 @@ state has changed from the previous stable state.
 In this exercise the following C# feature is used:
 - [Events](https://msdn.microsoft.com/en-us/library/9aackb16(v=vs.110).aspx).
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/react` directory.
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

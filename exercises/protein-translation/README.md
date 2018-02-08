@@ -41,9 +41,6 @@ UAA, UAG, UGA         | STOP
 
 Learn more about [protein translation on Wikipedia](http://en.wikipedia.org/wiki/Translation_(biology))
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/protein-translation` directory.
 
 ## Source
 

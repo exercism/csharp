@@ -14,9 +14,6 @@ working version.  Version control tools like git can help here as well.
 Please keep a log of what changes you've made and make a comment on the exercise
 containing that log, this will help reviewers.
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/ledger` directory.
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

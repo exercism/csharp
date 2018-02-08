@@ -13,9 +13,6 @@ in the input; the digits need not be *numerically consecutive*.
 For the input `'73167176531330624919225119674426574742355349194934'`,
 the largest product for a series of 6 digits is 23520.
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/largest-series-product` directory.
 
 ## Source
 

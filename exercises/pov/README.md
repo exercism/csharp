@@ -37,9 +37,6 @@ a different leaf node) can be seen to follow the path 6-2-0-3-9
 This exercise involves taking an input graph and re-orientating it from the point
 of view of one of the nodes.
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/pov` directory.
 
 ## Source
 

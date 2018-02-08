@@ -60,9 +60,6 @@ support two operations:
 * `score() : int` is called only at the very end of the game.  It
   returns the total score for that game.
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/bowling` directory.
 
 ## Source
 

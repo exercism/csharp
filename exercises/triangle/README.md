@@ -22,9 +22,6 @@ The case where the sum of the lengths of two sides _equals_ that of the
 third is known as a _degenerate_ triangle - it has zero area and looks like
 a single line. Feel free to add your own code/tests to check for degenerate triangles.
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/triangle` directory.
 
 ## Source
 

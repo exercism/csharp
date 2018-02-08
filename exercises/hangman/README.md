@@ -22,9 +22,6 @@ This exercise requires you to work with events. For more information, see [this 
 (https://docs.microsoft.com/en-us/dotnet/articles/csharp/programming-guide/events/) .
 
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/hangman` directory.
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

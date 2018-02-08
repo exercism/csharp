@@ -18,9 +18,6 @@ important thing is to make the code better!
 For this exercise the following C# feature comes in handy:
 - [String Interpolation](https://msdn.microsoft.com/en-us/library/dn961160.aspx) (C# 6 and up).
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/markdown` directory.
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

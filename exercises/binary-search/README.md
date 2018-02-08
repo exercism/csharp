@@ -34,9 +34,6 @@ A binary search halves the number of items to check with each iteration,
 so locating an item (or determining its absence) takes logarithmic time.
 A binary search is a dichotomic divide and conquer search algorithm.
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/binary-search` directory.
 
 ## Source
 

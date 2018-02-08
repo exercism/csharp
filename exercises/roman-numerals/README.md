@@ -46,9 +46,6 @@ See also: http://www.novaroma.org/via_romana/numbers.html
 This exercise requires you to write an extension method. For more information, see [this page](https://msdn.microsoft.com/en-us//library/bb383977.aspx).
 
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/roman-numerals` directory.
 
 ## Source
 

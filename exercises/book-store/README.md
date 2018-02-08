@@ -67,9 +67,6 @@ For a total of $51.20
 
 And $51.20 is the price with the biggest discount.
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/book-store` directory.
 
 ## Source
 

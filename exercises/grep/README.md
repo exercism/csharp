@@ -64,9 +64,6 @@ The `grep` command should support multiple flags at once.
 For example, running `grep -l -v "hello" file1.txt file2.txt` should
 print the names of files that do not contain the string "hello".
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/grep` directory.
 
 ## Source
 

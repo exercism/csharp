@@ -11,9 +11,6 @@ For example:
 
 Write some code to determine whether a number is an Armstrong number.
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/armstrong-numbers` directory.
 
 ## Source
 

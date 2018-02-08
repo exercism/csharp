@@ -33,9 +33,6 @@ For more information see
 [wikipedia](https://en.wikipedia.org/wiki/Go_%28game%29) or [Sensei's
 Library](http://senseis.xmp.net/).
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/go-counting` directory.
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

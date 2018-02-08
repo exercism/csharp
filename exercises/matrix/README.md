@@ -40,9 +40,6 @@ And its columns:
 - 8, 3, 6
 - 7, 2, 7
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/matrix` directory.
 
 ## Source
 

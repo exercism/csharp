@@ -25,9 +25,6 @@ implement your own abstract data type.
 This exercise requires you to create a linked list data structure which can be iterated. This requires you to implement the IEnumerable\<T> interface. 
 For more information, see [this page](https://msdn.microsoft.com/en-us/library/9eekhta0(v=vs.110).aspx).
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/simple-linked-list` directory.
 
 ## Source
 

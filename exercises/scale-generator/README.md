@@ -55,9 +55,6 @@ Here is a table of pitches with the names of their interval distance from the to
 |        |         | Dim 3rd | Aug 2nd | Dim 4th |         | Aug 4th | Dim 5th | Aug 5th | Dim 7th | Aug 6th | Dim 8ve |        |
 |        |         |         |         |         |         | Dim 5th |         |         |         |         |         |        |
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/scale-generator` directory.
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

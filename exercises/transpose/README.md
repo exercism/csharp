@@ -58,9 +58,6 @@ In general, all characters from the input should also be present in the transpos
 That means that if a column in the input text contains only spaces on its bottom-most row(s),
 the corresponding output row should contain the spaces in its right-most column(s).
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/transpose` directory.
 
 ## Source
 

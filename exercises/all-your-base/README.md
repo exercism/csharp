@@ -31,9 +31,6 @@ I think you got the idea!
 
 *Yes. Those three numbers above are exactly the same. Congratulations!*
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/all-your-base` directory.
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

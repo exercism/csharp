@@ -46,9 +46,6 @@ variety of languages, each with its own unique scoring table. For
 example, an "E" is scored at 2 in the Māori-language version of the
 game while being scored at 4 in the Hawaiian-language version.
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/etl` directory.
 
 ## Source
 

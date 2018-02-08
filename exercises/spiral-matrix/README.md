@@ -23,9 +23,6 @@ like these examples:
 10  9  8 7
 ```
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/spiral-matrix` directory.
 
 ## Source
 

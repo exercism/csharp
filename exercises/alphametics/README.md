@@ -38,9 +38,6 @@ Try to find a more sophisticated solution.
 - Hint: You could try the column-wise addition algorithm that is usually taught in school.
 
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/alphametics` directory.
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

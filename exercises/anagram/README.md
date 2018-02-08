@@ -6,9 +6,6 @@ Given `"listen"` and a list of candidates like `"enlists" "google"
 "inlets" "banana"` the program should return a list containing
 `"inlets"`.
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/anagram` directory.
 
 ## Source
 

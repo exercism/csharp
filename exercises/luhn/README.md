@@ -64,9 +64,6 @@ Sum the digits
 
 57 is not evenly divisible by 10, so this number is not valid.
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/luhn` directory.
 
 ## Source
 

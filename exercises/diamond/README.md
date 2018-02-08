@@ -64,9 +64,6 @@ In order to facilitate propery-based testing, the tests in this exercise leverag
 
 If you would like more information on property-based testing, see [this article](http://www.erikschierboom.com/2016/02/22/property-based-testing/).
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/diamond` directory.
 
 ## Source
 

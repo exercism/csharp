@@ -42,9 +42,6 @@ This exercise requires you to perform calculations on large numbers. To correctl
 [BigInteger](https://msdn.microsoft.com/en-us/library/system.numerics.biginteger(v=vs.110).aspx) struct is used.
 
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/diffie-hellman` directory.
 
 ## Source
 

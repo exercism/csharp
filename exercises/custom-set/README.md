@@ -13,9 +13,6 @@ For more information, see [this page]
 (https://docs.microsoft.com/en-us/dotnet/core/api/System.IEquatable-1) .
 
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/custom-set` directory.
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

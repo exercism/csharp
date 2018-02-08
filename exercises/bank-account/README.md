@@ -31,9 +31,6 @@ This exercise requires you to handle data related to currency and money. A norma
 Note though that you then only store the numeric value of a currency. 
 
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/bank-account` directory.
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

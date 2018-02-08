@@ -30,9 +30,6 @@ the representation passed to your code):
 the above example `O` has made a connection from left to right but nobody has
 won since `O` didn't connect top and bottom.
 
-### Submitting Exercises
-
-Note that, when trying to submit an exercise, make sure the exercise file that you're submitting is in the `exercism/csharp/connect` directory.
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.
