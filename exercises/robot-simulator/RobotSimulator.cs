@@ -1,6 +1,6 @@
 ﻿using System;
 
-public enum Bearing
+public enum Direction
 {
     North,
     East,
@@ -22,11 +22,11 @@ public struct Coordinate
 
 public class RobotSimulator
 {
-    public RobotSimulator(Bearing bearing, Coordinate coordinate)
+    public RobotSimulator(Direction direction, Coordinate coordinate)
     {
     }
 
-    public Bearing Bearing
+    public Direction Direction
     {
         get
         {
