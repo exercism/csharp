@@ -1,6 +1,6 @@
 ﻿using System;
 
-public enum Bearing
+public enum Direction
 {
     North,
     East,
@@ -22,30 +22,30 @@ public struct Coordinate
 
 public class RobotSimulator
 {
-    public RobotSimulator(Bearing bearing, Coordinate coordinate)
+    public RobotSimulator(Direction bearing, Coordinate coordinate)
     {
-        Bearing = bearing;
+        Direction = bearing;
         Coordinate = coordinate;
     }
 
-    public Bearing Bearing { get; private set; }
+    public Direction Direction { get; private set; }
     public Coordinate Coordinate { get; private set; }
 
     public void TurnRight()
     {
-        switch (Bearing)
+        switch (Direction)
         {
-            case Bearing.North:
-                Bearing = Bearing.East;
+            case Direction.North:
+                Direction = Direction.East;
                 break;
-            case Bearing.East:
-                Bearing = Bearing.South;
+            case Direction.East:
+                Direction = Direction.South;
                 break;
-            case Bearing.South:
-                Bearing = Bearing.West;
+            case Direction.South:
+                Direction = Direction.West;
                 break;
-            case Bearing.West:
-                Bearing = Bearing.North;
+            case Direction.West:
+                Direction = Direction.North;
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -54,19 +54,19 @@ public class RobotSimulator
 
     public void TurnLeft()
     {
-        switch (Bearing)
+        switch (Direction)
         {
-            case Bearing.North:
-                Bearing = Bearing.West;
+            case Direction.North:
+                Direction = Direction.West;
                 break;
-            case Bearing.East:
-                Bearing = Bearing.North;
+            case Direction.East:
+                Direction = Direction.North;
                 break;
-            case Bearing.South:
-                Bearing = Bearing.East;
+            case Direction.South:
+                Direction = Direction.East;
                 break;
-            case Bearing.West:
-                Bearing = Bearing.South;
+            case Direction.West:
+                Direction = Direction.South;
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -75,18 +75,18 @@ public class RobotSimulator
 
     public void Advance()
     {
-        switch (Bearing)
+        switch (Direction)
         {
-            case Bearing.North:
+            case Direction.North:
                 Coordinate = new Coordinate(Coordinate.X, Coordinate.Y + 1);
                 break;
-            case Bearing.East:
+            case Direction.East:
                 Coordinate = new Coordinate(Coordinate.X + 1, Coordinate.Y);
                 break;
-            case Bearing.South:
+            case Direction.South:
                 Coordinate = new Coordinate(Coordinate.X, Coordinate.Y - 1);
                 break;
-            case Bearing.West:
+            case Direction.West:
                 Coordinate = new Coordinate(Coordinate.X - 1, Coordinate.Y);
                 break;
             default:
