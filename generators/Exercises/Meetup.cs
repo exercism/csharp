@@ -10,8 +10,7 @@ namespace Generators.Exercises
     {
         private const string ParamYear = "year";
         private const string ParamMonth = "month";
-        private const string ParamDay = "dayofmonth";
-        private const string ParamSchedule = "week";
+        private const string ParamWeek = "week";
         private const string ParamDayOfWeek = "dayofweek";
 
         private const string PropertyDay = "Day";
@@ -23,20 +22,20 @@ namespace Generators.Exercises
                 canonicalDataCase.Property = PropertyDay;
                 canonicalDataCase.UseVariableForExpected = true;
                 canonicalDataCase.SetConstructorInputParameters(ParamMonth, ParamYear);
-                canonicalDataCase.SetInputParameters(ParamDayOfWeek, ParamSchedule);
+                canonicalDataCase.SetInputParameters(ParamDayOfWeek, ParamWeek);
 
-                canonicalDataCase.Properties[ParamSchedule] =
-                    new UnescapedValue($"Schedule.{((string)canonicalDataCase.Properties[ParamSchedule]).Transform(To.SentenceCase)}");
+                canonicalDataCase.Properties[ParamYear] = canonicalDataCase.Properties["input"][ParamYear];
+                canonicalDataCase.Properties[ParamMonth] = canonicalDataCase.Properties["input"][ParamMonth];
+                canonicalDataCase.Properties[ParamWeek] =
+                    new UnescapedValue($"Schedule.{((string)canonicalDataCase.Properties["input"][ParamWeek]).Transform(To.SentenceCase)}");
                 canonicalDataCase.Properties[ParamDayOfWeek] =
-                    new UnescapedValue($"DayOfWeek.{((string)canonicalDataCase.Properties[ParamDayOfWeek]).Transform(To.SentenceCase)}");
-                canonicalDataCase.Expected =
-                    $"{canonicalDataCase.Properties[ParamYear]}-{canonicalDataCase.Properties[ParamMonth]}-{canonicalDataCase.Properties[ParamDay]}";
+                    new UnescapedValue($"DayOfWeek.{((string)canonicalDataCase.Properties["input"][ParamDayOfWeek]).Transform(To.SentenceCase)}");
             }
         }
 
         protected override String RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            string template = $"Assert.Equal({{{{ ExpectedParameter }}}}, {{{{ TestedValue }}}}.ToString(\"yyyy-M-d\"));";
+            string template = $"Assert.Equal({{{{ ExpectedParameter }}}}, {{{{ TestedValue }}}}.ToString(\"yyyy-MM-dd\"));";
 
             return TemplateRenderer.RenderInline(template, testMethodBody.AssertTemplateParameters);
         }
