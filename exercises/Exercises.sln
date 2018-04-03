@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accumulate", "accumulate\Accumulate.csproj", "{F16C0EE1-6923-4328-B015-363CF24FF867}"
 EndProject
@@ -225,6 +225,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReverseString", "reverse-string\ReverseString.csproj", "{D2105979-EE3B-432B-8016-172BA949DE2F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArmstrongNumbers", "armstrong-numbers\ArmstrongNumbers.csproj", "{7015C2C4-4050-4631-9394-7EAF19AB0191}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yacht", "yacht\Yacht.csproj", "{C029D4C6-3A10-459E-96D7-3E77170A5A10}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -680,6 +682,10 @@ Global
 		{7015C2C4-4050-4631-9394-7EAF19AB0191}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7015C2C4-4050-4631-9394-7EAF19AB0191}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7015C2C4-4050-4631-9394-7EAF19AB0191}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C029D4C6-3A10-459E-96D7-3E77170A5A10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C029D4C6-3A10-459E-96D7-3E77170A5A10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C029D4C6-3A10-459E-96D7-3E77170A5A10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C029D4C6-3A10-459E-96D7-3E77170A5A10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
