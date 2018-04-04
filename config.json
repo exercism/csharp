@@ -928,6 +928,18 @@
     },
     {
       "core": false,
+      "difficulty": 5,
+      "slug": "yacht",
+      "topics": [
+        "games",
+        "parsing",
+        "sorting"
+      ],
+      "unlocked_by": "bob",
+      "uuid": "f808e80a-8e76-4f3d-840e-31a840c560f2"
+    },
+    {
+      "core": false,
       "difficulty": 6,
       "slug": "tournament",
       "topics": [
