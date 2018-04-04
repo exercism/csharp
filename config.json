@@ -926,7 +926,6 @@
       "unlocked_by": "kindergarten-garden",
       "uuid": "bae1f3a4-b63d-4efd-921a-133b3d5e379c"
     },
-
     {
       "core": false,
       "difficulty": 5,
@@ -936,10 +935,9 @@
         "parsing",
         "sorting"
       ],
-      "unlocked_by": "matrix",
+      "unlocked_by": "bob",
       "uuid": "f808e80a-8e76-4f3d-840e-31a840c560f2"
     },
-
     {
       "core": false,
       "difficulty": 6,
@@ -1265,8 +1263,6 @@
       "unlocked_by": "markdown",
       "uuid": "a5794706-58d2-48f7-8aab-78639d7bce77"
     },
-
-
     {
       "core": false,
       "deprecated": true,

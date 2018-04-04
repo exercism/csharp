@@ -7,8 +7,6 @@
 
   <ItemGroup>
     <Compile Remove="Example.cs" />
-    <Compile Remove="YachtTest - Copy.cs" />
-    <Compile Remove="YachtTest-ToUseWithExample.cs" />
   </ItemGroup>
 
   <ItemGroup>
