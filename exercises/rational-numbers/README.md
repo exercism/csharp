@@ -1,4 +1,3 @@
-
 A rational number is defined as the quotient of two integers `a` and `b`, called the numerator and denominator, respectively, where `b != 0`.
 
 The absolute value `|r|` of the rational number `r = a/b` is equal to `|a|/|b|`.
