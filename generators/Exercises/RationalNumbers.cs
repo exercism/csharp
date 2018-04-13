@@ -9,10 +9,6 @@ namespace Generators.Exercises
 {
     public class RationalNumbers : GeneratorExercise
     {
-        //protected override void UpdateCanonicalData(CanonicalData canonicalData)
-        //{
-        //}
-		
         protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             if (testMethodBody.CanonicalDataCase.Expected.GetType().Name.Equals("Double"))
@@ -27,7 +23,7 @@ namespace Generators.Exercises
 			                 testMethodBody.AssertTemplateParameters);
         }
 				
-		private static int precision(object rawValue) => 
-		    rawValue.ToString().Split(new char[] {'.'}).Length == 1? 0 : rawValue.ToString().Split(new char[] {'.'})[1].Length;
+	private static int precision(object rawValue) => 
+             rawValue.ToString().Split(new char[] {'.'}).Length == 1? 0 : rawValue.ToString().Split(new char[] {'.'})[1].Length;
     }
 }
