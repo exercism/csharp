@@ -2,46 +2,23 @@ using System;
 
 public static class RationalNumbers
 {
-    public static int[] Add(int[] firstAddendum, int[] secondAddendum)
+    public static int[] Add(int[] r1, int[] r2)
     {
-        var commonDenominator = nok(absValue(firstAddendum[1]), absValue(secondAddendum[1]));
-        var numerator1 = firstAddendum[0] * commonDenominator / firstAddendum[1];
-        var numerator2 = secondAddendum[0] * commonDenominator / secondAddendum[1];
-        return Reduce(new int[]
-            {
-                numerator1 + numerator2, commonDenominator
-            });
+        return Reduce(new int[] {r1[0]*r2[1] + r1[1]*r2[0], r1[1]*r2[1]});
     }
-    public static int[] Sub(int[] decrementable, int[] subtractor)
+    public static int[] Sub(int[] r1, int[] r2)
     {
-        var commonDenominator = nok(absValue(decrementable[1]), absValue(subtractor[1]));
-        var numerator1 = decrementable[0] * commonDenominator / decrementable[1];
-        var numerator2 = subtractor[0] * commonDenominator / subtractor[1];
-        return Reduce(new int[]
-            {
-                numerator1 - numerator2, commonDenominator
-            });
-    }
-    public static int[] Mul(int[] multiplicand, int[] multiplier)
-    {
-        if (multiplier[0] == 0) return new int[] { 0, 1};
-        var sign = getSign(multiplicand[0]) / getSign(multiplicand[1]) /
-                   getSign(multiplier[0]) / getSign(multiplier[1]);
+        return Reduce(new int[] { r1[0] * r2[1] - r1[1] * r2[0], r1[1] * r2[1] });
 
-        return Reduce(new int[]
-            {
-                sign * absValue( multiplicand[0]*multiplier[0]), absValue(multiplicand[1]*multiplier[1])
-            });
     }
-    public static int[] Div(int[] divisible, int[] divider)
+    public static int[] Mul(int[] r1, int[] r2)
     {
-        var sign = getSign(divisible[0]) / getSign(divisible[1]) /
-                   getSign(divider[0]) / getSign(divider[1]);
-
-        return Reduce(new int[]
-            {
-                sign * absValue( divisible[0]*divider[1]), absValue(divisible[1]*divider[0])
-            });
+        if (r1[0] == 0) return new int[] { 0, 1};
+        return Reduce(new int[] { r1[0] * r2[0] , r1[1] * r2[1] });
+    }
+    public static int[] Div(int[] r1, int[] r2)
+    {
+        return Reduce(new int[] { r1[0] * r2[1], r1[1] * r2[0] });
     }
     public static int[] Abs(int[] value)
     {
@@ -91,10 +68,10 @@ public static class RationalNumbers
         return a;
     }
 
-    private static int nok(int a, int b)
-    {
-        return a * (b / nod(a, b));
-    }
+    //private static int nok(int a, int b)
+    //{
+    //    return a * (b / nod(a, b));
+    //}
 
     private static int absValue(int value)
     {
@@ -116,13 +93,68 @@ public static class RationalNumbers
         return result;
     }
 
+    private static double pow(double baseNumber, int power)
+    {
+        double result = 1;
+        for (int i = 1; i <= power; i++)
+        {
+            result *= baseNumber;
+        }
+        return result;
+    }
+
+
     private static double pow2(int baseNumber, int[] power)
     {
         if (power[0] > 0 && power[1] > 0)
         {
             var tempResult = pow(baseNumber, power[0]);
-            return Math.Pow((double)tempResult, 1 / (double)power[1]);
+            //return Math.Pow((double)tempResult, 1 / (double)power[1]);
+            return SqrtN(power[1],(double)tempResult);
         }
         else return Math.Pow((double)baseNumber, (double)power[0] / (double)power[1]);
+
     }
+
+    static double SqrtN(double n, double A, double eps = 0.0001)
+    {
+        var x0 = A / n;
+        var x1 = (1 / n) * ((n - 1) * x0 + A / pow(x0, (int)n - 1));
+
+        while (Math.Abs(x1 - x0) > eps)
+        {
+            x0 = x1;
+            x1 = (1 / n) * ((n - 1) * x0 + A / pow(x0, (int)n - 1));
+        }
+
+        return x1;
+    }
+
+    // Алгоритм нахождения корня n-ной степени
+    // https://ru.wikipedia.org/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%BD%D0%B0%D1%85%D0%BE%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D1%8F_%D0%BA%D0%BE%D1%80%D0%BD%D1%8F_n-%D0%BD%D0%BE%D0%B9_%D1%81%D1%82%D0%B5%D0%BF%D0%B5%D0%BD%D0%B8
+
+
+    //static double NthRoot(double A, int N)
+    //{
+    //    return Math.Pow(A, 1.0 / N);
+    //}
+
+    // https://github.com/exercism/fsharp/blob/master/exercises/rational-numbers/Example.fs
+
+    // Calculate the root of a number without useing the root function or decimal numbers
+    // https://math.stackexchange.com/questions/34913/calculate-the-root-of-a-number-without-useing-the-root-function-or-decimal-numbe
+
+    //let rec private gcd x y =
+    //if y = 0 then x
+    //else gcd y(x % y)
+
+    //let private nthroot n a =
+    //    let rec f x =
+    //        let m = n - 1.
+    //        let x' = (m * x + a / x ** m) / n
+    //        match abs(x' - x) with
+    //        | t when t<abs(x* 1e-9) -> x'
+    //        | _ -> f x'
+    //    f(a / float n)
+
 }
