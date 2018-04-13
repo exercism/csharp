@@ -2,78 +2,85 @@ using System;
 
 public static class RationalNumbers
 {
+    private const int NUMERATOR_INDEX = 0;
+    private const int DENOMINATOR_INDEX = 1;
+
+    #region Main code: Add, Sub, Mul, Div, Abs, Reduce, Exprational, Expreal
     public static int[] Add(int[] r1, int[] r2)
     {
-        return Reduce(new int[] {r1[0]*r2[1] + r1[1]*r2[0], r1[1]*r2[1]});
+        return Reduce(new int[] { r1[NUMERATOR_INDEX] * r2[DENOMINATOR_INDEX] + r1[DENOMINATOR_INDEX] * r2[NUMERATOR_INDEX], r1[DENOMINATOR_INDEX] * r2[DENOMINATOR_INDEX] });
     }
+
     public static int[] Sub(int[] r1, int[] r2)
     {
-        return Reduce(new int[] { r1[0] * r2[1] - r1[1] * r2[0], r1[1] * r2[1] });
-
+        return Reduce(new int[] { r1[NUMERATOR_INDEX] * r2[DENOMINATOR_INDEX] - r1[DENOMINATOR_INDEX] * r2[NUMERATOR_INDEX], r1[DENOMINATOR_INDEX] * r2[DENOMINATOR_INDEX] });
     }
+
     public static int[] Mul(int[] r1, int[] r2)
     {
-        if (r1[0] == 0) return new int[] { 0, 1};
-        return Reduce(new int[] { r1[0] * r2[0] , r1[1] * r2[1] });
+        if (r1[NUMERATOR_INDEX] == 0) return new int[] { 0, 1 };
+        return Reduce(new int[] { r1[NUMERATOR_INDEX] * r2[NUMERATOR_INDEX], r1[DENOMINATOR_INDEX] * r2[DENOMINATOR_INDEX] });
     }
+
     public static int[] Div(int[] r1, int[] r2)
     {
-        return Reduce(new int[] { r1[0] * r2[1], r1[1] * r2[0] });
+        return Reduce(new int[] { r1[NUMERATOR_INDEX] * r2[DENOMINATOR_INDEX], r1[DENOMINATOR_INDEX] * r2[NUMERATOR_INDEX] });
     }
+
     public static int[] Abs(int[] value)
     {
-        return new[] { absValue(value[0]), absValue(value[1])};
+        return new[] { getAbsValue(value[NUMERATOR_INDEX]), getAbsValue(value[DENOMINATOR_INDEX]) };
     }
 
     public static int[] Reduce(int[] properFraction)
     {
-        if (properFraction[1] == 0) return properFraction;
-        else if (properFraction[0] == 0) return new int[] { 0, 1};
+        if (properFraction[DENOMINATOR_INDEX] == 0) return properFraction;
+        else if (properFraction[NUMERATOR_INDEX] == 0) return new int[] { 0, 1 };
 
-        var a = absValue(properFraction[0]);
-        var b = absValue(properFraction[1]);
+        var a = getAbsValue(properFraction[NUMERATOR_INDEX]);
+        var b = getAbsValue(properFraction[DENOMINATOR_INDEX]);
 
-        var sign = getSign(properFraction[0]) * getSign(properFraction[1]);
+        var sign = getSign(properFraction[NUMERATOR_INDEX]) * getSign(properFraction[DENOMINATOR_INDEX]);
 
-        return new int[] { sign * a / nod(a, b), b / nod(a,b) };
+        return new int[] { sign * a / greatestCommonDivisor(a, b), b / greatestCommonDivisor(a, b) };
     }
 
     public static int[] Exprational(int[] baseNumber, int power)
     {
         if (power == 0) return new int[] { 1, 1 };
 
-        var sign = getSign(baseNumber[0]) / getSign(baseNumber[1]);
+        var sign = getSign(baseNumber[NUMERATOR_INDEX]) / getSign(baseNumber[DENOMINATOR_INDEX]);
         return Reduce(new int[]
             {
                 sign *
-                absValue(pow(baseNumber[0], power)),
-                absValue(pow(baseNumber[1], power))
+                getAbsValue((int)pow(baseNumber[NUMERATOR_INDEX], power)),
+                getAbsValue((int)pow(baseNumber[DENOMINATOR_INDEX], power))
             });
     }
 
     public static double Expreal(int baseNumber, int[] power)
     {
-        if (power[0] == 0) return 1;
+        if (power[NUMERATOR_INDEX] == 0) return 1;
         else
-            return pow2(baseNumber, power);
+            return pow(baseNumber, power);
     }
+    #endregion
 
-    private static int nod(int a, int b)
+    #region Utilities
+    private static double pow(int baseNumber, int[] power)
     {
-        var x = absValue(a);
-        var y = absValue(b);
-
-        while (a != b)
-            if (a > b) a -= b; else b -= a;
-        return a;
+        return nthRoot((getSign(power[NUMERATOR_INDEX]) == getSign(power[DENOMINATOR_INDEX]) ?
+                        pow(baseNumber, getAbsValue(power[NUMERATOR_INDEX])) :
+                        1d / pow(baseNumber, getAbsValue(power[NUMERATOR_INDEX]))),
+                        getAbsValue(power[DENOMINATOR_INDEX]));
     }
 
-    //private static int nok(int a, int b)
-    //{
-    //    return a * (b / nod(a, b));
-    //}
+    private static int getAbsValue(int value)
+    {
+        return (value > 0) ? value : -value;
+    }
 
-    private static int absValue(int value)
+    private static double getAbsValue(double value)
     {
         return (value > 0) ? value : -value;
     }
@@ -83,78 +90,41 @@ public static class RationalNumbers
         return (value > 0) ? 1 : -1;
     }
 
-    private static int pow(int baseNumber, int power)
+    private static int greatestCommonDivisor(int a, int b)
     {
-        var result = 1;
-        for (int i = 1; i <= power; i++)
+        var x = getAbsValue(a);
+        var y = getAbsValue(b);
+
+        while (a != b)
+            if (a > b) a -= b; else b -= a;
+        return a;
+    }
+
+    private static double pow(double baseValue, int exp)
+    {
+        double result = 1.0;
+        while (exp != 0)
         {
-            result *= baseNumber;
+            if ((exp & 1) != 0) result *= baseValue;
+            baseValue *= baseValue;
+            exp >>= 1;
         }
         return result;
     }
 
-    private static double pow(double baseNumber, int power)
+    private static double nthRoot(double baseValue, int n)
     {
-        double result = 1;
-        for (int i = 1; i <= power; i++)
+        if (n == 1) return baseValue;
+        double deltaX;
+        double x = 0.1;
+        do
         {
-            result *= baseNumber;
+            deltaX = ((double)baseValue / pow(x, (n - 1)) - x) / n;
+            x = x + deltaX;
         }
-        return result;
+        while (getAbsValue(deltaX) > 0);
+        return x;
     }
-
-
-    private static double pow2(int baseNumber, int[] power)
-    {
-        if (power[0] > 0 && power[1] > 0)
-        {
-            var tempResult = pow(baseNumber, power[0]);
-            //return Math.Pow((double)tempResult, 1 / (double)power[1]);
-            return SqrtN(power[1],(double)tempResult);
-        }
-        else return Math.Pow((double)baseNumber, (double)power[0] / (double)power[1]);
-
-    }
-
-    static double SqrtN(double n, double A, double eps = 0.0001)
-    {
-        var x0 = A / n;
-        var x1 = (1 / n) * ((n - 1) * x0 + A / pow(x0, (int)n - 1));
-
-        while (Math.Abs(x1 - x0) > eps)
-        {
-            x0 = x1;
-            x1 = (1 / n) * ((n - 1) * x0 + A / pow(x0, (int)n - 1));
-        }
-
-        return x1;
-    }
-
-    // Алгоритм нахождения корня n-ной степени
-    // https://ru.wikipedia.org/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%BD%D0%B0%D1%85%D0%BE%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D1%8F_%D0%BA%D0%BE%D1%80%D0%BD%D1%8F_n-%D0%BD%D0%BE%D0%B9_%D1%81%D1%82%D0%B5%D0%BF%D0%B5%D0%BD%D0%B8
-
-
-    //static double NthRoot(double A, int N)
-    //{
-    //    return Math.Pow(A, 1.0 / N);
-    //}
-
-    // https://github.com/exercism/fsharp/blob/master/exercises/rational-numbers/Example.fs
-
-    // Calculate the root of a number without useing the root function or decimal numbers
-    // https://math.stackexchange.com/questions/34913/calculate-the-root-of-a-number-without-useing-the-root-function-or-decimal-numbe
-
-    //let rec private gcd x y =
-    //if y = 0 then x
-    //else gcd y(x % y)
-
-    //let private nthroot n a =
-    //    let rec f x =
-    //        let m = n - 1.
-    //        let x' = (m * x + a / x ** m) / n
-    //        match abs(x' - x) with
-    //        | t when t<abs(x* 1e-9) -> x'
-    //        | _ -> f x'
-    //    f(a / float n)
+    #endregion
 
 }
