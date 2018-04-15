@@ -1,14 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Generators.Input;
 using Generators.Output;
-using Newtonsoft.Json.Linq;
-using Humanizer;
 
 namespace Generators.Exercises
 {
-	public struct RationalNumber
+    public struct RationalNumber
     {
 		public RationalNumber(int[] n)
 		{
@@ -27,36 +21,38 @@ namespace Generators.Exercises
             var operation = testMethodBody.CanonicalDataCase.Properties["property"].ToString();
             var expected = testMethodBody.CanonicalDataCase.Properties["expected"];
 			var operationName = char.ToUpper(operation[0]) + operation.Substring(1);			
-            string template = "Assert.Equal([expression]);";
-			string expression = "";
-			
+            string assertCodeLine = "";
+            string operationsWithOverloading = "add|+|sub|-|mul|*|div|/";
+            string operationCode = operationsWithOverloading.Substring(operationsWithOverloading.IndexOf(operation.ToLower())+4, 1);
+
             switch (operation.ToLower())
             {
                 case "add":
                 case "sub":
                 case "mul":
                 case "div":
-				    {
+				    {                       
                        var r1 = new RationalNumber((int[])input["r1"]);
                        var r2 = new RationalNumber((int[])input["r2"]);
                        var e = new RationalNumber((int[])expected);
-                       expression = $"new RationalNumber ({e.Numerator},{e.Denominator}), new RationalNumber({r1.Numerator},{r1.Denominator}).{operationName}(new RationalNumber({r2.Numerator},{r2.Denominator}))";
+                        assertCodeLine = "Assert.Equal(" + $"new RationalNumber ({e.Numerator}, {e.Denominator}), new RationalNumber({r1.Numerator}, {r1.Denominator}).{operationName}(new RationalNumber({r2.Numerator}, {r2.Denominator})));\r\n" +
+                                         "Assert.Equal(" + $"new RationalNumber ({e.Numerator}, {e.Denominator}), new RationalNumber({r1.Numerator}, {r1.Denominator}) {operationCode} (new RationalNumber({r2.Numerator}, {r2.Denominator})));";
 					}
                     break;
                 case "abs":
                 case "reduce":
                     {
                         var r = new RationalNumber((int[])input["r"]);
-                        var e = new RationalNumber((int[])expected);						
-                        expression = $"new RationalNumber ({e.Numerator},{e.Denominator}), new RationalNumber({r.Numerator},{r.Denominator}).{operationName}()";
+                        var e = new RationalNumber((int[])expected);
+                        assertCodeLine = "Assert.Equal(" + $"new RationalNumber ({e.Numerator}, {e.Denominator}), new RationalNumber({r.Numerator}, {r.Denominator}).{operationName}());";
                     }
                     break;
                 case "exprational":
                     {
                         var r = new RationalNumber((int[])input["r"]);
                         var n = input["n"];
-                        var e = new RationalNumber((int[])expected);						
-                        expression = $"new RationalNumber ({e.Numerator},{e.Denominator}), new RationalNumber({r.Numerator},{r.Denominator}).{operationName}({n})";
+                        var e = new RationalNumber((int[])expected);
+                        assertCodeLine = "Assert.Equal(" + $"new RationalNumber ({e.Numerator}, {e.Denominator}), new RationalNumber({r.Numerator}, {r.Denominator}).{operationName}({n}));";
                     }
                     break;
                 case "expreal":
@@ -64,12 +60,12 @@ namespace Generators.Exercises
                         var x = input["x"].ToString();
                         var r = new RationalNumber((int[])input["r"]);
                         var e = expected;
-                        var p = precision(e);						
-                        expression = $"{e}, {x}.{operationName}(new RationalNumber({r.Numerator},{r.Denominator})),{p}";						
+                        var p = precision(e);
+                        assertCodeLine = "Assert.Equal(" + $"{e}, {x}.{operationName}(new RationalNumber({r.Numerator}, {r.Denominator})),{p});";						
                     }
                     break;
             }
-			return TemplateRenderer.RenderInline(template.Replace("[expression]", expression), testMethodBody.AssertTemplateParameters);			
+			return TemplateRenderer.RenderInline(assertCodeLine, testMethodBody.AssertTemplateParameters);			
         }
 
         private static int precision(object rawValue) =>

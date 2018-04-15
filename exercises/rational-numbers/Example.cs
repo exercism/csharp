@@ -27,9 +27,19 @@ public struct RationalNumber
         return ReducedRationalNumber(this.Numerator * r.Denominator + this.Denominator * r.Numerator, this.Denominator * r.Denominator);
     }
 
+    public static RationalNumber operator+ (RationalNumber r1, RationalNumber r2)
+    {
+        return r1.Add(r2);
+    }
+
     public RationalNumber Sub(RationalNumber r)
     {
         return ReducedRationalNumber(this.Numerator * r.Denominator - this.Denominator * r.Numerator, this.Denominator * r.Denominator);
+    }
+
+    public static RationalNumber operator -(RationalNumber r1, RationalNumber r2)
+    {
+        return r1.Sub(r2);
     }
 
     public RationalNumber Mul(RationalNumber r)
@@ -38,9 +48,19 @@ public struct RationalNumber
         return ReducedRationalNumber(this.Numerator * r.Numerator, this.Denominator * r.Denominator);
     }
 
+    public static RationalNumber operator *(RationalNumber r1, RationalNumber r2)
+    {
+        return r1.Mul(r2);
+    }
+
     public RationalNumber Div(RationalNumber r)
     {
         return ReducedRationalNumber(this.Numerator * r.Denominator, this.Denominator * r.Numerator);
+    }
+
+    public static RationalNumber operator /(RationalNumber r1, RationalNumber r2)
+    {
+        return r1.Div(r2);
     }
 
     public RationalNumber Abs()
@@ -81,7 +101,7 @@ public struct RationalNumber
             return Pow(baseNumber);
     }
 
-    private RationalNumber ReducedRationalNumber(int numerator, int denominator)
+    private static RationalNumber ReducedRationalNumber(int numerator, int denominator)
     {
         return new RationalNumber(numerator, denominator).Reduce();
     }

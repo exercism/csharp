@@ -137,12 +137,12 @@
     },
     {
       "core": false,
-      "difficulty": 2,
+      "difficulty": 4,
       "slug": "rational-numbers",
       "topics": [
         "mathematics"
       ],
-      "unlocked_by": "sum-of-multiples",
+      "unlocked_by": "prime-factors",
       "uuid": "9ae7f7ed-75d8-4d03-967c-53846634ae07"
     },
     {
