@@ -4,13 +4,14 @@ namespace Generators.Exercises
 {
     public struct RationalNumber
     {
-		public RationalNumber(int[] n)
-		{
-			this.Numerator = n[0];
-			this.Denominator = n[1];
-		}
-		public int Numerator { get; }
-		public int Denominator { get; }
+        public RationalNumber(int[] n)
+        {
+            this.Numerator = n[0];
+            this.Denominator = n[1];
+        }
+
+        public int Numerator { get; }
+        public int Denominator { get; }
     }
 	
     public class RationalNumbers : GeneratorExercise
@@ -23,7 +24,7 @@ namespace Generators.Exercises
 			var operationName = char.ToUpper(operation[0]) + operation.Substring(1);			
             string assertCodeLine = "";
             string operationsWithOverloading = "add|+|sub|-|mul|*|div|/";
-            string operationCode = operationsWithOverloading.Substring(operationsWithOverloading.IndexOf(operation.ToLower())+4, 1);
+            string operationCode = operationsWithOverloading.Substring(operationsWithOverloading.IndexOf(operation.ToLower()) + 4, 1);
 
             switch (operation.ToLower())
             {
@@ -31,13 +32,13 @@ namespace Generators.Exercises
                 case "sub":
                 case "mul":
                 case "div":
-				    {                       
-                       var r1 = new RationalNumber((int[])input["r1"]);
-                       var r2 = new RationalNumber((int[])input["r2"]);
-                       var e = new RationalNumber((int[])expected);
+                    {                       
+                        var r1 = new RationalNumber((int[])input["r1"]);
+                        var r2 = new RationalNumber((int[])input["r2"]);
+                        var e = new RationalNumber((int[])expected);
                         assertCodeLine = "Assert.Equal(" + $"new RationalNumber ({e.Numerator}, {e.Denominator}), new RationalNumber({r1.Numerator}, {r1.Denominator}).{operationName}(new RationalNumber({r2.Numerator}, {r2.Denominator})));\r\n" +
                                          "Assert.Equal(" + $"new RationalNumber ({e.Numerator}, {e.Denominator}), new RationalNumber({r1.Numerator}, {r1.Denominator}) {operationCode} (new RationalNumber({r2.Numerator}, {r2.Denominator})));";
-					}
+                    }
                     break;
                 case "abs":
                 case "reduce":
@@ -65,7 +66,7 @@ namespace Generators.Exercises
                     }
                     break;
             }
-			return TemplateRenderer.RenderInline(assertCodeLine, testMethodBody.AssertTemplateParameters);			
+            return TemplateRenderer.RenderInline(assertCodeLine, testMethodBody.AssertTemplateParameters);			
         }
 
         private static int precision(object rawValue) =>
