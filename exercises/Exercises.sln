@@ -228,6 +228,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArmstrongNumbers", "armstro
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yacht", "yacht\Yacht.csproj", "{C029D4C6-3A10-459E-96D7-3E77170A5A10}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RationalNumbers", "rational-numbers\RationalNumbers.csproj", "{0CBB430D-BF64-436F-93BE-8E8088DBCBFE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -686,6 +688,10 @@ Global
 		{C029D4C6-3A10-459E-96D7-3E77170A5A10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C029D4C6-3A10-459E-96D7-3E77170A5A10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C029D4C6-3A10-459E-96D7-3E77170A5A10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CBB430D-BF64-436F-93BE-8E8088DBCBFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CBB430D-BF64-436F-93BE-8E8088DBCBFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CBB430D-BF64-436F-93BE-8E8088DBCBFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CBB430D-BF64-436F-93BE-8E8088DBCBFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
