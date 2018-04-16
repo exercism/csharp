@@ -36,8 +36,7 @@ namespace Generators.Exercises
                         var r1 = new RationalNumber((int[])input["r1"]);
                         var r2 = new RationalNumber((int[])input["r2"]);
                         var e = new RationalNumber((int[])expected);
-                        assertCodeLine = "Assert.Equal(" + $"new RationalNumber ({e.Numerator}, {e.Denominator}), new RationalNumber({r1.Numerator}, {r1.Denominator}).{operationName}(new RationalNumber({r2.Numerator}, {r2.Denominator})));\r\n" +
-                                         "Assert.Equal(" + $"new RationalNumber ({e.Numerator}, {e.Denominator}), new RationalNumber({r1.Numerator}, {r1.Denominator}) {operationCode} (new RationalNumber({r2.Numerator}, {r2.Denominator})));";
+                        assertCodeLine = "Assert.Equal(" + $"new RationalNumber ({e.Numerator}, {e.Denominator}), new RationalNumber({r1.Numerator}, {r1.Denominator}) {operationCode} (new RationalNumber({r2.Numerator}, {r2.Denominator})));";
                     }
                     break;
                 case "abs":
@@ -69,7 +68,6 @@ namespace Generators.Exercises
             return TemplateRenderer.RenderInline(assertCodeLine, testMethodBody.AssertTemplateParameters);			
         }
 
-        private static int precision(object rawValue) =>
-                 rawValue.ToString().Split(new char[] { '.' }).Length == 1 ? 0 : rawValue.ToString().Split(new char[] { '.' })[1].Length;
+        private static int precision(object rawValue) => rawValue.ToString().Split(new char[] { '.' }).Length <= 1 ? 0 : rawValue.ToString().Split(new char[] { '.' })[1].Length;
     }
 }
