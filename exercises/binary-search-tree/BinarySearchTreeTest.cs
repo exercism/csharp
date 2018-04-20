@@ -1,5 +1,7 @@
-﻿using System.Linq;
+// This file was auto-generated based on version 1.0.0 of the canonical data.
+
 using Xunit;
+using System.Linq;
 
 public class BinarySearchTreeTest
 {
@@ -11,33 +13,9 @@ public class BinarySearchTreeTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Inserting_less()
+    public void Can_create_complex_tree()
     {
-        var tree = new BinarySearchTree(4).Add(2);
-        Assert.Equal(4, tree.Value);
-        Assert.Equal(2, tree.Left.Value);
-    }
-
-    [Fact(Skip = "Remove to run test")]
-    public void Inserting_same()
-    {
-        var tree = new BinarySearchTree(4).Add(4);
-        Assert.Equal(4, tree.Value);
-        Assert.Equal(4, tree.Left.Value);
-    }
-
-    [Fact(Skip = "Remove to run test")]
-    public void Inserting_greater()
-    {
-        var tree = new BinarySearchTree(4).Add(5);
-        Assert.Equal(4, tree.Value);
-        Assert.Equal(5, tree.Right.Value);
-    }
-
-    [Fact(Skip = "Remove to run test")]
-    public void Complex_tree()
-    {
-        var tree = new BinarySearchTree(new [] {  4, 2, 6, 1, 3, 7, 5 });
+        var tree = new BinarySearchTree(new[] { 4, 2, 6, 1, 3, 5, 7 });
         Assert.Equal(4, tree.Value);
         Assert.Equal(2, tree.Left.Value);
         Assert.Equal(1, tree.Left.Left.Value);
@@ -48,30 +26,61 @@ public class BinarySearchTreeTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Iterating_one_element()
+    public void Smaller_number_at_left_node()
     {
-        var elements = new BinarySearchTree(4).AsEnumerable();
-        Assert.Equal(new [] { 4 }, elements);
+        var tree = new BinarySearchTree(new[] { 4, 2 });
+        Assert.Equal(4, tree.Value);
+        Assert.Equal(2, tree.Left.Value);
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Iterating_over_smaller_element()
+    public void Same_number_at_left_node()
     {
-        var elements = new BinarySearchTree(new[] { 4, 2 }).AsEnumerable();
-        Assert.Equal(new[] { 2, 4 }, elements);
+        var tree = new BinarySearchTree(new[] { 4, 4 });
+        Assert.Equal(4, tree.Value);
+        Assert.Equal(4, tree.Left.Value);
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Iterating_over_larger_element()
+    public void Greater_number_at_right_node()
     {
-        var elements = new BinarySearchTree(new[] { 4, 5 }).AsEnumerable();
-        Assert.Equal(new[] { 4, 5 }, elements);
+        var tree = new BinarySearchTree(new[] { 4, 5 });
+        Assert.Equal(4, tree.Value);
+        Assert.Equal(5, tree.Right.Value);
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Iterating_over_complex_element()
+    public void Can_sort_single_number()
     {
-        var elements = new BinarySearchTree(new[] { 4, 2, 1, 3, 6, 7, 5 }).AsEnumerable();
-        Assert.Equal(new[] { 1, 2, 3, 4, 5, 6, 7 }, elements);
+        var tree = new BinarySearchTree(2);
+        Assert.Equal(new[] { 2 }, tree.AsEnumerable());
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Can_sort_if_second_number_is_smaller_than_first()
+    {
+        var tree = new BinarySearchTree(new[] { 2, 1 });
+        Assert.Equal(new[] { 1, 2 }, tree.AsEnumerable());
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Can_sort_if_second_number_is_same_as_first()
+    {
+        var tree = new BinarySearchTree(new[] { 2, 2 });
+        Assert.Equal(new[] { 2, 2 }, tree.AsEnumerable());
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Can_sort_if_second_number_is_greater_than_first()
+    {
+        var tree = new BinarySearchTree(new[] { 2, 3 });
+        Assert.Equal(new[] { 2, 3 }, tree.AsEnumerable());
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Can_sort_complex_tree()
+    {
+        var tree = new BinarySearchTree(new[] { 2, 1, 3, 6, 7, 5 });
+        Assert.Equal(new[] { 1, 2, 3, 5, 6, 7 }, tree.AsEnumerable());
     }
 }
