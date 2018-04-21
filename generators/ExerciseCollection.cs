@@ -29,7 +29,6 @@ namespace Generators
 
         private IEnumerable<Exercise> GetExercises()
         {
-            //ss: foreach (var exerciseName in ConfigFile.GetExerciseNames())
             foreach (var exercise in ConfigFile.GetExercises())
             {
                 string exerciseName = exercise.Name;
