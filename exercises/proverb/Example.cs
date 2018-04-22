@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-public class Proverb
+public static class Proverb
 {
     public static string[] Recite(string[] subjects)
     {

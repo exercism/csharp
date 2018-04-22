@@ -6,7 +6,7 @@ namespace Generators.Exercises
     {
         protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            if  (testMethodBody.CanonicalDataCase.Properties["input"]["strings"] as string[] == null)
+            if (testMethodBody.CanonicalDataCase.Properties["input"]["strings"] as string[] == null)
             {
                 return TemplateRenderer.RenderInline("Assert.Empty(Proverb.Recite(new string[] { }));", new { });
             }
