@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
+using Generators.Output;
 
 namespace Generators.Input
 {
@@ -9,11 +10,11 @@ namespace Generators.Input
     {
         private const string ConfigFilePath = "../config.json";
 
-        public static IEnumerable<string> GetExerciseNames()
+        public static IEnumerable<ConfigExercise> GetExercises()
         {
             var jsonContents = File.ReadAllText(ConfigFilePath);
             var config = JsonConvert.DeserializeObject<Config>(jsonContents);
-            return config.Exercises.Select(exercise => exercise.Slug).OrderBy(x => x).ToArray();
+            return config.Exercises.OrderBy(x => x.Name).ToArray();
         }
 
         private class Config
@@ -21,9 +22,16 @@ namespace Generators.Input
             public ConfigExercise[] Exercises { get; set; }
         }
 
-        private class ConfigExercise
+        public class ConfigExercise
         {
+            public string Name => Slug.ToExerciseName();
             public string Slug { get; set; }
+            public bool Core { get; set; }
+            public int Difficulty { get; set; }
+            public string[] Topics { get; set; }
+            public string Unlocked_By { get; set; }
+            public string UUID { get; set; }
+            public bool Deprecated { get; set; }
         }
     }
 }

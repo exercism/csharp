@@ -29,9 +29,12 @@ namespace Generators
 
         private IEnumerable<Exercise> GetExercises()
         {
-            foreach (var exerciseName in ConfigFile.GetExerciseNames())
+            foreach (var exercise in ConfigFile.GetExercises())
             {
-                if (HasNoCanonicalData(exerciseName))
+                var exerciseName = exercise.Name;
+                if (exercise.Deprecated)
+                    yield return new DeprecatedExercise(exerciseName);
+                else if (HasNoCanonicalData(exerciseName))
                     yield return new MissingDataExercise(exerciseName);
                 else if (IsNotImplemented(exerciseName))
                     yield return new UnimplementedExercise(exerciseName);
