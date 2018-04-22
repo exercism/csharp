@@ -24,7 +24,7 @@ namespace Generators.Input
 
         public class ConfigExercise
         {
-            public string Name { get { return this.Slug.ToExerciseName(); } }
+            public string Name => Slug.ToExerciseName();
             public string Slug { get; set; }
             public bool Core { get; set; }
             public int Difficulty { get; set; }

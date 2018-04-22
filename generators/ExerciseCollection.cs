@@ -31,7 +31,7 @@ namespace Generators
         {
             foreach (var exercise in ConfigFile.GetExercises())
             {
-                string exerciseName = exercise.Name;
+                var exerciseName = exercise.Name;
                 if (exercise.Deprecated)
                     yield return new DeprecatedExercise(exerciseName);
                 else if (HasNoCanonicalData(exerciseName))
