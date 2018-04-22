@@ -2,12 +2,7 @@
 
 public static class Proverb
 {
-    public static string Line(int line)
-    {
-        throw new NotImplementedException();
-    }
-
-    public static string AllLines()
+    public static string[] Recite(string[] subjects)
     {
         throw new NotImplementedException();
     }
