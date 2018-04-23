@@ -112,7 +112,7 @@ public class SgfParsingTest
     public void Escaped_property()
     {
         const string input = @"(;A[\]b\nc\nd\t\te \n\]])";
-        var expected = TreeWithNoChildren(CreateData("A", @"]b c d  e  ]"));
+        var expected = TreeWithNoChildren(CreateData("A", "]b\nc\nd  e \n]"));
         Assert.Equal(expected, SgfParser.ParseTree(input), SgfTreeEqualityComparer.Instance);
     }
 

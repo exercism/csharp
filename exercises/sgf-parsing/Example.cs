@@ -17,7 +17,7 @@ public class SgfTree
 
 public static class SgfParser
 {
-    private static char Unescape(char c) => c == 'n' || c == 'r' || c == 't' ? ' ' : c;
+    private static char Unescape(char c) => c == 'n' ? '\n' : c == 'r' || c == 't' ? ' ' : c;
     private static string ToString(IEnumerable<char> chars) => new string(chars.ToArray());
 
     private static readonly Parser<char> NormalChar = Parse.Char(c => c != '\\' && c != ']', "Normal char");
