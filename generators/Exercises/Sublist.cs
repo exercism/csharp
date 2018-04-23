@@ -14,15 +14,15 @@ namespace Generators.Exercises
 
         private UnescapedValue inputValues(int[] list)
         {
-            var template = (list != null) ? string.Join(", ", Array.ConvertAll<int, string>(list, (x) => { return $"{x}"; })) : " ";
-            return new UnescapedValue($"new List<int>() {{{template}}}");
+            var template = (list != null) ? string.Join(", ", Array.ConvertAll<int, string>(list, (x) => { return $"{x}"; })) : "";
+            return new UnescapedValue($"new List<int>() {{ {template} }}".Replace("  ", " "));
         }
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
             foreach (var canonicalDataCase in canonicalData.Cases)
             {              
                 var input = canonicalDataCase.Properties["input"] as System.Collections.Generic.Dictionary<string, object>;
-                input["listOne"] = inputValues (input["listOne"] as int[]);
+                input["listOne"] = inputValues(input["listOne"] as int[]);
                 input["listTwo"] = inputValues(input["listTwo"] as int[]);
 
                 canonicalDataCase.Property = "classify";
