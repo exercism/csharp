@@ -6,11 +6,6 @@ using System.Threading.Tasks;
 
 public static class TwelveDays
 {
-    public static string Sing()
-    {
-        return Recite(1, 12);
-    }
-
     public static string Recite(int verseNumber)
     {
         switch(verseNumber)

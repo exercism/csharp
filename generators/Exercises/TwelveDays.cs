@@ -22,11 +22,6 @@ namespace Generators.Exercises
                 {
                     properties["input"] = input["startVerse"];
                 }
-                else if ((long)input["startVerse"] == 1 && (long)input["endVerse"] == 12)
-                {
-                    canonicalDataCase.Property = "sing";
-                    properties["input"] = null;
-                }
             }
         }
     }
