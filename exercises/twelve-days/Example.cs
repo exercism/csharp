@@ -48,7 +48,7 @@ public static class TwelveDaysSong
     {
         var stringBuilder = new StringBuilder();
 
-        Enumerable.Range(start, end).ToList().ForEach(i => stringBuilder.Append(Verse(i)).Append("\n"));
+        Enumerable.Range(start, end - start + 1).ToList().ForEach(i => stringBuilder.Append(Verse(i)).Append("\n"));
 
         return stringBuilder.ToString();
     }
