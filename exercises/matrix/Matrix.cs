@@ -27,7 +27,7 @@ public class Matrix
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public int[] Col(int col)
+    public int[] Column(int col)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
