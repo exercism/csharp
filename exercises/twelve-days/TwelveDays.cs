@@ -1,18 +1,13 @@
 ﻿using System;
 
-public static class TwelveDaysSong
+public static class TwelveDays
 {
-    public static string Sing()
+    public static string Recite(int verseNumber)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public static string Verse(int verseNumber)
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
-
-    public static string Verses(int start, int end)
+    public static string Recite(int start, int end)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
