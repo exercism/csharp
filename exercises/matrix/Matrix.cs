@@ -22,7 +22,7 @@ public class Matrix
         }
     }
 
-    public int[] Row(int row) 
+    public int[] Row(int row)
     {
         throw new NotImplementedException("You need to implement this function.");
     }

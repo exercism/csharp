@@ -1,23 +1,18 @@
-﻿using Generators.Output;
-using Humanizer;
+﻿using Generators.Input;
 
 namespace Generators.Exercises
 {
     public class Matrix : GeneratorExercise
     {
-        protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
-            var canonicalDataCase = testMethodBody.CanonicalDataCase;
-            var input = canonicalDataCase.Properties["input"] as System.Collections.Generic.Dictionary<string, object>;
-            var template = "Assert.Equal(new[] { {{ExpectedData}} }, new Matrix(\"{{ConstructorData}}\").{{MethodName}}({{MethodCallArgumentValue}}));";
-            var templateParams = new
+            foreach (var canonicalDataCase in canonicalData.Cases)
             {
-                ExpectedData = string.Join(", ", canonicalDataCase.Properties["expected"] as int[]),
-                ConstructorData = input["string"].ToString().EscapeSpecialCharacters(),
-                MethodName = canonicalDataCase.Property.Dehumanize(),
-                MethodCallArgumentValue = input["index"]
-            };
-            return TemplateRenderer.RenderInline(template, templateParams);
+                canonicalDataCase.Properties["string"] = canonicalDataCase.Properties["input"]["string"];
+                canonicalDataCase.SetConstructorInputParameters("string");
+                canonicalDataCase.Properties["index"] = canonicalDataCase.Properties["input"]["index"];
+                canonicalDataCase.SetInputParameters("index");
+            }
         }
     }
 }
