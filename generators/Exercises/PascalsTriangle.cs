@@ -12,7 +12,8 @@ namespace Generators.Exercises
             //remove null case until canonical data is updated
             var cases = canonicalData.Cases.ToList();
             cases.RemoveAll(x => x.Properties["count"] == null);
-            canonicalData.Cases = cases.ToArray();
+            // TODO
+            //canonicalData.Cases = cases.ToArray();
 
             foreach (var canonicalDataCase in canonicalData.Cases)
             {

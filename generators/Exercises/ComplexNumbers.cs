@@ -11,10 +11,12 @@ namespace Generators.Exercises
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
-            canonicalData.Exercise = "complex-number";
+            // TODO
+            //canonicalData.Exercise = "complex-number";
 
             // Ensure the Real and Imaginary methods are tested first as they're used later to assert equality between complex numbers
-            canonicalData.Cases = canonicalData.Cases.OrderBy(c => c.Property == "real" || c.Property == "imaginary" ? 0 : 1).ToArray();
+            // TODO
+            //canonicalData.Cases = canonicalData.Cases.OrderBy(c => c.Property == "real" || c.Property == "imaginary" ? 0 : 1).ToArray();
 
             foreach (var canonicalDataCase in canonicalData.Cases)
             {

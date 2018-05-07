@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 namespace Generators.Input
 {
-    [JsonConverter(typeof(CanonicalDataCaseJsonConverter))]
+    [JsonConverter(typeof(CanonicalDataCaseParser))]
     public class CanonicalDataCase
     {
         private readonly HashSet<string> _inputParameters = new HashSet<string>();
@@ -22,22 +22,16 @@ namespace Generators.Input
         public string[] DescriptionPath { get; set; }
 
         [JsonIgnore]
-        public IReadOnlyDictionary<string, dynamic> Input
-            => _inputParameters.ToDictionary(parameter => parameter, parameter => Properties[parameter]);
+        public IDictionary<string, dynamic> Input { get; set; }
 
         [JsonIgnore]
-        public IReadOnlyDictionary<string, dynamic> ConstructorInput 
-            => _constructorInputParameters.ToDictionary(parameter => parameter, parameter => Properties[parameter]);
+        public IDictionary<string, dynamic> ConstructorInput { get; set; }
 
         [JsonIgnore]
         public IDictionary<string, dynamic> Properties { get; set; }
 
         [JsonIgnore]
-        public dynamic Expected
-        {
-            get => Properties["expected"];
-            set => Properties["expected"] = value;
-        }
+        public dynamic Expected { get; set; }
 
         [JsonIgnore]
         public bool UseVariablesForInput { get; set; }
@@ -66,6 +60,8 @@ namespace Generators.Input
             _inputParameters.UnionWith(properties);
 
             _constructorInputParameters.ExceptWith(properties);
+
+            UpdateInput();
         }
 
         public void SetConstructorInputParameters(params string[] properties)
@@ -76,6 +72,14 @@ namespace Generators.Input
             _inputParameters.ExceptWith(properties);
 
             TestedMethodType = TestedMethodType.Instance;
+
+            UpdateInput();
+        }
+
+        private void UpdateInput()
+        {
+            ConstructorInput = _constructorInputParameters.ToDictionary(parameter => parameter, parameter => Input[parameter]);
+            Input = _inputParameters.ToDictionary(parameter => parameter, parameter => Input[parameter]);            
         }
     }
 }

@@ -9,11 +9,12 @@ namespace Generators.Exercises
     {
 	protected override void UpdateCanonicalData(CanonicalData canonicalData)
 	{
-	   canonicalData.Exercise = "yacht-game";
+            // TODO
+	   //canonicalData.Exercise = "yacht-game";
 	   foreach (var canonicalDataCase in canonicalData.Cases)
 	   {				
               var input = canonicalDataCase.Properties["input"] as System.Collections.Generic.Dictionary<string,object>;
-	      input["category"] = new UnescapedValue($"YachtCategory.{input["category"].ToString().Dehumanize()}");
+	            input["category"] = new UnescapedValue($"YachtCategory.{input["category"].ToString().Dehumanize()}");
 	   }
 	}
     }
