@@ -15,7 +15,6 @@ namespace Generators.Exercises
         private const string PropertyEqual = "equal";
         private const string PropertyEquals = "equals";
         private const string PropertyToString = "to_string";
-        private const string PropertyEqualityExpectance = "expected";
 
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
@@ -29,8 +28,8 @@ namespace Generators.Exercises
                 {
                     canonicalDataCase.SetConstructorInputParameters(ParamClock1);
 
-                    var result = (Dictionary<string, object>)canonicalDataCase.Properties[ParamClock2];
-                    canonicalDataCase.Properties[ParamClock2] = new UnescapedValue($"new Clock({result[ParamHour]}, {result[ParamMinute]})");
+                    var result = (Dictionary<string, object>)canonicalDataCase.Input[ParamClock2];
+                    canonicalDataCase.Input[ParamClock2] = new UnescapedValue($"new Clock({result[ParamHour]}, {result[ParamMinute]})");
                 }
 
                 if (canonicalDataCase.Property == PropertyCreate)
@@ -71,9 +70,9 @@ namespace Generators.Exercises
         {
             var ExpectedParameter = testMethodBody.CanonicalDataCase.Input[ParamClock2];
             var TestedValue = "sut";
-            var expectedEqual = testMethodBody.CanonicalDataCase.Properties[PropertyEqualityExpectance];
+            var expectedEqual = testMethodBody.CanonicalDataCase.Expected;
 
-            testMethodBody.AssertTemplateParameters = new { ExpectedParameter, TestedValue};
+            testMethodBody.AssertTemplateParameters = new { ExpectedParameter, TestedValue };
 
             var template = expectedEqual
                 ? $"Assert.Equal({{{{ ExpectedParameter }}}}, {{{{ TestedValue }}}}); "

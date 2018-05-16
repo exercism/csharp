@@ -1,5 +1,8 @@
+using System;
+using System.Collections.Generic;
 using Generators.Input;
 using Generators.Output;
+using Newtonsoft.Json.Linq;
 
 namespace Generators.Exercises
 {
@@ -12,14 +15,19 @@ namespace Generators.Exercises
                 canonicalDataCase.UseVariablesForInput = true;
                 canonicalDataCase.UseVariableForExpected = true;
 
-                canonicalDataCase.Properties["input"] = ToMultiLineString(canonicalDataCase.Properties["input"]);
-                canonicalDataCase.Properties["expected"] = ToMultiLineString(canonicalDataCase.Properties["expected"]);
+                canonicalDataCase.Input["minefield"] = ToMultiLineString(canonicalDataCase.Input["minefield"]);
+                canonicalDataCase.Expected = ToMultiLineString(canonicalDataCase.Expected);
             }
         }
 
-        private UnescapedValue ToMultiLineString(string[] input)
+        private UnescapedValue ToMultiLineString(JArray input)
         {
-            const string template = 
+            return new UnescapedValue("new string[0]");
+        }
+
+        private UnescapedValue ToMultiLineString(IEnumerable<string> input)
+        {
+            const string template =
 @"new string[] 
 { 
     {% if input.size > 0 %}{% for item in {{input}} %}{% if forloop.length == 1 %}""{{item}}""{% break %}{% endif %}""{{item}}""{% if forloop.last == false %},{% else %}{{string.Empty}}{% endif %}
@@ -28,5 +36,7 @@ namespace Generators.Exercises
 
             return new UnescapedValue(TemplateRenderer.RenderInline(template, new { input }));
         }
+
+        protected override HashSet<string> AddAdditionalNamespaces() => new HashSet<string> { typeof(Array).Namespace };
     }
 }

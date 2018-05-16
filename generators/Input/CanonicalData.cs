@@ -5,7 +5,7 @@
         public CanonicalData(string exercise, string version, CanonicalDataCase[] cases)
             => (Exercise, Version, Cases) = (exercise, version, cases);
 
-        public string Exercise { get; }
+        public string Exercise { get; set; }
 
         public string Version { get; }
 

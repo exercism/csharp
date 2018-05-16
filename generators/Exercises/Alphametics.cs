@@ -21,8 +21,11 @@ namespace Generators.Exercises
             }
         }
 
-        private static dynamic ConvertExpected(CanonicalDataCase canonicalDataCase) 
-            => ((Dictionary<string, object>)canonicalDataCase.Expected).ToDictionary(kv => kv.Key[0], kv => int.Parse(kv.Value.ToString()));
+        private static dynamic ConvertExpected(CanonicalDataCase canonicalDataCase)
+        {
+            Dictionary<string, object> expected = canonicalDataCase.Expected;
+            return expected.ToDictionary(kv => kv.Key[0], kv => int.Parse(kv.Value.ToString()));
+        }
 
         protected override HashSet<string> AddAdditionalNamespaces() => new HashSet<string> { typeof(Dictionary<char, int>).Namespace };
     }

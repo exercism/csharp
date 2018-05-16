@@ -13,13 +13,13 @@ namespace Generators.Exercises
             {
                 canonicalDataCase.TestedMethodType = TestedMethodType.Instance;
                 canonicalDataCase.Property = "Calculate";
-                canonicalDataCase.SetConstructorInputParameters("input");
+                canonicalDataCase.SetConstructorInputParameters("matrix");
                 canonicalDataCase.UseVariablesForConstructorParameters = true;
                 canonicalDataCase.UseVariablesForInput = true;
                 canonicalDataCase.UseVariableForTested = true;
                 canonicalDataCase.UseVariableForExpected = true;
 
-                canonicalDataCase.Properties["input"] = (canonicalDataCase.Properties["input"] as JArray).ToObject<int[,]>();
+                canonicalDataCase.Input["matrix"] = (canonicalDataCase.Input["matrix"] as JArray).ToObject<int[,]>();
 
                 var array = canonicalDataCase.Expected as Array;
 

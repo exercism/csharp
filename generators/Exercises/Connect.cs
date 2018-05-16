@@ -12,19 +12,19 @@ namespace Generators.Exercises
                 canonicalDataCase.UseVariablesForConstructorParameters = true;
                 canonicalDataCase.SetConstructorInputParameters("board");
                 canonicalDataCase.Property = "result";
-                canonicalDataCase.Properties["board"] = ToMultiLineString(canonicalDataCase.Properties["board"]);
+                canonicalDataCase.Input["board"] = ToMultiLineString(canonicalDataCase.Input["board"]);
 
                 //convert to enum
-                switch (canonicalDataCase.Properties["expected"])
+                switch (canonicalDataCase.Expected)
                 {
                     case "X":
-                        canonicalDataCase.Properties["expected"] = new UnescapedValue("ConnectWinner.Black");
+                        canonicalDataCase.Expected = new UnescapedValue("ConnectWinner.Black");
                         break;
                     case "O":
-                        canonicalDataCase.Properties["expected"] = new UnescapedValue("ConnectWinner.White");
+                        canonicalDataCase.Expected = new UnescapedValue("ConnectWinner.White");
                         break;
                     case "":
-                        canonicalDataCase.Properties["expected"] = new UnescapedValue("ConnectWinner.None");
+                        canonicalDataCase.Expected = new UnescapedValue("ConnectWinner.None");
                         break;
                 }
             }
@@ -32,7 +32,7 @@ namespace Generators.Exercises
 
         private UnescapedValue ToMultiLineString(string[] input)
         {
-            const string template = 
+            const string template =
 @"new [] 
 { 
     {% if input.size == 0 %}string.Empty{% else %}{% for item in {{input}} %}{% if forloop.length == 1 %}""{{item}}""{% break %}{% endif %}""{{item}}""{% if forloop.last == false %},{% else %}{{string.Empty}}{% endif %}

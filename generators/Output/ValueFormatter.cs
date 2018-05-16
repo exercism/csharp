@@ -8,7 +8,7 @@ namespace Generators.Output
 {
     public static class ValueFormatter
     {
-        public static object Format(object val)
+        public static string Format(object val)
         {
             switch (val)
             {
@@ -25,10 +25,11 @@ namespace Generators.Output
                 case IDictionary<string, object> dict: return dict.Format();
                 case IDictionary<char, int> dict: return dict.Format();
                 case IDictionary<string, int> dict: return dict.Format();
+                case IDictionary<int, string[]> dict: return dict.Format();
                 case JArray jArray: return jArray.Format();
                 case int[,] multidimensionalArray: return multidimensionalArray.Format();
                 case IEnumerable<Tuple<string, object>> tuples: return tuples.Format();
-                default: return val;
+                default: return val?.ToString();
             }
         }
 
@@ -45,6 +46,8 @@ namespace Generators.Output
                     return FormatMultiLineEnumerable(dict.Keys.Select((key, i) => $"[{Format(key)}] = {Format(dict[key])}" + (i < dict.Keys.Count - 1 ? "," : "")), name, "new Dictionary<char, int>");
                 case IDictionary<string, int> dict:
                     return FormatMultiLineEnumerable(dict.Keys.Select((key, i) => $"[{Format(key)}] = {Format(dict[key])}" + (i < dict.Keys.Count - 1 ? "," : "")), name, "new Dictionary<string, int>");
+                case IDictionary<int, string[]> dict:
+                    return FormatMultiLineEnumerable(dict.Keys.Select((key, i) => $"[{Format(key)}] = {Format(dict[key])}" + (i < dict.Keys.Count - 1 ? "," : "")), name, "new Dictionary<int, string[]>");
                 default:
                     return new[] { $"var {name} = {Format(val)};" };
             }
@@ -75,7 +78,7 @@ namespace Generators.Output
         private static string Format(this IEnumerable<UnescapedValue> unescapedValues) =>
             $"new[] {{ {string.Join(", ", unescapedValues.Select(Format))} }}";
 
-        private static string Format(this IDictionary<string, object> dict) => 
+        private static string Format(this IDictionary<string, object> dict) =>
             string.Join(", ", dict.Values.Select(Format));
 
         private static string Format(this IDictionary<char, int> dict) =>
@@ -84,7 +87,10 @@ namespace Generators.Output
         private static string Format(this IDictionary<string, int> dict) =>
             $"new Dictionary<string, int> {{ {string.Join(", ", dict.Keys.Select(key => $"[{Format(key)}] = {Format(dict[key])}"))} }}";
 
-        private static string Format(this JArray jArray) => 
+        private static string Format(this IDictionary<int, string[]> dict) =>
+            $"new Dictionary<int, string[]> {{ {string.Join(", ", dict.Keys.Select(key => $"[{Format(key)}] = {Format(dict[key])}"))} }}";
+
+        private static string Format(this JArray jArray) =>
             $"new[] {{ {string.Join(", ", jArray.Select(Format))} }}";
 
         private static string Format(this int[,] multidimensionalArray)
@@ -94,7 +100,7 @@ namespace Generators.Output
                             : "new int[,] { }";
         }
 
-        private static string Format(this IEnumerable<Tuple<string, object>> tuples) => 
+        private static string Format(this IEnumerable<Tuple<string, object>> tuples) =>
             $"new[] {{ {string.Join(", ", tuples.Select(Format))} }}";
 
         private static string ToNestedArray<T>(this IEnumerable<T> enumerable) =>

@@ -105,7 +105,7 @@ public class BracketPushTest
     [Fact(Skip = "Remove to run test")]
     public void Complex_latex_expression()
     {
-        var value = "\left(\begin{array}{cc} \frac{1}{3} & x\\ \mathrm{e}^{x} &... x^2 \end{array}\right)";
+        var value = "\\left(\\begin{array}{cc} \\frac{1}{3} & x\\\\ \\mathrm{e}^{x} &... x^2 \\end{array}\\right)";
         Assert.True(BracketPush.IsPaired(value));
     }
 }

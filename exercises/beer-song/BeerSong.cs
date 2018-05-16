@@ -2,12 +2,7 @@
 
 public static class BeerSong
 {
-    public static string Verse(int number)
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
-
-    public static string Verses(int begin, int end)
+    public static string Recite(int startBottles, int takeDown)
     {
         throw new NotImplementedException("You need to implement this function.");
     }

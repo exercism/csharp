@@ -16,11 +16,11 @@ namespace Generators.Exercises
 
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
-                var positionVal = new UnescapedValue(GetCoordinateInstance(canonicalDataCase.Input["input"][position]));
-                var directionVal = new UnescapedValue(GetDirectionEnum(canonicalDataCase.Input["input"][direction]));
+                var positionVal = new UnescapedValue(GetCoordinateInstance(canonicalDataCase.Input[position]));
+                var directionVal = new UnescapedValue(GetDirectionEnum(canonicalDataCase.Input[direction]));
 
-                canonicalDataCase.Properties[direction] = directionVal;
-                canonicalDataCase.Properties[coordinate] = positionVal;
+                canonicalDataCase.Input[direction] = directionVal;
+                canonicalDataCase.Input[coordinate] = positionVal;
 
                 canonicalDataCase.SetConstructorInputParameters(direction, coordinate);
 
@@ -65,7 +65,7 @@ namespace Generators.Exercises
             var templateParameters = new
             {
                 MethodInvocation = "Simulate",
-                Instructions = testMethodBody.CanonicalDataCase.Properties["input"]["instructions"]
+                Instructions = testMethodBody.CanonicalDataCase.Input["instructions"]
             };
 
             return TemplateRenderer.RenderInline(template, templateParameters);
@@ -92,7 +92,7 @@ namespace Generators.Exercises
             {
                 Direction = !string.IsNullOrEmpty(direction) ? GetDirectionEnum(direction) : null,
                 X = position?["x"],
-                Y = position?["y"] 
+                Y = position?["y"]
             };
 
             return TemplateRenderer.RenderInline(template.ToString(), templateParameters);

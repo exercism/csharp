@@ -8,6 +8,8 @@ namespace Generators.Exercises
         {
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
+                canonicalDataCase.Expected = canonicalDataCase.Expected / 100.0f;
+                canonicalDataCase.Input["basket"] = ConvertHelper.ToArray<int>(canonicalDataCase.Input["basket"]);
                 canonicalDataCase.SetInputParameters("basket");
                 canonicalDataCase.UseVariablesForInput = true;
             }

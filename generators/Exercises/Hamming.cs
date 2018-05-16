@@ -8,7 +8,7 @@ namespace Generators.Exercises
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
             foreach (var canonicalDataCase in canonicalData.Cases)
-                canonicalDataCase.ExceptionThrown = canonicalDataCase.Expected is long ? null : typeof(ArgumentException);
+                canonicalDataCase.ExceptionThrown = canonicalDataCase.Expected is int ? null : typeof(ArgumentException);
         }
     }
 }

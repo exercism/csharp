@@ -9,7 +9,7 @@ public class BinarySearchTest
     {
         var array = new[] { 6 };
         var sut = new BinarySearch(array);
-        Assert.Equal(0, sut.Find());
+        Assert.Equal(0, sut.Find(6));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -17,7 +17,7 @@ public class BinarySearchTest
     {
         var array = new[] { 1, 3, 4, 6, 8, 9, 11 };
         var sut = new BinarySearch(array);
-        Assert.Equal(3, sut.Find());
+        Assert.Equal(3, sut.Find(6));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -25,7 +25,7 @@ public class BinarySearchTest
     {
         var array = new[] { 1, 3, 4, 6, 8, 9, 11 };
         var sut = new BinarySearch(array);
-        Assert.Equal(0, sut.Find());
+        Assert.Equal(0, sut.Find(1));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -33,7 +33,7 @@ public class BinarySearchTest
     {
         var array = new[] { 1, 3, 4, 6, 8, 9, 11 };
         var sut = new BinarySearch(array);
-        Assert.Equal(6, sut.Find());
+        Assert.Equal(6, sut.Find(11));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -41,7 +41,7 @@ public class BinarySearchTest
     {
         var array = new[] { 1, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 634 };
         var sut = new BinarySearch(array);
-        Assert.Equal(9, sut.Find());
+        Assert.Equal(9, sut.Find(144));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -49,7 +49,7 @@ public class BinarySearchTest
     {
         var array = new[] { 1, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377 };
         var sut = new BinarySearch(array);
-        Assert.Equal(5, sut.Find());
+        Assert.Equal(5, sut.Find(21));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -57,7 +57,7 @@ public class BinarySearchTest
     {
         var array = new[] { 1, 3, 4, 6, 8, 9, 11 };
         var sut = new BinarySearch(array);
-        Assert.Equal(-1, sut.Find());
+        Assert.Equal(-1, sut.Find(7));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -65,7 +65,7 @@ public class BinarySearchTest
     {
         var array = new[] { 1, 3, 4, 6, 8, 9, 11 };
         var sut = new BinarySearch(array);
-        Assert.Equal(-1, sut.Find());
+        Assert.Equal(-1, sut.Find(0));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -73,14 +73,14 @@ public class BinarySearchTest
     {
         var array = new[] { 1, 3, 4, 6, 8, 9, 11 };
         var sut = new BinarySearch(array);
-        Assert.Equal(-1, sut.Find());
+        Assert.Equal(-1, sut.Find(13));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Nothing_is_included_in_an_empty_array()
     {
-        var array = new[] {  };
+        var array = new int[0];
         var sut = new BinarySearch(array);
-        Assert.Equal(-1, sut.Find());
+        Assert.Equal(-1, sut.Find(1));
     }
 }

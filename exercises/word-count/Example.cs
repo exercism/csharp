@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public static class WordCount
 {
-    public static IDictionary<string, int> Countwords(string phrase)
+    public static IDictionary<string, int> CountWords(string phrase)
     {
         if (phrase == null) throw new ArgumentNullException("phrase");
 

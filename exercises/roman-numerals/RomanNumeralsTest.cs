@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.0.0 of the canonical data.
+// This file was auto-generated based on version 1.2.0 of the canonical data.
 
 using Xunit;
 
@@ -56,6 +56,12 @@ public class RomanNumeralsTest
     public void Number_48_is_not_50_2_but_rather_40_8()
     {
         Assert.Equal("XLVIII", 48.ToRoman());
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Number_49_is_not_40_5_4_but_rather_50_10_10_1()
+    {
+        Assert.Equal("XLIX", 49.ToRoman());
     }
 
     [Fact(Skip = "Remove to run test")]

@@ -81,14 +81,21 @@ public class Tournament
     
     private void WriteResults(TextWriter writer)
     {
-        writer.WriteLine(
-            "{0,-30:S} | {1,2:D} | {2,2:D} | {3,2:D} | {4,2:D} | {5,2:D}",
-            "Team", "MP", "W", "D", "L", "P");
-        foreach (var pair in this.teams.OrderByDescending(pair => pair.Value.Score).ThenBy(pair => pair.Key)) {
-            writer.WriteLine(
-                "{0,-30:S} | {1,2:D} | {2,2:D} | {3,2:D} | {4,2:D} | {5,2:D}",
+        var headerSuffix = this.teams.Any() ? "\n" : "";
+        writer.Write(
+            "{0,-30:S} | {1,2:D} | {2,2:D} | {3,2:D} | {4,2:D} | {5,2:D}{6}",
+            "Team", "MP", "W", "D", "L", "P", headerSuffix);
+
+        var pairs = this.teams.OrderByDescending(pair => pair.Value.Score).ThenBy(pair => pair.Key).ToArray();
+
+        for (var i = 0; i < pairs.Length; i++)
+        {
+            var pair = pairs[i];
+            var suffix = i == pairs.Length - 1 ? "" : "\n";
+            writer.Write(
+                "{0,-30:S} | {1,2:D} | {2,2:D} | {3,2:D} | {4,2:D} | {5,2:D}{6}",
                 pair.Key, pair.Value.Played, pair.Value.Wins,
-                pair.Value.Draws, pair.Value.Losses, pair.Value.Score);
+                pair.Value.Draws, pair.Value.Losses, pair.Value.Score, suffix);
         }
         writer.Flush();
     }
@@ -122,6 +129,7 @@ public class Tournament
         }
         
         var outWriter = new StreamWriter(outStream, encoding);
+        outWriter.NewLine = "\n";
         tournament.WriteResults(outWriter);        
     }
 }

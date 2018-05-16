@@ -9,23 +9,24 @@ namespace Generators.Input
     {
         private const string TokensPath = "$..*[?(@.property)]";
 
-        public static CanonicalDataCase[] Parse(JArray canonicalDataCasesJArray) 
+        public static CanonicalDataCase[] Parse(JArray canonicalDataCasesJArray)
             => canonicalDataCasesJArray
                 .SelectTokens(TokensPath)
                 .Select(Parse)
                 .ToArray();
 
-        public static CanonicalDataCase Parse(JToken canonicalDataCaseJToken)
+        private static CanonicalDataCase Parse(JToken canonicalDataCaseJToken)
         {
-            var canonicalDataCase = new CanonicalDataCase();
-
-            canonicalDataCase.Property = canonicalDataCaseJToken.Value<string>("property");
-            canonicalDataCase.Description = canonicalDataCaseJToken.Value<string>("description");
-            canonicalDataCase.Properties = ToDictionary(canonicalDataCaseJToken);
-            canonicalDataCase.Expected = ConvertJToken(canonicalDataCaseJToken["expected"]);
-            canonicalDataCase.Input = ToDictionary(canonicalDataCaseJToken["input"]);
-            canonicalDataCase.ConstructorInput = new Dictionary<string, dynamic>();
-            canonicalDataCase.DescriptionPath = GetDescriptionPath(canonicalDataCaseJToken);
+            var canonicalDataCase = new CanonicalDataCase
+            {
+                Property = canonicalDataCaseJToken.Value<string>("property"),
+                Properties = ToDictionary(canonicalDataCaseJToken),
+                Input = ToDictionary(canonicalDataCaseJToken["input"]),
+                Expected = ConvertJToken(canonicalDataCaseJToken["expected"]),
+                Description = canonicalDataCaseJToken.Value<string>("description"),
+                DescriptionPath = GetDescriptionPath(canonicalDataCaseJToken)
+            };
+            canonicalDataCase.SetInputParameters(canonicalDataCase.Input.Keys.ToArray());
 
             return canonicalDataCase;
         }
@@ -44,7 +45,7 @@ namespace Generators.Input
                         break;
 
                     descriptionPath.Push(description.ToObject<string>());
-                }                    
+                }
 
                 currentToken = currentToken.Parent;
             }
@@ -52,12 +53,12 @@ namespace Generators.Input
             return descriptionPath.Where(x => !string.IsNullOrEmpty(x)).ToArray();
         }
 
-        public static IDictionary<string, dynamic> ToDictionary(JToken jToken) => ConvertJToken(jToken);
+        private static IDictionary<string, dynamic> ToDictionary(JToken jToken) => ConvertJToken(jToken);
 
-        public static dynamic ConvertJToken(JToken jToken)
+        private static dynamic ConvertJToken(JToken jToken)
         {
             switch (jToken?.Type)
-            {                
+            {
                 case JTokenType.Object:
                     return ConvertJObject((JObject)jToken);
                 case JTokenType.Array:
@@ -65,7 +66,7 @@ namespace Generators.Input
                 case JTokenType.Property:
                     return jToken.ToObject<IDictionary<string, dynamic>>();
                 case JTokenType.Integer:
-                    return jToken.ToObject<int>();
+                    return ConvertIntegerJToken(jToken);
                 case JTokenType.Float:
                     return jToken.ToObject<float>();
                 case JTokenType.String:
@@ -96,7 +97,8 @@ namespace Generators.Input
             for (var i = 0; i < properties.Count; i++)
             {
                 var key = properties.Keys.ElementAt(i);
-                properties[key] = ConvertJToken(properties[key]);
+                var value = properties[key];
+                properties[key] = value is JToken jToken ? ConvertJToken(jToken) : value;
             }
 
             return properties;
@@ -117,7 +119,17 @@ namespace Generators.Input
                 case JTokenType.Object:
                     return jArray.Select(ConvertJToken).ToArray();
                 case JTokenType.Integer:
-                    return jArray.ToObject<int[]>();
+                    var strings = jArray.ToObject<string[]>();
+                    if (strings.All(str => int.TryParse(str, out var _)))
+                        return jArray.ToObject<int[]>();
+
+                    if (strings.All(str => long.TryParse(str, out var _)))
+                        return jArray.ToObject<long[]>();
+
+                    if (strings.All(str => ulong.TryParse(str, out var _)))
+                        return jArray.ToObject<ulong[]>();
+
+                    return strings;
                 case JTokenType.Float:
                     return jArray.ToObject<float[]>();
                 case JTokenType.String:
@@ -137,6 +149,22 @@ namespace Generators.Input
                 default:
                     return jArray;
             }
+        }
+
+        private static dynamic ConvertIntegerJToken(JToken jToken)
+        {
+            var str = jToken.ToObject<string>();
+
+            if (int.TryParse(str, out var i))
+                return i;
+
+            if (long.TryParse(str, out var l))
+                return l;
+
+            if (ulong.TryParse(str, out var ul))
+                return ul;
+
+            return str;
         }
     }
 }

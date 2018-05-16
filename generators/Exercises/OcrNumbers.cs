@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using Generators.Input;
 using Generators.Output;
+using Newtonsoft.Json.Linq;
 
 namespace Generators.Exercises
 {
@@ -10,14 +12,19 @@ namespace Generators.Exercises
         {
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
-                canonicalDataCase.ExceptionThrown = (canonicalDataCase.Expected is long && canonicalDataCase.Expected <= 0) ? typeof(ArgumentException) : null;
-                canonicalDataCase.Properties["input"] = ToDigitStringRepresentation(canonicalDataCase.Properties["input"]);
+                canonicalDataCase.ExceptionThrown = (canonicalDataCase.Expected is int && canonicalDataCase.Expected <= 0) ? typeof(ArgumentException) : null;
+                canonicalDataCase.Input["rows"] = ToDigitStringRepresentation(canonicalDataCase.Input["rows"]);
                 canonicalDataCase.Expected = canonicalDataCase.Expected.ToString();
                 canonicalDataCase.UseVariableForTested = true;
                 canonicalDataCase.UseVariablesForInput = true;
             }
         }
-       
+
+        private UnescapedValue ToMultiLineString(JArray input)
+        {
+            return new UnescapedValue("Array.Empty<string>()");
+        }
+
         private UnescapedValue ToDigitStringRepresentation(string[] input)
         {
             const string template = @" {% for item in {{input}} %}{% if forloop.first == true %}""{{item}}"" + ""\n"" +{% continue %}{% endif %}
@@ -25,5 +32,7 @@ namespace Generators.Exercises
 
             return new UnescapedValue(TemplateRenderer.RenderInline(template, new { input }));
         }
+
+        protected override HashSet<string> AddAdditionalNamespaces() => new HashSet<string> { typeof(Array).Namespace };
     }
 }

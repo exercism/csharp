@@ -16,6 +16,6 @@ namespace Generators.Exercises
             }
         }
 
-        private static bool ShouldThrowException(dynamic value) => value == -1;
+        private static bool ShouldThrowException(dynamic value) => value is int i && i == -1;
     }
 }

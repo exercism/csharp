@@ -16,11 +16,9 @@ namespace Generators.Exercises
             {
                 canonicalDataCase.UseVariableForExpected = true;
                 canonicalDataCase.Expected = ConvertHelper.ToMultiLineString(canonicalDataCase.Expected);
-                var properties = canonicalDataCase.Properties as Dictionary<string, object>;
-                var input = properties["input"] as Dictionary<string, object>;
-                if ((long)input["startVerse"] == (long)input["endVerse"])
+                if ((int)canonicalDataCase.Input["startVerse"] == (int)canonicalDataCase.Input["endVerse"])
                 {
-                    properties["input"] = input["startVerse"];
+                    canonicalDataCase.SetInputParameters("startVerse");
                 }
             }
         }

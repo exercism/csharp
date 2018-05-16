@@ -37,12 +37,12 @@ public static class House
     public static string Recite(int startVerse, int endVerse)
     {
         var numberOfVerses = endVerse - startVerse + 1;
-        return string.Join("\n\n", Enumerable.Range(startVerse, numberOfVerses).Select(Verse));
+        return string.Join("\n", Enumerable.Range(startVerse, numberOfVerses).Select(Verse));
     }
 
     private static string Verse(int number)
     {
-        return string.Join("\n", Enumerable.Range(1, number).Reverse().Select(index => Line(number, index)));
+        return string.Join(" ", Enumerable.Range(1, number).Reverse().Select(index => Line(number, index)));
     }
 
     private static string Line(int number, int index)

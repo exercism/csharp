@@ -11,39 +11,28 @@ namespace Generators.Exercises
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
-            // TODO
-            //canonicalData.Exercise = "complex-number";
-
-            // Ensure the Real and Imaginary methods are tested first as they're used later to assert equality between complex numbers
-            // TODO
-            //canonicalData.Cases = canonicalData.Cases.OrderBy(c => c.Property == "real" || c.Property == "imaginary" ? 0 : 1).ToArray();
+            canonicalData.Exercise = "complex-number";
 
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
-                // Process expected
-                if (IsComplexNumber(canonicalDataCase.Expected))
-                    canonicalDataCase.UseVariableForExpected = true;
-
+                canonicalDataCase.UseVariableForExpected = IsComplexNumber(canonicalDataCase.Expected);
                 canonicalDataCase.Expected = ConvertToType(canonicalDataCase.Expected);
 
-                // Process constructor param
-                var constructorParamName = canonicalDataCase.Input.ContainsKey("input") ? "input" : "z1";
+                var constructorParamName = canonicalDataCase.Input.ContainsKey("z") ? "z" : "z1";
+                canonicalDataCase.Input["real"] = ConvertMathDouble(canonicalDataCase.Input[constructorParamName][0]);
+                canonicalDataCase.Input["imaginary"] = ConvertMathDouble(canonicalDataCase.Input[constructorParamName][1]);
 
-                canonicalDataCase.Properties["real"] = ConvertMathDouble(canonicalDataCase.Input[constructorParamName][0]);
-                canonicalDataCase.Properties["imaginary"] = ConvertMathDouble(canonicalDataCase.Input[constructorParamName][1]);
-
-                canonicalDataCase.SetConstructorInputParameters("real", "imaginary");
                 canonicalDataCase.SetInputParameters(GetInputParameters(canonicalDataCase, constructorParamName));
+                canonicalDataCase.SetConstructorInputParameters("real", "imaginary");
 
-                // Process function param
                 var keys = canonicalDataCase.Input.Keys.ToArray();
 
                 foreach (var key in keys)
-                    canonicalDataCase.Properties[key] = ConvertToType(canonicalDataCase.Properties[key]);
+                    canonicalDataCase.Input[key] = ConvertToType(canonicalDataCase.Input[key]);
             }
         }
 
-        private static string[] GetInputParameters(CanonicalDataCase canonicalDataCase, string constructorParamName) 
+        private static string[] GetInputParameters(CanonicalDataCase canonicalDataCase, string constructorParamName)
             => canonicalDataCase.Input.Keys.Where(x => x != constructorParamName).ToArray();
 
         protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
@@ -84,6 +73,8 @@ namespace Generators.Exercises
                     return new UnescapedValue("Math.E");
                 case "pi":
                     return new UnescapedValue("Math.PI");
+                case "ln(2)":
+                    return new UnescapedValue("Math.Log(2.0)");
                 default:
                     return double.Parse(value.ToString());
             }
