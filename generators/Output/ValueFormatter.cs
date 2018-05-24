@@ -95,7 +95,7 @@ namespace Generators.Output
 
         private static string Format(this int[,] multidimensionalArray)
         {
-            return multidimensionalArray.GetLength(0) > 1
+            return multidimensionalArray.GetLength(0) > 0
                             ? $"new[,]\r\n{{\r\n    {string.Join(",\r\n    ", Enumerable.Range(0, multidimensionalArray.GetUpperBound(0) + 1).Select(x => multidimensionalArray.SliceRow(x).ToNestedArray()))}\r\n}}"
                             : "new int[,] { }";
         }
