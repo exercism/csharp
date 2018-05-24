@@ -26,10 +26,10 @@ namespace Generators.Exercises
                 }
                 else
                 {
-                    canonicalDataCase.SetConstructorInputParameters(ParamClock1);
+                    canonicalDataCase.SetConstructorInputParameters(ParamClock2);
 
-                    var result = (Dictionary<string, object>)canonicalDataCase.Input[ParamClock2];
-                    canonicalDataCase.Input[ParamClock2] = new UnescapedValue($"new Clock({result[ParamHour]}, {result[ParamMinute]})");
+                    var result = (Dictionary<string, object>)canonicalDataCase.Input[ParamClock1];
+                    canonicalDataCase.Input[ParamClock1] = new UnescapedValue($"new Clock({result[ParamHour]}, {result[ParamMinute]})");
                 }
 
                 if (canonicalDataCase.Property == PropertyCreate)
@@ -68,11 +68,11 @@ namespace Generators.Exercises
 
         private static string RenderEqualToAssert(TestMethodBody testMethodBody)
         {
-            var ExpectedParameter = testMethodBody.CanonicalDataCase.Input[ParamClock2];
-            var TestedValue = "sut";
+            var expectedParameter = testMethodBody.CanonicalDataCase.Input[ParamClock1];
+            var testedValue = "sut";
             var expectedEqual = testMethodBody.CanonicalDataCase.Expected;
 
-            testMethodBody.AssertTemplateParameters = new { ExpectedParameter, TestedValue };
+            testMethodBody.AssertTemplateParameters = new { expectedParameter, testedValue };
 
             var template = expectedEqual
                 ? $"Assert.Equal({{{{ ExpectedParameter }}}}, {{{{ TestedValue }}}}); "
