@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.0.0 of the canonical data.
+// This file was auto-generated based on version 1.1.0 of the canonical data.
 
 using Xunit;
 
@@ -80,6 +80,12 @@ public class YachtTest
     public void Two_pair_is_not_a_full_house()
     {
         Assert.Equal(0, YachtGame.Score(new[] { 2, 2, 4, 4, 5 }, YachtCategory.FullHouse));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Four_of_a_kind_is_not_a_full_house()
+    {
+        Assert.Equal(0, YachtGame.Score(new[] { 1, 4, 4, 4, 4 }, YachtCategory.FullHouse));
     }
 
     [Fact(Skip = "Remove to run test")]

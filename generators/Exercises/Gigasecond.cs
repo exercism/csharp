@@ -11,10 +11,10 @@ namespace Generators.Exercises
         {
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
-                var input = DateTime.Parse(canonicalDataCase.Properties["input"].ToString());
-                canonicalDataCase.Properties["input"] = new UnescapedValue(FormatDateTime(input));
-                
-                canonicalDataCase.Expected = new UnescapedValue(FormatDateTime((DateTime)canonicalDataCase.Expected));                
+                var input = DateTime.Parse(canonicalDataCase.Input["birthdate"].ToString());
+                canonicalDataCase.Input["birthdate"] = new UnescapedValue(FormatDateTime(input));
+
+                canonicalDataCase.Expected = new UnescapedValue(FormatDateTime((DateTime)canonicalDataCase.Expected));
             }
         }
 

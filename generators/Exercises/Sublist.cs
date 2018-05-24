@@ -18,13 +18,12 @@ namespace Generators.Exercises
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
             foreach (var canonicalDataCase in canonicalData.Cases)
-            {              
-                var input = canonicalDataCase.Properties["input"] as Dictionary<string, object>;
-                input["listOne"] = InputValues(input["listOne"] as int[]);
-                input["listTwo"] = InputValues(input["listTwo"] as int[]);
+            {
+                canonicalDataCase.Input["listOne"] = InputValues(canonicalDataCase.Input["listOne"] as int[]);
+                canonicalDataCase.Input["listTwo"] = InputValues(canonicalDataCase.Input["listTwo"] as int[]);
 
                 canonicalDataCase.Property = "classify";
-                canonicalDataCase.Properties["expected"] = new UnescapedValue($"SublistType.{(canonicalDataCase.Properties["expected"] as string).Dehumanize()}");
+                canonicalDataCase.Expected = new UnescapedValue($"SublistType.{(canonicalDataCase.Expected as string).Dehumanize()}");
             }
         }
     }

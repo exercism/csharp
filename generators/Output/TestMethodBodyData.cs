@@ -13,15 +13,12 @@ namespace Generators.Output
 
         private readonly TestMethodBody _testMethodBody;
 
-        public TestMethodBodyData(TestMethodBody testMethodBody)
-        {
-            _testMethodBody = testMethodBody;
-        }
+        public TestMethodBodyData(TestMethodBody testMethodBody) => _testMethodBody = testMethodBody;
 
-        public object TestedValue => _testMethodBody.UseVariableForTested ? TestedVariableName : TestedMethodInvocation;
-        public object InputParameters => _testMethodBody.UseVariablesForInput ? string.Join(", ", CanonicalDataCase.Input.Keys.Select(key => key.ToVariableName())) : Input;
-        public object ExpectedParameter => _testMethodBody.UseVariableForExpected ? ExpectedVariableName : Expected;
-        public object ConstructorParameters => _testMethodBody.UseVariablesForConstructorParameters ? string.Join(", ", CanonicalDataCase.ConstructorInput.Keys.Select(key => key.ToVariableName())) : ConstructorInput;
+        public string TestedValue => _testMethodBody.UseVariableForTested ? TestedVariableName : TestedMethodInvocation;
+        public string InputParameters => _testMethodBody.UseVariablesForInput ? string.Join(", ", CanonicalDataCase.InputParameters.Select(key => key.ToVariableName())) : ValueFormatter.Format(Input);
+        public string ExpectedParameter => _testMethodBody.UseVariableForExpected ? ExpectedVariableName : ValueFormatter.Format(CanonicalDataCase.Expected);
+        public string ConstructorParameters => _testMethodBody.UseVariablesForConstructorParameters ? string.Join(", ", CanonicalDataCase.ConstructorInputParameters.Select(key => key.ToVariableName())) : ValueFormatter.Format(ConstructorInput);
 
         private CanonicalDataCase CanonicalDataCase => _testMethodBody.CanonicalDataCase;
         private CanonicalData CanonicalData => _testMethodBody.CanonicalData;
@@ -29,13 +26,13 @@ namespace Generators.Output
         private string TestedClassName => CanonicalData.Exercise.ToTestedClassName();
         private string TestedMethodName => CanonicalDataCase.Property.ToTestedMethodName();
 
-        private object Input => ValueFormatter.Format(CanonicalDataCase.Input);
-        private object Expected => ValueFormatter.Format(CanonicalDataCase.Expected);
-        private object ConstructorInput => ValueFormatter.Format(CanonicalDataCase.ConstructorInput);
+        private IDictionary<string, object> Input => CanonicalDataCase.InputParameters.ToDictionary(key => key, key => CanonicalDataCase.Input[key]); 
+        private IDictionary<string, object> ConstructorInput => CanonicalDataCase.ConstructorInputParameters.ToDictionary(key => key, key => CanonicalDataCase.Input[key]);
+        private object Expected => CanonicalDataCase.Expected;
 
-        private IEnumerable<string> InputVariablesDeclaration => ValueFormatter.FormatVariables(CanonicalDataCase.Input);
-        private IEnumerable<string> ExpectedVariableDeclaration => ValueFormatter.FormatVariable(CanonicalDataCase.Expected, ExpectedVariableName);
-        private IEnumerable<string> ConstructorVariablesDeclaration => ValueFormatter.FormatVariables(CanonicalDataCase.ConstructorInput);
+        private IEnumerable<string> InputVariablesDeclaration => ValueFormatter.FormatVariables(Input);
+        private IEnumerable<string> ExpectedVariableDeclaration => ValueFormatter.FormatVariable(Expected, ExpectedVariableName);
+        private IEnumerable<string> ConstructorVariablesDeclaration => ValueFormatter.FormatVariables(ConstructorInput);
         private IEnumerable<string> SutVariableDeclaration => new[] { $"var {SutVariableName} = new {TestedClassName}({ConstructorParameters});" };
         private IEnumerable<string> ActualVariableDeclaration => new[] { $"var {TestedVariableName} = {TestedMethodInvocation};" };
 

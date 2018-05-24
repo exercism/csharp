@@ -38,11 +38,8 @@ public static class YachtGame
 
             //Full House:  Three of one number and two of another.  Sum of all dice.
             case YachtCategory.FullHouse:
-                {
-                    var testHashSet = new HashSet<int>();
-                    dice.ToList().ForEach(x => testHashSet.Add(x));
-                    return (testHashSet.Count() == 2) ? dice.Sum() : 0;
-                }
+                var diceByValue = dice.ToLookup(x => x);
+                return diceByValue.Count == 2 && diceByValue.First().Count() == 2 || diceByValue.First().Count() == 3 ? dice.Sum() : 0;
             //Four-Of-A-Kind:  At least four dice showing the same face.   Sum of those four dice.
             case YachtCategory.FourOfAKind: 
                 var testDict = new Dictionary<int, int>();

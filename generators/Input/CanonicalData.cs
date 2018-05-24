@@ -1,17 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Newtonsoft.Json;
-
-namespace Generators.Input
+﻿namespace Generators.Input
 {
     public class CanonicalData
     {
-        [Required]
+        public CanonicalData(string exercise, string version, CanonicalDataCase[] cases)
+            => (Exercise, Version, Cases) = (exercise, version, cases);
+
         public string Exercise { get; set; }
 
-        [Required]
-        public string Version { get; set; }
+        public string Version { get; }
 
-        [JsonConverter(typeof(CanonicalDataCasesJsonConverter))]
-        public CanonicalDataCase[] Cases { get; set; }
+        public CanonicalDataCase[] Cases { get; }
     }
 }

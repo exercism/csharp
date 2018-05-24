@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 2.0.0 of the canonical data.
+// This file was auto-generated based on version 2.4.0 of the canonical data.
 
 using Xunit;
 
@@ -31,7 +31,7 @@ public class IsbnVerifierTest
     [Fact(Skip = "Remove to run test")]
     public void Invalid_character_in_isbn()
     {
-        Assert.False(IsbnVerifier.IsValid("3-598-2K507-0"));
+        Assert.False(IsbnVerifier.IsValid("3-598-P1581-X"));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -80,5 +80,17 @@ public class IsbnVerifierTest
     public void Check_digit_of_x_should_not_be_used_for_0()
     {
         Assert.False(IsbnVerifier.IsValid("3-598-21515-X"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Empty_isbn()
+    {
+        Assert.False(IsbnVerifier.IsValid(""));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Input_is_9_characters()
+    {
+        Assert.False(IsbnVerifier.IsValid("134456729"));
     }
 }

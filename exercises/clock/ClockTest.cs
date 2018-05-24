@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.0.1 of the canonical data.
+// This file was auto-generated based on version 2.2.1 of the canonical data.
 
 using Xunit;
 
@@ -197,56 +197,56 @@ public class ClockTest
     public void Subtract_minutes()
     {
         var sut = new Clock(10, 3);
-        Assert.Equal("10:00", sut.Add(-3).ToString());
+        Assert.Equal("10:00", sut.Subtract(3).ToString());
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Subtract_to_previous_hour()
     {
         var sut = new Clock(10, 3);
-        Assert.Equal("09:33", sut.Add(-30).ToString());
+        Assert.Equal("09:33", sut.Subtract(30).ToString());
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Subtract_more_than_an_hour()
     {
         var sut = new Clock(10, 3);
-        Assert.Equal("08:53", sut.Add(-70).ToString());
+        Assert.Equal("08:53", sut.Subtract(70).ToString());
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Subtract_across_midnight()
     {
         var sut = new Clock(0, 3);
-        Assert.Equal("23:59", sut.Add(-4).ToString());
+        Assert.Equal("23:59", sut.Subtract(4).ToString());
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Subtract_more_than_two_hours()
     {
         var sut = new Clock(0, 0);
-        Assert.Equal("21:20", sut.Add(-160).ToString());
+        Assert.Equal("21:20", sut.Subtract(160).ToString());
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Subtract_more_than_two_hours_with_borrow()
     {
         var sut = new Clock(6, 15);
-        Assert.Equal("03:35", sut.Add(-160).ToString());
+        Assert.Equal("03:35", sut.Subtract(160).ToString());
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Subtract_more_than_one_day_1500_min_25_hrs_()
     {
         var sut = new Clock(5, 32);
-        Assert.Equal("04:32", sut.Add(-1500).ToString());
+        Assert.Equal("04:32", sut.Subtract(1500).ToString());
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Subtract_more_than_two_days()
     {
         var sut = new Clock(2, 20);
-        Assert.Equal("00:20", sut.Add(-3000).ToString());
+        Assert.Equal("00:20", sut.Subtract(3000).ToString());
     }
 
     [Fact(Skip = "Remove to run test")]

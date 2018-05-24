@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.0.0 of the canonical data.
+// This file was auto-generated based on version 1.2.0 of the canonical data.
 
 using Xunit;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ public class WordCountTest
     [Fact]
     public void Count_one_word()
     {
-        var actual = WordCount.Countwords("word");
+        var actual = WordCount.CountWords("word");
         var expected = new Dictionary<string, int>
         {
             ["word"] = 1
@@ -19,7 +19,7 @@ public class WordCountTest
     [Fact(Skip = "Remove to run test")]
     public void Count_one_of_each_word()
     {
-        var actual = WordCount.Countwords("one of each");
+        var actual = WordCount.CountWords("one of each");
         var expected = new Dictionary<string, int>
         {
             ["one"] = 1,
@@ -32,7 +32,7 @@ public class WordCountTest
     [Fact(Skip = "Remove to run test")]
     public void Multiple_occurrences_of_a_word()
     {
-        var actual = WordCount.Countwords("one fish two fish red fish blue fish");
+        var actual = WordCount.CountWords("one fish two fish red fish blue fish");
         var expected = new Dictionary<string, int>
         {
             ["one"] = 1,
@@ -47,7 +47,7 @@ public class WordCountTest
     [Fact(Skip = "Remove to run test")]
     public void Handles_cramped_lists()
     {
-        var actual = WordCount.Countwords("one,two,three");
+        var actual = WordCount.CountWords("one,two,three");
         var expected = new Dictionary<string, int>
         {
             ["one"] = 1,
@@ -60,7 +60,7 @@ public class WordCountTest
     [Fact(Skip = "Remove to run test")]
     public void Handles_expanded_lists()
     {
-        var actual = WordCount.Countwords("one,\ntwo,\nthree");
+        var actual = WordCount.CountWords("one,\ntwo,\nthree");
         var expected = new Dictionary<string, int>
         {
             ["one"] = 1,
@@ -73,7 +73,7 @@ public class WordCountTest
     [Fact(Skip = "Remove to run test")]
     public void Ignore_punctuation()
     {
-        var actual = WordCount.Countwords("car: carpet as java: javascript!!&@$%^&");
+        var actual = WordCount.CountWords("car: carpet as java: javascript!!&@$%^&");
         var expected = new Dictionary<string, int>
         {
             ["car"] = 1,
@@ -88,7 +88,7 @@ public class WordCountTest
     [Fact(Skip = "Remove to run test")]
     public void Include_numbers()
     {
-        var actual = WordCount.Countwords("testing, 1, 2 testing");
+        var actual = WordCount.CountWords("testing, 1, 2 testing");
         var expected = new Dictionary<string, int>
         {
             ["testing"] = 2,
@@ -101,7 +101,7 @@ public class WordCountTest
     [Fact(Skip = "Remove to run test")]
     public void Normalize_case()
     {
-        var actual = WordCount.Countwords("go Go GO Stop stop");
+        var actual = WordCount.CountWords("go Go GO Stop stop");
         var expected = new Dictionary<string, int>
         {
             ["go"] = 3,
@@ -113,7 +113,7 @@ public class WordCountTest
     [Fact(Skip = "Remove to run test")]
     public void With_apostrophes()
     {
-        var actual = WordCount.Countwords("First: don't laugh. Then: don't cry.");
+        var actual = WordCount.CountWords("First: don't laugh. Then: don't cry.");
         var expected = new Dictionary<string, int>
         {
             ["first"] = 1,
@@ -128,7 +128,7 @@ public class WordCountTest
     [Fact(Skip = "Remove to run test")]
     public void With_quotations()
     {
-        var actual = WordCount.Countwords("Joe can't tell between 'large' and large.");
+        var actual = WordCount.CountWords("Joe can't tell between 'large' and large.");
         var expected = new Dictionary<string, int>
         {
             ["joe"] = 1,
@@ -144,7 +144,7 @@ public class WordCountTest
     [Fact(Skip = "Remove to run test")]
     public void Multiple_spaces_not_detected_as_a_word()
     {
-        var actual = WordCount.Countwords(" multiple   whitespaces");
+        var actual = WordCount.CountWords(" multiple   whitespaces");
         var expected = new Dictionary<string, int>
         {
             ["multiple"] = 1,

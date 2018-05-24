@@ -1,27 +1,22 @@
-// This file was auto-generated based on version 1.0.0 of the canonical data.
+// This file was auto-generated based on version 1.1.0 of the canonical data.
 
 using Xunit;
+using System;
 
 public class MinesweeperTest
 {
     [Fact]
     public void No_rows()
     {
-        var input = new string[] 
-        { 
-             
-        };
-        var expected = new string[] 
-        { 
-             
-        };
-        Assert.Equal(expected, Minesweeper.Annotate(input));
+        var minefield = new string[0];
+        var expected = new string[0];
+        Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void No_columns()
     {
-        var input = new string[] 
+        var minefield = new string[] 
         { 
             "" 
         };
@@ -29,13 +24,13 @@ public class MinesweeperTest
         { 
             "" 
         };
-        Assert.Equal(expected, Minesweeper.Annotate(input));
+        Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void No_mines()
     {
-        var input = new string[] 
+        var minefield = new string[] 
         { 
             "   ",
             "   ",
@@ -49,13 +44,13 @@ public class MinesweeperTest
             "   "
              
         };
-        Assert.Equal(expected, Minesweeper.Annotate(input));
+        Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Board_with_only_mines()
+    public void Minefield_with_only_mines()
     {
-        var input = new string[] 
+        var minefield = new string[] 
         { 
             "***",
             "***",
@@ -69,13 +64,13 @@ public class MinesweeperTest
             "***"
              
         };
-        Assert.Equal(expected, Minesweeper.Annotate(input));
+        Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Mine_surrounded_by_spaces()
     {
-        var input = new string[] 
+        var minefield = new string[] 
         { 
             "   ",
             " * ",
@@ -89,13 +84,13 @@ public class MinesweeperTest
             "111"
              
         };
-        Assert.Equal(expected, Minesweeper.Annotate(input));
+        Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Space_surrounded_by_mines()
     {
-        var input = new string[] 
+        var minefield = new string[] 
         { 
             "***",
             "* *",
@@ -109,13 +104,13 @@ public class MinesweeperTest
             "***"
              
         };
-        Assert.Equal(expected, Minesweeper.Annotate(input));
+        Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Horizontal_line()
     {
-        var input = new string[] 
+        var minefield = new string[] 
         { 
             " * * " 
         };
@@ -123,13 +118,13 @@ public class MinesweeperTest
         { 
             "1*2*1" 
         };
-        Assert.Equal(expected, Minesweeper.Annotate(input));
+        Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Horizontal_line_mines_at_edges()
     {
-        var input = new string[] 
+        var minefield = new string[] 
         { 
             "*   *" 
         };
@@ -137,13 +132,13 @@ public class MinesweeperTest
         { 
             "*1 1*" 
         };
-        Assert.Equal(expected, Minesweeper.Annotate(input));
+        Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Vertical_line()
     {
-        var input = new string[] 
+        var minefield = new string[] 
         { 
             " ",
             "*",
@@ -161,13 +156,13 @@ public class MinesweeperTest
             "1"
              
         };
-        Assert.Equal(expected, Minesweeper.Annotate(input));
+        Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Vertical_line_mines_at_edges()
     {
-        var input = new string[] 
+        var minefield = new string[] 
         { 
             "*",
             " ",
@@ -185,13 +180,13 @@ public class MinesweeperTest
             "*"
              
         };
-        Assert.Equal(expected, Minesweeper.Annotate(input));
+        Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Cross()
     {
-        var input = new string[] 
+        var minefield = new string[] 
         { 
             "  *  ",
             "  *  ",
@@ -209,13 +204,13 @@ public class MinesweeperTest
             " 2*2 "
              
         };
-        Assert.Equal(expected, Minesweeper.Annotate(input));
+        Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Large_board()
+    public void Large_minefield()
     {
-        var input = new string[] 
+        var minefield = new string[] 
         { 
             " *  * ",
             "  *   ",
@@ -235,6 +230,6 @@ public class MinesweeperTest
             "111111"
              
         };
-        Assert.Equal(expected, Minesweeper.Annotate(input));
+        Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 }

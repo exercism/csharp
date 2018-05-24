@@ -14,10 +14,10 @@ namespace Generators.Exercises
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
                 canonicalDataCase.UseVariablesForInput = true;
-                canonicalDataCase.Properties["input"] = ConvertInput(canonicalDataCase.Properties["input"]);
+                canonicalDataCase.Input["dominoes"] = ConvertInput(canonicalDataCase.Input["dominoes"]);
             }
         }
-        
+
         protected override HashSet<string> AddAdditionalNamespaces() => new HashSet<string>() { typeof(Tuple).Namespace };
 
         private UnescapedValue ConvertInput(dynamic input)

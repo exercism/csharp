@@ -24,12 +24,12 @@ namespace Generators.Exercises
                 canonicalDataCase.SetConstructorInputParameters(ParamMonth, ParamYear);
                 canonicalDataCase.SetInputParameters(ParamDayOfWeek, ParamWeek);
 
-                canonicalDataCase.Properties[ParamYear] = canonicalDataCase.Properties["input"][ParamYear];
-                canonicalDataCase.Properties[ParamMonth] = canonicalDataCase.Properties["input"][ParamMonth];
-                canonicalDataCase.Properties[ParamWeek] =
-                    new UnescapedValue($"Schedule.{((string)canonicalDataCase.Properties["input"][ParamWeek]).Transform(To.SentenceCase)}");
-                canonicalDataCase.Properties[ParamDayOfWeek] =
-                    new UnescapedValue($"DayOfWeek.{((string)canonicalDataCase.Properties["input"][ParamDayOfWeek]).Transform(To.SentenceCase)}");
+                canonicalDataCase.Input[ParamYear] = canonicalDataCase.Input[ParamYear];
+                canonicalDataCase.Input[ParamMonth] = canonicalDataCase.Input[ParamMonth];
+                canonicalDataCase.Input[ParamWeek] =
+                    new UnescapedValue($"Schedule.{((string)canonicalDataCase.Input[ParamWeek]).Transform(To.SentenceCase)}");
+                canonicalDataCase.Input[ParamDayOfWeek] =
+                    new UnescapedValue($"DayOfWeek.{((string)canonicalDataCase.Input[ParamDayOfWeek]).Transform(To.SentenceCase)}");
             }
         }
 

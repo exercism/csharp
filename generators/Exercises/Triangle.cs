@@ -16,7 +16,7 @@ namespace Generators.Exercises
                 else if (data.Property == "scalene")
                     data.Property = "IsScalene";
 
-                data.Properties["sides"] = SplitArrayToValues(data.Properties["sides"]);
+                data.Input["sides"] = SplitArrayToValues(data.Input["sides"]);
                 data.SetInputParameters("sides");
                 data.UseFullDescriptionPath = true;
 
@@ -29,7 +29,5 @@ namespace Generators.Exercises
 
             return new UnescapedValue(TemplateRenderer.RenderInline(template, new { input }));
         }
-
-
     }
 }

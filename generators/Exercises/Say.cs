@@ -10,7 +10,7 @@ namespace Generators.Exercises
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
                 canonicalDataCase.Property = "InEnglish";
-                canonicalDataCase.ExceptionThrown = canonicalDataCase.Expected is long ? typeof(ArgumentOutOfRangeException) : null;
+                canonicalDataCase.ExceptionThrown = canonicalDataCase.Expected is int ? typeof(ArgumentOutOfRangeException) : null;
             }
         }
     }

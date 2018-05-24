@@ -8,6 +8,7 @@ namespace Generators.Exercises
         {
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
+                canonicalDataCase.Input["array"] = ConvertHelper.ToArray<int>(canonicalDataCase.Input["array"]);
                 canonicalDataCase.UseVariablesForConstructorParameters = true;
                 canonicalDataCase.SetConstructorInputParameters("array");
             }

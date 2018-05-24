@@ -10,6 +10,7 @@ namespace Generators.Exercises
         {
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
+                canonicalDataCase.Input["digits"] = ConvertHelper.ToArray<int>(canonicalDataCase.Input["digits"]);
                 canonicalDataCase.ExceptionThrown = canonicalDataCase.Expected is Dictionary<string, object> ? typeof(ArgumentException) : null;
                 canonicalDataCase.UseVariablesForInput = true;
                 canonicalDataCase.UseVariableForExpected = true;

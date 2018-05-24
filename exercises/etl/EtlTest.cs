@@ -8,7 +8,7 @@ public class EtlTest
     [Fact]
     public void A_single_letter()
     {
-        var input = new Dictionary<int, IList<string>>
+        var input = new Dictionary<int, string[]>
         {
             [1] = new[] { "A" }
         };
@@ -22,7 +22,7 @@ public class EtlTest
     [Fact(Skip = "Remove to run test")]
     public void Single_score_with_multiple_letters()
     {
-        var input = new Dictionary<int, IList<string>>
+        var input = new Dictionary<int, string[]>
         {
             [1] = new[] { "A", "E", "I", "O", "U" }
         };
@@ -40,7 +40,7 @@ public class EtlTest
     [Fact(Skip = "Remove to run test")]
     public void Multiple_scores_with_multiple_letters()
     {
-        var input = new Dictionary<int, IList<string>>
+        var input = new Dictionary<int, string[]>
         {
             [1] = new[] { "A", "E" },
             [2] = new[] { "D", "G" }
@@ -58,7 +58,7 @@ public class EtlTest
     [Fact(Skip = "Remove to run test")]
     public void Multiple_scores_with_differing_numbers_of_letters()
     {
-        var input = new Dictionary<int, IList<string>>
+        var input = new Dictionary<int, string[]>
         {
             [1] = new[] { "A", "E", "I", "O", "U", "L", "N", "R", "S", "T" },
             [2] = new[] { "D", "G" },

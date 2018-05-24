@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 public static class Etl
 {
-    public static IDictionary<string, int> Transform(IDictionary<int, IList<string>> old)
+    public static Dictionary<string, int> Transform(Dictionary<int, string[]> old)
     {
         var transformed = new Dictionary<string, int>();
 

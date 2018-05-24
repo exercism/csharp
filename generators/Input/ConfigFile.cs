@@ -26,11 +26,6 @@ namespace Generators.Input
         {
             public string Name => Slug.ToExerciseName();
             public string Slug { get; set; }
-            public bool Core { get; set; }
-            public int Difficulty { get; set; }
-            public string[] Topics { get; set; }
-            public string Unlocked_By { get; set; }
-            public string UUID { get; set; }
             public bool Deprecated { get; set; }
         }
     }
