@@ -96,16 +96,16 @@ public static class ZebraPuzzle
     
     private static Solution Solve() => Solutions().First();
     
-    public static Nationality WhoDrinks(Drink drink)
+    public static Nationality DrinksWater()
     {
         var solution = Solve();
-        return solution.Nationalities[Array.IndexOf(solution.Drinks, drink)];
+        return solution.Nationalities[Array.IndexOf(solution.Drinks, Drink.Water)];
     }
 
-    public static Nationality WhoOwns(Pet pet)
+    public static Nationality OwnsZebra()
     {
         var solution = Solve();
-        return solution.Nationalities[Array.IndexOf(solution.Pets, pet)];
+        return solution.Nationalities[Array.IndexOf(solution.Pets, Pet.Zebra)];
     }
 
     private static bool IsIndexMatch<T1, T2>(T1[] values1, T1 value1, T2[] values2, T2 value2) => values2[Array.IndexOf(values1, value1)].Equals(value2);
