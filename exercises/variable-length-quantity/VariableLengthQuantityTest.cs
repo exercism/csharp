@@ -1,88 +1,213 @@
-﻿using System;
+// This file was auto-generated based on version 1.1.0 of the canonical data.
+
 using Xunit;
+using System;
 
 public class VariableLengthQuantityTest
 {
     [Fact]
-    public void To_single_byte()
+    public void Zero()
     {
-        Assert.Equal(new[] { 0x00u }, VariableLengthQuantity.ToBytes(new[] { 0x00u }));
-        Assert.Equal(new[] { 0x40u }, VariableLengthQuantity.ToBytes(new[] { 0x40u }));
-        Assert.Equal(new[] { 0x7fu }, VariableLengthQuantity.ToBytes(new[] { 0x7fu }));
+        var integers = new[] { 0x0u };
+        var expected = new[] { 0x0u };
+        Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void To_double_byte()
+    public void Arbitrary_single_byte()
     {
-        Assert.Equal(new[] { 0x81u, 0x00u }, VariableLengthQuantity.ToBytes(new[] { 0x80u }));
-        Assert.Equal(new[] { 0xc0u, 0x00u }, VariableLengthQuantity.ToBytes(new[] { 0x2000u }));
-        Assert.Equal(new[] { 0xffu, 0x7fu }, VariableLengthQuantity.ToBytes(new[] { 0x3fffu }));
+        var integers = new[] { 0x40u };
+        var expected = new[] { 0x40u };
+        Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void To_triple_byte()
+    public void Largest_single_byte()
     {
-        Assert.Equal(new[] { 0x81u, 0x80u, 0x00u }, VariableLengthQuantity.ToBytes(new[] { 0x4000u }));
-        Assert.Equal(new[] { 0xc0u, 0x80u, 0x00u }, VariableLengthQuantity.ToBytes(new[] { 0x100000u }));
-        Assert.Equal(new[] { 0xffu, 0xffu, 0x7fu }, VariableLengthQuantity.ToBytes(new[] { 0x1fffffu }));
+        var integers = new[] { 0x7Fu };
+        var expected = new[] { 0x7Fu };
+        Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void To_quadruple_byte()
+    public void Smallest_double_byte()
     {
-        Assert.Equal(new[] { 0x81u, 0x80u, 0x80u, 0x00u }, VariableLengthQuantity.ToBytes(new[] { 0x200000u }));
-        Assert.Equal(new[] { 0xc0u, 0x80u, 0x80u, 0x00u }, VariableLengthQuantity.ToBytes(new[] { 0x08000000u }));
-        Assert.Equal(new[] { 0xffu, 0xffu, 0xffu, 0x7fu }, VariableLengthQuantity.ToBytes(new[] { 0x0fffffffu }));
+        var integers = new[] { 0x80u };
+        var expected = new[] { 0x81u, 0x0u };
+        Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void To_quintuple_byte()
+    public void Arbitrary_double_byte()
     {
-        Assert.Equal(new[] { 0x81u, 0x80u, 0x80u, 0x80u, 0x00u }, VariableLengthQuantity.ToBytes(new[] { 0x10000000u }));
-        Assert.Equal(new[] { 0x8fu, 0xf8u, 0x80u, 0x80u, 0x00u }, VariableLengthQuantity.ToBytes(new[] { 0xff000000u }));
-        Assert.Equal(new[] { 0x8fu, 0xffu, 0xffu, 0xffu, 0x7fu }, VariableLengthQuantity.ToBytes(new[] { 0xffffffffu }));
+        var integers = new[] { 0x2000u };
+        var expected = new[] { 0xC0u, 0x0u };
+        Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void From_bytes()
+    public void Largest_double_byte()
     {
-        Assert.Equal(new[] { 0x7fu }, VariableLengthQuantity.FromBytes(new[] { 0x7fu }));
-        Assert.Equal(new[] { 0x2000u }, VariableLengthQuantity.FromBytes(new[] { 0xc0u, 0x00u }));
-        Assert.Equal(new[] { 0x1fffffu }, VariableLengthQuantity.FromBytes(new[] { 0xffu, 0xffu, 0x7fu }));
-        Assert.Equal(new[] { 0x200000u }, VariableLengthQuantity.FromBytes(new[] { 0x81u, 0x80u, 0x80u, 0x00u }));
-        Assert.Equal(new[] { 0xffffffffu }, VariableLengthQuantity.FromBytes(new[] { 0x8fu, 0xffu, 0xffu, 0xffu, 0x7fu }));
+        var integers = new[] { 0x3FFFu };
+        var expected = new[] { 0xFFu, 0x7Fu };
+        Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void To_bytes_multiple_values()
+    public void Smallest_triple_byte()
     {
-        Assert.Equal(new[] { 0x40u, 0x7fu }, VariableLengthQuantity.ToBytes(new[] { 0x40u, 0x7fu }));
-        Assert.Equal(new[] { 0x81u, 0x80u, 0x00u, 0xc8u, 0xe8u, 0x56u }, VariableLengthQuantity.ToBytes(new[] { 0x4000u, 0x123456u }));
-        Assert.Equal(new[] { 0xc0u, 0x00u, 0xc8u, 0xe8u, 0x56u, 0xffu, 0xffu, 0xffu, 0x7fu, 0x00u, 0xffu, 0x7fu, 0x81u, 0x80u, 0x00u }, VariableLengthQuantity.ToBytes(new[] { 0x2000u, 0x123456u, 0x0fffffffu, 0x00u, 0x3fffu, 0x4000u }));
+        var integers = new[] { 0x4000u };
+        var expected = new[] { 0x81u, 0x80u, 0x0u };
+        Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void From_bytes_multiple_values()
+    public void Arbitrary_triple_byte()
     {
-        Assert.Equal(new[] { 0x2000u, 0x123456u, 0x0fffffffu, 0x00u, 0x3fffu, 0x4000u }, VariableLengthQuantity.FromBytes(new[] { 0xc0u, 0x00u, 0xc8u, 0xe8u, 0x56u, 0xffu, 0xffu, 0xffu, 0x7fu, 0x00u, 0xffu, 0x7fu, 0x81u, 0x80u, 0x00u }));
+        var integers = new[] { 0x100000u };
+        var expected = new[] { 0xC0u, 0x80u, 0x0u };
+        Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Incomplete_byte_sequence()
+    public void Largest_triple_byte()
     {
-        Assert.Throws<InvalidOperationException>(() => VariableLengthQuantity.FromBytes(new[] { 0xffu }));
+        var integers = new[] { 0x1FFFFFu };
+        var expected = new[] { 0xFFu, 0xFFu, 0x7Fu };
+        Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Overflow()
+    public void Smallest_quadruple_byte()
     {
-        Assert.Throws<InvalidOperationException>(() => VariableLengthQuantity.FromBytes(new[] { 0xffu, 0xffu, 0xffu, 0xffu, 0x7fu }));
+        var integers = new[] { 0x200000u };
+        var expected = new[] { 0x81u, 0x80u, 0x80u, 0x0u };
+        Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Chained_execution_is_identity()
+    public void Arbitrary_quadruple_byte()
     {
-        var test = new[] { 0xf2u, 0xf6u, 0x96u, 0x9cu, 0x3bu, 0x39u, 0x2eu, 0x30u, 0xb3u, 0x24u };
-        Assert.Equal(test, VariableLengthQuantity.FromBytes(VariableLengthQuantity.ToBytes(test)));
+        var integers = new[] { 0x8000000u };
+        var expected = new[] { 0xC0u, 0x80u, 0x80u, 0x0u };
+        Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Largest_quadruple_byte()
+    {
+        var integers = new[] { 0xFFFFFFFu };
+        var expected = new[] { 0xFFu, 0xFFu, 0xFFu, 0x7Fu };
+        Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Smallest_quintuple_byte()
+    {
+        var integers = new[] { 0x10000000u };
+        var expected = new[] { 0x81u, 0x80u, 0x80u, 0x80u, 0x0u };
+        Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Arbitrary_quintuple_byte()
+    {
+        var integers = new[] { 0xFF000000u };
+        var expected = new[] { 0x8Fu, 0xF8u, 0x80u, 0x80u, 0x0u };
+        Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Maximum_32_bit_integer_input()
+    {
+        var integers = new[] { 0xFFFFFFFFu };
+        var expected = new[] { 0x8Fu, 0xFFu, 0xFFu, 0xFFu, 0x7Fu };
+        Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Two_single_byte_values()
+    {
+        var integers = new[] { 0x40u, 0x7Fu };
+        var expected = new[] { 0x40u, 0x7Fu };
+        Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Two_multi_byte_values()
+    {
+        var integers = new[] { 0x4000u, 0x123456u };
+        var expected = new[] { 0x81u, 0x80u, 0x0u, 0xC8u, 0xE8u, 0x56u };
+        Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Many_multi_byte_values()
+    {
+        var integers = new[] { 0x2000u, 0x123456u, 0xFFFFFFFu, 0x0u, 0x3FFFu, 0x4000u };
+        var expected = new[] { 0xC0u, 0x0u, 0xC8u, 0xE8u, 0x56u, 0xFFu, 0xFFu, 0xFFu, 0x7Fu, 0x0u, 0xFFu, 0x7Fu, 0x81u, 0x80u, 0x0u };
+        Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void One_byte()
+    {
+        var integers = new[] { 0x7Fu };
+        var expected = new[] { 0x7Fu };
+        Assert.Equal(expected, VariableLengthQuantity.Decode(integers));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Two_bytes()
+    {
+        var integers = new[] { 0xC0u, 0x0u };
+        var expected = new[] { 0x2000u };
+        Assert.Equal(expected, VariableLengthQuantity.Decode(integers));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Three_bytes()
+    {
+        var integers = new[] { 0xFFu, 0xFFu, 0x7Fu };
+        var expected = new[] { 0x1FFFFFu };
+        Assert.Equal(expected, VariableLengthQuantity.Decode(integers));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Four_bytes()
+    {
+        var integers = new[] { 0x81u, 0x80u, 0x80u, 0x0u };
+        var expected = new[] { 0x200000u };
+        Assert.Equal(expected, VariableLengthQuantity.Decode(integers));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Maximum_32_bit_integer()
+    {
+        var integers = new[] { 0x8Fu, 0xFFu, 0xFFu, 0xFFu, 0x7Fu };
+        var expected = new[] { 0xFFFFFFFFu };
+        Assert.Equal(expected, VariableLengthQuantity.Decode(integers));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Incomplete_sequence_causes_error()
+    {
+        var integers = new[] { 0xFFu };
+        Assert.Throws<InvalidOperationException>(() => VariableLengthQuantity.Decode(integers));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Incomplete_sequence_causes_error_even_if_value_is_zero()
+    {
+        var integers = new[] { 0x80u };
+        Assert.Throws<InvalidOperationException>(() => VariableLengthQuantity.Decode(integers));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Multiple_values()
+    {
+        var integers = new[] { 0xC0u, 0x0u, 0xC8u, 0xE8u, 0x56u, 0xFFu, 0xFFu, 0xFFu, 0x7Fu, 0x0u, 0xFFu, 0x7Fu, 0x81u, 0x80u, 0x0u };
+        var expected = new[] { 0x2000u, 0x123456u, 0xFFFFFFFu, 0x0u, 0x3FFFu, 0x4000u };
+        Assert.Equal(expected, VariableLengthQuantity.Decode(integers));
     }
 }
