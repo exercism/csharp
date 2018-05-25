@@ -42,6 +42,13 @@ namespace Generators.Output
             {
                 case string str when str.Contains("\n"):
                     return FormatMultiLineString(name, str);
+                case IEnumerable<string> strings:
+                    if (!strings.Any())
+                    {
+                        return new[] { $"var {name} = new string[0];" };
+                    }
+
+                    return FormatMultiLineEnumerable(strings.Select((str, i) => str.Format() + (i < strings.Count() - 1 ? "," : "")), name, "new[]");
                 case IDictionary<char, int> dict:
                     return FormatMultiLineEnumerable(dict.Keys.Select((key, i) => $"[{Format(key)}] = {Format(dict[key])}" + (i < dict.Keys.Count - 1 ? "," : "")), name, "new Dictionary<char, int>");
                 case IDictionary<string, int> dict:
