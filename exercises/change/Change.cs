@@ -2,7 +2,7 @@
 
 public static class Change
 {
-    public static int[] Calculate(int target, int[] coins)
+    public static int[] FindFewestCoins(int[] coins, int target)
     {
         throw new NotImplementedException("You need to implement this function.");
     }

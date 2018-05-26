@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 public static class Change
 {
-    public static int[] Calculate(int target, int[] coins)
+    public static int[] FindFewestCoins(int[] coins, int target)
     {
         if (target < 0)
         {
@@ -14,26 +15,38 @@ public static class Change
             throw new ArgumentException("Target amount cannot be less than minimal coin value.");
         }
 
-        var minimalCoins = new int[target + 1][];
-        minimalCoins[0] = new int[0];
-
-        for (var amount = 1; amount <= target; amount++)
+        var minimalCoinsMapSeed = new Dictionary<int, List<int>>
         {
-            minimalCoins[amount] = coins.Where(c => c <= amount)
-                                       .Select(c => Prepend(c, minimalCoins[amount - c]))
-                                       .OrderBy(c => c.Length)
-                                       .FirstOrDefault() ?? new int[0];
+            [0] = new List<int>(0)
+        };
+
+        var minimalCoinsMap = Enumerable.Range(1, target)
+            .Aggregate(minimalCoinsMapSeed, UpdateMinimalCoinsMap);
+
+        if (minimalCoinsMap.TryGetValue(target, out var minimalCoins))
+            return minimalCoins.OrderBy(x => x).ToArray();
+        
+        throw new ArgumentException();
+
+        Dictionary<int, List<int>> UpdateMinimalCoinsMap(Dictionary<int, List<int>> current, int subTarget)
+        {
+            var subTargetMinimalCoins = MinimalCoins(current, subTarget);
+            if (subTargetMinimalCoins != null)
+                current.Add(subTarget, subTargetMinimalCoins);
+
+            return current;
         }
 
-        return minimalCoins[target];
-    }
-
-    private static int[] Prepend(int coin, int[] coins)
-    {
-        var newCoins = new int[coins.Length + 1];
-        newCoins[0] = coin;
-        Array.Copy(coins, 0, newCoins, 1, coins.Length);
-
-        return newCoins;
+        List<int> MinimalCoins(Dictionary<int, List<int>> current, int subTarget)
+        {
+            return coins
+                .Where(coin => coin <= subTarget)
+                .Select(coin => current.TryGetValue(subTarget - coin, out var subTargetMinimalCoins)
+                    ? subTargetMinimalCoins.Append(coin).ToList()
+                    : null)
+                .Where(subTargetMinimalCoins => subTargetMinimalCoins != null)
+                .OrderBy(subTargetMinimalCoins => subTargetMinimalCoins.Count)
+                .FirstOrDefault();
+        }
     }
 }
