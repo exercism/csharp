@@ -1,0 +1,14 @@
+﻿// This file was auto-generated based on version {{CanonicalDataVersion}} of the canonical data.
+
+{%- for namespace in UsingNamespaces -%}
+using {{ namespace }};
+{%- endfor -%}
+
+public class {{ClassName}} : IDisposable
+{
+{%- for method in Methods -%}
+{{ method | indent }}
+{%- if forloop.last == false %}
+{% endif -%}
+{%- endfor -%}
+}

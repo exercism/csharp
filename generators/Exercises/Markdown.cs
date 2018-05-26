@@ -1,4 +1,5 @@
 ﻿using Generators.Input;
+using Generators.Output;
 
 namespace Generators.Exercises
 {
@@ -13,6 +14,12 @@ namespace Generators.Exercises
             }
         }
 
-        protected override bool ShouldSkipTestMethod(CanonicalDataCase canonicalDataCase, int index) => false;
+        protected override TestMethod CreateTestMethod(CanonicalDataCase canonicalDataCase, int index)
+        {
+            var testMethod = base.CreateTestMethod(canonicalDataCase, index);
+            testMethod.Skip = false;
+
+            return testMethod;
+        }
     }
 }
