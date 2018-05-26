@@ -259,98 +259,98 @@ public class ClockTest
     [Fact(Skip = "Remove to run test")]
     public void Clocks_a_minute_apart()
     {
-        var sut = new Clock(15, 36);
-        Assert.NotEqual(new Clock(15, 37), sut);
+        var sut = new Clock(15, 37);
+        Assert.NotEqual(new Clock(15, 36), sut);
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Clocks_an_hour_apart()
     {
-        var sut = new Clock(14, 37);
-        Assert.NotEqual(new Clock(15, 37), sut);
+        var sut = new Clock(15, 37);
+        Assert.NotEqual(new Clock(14, 37), sut);
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Clocks_with_hour_overflow()
     {
-        var sut = new Clock(10, 37);
-        Assert.Equal(new Clock(34, 37), sut); 
+        var sut = new Clock(34, 37);
+        Assert.Equal(new Clock(10, 37), sut); 
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Clocks_with_hour_overflow_by_several_days()
     {
-        var sut = new Clock(3, 11);
-        Assert.Equal(new Clock(99, 11), sut); 
+        var sut = new Clock(99, 11);
+        Assert.Equal(new Clock(3, 11), sut); 
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Clocks_with_negative_hour()
     {
-        var sut = new Clock(22, 40);
-        Assert.Equal(new Clock(-2, 40), sut); 
+        var sut = new Clock(-2, 40);
+        Assert.Equal(new Clock(22, 40), sut); 
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Clocks_with_negative_hour_that_wraps()
     {
-        var sut = new Clock(17, 3);
-        Assert.Equal(new Clock(-31, 3), sut); 
+        var sut = new Clock(-31, 3);
+        Assert.Equal(new Clock(17, 3), sut); 
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Clocks_with_negative_hour_that_wraps_multiple_times()
     {
-        var sut = new Clock(13, 49);
-        Assert.Equal(new Clock(-83, 49), sut); 
+        var sut = new Clock(-83, 49);
+        Assert.Equal(new Clock(13, 49), sut); 
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Clocks_with_minute_overflow()
     {
-        var sut = new Clock(0, 1);
-        Assert.Equal(new Clock(0, 1441), sut); 
+        var sut = new Clock(0, 1441);
+        Assert.Equal(new Clock(0, 1), sut); 
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Clocks_with_minute_overflow_by_several_days()
     {
-        var sut = new Clock(2, 2);
-        Assert.Equal(new Clock(2, 4322), sut); 
+        var sut = new Clock(2, 4322);
+        Assert.Equal(new Clock(2, 2), sut); 
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Clocks_with_negative_minute()
     {
-        var sut = new Clock(2, 40);
-        Assert.Equal(new Clock(3, -20), sut); 
+        var sut = new Clock(3, -20);
+        Assert.Equal(new Clock(2, 40), sut); 
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Clocks_with_negative_minute_that_wraps()
     {
-        var sut = new Clock(4, 10);
-        Assert.Equal(new Clock(5, -1490), sut); 
+        var sut = new Clock(5, -1490);
+        Assert.Equal(new Clock(4, 10), sut); 
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Clocks_with_negative_minute_that_wraps_multiple_times()
     {
-        var sut = new Clock(6, 15);
-        Assert.Equal(new Clock(6, -4305), sut); 
+        var sut = new Clock(6, -4305);
+        Assert.Equal(new Clock(6, 15), sut); 
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Clocks_with_negative_hours_and_minutes()
     {
-        var sut = new Clock(7, 32);
-        Assert.Equal(new Clock(-12, -268), sut); 
+        var sut = new Clock(-12, -268);
+        Assert.Equal(new Clock(7, 32), sut); 
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Clocks_with_negative_hours_and_minutes_that_wrap()
     {
-        var sut = new Clock(18, 7);
-        Assert.Equal(new Clock(-54, -11513), sut); 
+        var sut = new Clock(-54, -11513);
+        Assert.Equal(new Clock(18, 7), sut); 
     }
 }
