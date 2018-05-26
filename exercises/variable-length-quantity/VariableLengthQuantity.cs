@@ -2,12 +2,12 @@
 
 public static class VariableLengthQuantity
 {
-    public static uint[] ToBytes(uint[] numbers)
+    public static uint[] Encode(uint[] numbers)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public static uint[] FromBytes(uint[] bytes)
+    public static uint[] Decode(uint[] bytes)
     {
         throw new NotImplementedException("You need to implement this function.");
     }

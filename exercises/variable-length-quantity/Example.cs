@@ -7,9 +7,9 @@ public static class VariableLengthQuantity
     private const uint SevenBitsMask = 0x7fu;
     private const uint EightBitMask = 0x80u;
 
-    public static uint[] ToBytes(uint[] numbers) => numbers.SelectMany(ToBytesSingle).ToArray();
+    public static uint[] Encode(uint[] numbers) => numbers.SelectMany(EncodeSingle).ToArray();
 
-    private static IEnumerable<uint> ToBytesSingle(uint number)
+    private static IEnumerable<uint> EncodeSingle(uint number)
     {
         if (number == 0)
         {
@@ -35,7 +35,7 @@ public static class VariableLengthQuantity
         return bytes;
     }
 
-    public static uint[] FromBytes(uint[] bytes)
+    public static uint[] Decode(uint[] bytes)
     {
         var numbers = new List<uint>();
         var tmp = 0u;
