@@ -1,16 +1,18 @@
-﻿using Xunit;
+// This file was auto-generated based on version 1.1.0 of the canonical data.
+
+using Xunit;
 
 public class ZebraPuzzleTest
 {
     [Fact]
-    public void Who_drinks_water()
+    public void Resident_who_drinks_water()
     {
-        Assert.Equal(Nationality.Norwegian, ZebraPuzzle.WhoDrinks(Drink.Water));
+        Assert.Equal(Nationality.Norwegian, ZebraPuzzle.DrinksWater());
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Who_owns_the_zebra()
+    public void Resident_who_owns_zebra()
     {
-        Assert.Equal(Nationality.Japanese, ZebraPuzzle.WhoOwns(Pet.Zebra));
+        Assert.Equal(Nationality.Japanese, ZebraPuzzle.OwnsZebra());
     }
 }

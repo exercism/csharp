@@ -10,12 +10,12 @@ public enum Smoke { OldGold , Kools , Chesterfields , LuckyStrike , Parliaments 
 
 public static class ZebraPuzzle
 {
-    public static Nationality WhoDrinks(Drink drink)
+    public static Nationality DrinksWater()
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public static Nationality WhoOwns(Pet pet)
+    public static Nationality OwnsZebra()
     {
         throw new NotImplementedException("You need to implement this function.");
     }
