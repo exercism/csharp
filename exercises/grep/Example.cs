@@ -24,7 +24,7 @@ public static class Grep
         MatchEntireLines = 16
     }
 
-    public static string Find(string pattern, string flags, string[] files)
+    public static string Match(string pattern, string flags, string[] files)
     {
         var parsedFlags = ParseFlags(flags);
 
