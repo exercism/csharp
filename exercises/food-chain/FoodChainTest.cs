@@ -10,7 +10,7 @@ public class FoodChainTest
         var expected = 
             "I know an old lady who swallowed a fly.\n" +
             "I don't know why she swallowed the fly. Perhaps she'll die.";
-        Assert.Equal(expected, FoodChain.Recite(1, 1));
+        Assert.Equal(expected, FoodChain.Recite(1));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -21,7 +21,7 @@ public class FoodChainTest
             "It wriggled and jiggled and tickled inside her.\n" +
             "She swallowed the spider to catch the fly.\n" +
             "I don't know why she swallowed the fly. Perhaps she'll die.";
-        Assert.Equal(expected, FoodChain.Recite(2, 2));
+        Assert.Equal(expected, FoodChain.Recite(2));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -33,7 +33,7 @@ public class FoodChainTest
             "She swallowed the bird to catch the spider that wriggled and jiggled and tickled inside her.\n" +
             "She swallowed the spider to catch the fly.\n" +
             "I don't know why she swallowed the fly. Perhaps she'll die.";
-        Assert.Equal(expected, FoodChain.Recite(3, 3));
+        Assert.Equal(expected, FoodChain.Recite(3));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -46,7 +46,7 @@ public class FoodChainTest
             "She swallowed the bird to catch the spider that wriggled and jiggled and tickled inside her.\n" +
             "She swallowed the spider to catch the fly.\n" +
             "I don't know why she swallowed the fly. Perhaps she'll die.";
-        Assert.Equal(expected, FoodChain.Recite(4, 4));
+        Assert.Equal(expected, FoodChain.Recite(4));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -60,7 +60,7 @@ public class FoodChainTest
             "She swallowed the bird to catch the spider that wriggled and jiggled and tickled inside her.\n" +
             "She swallowed the spider to catch the fly.\n" +
             "I don't know why she swallowed the fly. Perhaps she'll die.";
-        Assert.Equal(expected, FoodChain.Recite(5, 5));
+        Assert.Equal(expected, FoodChain.Recite(5));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -75,7 +75,7 @@ public class FoodChainTest
             "She swallowed the bird to catch the spider that wriggled and jiggled and tickled inside her.\n" +
             "She swallowed the spider to catch the fly.\n" +
             "I don't know why she swallowed the fly. Perhaps she'll die.";
-        Assert.Equal(expected, FoodChain.Recite(6, 6));
+        Assert.Equal(expected, FoodChain.Recite(6));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -91,7 +91,7 @@ public class FoodChainTest
             "She swallowed the bird to catch the spider that wriggled and jiggled and tickled inside her.\n" +
             "She swallowed the spider to catch the fly.\n" +
             "I don't know why she swallowed the fly. Perhaps she'll die.";
-        Assert.Equal(expected, FoodChain.Recite(7, 7));
+        Assert.Equal(expected, FoodChain.Recite(7));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -100,7 +100,7 @@ public class FoodChainTest
         var expected = 
             "I know an old lady who swallowed a horse.\n" +
             "She's dead, of course!";
-        Assert.Equal(expected, FoodChain.Recite(8, 8));
+        Assert.Equal(expected, FoodChain.Recite(8));
     }
 
     [Fact(Skip = "Remove to run test")]

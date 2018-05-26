@@ -7,7 +7,7 @@ public static class TwelveDays
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public static string Recite(int start, int end)
+    public static string Recite(int startVerse, int endVerse)
     {
         throw new NotImplementedException("You need to implement this function.");
     }

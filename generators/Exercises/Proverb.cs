@@ -1,16 +1,18 @@
-﻿using Generators.Output;
+﻿using Generators.Input;
+using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class Proverb : GeneratorExercise
     {
-        protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
-            if (testMethodBody.CanonicalDataCase.Properties["input"]["strings"] as string[] == null)
+            foreach (var canonicalDataCase in canonicalData.Cases)
             {
-                return TemplateRenderer.RenderInline("Assert.Empty(Proverb.Recite(new string[] { }));", new { });
+                canonicalDataCase.UseVariableForExpected = true;
+                canonicalDataCase.Input["strings"] = ConvertHelper.ToArray<string>(canonicalDataCase.Input["strings"]);
+                canonicalDataCase.Expected = ConvertHelper.ToArray<string>(canonicalDataCase.Expected);
             }
-            return base.RenderTestMethodBodyAssert(testMethodBody);
         }
     }
 }
