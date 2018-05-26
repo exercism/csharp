@@ -2,7 +2,7 @@
 
 public static class ProteinTranslation
 {
-    public static string[] Translate(string codon)
+    public static string[] Proteins(string strand)
     {
         throw new NotImplementedException();
     }

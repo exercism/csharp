@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 
-public class ProteinTranslation
+public static class ProteinTranslation
 {
-    public static string[] Translate(string codon)
+    public static string[] Proteins(string strand)
     {
         var results = new List<string>();
 
-        for (int i = 0; i < codon.Length / 3; i++)
+        for (int i = 0; i < strand.Length / 3; i++)
         {
-            var protein = ConvertToProtein(codon.Substring(3 * i, 3));
+            var protein = ConvertToProtein(strand.Substring(3 * i, 3));
 
             if (protein == "STOP")
             {
