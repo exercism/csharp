@@ -34,6 +34,11 @@ public static class House
         ""
     };
     
+    public static string Recite(int verseNumber)
+    {
+        return Recite(verseNumber, verseNumber);
+    }
+    
     public static string Recite(int startVerse, int endVerse)
     {
         var numberOfVerses = endVerse - startVerse + 1;

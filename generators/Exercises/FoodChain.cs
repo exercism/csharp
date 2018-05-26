@@ -10,6 +10,11 @@ namespace Generators.Exercises
             {
                 canonicalDataCase.Expected = ConvertHelper.ToMultiLineString(canonicalDataCase.Expected);
                 canonicalDataCase.UseVariableForExpected = true;
+
+                if (canonicalDataCase.Input["startVerse"] == canonicalDataCase.Input["endVerse"])
+                {
+                    canonicalDataCase.SetInputParameters("startVerse");
+                }
             }
         }
     }
