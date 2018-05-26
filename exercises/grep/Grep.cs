@@ -2,7 +2,7 @@
 
 public static class Grep
 {
-    public static string Find(string pattern, string flags, string[] files)
+    public static string Match(string pattern, string flags, string[] files)
     {
         throw new NotImplementedException("You need to implement this function.");
     }

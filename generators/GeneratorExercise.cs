@@ -45,8 +45,6 @@ namespace Generators
             return new string[] { };
         }
 
-        protected virtual bool ShouldSkipTestMethod(CanonicalDataCase canonicalDataCase, int index) => index > 0;
-
         private HashSet<string> GetUsingNamespaces()
         {
             var usingNamespaces = new HashSet<string> { "Xunit" };
@@ -61,7 +59,7 @@ namespace Generators
 
         private string[] RenderTestMethods() => _canonicalData.Cases.Select(RenderTestMethod).Concat(RenderAdditionalMethods()).ToArray();
 
-        private TestClass CreateTestClass() => new TestClass
+        protected virtual TestClass CreateTestClass() => new TestClass
         {
             ClassName = Name.ToTestClassName(),
             Methods = RenderTestMethods(),
@@ -71,9 +69,9 @@ namespace Generators
 
         private string RenderTestMethod(CanonicalDataCase canonicalDataCase, int index) => CreateTestMethod(canonicalDataCase, index).Render();
 
-        private TestMethod CreateTestMethod(CanonicalDataCase canonicalDataCase, int index) => new TestMethod
+        protected virtual TestMethod CreateTestMethod(CanonicalDataCase canonicalDataCase, int index) => new TestMethod
         {
-            Skip = ShouldSkipTestMethod(canonicalDataCase, index),
+            Skip = index > 0,
             Name = ToTestMethodName(canonicalDataCase),
             Body = RenderTestMethodBody(canonicalDataCase)
         };
@@ -93,7 +91,7 @@ namespace Generators
             return testMethodBody.Render();
         }
 
-        private TestMethodBody CreateTestMethodBody(CanonicalDataCase canonicalDataCase)
+        protected virtual TestMethodBody CreateTestMethodBody(CanonicalDataCase canonicalDataCase)
         {
             if (canonicalDataCase.ExceptionThrown != null)
             {
