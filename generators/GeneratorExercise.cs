@@ -9,7 +9,7 @@ namespace Generators
     {
         private static readonly ExerciseWriter ExerciseWriter = new ExerciseWriter();
         private CanonicalData _canonicalData;
-        
+
         public override string Name => GetType().ToExerciseName();
 
         public void Regenerate(CanonicalData canonicalData)
@@ -45,6 +45,8 @@ namespace Generators
             return new string[] { };
         }
 
+        protected virtual bool ShouldSkipTestMethod(CanonicalDataCase canonicalDataCase, int index) => index > 0;
+
         private HashSet<string> GetUsingNamespaces()
         {
             var usingNamespaces = new HashSet<string> { "Xunit" };
@@ -71,13 +73,13 @@ namespace Generators
 
         private TestMethod CreateTestMethod(CanonicalDataCase canonicalDataCase, int index) => new TestMethod
         {
-            Skip = index > 0,
+            Skip = ShouldSkipTestMethod(canonicalDataCase, index),
             Name = ToTestMethodName(canonicalDataCase),
             Body = RenderTestMethodBody(canonicalDataCase)
         };
 
-        private static string ToTestMethodName(CanonicalDataCase canonicalDataCase) 
-            => canonicalDataCase.UseFullDescriptionPath 
+        private static string ToTestMethodName(CanonicalDataCase canonicalDataCase)
+            => canonicalDataCase.UseFullDescriptionPath
                 ? string.Join(" - ", canonicalDataCase.DescriptionPath).ToTestMethodName()
                 : canonicalDataCase.Description.ToTestMethodName();
 
