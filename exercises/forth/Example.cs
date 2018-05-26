@@ -3,24 +3,6 @@ using System.Linq;
 using System.Collections.Generic;
 using Sprache;
 
-public enum ForthError
-{
-    DivisionByZero,
-    StackUnderflow,
-    InvalidWord,
-    UnknownWord
-}
-
-public class ForthException : Exception
-{
-    public ForthException(ForthError error)
-    {
-        Error = error;
-    }
-
-    public ForthError Error { get; }
-}
-
 public class ForthState
 {
     public Stack<int> Stack { get; } = new Stack<int>();
@@ -31,7 +13,7 @@ public class ForthState
 
 public abstract class ForthDefinition
 {
-    public abstract void Evaluate(ForthState state);    
+    public abstract void Evaluate(ForthState state);
 }
 
 public abstract class TermDefinition : ForthDefinition
@@ -71,7 +53,7 @@ public abstract class UnaryOperation: TermDefinition
     public override void EvaluateDefaultTerm(ForthState state)
     {        
         if (state.Stack.Count < 1)
-            throw new ForthException(ForthError.StackUnderflow);
+            throw new InvalidOperationException();
 
         var operand = state.Stack.Pop();
 
@@ -91,7 +73,7 @@ public abstract class BinaryOperation : TermDefinition
     public override void EvaluateDefaultTerm(ForthState state)
     {
         if (state.Stack.Count <= 1)
-            throw new ForthException(ForthError.StackUnderflow);
+            throw new InvalidOperationException();
 
         var operand2 = state.Stack.Pop();
         var operand1 = state.Stack.Pop();
@@ -124,7 +106,7 @@ public class Word : TermDefinition
     public override void EvaluateDefaultTerm(ForthState state)
     {
         if (!state.Mapping.ContainsKey(Term))
-            throw new ForthException(ForthError.UnknownWord);
+            throw new InvalidOperationException();
     }
 }
 
@@ -177,7 +159,7 @@ public class Division : BinaryOperation
     public override List<int> operation(int x, int y)
     {
         if (y == 0)
-            throw new ForthException(ForthError.DivisionByZero);
+            throw new InvalidOperationException();
 
         return new List<int> { x / y };
     }
@@ -186,33 +168,46 @@ public class Division : BinaryOperation
 public class CustomTerm : ForthDefinition
 {
     private readonly string term;
-    private readonly IEnumerable<ForthDefinition> actions;
+    private readonly ForthDefinition[] actions;
 
     public CustomTerm(string term, IEnumerable<ForthDefinition> actions)
     {
         this.term = term;
-        this.actions = actions;
+        this.actions = actions.ToArray();
     }
 
     public override void Evaluate(ForthState state)
     {
-        int result;
-        if (int.TryParse(term, out result))
-            throw new ForthException(ForthError.InvalidWord);
+        if (int.TryParse(term, out _))
+            throw new InvalidOperationException();
 
-        state.Mapping[term] = actions;
+        var normalizedActions = new List<ForthDefinition>();
+
+        foreach (var action in actions)
+        {
+            if (action is Word word)
+                normalizedActions.AddRange(state.Mapping[word.Term]);
+            else
+                normalizedActions.Add(action);
+        }
+        
+        state.Mapping[term] = normalizedActions;
     }
 }
 
 public static class Forth
 {
-    public static string Eval(string input)
+    public static string Evaluate(string[] instructions)
     {
-        var expression = Expression.Parse(input);
         var state = new ForthState();
 
-        foreach (var definition in expression)
-            definition.Evaluate(state);
+        foreach (var instruction in instructions)
+        {
+            var expression = Expression.Parse(instruction);
+
+            foreach (var definition in expression)
+                definition.Evaluate(state);
+        }
 
         return state.ToString();
     }
