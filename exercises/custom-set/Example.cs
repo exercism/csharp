@@ -1,21 +1,11 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
-public class CustomSet<T> : IEnumerable<T>, IEquatable<IEnumerable<T>>
+public class CustomSet
 {
-    private readonly Dictionary<int, T> items = new Dictionary<int, T>();
+    private readonly SortedDictionary<int, int> items = new SortedDictionary<int, int>();
 
-    public CustomSet() : this(Enumerable.Empty<T>())
-    {
-    }
-
-    public CustomSet(T value) : this(new[] { value })
-    {
-    }
-
-    public CustomSet(IEnumerable<T> values)
+    public CustomSet(params int[] values)
     {
         foreach (var value in values.Where(value => !items.ContainsKey(value.GetHashCode())))
         {
@@ -23,68 +13,50 @@ public class CustomSet<T> : IEnumerable<T>, IEquatable<IEnumerable<T>>
         }
     }
 
-    public CustomSet<T> Insert(T value)
+    public CustomSet Add(int value)
     {
-        var newValues = items.Values.ToList();
-        newValues.Add(value);
-
-        return new CustomSet<T>(newValues);
+        return new CustomSet(items.Values.Append(value).ToArray());
     }
 
-    public bool IsEmpty() => items.Count == 0;
+    public bool Empty() => items.Count == 0;
 
-    public bool Contains(T value) => items.ContainsKey(value.GetHashCode());
+    public bool Contains(int value) => items.ContainsKey(value.GetHashCode());
 
-    public bool IsSubsetOf(CustomSet<T> right) => items.Keys.All(key => right.items.ContainsKey(key));
+    public bool Subset(CustomSet right) => items.Keys.All(key => right.items.ContainsKey(key));
 
-    public bool IsDisjointFrom(CustomSet<T> right) => !items.Keys.Any(key => right.items.ContainsKey(key));
+    public bool Disjoint(CustomSet right) => !items.Keys.Any(key => right.items.ContainsKey(key));
 
-    public CustomSet<T> Intersection(CustomSet<T> right)
+    public CustomSet Intersection(CustomSet right)
     {
         var intersectionKeys = items.Keys.Intersect(right.items.Keys);
-        return new CustomSet<T>(GetValuesFromKeys(intersectionKeys));
+        return new CustomSet(GetValuesFromKeys(intersectionKeys));
     }
 
-    public CustomSet<T> Difference(CustomSet<T> right)
+    public CustomSet Difference(CustomSet right)
     {
         var differenceKeys = items.Keys.Except(right.items.Keys);
-        return new CustomSet<T>(GetValuesFromKeys(differenceKeys));
+        return new CustomSet(GetValuesFromKeys(differenceKeys));
     }
 
-    public CustomSet<T> Union(CustomSet<T> right)
+    public CustomSet Union(CustomSet right)
     {
-        var values = items.Values.ToList();
-        values.AddRange(right.items.Values);
-
-        return new CustomSet<T>(values);
+        return new CustomSet(items.Values.Concat(right.items.Values).ToArray());
     }
 
-    public IEnumerator<T> GetEnumerator()
+    private int[] GetValuesFromKeys(IEnumerable<int> keys) => keys.Select(key => items[key]).ToArray();
+
+    public override bool Equals(object obj)
     {
-        return items.Values.GetEnumerator();
+        if (!(obj is CustomSet other))
+        {
+            return false;
+        }
+        
+        return items.Keys.SequenceEqual(other.items.Keys);
     }
 
-    IEnumerator IEnumerable.GetEnumerator()
+    public override int GetHashCode()
     {
-        return GetEnumerator();
-    }
-
-    private IEnumerable<T> GetValuesFromKeys(IEnumerable<int> keys) => keys.Select(key => items[key]);
-    
-    public override bool Equals(object obj) => Equals(obj as IEnumerable<T>);
-
-    public override int GetHashCode() 
-    {
-        throw new NotImplementedException();
-    }
-
-    public bool Equals(IEnumerable<T> other)
-    {
-        return items.Keys.OrderBy(x => x).SequenceEqual(other.Select(o => o.GetHashCode()).OrderBy(x => x));
-    }
-
-    public int GetHashCode(IEnumerable<T> obj)
-    {
-        throw new NotImplementedException();
+        return items.GetHashCode();
     }
 }

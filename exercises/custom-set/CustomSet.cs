@@ -1,88 +1,49 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 
-public class CustomSet<T> : IEnumerable<T>, IEquatable<IEnumerable<T>>
+public class CustomSet
 {
-    public CustomSet()
-    {
-    }
-
-    public CustomSet(T value)
-    {
-    }
-
-    public CustomSet(IEnumerable<T> values)
-    {
-    }
-
-    public CustomSet<T> Insert(T value)
+    public CustomSet(params int[] values)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public bool IsEmpty()
+    public CustomSet Insert(int value)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public bool Contains(T value)
+    public bool Empty()
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public bool IsSubsetOf(CustomSet<T> right)
+    public bool Contains(int value)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public bool IsDisjointFrom(CustomSet<T> right)
+    public bool Subset(CustomSet right)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public CustomSet<T> Intersection(CustomSet<T> right)
+    public bool Disjoint(CustomSet right)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public CustomSet<T> Difference(CustomSet<T> right)
+    public CustomSet Intersection(CustomSet right)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public CustomSet<T> Union(CustomSet<T> right)
+    public CustomSet Difference(CustomSet right)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public IEnumerator<T> GetEnumerator()
+    public CustomSet Union(CustomSet right)
     {
         throw new NotImplementedException("You need to implement this function.");
-    }
-
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
-    
-    public override bool Equals(object obj)
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
-
-    public override int GetHashCode() 
-    {
-        throw new NotImplementedException();
-    }
-
-    public bool Equals(IEnumerable<T> other)
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
-
-    public int GetHashCode(IEnumerable<T> obj)
-    {
-        throw new NotImplementedException();
     }
 }
