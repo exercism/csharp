@@ -2,7 +2,7 @@
 
 public class CircularBuffer<T>
 {
-    public CircularBuffer(int size)
+    public CircularBuffer(int capacity)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
@@ -17,7 +17,7 @@ public class CircularBuffer<T>
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public void ForceWrite(T value)
+    public void Overwrite(T value)
     {
         throw new NotImplementedException("You need to implement this function.");
     }

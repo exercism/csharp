@@ -4,13 +4,13 @@ using System.Linq;
 
 public class CircularBuffer<T>
 {
-    private readonly int size;
+    private readonly int capacity;
     private List<T> items;
 
-    public CircularBuffer(int size)
+    public CircularBuffer(int capacity)
     {
-        this.size = size;
-        items = new List<T>(size);
+        this.capacity = capacity;
+        items = new List<T>(capacity);
     }
 
     public T Read()
@@ -29,7 +29,7 @@ public class CircularBuffer<T>
 
     public void Write(T value)
     {
-        if (items.Count == size)
+        if (items.Count == capacity)
         {
             throw new InvalidOperationException("Cannot write to full buffer");
         }
@@ -37,9 +37,9 @@ public class CircularBuffer<T>
         items.Add(value);
     }
 
-    public void ForceWrite(T value)
+    public void Overwrite(T value)
     {
-        if (items.Count == size)
+        if (items.Count == capacity)
         {
             DequeueHead();
         }
