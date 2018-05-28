@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-public enum GoPlayer
+public enum Owner
 {
     None,
     Black,
@@ -15,12 +15,12 @@ public class GoCounting
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public Tuple<GoPlayer, IEnumerable<Tuple<int, int>>> TerritoryFor(Tuple<int, int> coord)
+    public Tuple<Owner, IEnumerable<ValueTuple<int, int>>> TerritoryFor(ValueTuple<int, int> coord)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public Dictionary<GoPlayer, IEnumerable<Tuple<int, int>>> Territories()
+    public Dictionary<Owner, IEnumerable<ValueTuple<int, int>>> Territories()
     {
         throw new NotImplementedException("You need to implement this function.");
     }

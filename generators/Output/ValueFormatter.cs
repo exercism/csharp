@@ -28,6 +28,7 @@ namespace Generators.Output
                 case IDictionary<int, string[]> dict: return dict.Format();
                 case JArray jArray: return jArray.Format();
                 case int[,] multidimensionalArray: return multidimensionalArray.Format();
+                case IEnumerable<ValueTuple<int, int>> tuples: return tuples.Format();
                 case IEnumerable<Tuple<string, object>> tuples: return tuples.Format();
                 default: return val?.ToString();
             }
@@ -48,6 +49,8 @@ namespace Generators.Output
                     return FormatMultiLineEnumerable(dict.Keys.Select((key, i) => $"[{Format(key)}] = {Format(dict[key])}" + (i < dict.Keys.Count - 1 ? "," : "")), name, "new Dictionary<string, int>");
                 case IDictionary<int, string[]> dict:
                     return FormatMultiLineEnumerable(dict.Keys.Select((key, i) => $"[{Format(key)}] = {Format(dict[key])}" + (i < dict.Keys.Count - 1 ? "," : "")), name, "new Dictionary<int, string[]>");
+                case IEnumerable<ValueTuple<int, int>> tuples:
+                    return new[] { tuples.Format() };
                 default:
                     return new[] { $"var {name} = {Format(val)};" };
             }
@@ -77,6 +80,9 @@ namespace Generators.Output
 
         private static string Format(this IEnumerable<UnescapedValue> unescapedValues) =>
             $"new[] {{ {string.Join(", ", unescapedValues.Select(Format))} }}";
+
+        private static string Format(this IEnumerable<ValueTuple<int, int>> tuples) => tuples.Any() ?
+           $"new[] {{ {string.Join(", ", tuples)} }}" : "new ValueTuple<int,int>[0]";
 
         private static string Format(this IDictionary<string, object> dict) =>
             string.Join(", ", dict.Values.Select(Format));

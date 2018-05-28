@@ -1,139 +1,188 @@
-﻿using Xunit;
+// This file was auto-generated based on version 1.0.0 of the canonical data.
+
+using Xunit;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 public class GoCountingTest
 {
-    private static readonly string boardFiveByFive =
-        string.Join("\n", new[]
-            {
-                "  B  ",
-                " B B ",
-                "B W B",
-                " W W ",
-                "  W  "
-            });
-
-    private static readonly string board9x9 =
-        string.Join("\n", new[]
-            {
-                "  B   B  ",
-                "B   B   B",
-                "WBBBWBBBW",
-                "W W W W W",
-                "         ",
-                " W W W W ",
-                "B B   B B",
-                " W BBB W ",
-                "   B B   "
-            });
-
     [Fact]
-    public void FiveByFiveTerritoryForBlack()
+    public void Black_corner_territory_on_5x5_board()
     {
-        var board = new GoCounting(boardFiveByFive);
-        var result = board.TerritoryFor(new Tuple<int, int>(0, 1));
-        var expected = new HashSet<Tuple<int, int>> { new Tuple<int, int>(0, 0), new Tuple<int, int>(0, 1), new Tuple<int, int>(1, 0) };
-        Assert.Equal(GoPlayer.Black, result.Item1);        
-        Assert.True(expected.SetEquals(result.Item2));
+        var coordinate = (0, 1);
+        var board = 
+            "  B  \n" +
+            " B B \n" +
+            "B W B\n" +
+            " W W \n" +
+            "  W  ";
+        var sut = new GoCounting(board);
+        var actual = sut.Territory(coordinate);
+        var expected = (Owner.Black, new[] { (0, 0), (0, 1), (1, 0) });
+        Assert.Equal(expected.Item1, actual.Item1);
+        Assert.Equal(expected.Item2, actual.Item2);
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void FiveByFiveTerritoryForWhite()
+    public void White_center_territory_on_5x5_board()
     {
-        var board = new GoCounting(boardFiveByFive);
-        var result = board.TerritoryFor(new Tuple<int, int>(2, 3));
-        var expected = new HashSet<Tuple<int, int>> { new Tuple<int, int>(2, 3) };
-        Assert.Equal(GoPlayer.White, result.Item1);
-        Assert.True(expected.SetEquals(result.Item2));
+        var coordinate = (2, 3);
+        var board = 
+            "  B  \n" +
+            " B B \n" +
+            "B W B\n" +
+            " W W \n" +
+            "  W  ";
+        var sut = new GoCounting(board);
+        var actual = sut.Territory(coordinate);
+        var expected = (Owner.White, new[] { (2, 3) });
+        Assert.Equal(expected.Item1, actual.Item1);
+        Assert.Equal(expected.Item2, actual.Item2);
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void FiveByFiveOpenTerritory()
+    public void Open_corner_territory_on_5x5_board()
     {
-        var board = new GoCounting(boardFiveByFive);
-        var result = board.TerritoryFor(new Tuple<int, int>(1, 4));
-        var expected = new HashSet<Tuple<int, int>> { new Tuple<int, int>(0, 3), new Tuple<int, int>(0, 4), new Tuple<int, int>(1, 4) };
-        Assert.Equal(GoPlayer.None, result.Item1);
-        Assert.True(expected.SetEquals(result.Item2));
+        var coordinate = (1, 4);
+        var board = 
+            "  B  \n" +
+            " B B \n" +
+            "B W B\n" +
+            " W W \n" +
+            "  W  ";
+        var sut = new GoCounting(board);
+        var actual = sut.Territory(coordinate);
+        var expected = (Owner.None, new[] { (0, 3), (0, 4), (1, 4) });
+        Assert.Equal(expected.Item1, actual.Item1);
+        Assert.Equal(expected.Item2, actual.Item2);
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void FiveByFiveNonTerritoryStone()
+    public void A_stone_and_not_a_territory_on_5x5_board()
     {
-        var board = new GoCounting(boardFiveByFive);
-        Assert.Null(board.TerritoryFor(new Tuple<int, int>(1, 1)));
+        var coordinate = (1, 1);
+        var board = 
+            "  B  \n" +
+            " B B \n" +
+            "B W B\n" +
+            " W W \n" +
+            "  W  ";
+        var sut = new GoCounting(board);
+        var actual = sut.Territory(coordinate);
+        var expected = (Owner.None, new ValueTuple<int,int>[0]);
+        Assert.Equal(expected.Item1, actual.Item1);
+        Assert.Equal(expected.Item2, actual.Item2);
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void FiveByFiveNonTerritoryDueToTooLowCoordinate()
+    public void Invalid_because_x_is_too_low_for_5x5_board()
     {
-        var board = new GoCounting(boardFiveByFive);
-        Assert.Null(board.TerritoryFor(new Tuple<int, int>(-1, 1)));
+        var coordinate = (-1, 1);
+        var board = 
+            "  B  \n" +
+            " B B \n" +
+            "B W B\n" +
+            " W W \n" +
+            "  W  ";
+        var sut = new GoCounting(board);
+        Assert.Throws<ArgumentException>(() => sut.Territory(coordinate));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void FiveByFiveNonTerritoryDueToTooHighCoordinate()
+    public void Invalid_because_x_is_too_high_for_5x5_board()
     {
-        var board = new GoCounting(boardFiveByFive);
-        Assert.Null(board.TerritoryFor(new Tuple<int, int>(1, 5)));
+        var coordinate = (5, 1);
+        var board = 
+            "  B  \n" +
+            " B B \n" +
+            "B W B\n" +
+            " W W \n" +
+            "  W  ";
+        var sut = new GoCounting(board);
+        Assert.Throws<ArgumentException>(() => sut.Territory(coordinate));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void MinimalBoardWithNoTerritories()
+    public void Invalid_because_y_is_too_low_for_5x5_board()
     {
-        var input = "B";
-        var board = new GoCounting(input);
-
-        var expected = new Dictionary<GoPlayer, IEnumerable<Tuple<int, int>>>();
-
-        Assert.Equal(expected, board.Territories());
+        var coordinate = (1, -1);
+        var board = 
+            "  B  \n" +
+            " B B \n" +
+            "B W B\n" +
+            " W W \n" +
+            "  W  ";
+        var sut = new GoCounting(board);
+        Assert.Throws<ArgumentException>(() => sut.Territory(coordinate));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void OneTerritoryCoveringTheWholeBoard()
+    public void Invalid_because_y_is_too_high_for_5x5_board()
     {
-        var input = " ";
-        var board = new GoCounting(input);
-        var actual = board.Territories();
+        var coordinate = (1, 5);
+        var board = 
+            "  B  \n" +
+            " B B \n" +
+            "B W B\n" +
+            " W W \n" +
+            "  W  ";
+        var sut = new GoCounting(board);
+        Assert.Throws<ArgumentException>(() => sut.Territory(coordinate));
+    }
 
-        var expected = new Dictionary<GoPlayer, IEnumerable<Tuple<int, int>>>
+    [Fact(Skip = "Remove to run test")]
+    public void One_territory_is_the_whole_board()
+    {
+        var board = " ";
+        var sut = new GoCounting(board);
+        var actual = sut.Territories();
+        var expected = new Dictionary<Owner, ValueTuple<int,int>[]>
         {
-            [GoPlayer.None] = new[] { new Tuple<int, int>(0, 0) }
+            [Owner.Black] = new ValueTuple<int,int>[0],
+            [Owner.White] = new ValueTuple<int,int>[0],
+            [Owner.None] = new[] { (0, 0) }
         };
-        
         Assert.Equal(expected.Keys, actual.Keys);
-        Assert.Equal(expected[GoPlayer.None], actual[GoPlayer.None]);
+        Assert.Equal(expected[Owner.Black], actual[Owner.Black]);
+        Assert.Equal(expected[Owner.White], actual[Owner.White]);
+        Assert.Equal(expected[Owner.None], actual[Owner.None]);
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void TwoTerritoriesOnRectangularBoard()
+    public void Two_territory_rectangular_board()
     {
-        var input = string.Join("\n", new[] { " BW ", " BW " });
-        var board = new GoCounting(input);
-        var actual = board.Territories();
-
-        var expected = new Dictionary<GoPlayer, IEnumerable<Tuple<int, int>>>
+        var board = 
+            " BW \n" +
+            " BW ";
+        var sut = new GoCounting(board);
+        var actual = sut.Territories();
+        var expected = new Dictionary<Owner, ValueTuple<int,int>[]>
         {
-            [GoPlayer.Black] = new[] { new Tuple<int, int>(0, 0), new Tuple<int, int>(0, 1) },
-            [GoPlayer.White] = new[] { new Tuple<int, int>(3, 0), new Tuple<int, int>(3, 1) }
+            [Owner.Black] = new[] { (0, 0), (0, 1) },
+            [Owner.White] = new[] { (3, 0), (3, 1) },
+            [Owner.None] = new ValueTuple<int,int>[0]
         };
-                
         Assert.Equal(expected.Keys, actual.Keys);
-        Assert.Equal(expected[GoPlayer.Black], actual[GoPlayer.Black]);
-        Assert.Equal(expected[GoPlayer.White], actual[GoPlayer.White]);
+        Assert.Equal(expected[Owner.Black], actual[Owner.Black]);
+        Assert.Equal(expected[Owner.White], actual[Owner.White]);
+        Assert.Equal(expected[Owner.None], actual[Owner.None]);
     }
 
-    private class EnumerableEqualityComparer<T> : IEqualityComparer<IEnumerable<T>>
+    [Fact(Skip = "Remove to run test")]
+    public void Two_region_rectangular_board()
     {
-        public static readonly EnumerableEqualityComparer<T> Instance = new EnumerableEqualityComparer<T>();
-
-        public bool Equals(IEnumerable<T> x, IEnumerable<T> y) => x.SequenceEqual(y);
-
-        public int GetHashCode(IEnumerable<T> obj)
+        var board = " B ";
+        var sut = new GoCounting(board);
+        var actual = sut.Territories();
+        var expected = new Dictionary<Owner, ValueTuple<int,int>[]>
         {
-            throw new NotImplementedException();
-        }
+            [Owner.Black] = new[] { (0, 0), (2, 0) },
+            [Owner.White] = new ValueTuple<int,int>[0],
+            [Owner.None] = new ValueTuple<int,int>[0]
+        };
+        Assert.Equal(expected.Keys, actual.Keys);
+        Assert.Equal(expected[Owner.Black], actual[Owner.Black]);
+        Assert.Equal(expected[Owner.White], actual[Owner.White]);
+        Assert.Equal(expected[Owner.None], actual[Owner.None]);
     }
 }
