@@ -7,17 +7,18 @@ public class WordSearch
     private readonly string[] rows;
     private readonly int width;
     private readonly int height;
+    private (int, int)[] positions;
 
-    private static readonly Tuple<int, int>[] Directions =
+    private static readonly ValueTuple<int, int>[] Directions =
     {
-        new Tuple<int, int>( 1,  0),
-        new Tuple<int, int>( 0,  1),
-        new Tuple<int, int>(-1,  0),
-        new Tuple<int, int>( 0, -1),
-        new Tuple<int, int>( 1,  1),
-        new Tuple<int, int>( 1, -1),
-        new Tuple<int, int>(-1,  1),
-        new Tuple<int, int>(-1, -1)
+        ( 1,  0),
+        ( 0,  1),
+        (-1,  0),
+        ( 0, -1),
+        ( 1,  1),
+        ( 1, -1),
+        (-1,  1),
+        (-1, -1)
     };
 
     public WordSearch(string puzzle)
@@ -25,9 +26,15 @@ public class WordSearch
         rows = puzzle.Split('\n');
         width = rows[0].Length;
         height = rows.Length;
+        positions = Positions();
     }
 
-    public Tuple<Tuple<int, int>, Tuple<int, int>> Find(string word)
+    public Dictionary<string, ValueTuple<ValueTuple<int, int>, ValueTuple<int, int>>?> Search(IEnumerable<string> words)
+    {
+        return words.ToDictionary(word => word, Search);
+    }
+
+    private ValueTuple<ValueTuple<int, int>, ValueTuple<int, int>>? Search(string word)
     {
         return
             Positions()
@@ -35,7 +42,7 @@ public class WordSearch
                 .FirstOrDefault();
     }
 
-    private IEnumerable<Tuple<Tuple<int, int>, Tuple<int, int>>> Find(string word, Tuple<int, int> position, Tuple<int, int> direction)
+    private IEnumerable<ValueTuple<ValueTuple<int, int>, ValueTuple<int, int>>> Find(string word, ValueTuple<int, int> position, ValueTuple<int, int> direction)
     {
         var current = position;
 
@@ -46,13 +53,13 @@ public class WordSearch
                 yield break;
             }
 
-            current = new Tuple<int, int>(current.Item1 + direction.Item1, current.Item2 + direction.Item2);
+            current = (current.Item1 + direction.Item1, current.Item2 + direction.Item2);
         }
 
-        yield return Tuple.Create(position, new Tuple<int, int>(current.Item1 - direction.Item1, current.Item2 - direction.Item2));
+        yield return ValueTuple.Create(position, (current.Item1 - direction.Item1, current.Item2 - direction.Item2));
     }
 
-    private char? FindChar(Tuple<int, int> coordinate)
+    private char? FindChar(ValueTuple<int, int> coordinate)
     {
         if (coordinate.Item1 > 0 && coordinate.Item1 <= width && coordinate.Item2 > 0 && coordinate.Item2 <= height)
         {
@@ -62,9 +69,10 @@ public class WordSearch
         return null;
     }
 
-    private IEnumerable<Tuple<int, int>> Positions()
+    private ValueTuple<int, int>[] Positions()
     {
         return Enumerable.Range(1, width).SelectMany(x =>
-               Enumerable.Range(1, height).Select(y => new Tuple<int, int>(x, y)));
+               Enumerable.Range(1, height).Select(y => (x, y)))
+                .ToArray();
     }
 }

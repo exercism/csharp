@@ -4,12 +4,12 @@ using System.Linq;
 
 public class WordSearch
 {
-    public WordSearch(string puzzle)
+    public WordSearch(string grid)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public Tuple<Tuple<int, int>, Tuple<int, int>> Find(string word)
+    public ((int, int), (int, int)) Search(string wordsToSearchFor)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
