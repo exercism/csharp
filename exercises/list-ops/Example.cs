@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -14,25 +15,25 @@ public static class ListOps
 
     public static int Length<T>(List<T> input)
     {
-        return Foldl((acc, x) => acc + 1, 0, input);
+        return Foldl(input, 0, (acc, x) => acc + 1);
     }
 
     public static List<T> Reverse<T>(List<T> input)
     {
-        return Foldl((acc, x) => Cons(x, acc), new List<T>(), input);
+        return Foldl(input, new List<T>(), (acc, x) => Cons(x, acc));
     }
 
-    public static List<TOut> Map<TIn, TOut>(Func<TIn, TOut> map, List<TIn> input)
+    public static List<TOut> Map<TIn, TOut>(List<TIn> input, Func<TIn, TOut> map)
     {
-        return Foldr((x, acc) => Cons(map(x), acc), new List<TOut>(), input);
+        return Foldr(input, new List<TOut>(), (x, acc) => Cons(map(x), acc));
     }
 
-    public static List<T> Filter<T>(Func<T, bool> predicate, List<T> input)
+    public static List<T> Filter<T>(List<T> input, Func<T, bool> predicate)
     {
-        return Foldr((x, acc) => predicate(x) ? Cons(x, acc) : acc, new List<T>(), input);
+        return Foldr(input, new List<T>(), (x, acc) => predicate(x) ? Cons(x, acc) : acc);
     }
 
-    public static TOut Foldl<TIn, TOut>(Func<TOut, TIn, TOut> func, TOut start, List<TIn> input)
+    public static TOut Foldl<TIn, TOut>(List<TIn> input, TOut start, Func<TOut, TIn, TOut> func)
     {
         var acc = start;
 
@@ -42,7 +43,7 @@ public static class ListOps
         return acc;
     }
 
-    public static TOut Foldr<TIn, TOut>(Func<TIn, TOut, TOut> func, TOut start, List<TIn> input)
+    public static TOut Foldr<TIn, TOut>(List<TIn> input, TOut start, Func<TIn, TOut, TOut> func)
     {
         var acc = start;
 
@@ -57,7 +58,11 @@ public static class ListOps
         var concatenated = new List<T>();
 
         foreach (var list in input)
-            concatenated = Append(concatenated, list);
+        {
+            if (list is List<T> sublist)
+                concatenated = Append(concatenated, sublist);
+        }
+            
 
         return concatenated;
     }
