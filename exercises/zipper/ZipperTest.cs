@@ -1,85 +1,134 @@
-﻿using Xunit;
+// This file was auto-generated based on version 1.1.0 of the canonical data.
+
+using Xunit;
 
 public class ZipperTest
 {
-    private static BinTree<int> bt(int v, BinTree<int> l, BinTree<int> r) => new BinTree<int>(v, l, r);
-    private static BinTree<int> leaf(int v) => bt(v, null, null);
-
-    private readonly BinTree<int> empty;
-    private readonly BinTree<int> t1;
-    private readonly BinTree<int> t2;
-    private readonly BinTree<int> t3;
-    private readonly BinTree<int> t4;
-
-    public ZipperTest()
-    {
-        empty = null;
-        t1 = new BinTree<int>(1, bt(2, empty, leaf(3)), leaf(4));
-        t2 = new BinTree<int>(1, bt(5, empty, leaf(3)), leaf(4));
-        t3 = new BinTree<int>(1, bt(2, leaf(5), leaf(3)), leaf(4));
-        t4 = new BinTree<int>(1, leaf(2), leaf(4));
-    }
-
     [Fact]
     public void Data_is_retained()
     {
-        var zipper = Zipper<int>.FromTree(t1);
-        var tree = zipper.ToTree();
-        Assert.Equal(t1, tree);
+        var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
+        var sut = Zipper.FromTree(tree);
+        var actual = sut.ToTree();
+        var expected = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Left_right_and_value()
     {
-        var zipper = Zipper<int>.FromTree(t1);
-        Assert.Equal(3, zipper.Left().Right().Value);
+        var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
+        var sut = Zipper.FromTree(tree);
+        var actual = sut.Left().Right().Value();
+        var expected = 3;
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Dead_end()
     {
-        var zipper = Zipper<int>.FromTree(t1);
-        Assert.Null(zipper.Left().Left());
+        var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
+        var sut = Zipper.FromTree(tree);
+        var actual = sut.Left().Left();
+        Assert.Null(actual);
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Tree_from_deep_focus()
     {
-        var zipper = Zipper<int>.FromTree(t1);
-        Assert.Equal(t1, zipper.Left().Right().ToTree());
+        var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
+        var sut = Zipper.FromTree(tree);
+        var actual = sut.Left().Right().ToTree();
+        var expected = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Traversing_up_from_top()
+    {
+        var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
+        var sut = Zipper.FromTree(tree);
+        var actual = sut.Up();
+        Assert.Null(actual);
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Left_right_and_up()
+    {
+        var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
+        var sut = Zipper.FromTree(tree);
+        var actual = sut.Left().Up().Right().Up().Left().Right().Value();
+        var expected = 3;
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Set_value()
     {
-        var zipper = Zipper<int>.FromTree(t1);
-        var updatedZipper = zipper.Left().SetValue(5);
-        var tree = updatedZipper.ToTree();
-        Assert.Equal(t2, tree);
+        var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
+        var sut = Zipper.FromTree(tree);
+        var actual = sut.Left().SetValue(5).ToTree();
+        var expected = new BinTree(1, new BinTree(5, null, new BinTree(3, null, null)), new BinTree(4, null, null));
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Set_left_with_value()
+    public void Set_value_after_traversing_up()
     {
-        var zipper = Zipper<int>.FromTree(t1);
-        var updatedZipper = zipper.Left().SetLeft(new BinTree<int>(5, null, null));
-        var tree = updatedZipper.ToTree();
-        Assert.Equal(t3, tree);
+        var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
+        var sut = Zipper.FromTree(tree);
+        var actual = sut.Left().Right().Up().SetValue(5).ToTree();
+        var expected = new BinTree(1, new BinTree(5, null, new BinTree(3, null, null)), new BinTree(4, null, null));
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Set_right_to_null()
+    public void Set_left_with_leaf()
     {
-        var zipper = Zipper<int>.FromTree(t1);
-        var updatedZipper = zipper.Left().SetRight(null);
-        var tree = updatedZipper.ToTree();
-        Assert.Equal(t4, tree);
+        var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
+        var sut = Zipper.FromTree(tree);
+        var actual = sut.Left().SetLeft(new BinTree(5, null, null)).ToTree();
+        var expected = new BinTree(1, new BinTree(2, new BinTree(5, null, null), new BinTree(3, null, null)), new BinTree(4, null, null));
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Set_right_with_null()
+    {
+        var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
+        var sut = Zipper.FromTree(tree);
+        var actual = sut.Left().SetRight(null).ToTree();
+        var expected = new BinTree(1, new BinTree(2, null, null), new BinTree(4, null, null));
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Set_right_with_subtree()
+    {
+        var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
+        var sut = Zipper.FromTree(tree);
+        var actual = sut.SetRight(new BinTree(6, new BinTree(7, null, null), new BinTree(8, null, null))).ToTree();
+        var expected = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(6, new BinTree(7, null, null), new BinTree(8, null, null)));
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Set_value_on_deep_focus()
+    {
+        var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
+        var sut = Zipper.FromTree(tree);
+        var actual = sut.Left().Right().SetValue(5).ToTree();
+        var expected = new BinTree(1, new BinTree(2, null, new BinTree(5, null, null)), new BinTree(4, null, null));
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Different_paths_to_same_zipper()
     {
-        var zipper = Zipper<int>.FromTree(t1);
-        Assert.Equal(zipper.Right().ToTree(), zipper.Left().Up().Right().ToTree());
+        var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
+        var sut = Zipper.FromTree(tree);
+        var actual = sut.Left().Up().Right();
+        var expected = Zipper.FromTree(new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null))).Right();
+        Assert.Equal(expected, actual);
     }
 }

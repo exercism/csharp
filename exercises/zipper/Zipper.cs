@@ -1,63 +1,60 @@
 ﻿using System;
 
-public class BinTree<T>
+public class BinTree
 {
-    public BinTree(T value, BinTree<T> left, BinTree<T> right)
+    public BinTree(int value, BinTree left, BinTree right)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public T Value { get; }
-    public BinTree<T> Left { get; }
-    public BinTree<T> Right { get; }
+    public int Value { get; }
+    public BinTree Left { get; }
+    public BinTree Right { get; }
 }
 
-public class Zipper<T>
+public class Zipper
 {   
-    public T Value
-    {
-        get
-        {
-            throw new NotImplementedException("You need to implement this function.");
-        }
-    }
-
-    public Zipper<T> SetValue(T newValue)
+    public int Value()
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public Zipper<T> SetLeft(BinTree<T> binTree)
+    public Zipper SetValue(int newValue)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public Zipper<T> SetRight(BinTree<T> binTree) 
+    public Zipper SetLeft(BinTree binTree)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public Zipper<T> Left()
+    public Zipper SetRight(BinTree binTree) 
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public Zipper<T> Right()
+    public Zipper Left()
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public Zipper<T> Up()
+    public Zipper Right()
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public BinTree<T> ToTree()
+    public Zipper Up()
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public static Zipper<T> FromTree(BinTree<T> tree)
+    public BinTree ToTree()
+    {
+        throw new NotImplementedException("You need to implement this function.");
+    }
+
+    public static Zipper FromTree(BinTree tree)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
