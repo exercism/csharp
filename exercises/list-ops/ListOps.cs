@@ -14,22 +14,22 @@ public static class ListOps
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public static List<TOut> Map<TIn, TOut>(Func<TIn, TOut> map, List<TIn> input)
+    public static List<TOut> Map<TIn, TOut>(List<TIn> input, Func<TIn, TOut> map)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public static List<T> Filter<T>(Func<T, bool> predicate, List<T> input)
+    public static List<T> Filter<T>(List<T> input, Func<T, bool> predicate)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public static TOut Foldl<TIn, TOut>(Func<TOut, TIn, TOut> func, TOut start, List<TIn> input)
+    public static TOut Foldl<TIn, TOut>(List<TIn> input, TOut start, Func<TOut, TIn, TOut> func)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public static TOut Foldr<TIn, TOut>(Func<TIn, TOut, TOut> func, TOut start, List<TIn> input)
+    public static TOut Foldr<TIn, TOut>(List<TIn> input, TOut start, Func<TIn, TOut, TOut> func)
     {
         throw new NotImplementedException("You need to implement this function.");
     }

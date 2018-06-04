@@ -1,172 +1,174 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+// This file was auto-generated based on version 2.3.0 of the canonical data.
+
 using Xunit;
+using System;
+using System.Collections.Generic;
 
 public class ListOpsTest
 {
-    private const int Big = 10000;
-    private static readonly List<int> BigList = Range(1, Big);
-    private static readonly List<int> EmptyList = new List<int>();
-
-    private static List<int> Range(int from, int until) => new List<int>(Enumerable.Range(from, (until - from) + 1));
-    private static bool Odd(int x) => x % 2 == 1;
-
-    private static List<T> Cons<T>(T x, List<T> input)
-    {
-        var list = new List<T>(input);
-        list.Insert(0, x);
-
-        return list;
-    }
-
     [Fact]
-    public void LengthOfEmptyList()
+    public void Append_entries_to_a_list_and_return_the_new_list_empty_lists()
     {
-        Assert.Equal(0, ListOps.Length(EmptyList));
+        var list1 = new List<int>();
+        var list2 = new List<int>();
+        Assert.Empty(ListOps.Append(list1, list2));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void LengthOfNonEmptyList()
+    public void Append_entries_to_a_list_and_return_the_new_list_empty_list_to_list()
     {
-        Assert.Equal(4, ListOps.Length(Range(1, 4)));
+        var list1 = new List<int>();
+        var list2 = new List<int> { 1, 2, 3, 4 };
+        var expected = new List<int> { 1, 2, 3, 4 };
+        Assert.Equal(expected, ListOps.Append(list1, list2));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void LengthOfLargeList()
+    public void Append_entries_to_a_list_and_return_the_new_list_non_empty_lists()
     {
-        Assert.Equal(Big, ListOps.Length(Range(1, Big)));
+        var list1 = new List<int> { 1, 2 };
+        var list2 = new List<int> { 2, 3, 4, 5 };
+        var expected = new List<int> { 1, 2, 2, 3, 4, 5 };
+        Assert.Equal(expected, ListOps.Append(list1, list2));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void ReverseOfEmptylist()
+    public void Concatenate_a_list_of_lists_empty_list()
     {
-        Assert.Equal(EmptyList, ListOps.Reverse(EmptyList));
+        var lists = new List<List<int>>();
+        Assert.Empty(ListOps.Concat(lists));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void ReverseOfNonEmptyList()
+    public void Concatenate_a_list_of_lists_list_of_lists()
     {
-        Assert.Equal(Range(1, 100).OrderByDescending(x => x).ToList(), ListOps.Reverse(Range(1, 100)));
+        var lists = new List<List<int>> { new List<int> { 1, 2 }, new List<int> { 3 }, new List<int>(), new List<int> { 4, 5, 6 } };
+        var expected = new List<int> { 1, 2, 3, 4, 5, 6 };
+        Assert.Equal(expected, ListOps.Concat(lists));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void MapOfEmptylist()
+    public void Concatenate_a_list_of_lists_list_of_nested_lists()
     {
-        Assert.Equal(EmptyList, ListOps.Map(x => x + 1, EmptyList));
+        var lists = new List<List<List<int>>> { new List<List<int>> { new List<int> { 1 }, new List<int> { 2 } }, new List<List<int>> { new List<int> { 3 } }, new List<List<int>> { new List<int>() }, new List<List<int>> { new List<int> { 4, 5, 6 } } };
+        var expected = new List<List<int>> { new List<int> { 1 }, new List<int> { 2 }, new List<int> { 3 }, new List<int>(), new List<int> { 4, 5, 6 } };
+        Assert.Equal(expected, ListOps.Concat(lists));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void MapOfNonEmptyList()
+    public void Filter_list_returning_only_values_that_satisfy_the_filter_function_empty_list()
     {
-        Assert.Equal(new List<int> {2, 4, 6, 8}, ListOps.Map(x => x + 1, new List<int> {1, 3, 5, 7}));
+        var list = new List<int>();
+        var function = new Func<int, bool>((x) => x % 2 == 1);
+        Assert.Empty(ListOps.Filter(list, function));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void FilterOfEmptylist()
+    public void Filter_list_returning_only_values_that_satisfy_the_filter_function_non_empty_list()
     {
-        Assert.Equal(EmptyList, ListOps.Filter(x => true, EmptyList));
+        var list = new List<int> { 1, 2, 3, 5 };
+        var function = new Func<int, bool>((x) => x % 2 == 1);
+        var expected = new List<int> { 1, 3, 5 };
+        Assert.Equal(expected, ListOps.Filter(list, function));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void FilterOfNormalList()
+    public void Returns_the_length_of_a_list_empty_list()
     {
-        Assert.Equal(new List<int> {1, 3}, ListOps.Filter(Odd, Range(1, 4)));
+        var list = new List<int>();
+        Assert.Equal(0, ListOps.Length(list));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void FoldlOfEmptylist()
+    public void Returns_the_length_of_a_list_non_empty_list()
     {
-        Assert.Equal(0, ListOps.Foldl((acc, x) => acc + x, 0, EmptyList));
+        var list = new List<int> { 1, 2, 3, 4 };
+        Assert.Equal(4, ListOps.Length(list));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void FoldlOfNonEmptyList()
+    public void Return_a_list_of_elements_whose_values_equal_the_list_value_transformed_by_the_mapping_function_empty_list()
     {
-        Assert.Equal(7, ListOps.Foldl((acc, x) => acc + x, -3, Range(1, 4)));
+        var list = new List<int>();
+        var function = new Func<int, int>((x) => x + 1);
+        Assert.Empty(ListOps.Map(list, function));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void FoldlOfHugeList()
+    public void Return_a_list_of_elements_whose_values_equal_the_list_value_transformed_by_the_mapping_function_non_empty_list()
     {
-        Assert.Equal(Big * (Big + 1L) / 2L, ListOps.Foldl((acc, x) => acc + x, 0L, Range(1, Big)));
+        var list = new List<int> { 1, 3, 5, 7 };
+        var function = new Func<int, int>((x) => x + 1);
+        var expected = new List<int> { 2, 4, 6, 8 };
+        Assert.Equal(expected, ListOps.Map(list, function));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void FoldlWithNonCommutativeFunction()
+    public void Folds_reduces_the_given_list_from_the_left_with_a_function_empty_list()
     {
-        Assert.Equal(0, ListOps.Foldl((acc, x) => acc - x, 10, Range(1, 4)));
+        var list = new List<int>();
+        var initial = 2;
+        var function = new Func<int, int, int>((x, y) => x * y);
+        Assert.Equal(2, ListOps.Foldl(list, initial, function));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void FoldlIsNotJustFoldrFlip()
+    public void Folds_reduces_the_given_list_from_the_left_with_a_function_direction_independent_function_applied_to_non_empty_list()
     {
-        Assert.Equal("fdsa", new string(ListOps.Foldl((acc, x) => Cons(x, acc), new List<char>(), "asdf".ToList()).ToArray()));
+        var list = new List<int> { 1, 2, 3, 4 };
+        var initial = 5;
+        var function = new Func<int, int, int>((x, y) => x + y);
+        Assert.Equal(15, ListOps.Foldl(list, initial, function));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void FoldrAsId()
+    public void Folds_reduces_the_given_list_from_the_left_with_a_function_direction_dependent_function_applied_to_non_empty_list()
     {
-        Assert.Equal(BigList, ListOps.Foldr((x, acc) => Cons(x, acc), EmptyList, Range(1, Big)));
+        var list = new List<int> { 2, 5 };
+        var initial = 5;
+        var function = new Func<int, int, int>((x, y) => x / y);
+        Assert.Equal(0, ListOps.Foldl(list, initial, function));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void FoldrAsAppend()
+    public void Folds_reduces_the_given_list_from_the_right_with_a_function_empty_list()
     {
-        Assert.Equal(BigList, ListOps.Foldr((x, acc) => Cons(x, acc), Range(100, Big), Range(1, 99)));
+        var list = new List<int>();
+        var initial = 2;
+        var function = new Func<int, int, int>((x, y) => x * y);
+        Assert.Equal(2, ListOps.Foldr(list, initial, function));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void AppendOfEmptylists()
+    public void Folds_reduces_the_given_list_from_the_right_with_a_function_direction_independent_function_applied_to_non_empty_list()
     {
-        Assert.Equal(EmptyList, ListOps.Append(EmptyList, EmptyList));
+        var list = new List<int> { 1, 2, 3, 4 };
+        var initial = 5;
+        var function = new Func<int, int, int>((x, y) => x + y);
+        Assert.Equal(15, ListOps.Foldr(list, initial, function));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void AppendOfEmptyAndNonEmptyLists()
+    public void Folds_reduces_the_given_list_from_the_right_with_a_function_direction_dependent_function_applied_to_non_empty_list()
     {
-        Assert.Equal(Range(1, 4), ListOps.Append(EmptyList, Range(1, 4)));
+        var list = new List<int> { 2, 5 };
+        var initial = 5;
+        var function = new Func<int, int, int>((x, y) => x / y);
+        Assert.Equal(2, ListOps.Foldr(list, initial, function));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void AppendOfNonEmptyAndEmptyLists()
+    public void Reverse_the_elements_of_the_list_empty_list()
     {
-        Assert.Equal(Range(1, 4), ListOps.Append(Range(1, 4), EmptyList));
+        var list = new List<int>();
+        Assert.Empty(ListOps.Reverse(list));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void AppendOfNonEmptylists()
+    public void Reverse_the_elements_of_the_list_non_empty_list()
     {
-        Assert.Equal(Range(1, 5), ListOps.Append(Range(1, 3), new List<int> {4, 5}));
-    }
-
-    [Fact(Skip = "Remove to run test")]
-    public void AppendOfLargeLists()
-    {
-        Assert.Equal(BigList, ListOps.Append(Range(1, Big / 2), Range(1 + Big / 2, Big)));
-    }
-
-    [Fact(Skip = "Remove to run test")]
-    public void ConcatOfNoLists()
-    {
-        Assert.Equal(EmptyList, ListOps.Concat(new List<List<int>>()));
-    }
-
-    [Fact(Skip = "Remove to run test")]
-    public void ConcatOfListOfLists()
-    {
-        Assert.Equal(Range(1, 6),
-            ListOps.Concat(new List<List<int>>
-            {
-                new List<int> {1, 2},
-                new List<int> {3},
-                EmptyList,
-                new List<int> {4, 5, 6}
-            }));
-    }
-
-    [Fact(Skip = "Remove to run test")]
-    public void ConcatOfLargeListOfSmallLists()
-    {
-        Assert.Equal(BigList, ListOps.Concat(ListOps.Map(x => new List<int> {x}, Range(1, Big))));
+        var list = new List<int> { 1, 3, 5, 7 };
+        var expected = new List<int> { 7, 5, 3, 1 };
+        Assert.Equal(expected, ListOps.Reverse(list));
     }
 }

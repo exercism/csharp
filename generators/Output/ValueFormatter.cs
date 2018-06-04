@@ -19,6 +19,8 @@ namespace Generators.Output
                 case char c: return c.Format();
                 case Enum enumeration: return enumeration.Format();
                 case Tuple<string, object> tuple: return tuple.Format();
+                case List<int> ints: return ints.Format();
+                case List<object> objects: return objects.Format();
                 case IEnumerable<int> ints: return ints.Format();
                 case IEnumerable<string> strings: return strings.Format();
                 case IEnumerable<UnescapedValue> unescapedValues when unescapedValues.Any(): return unescapedValues.Format();
@@ -30,6 +32,7 @@ namespace Generators.Output
                 case int[,] multidimensionalArray: return multidimensionalArray.Format();
                 case IEnumerable<ValueTuple<int, int>> tuples: return tuples.Format();
                 case IEnumerable<Tuple<string, object>> tuples: return tuples.Format();
+                case IEnumerable<object> objects: return objects.Format();
                 default: return val?.ToString();
             }
         }
@@ -71,6 +74,8 @@ namespace Generators.Output
 
         private static string Format(this float flt) => flt.ToString(CultureInfo.InvariantCulture);
 
+        private static string Format(this int i) => i.ToString(CultureInfo.InvariantCulture);
+
         private static string Format(this ulong ulng) => $"{ulng}UL";
 
         private static string Format(this Enum @enumeration) =>
@@ -84,6 +89,15 @@ namespace Generators.Output
 
         private static string Format(this IEnumerable<string> strings) =>
             strings.Any() ? $"new[] {{ {string.Join(", ", strings.Select(Format))} }}" : "new string[0]";
+
+        private static string Format(this IEnumerable<object> objects) =>
+            objects.Any() ? $"new[] {{ {string.Join(", ", objects.Select(Format))} }}" : "new object[0]";
+
+        private static string Format(this List<int> ints) =>
+            ints.Any() ? $"new List<int> {{ {string.Join(", ", ints.Select(Format))} }}" : "new List<int>()";
+
+        private static string Format(this List<object> objects) =>
+            objects.Any() ? $"new List<object> {{ {string.Join(", ", objects.Select(Format))} }}" : "new List<object>()";
 
         private static string Format(this IEnumerable<UnescapedValue> unescapedValues) =>
             $"new[] {{ {string.Join(", ", unescapedValues.Select(Format))} }}";
