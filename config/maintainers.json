@@ -2,64 +2,64 @@
   "docs_url": "https://github.com/exercism/docs/blob/master/maintaining-a-track/maintainer-configuration.md",
   "maintainers": [
     {
-      "alumnus": false,
-      "avatar_url": null,
-      "bio": null,
       "github_username": "ErikSchierboom",
+      "alumnus": false,
+      "show_on_website": true,
+      "name": "Erik Schierboom",
       "link_text": "My blog",
       "link_url": "http://www.erikschierboom.com/",
-      "name": "Erik Schierboom",
-      "show_on_website": true
+      "avatar_url": null,
+      "bio": null
     },
     {
-      "alumnus": false,
-      "avatar_url": null,
-      "bio": null,
       "github_username": "burtlo",
+      "alumnus": false,
+      "show_on_website": false,
+      "name": null,
       "link_text": null,
       "link_url": null,
-      "name": null,
-      "show_on_website": false
+      "avatar_url": null,
+      "bio": null
     },
     {
-      "alumnus": false,
-      "avatar_url": null,
-      "bio": null,
       "github_username": "bressain",
+      "alumnus": false,
+      "show_on_website": false,
+      "name": null,
       "link_text": null,
       "link_url": null,
-      "name": null,
-      "show_on_website": false
+      "avatar_url": null,
+      "bio": null
     },
     {
-      "alumnus": false,
-      "avatar_url": null,
-      "bio": null,
       "github_username": "jwood803",
-      "link_text": null,
-      "link_url": null,
+      "alumnus": false,
+      "show_on_website": false,
       "name": null,
-      "show_on_website": false
-    },
-    {
-      "alumnus": false,
-      "avatar_url": null,
-      "bio": "I stumbled upon this site when I was trying to learn about functional programming and F#. Little did I know, I'd wind up becoming a contributor and learning a whole lot more than what I originally intended to. I had never contributed to an open source project before, and it's been a very rewarding experience.",
-      "github_username": "robkeim",
       "link_text": null,
       "link_url": null,
-      "name": "Rob Keim",
-      "show_on_website": true
+      "avatar_url": null,
+      "bio": null
     },
     {
+      "github_username": "robkeim",
       "alumnus": false,
+      "show_on_website": true,
+      "name": "Rob Keim",
+      "link_text": null,
+      "link_url": null,
       "avatar_url": null,
-      "bio": "I am a software engineer with a passion for testing and C#. If you have any questions about the C# track or the language in general, feel free to ask; I'd love to hear them.",
+      "bio": "I stumbled upon this site when I was trying to learn about functional programming and F#. Little did I know, I'd wind up becoming a contributor and learning a whole lot more than what I originally intended to. I had never contributed to an open source project before, and it's been a very rewarding experience."
+    },
+    {
       "github_username": "jpreese",
+      "alumnus": false,
+      "show_on_website": true,
+      "name": "John Reese",
       "link_text": "I sometimes write about stuff",
       "link_url": "http://www.reesespieces.io/",
-      "name": "John Reese",
-      "show_on_website": true
+      "avatar_url": null,
+      "bio": "I am a software engineer with a passion for testing and C#. If you have any questions about the C# track or the language in general, feel free to ask; I'd love to hear them."
     }
   ]
 }
