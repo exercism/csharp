@@ -3,8 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-public delegate void ChangedEventHandler(object sender, int value);
-
 public class Reactor
 {
     private readonly Dictionary<int, Cell> cells = new Dictionary<int, Cell>();
@@ -61,7 +59,7 @@ public abstract class Cell
     public List<Cell> Consumers { get; }
     
     public abstract int Value { get; set; }
-    public abstract event ChangedEventHandler Changed;
+    public abstract event EventHandler<int> Changed;
 }
 
 public class InputCell : Cell
@@ -73,7 +71,7 @@ public class InputCell : Cell
         _value = value;
     }
 
-    public override event ChangedEventHandler Changed;
+    public override event EventHandler<int> Changed;
 
     public override int Value
     {
@@ -109,7 +107,7 @@ public class ComputeCell : Cell
     }
 
     public override int Value { get; set; }
-    public override event ChangedEventHandler Changed;
+    public override event EventHandler<int> Changed;
 
     public void Recompute()
     {
