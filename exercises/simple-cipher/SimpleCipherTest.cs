@@ -1,138 +1,102 @@
-using System;
+// This file was auto-generated based on version 1.0.0 of the canonical data.
+
 using Xunit;
+using System;
 
-public class RandomKeyCipherTest
-{
-    private readonly Cipher cipher = new Cipher();
-
-    [Fact]
-    public void Cipher_key_is_made_of_letters()
-    {
-        Assert.Matches("[a-z]+", cipher.Key);
-    }
-
-    [Fact(Skip = "Remove to run test")]
-    public void Default_cipher_key_is_100_characters()
-    {
-        Assert.Equal(100, cipher.Key.Length);
-    }
-
-    [Fact(Skip = "Remove to run test")]
-    public void Cipher_keys_are_randomly_generated()
-    {
-        Assert.NotEqual(new Cipher().Key, cipher.Key);
-    }
-
-    // Here we take advantage of the fact that plaintext of "aaa..." doesn't output
-    // the key. This is a critical problem with shift ciphers, some characters
-    // will always output the key verbatim.
-    [Fact(Skip = "Remove to run test")]
-    public void Cipher_can_encode()
-    {
-        Assert.Equal(cipher.Key.Substring(0, 10), cipher.Encode("aaaaaaaaaa"));
-    }
-
-    [Fact(Skip = "Remove to run test")]
-    public void Cipher_can_decode()
-    {
-        Assert.Equal("aaaaaaaaaa", cipher.Decode(cipher.Key.Substring(0, 10)));
-    }
-
-    [Fact(Skip = "Remove to run test")]
-    public void Cipher_is_reversible()
-    {
-        const string PLAINTEXT = "abcdefghij";
-        Assert.Equal(PLAINTEXT, cipher.Decode(cipher.Encode(PLAINTEXT)));
-    }
-}
-
-
-public class IncorrectKeyCipherTest
+public class SimpleCipherTest
 {
     [Fact]
-    public void Cipher_throws_with_an_all_caps_key()
+    public void Random_key_cipher_can_encode()
     {
-        Assert.Throws<ArgumentException>(() => new Cipher("ABCDEF"));
+        var sut = new SimpleCipher();
+        Assert.Equal(sut.Key.Substring(0, 10), sut.Encode("aaaaaaaaaa"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Cipher_throws_with_any_caps_key()
+    public void Random_key_cipher_can_decode()
     {
-        Assert.Throws<ArgumentException>(() => new Cipher("abcdEFg"));
+        var sut = new SimpleCipher();
+        Assert.Equal("aaaaaaaaaa", sut.Decode(sut.Key.Substring(0, 10)));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Cipher_throws_with_numeric_key()
+    public void Random_key_cipher_is_reversible_i_e_if_you_apply_decode_in_a_encoded_result_you_must_see_the_same_plaintext_encode_parameter_as_a_result_of_the_decode_method()
     {
-        Assert.Throws<ArgumentException>(() => new Cipher("12345"));
+        var sut = new SimpleCipher();
+        Assert.Equal("abcdefghij", sut.Decode(sut.Encode("abcdefghij")));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Cipher_throws_with_any_numeric_key()
+    public void Random_key_cipher_key_is_made_only_of_lowercase_letters()
     {
-        Assert.Throws<ArgumentException>(() => new Cipher("abcd345ef"));
+        var sut = new SimpleCipher();
+        Assert.Matches("^[a-z]+$", sut.Key);
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Cipher_throws_with_empty_key()
+    public void Substitution_cipher_can_encode()
     {
-        Assert.Throws<ArgumentException>(() => new Cipher(""));
-    }
-}
-
-
-public class SubstitutionCipherTest
-{
-    private const string KEY = "abcdefghij";
-    private readonly Cipher cipher = new Cipher(KEY);
-
-    [Fact(Skip = "Remove to run test")]
-    public void Cipher_keeps_the_submitted_key()
-    {
-        Assert.Equal(KEY, cipher.Key);
+        var sut = new SimpleCipher("abcdefghij");
+        Assert.Equal("abcdefghij", sut.Encode("aaaaaaaaaa"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Cipher_can_encode_with_given_key()
+    public void Substitution_cipher_can_decode()
     {
-        Assert.Equal("abcdefghij", cipher.Encode("aaaaaaaaaa"));
+        var sut = new SimpleCipher("abcdefghij");
+        Assert.Equal("aaaaaaaaaa", sut.Decode("abcdefghij"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Cipher_can_decode_with_given_key()
+    public void Substitution_cipher_is_reversible_i_e_if_you_apply_decode_in_a_encoded_result_you_must_see_the_same_plaintext_encode_parameter_as_a_result_of_the_decode_method()
     {
-        Assert.Equal("aaaaaaaaaa", cipher.Decode("abcdefghij"));
+        var sut = new SimpleCipher("abcdefghij");
+        Assert.Equal("abcdefghij", sut.Decode(sut.Encode("abcdefghij")));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Cipher_is_reversible_given_key()
+    public void Substitution_cipher_can_double_shift_encode()
     {
-        const string PLAINTEXT = "abcdefghij";
-        Assert.Equal(PLAINTEXT, cipher.Decode(cipher.Encode(PLAINTEXT)));
+        var sut = new SimpleCipher("iamapandabear");
+        Assert.Equal("qayaeaagaciai", sut.Encode("iamapandabear"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Cipher_can_double_shift_encode()
+    public void Substitution_cipher_can_wrap_on_encode()
     {
-        const string PLAINTEXT = "iamapandabear";
-        Assert.Equal("qayaeaagaciai", new Cipher(PLAINTEXT).Encode(PLAINTEXT));
+        var sut = new SimpleCipher("abcdefghij");
+        Assert.Equal("zabcdefghi", sut.Encode("zzzzzzzzzz"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Cipher_can_wrap_encode()
+    public void Substitution_cipher_can_wrap_on_decode()
     {
-        Assert.Equal("zabcdefghi", cipher.Encode("zzzzzzzzzz"));
+        var sut = new SimpleCipher("abcdefghij");
+        Assert.Equal("zzzzzzzzzz", sut.Decode("zabcdefghi"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Cipher_can_encode_a_message_that_is_shorter_than_the_key()
+    public void Substitution_cipher_can_handle_messages_longer_than_the_key()
     {
-        Assert.Equal("abcde", cipher.Encode("aaaaa"));
+        var sut = new SimpleCipher("abc");
+        Assert.Equal("iboaqcnecbfcr", sut.Encode("iamapandabear"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Cipher_can_decode_a_message_that_is_shorter_than_the_key()
+    public void Incorrect_key_cipher_throws_an_error_with_an_all_uppercase_key()
     {
-        Assert.Equal("aaaaa", cipher.Decode("abcde"));
+        Assert.Throws<ArgumentException>(() => new SimpleCipher("ABCDEF"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Incorrect_key_cipher_throws_an_error_with_a_numeric_key()
+    {
+        Assert.Throws<ArgumentException>(() => new SimpleCipher("12345"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Incorrect_key_cipher_throws_an_error_with_empty_key()
+    {
+        Assert.Throws<ArgumentException>(() => new SimpleCipher(""));
     }
 }
