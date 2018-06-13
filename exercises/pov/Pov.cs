@@ -1,42 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 
-public class Graph<T>
+public class Tree
 {
-    public Graph(T value, IEnumerable<Graph<T>> children)
+    public Tree(string value, params Tree[] children)
     {
-    }
-
-    public T Value
-    {
-        get
-        {
-            throw new NotImplementedException("You need to implement this function.");
-        }
-    }
-
-    public IEnumerable<Graph<T>> Children
-    {
-        get
-        {
-            throw new NotImplementedException("You need to implement this function.");
-        }
+        throw new NotImplementedException("You need to implement this function.");
     }
 }
 
 public static class Pov
 {
-    public static Graph<T> CreateGraph<T>(T value, IEnumerable<Graph<T>> children) 
+    public static Tree FromPov(Tree tree, string from)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public static Graph<T> FromPOV<T>(T value, Graph<T> graph) where T : IComparable
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
-
-    public static IEnumerable<T> TracePathBetween<T>(T value1, T value2, Graph<T> graph) where T : IComparable
+    public static IEnumerable<string> PathTo(string from, string to, Tree tree)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
