@@ -1,13 +1,13 @@
 using System;
 
-public class Cipher
+public class SimpleCipher
 {
-    public Cipher()
+    public SimpleCipher()
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public Cipher(string key)
+    public SimpleCipher(string key)
     {
         throw new NotImplementedException("You need to implement this function.");
     }

@@ -3,34 +3,31 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-public class Cipher
+public class SimpleCipher
 {
-    private const string ALPHABET = "abcdefghijklmnopqrstuvwxyz";
+    private const string Alphabet = "abcdefghijklmnopqrstuvwxyz";
+
     private static readonly Random Rand = new Random();
 
-    public string Key { get; private set; }
+    public string Key { get; }
 
-    public Cipher()
+    public SimpleCipher()
     {
-        Key = new string(Enumerable.Range(0, 100).Select(x => ALPHABET[Rand.Next(ALPHABET.Length)]).ToArray());
+        Key = new string(Enumerable.Range(0, 100).Select(x => Alphabet[Rand.Next(Alphabet.Length)]).ToArray());
     }
 
-    public Cipher(string key)
+    public SimpleCipher(string key)
     {
-        if (!IsValidKey(key)) throw new ArgumentException("Invalid key");
-        Key = key;
+        Key = IsValidKey(key) ? key : throw new ArgumentException("Invalid key");
     }
 
-    private static bool IsValidKey(string key)
-    {
-        return Regex.IsMatch(key, "^[a-z]+$");
-    }
+    private static bool IsValidKey(string key) => Regex.IsMatch(key, "^[a-z]+$");
 
     public string Encode(string plaintext)
     {
         var ciphertext = new StringBuilder(plaintext.Length);
 
-        for (int i = 0; i < Math.Min(plaintext.Length, Key.Length); i++)
+        for (var i = 0; i < plaintext.Length; i++)
             ciphertext.Append(EncodeCharacter(plaintext, i));
 
         return ciphertext.ToString();
@@ -38,17 +35,17 @@ public class Cipher
 
     private char EncodeCharacter(string plaintext, int idx)
     {
-        var alphabetIdx = ALPHABET.IndexOf(plaintext[idx]) + ALPHABET.IndexOf(Key[idx]);
-        if (alphabetIdx >= ALPHABET.Length)
-            alphabetIdx -= ALPHABET.Length;
-        return ALPHABET[alphabetIdx];
+        var alphabetIdx = Alphabet.IndexOf(plaintext[idx]) + Alphabet.IndexOf(Key[idx % Key.Length]);
+        if (alphabetIdx >= Alphabet.Length)
+            alphabetIdx -= Alphabet.Length;
+        return Alphabet[alphabetIdx];
     }
 
     public string Decode(string ciphertext)
     {
         var plaintext = new StringBuilder(ciphertext.Length);
 
-        for (int i = 0; i < ciphertext.Length; i++)
+        for (var i = 0; i < ciphertext.Length; i++)
             plaintext.Append(DecodeCharacter(ciphertext, i));
 
         return plaintext.ToString();
@@ -56,9 +53,9 @@ public class Cipher
 
     private char DecodeCharacter(string ciphertext, int idx)
     {
-        var alphabetIdx = ALPHABET.IndexOf(ciphertext[idx]) - ALPHABET.IndexOf(Key[idx]);
+        var alphabetIdx = Alphabet.IndexOf(ciphertext[idx]) - Alphabet.IndexOf(Key[idx % Key.Length]);
         if (alphabetIdx < 0)
-            alphabetIdx += ALPHABET.Length;
-        return ALPHABET[alphabetIdx];
+            alphabetIdx += Alphabet.Length;
+        return Alphabet[alphabetIdx];
     }
 }
