@@ -50,10 +50,7 @@ namespace Generators.Exercises
             return TemplateRenderer.RenderInline(template, testMethodBody.AssertTemplateParameters);
         }
 
-        protected override HashSet<string> AddAdditionalNamespaces() => new HashSet<string>
-        {
-            typeof(Math).Namespace
-        };
+        protected override IEnumerable<string> AdditionalNamespaces() => new[] { typeof(Math).Namespace };
 
         private static object ConvertToType(dynamic rawValue)
         {

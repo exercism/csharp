@@ -75,7 +75,7 @@ namespace Generators.Exercises
         private string FormatCoordinate(dynamic coordinate)
             => ValueFormatter.Format((coordinate["column"], coordinate["row"]));
 
-        protected override HashSet<string> AddAdditionalNamespaces() => new HashSet<string>
+        protected override IEnumerable<string> AdditionalNamespaces() => new[]
         {
             typeof(ValueTuple<int,int>).Namespace,
             typeof(Dictionary<string,ValueTuple<int,int>>).Namespace

@@ -18,7 +18,7 @@ namespace Generators.Exercises
             }
         }
 
-        protected override HashSet<string> AddAdditionalNamespaces() => new HashSet<string> { typeof(DateTime).Namespace };
+        protected override IEnumerable<string> AdditionalNamespaces() => new[] { typeof(DateTime).Namespace };
 
         private static string FormatDateTime(DateTime dateTime)
         {

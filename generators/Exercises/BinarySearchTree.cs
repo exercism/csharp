@@ -29,7 +29,7 @@ namespace Generators.Exercises
 
     public class BinarySearchTree : GeneratorExercise
     {
-        protected override HashSet<string> AddAdditionalNamespaces() => new HashSet<string>() { typeof(System.Linq.IQueryable).Namespace };
+        protected override IEnumerable<string> AdditionalNamespaces() => new[] { typeof(System.Linq.IQueryable).Namespace };
 
         private StringBuilder testFactCodeLines;
         void addCodeLine(string line) => testFactCodeLines.Append(line + "\r\n");

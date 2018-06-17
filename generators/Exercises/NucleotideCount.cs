@@ -23,7 +23,7 @@ namespace Generators.Exercises
         private static dynamic ConvertExpected(dynamic expected)
             => ((Dictionary<string, object>)expected).ToDictionary(kv => kv.Key[0], kv => int.Parse($"{kv.Value}"));
 
-        protected override HashSet<string> AddAdditionalNamespaces() => new HashSet<string>() { typeof(Dictionary<char, int>).Namespace };
+        protected override IEnumerable<string> AdditionalNamespaces() => new[] { typeof(Dictionary<char, int>).Namespace };
 
         protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {

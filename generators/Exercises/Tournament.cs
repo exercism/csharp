@@ -21,16 +21,13 @@ namespace Generators.Exercises
             }
         }
 
-        protected override HashSet<string> AddAdditionalNamespaces()
+        protected override IEnumerable<string> AdditionalNamespaces() => new[]
         {
-            return new HashSet<string>
-            {
-                typeof(Array).Namespace,
-                typeof(System.String).Namespace,
-                typeof(System.IO.Stream).Namespace,
-                typeof(System.Text.UTF8Encoding).Namespace
-            };
-        }
+            typeof(Array).Namespace,
+            typeof(System.String).Namespace,
+            typeof(System.IO.Stream).Namespace,
+            typeof(System.Text.UTF8Encoding).Namespace
+        };
 
         protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {

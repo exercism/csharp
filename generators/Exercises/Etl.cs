@@ -28,6 +28,6 @@ namespace Generators.Exercises
                 ["input"] = input.ToDictionary(kv => int.Parse(kv.Key), kv => (string[])kv.Value)
             };
 
-        protected override HashSet<string> AddAdditionalNamespaces() => new HashSet<string> { typeof(Dictionary<string, int>).Namespace };
+        protected override IEnumerable<string> AdditionalNamespaces() => new[] { typeof(Dictionary<string, int>).Namespace };
     }
 }

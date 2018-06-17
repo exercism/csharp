@@ -86,7 +86,7 @@ namespace Generators.Exercises
         private string FormatTerritory(dynamic territory)
             => ValueFormatter.Format((territory as JArray).Select(coordinate => (coordinate[0].ToObject<int>(), coordinate[1].ToObject<int>())).ToArray());
 
-        protected override HashSet<string> AddAdditionalNamespaces() => new HashSet<string>
+        protected override IEnumerable<string> AdditionalNamespaces() => new[]
         {
             typeof(ArgumentException).Namespace,
             typeof(Dictionary<int,int>).Namespace

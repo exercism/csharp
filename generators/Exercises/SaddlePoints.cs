@@ -30,13 +30,7 @@ namespace Generators.Exercises
             }
         }
 
-        protected override HashSet<string> AddAdditionalNamespaces()
-        {
-            return new HashSet<string>
-            {
-                typeof(System.String).Namespace
-            };
-        }
+        protected override IEnumerable<string> AdditionalNamespaces() => new[] { typeof(System.String).Namespace };
 
         private IEnumerable<Tuple<string, object>> ToTupleCollection(Array array)
         {

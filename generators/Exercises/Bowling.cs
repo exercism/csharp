@@ -112,9 +112,6 @@ public void DoRoll(ICollection<int> rolls, BowlingGame sut)
 }" };
         }
 
-        protected override HashSet<string> AddAdditionalNamespaces()
-        {
-            return new HashSet<string> { typeof(ICollection<>).Namespace };
-        }
+        protected override IEnumerable<string> AdditionalNamespaces() => new[] { typeof(ICollection<>).Namespace };
     }
 }

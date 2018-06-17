@@ -26,10 +26,7 @@ namespace Generators
         {
         }
 
-        protected virtual HashSet<string> AddAdditionalNamespaces()
-        {
-            return new HashSet<string>();
-        }
+        protected virtual IEnumerable<string> AdditionalNamespaces() => Enumerable.Empty<string>();
 
         protected virtual string RenderTestMethodBodyArrange(TestMethodBody testMethodBody)
             => TemplateRenderer.RenderPartial(testMethodBody.ArrangeTemplateName, testMethodBody.ArrangeTemplateParameters);
@@ -52,7 +49,7 @@ namespace Generators
             foreach (var canonicalDataCase in _canonicalData.Cases.Where(canonicalDataCase => canonicalDataCase.ExceptionThrown != null))
                 usingNamespaces.Add(canonicalDataCase.ExceptionThrown.Namespace);
 
-            usingNamespaces.UnionWith(AddAdditionalNamespaces());
+            usingNamespaces.UnionWith(AdditionalNamespaces());
 
             return usingNamespaces;
         }

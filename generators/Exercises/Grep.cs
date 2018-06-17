@@ -20,6 +20,7 @@ namespace Generators.Exercises
                 canonicalDataCase.UseVariableForExpected = true;
             }
         }
+
         private static dynamic ConvertExpected(dynamic expected)
         {
             var arr = expected as object[];
@@ -38,14 +39,11 @@ namespace Generators.Exercises
             return testClass;
         }
 
-        protected override HashSet<string> AddAdditionalNamespaces()
+        protected override IEnumerable<string> AdditionalNamespaces() => new[]
         {
-            return new HashSet<string>
-            {
-                typeof(IDisposable).Namespace,
-                typeof(System.IO.File).Namespace
-            };
-        }
+            typeof(IDisposable).Namespace,
+            typeof(System.IO.File).Namespace
+        };
 
         protected override string[] RenderAdditionalMethods()
         {
