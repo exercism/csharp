@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 2.4.0 of the canonical data.
+// This file was auto-generated based on version 2.5.0 of the canonical data.
 
 using Xunit;
 
@@ -92,5 +92,11 @@ public class IsbnVerifierTest
     public void Input_is_9_characters()
     {
         Assert.False(IsbnVerifier.IsValid("134456729"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Invalid_characters_are_not_ignored()
+    {
+        Assert.False(IsbnVerifier.IsValid("3132P34035"));
     }
 }

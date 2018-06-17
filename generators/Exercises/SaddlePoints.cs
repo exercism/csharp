@@ -19,7 +19,7 @@ namespace Generators.Exercises
                 canonicalDataCase.UseVariableForTested = true;
                 canonicalDataCase.UseVariableForExpected = true;
 
-                canonicalDataCase.Input["matrix"] = (canonicalDataCase.Input["matrix"] as JArray).ToObject<int[,]>();
+                canonicalDataCase.Input["matrix"] = ToMultiDimensionalArray(canonicalDataCase.Input["matrix"]);
 
                 var array = canonicalDataCase.Expected as Array;
 
@@ -31,6 +31,15 @@ namespace Generators.Exercises
         }
 
         protected override IEnumerable<string> AdditionalNamespaces() => new[] { typeof(System.String).Namespace };
+
+        private static dynamic ToMultiDimensionalArray(dynamic array)
+        {
+            var jArray = (JArray)array;
+            if (jArray.Count == 1 && ((JArray)jArray[0]).Count == 0)
+                return new int[0, 0];
+
+            return jArray.ToObject<int[,]>();
+        }
 
         private IEnumerable<Tuple<string, object>> ToTupleCollection(Array array)
         {
