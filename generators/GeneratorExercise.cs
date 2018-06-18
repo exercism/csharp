@@ -54,7 +54,7 @@ namespace Generators
             return usingNamespaces;
         }
 
-        private string[] RenderTestMethods() => _canonicalData.Cases.Select(RenderTestMethod).Concat(RenderAdditionalMethods()).ToArray();
+        private IEnumerable<string> RenderTestMethods() => _canonicalData.Cases.Select(RenderTestMethod).Concat(RenderAdditionalMethods()).ToArray();
 
         protected virtual TestClass CreateTestClass() => new TestClass
         {
@@ -92,17 +92,17 @@ namespace Generators
         {
             if (canonicalDataCase.ExceptionThrown != null)
             {
-                return new TestMethodBodyWithExceptionCheck(canonicalDataCase, _canonicalData);
+                return new TestMethodBodyWithExceptionCheck(canonicalDataCase);
             }
 
             switch (canonicalDataCase.Expected)
             {
                 case bool _:
-                    return new TestMethodBodyWithBooleanCheck(canonicalDataCase, _canonicalData);
+                    return new TestMethodBodyWithBooleanCheck(canonicalDataCase);
                 case null:
-                    return new TestMethodBodyWithNullCheck(canonicalDataCase, _canonicalData);
+                    return new TestMethodBodyWithNullCheck(canonicalDataCase);
                 default:
-                    return new TestMethodBodyWithEqualityCheck(canonicalDataCase, _canonicalData);
+                    return new TestMethodBodyWithEqualityCheck(canonicalDataCase);
             }
         }
     }

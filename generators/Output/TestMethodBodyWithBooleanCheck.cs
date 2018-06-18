@@ -5,7 +5,7 @@ namespace Generators.Output
 {
     public class TestMethodBodyWithBooleanCheck : TestMethodBody
     {
-        public TestMethodBodyWithBooleanCheck(CanonicalDataCase canonicalDataCase, CanonicalData canonicalData) : base(canonicalDataCase, canonicalData)
+        public TestMethodBodyWithBooleanCheck(CanonicalDataCase canonicalDataCase) : base(canonicalDataCase)
         {
             AssertTemplateName = "AssertBoolean";
             AssertTemplateParameters = new { BooleanAssertMethod, Data.TestedValue };

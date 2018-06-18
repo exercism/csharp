@@ -4,7 +4,7 @@ namespace Generators.Output
 {
     public class TestMethodBodyWithNullCheck : TestMethodBody
     {
-        public TestMethodBodyWithNullCheck(CanonicalDataCase canonicalDataCase, CanonicalData canonicalData) : base(canonicalDataCase, canonicalData)
+        public TestMethodBodyWithNullCheck(CanonicalDataCase canonicalDataCase) : base(canonicalDataCase)
         {
             AssertTemplateName = "AssertNull";
             AssertTemplateParameters = new { Data.TestedValue };

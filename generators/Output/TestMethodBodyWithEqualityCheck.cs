@@ -5,7 +5,7 @@ namespace Generators.Output
 {
     public class TestMethodBodyWithEqualityCheck : TestMethodBody
     {
-        public TestMethodBodyWithEqualityCheck(CanonicalDataCase canonicalDataCase, CanonicalData canonicalData) : base(canonicalDataCase, canonicalData)
+        public TestMethodBodyWithEqualityCheck(CanonicalDataCase canonicalDataCase) : base(canonicalDataCase)
         {
             AssertTemplateName = ExpectedIsEmptyEnumerable ? "AssertEqual_Empty" : "AssertEqual";
             AssertTemplateParameters = new { Data.ExpectedParameter, Data.TestedValue };

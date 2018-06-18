@@ -5,11 +5,10 @@ namespace Generators.Output
 {
     public abstract class TestMethodBody
     {
-        protected TestMethodBody(CanonicalDataCase canonicalDataCase, CanonicalData canonicalData)
+        protected TestMethodBody(CanonicalDataCase canonicalDataCase)
         {
             CanonicalDataCase = canonicalDataCase;
-            CanonicalData = canonicalData;
-
+            
             Data = new TestMethodBodyData(this);
             InitializeTemplateParameters();
         }
@@ -17,7 +16,6 @@ namespace Generators.Output
         public string TemplateName { get; set; } = "TestMethodBody";
 
         public CanonicalDataCase CanonicalDataCase { get; }
-        public CanonicalData CanonicalData { get; }
         public TestMethodBodyData Data { get; }
 
         public virtual bool UseVariablesForInput => CanonicalDataCase.UseVariablesForInput;

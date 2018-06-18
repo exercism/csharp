@@ -4,7 +4,7 @@ namespace Generators.Output
 {
     public class TestMethodBodyWithExceptionCheck : TestMethodBody
     {
-        public TestMethodBodyWithExceptionCheck(CanonicalDataCase canonicalDataCase, CanonicalData canonicalData) : base(canonicalDataCase, canonicalData)
+        public TestMethodBodyWithExceptionCheck(CanonicalDataCase canonicalDataCase) : base(canonicalDataCase)
         {
             AssertTemplateName = "AssertThrowsException";
             AssertTemplateParameters = new { ExceptionType, Data.TestedValue };
