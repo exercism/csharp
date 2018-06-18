@@ -32,7 +32,7 @@ namespace Generators.Exercises
                 expected.AddRange(expectedDictionary.Select(((kv, i) => $"    [\"{kv.Key}\"] = {FormatPosition(kv.Value)}{(i < expectedDictionary.Count - 1 ? "," : "")}")));
                 expected.Add("}");
 
-                canonicalDataCase.Expected = new UnescapedValue(string.Join("\n", expected));
+                canonicalDataCase.Expected = new UnescapedValue(string.Join(Environment.NewLine, expected));
             }
         }
 
@@ -47,7 +47,7 @@ namespace Generators.Exercises
                 assert.Add(RenderTestMethodBodyAssertForSearchWord(kv.Key, kv.Value));
             }
 
-            return string.Join("\n", assert);
+            return string.Join(Environment.NewLine, assert);
         }
 
         private string RenderTestMethodBodyAssertForSearchWord(string word, dynamic expected)

@@ -50,7 +50,7 @@ namespace Generators.Exercises
                             "}"
                         };
 
-                    canonicalDataCase.Expected = new UnescapedValue(string.Join("\n", expected));
+                    canonicalDataCase.Expected = new UnescapedValue(string.Join(Environment.NewLine, expected));
                 }
             }
         }
@@ -64,7 +64,7 @@ namespace Generators.Exercises
 
             if (testMethodBody.CanonicalDataCase.Property == "territories")
             {
-                return string.Join("\n", new[]
+                return string.Join(Environment.NewLine, new[]
                 {
                     "Assert.Equal(expected.Keys, actual.Keys);",
                     "Assert.Equal(expected[Owner.Black], actual[Owner.Black]);",
@@ -73,7 +73,7 @@ namespace Generators.Exercises
                 });
             }
 
-            return string.Join("\n", new[]
+            return string.Join(Environment.NewLine, new[]
             {
                 "Assert.Equal(expected.Item1, actual.Item1);",
                 "Assert.Equal(expected.Item2, actual.Item2);"

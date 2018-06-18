@@ -32,7 +32,7 @@ namespace Generators.Exercises
             }
 
             var renderedCells = ((object[])cells).Select(RenderCell);
-            return string.Join("\n", renderedCells);
+            return string.Join(Environment.NewLine, renderedCells);
         }
 
         private static string RenderCell(dynamic cell)
@@ -73,7 +73,7 @@ namespace Generators.Exercises
             }
 
             var renderedOperations = ((object[])operations).Select(RenderOperation);
-            return string.Join("\n", renderedOperations);
+            return string.Join(Environment.NewLine, renderedOperations);
         }
 
         private static string RenderOperation(dynamic operation)
@@ -112,7 +112,7 @@ namespace Generators.Exercises
                     return $"Assert.Equal({operation["value"]}, {ToVariableName(operation["cell"])}.Value);";
                 case "add_callback":
                     var addCallbackName = ToVariableName(operation["name"]);
-                    return $"var {addCallbackName} = A.Fake<EventHandler<int>>();\n" +
+                    return $"var {addCallbackName} = A.Fake<EventHandler<int>>();{Environment.NewLine}" +
                            $"{ToVariableName(operation["cell"])}.Changed += {addCallbackName};";
                 case "remove_callback":
                     var removeCallbackName = ToVariableName(operation["name"]);

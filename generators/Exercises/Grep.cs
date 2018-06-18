@@ -27,7 +27,7 @@ namespace Generators.Exercises
             if (arr == null || arr.Length == 0)
                 return "";
 
-            return new UnescapedValue("\n" + string.Join("\n", arr.Select(((x, i) => $"    \"{x}\\n\"{(i < arr.Length - 1 ? " +" : "")}"))));
+            return new UnescapedValue(Environment.NewLine + string.Join(Environment.NewLine, arr.Select(((x, i) => $"    \"{x}\\n\"{(i < arr.Length - 1 ? " +" : "")}"))));
         }
 
         protected override TestClass CreateTestClass()

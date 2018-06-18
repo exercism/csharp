@@ -32,7 +32,7 @@ namespace Generators.Exercises
                 return base.RenderTestMethodBodyAssert(testMethodBody);
             }
 
-            return string.Join("\n", new[]
+            return string.Join(Environment.NewLine, new[]
             {
                 "Assert.Equal(expected.Item1, actual.Item1);",
                 "Assert.Equal(expected.Item2, actual.Item2);"
