@@ -8,9 +8,9 @@ namespace Generators.Exercises
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
-            canonicalData.Exercise = "yacht-game";
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
+                canonicalDataCase.Exercise = "yacht-game";
                 var category = canonicalDataCase.Input["category"].ToString();
                 var formattedCategory = StringDehumanizeExtensions.Dehumanize(category);
                 canonicalDataCase.Input["category"] = new UnescapedValue($"YachtCategory.{formattedCategory}");

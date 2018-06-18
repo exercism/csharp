@@ -11,10 +11,9 @@ namespace Generators.Exercises
     {
         protected override void UpdateCanonicalData(CanonicalData canonicalData)
         {
-            canonicalData.Exercise = "complex-number";
-
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
+                canonicalDataCase.Exercise = "complex-number";
                 canonicalDataCase.UseVariableForExpected = IsComplexNumber(canonicalDataCase.Expected);
                 canonicalDataCase.Expected = ConvertToType(canonicalDataCase.Expected);
 

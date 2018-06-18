@@ -17,6 +17,9 @@ namespace Generators.Input
             var version = ParseVersion(canonicalDataJson);
             var canonicalDataCases = ParseCanonicalDataCases(canonicalDataJson);
 
+            foreach (var canonicalDataCase in canonicalDataCases)
+                canonicalDataCase.Exercise = name;
+
             return new CanonicalData(name, version, canonicalDataCases);
         }
 

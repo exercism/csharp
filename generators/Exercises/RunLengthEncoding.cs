@@ -31,7 +31,7 @@ namespace Generators.Exercises
             var templateParameters = new
             {
                 ExpectedOutput = testMethodBody.CanonicalDataCase.Expected,
-                ExerciseName = testMethodBody.CanonicalData.Exercise.ToTestedClassName()
+                ExerciseName = testMethodBody.CanonicalDataCase.Exercise.ToTestedClassName()
             };
 
             return TemplateRenderer.RenderInline(template, templateParameters);

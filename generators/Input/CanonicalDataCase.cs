@@ -3,12 +3,13 @@ using System.Collections.Generic;
 
 namespace Generators.Input
 {
-    public class CanonicalDataCase
+    public sealed class CanonicalDataCase
     {
         public IDictionary<string, dynamic> Properties { get; set; }
         public IDictionary<string, dynamic> Input { get; set; }
         public dynamic Expected { get; set; }
 
+        public string Exercise { get; set; }
         public string Property { get; set; }
         public string Description { get; set; }
         public string[] DescriptionPath { get; set; }

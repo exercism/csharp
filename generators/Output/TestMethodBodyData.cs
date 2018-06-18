@@ -23,7 +23,7 @@ namespace Generators.Output
         private CanonicalDataCase CanonicalDataCase => _testMethodBody.CanonicalDataCase;
         private CanonicalData CanonicalData => _testMethodBody.CanonicalData;
 
-        private string TestedClassName => CanonicalData.Exercise.ToTestedClassName();
+        private string TestedClassName => CanonicalDataCase.Exercise.ToTestedClassName();
         private string TestedMethodName => CanonicalDataCase.Property.ToTestedMethodName();
 
         private IDictionary<string, object> Input => CanonicalDataCase.InputParameters.ToDictionary(key => key, key => CanonicalDataCase.Input[key]); 
