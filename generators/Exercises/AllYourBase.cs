@@ -16,5 +16,7 @@ namespace Generators.Exercises
                 canonicalDataCase.UseVariableForExpected = true;
             }
         }
+
+        protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(Array).Namespace };
     }
 }

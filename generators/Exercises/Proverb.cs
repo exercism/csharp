@@ -1,4 +1,6 @@
-﻿using Generators.Input;
+﻿using System;
+using System.Collections.Generic;
+using Generators.Input;
 using Generators.Output;
 
 namespace Generators.Exercises
@@ -14,5 +16,7 @@ namespace Generators.Exercises
                 canonicalDataCase.Expected = ConvertHelper.ToArray<string>(canonicalDataCase.Expected);
             }
         }
+
+        protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(Array).Namespace };
     }
 }

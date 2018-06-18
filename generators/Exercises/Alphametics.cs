@@ -27,6 +27,6 @@ namespace Generators.Exercises
             return expected.ToDictionary(kv => kv.Key[0], kv => int.Parse(kv.Value.ToString()));
         }
 
-        protected override IEnumerable<string> AdditionalNamespaces() => new[] { typeof(Dictionary<char, int>).Namespace };
+        protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(Dictionary<char, int>).Namespace };
     }
 }

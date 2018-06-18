@@ -21,7 +21,7 @@ namespace Generators.Exercises
             }
         }
 
-        protected override IEnumerable<string> AdditionalNamespaces() => new[]
+        protected override IEnumerable<string> AdditionalNamespaces => new[]
         {
             typeof(Array).Namespace,
             typeof(System.String).Namespace,

@@ -125,7 +125,7 @@ namespace Generators.Exercises
 
         protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody) => "";
 
-        protected override IEnumerable<string> AdditionalNamespaces() => new[]
+        protected override IEnumerable<string> AdditionalNamespaces => new[]
         {
             typeof(EventHandler).Namespace,
             "FakeItEasy"

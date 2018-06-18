@@ -1,6 +1,7 @@
 // This file was auto-generated based on version 1.3.0 of the canonical data.
 
 using Xunit;
+using System;
 
 public class BookStoreTest
 {
@@ -21,7 +22,7 @@ public class BookStoreTest
     [Fact(Skip = "Remove to run test")]
     public void Empty_basket()
     {
-        var basket = new int[0];
+        var basket = Array.Empty<int>();
         Assert.Equal(0, BookStore.Total(basket));
     }
 

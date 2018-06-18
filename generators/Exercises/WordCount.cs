@@ -19,6 +19,6 @@ namespace Generators.Exercises
         private static dynamic ConvertExpected(dynamic expected)
             => ((Dictionary<string, object>)expected).ToDictionary(kv => kv.Key, kv => int.Parse(kv.Value.ToString()));
 
-        protected override IEnumerable<string> AdditionalNamespaces() => new[] { typeof(Dictionary<string, int>).Namespace };
+        protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(Dictionary<string, int>).Namespace };
     }
 }

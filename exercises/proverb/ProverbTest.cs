@@ -1,13 +1,14 @@
 // This file was auto-generated based on version 1.1.0 of the canonical data.
 
 using Xunit;
+using System;
 
 public class ProverbTest
 {
     [Fact]
     public void Zero_pieces()
     {
-        Assert.Empty(Proverb.Recite(new string[0]));
+        Assert.Empty(Proverb.Recite(Array.Empty<string>()));
     }
 
     [Fact(Skip = "Remove to run test")]

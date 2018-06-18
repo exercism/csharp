@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Generators.Input;
 using Generators.Output;
@@ -26,7 +27,7 @@ namespace Generators
         {
         }
 
-        protected virtual IEnumerable<string> AdditionalNamespaces() => Enumerable.Empty<string>();
+        protected virtual IEnumerable<string> AdditionalNamespaces => Enumerable.Empty<string>();
 
         protected virtual string RenderTestMethodBodyArrange(TestMethodBody testMethodBody)
             => TemplateRenderer.RenderPartial(testMethodBody.ArrangeTemplateName, testMethodBody.ArrangeTemplateParameters);
@@ -37,10 +38,7 @@ namespace Generators
         protected virtual string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
             => TemplateRenderer.RenderPartial(testMethodBody.AssertTemplateName, testMethodBody.AssertTemplateParameters);
 
-        protected virtual string[] RenderAdditionalMethods()
-        {
-            return new string[] { };
-        }
+        protected virtual string[] RenderAdditionalMethods() => Array.Empty<string>();
 
         private HashSet<string> GetUsingNamespaces()
         {
@@ -49,7 +47,7 @@ namespace Generators
             foreach (var canonicalDataCase in _canonicalData.Cases.Where(canonicalDataCase => canonicalDataCase.ExceptionThrown != null))
                 usingNamespaces.Add(canonicalDataCase.ExceptionThrown.Namespace);
 
-            usingNamespaces.UnionWith(AdditionalNamespaces());
+            usingNamespaces.UnionWith(AdditionalNamespaces);
 
             return usingNamespaces;
         }

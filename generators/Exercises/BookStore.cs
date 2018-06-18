@@ -1,4 +1,6 @@
-﻿using Generators.Input;
+﻿using System;
+using System.Collections.Generic;
+using Generators.Input;
 
 namespace Generators.Exercises
 {
@@ -14,5 +16,7 @@ namespace Generators.Exercises
                 canonicalDataCase.UseVariablesForInput = true;
             }
         }
+
+        protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(Array).Namespace };
     }
 }

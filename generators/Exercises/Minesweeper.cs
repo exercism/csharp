@@ -20,10 +20,7 @@ namespace Generators.Exercises
             }
         }
 
-        private UnescapedValue ToMultiLineString(JArray input)
-        {
-            return new UnescapedValue("new string[0]");
-        }
+        private UnescapedValue ToMultiLineString(JArray input) => new UnescapedValue("Array.Empty<string>()");
 
         private UnescapedValue ToMultiLineString(IEnumerable<string> input)
         {
@@ -37,6 +34,6 @@ namespace Generators.Exercises
             return new UnescapedValue(TemplateRenderer.RenderInline(template, new { input }));
         }
 
-        protected override IEnumerable<string> AdditionalNamespaces() => new[] { typeof(Array).Namespace };
+        protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(Array).Namespace };
     }
 }

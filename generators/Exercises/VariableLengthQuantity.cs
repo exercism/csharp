@@ -24,14 +24,11 @@ namespace Generators.Exercises
             }
         }
 
+        protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(Array).Namespace };
+
         private dynamic FormatUInt32Array(dynamic input)
         {
             var numbers = ToUInt32Array(input as IEnumerable);
-            if (!numbers.Any())
-            {
-                return new UnescapedValue("new uint[0]");
-            }
-
             return numbers.Select(number => new UnescapedValue(string.Format("0x{0:X}u", number))).ToArray();
         }
 

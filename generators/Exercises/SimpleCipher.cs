@@ -62,6 +62,6 @@ namespace Generators.Exercises
             return base.RenderTestMethodBodyAssert(testMethodBody);
         }
 
-        protected override IEnumerable<string> AdditionalNamespaces() => new[] { typeof(ArgumentException).Namespace };
+        protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(ArgumentException).Namespace };
     }
 }

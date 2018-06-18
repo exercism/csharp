@@ -150,7 +150,7 @@ public class BowlingTest
     public void Rolls_cannot_score_negative_points()
     {
         var sut = new BowlingGame();
-        var previousRolls = new int[0];
+        var previousRolls = Array.Empty<int>();
         DoRoll(previousRolls, sut);
         Assert.Throws<ArgumentException>(() => sut.Roll(-1));
     }
@@ -159,7 +159,7 @@ public class BowlingTest
     public void A_roll_cannot_score_more_than_10_points()
     {
         var sut = new BowlingGame();
-        var previousRolls = new int[0];
+        var previousRolls = Array.Empty<int>();
         DoRoll(previousRolls, sut);
         Assert.Throws<ArgumentException>(() => sut.Roll(11));
     }
@@ -223,7 +223,7 @@ public class BowlingTest
     public void An_unstarted_game_cannot_be_scored()
     {
         var sut = new BowlingGame();
-        var previousRolls = new int[0];
+        var previousRolls = Array.Empty<int>();
         DoRoll(previousRolls, sut);
         Assert.Throws<ArgumentException>(() => sut.Score());
     }

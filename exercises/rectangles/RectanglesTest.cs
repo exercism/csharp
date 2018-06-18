@@ -1,13 +1,14 @@
 // This file was auto-generated based on version 1.1.0 of the canonical data.
 
 using Xunit;
+using System;
 
 public class RectanglesTest
 {
     [Fact]
     public void No_rows()
     {
-        var strings = new string[0];
+        var strings = Array.Empty<string>();
         Assert.Equal(0, Rectangles.Count(strings));
     }
 

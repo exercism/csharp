@@ -39,7 +39,7 @@ namespace Generators.Exercises
             return testClass;
         }
 
-        protected override IEnumerable<string> AdditionalNamespaces() => new[]
+        protected override IEnumerable<string> AdditionalNamespaces => new[]
         {
             typeof(IDisposable).Namespace,
             typeof(System.IO.File).Namespace

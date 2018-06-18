@@ -30,7 +30,7 @@ namespace Generators.Exercises
             }
         }
 
-        protected override IEnumerable<string> AdditionalNamespaces() => new[] { typeof(System.String).Namespace };
+        protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(System.String).Namespace };
 
         private static dynamic ToMultiDimensionalArray(dynamic array)
         {

@@ -37,7 +37,7 @@ namespace Generators.Exercises
                 var array = testMethodBody.CanonicalDataCase.Input[PreviousRolls] as int[];
                 if (array == null)
                 {
-                    builder.Append("var previousRolls = new int[0];");
+                    builder.Append("var previousRolls = Array.Empty<int>();");
                 }
                 else
                 {
@@ -112,6 +112,10 @@ public void DoRoll(ICollection<int> rolls, BowlingGame sut)
 }" };
         }
 
-        protected override IEnumerable<string> AdditionalNamespaces() => new[] { typeof(ICollection<>).Namespace };
+        protected override IEnumerable<string> AdditionalNamespaces => new[]
+        {
+            typeof(Array).Namespace,
+            typeof(ICollection<>).Namespace
+        };
     }
 }

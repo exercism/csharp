@@ -114,7 +114,7 @@ namespace Generators.Exercises
             return value;
         }
 
-        protected override IEnumerable<string> AdditionalNamespaces() => new[]
+        protected override IEnumerable<string> AdditionalNamespaces => new[]
         {
             typeof(Func<int,int>).Namespace,
             typeof(List<int>).Namespace

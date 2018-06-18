@@ -68,6 +68,6 @@ namespace Generators.Exercises
         private static string RenderClearOperation(dynamic operation)
             => "buffer.Clear();";
 
-        protected override IEnumerable<string> AdditionalNamespaces() => new[] { typeof(InvalidOperationException).Namespace };
+        protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(InvalidOperationException).Namespace };
     }
 }

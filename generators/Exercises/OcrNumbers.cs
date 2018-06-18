@@ -33,6 +33,6 @@ namespace Generators.Exercises
             return new UnescapedValue(TemplateRenderer.RenderInline(template, new { input }));
         }
 
-        protected override IEnumerable<string> AdditionalNamespaces() => new[] { typeof(Array).Namespace };
+        protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(Array).Namespace };
     }
 }

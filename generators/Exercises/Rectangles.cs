@@ -1,4 +1,6 @@
-﻿using Generators.Input;
+﻿using System;
+using System.Collections.Generic;
+using Generators.Input;
 
 namespace Generators.Exercises
 {
@@ -9,9 +11,11 @@ namespace Generators.Exercises
             foreach (var canonicalDataCase in canonicalData.Cases)
             {
                 canonicalDataCase.Property = "count";
-                canonicalDataCase.Input["strings"] = canonicalDataCase.Input["strings"] as string[] ?? new string[0];
+                canonicalDataCase.Input["strings"] = canonicalDataCase.Input["strings"] as string[] ?? Array.Empty<string>();
                 canonicalDataCase.UseVariablesForInput = true;
             }
         }
+
+        protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(Array).Namespace };
     }
 }

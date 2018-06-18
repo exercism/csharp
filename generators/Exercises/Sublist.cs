@@ -8,7 +8,7 @@ namespace Generators.Exercises
 {
     public class Sublist : GeneratorExercise
     {
-        protected override IEnumerable<string> AdditionalNamespaces() => new[] { typeof(IList<int>).Namespace };
+        protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(IList<int>).Namespace };
 
         private UnescapedValue InputValues(int[] list)
         {

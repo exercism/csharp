@@ -49,7 +49,7 @@ namespace Generators.Output
                 case IEnumerable<string> strings:
                     if (!strings.Any())
                     {
-                        return new[] { $"var {name} = new string[0];" };
+                        return new[] { $"var {name} = Array.Empty<string>();" };
                     }
 
                     return FormatMultiLineEnumerable(strings.Select((str, i) => str.Format() + (i < strings.Count() - 1 ? "," : "")), name, "new[]");
@@ -85,13 +85,13 @@ namespace Generators.Output
             $"Tuple.Create({tuple.Item1}, {tuple.Item2})";
 
         private static string Format(this IEnumerable<int> ints) => ints.Any() ?
-           $"new[] {{ {string.Join(", ", ints)} }}" : "new int[0]";
+           $"new[] {{ {string.Join(", ", ints)} }}" : "Array.Empty<int>()";
 
         private static string Format(this IEnumerable<string> strings) =>
-            strings.Any() ? $"new[] {{ {string.Join(", ", strings.Select(Format))} }}" : "new string[0]";
+            strings.Any() ? $"new[] {{ {string.Join(", ", strings.Select(Format))} }}" : "Array.Empty<string>()";
 
         private static string Format(this IEnumerable<object> objects) =>
-            objects.Any() ? $"new[] {{ {string.Join(", ", objects.Select(Format))} }}" : "new object[0]";
+            objects.Any() ? $"new[] {{ {string.Join(", ", objects.Select(Format))} }}" : "Array.Empty<object>()";
 
         private static string Format(this List<int> ints) =>
             ints.Any() ? $"new List<int> {{ {string.Join(", ", ints.Select(Format))} }}" : "new List<int>()";
@@ -103,7 +103,7 @@ namespace Generators.Output
             $"new[] {{ {string.Join(", ", unescapedValues.Select(Format))} }}";
 
         private static string Format(this IEnumerable<ValueTuple<int, int>> tuples) => tuples.Any() ?
-           $"new[] {{ {string.Join(", ", tuples)} }}" : "new ValueTuple<int,int>[0]";
+           $"new[] {{ {string.Join(", ", tuples)} }}" : "Array.Empty<ValueTuple<int,int>>()";
 
         private static string Format(this IDictionary<string, object> dict) =>
             string.Join(", ", dict.Values.Select(Format));

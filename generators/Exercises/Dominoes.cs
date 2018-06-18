@@ -18,7 +18,7 @@ namespace Generators.Exercises
             }
         }
 
-        protected override IEnumerable<string> AdditionalNamespaces() => new[] { typeof(Tuple).Namespace };
+        protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(Tuple).Namespace };
 
         private UnescapedValue ConvertInput(dynamic input)
         {

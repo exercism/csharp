@@ -8,8 +8,8 @@ public class MinesweeperTest
     [Fact]
     public void No_rows()
     {
-        var minefield = new string[0];
-        var expected = new string[0];
+        var minefield = Array.Empty<string>();
+        var expected = Array.Empty<string>();
         Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 
