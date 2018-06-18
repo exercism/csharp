@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Generators.Input;
 using Generators.Output;
@@ -22,18 +23,18 @@ namespace Generators.Exercises
             }
         }
 
-        protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             if (testMethodBody.CanonicalDataCase.ExceptionThrown != null)
             {
                 return base.RenderTestMethodBodyAssert(testMethodBody);
             }
 
-            return string.Join(Environment.NewLine, new[]
+            return new[]
             {
                 "Assert.Equal(expected.Item1, actual.Item1);",
                 "Assert.Equal(expected.Item2, actual.Item2);"
-            });
+            };
         }
 
         private string FormatCoordinates(dynamic coordinates)

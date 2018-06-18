@@ -33,7 +33,7 @@ namespace Generators.Exercises
         private StringBuilder testFactCodeLines;
         void addCodeLine(string line) => testFactCodeLines.Append(line + "\r\n");
 
-        protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             testFactCodeLines = new StringBuilder();
             var canonicalDataCase = testMethodBody.CanonicalDataCase;
@@ -51,7 +51,8 @@ namespace Generators.Exercises
             if (expected != null)
             {
                 var tree = new ExpectedDataBinaryTree(expected as System.Collections.Generic.Dictionary<string, object>);
-                foreach (var assert in tree.TestAsserts()) addCodeLine(assert);
+                foreach (var assert in tree.TestAsserts())
+                    addCodeLine(assert);
             }
             else
             {
@@ -59,7 +60,7 @@ namespace Generators.Exercises
                 addCodeLine($"Assert.Equal(new[] {{ {expectedArrayString} }}, tree.AsEnumerable());");
             }
 
-            return TemplateRenderer.RenderInline(testFactCodeLines.ToString(), testMethodBody.AssertTemplateParameters);
+            return new[] { TemplateRenderer.RenderInline(testFactCodeLines.ToString(), testMethodBody.AssertTemplateParameters) };
         }
     }
 }

@@ -52,7 +52,7 @@ namespace Generators.Exercises
             }
         }
 
-        protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             if (testMethodBody.CanonicalDataCase.ExceptionThrown != null)
             {
@@ -61,20 +61,20 @@ namespace Generators.Exercises
 
             if (testMethodBody.CanonicalDataCase.Property == "territories")
             {
-                return string.Join(Environment.NewLine, new[]
+                return new[]
                 {
                     "Assert.Equal(expected.Keys, actual.Keys);",
                     "Assert.Equal(expected[Owner.Black], actual[Owner.Black]);",
                     "Assert.Equal(expected[Owner.White], actual[Owner.White]);",
                     "Assert.Equal(expected[Owner.None], actual[Owner.None]);"
-                });
+                };
             }
 
-            return string.Join(Environment.NewLine, new[]
+            return new[]
             {
                 "Assert.Equal(expected.Item1, actual.Item1);",
                 "Assert.Equal(expected.Item2, actual.Item2);"
-            });
+            };
         }
 
         private string FormatOwner(dynamic owner)

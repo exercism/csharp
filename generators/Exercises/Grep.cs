@@ -41,7 +41,7 @@ namespace Generators.Exercises
             typeof(System.IO.File).Namespace
         };
 
-        protected override string[] RenderAdditionalMethods()
+        protected override IEnumerable<string> RenderAdditionalMethods()
         {
             return new[]
             {

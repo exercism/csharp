@@ -43,17 +43,17 @@ namespace Generators.Exercises
             }
         }
 
-        protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             if (testMethodBody.CanonicalDataCase.Property == "new")
             {
                 var key = ValueFormatter.Format(testMethodBody.CanonicalDataCase.Input["key"]);
-                return $"Assert.Throws<ArgumentException>(() => new SimpleCipher({key}));";
+                return new[] { $"Assert.Throws<ArgumentException>(() => new SimpleCipher({key}));" };
             }
             else if (testMethodBody.CanonicalDataCase.Property == "key")
             {
                 var pattern = ValueFormatter.Format(testMethodBody.CanonicalDataCase.Expected["match"]);
-                return $"Assert.Matches({pattern}, sut.Key);";
+                return new[] { $"Assert.Matches({pattern}, sut.Key);" };
             }
 
             return base.RenderTestMethodBodyAssert(testMethodBody);

@@ -1,4 +1,5 @@
-﻿using Generators.Input;
+﻿using System.Collections.Generic;
+using Generators.Input;
 using Generators.Output;
 
 namespace Generators.Exercises
@@ -15,7 +16,7 @@ namespace Generators.Exercises
             canonicalDataCase.SetConstructorInputParameters("score");
         }
 
-        protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             if (testMethodBody.CanonicalDataCase.Property == "IsAllergicTo")
                 return RenderIsAllergicToAssert(testMethodBody);
@@ -23,15 +24,15 @@ namespace Generators.Exercises
             return base.RenderTestMethodBodyAssert(testMethodBody);
         }
 
-        private static string RenderIsAllergicToAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderIsAllergicToAssert(TestMethodBody testMethodBody)
         {
             const string template =
                 @"{%- for allergy in Allergies -%}
 Assert.{% if allergy.result %}True{% else %}False{% endif %}(sut.IsAllergicTo(""{{ allergy.substance }}""));
 {%- endfor -%}";
-            
+
             var templateParameters = new { Allergies = testMethodBody.CanonicalDataCase.Expected };
-            return TemplateRenderer.RenderInline(template, templateParameters);
+            return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
         }
     }
 }

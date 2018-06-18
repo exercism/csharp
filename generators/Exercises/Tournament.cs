@@ -20,18 +20,17 @@ namespace Generators.Exercises
         protected override IEnumerable<string> AdditionalNamespaces => new[]
         {
             typeof(Array).Namespace,
-            typeof(System.String).Namespace,
             typeof(System.IO.Stream).Namespace,
             typeof(System.Text.UTF8Encoding).Namespace
         };
 
-        protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             string template = @"Assert.Equal(expected, RunTally(rows));";
-            return TemplateRenderer.RenderInline(template, new { });
+            return new[] { TemplateRenderer.RenderInline(template, new { }) };
         }
 
-        protected override string[] RenderAdditionalMethods()
+        protected override IEnumerable<string> RenderAdditionalMethods()
         {
             var methods = @"
 private string RunTally(string input)

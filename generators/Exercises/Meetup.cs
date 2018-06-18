@@ -30,11 +30,11 @@ namespace Generators.Exercises
                 new UnescapedValue($"DayOfWeek.{((string)canonicalDataCase.Input[ParamDayOfWeek]).Transform(To.SentenceCase)}");
         }
 
-        protected override String RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             string template = $"Assert.Equal({{{{ ExpectedParameter }}}}, {{{{ TestedValue }}}}.ToString(\"yyyy-MM-dd\"));";
 
-            return TemplateRenderer.RenderInline(template, testMethodBody.AssertTemplateParameters);
+            return new[] { TemplateRenderer.RenderInline(template, testMethodBody.AssertTemplateParameters) };
         }
 
         protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(DayOfWeek).Namespace };

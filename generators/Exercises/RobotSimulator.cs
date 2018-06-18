@@ -23,27 +23,19 @@ namespace Generators.Exercises
             canonicalDataCase.SetConstructorInputParameters(direction, coordinate);
 
             canonicalDataCase.UseFullDescriptionPath = true;
-            canonicalDataCase.UseVariableForTested = true;
         }
 
-        protected override string RenderTestMethodBodyArrange(TestMethodBody testMethodBody)
-        {
-            ((testMethodBody.ArrangeTemplateParameters as dynamic).Variables as List<string>).RemoveAt(1);
-
-            return base.RenderTestMethodBodyArrange(testMethodBody);
-        }
-
-        protected override string RenderTestMethodBodyAct(TestMethodBody testMethodBody)
+        protected override IEnumerable<string> RenderTestMethodBodyAct(TestMethodBody testMethodBody)
         {
             switch (testMethodBody.CanonicalDataCase.Property)
             {
-                case "create": return string.Empty;
+                case "create": return Array.Empty<string>();
                 case "instructions": return RenderInstructionsMethodBodyAct(testMethodBody);
                 default: return RenderDefaultMethodBodyAct(testMethodBody);
             }
         }
 
-        private string RenderDefaultMethodBodyAct(TestMethodBody testMethodBody)
+        private IEnumerable<string> RenderDefaultMethodBodyAct(TestMethodBody testMethodBody)
         {
             string template = @"sut.{{MethodInvocation}}();";
 
@@ -52,10 +44,10 @@ namespace Generators.Exercises
                 MethodInvocation = testMethodBody.CanonicalDataCase.Property.ToTestedMethodName()
             };
 
-            return TemplateRenderer.RenderInline(template, templateParameters);
+            return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
         }
 
-        private string RenderInstructionsMethodBodyAct(TestMethodBody testMethodBody)
+        private IEnumerable<string> RenderInstructionsMethodBodyAct(TestMethodBody testMethodBody)
         {
             string template = @"sut.{{MethodInvocation}}(""{{Instructions}}"");";
 
@@ -65,10 +57,10 @@ namespace Generators.Exercises
                 Instructions = testMethodBody.CanonicalDataCase.Input["instructions"]
             };
 
-            return TemplateRenderer.RenderInline(template, templateParameters);
+            return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
         }
 
-        protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             var expected = testMethodBody.CanonicalDataCase.Expected as Dictionary<string, dynamic>;
             expected.TryGetValue("position", out dynamic position);
@@ -92,7 +84,7 @@ namespace Generators.Exercises
                 Y = position?["y"]
             };
 
-            return TemplateRenderer.RenderInline(template.ToString(), templateParameters);
+            return new[] { TemplateRenderer.RenderInline(template.ToString(), templateParameters) };
         }
 
         private string GetDirectionEnum(string direction)

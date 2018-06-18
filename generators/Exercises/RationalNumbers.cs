@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Generators.Output;
 
 namespace Generators.Exercises
@@ -16,7 +17,7 @@ namespace Generators.Exercises
 
     public class RationalNumbers : GeneratorExercise
     {
-        protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             var input = testMethodBody.CanonicalDataCase.Properties["input"] as System.Collections.Generic.Dictionary<string, object>;
             var operation = testMethodBody.CanonicalDataCase.Properties["property"].ToString();
@@ -66,7 +67,7 @@ namespace Generators.Exercises
                     break;
             }
 
-            return TemplateRenderer.RenderInline(assertCodeLine, testMethodBody.AssertTemplateParameters);
+            return new[] { TemplateRenderer.RenderInline(assertCodeLine, testMethodBody.AssertTemplateParameters) };
         }
 
         private static int precision(object rawValue) => rawValue.ToString().Split(new char[] { '.' }).Length <= 1 ? 0 : rawValue.ToString().Split(new char[] { '.' })[1].Length;

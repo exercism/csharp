@@ -1,4 +1,5 @@
-﻿using Generators.Input;
+﻿using System.Collections.Generic;
+using Generators.Input;
 using Generators.Output;
 
 namespace Generators.Exercises
@@ -10,7 +11,7 @@ namespace Generators.Exercises
             canonicalDataCase.Description = $"{canonicalDataCase.Property} {canonicalDataCase.Description}";
         }
 
-        protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             if (testMethodBody.CanonicalDataCase.Property == "consistency")
             {
@@ -20,7 +21,7 @@ namespace Generators.Exercises
             return base.RenderTestMethodBodyAssert(testMethodBody);
         }
 
-        private static string RenderConsistencyToAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderConsistencyToAssert(TestMethodBody testMethodBody)
         {
             const string template = @"Assert.Equal(""{{ExpectedOutput}}"", {{ExerciseName}}.Decode({{ExerciseName}}.Encode(""{{ExpectedOutput}}"")));";
 
@@ -30,7 +31,7 @@ namespace Generators.Exercises
                 ExerciseName = testMethodBody.CanonicalDataCase.Exercise.ToTestedClassName()
             };
 
-            return TemplateRenderer.RenderInline(template, templateParameters);
+            return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
         }
     }
 }

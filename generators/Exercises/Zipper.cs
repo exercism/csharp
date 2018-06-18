@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Generators.Output;
@@ -8,36 +9,28 @@ namespace Generators.Exercises
 {
     public class Zipper : GeneratorExercise
     {
-        protected override string RenderTestMethodBodyArrange(TestMethodBody testMethodBody)
+        protected override IEnumerable<string> RenderTestMethodBodyArrange(TestMethodBody testMethodBody)
         {
-            var arrange = new StringBuilder();
-
             var tree = RenderTree(testMethodBody.CanonicalDataCase.Input["initialTree"]);
-            arrange.AppendLine($"var tree = {tree};");
-            arrange.AppendLine("var sut = Zipper.FromTree(tree);");
+            yield return $"var tree = {tree};";
+            yield return "var sut = Zipper.FromTree(tree);";
 
             var operations = RenderOperations(testMethodBody.CanonicalDataCase.Input["operations"]);
-            arrange.AppendLine($"var actual = sut{operations};");
-
-            return arrange.ToString();
+            yield return $"var actual = sut{operations};";
         }
 
-        protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            var assert = new StringBuilder();
-
             var expected = RenderExpected(testMethodBody.CanonicalDataCase.Expected);
             if (expected == null)
             {
-                assert.AppendLine("Assert.Null(actual);");
+                yield return "Assert.Null(actual);";
             }
             else
             {
-                assert.AppendLine($"var expected = {expected};");
-                assert.AppendLine("Assert.Equal(expected, actual);");
+                yield return $"var expected = {expected};";
+                yield return "Assert.Equal(expected, actual);";
             }
-
-            return assert.ToString();
         }
 
         private static string RenderTree(dynamic tree)

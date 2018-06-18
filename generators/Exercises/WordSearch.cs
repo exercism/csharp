@@ -33,18 +33,12 @@ namespace Generators.Exercises
             canonicalDataCase.Expected = new UnescapedValue(string.Join(Environment.NewLine, expected));
         }
 
-        protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             var expectedDictionary = testMethodBody.CanonicalDataCase.Properties["expected"] as IDictionary<string, dynamic>;
 
-            var assert = new List<string>();
-
             foreach (var kv in expectedDictionary)
-            {
-                assert.Add(RenderTestMethodBodyAssertForSearchWord(kv.Key, kv.Value));
-            }
-
-            return string.Join(Environment.NewLine, assert);
+                yield return RenderTestMethodBodyAssertForSearchWord(kv.Key, kv.Value);
         }
 
         private string RenderTestMethodBodyAssertForSearchWord(string word, dynamic expected)

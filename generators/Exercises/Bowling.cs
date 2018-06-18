@@ -24,7 +24,7 @@ namespace Generators.Exercises
             canonicalDataCase.SetInputParameters();
         }
 
-        protected override string RenderTestMethodBodyArrange(TestMethodBody testMethodBody)
+        protected override IEnumerable<string> RenderTestMethodBodyArrange(TestMethodBody testMethodBody)
         {
             var builder = new StringBuilder();
             builder.AppendLine("var sut = new BowlingGame();");
@@ -44,10 +44,10 @@ namespace Generators.Exercises
                 }
             }
 
-            return builder.ToString();
+            return new[] { builder.ToString() };
         }
 
-        protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             var template = string.Empty;
             if (testMethodBody.CanonicalDataCase.ExceptionThrown != null && testMethodBody.CanonicalDataCase.Input.ContainsKey("roll"))
@@ -57,18 +57,18 @@ namespace Generators.Exercises
                 {
                     RollVal = testMethodBody.CanonicalDataCase.Input["roll"]
                 };
-                return TemplateRenderer.RenderInline(template, templateParams);
+                return new[] { TemplateRenderer.RenderInline(template, templateParams) };
             }
             else if (testMethodBody.CanonicalDataCase.ExceptionThrown != null && testMethodBody.CanonicalDataCase.Property == "score")
             {
                 template = "Assert.Throws<ArgumentException>(() => sut.Score());";
-                return template;
+                return new[] { template };
             }
 
             return base.RenderTestMethodBodyAssert(testMethodBody);
         }
 
-        protected override string RenderTestMethodBodyAct(TestMethodBody testMethodBody)
+        protected override IEnumerable<string> RenderTestMethodBodyAct(TestMethodBody testMethodBody)
         {
             var template =
 @"DoRoll(previousRolls, sut);
@@ -76,7 +76,7 @@ namespace Generators.Exercises
 
             if (testMethodBody.CanonicalDataCase.ExceptionThrown != null)
             {
-                return template;
+                return new[] { template };
             }
 
             if (testMethodBody.CanonicalDataCase.Input.ContainsKey("roll"))
@@ -89,14 +89,14 @@ var actual = sut.Score();
                 {
                     RolVal = testMethodBody.CanonicalDataCase.Input["roll"]
                 };
-                return TemplateRenderer.RenderInline(template, templateParameters);
+                return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
             }
 
             template += "var actual = sut.Score();";
-            return template;
+            return new[] { template };
         }
 
-        protected override string[] RenderAdditionalMethods()
+        protected override IEnumerable<string> RenderAdditionalMethods()
         {
             return new string[] {
 @"

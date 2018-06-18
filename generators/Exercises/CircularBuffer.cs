@@ -8,15 +8,12 @@ namespace Generators.Exercises
 {
     public class CircularBuffer : GeneratorExercise
     {
-        protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            var lines = new StringBuilder();
-            lines.AppendLine(RenderSut(testMethodBody.CanonicalDataCase));
+            yield return RenderSut(testMethodBody.CanonicalDataCase);
 
             foreach (var operation in testMethodBody.CanonicalDataCase.Input["operations"])
-                lines.AppendLine(RenderOperation(operation));
-
-            return lines.ToString();
+                yield return RenderOperation(operation);
         }
 
         private static string RenderSut(CanonicalDataCase canonicalDataCase)

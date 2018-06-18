@@ -10,7 +10,7 @@ namespace Generators.Exercises
 {
     public class React : GeneratorExercise
     {
-        protected override string RenderTestMethodBodyArrange(TestMethodBody testMethodBody)
+        protected override IEnumerable<string> RenderTestMethodBodyArrange(TestMethodBody testMethodBody)
         {
             var arrange = new StringBuilder();
             arrange.AppendLine("var sut = new Reactor();");
@@ -21,7 +21,7 @@ namespace Generators.Exercises
             var operations = RenderOperations(testMethodBody.CanonicalDataCase.Input["operations"]);
             arrange.AppendLine(operations);
 
-            return arrange.ToString();
+            return new[] { arrange.ToString() };
         }
 
         private static string RenderCells(dynamic cells)
@@ -122,7 +122,9 @@ namespace Generators.Exercises
             }
         }
 
-        protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody) => "";
+        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody) => new[] {
+            ""
+        };
 
         protected override IEnumerable<string> AdditionalNamespaces => new[]
         {

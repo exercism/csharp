@@ -10,7 +10,7 @@ namespace Generators.Exercises
     public class ComplexNumbers : GeneratorExercise
     {
         protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
-        {   
+        {
             canonicalDataCase.Exercise = "complex-number";
             canonicalDataCase.UseVariableForExpected = IsComplexNumber(canonicalDataCase.Expected);
             canonicalDataCase.Expected = ConvertToType(canonicalDataCase.Expected);
@@ -31,7 +31,7 @@ namespace Generators.Exercises
         private static string[] GetInputParameters(CanonicalDataCase canonicalDataCase, string constructorParamName)
             => canonicalDataCase.Input.Keys.Where(x => x != constructorParamName).ToArray();
 
-        protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             if (testMethodBody.UseVariableForExpected)
                 return RenderComplexNumberAssert(testMethodBody);
@@ -39,11 +39,11 @@ namespace Generators.Exercises
             return base.RenderTestMethodBodyAssert(testMethodBody);
         }
 
-        private static string RenderComplexNumberAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderComplexNumberAssert(TestMethodBody testMethodBody)
         {
             const string template = "Assert.Equal({{ ExpectedParameter }}.Real(), {{ TestedValue }}.Real(), precision: 15);\r\nAssert.Equal({{ ExpectedParameter }}.Imaginary(), {{ TestedValue }}.Imaginary(), precision: 15);";
 
-            return TemplateRenderer.RenderInline(template, testMethodBody.AssertTemplateParameters);
+            return new[] { TemplateRenderer.RenderInline(template, testMethodBody.AssertTemplateParameters) };
         }
 
         protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(Math).Namespace };

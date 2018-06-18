@@ -1,3 +1,9 @@
-﻿{{ Arrange }}
-{{ Act }}
-{{ Assert }}
+﻿{%- for arrange in Arrange -%}
+{{ arrange }}
+{%- endfor -%}
+{%- for act in Act -%}
+{{ act }}
+{%- endfor -%}
+{%- for assert in Assert -%}
+{{ assert }}
+{%- endfor -%}

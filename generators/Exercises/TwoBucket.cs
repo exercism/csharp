@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Generators.Input;
 using Generators.Output;
 
@@ -14,7 +15,7 @@ namespace Generators.Exercises
             canonicalDataCase.Input["startBucket"] = new UnescapedValue(startBucket == "two" ? "Bucket.Two" : "Bucket.One");
         }
 
-        protected override string RenderTestMethodBodyAct(TestMethodBody testMethodBody)
+        protected override IEnumerable<string> RenderTestMethodBodyAct(TestMethodBody testMethodBody)
         {
             const string template = @"var result = {{MethodInvocation}};";
 
@@ -23,10 +24,10 @@ namespace Generators.Exercises
                 MethodInvocation = testMethodBody.Data.TestedMethodInvocation
             };
 
-            return TemplateRenderer.RenderInline(template, templateParameters);
+            return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
         }
 
-        protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             const string template =
 @"Assert.Equal({{MovesExpected}}, result.Moves);
@@ -40,7 +41,7 @@ Assert.Equal({% if GoalBucketExpected == 'two' %}Bucket.Two{% else %}Bucket.One{
                 GoalBucketExpected = testMethodBody.CanonicalDataCase.Expected["goalBucket"],
             };
 
-            return TemplateRenderer.RenderInline(template, templateParameters);
+            return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
         }
     }
 }

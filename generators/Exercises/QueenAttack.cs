@@ -1,6 +1,7 @@
 ﻿using Generators.Input;
 using Generators.Output;
 using System;
+using System.Collections.Generic;
 
 namespace Generators.Exercises
 {
@@ -12,13 +13,13 @@ namespace Generators.Exercises
                 SetCreatePropertyData(canonicalDataCase);
         }
 
-        protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             if (testMethodBody.CanonicalDataCase.Property == "canAttack")
-                return RenderCanAttackAssert(testMethodBody);
+                return new[] { RenderCanAttackAssert(testMethodBody) };
 
             if (testMethodBody.UseVariableForTested)
-                return string.Empty;
+                return Array.Empty<string>();
 
             return base.RenderTestMethodBodyAssert(testMethodBody);
         }

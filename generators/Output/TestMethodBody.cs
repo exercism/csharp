@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Generators.Input;
 
 namespace Generators.Output
@@ -33,9 +34,9 @@ namespace Generators.Output
         public string AssertTemplateName { get; set; } = "AssertEqual";
         public object AssertTemplateParameters { get; set; }
 
-        public string Act { get; set; }
-        public string Arrange { get; set; }
-        public string Assert { get; set; }
+        public IEnumerable<string> Act { get; set; }
+        public IEnumerable<string> Arrange { get; set; }
+        public IEnumerable<string> Assert { get; set; }
         
         public virtual string Render() => TemplateRenderer.RenderPartial(TemplateName, new { Arrange, Act, Assert });
 

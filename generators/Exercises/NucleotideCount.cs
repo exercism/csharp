@@ -22,16 +22,17 @@ namespace Generators.Exercises
 
         protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(Dictionary<char, int>).Namespace };
 
-        protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             if (testMethodBody.UseVariableForExpected)
             {
                 return RenderEqualBodyAssert(testMethodBody);
             }
+
             return RenderThrowsBodyAssert(testMethodBody);
         }
 
-        private string RenderEqualBodyAssert(TestMethodBody testMethodBody)
+        private IEnumerable<string> RenderEqualBodyAssert(TestMethodBody testMethodBody)
         {
             const string template = @"Assert.Equal(expected, sut.{{ TestedMethodName }});";
 
@@ -40,10 +41,10 @@ namespace Generators.Exercises
                 TestedMethodName = testMethodBody.CanonicalDataCase.Property.ToTestedMethodName()
             };
 
-            return TemplateRenderer.RenderInline(template, templateParameters);
+            return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
         }
 
-        private string RenderThrowsBodyAssert(TestMethodBody testMethodBody)
+        private IEnumerable<string> RenderThrowsBodyAssert(TestMethodBody testMethodBody)
         {
             const string template = @"Assert.Throws<InvalidNucleotideException>(() => new NucleotideCount(""{{ Input }}""));";
 
@@ -52,7 +53,7 @@ namespace Generators.Exercises
                 Input = testMethodBody.CanonicalDataCase.Input["strand"]
             };
 
-            return TemplateRenderer.RenderInline(template, templateParameters);
+            return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
         }
     }
 }

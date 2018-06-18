@@ -31,16 +31,16 @@ namespace Generators
 
         protected virtual IEnumerable<string> AdditionalNamespaces => Enumerable.Empty<string>();
 
-        protected virtual string RenderTestMethodBodyArrange(TestMethodBody testMethodBody)
-            => TemplateRenderer.RenderPartial(testMethodBody.ArrangeTemplateName, testMethodBody.ArrangeTemplateParameters);
+        protected virtual IEnumerable<string> RenderTestMethodBodyArrange(TestMethodBody testMethodBody)
+            => new[] { TemplateRenderer.RenderPartial(testMethodBody.ArrangeTemplateName, testMethodBody.ArrangeTemplateParameters) };
 
-        protected virtual string RenderTestMethodBodyAct(TestMethodBody testMethodBody)
-            => TemplateRenderer.RenderPartial(testMethodBody.ActTemplateName, testMethodBody.ActTemplateParameters);
+        protected virtual IEnumerable<string> RenderTestMethodBodyAct(TestMethodBody testMethodBody)
+            => new[] { TemplateRenderer.RenderPartial(testMethodBody.ActTemplateName, testMethodBody.ActTemplateParameters) };
 
-        protected virtual string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
-            => TemplateRenderer.RenderPartial(testMethodBody.AssertTemplateName, testMethodBody.AssertTemplateParameters);
+        protected virtual IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+            => new[] { TemplateRenderer.RenderPartial(testMethodBody.AssertTemplateName, testMethodBody.AssertTemplateParameters) };
 
-        protected virtual string[] RenderAdditionalMethods() => Array.Empty<string>();
+        protected virtual IEnumerable<string> RenderAdditionalMethods() => Array.Empty<string>();
 
         private HashSet<string> GetUsingNamespaces()
         {
