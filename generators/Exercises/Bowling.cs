@@ -10,21 +10,18 @@ namespace Generators.Exercises
     {
         private const string PreviousRolls = "previousRolls";
 
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
+            if (!(canonicalDataCase.Expected is int))
             {
-                if (!(canonicalDataCase.Expected is int))
-                {
-                    canonicalDataCase.ExceptionThrown = typeof(ArgumentException);
-                }
-                else
-                {
-                    canonicalDataCase.UseVariableForTested = true;
-
-                }
-                canonicalDataCase.SetInputParameters();
+                canonicalDataCase.ExceptionThrown = typeof(ArgumentException);
             }
+            else
+            {
+                canonicalDataCase.UseVariableForTested = true;
+            }
+
+            canonicalDataCase.SetInputParameters();
         }
 
         protected override string RenderTestMethodBodyArrange(TestMethodBody testMethodBody)

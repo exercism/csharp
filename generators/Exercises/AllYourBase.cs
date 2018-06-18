@@ -6,15 +6,12 @@ namespace Generators.Exercises
 {
     public class AllYourBase : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-            {
-                canonicalDataCase.Input["digits"] = ConvertHelper.ToArray<int>(canonicalDataCase.Input["digits"]);
-                canonicalDataCase.ExceptionThrown = canonicalDataCase.Expected is Dictionary<string, object> ? typeof(ArgumentException) : null;
-                canonicalDataCase.UseVariablesForInput = true;
-                canonicalDataCase.UseVariableForExpected = true;
-            }
+            canonicalDataCase.Input["digits"] = ConvertHelper.ToArray<int>(canonicalDataCase.Input["digits"]);
+            canonicalDataCase.ExceptionThrown = canonicalDataCase.Expected is Dictionary<string, object> ? typeof(ArgumentException) : null;
+            canonicalDataCase.UseVariablesForInput = true;
+            canonicalDataCase.UseVariableForExpected = true;
         }
 
         protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(Array).Namespace };

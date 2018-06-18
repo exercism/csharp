@@ -5,28 +5,25 @@ namespace Generators.Exercises
 {
     public class Connect : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-            {
-                canonicalDataCase.UseVariablesForConstructorParameters = true;
-                canonicalDataCase.SetConstructorInputParameters("board");
-                canonicalDataCase.Property = "result";
-                canonicalDataCase.Input["board"] = ToMultiLineString(canonicalDataCase.Input["board"]);
+            canonicalDataCase.UseVariablesForConstructorParameters = true;
+            canonicalDataCase.SetConstructorInputParameters("board");
+            canonicalDataCase.Property = "result";
+            canonicalDataCase.Input["board"] = ToMultiLineString(canonicalDataCase.Input["board"]);
 
-                //convert to enum
-                switch (canonicalDataCase.Expected)
-                {
-                    case "X":
-                        canonicalDataCase.Expected = new UnescapedValue("ConnectWinner.Black");
-                        break;
-                    case "O":
-                        canonicalDataCase.Expected = new UnescapedValue("ConnectWinner.White");
-                        break;
-                    case "":
-                        canonicalDataCase.Expected = new UnescapedValue("ConnectWinner.None");
-                        break;
-                }
+            //convert to enum
+            switch (canonicalDataCase.Expected)
+            {
+                case "X":
+                    canonicalDataCase.Expected = new UnescapedValue("ConnectWinner.Black");
+                    break;
+                case "O":
+                    canonicalDataCase.Expected = new UnescapedValue("ConnectWinner.White");
+                    break;
+                case "":
+                    canonicalDataCase.Expected = new UnescapedValue("ConnectWinner.None");
+                    break;
             }
         }
 

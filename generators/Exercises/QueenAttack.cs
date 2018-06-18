@@ -1,15 +1,14 @@
 ﻿using Generators.Input;
 using Generators.Output;
 using System;
-using System.Linq;
 
 namespace Generators.Exercises
 {
     public class QueenAttack : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases.Where(canonicalDataCase => canonicalDataCase.Property == "create"))
+            if (canonicalDataCase.Property == "create")
                 SetCreatePropertyData(canonicalDataCase);
         }
 

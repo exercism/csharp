@@ -6,14 +6,11 @@ namespace Generators.Exercises
 {
     public class SpiralMatrix : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-            {
-                canonicalDataCase.Property = "GetMatrix";
-                canonicalDataCase.UseVariableForExpected = true;
-                canonicalDataCase.Expected = ConvertExpected(canonicalDataCase.Expected);
-            }
+            canonicalDataCase.Property = "GetMatrix";
+            canonicalDataCase.UseVariableForExpected = true;
+            canonicalDataCase.Expected = ConvertExpected(canonicalDataCase.Expected);
         }
 
         private dynamic ConvertExpected(dynamic expected)

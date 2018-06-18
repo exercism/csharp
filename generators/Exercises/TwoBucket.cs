@@ -5,16 +5,13 @@ namespace Generators.Exercises
 {
     public class TwoBucket : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-            {
-                canonicalDataCase.TestedMethodType = TestedMethodType.Instance;
-                canonicalDataCase.SetConstructorInputParameters("bucketOne", "bucketTwo", "startBucket");
+            canonicalDataCase.TestedMethodType = TestedMethodType.Instance;
+            canonicalDataCase.SetConstructorInputParameters("bucketOne", "bucketTwo", "startBucket");
 
-                var startBucket = canonicalDataCase.Input["startBucket"];
-                canonicalDataCase.Input["startBucket"] = new UnescapedValue(startBucket == "two" ? "Bucket.Two" : "Bucket.One");
-            }
+            var startBucket = canonicalDataCase.Input["startBucket"];
+            canonicalDataCase.Input["startBucket"] = new UnescapedValue(startBucket == "two" ? "Bucket.Two" : "Bucket.One");
         }
 
         protected override string RenderTestMethodBodyAct(TestMethodBody testMethodBody)

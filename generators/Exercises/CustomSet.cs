@@ -5,39 +5,36 @@ namespace Generators.Exercises
 {
     public class CustomSet : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
+            canonicalDataCase.UseVariablesForInput = true;
+
+            if (canonicalDataCase.Input.ContainsKey("set"))
             {
-                canonicalDataCase.UseVariablesForInput = true;
-
-                if (canonicalDataCase.Input.ContainsKey("set"))
+                if (!(canonicalDataCase.Input["set"] is int[]))
                 {
-                    if (!(canonicalDataCase.Input["set"] is int[]))
-                    {
-                        canonicalDataCase.Input["set"] = new UnescapedValue("");
-                    }
-
-                    canonicalDataCase.SetConstructorInputParameters("set");
-                }
-                else
-                {
-                    if (!(canonicalDataCase.Input["set1"] is int[]))
-                    {
-                        canonicalDataCase.Input["set1"] = new UnescapedValue("");
-                    }
-
-                    canonicalDataCase.SetConstructorInputParameters("set1");
-                    canonicalDataCase.Input["set2"] = ConvertCustomSet(canonicalDataCase.Input["set2"]);
-
-                    if (canonicalDataCase.Property == "equal")
-                    {
-                        canonicalDataCase.Property = "Equals";
-                    }
+                    canonicalDataCase.Input["set"] = new UnescapedValue("");
                 }
 
-                canonicalDataCase.Expected = ConvertCustomSet(canonicalDataCase.Expected);
+                canonicalDataCase.SetConstructorInputParameters("set");
             }
+            else
+            {
+                if (!(canonicalDataCase.Input["set1"] is int[]))
+                {
+                    canonicalDataCase.Input["set1"] = new UnescapedValue("");
+                }
+
+                canonicalDataCase.SetConstructorInputParameters("set1");
+                canonicalDataCase.Input["set2"] = ConvertCustomSet(canonicalDataCase.Input["set2"]);
+
+                if (canonicalDataCase.Property == "equal")
+                {
+                    canonicalDataCase.Property = "Equals";
+                }
+            }
+
+            canonicalDataCase.Expected = ConvertCustomSet(canonicalDataCase.Expected);
         }
 
         private static dynamic ConvertCustomSet(dynamic value)

@@ -4,10 +4,9 @@ namespace Generators.Exercises
 {
     public class Leap : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-                canonicalDataCase.Property = "IsLeapYear";
+            canonicalDataCase.Property = "IsLeapYear";
         }
     }
 }

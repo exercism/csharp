@@ -16,14 +16,16 @@ namespace Generators
         public void Regenerate(CanonicalData canonicalData)
         {
             _canonicalData = canonicalData;
-            UpdateCanonicalData(canonicalData);
+
+            foreach (var canonicalDataCase in _canonicalData.Cases)
+                UpdateCanonicalDataCase(canonicalDataCase);
 
             ExerciseWriter.WriteToFile(this);
         }
 
         public string Render() => CreateTestClass().Render();
 
-        protected virtual void UpdateCanonicalData(CanonicalData canonicalData)
+        protected virtual void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
         }
 

@@ -5,13 +5,10 @@ namespace Generators.Exercises
 {
     public class Say : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-            {
-                canonicalDataCase.Property = "InEnglish";
-                canonicalDataCase.ExceptionThrown = canonicalDataCase.Expected is int ? typeof(ArgumentOutOfRangeException) : null;
-            }
+            canonicalDataCase.Property = "InEnglish";
+            canonicalDataCase.ExceptionThrown = canonicalDataCase.Expected is int ? typeof(ArgumentOutOfRangeException) : null;
         }
     }
 }

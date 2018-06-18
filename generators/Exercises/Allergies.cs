@@ -5,17 +5,14 @@ namespace Generators.Exercises
 {
     public class Allergies : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-            {
-                if (canonicalDataCase.Property == "allergicTo")
-                    canonicalDataCase.Property = "IsAllergicTo";
-                else if (canonicalDataCase.Property == "list")
-                    canonicalDataCase.UseVariableForExpected = true;
+            if (canonicalDataCase.Property == "allergicTo")
+                canonicalDataCase.Property = "IsAllergicTo";
+            else if (canonicalDataCase.Property == "list")
+                canonicalDataCase.UseVariableForExpected = true;
 
-                canonicalDataCase.SetConstructorInputParameters("score");
-            }
+            canonicalDataCase.SetConstructorInputParameters("score");
         }
 
         protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)

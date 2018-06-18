@@ -7,26 +7,23 @@ namespace Generators.Exercises
 {
     public class SaddlePoints : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
+            canonicalDataCase.TestedMethodType = TestedMethodType.Instance;
+            canonicalDataCase.Property = "Calculate";
+            canonicalDataCase.SetConstructorInputParameters("matrix");
+            canonicalDataCase.UseVariablesForConstructorParameters = true;
+            canonicalDataCase.UseVariablesForInput = true;
+            canonicalDataCase.UseVariableForTested = true;
+            canonicalDataCase.UseVariableForExpected = true;
+
+            canonicalDataCase.Input["matrix"] = ToMultiDimensionalArray(canonicalDataCase.Input["matrix"]);
+
+            var array = canonicalDataCase.Expected as Array;
+
+            if (array != null)
             {
-                canonicalDataCase.TestedMethodType = TestedMethodType.Instance;
-                canonicalDataCase.Property = "Calculate";
-                canonicalDataCase.SetConstructorInputParameters("matrix");
-                canonicalDataCase.UseVariablesForConstructorParameters = true;
-                canonicalDataCase.UseVariablesForInput = true;
-                canonicalDataCase.UseVariableForTested = true;
-                canonicalDataCase.UseVariableForExpected = true;
-
-                canonicalDataCase.Input["matrix"] = ToMultiDimensionalArray(canonicalDataCase.Input["matrix"]);
-
-                var array = canonicalDataCase.Expected as Array;
-
-                if (array != null)
-                {
-                    canonicalDataCase.Expected = ToTupleCollection(array);
-                }
+                canonicalDataCase.Expected = ToTupleCollection(array);
             }
         }
 

@@ -9,26 +9,23 @@ namespace Generators.Exercises
 {
     public class ComplexNumbers : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
-        {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-            {
-                canonicalDataCase.Exercise = "complex-number";
-                canonicalDataCase.UseVariableForExpected = IsComplexNumber(canonicalDataCase.Expected);
-                canonicalDataCase.Expected = ConvertToType(canonicalDataCase.Expected);
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        {   
+            canonicalDataCase.Exercise = "complex-number";
+            canonicalDataCase.UseVariableForExpected = IsComplexNumber(canonicalDataCase.Expected);
+            canonicalDataCase.Expected = ConvertToType(canonicalDataCase.Expected);
 
-                var constructorParamName = canonicalDataCase.Input.ContainsKey("z") ? "z" : "z1";
-                canonicalDataCase.Input["real"] = ConvertMathDouble(canonicalDataCase.Input[constructorParamName][0]);
-                canonicalDataCase.Input["imaginary"] = ConvertMathDouble(canonicalDataCase.Input[constructorParamName][1]);
+            var constructorParamName = canonicalDataCase.Input.ContainsKey("z") ? "z" : "z1";
+            canonicalDataCase.Input["real"] = ConvertMathDouble(canonicalDataCase.Input[constructorParamName][0]);
+            canonicalDataCase.Input["imaginary"] = ConvertMathDouble(canonicalDataCase.Input[constructorParamName][1]);
 
-                canonicalDataCase.SetInputParameters(GetInputParameters(canonicalDataCase, constructorParamName));
-                canonicalDataCase.SetConstructorInputParameters("real", "imaginary");
+            canonicalDataCase.SetInputParameters(GetInputParameters(canonicalDataCase, constructorParamName));
+            canonicalDataCase.SetConstructorInputParameters("real", "imaginary");
 
-                var keys = canonicalDataCase.Input.Keys.ToArray();
+            var keys = canonicalDataCase.Input.Keys.ToArray();
 
-                foreach (var key in keys)
-                    canonicalDataCase.Input[key] = ConvertToType(canonicalDataCase.Input[key]);
-            }
+            foreach (var key in keys)
+                canonicalDataCase.Input[key] = ConvertToType(canonicalDataCase.Input[key]);
         }
 
         private static string[] GetInputParameters(CanonicalDataCase canonicalDataCase, string constructorParamName)

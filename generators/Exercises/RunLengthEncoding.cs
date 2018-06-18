@@ -5,13 +5,9 @@ namespace Generators.Exercises
 {
     public class RunLengthEncoding : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-            {
-                // Prefix the test name with encode/decode because both functions are tested with the same cases
-                canonicalDataCase.Description = $"{canonicalDataCase.Property} {canonicalDataCase.Description}";
-            }
+            canonicalDataCase.Description = $"{canonicalDataCase.Property} {canonicalDataCase.Description}";
         }
 
         protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)

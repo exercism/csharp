@@ -16,30 +16,27 @@ namespace Generators.Exercises
         private const string PropertyEquals = "equals";
         private const string PropertyToString = "to_string";
 
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
+            if (canonicalDataCase.Property != PropertyEqual)
             {
-                if (canonicalDataCase.Property != PropertyEqual)
-                {
-                    canonicalDataCase.SetConstructorInputParameters(ParamHour, ParamMinute);
-                }
-                else
-                {
-                    canonicalDataCase.SetConstructorInputParameters(ParamClock2);
+                canonicalDataCase.SetConstructorInputParameters(ParamHour, ParamMinute);
+            }
+            else
+            {
+                canonicalDataCase.SetConstructorInputParameters(ParamClock2);
 
-                    var result = (Dictionary<string, object>)canonicalDataCase.Input[ParamClock1];
-                    canonicalDataCase.Input[ParamClock1] = new UnescapedValue($"new Clock({result[ParamHour]}, {result[ParamMinute]})");
-                }
+                var result = (Dictionary<string, object>)canonicalDataCase.Input[ParamClock1];
+                canonicalDataCase.Input[ParamClock1] = new UnescapedValue($"new Clock({result[ParamHour]}, {result[ParamMinute]})");
+            }
 
-                if (canonicalDataCase.Property == PropertyCreate)
-                {
-                    canonicalDataCase.Property = PropertyToString;
-                }
-                else if (canonicalDataCase.Property == PropertyEqual)
-                {
-                    canonicalDataCase.Property = PropertyEquals;
-                }
+            if (canonicalDataCase.Property == PropertyCreate)
+            {
+                canonicalDataCase.Property = PropertyToString;
+            }
+            else if (canonicalDataCase.Property == PropertyEqual)
+            {
+                canonicalDataCase.Property = PropertyEquals;
             }
         }
 

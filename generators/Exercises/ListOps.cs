@@ -10,36 +10,33 @@ namespace Generators.Exercises
 {
     public class ListOps : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
+            canonicalDataCase.UseFullDescriptionPath = true;
+            canonicalDataCase.UseVariablesForInput = true;
+            canonicalDataCase.UseVariableForExpected = !(canonicalDataCase.Expected is int);
+
+            if (canonicalDataCase.Input.TryGetValue("list", out var list))
+                canonicalDataCase.Input["list"] = ConvertToList(list);
+
+            if (canonicalDataCase.Input.TryGetValue("list1", out var list1))
+                canonicalDataCase.Input["list1"] = ConvertToList(list1);
+
+            if (canonicalDataCase.Input.TryGetValue("list2", out var list2))
+                canonicalDataCase.Input["list2"] = ConvertToList(list2);
+
+            if (canonicalDataCase.Input.TryGetValue("lists", out var lists))
+                canonicalDataCase.Input["lists"] = ConvertToNestedList(lists, true);
+
+            if (canonicalDataCase.Input.TryGetValue("function", out var function))
+                canonicalDataCase.Input["function"] = ConvertToFunction(canonicalDataCase.Property, function);
+
+            if (canonicalDataCase.Expected is IEnumerable)
             {
-                canonicalDataCase.UseFullDescriptionPath = true;
-                canonicalDataCase.UseVariablesForInput = true;
-                canonicalDataCase.UseVariableForExpected = !(canonicalDataCase.Expected is int);
-
-                if (canonicalDataCase.Input.TryGetValue("list", out var list))
-                    canonicalDataCase.Input["list"] = ConvertToList(list);
-
-                if (canonicalDataCase.Input.TryGetValue("list1", out var list1))
-                    canonicalDataCase.Input["list1"] = ConvertToList(list1);
-
-                if (canonicalDataCase.Input.TryGetValue("list2", out var list2))
-                    canonicalDataCase.Input["list2"] = ConvertToList(list2);
-
-                if (canonicalDataCase.Input.TryGetValue("lists", out var lists))
-                    canonicalDataCase.Input["lists"] = ConvertToNestedList(lists, true);
-
-                if (canonicalDataCase.Input.TryGetValue("function", out var function))
-                    canonicalDataCase.Input["function"] = ConvertToFunction(canonicalDataCase.Property, function);
-
-                if (canonicalDataCase.Expected is IEnumerable)
-                {
-                    if (canonicalDataCase.Input.ContainsKey("lists"))
-                        canonicalDataCase.Expected = ConvertToNestedList(canonicalDataCase.Expected, false);
-                    else
-                        canonicalDataCase.Expected = ConvertToList(canonicalDataCase.Expected);
-                }
+                if (canonicalDataCase.Input.ContainsKey("lists"))
+                    canonicalDataCase.Expected = ConvertToNestedList(canonicalDataCase.Expected, false);
+                else
+                    canonicalDataCase.Expected = ConvertToList(canonicalDataCase.Expected);
             }
         }
 

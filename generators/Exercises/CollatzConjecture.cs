@@ -5,10 +5,9 @@ namespace Generators.Exercises
 {
     public class CollatzConjecture : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-                canonicalDataCase.ExceptionThrown = canonicalDataCase.Input["number"] <= 0 ? typeof(ArgumentException) : null;
+            canonicalDataCase.ExceptionThrown = canonicalDataCase.Input["number"] <= 0 ? typeof(ArgumentException) : null;
         }
     }
 }

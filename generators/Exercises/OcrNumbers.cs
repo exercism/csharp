@@ -8,16 +8,13 @@ namespace Generators.Exercises
 {
     public class OcrNumbers : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
-        {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-            {
-                canonicalDataCase.ExceptionThrown = (canonicalDataCase.Expected is int && canonicalDataCase.Expected <= 0) ? typeof(ArgumentException) : null;
-                canonicalDataCase.Input["rows"] = ToDigitStringRepresentation(canonicalDataCase.Input["rows"]);
-                canonicalDataCase.Expected = canonicalDataCase.Expected.ToString();
-                canonicalDataCase.UseVariableForTested = true;
-                canonicalDataCase.UseVariablesForInput = true;
-            }
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        {   
+            canonicalDataCase.ExceptionThrown = (canonicalDataCase.Expected is int && canonicalDataCase.Expected <= 0) ? typeof(ArgumentException) : null;
+            canonicalDataCase.Input["rows"] = ToDigitStringRepresentation(canonicalDataCase.Input["rows"]);
+            canonicalDataCase.Expected = canonicalDataCase.Expected.ToString();
+            canonicalDataCase.UseVariableForTested = true;
+            canonicalDataCase.UseVariablesForInput = true;
         }
 
         private UnescapedValue ToMultiLineString(JArray input)

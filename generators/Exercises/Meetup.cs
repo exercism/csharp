@@ -15,22 +15,19 @@ namespace Generators.Exercises
 
         private const string PropertyDay = "Day";
 
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-            {
-                canonicalDataCase.Property = PropertyDay;
-                canonicalDataCase.UseVariableForExpected = true;
-                canonicalDataCase.SetConstructorInputParameters(ParamMonth, ParamYear);
-                canonicalDataCase.SetInputParameters(ParamDayOfWeek, ParamWeek);
+            canonicalDataCase.Property = PropertyDay;
+            canonicalDataCase.UseVariableForExpected = true;
+            canonicalDataCase.SetConstructorInputParameters(ParamMonth, ParamYear);
+            canonicalDataCase.SetInputParameters(ParamDayOfWeek, ParamWeek);
 
-                canonicalDataCase.Input[ParamYear] = canonicalDataCase.Input[ParamYear];
-                canonicalDataCase.Input[ParamMonth] = canonicalDataCase.Input[ParamMonth];
-                canonicalDataCase.Input[ParamWeek] =
-                    new UnescapedValue($"Schedule.{((string)canonicalDataCase.Input[ParamWeek]).Transform(To.SentenceCase)}");
-                canonicalDataCase.Input[ParamDayOfWeek] =
-                    new UnescapedValue($"DayOfWeek.{((string)canonicalDataCase.Input[ParamDayOfWeek]).Transform(To.SentenceCase)}");
-            }
+            canonicalDataCase.Input[ParamYear] = canonicalDataCase.Input[ParamYear];
+            canonicalDataCase.Input[ParamMonth] = canonicalDataCase.Input[ParamMonth];
+            canonicalDataCase.Input[ParamWeek] =
+                new UnescapedValue($"Schedule.{((string)canonicalDataCase.Input[ParamWeek]).Transform(To.SentenceCase)}");
+            canonicalDataCase.Input[ParamDayOfWeek] =
+                new UnescapedValue($"DayOfWeek.{((string)canonicalDataCase.Input[ParamDayOfWeek]).Transform(To.SentenceCase)}");
         }
 
         protected override String RenderTestMethodBodyAssert(TestMethodBody testMethodBody)

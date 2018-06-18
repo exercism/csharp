@@ -9,13 +9,10 @@ namespace Generators.Exercises
 {
     public class Dominoes : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-            {
-                canonicalDataCase.UseVariablesForInput = true;
-                canonicalDataCase.Input["dominoes"] = ConvertInput(canonicalDataCase.Input["dominoes"]);
-            }
+            canonicalDataCase.UseVariablesForInput = true;
+            canonicalDataCase.Input["dominoes"] = ConvertInput(canonicalDataCase.Input["dominoes"]);
         }
 
         protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(Tuple).Namespace };

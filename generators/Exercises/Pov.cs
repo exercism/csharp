@@ -8,20 +8,17 @@ namespace Generators.Exercises
 {
     public class Pov : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
+            canonicalDataCase.UseVariablesForInput = true;
+            canonicalDataCase.UseVariableForExpected = true;
+            canonicalDataCase.ExceptionThrown = canonicalDataCase.Expected is null ? typeof(ArgumentException) : null;
+
+            canonicalDataCase.Input["tree"] = RenderTree(canonicalDataCase.Input["tree"]);
+
+            if (canonicalDataCase.Property == "fromPov")
             {
-                canonicalDataCase.UseVariablesForInput = true;
-                canonicalDataCase.UseVariableForExpected = true;
-                canonicalDataCase.ExceptionThrown = canonicalDataCase.Expected is null ? typeof(ArgumentException) : null;
-
-                canonicalDataCase.Input["tree"] = RenderTree(canonicalDataCase.Input["tree"]);
-
-                if (canonicalDataCase.Property == "fromPov")
-                {
-                    canonicalDataCase.Expected = RenderTree(canonicalDataCase.Expected);
-                }
+                canonicalDataCase.Expected = RenderTree(canonicalDataCase.Expected);
             }
         }
 

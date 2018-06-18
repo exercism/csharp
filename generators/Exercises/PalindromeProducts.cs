@@ -8,20 +8,17 @@ namespace Generators.Exercises
 {
     public class PalindromeProducts : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
+            if (canonicalDataCase.Expected.ContainsKey("error"))
             {
-                if (canonicalDataCase.Expected.ContainsKey("error"))
-                {
-                    canonicalDataCase.ExceptionThrown = typeof(ArgumentException);
-                }
-                else
-                {
-                    canonicalDataCase.UseVariableForTested = true;
-                    canonicalDataCase.UseVariableForExpected = true;
-                    canonicalDataCase.Expected = (canonicalDataCase.Expected["value"], FormatCoordinates(canonicalDataCase.Expected["factors"]));
-                }
+                canonicalDataCase.ExceptionThrown = typeof(ArgumentException);
+            }
+            else
+            {
+                canonicalDataCase.UseVariableForTested = true;
+                canonicalDataCase.UseVariableForExpected = true;
+                canonicalDataCase.Expected = (canonicalDataCase.Expected["value"], FormatCoordinates(canonicalDataCase.Expected["factors"]));
             }
         }
 

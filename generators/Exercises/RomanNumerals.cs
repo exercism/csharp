@@ -4,13 +4,10 @@ namespace Generators.Exercises
 {
     public class RomanNumerals : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-            {
-                canonicalDataCase.TestedMethodType = TestedMethodType.Extension;
-                canonicalDataCase.Property = "ToRoman";
-            }
+            canonicalDataCase.TestedMethodType = TestedMethodType.Extension;
+            canonicalDataCase.Property = "ToRoman";
         }
     }
 }

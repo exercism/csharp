@@ -7,15 +7,12 @@ namespace Generators.Exercises
 {
     public class PerfectNumbers : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-            {
-                if (canonicalDataCase.Expected is string classificationType)
-                    canonicalDataCase.Expected = new UnescapedValue($"Classification.{classificationType.Transform(To.SentenceCase)}");
-                else
-                    canonicalDataCase.ExceptionThrown = typeof(ArgumentOutOfRangeException);
-            }
+            if (canonicalDataCase.Expected is string classificationType)
+                canonicalDataCase.Expected = new UnescapedValue($"Classification.{classificationType.Transform(To.SentenceCase)}");
+            else
+                canonicalDataCase.ExceptionThrown = typeof(ArgumentOutOfRangeException);
         }
     }
 }

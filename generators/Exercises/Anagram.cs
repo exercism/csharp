@@ -4,14 +4,11 @@ namespace Generators.Exercises
 {
     public class Anagram : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-            {
-                canonicalDataCase.UseVariablesForInput = true;
-                canonicalDataCase.UseVariableForExpected = true;
-                canonicalDataCase.SetConstructorInputParameters("subject");
-            }
+            canonicalDataCase.UseVariablesForInput = true;
+            canonicalDataCase.UseVariableForExpected = true;
+            canonicalDataCase.SetConstructorInputParameters("subject");
         }
     }
 }

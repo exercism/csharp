@@ -4,15 +4,12 @@ namespace Generators.Exercises
 {
     public class LargestSeriesProduct : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-            {
-                canonicalDataCase.Property = "GetLargestProduct";
+            canonicalDataCase.Property = "GetLargestProduct";
                 
-                var caseInputLessThanZero = (long)canonicalDataCase.Expected == -1;
-                canonicalDataCase.ExceptionThrown = caseInputLessThanZero ? typeof(System.ArgumentException) : null;
-            }
+            var caseInputLessThanZero = (long)canonicalDataCase.Expected == -1;
+            canonicalDataCase.ExceptionThrown = caseInputLessThanZero ? typeof(System.ArgumentException) : null;
         }
     }
 }

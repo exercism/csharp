@@ -8,25 +8,22 @@ namespace Generators.Exercises
 {
     public class RobotSimulator : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
             const string direction = "direction";
             const string position = "position";
             const string coordinate = "coordinate";
 
-            foreach (var canonicalDataCase in canonicalData.Cases)
-            {
-                var positionVal = new UnescapedValue(GetCoordinateInstance(canonicalDataCase.Input[position]));
-                var directionVal = new UnescapedValue(GetDirectionEnum(canonicalDataCase.Input[direction]));
+            var positionVal = new UnescapedValue(GetCoordinateInstance(canonicalDataCase.Input[position]));
+            var directionVal = new UnescapedValue(GetDirectionEnum(canonicalDataCase.Input[direction]));
 
-                canonicalDataCase.Input[direction] = directionVal;
-                canonicalDataCase.Input[coordinate] = positionVal;
+            canonicalDataCase.Input[direction] = directionVal;
+            canonicalDataCase.Input[coordinate] = positionVal;
 
-                canonicalDataCase.SetConstructorInputParameters(direction, coordinate);
+            canonicalDataCase.SetConstructorInputParameters(direction, coordinate);
 
-                canonicalDataCase.UseFullDescriptionPath = true;
-                canonicalDataCase.UseVariableForTested = true;
-            }
+            canonicalDataCase.UseFullDescriptionPath = true;
+            canonicalDataCase.UseVariableForTested = true;
         }
 
         protected override string RenderTestMethodBodyArrange(TestMethodBody testMethodBody)

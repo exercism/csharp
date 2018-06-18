@@ -6,13 +6,10 @@ namespace Generators.Exercises
 {
     public class ZebraPuzzle : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
-        {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-            {
-                var nationality = canonicalDataCase.Expected as string;
-                canonicalDataCase.Expected = new UnescapedValue($"Nationality.{nationality.Humanize()}");
-            }
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        {   
+            var nationality = canonicalDataCase.Expected as string;
+            canonicalDataCase.Expected = new UnescapedValue($"Nationality.{nationality.Humanize()}");
         }
     }
 }

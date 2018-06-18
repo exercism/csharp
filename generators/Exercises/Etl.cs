@@ -6,16 +6,13 @@ namespace Generators.Exercises
 {
     public class Etl : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-            {
-                canonicalDataCase.UseVariablesForInput = true;
-                canonicalDataCase.UseVariableForExpected = true;
-                canonicalDataCase.Input = ConvertInput(canonicalDataCase.Input);
-                canonicalDataCase.Expected = ConvertExpected(canonicalDataCase.Expected);
-                canonicalDataCase.SetInputParameters("input");
-            }
+            canonicalDataCase.UseVariablesForInput = true;
+            canonicalDataCase.UseVariableForExpected = true;
+            canonicalDataCase.Input = ConvertInput(canonicalDataCase.Input);
+            canonicalDataCase.Expected = ConvertExpected(canonicalDataCase.Expected);
+            canonicalDataCase.SetInputParameters("input");
         }
 
         private static dynamic ConvertExpected(dynamic expected)

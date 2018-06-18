@@ -4,21 +4,20 @@ namespace Generators.Exercises
 {
     public class DifferenceOfSquares : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-                switch(canonicalDataCase.Property)
-                {
-                    case "squareOfSum":
-                        canonicalDataCase.Property = "CalculateSquareOfSum";
-                        break;
-                    case "sumOfSquares":
-                        canonicalDataCase.Property = "CalculateSumOfSquares";
-                        break;
-                    case "differenceOfSquares":
-                        canonicalDataCase.Property = "CalculateDifferenceOfSquares";
-                        break;
-                }
+            switch(canonicalDataCase.Property)
+            {
+                case "squareOfSum":
+                    canonicalDataCase.Property = "CalculateSquareOfSum";
+                    break;
+                case "sumOfSquares":
+                    canonicalDataCase.Property = "CalculateSumOfSquares";
+                    break;
+                case "differenceOfSquares":
+                    canonicalDataCase.Property = "CalculateDifferenceOfSquares";
+                    break;
+            }
         }
     }
 }

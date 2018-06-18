@@ -10,48 +10,45 @@ namespace Generators.Exercises
 {
     public class GoCounting : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
+            canonicalDataCase.UseVariablesForInput = true;
+            canonicalDataCase.UseVariableForExpected = true;
+            canonicalDataCase.UseVariablesForConstructorParameters = true;
+            canonicalDataCase.UseVariableForTested = true;
+
+            canonicalDataCase.Input["board"] = ConvertHelper.ToMultiLineString(canonicalDataCase.Input["board"]);
+            canonicalDataCase.SetConstructorInputParameters("board");
+
+            if (canonicalDataCase.Property == "territory")
             {
-                canonicalDataCase.UseVariablesForInput = true;
-                canonicalDataCase.UseVariableForExpected = true;
-                canonicalDataCase.UseVariablesForConstructorParameters = true;
-                canonicalDataCase.UseVariableForTested = true;
+                canonicalDataCase.Input["coordinate"] = (canonicalDataCase.Input["x"], canonicalDataCase.Input["y"]);
+                canonicalDataCase.SetInputParameters("coordinate");
 
-                canonicalDataCase.Input["board"] = ConvertHelper.ToMultiLineString(canonicalDataCase.Input["board"]);
-                canonicalDataCase.SetConstructorInputParameters("board");
-
-                if (canonicalDataCase.Property == "territory")
+                if (canonicalDataCase.Expected.ContainsKey("error"))
                 {
-                    canonicalDataCase.Input["coordinate"] = (canonicalDataCase.Input["x"], canonicalDataCase.Input["y"]);
-                    canonicalDataCase.SetInputParameters("coordinate");
-
-                    if (canonicalDataCase.Expected.ContainsKey("error"))
-                    {
-                        canonicalDataCase.ExceptionThrown = typeof(ArgumentException);
-                    }
-                    else
-                    {
-                        var owner = FormatOwner(canonicalDataCase.Expected["owner"]);
-                        var territory = FormatTerritory(canonicalDataCase.Expected["territory"]);
-                        canonicalDataCase.Expected = (new UnescapedValue(owner), territory);
-                    }
+                    canonicalDataCase.ExceptionThrown = typeof(ArgumentException);
                 }
                 else
                 {
-                    var expected = new[]
-                        {
-                            "new Dictionary<Owner, ValueTuple<int,int>[]>",
-                            "{",
-                            $"    [Owner.Black] = {FormatTerritory(canonicalDataCase.Expected["territoryBlack"])},",
-                            $"    [Owner.White] = {FormatTerritory(canonicalDataCase.Expected["territoryWhite"])},",
-                            $"    [Owner.None] = {FormatTerritory(canonicalDataCase.Expected["territoryNone"])}",
-                            "}"
-                        };
-
-                    canonicalDataCase.Expected = new UnescapedValue(string.Join(Environment.NewLine, expected));
+                    var owner = FormatOwner(canonicalDataCase.Expected["owner"]);
+                    var territory = FormatTerritory(canonicalDataCase.Expected["territory"]);
+                    canonicalDataCase.Expected = (new UnescapedValue(owner), territory);
                 }
+            }
+            else
+            {
+                var expected = new[]
+                    {
+                        "new Dictionary<Owner, ValueTuple<int,int>[]>",
+                        "{",
+                        $"    [Owner.Black] = {FormatTerritory(canonicalDataCase.Expected["territoryBlack"])},",
+                        $"    [Owner.White] = {FormatTerritory(canonicalDataCase.Expected["territoryWhite"])},",
+                        $"    [Owner.None] = {FormatTerritory(canonicalDataCase.Expected["territoryNone"])}",
+                        "}"
+                    };
+
+                canonicalDataCase.Expected = new UnescapedValue(string.Join(Environment.NewLine, expected));
             }
         }
 

@@ -4,15 +4,12 @@ namespace Generators.Exercises
 {
     public class Matrix : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-            {
-                canonicalDataCase.Properties["string"] = canonicalDataCase.Properties["input"]["string"];
-                canonicalDataCase.SetConstructorInputParameters("string");
-                canonicalDataCase.Properties["index"] = canonicalDataCase.Properties["input"]["index"];
-                canonicalDataCase.SetInputParameters("index");
-            }
+            canonicalDataCase.Properties["string"] = canonicalDataCase.Properties["input"]["string"];
+            canonicalDataCase.SetConstructorInputParameters("string");
+            canonicalDataCase.Properties["index"] = canonicalDataCase.Properties["input"]["index"];
+            canonicalDataCase.SetInputParameters("index");
         }
     }
 }

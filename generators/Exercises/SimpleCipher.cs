@@ -7,42 +7,39 @@ namespace Generators.Exercises
 {
     public class SimpleCipher : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
+            canonicalDataCase.UseFullDescriptionPath = true;
+
+            if (canonicalDataCase.Property == "new")
             {
-                canonicalDataCase.UseFullDescriptionPath = true;
+                return;
+            }
 
-                if (canonicalDataCase.Property == "new")
+            canonicalDataCase.TestedMethodType = TestedMethodType.Instance;
+
+            if (canonicalDataCase.Input.ContainsKey("key"))
+            {
+                canonicalDataCase.SetConstructorInputParameters("key");
+            }
+
+            if (canonicalDataCase.Input.TryGetValue("ciphertext", out var cipherText))
+            {
+                if (cipherText == "cipher.key")
                 {
-                    continue;
+                    canonicalDataCase.Input["ciphertext"] = new UnescapedValue("sut.Key.Substring(0, 10)");
                 }
-
-                canonicalDataCase.TestedMethodType = TestedMethodType.Instance;
-
-                if (canonicalDataCase.Input.ContainsKey("key"))
+                else if (cipherText == "cipher.encode")
                 {
-                    canonicalDataCase.SetConstructorInputParameters("key");
+                    var plaintext = ValueFormatter.Format(canonicalDataCase.Input["plaintext"]);
+                    canonicalDataCase.Input["ciphertext"] = new UnescapedValue($"sut.Encode({plaintext})");
+                    canonicalDataCase.SetInputParameters("ciphertext");
                 }
+            }
 
-                if (canonicalDataCase.Input.TryGetValue("ciphertext", out var cipherText))
-                {
-                    if (cipherText == "cipher.key")
-                    {
-                        canonicalDataCase.Input["ciphertext"] = new UnescapedValue("sut.Key.Substring(0, 10)");
-                    }
-                    else if (cipherText == "cipher.encode")
-                    {
-                        var plaintext = ValueFormatter.Format(canonicalDataCase.Input["plaintext"]);
-                        canonicalDataCase.Input["ciphertext"] = new UnescapedValue($"sut.Encode({plaintext})");
-                        canonicalDataCase.SetInputParameters("ciphertext");
-                    }
-                }
-
-                if (canonicalDataCase.Expected is string s && s == "cipher.key")
-                {
-                    canonicalDataCase.Expected = new UnescapedValue("sut.Key.Substring(0, 10)");
-                }
+            if (canonicalDataCase.Expected is string s && s == "cipher.key")
+            {
+                canonicalDataCase.Expected = new UnescapedValue("sut.Key.Substring(0, 10)");
             }
         }
 

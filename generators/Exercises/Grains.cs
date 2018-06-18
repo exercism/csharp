@@ -5,15 +5,12 @@ namespace Generators.Exercises
 {
     public class Grains : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-            {
-                if (ShouldThrowException(canonicalDataCase.Expected))
-                    canonicalDataCase.ExceptionThrown = typeof(ArgumentOutOfRangeException);
-                else
-                    canonicalDataCase.Expected = (ulong)canonicalDataCase.Expected;
-            }
+            if (ShouldThrowException(canonicalDataCase.Expected))
+                canonicalDataCase.ExceptionThrown = typeof(ArgumentOutOfRangeException);
+            else
+                canonicalDataCase.Expected = (ulong)canonicalDataCase.Expected;
         }
 
         private static bool ShouldThrowException(dynamic value) => value is int i && i == -1;

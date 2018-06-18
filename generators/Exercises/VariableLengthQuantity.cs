@@ -9,19 +9,16 @@ namespace Generators.Exercises
 {
     public class VariableLengthQuantity : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-            {
-                canonicalDataCase.UseVariableForExpected = true;
-                canonicalDataCase.UseVariablesForInput = true;
-                canonicalDataCase.Input["integers"] = FormatUInt32Array(canonicalDataCase.Input["integers"]);
+            canonicalDataCase.UseVariableForExpected = true;
+            canonicalDataCase.UseVariablesForInput = true;
+            canonicalDataCase.Input["integers"] = FormatUInt32Array(canonicalDataCase.Input["integers"]);
 
-                if (canonicalDataCase.Expected == null)
-                    canonicalDataCase.ExceptionThrown = typeof(InvalidOperationException);
-                else
-                    canonicalDataCase.Expected = FormatUInt32Array(canonicalDataCase.Expected);
-            }
+            if (canonicalDataCase.Expected == null)
+                canonicalDataCase.ExceptionThrown = typeof(InvalidOperationException);
+            else
+                canonicalDataCase.Expected = FormatUInt32Array(canonicalDataCase.Expected);
         }
 
         protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(Array).Namespace };

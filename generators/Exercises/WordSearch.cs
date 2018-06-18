@@ -8,32 +8,29 @@ namespace Generators.Exercises
 {
     public class WordSearch : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-            {
-                canonicalDataCase.UseVariablesForInput = true;
-                canonicalDataCase.UseVariableForTested = true;
-                canonicalDataCase.UseVariableForExpected = true;
-                canonicalDataCase.UseVariablesForConstructorParameters = true;
+            canonicalDataCase.UseVariablesForInput = true;
+            canonicalDataCase.UseVariableForTested = true;
+            canonicalDataCase.UseVariableForExpected = true;
+            canonicalDataCase.UseVariablesForConstructorParameters = true;
 
-                canonicalDataCase.SetConstructorInputParameters("grid");
+            canonicalDataCase.SetConstructorInputParameters("grid");
 
-                canonicalDataCase.Input["grid"] = ConvertHelper.ToMultiLineString(canonicalDataCase.Input["grid"]);
+            canonicalDataCase.Input["grid"] = ConvertHelper.ToMultiLineString(canonicalDataCase.Input["grid"]);
 
-                var expectedDictionary = canonicalDataCase.Expected as IDictionary<string, dynamic>;
+            var expectedDictionary = canonicalDataCase.Expected as IDictionary<string, dynamic>;
 
-                var expected = new List<string>
-                    {
-                        "new Dictionary<string, ((int, int), (int, int))?>",
-                        "{"
-                    };
+            var expected = new List<string>
+                {
+                    "new Dictionary<string, ((int, int), (int, int))?>",
+                    "{"
+                };
 
-                expected.AddRange(expectedDictionary.Select(((kv, i) => $"    [\"{kv.Key}\"] = {FormatPosition(kv.Value)}{(i < expectedDictionary.Count - 1 ? "," : "")}")));
-                expected.Add("}");
+            expected.AddRange(expectedDictionary.Select(((kv, i) => $"    [\"{kv.Key}\"] = {FormatPosition(kv.Value)}{(i < expectedDictionary.Count - 1 ? "," : "")}")));
+            expected.Add("}");
 
-                canonicalDataCase.Expected = new UnescapedValue(string.Join(Environment.NewLine, expected));
-            }
+            canonicalDataCase.Expected = new UnescapedValue(string.Join(Environment.NewLine, expected));
         }
 
         protected override string RenderTestMethodBodyAssert(TestMethodBody testMethodBody)

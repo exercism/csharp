@@ -5,13 +5,10 @@ namespace Generators.Exercises
 {
     public class Sieve : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-            {
-                canonicalDataCase.UseVariableForExpected = true;
-                canonicalDataCase.ExceptionThrown = canonicalDataCase.Input["limit"] < 2 ? typeof(ArgumentOutOfRangeException) : null;
-            }
+            canonicalDataCase.UseVariableForExpected = true;
+            canonicalDataCase.ExceptionThrown = canonicalDataCase.Input["limit"] < 2 ? typeof(ArgumentOutOfRangeException) : null;
         }
     }
 }

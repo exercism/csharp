@@ -8,16 +8,13 @@ namespace Generators.Exercises
 {
     public class Minesweeper : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-            {
-                canonicalDataCase.UseVariablesForInput = true;
-                canonicalDataCase.UseVariableForExpected = true;
+            canonicalDataCase.UseVariablesForInput = true;
+            canonicalDataCase.UseVariableForExpected = true;
 
-                canonicalDataCase.Input["minefield"] = ToMultiLineString(canonicalDataCase.Input["minefield"]);
-                canonicalDataCase.Expected = ToMultiLineString(canonicalDataCase.Expected);
-            }
+            canonicalDataCase.Input["minefield"] = ToMultiLineString(canonicalDataCase.Input["minefield"]);
+            canonicalDataCase.Expected = ToMultiLineString(canonicalDataCase.Expected);
         }
 
         private UnescapedValue ToMultiLineString(JArray input) => new UnescapedValue("Array.Empty<string>()");

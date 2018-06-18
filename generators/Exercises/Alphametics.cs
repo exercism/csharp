@@ -7,18 +7,15 @@ namespace Generators.Exercises
 {
     public class Alphametics : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-            {
-                canonicalDataCase.UseVariableForExpected = true;
-                canonicalDataCase.UseVariableForTested = true;
+            canonicalDataCase.UseVariableForExpected = true;
+            canonicalDataCase.UseVariableForTested = true;
 
-                if (canonicalDataCase.Expected == null)
-                    canonicalDataCase.ExceptionThrown = typeof(ArgumentException);
-                else
-                    canonicalDataCase.Expected = ConvertExpected(canonicalDataCase);
-            }
+            if (canonicalDataCase.Expected == null)
+                canonicalDataCase.ExceptionThrown = typeof(ArgumentException);
+            else
+                canonicalDataCase.Expected = ConvertExpected(canonicalDataCase);
         }
 
         private static dynamic ConvertExpected(CanonicalDataCase canonicalDataCase)

@@ -4,13 +4,10 @@ namespace Generators.Exercises
 {
     public class BeerSong : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-            {
-                canonicalDataCase.UseVariableForExpected = true;
-                canonicalDataCase.Expected = ConvertHelper.ToMultiLineString(canonicalDataCase.Expected);
-            }
+            canonicalDataCase.UseVariableForExpected = true;
+            canonicalDataCase.Expected = ConvertHelper.ToMultiLineString(canonicalDataCase.Expected);
         }
     }
 }

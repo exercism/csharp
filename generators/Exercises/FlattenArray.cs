@@ -5,21 +5,18 @@ namespace Generators.Exercises
 {
     public class FlattenArray : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-            {
-                canonicalDataCase.UseVariablesForInput = true;
-                canonicalDataCase.UseVariableForExpected = true;
+            canonicalDataCase.UseVariablesForInput = true;
+            canonicalDataCase.UseVariableForExpected = true;
 
-                var stringInput = canonicalDataCase.Input["array"].ToString();
+            var stringInput = canonicalDataCase.Input["array"].ToString();
 
-                // We skip reformatting of pure int arrays.
-                if (stringInput.Contains("System.Int32"))
-                    continue;
+            // We skip reformatting of pure int arrays.
+            if (stringInput.Contains("System.Int32"))
+                return;
 
-                canonicalDataCase.Input["array"] = new UnescapedValue(ToProperObjArray(stringInput));
-            }
+            canonicalDataCase.Input["array"] = new UnescapedValue(ToProperObjArray(stringInput));
         }
 
         private string ToProperObjArray(string input)

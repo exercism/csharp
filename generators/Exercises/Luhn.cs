@@ -4,10 +4,9 @@ namespace Generators.Exercises
 {
     public class Luhn : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-                canonicalDataCase.Property = "IsValid";
+            canonicalDataCase.Property = "IsValid";
         }
     }
 }

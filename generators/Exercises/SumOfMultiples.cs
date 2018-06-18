@@ -6,12 +6,9 @@ namespace Generators.Exercises
 {
     public class SumOfMultiples : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-            {
-                canonicalDataCase.Input["factors"] = ConvertHelper.ToArray<int>(canonicalDataCase.Input["factors"]);
-            }
+            canonicalDataCase.Input["factors"] = ConvertHelper.ToArray<int>(canonicalDataCase.Input["factors"]);
         }
 
         protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(Array).Namespace };

@@ -5,10 +5,9 @@ namespace Generators.Exercises
 {
     public class Hamming : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-                canonicalDataCase.ExceptionThrown = canonicalDataCase.Expected is int ? null : typeof(ArgumentException);
+            canonicalDataCase.ExceptionThrown = canonicalDataCase.Expected is int ? null : typeof(ArgumentException);
         }
     }
 }

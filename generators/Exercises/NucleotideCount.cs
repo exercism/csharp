@@ -7,16 +7,13 @@ namespace Generators.Exercises
 {
     public class NucleotideCount : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
+            if (!((Dictionary<string, object>)canonicalDataCase.Expected).ContainsKey("error"))
             {
-                if (!((Dictionary<string, object>)canonicalDataCase.Expected).ContainsKey("error"))
-                {
-                    canonicalDataCase.UseVariableForExpected = true;
-                    canonicalDataCase.SetConstructorInputParameters("strand");
-                    canonicalDataCase.Expected = ConvertExpected(canonicalDataCase.Expected);
-                }
+                canonicalDataCase.UseVariableForExpected = true;
+                canonicalDataCase.SetConstructorInputParameters("strand");
+                canonicalDataCase.Expected = ConvertExpected(canonicalDataCase.Expected);
             }
         }
 

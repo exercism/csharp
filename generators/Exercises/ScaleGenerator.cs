@@ -4,12 +4,9 @@ namespace Generators.Exercises
 {
     public class ScaleGenerator : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-            {
-                canonicalDataCase.UseVariableForExpected = true;
-            }
+            canonicalDataCase.UseVariableForExpected = true;
         }
     }
 }

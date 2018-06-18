@@ -8,16 +8,13 @@ namespace Generators.Exercises
 {
     public class Grep : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-            {
-                canonicalDataCase.Property = "Match";
-                canonicalDataCase.Input["flags"] = string.Join(" ", canonicalDataCase.Input["flags"]);
-                canonicalDataCase.Expected = ConvertExpected(canonicalDataCase.Expected);
-                canonicalDataCase.UseVariablesForInput = true;
-                canonicalDataCase.UseVariableForExpected = true;
-            }
+            canonicalDataCase.Property = "Match";
+            canonicalDataCase.Input["flags"] = string.Join(" ", canonicalDataCase.Input["flags"]);
+            canonicalDataCase.Expected = ConvertExpected(canonicalDataCase.Expected);
+            canonicalDataCase.UseVariablesForInput = true;
+            canonicalDataCase.UseVariableForExpected = true;
         }
 
         private static dynamic ConvertExpected(dynamic expected)

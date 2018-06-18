@@ -7,17 +7,14 @@ namespace Generators.Exercises
 {
     public class Tournament : GeneratorExercise
     {
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-            {
-                canonicalDataCase.Property = "RunTally";
-                canonicalDataCase.TestedMethodType = TestedMethodType.Static;
-                canonicalDataCase.UseVariablesForInput = true;
-                canonicalDataCase.UseVariableForExpected = true;
-                canonicalDataCase.Input["rows"] = ConvertHelper.ToMultiLineString(canonicalDataCase.Input["rows"], "");
-                canonicalDataCase.Expected = ConvertHelper.ToMultiLineString(canonicalDataCase.Expected);
-            }
+            canonicalDataCase.Property = "RunTally";
+            canonicalDataCase.TestedMethodType = TestedMethodType.Static;
+            canonicalDataCase.UseVariablesForInput = true;
+            canonicalDataCase.UseVariableForExpected = true;
+            canonicalDataCase.Input["rows"] = ConvertHelper.ToMultiLineString(canonicalDataCase.Input["rows"], "");
+            canonicalDataCase.Expected = ConvertHelper.ToMultiLineString(canonicalDataCase.Expected);
         }
 
         protected override IEnumerable<string> AdditionalNamespaces => new[]

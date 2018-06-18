@@ -15,16 +15,13 @@ namespace Generators.Exercises
             var template = (list != null) ? string.Join(", ", Array.ConvertAll<int, string>(list, (x) => { return $"{x}"; })) : "";
             return new UnescapedValue($"new List<int>() {{ {template} }}".Replace("  ", " "));
         }
-        protected override void UpdateCanonicalData(CanonicalData canonicalData)
+        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            foreach (var canonicalDataCase in canonicalData.Cases)
-            {
-                canonicalDataCase.Input["listOne"] = InputValues(canonicalDataCase.Input["listOne"] as int[]);
-                canonicalDataCase.Input["listTwo"] = InputValues(canonicalDataCase.Input["listTwo"] as int[]);
+            canonicalDataCase.Input["listOne"] = InputValues(canonicalDataCase.Input["listOne"] as int[]);
+            canonicalDataCase.Input["listTwo"] = InputValues(canonicalDataCase.Input["listTwo"] as int[]);
 
-                canonicalDataCase.Property = "classify";
-                canonicalDataCase.Expected = new UnescapedValue($"SublistType.{(canonicalDataCase.Expected as string).Dehumanize()}");
-            }
+            canonicalDataCase.Property = "classify";
+            canonicalDataCase.Expected = new UnescapedValue($"SublistType.{(canonicalDataCase.Expected as string).Dehumanize()}");
         }
     }
 }
