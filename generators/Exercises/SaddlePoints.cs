@@ -40,7 +40,7 @@ namespace Generators.Exercises
 
         private IEnumerable<Tuple<string, object>> ToTupleCollection(Array array)
         {
-            for (int x = 0; x < array.GetLength(0); x++)
+            for (var x = 0; x < array.GetLength(0); x++)
             {
                 var current = ((Array)array).GetValue(x) as Dictionary<string, object>;
                 yield return new Tuple<string, object>(current["row"].ToString(), current["column"].ToString());

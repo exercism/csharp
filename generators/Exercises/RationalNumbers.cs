@@ -23,8 +23,8 @@ namespace Generators.Exercises
             var operation = testMethodBody.CanonicalDataCase.Properties["property"].ToString();
             var expected = testMethodBody.CanonicalDataCase.Properties["expected"];
             var operationName = char.ToUpper(operation[0]) + operation.Substring(1);
-            string assertCodeLine = "";
-            string operationsWithOverloading = "add|+|sub|-|mul|*|div|/";
+            var assertCodeLine = "";
+            var operationsWithOverloading = "add|+|sub|-|mul|*|div|/";
             string operationCode = operationsWithOverloading.Substring(operationsWithOverloading.IndexOf(operation.ToLower()) + 4, 1);
 
             switch (operation.ToLower())

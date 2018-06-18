@@ -26,7 +26,7 @@ namespace Generators.Exercises
 
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            string template = @"Assert.Equal(expected, RunTally(rows));";
+            var template = @"Assert.Equal(expected, RunTally(rows));";
             return new[] { TemplateRenderer.RenderInline(template, new { }) };
         }
 

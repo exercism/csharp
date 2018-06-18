@@ -43,7 +43,7 @@ namespace Generators.Exercises
             if (constructorData.Length == 1) addCodeLine($"var tree = new BinarySearchTree({constructorData[0]});");
             else
             {
-                string constructorDataString = string.Join(", ", constructorData);
+                var constructorDataString = string.Join(", ", constructorData);
                 addCodeLine($"var tree = new BinarySearchTree(new[] {{ {constructorDataString} }});");
             }
 
@@ -56,7 +56,7 @@ namespace Generators.Exercises
             }
             else
             {
-                string expectedArrayString = string.Join(", ", canonicalDataCase.Properties["expected"] as string[]);
+                var expectedArrayString = string.Join(", ", canonicalDataCase.Properties["expected"] as string[]);
                 addCodeLine($"Assert.Equal(new[] {{ {expectedArrayString} }}, tree.AsEnumerable());");
             }
 

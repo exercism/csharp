@@ -37,7 +37,7 @@ namespace Generators.Exercises
 
         private IEnumerable<string> RenderDefaultMethodBodyAct(TestMethodBody testMethodBody)
         {
-            string template = @"sut.{{MethodInvocation}}();";
+            var template = @"sut.{{MethodInvocation}}();";
 
             var templateParameters = new
             {
@@ -49,7 +49,7 @@ namespace Generators.Exercises
 
         private IEnumerable<string> RenderInstructionsMethodBodyAct(TestMethodBody testMethodBody)
         {
-            string template = @"sut.{{MethodInvocation}}(""{{Instructions}}"");";
+            var template = @"sut.{{MethodInvocation}}(""{{Instructions}}"");";
 
             var templateParameters = new
             {
@@ -63,10 +63,10 @@ namespace Generators.Exercises
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             var expected = testMethodBody.CanonicalDataCase.Expected as Dictionary<string, dynamic>;
-            expected.TryGetValue("position", out dynamic position);
-            expected.TryGetValue("direction", out dynamic direction);
+            expected.TryGetValue("position", out var position);
+            expected.TryGetValue("direction", out var direction);
 
-            StringBuilder template = new StringBuilder();
+            var template = new StringBuilder();
 
             if (direction != null)
                 template.AppendLine("Assert.Equal({{Direction}}, sut.Direction);");
