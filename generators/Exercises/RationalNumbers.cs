@@ -5,10 +5,10 @@ namespace Generators.Exercises
 {
     public struct RationalNumber
     {
-        public RationalNumber(int[] n)
+        public RationalNumber(IReadOnlyList<int> n)
         {
-            this.Numerator = n[0];
-            this.Denominator = n[1];
+            Numerator = n[0];
+            Denominator = n[1];
         }
 
         public int Numerator { get; }
@@ -19,12 +19,12 @@ namespace Generators.Exercises
     {
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            var input = testMethodBody.CanonicalDataCase.Properties["input"] as System.Collections.Generic.Dictionary<string, object>;
+            var input = testMethodBody.CanonicalDataCase.Properties["input"] as Dictionary<string, object>;
             var operation = testMethodBody.CanonicalDataCase.Properties["property"].ToString();
             var expected = testMethodBody.CanonicalDataCase.Properties["expected"];
             var operationName = char.ToUpper(operation[0]) + operation.Substring(1);
             var assertCodeLine = "";
-            var operationsWithOverloading = "add|+|sub|-|mul|*|div|/";
+            const string operationsWithOverloading = "add|+|sub|-|mul|*|div|/";
             string operationCode = operationsWithOverloading.Substring(operationsWithOverloading.IndexOf(operation.ToLower()) + 4, 1);
 
             switch (operation.ToLower())
@@ -61,7 +61,7 @@ namespace Generators.Exercises
                         var x = input["x"].ToString();
                         var r = new RationalNumber((int[])input["r"]);
                         var e = ValueFormatter.Format(expected);
-                        var p = precision(e);
+                        var p = Precision(e);
                         assertCodeLine = "Assert.Equal(" + $"{e}, {x}.{operationName}(new RationalNumber({r.Numerator}, {r.Denominator})), {p});";
                     }
                     break;
@@ -70,6 +70,9 @@ namespace Generators.Exercises
             return new[] { TemplateRenderer.RenderInline(assertCodeLine, testMethodBody.AssertTemplateParameters) };
         }
 
-        private static int precision(object rawValue) => rawValue.ToString().Split(new char[] { '.' }).Length <= 1 ? 0 : rawValue.ToString().Split(new char[] { '.' })[1].Length;
+        private static int Precision(object rawValue) 
+            => rawValue.ToString().Split(new[] { '.' }).Length <= 1 
+                    ? 0 
+                    : rawValue.ToString().Split(new[] { '.' })[1].Length;
     }
 }

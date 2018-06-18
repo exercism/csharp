@@ -57,12 +57,9 @@ namespace Generators.Exercises
         {
             var match = Regex.Match((string)computeFunction, "if (.+) then (.+) else (.+)");
 
-            if (match.Success)
-            {
-                return $"{match.Groups[1]} ? {match.Groups[2]} : {match.Groups[3]}";
-            }
-
-            return computeFunction;
+            return match.Success 
+                ? $"{match.Groups[1]} ? {match.Groups[2]} : {match.Groups[3]}" 
+                : (string) computeFunction;
         }
 
         private static string RenderOperations(dynamic operations)
@@ -118,7 +115,7 @@ namespace Generators.Exercises
                     var removeCallbackName = ToVariableName(operation["name"]);
                     return $"{ToVariableName(operation["cell"])}.Changed -= {removeCallbackName};";
                 default:
-                    return $"qweqwe";
+                    return "qweqwe";
             }
         }
 

@@ -37,7 +37,7 @@ namespace Generators.Exercises
             };
         }
 
-        private string FormatCoordinates(dynamic coordinates)
+        private static string FormatCoordinates(dynamic coordinates)
             => ValueFormatter.Format((coordinates as JArray).Select(coordinate => (coordinate[0].ToObject<int>(), coordinate[1].ToObject<int>())).ToArray());
     }
 }

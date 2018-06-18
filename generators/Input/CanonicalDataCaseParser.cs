@@ -120,13 +120,13 @@ namespace Generators.Input
                     return jArray.Select(ConvertJToken).ToArray();
                 case JTokenType.Integer:
                     var strings = jArray.ToObject<string[]>();
-                    if (strings.All(str => int.TryParse(str, out var _)))
+                    if (strings.All(str => int.TryParse(str, out _)))
                         return jArray.ToObject<int[]>();
 
-                    if (strings.All(str => long.TryParse(str, out var _)))
+                    if (strings.All(str => long.TryParse(str, out _)))
                         return jArray.ToObject<long[]>();
 
-                    if (strings.All(str => ulong.TryParse(str, out var _)))
+                    if (strings.All(str => ulong.TryParse(str, out _)))
                         return jArray.ToObject<ulong[]>();
 
                     return strings;

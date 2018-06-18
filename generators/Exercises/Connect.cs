@@ -1,4 +1,5 @@
-﻿using Generators.Input;
+﻿using System.Collections;
+using Generators.Input;
 using Generators.Output;
 
 namespace Generators.Exercises
@@ -12,7 +13,6 @@ namespace Generators.Exercises
             canonicalDataCase.Property = "result";
             canonicalDataCase.Input["board"] = ToMultiLineString(canonicalDataCase.Input["board"]);
 
-            //convert to enum
             switch (canonicalDataCase.Expected)
             {
                 case "X":
@@ -27,7 +27,7 @@ namespace Generators.Exercises
             }
         }
 
-        private UnescapedValue ToMultiLineString(string[] input)
+        private static UnescapedValue ToMultiLineString(IEnumerable input)
         {
             const string template =
 @"new [] 

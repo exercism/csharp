@@ -19,15 +19,13 @@ namespace Generators.Exercises
 
             canonicalDataCase.Input["matrix"] = ToMultiDimensionalArray(canonicalDataCase.Input["matrix"]);
 
-            var array = canonicalDataCase.Expected as Array;
-
-            if (array != null)
+            if (canonicalDataCase.Expected is Array array)
             {
                 canonicalDataCase.Expected = ToTupleCollection(array);
             }
         }
 
-        protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(System.String).Namespace };
+        protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(string).Namespace };
 
         private static dynamic ToMultiDimensionalArray(dynamic array)
         {
@@ -38,11 +36,11 @@ namespace Generators.Exercises
             return jArray.ToObject<int[,]>();
         }
 
-        private IEnumerable<Tuple<string, object>> ToTupleCollection(Array array)
+        private static IEnumerable<Tuple<string, object>> ToTupleCollection(Array array)
         {
             for (var x = 0; x < array.GetLength(0); x++)
             {
-                var current = ((Array)array).GetValue(x) as Dictionary<string, object>;
+                var current = array.GetValue(x) as Dictionary<string, object>;
                 yield return new Tuple<string, object>(current["row"].ToString(), current["column"].ToString());
             }
         }

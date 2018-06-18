@@ -13,12 +13,9 @@ namespace Generators.Exercises
 
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            if (testMethodBody.CanonicalDataCase.Property == "consistency")
-            {
-                return RenderConsistencyToAssert(testMethodBody);
-            }
-
-            return base.RenderTestMethodBodyAssert(testMethodBody);
+            return testMethodBody.CanonicalDataCase.Property == "consistency" 
+                ? RenderConsistencyToAssert(testMethodBody) 
+                : base.RenderTestMethodBodyAssert(testMethodBody);
         }
 
         private static IEnumerable<string> RenderConsistencyToAssert(TestMethodBody testMethodBody)

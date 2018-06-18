@@ -4,7 +4,7 @@ namespace Generators.Output
 {
     public class ExerciseWriter
     {
-        public virtual void WriteToFile(GeneratorExercise generatorExercise)
+        public static void WriteToFile(GeneratorExercise generatorExercise)
         {
             var testClassFilePath = TestClassFilePath(generatorExercise);
             var testClassContents = generatorExercise.Render();

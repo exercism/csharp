@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Generators.Output;
 
@@ -6,61 +7,59 @@ namespace Generators.Exercises
 {
     public class ExpectedDataBinaryTree
     {
-        public ExpectedDataBinaryTree(System.Collections.Generic.Dictionary<string, object> treeNode)
+        public ExpectedDataBinaryTree(IReadOnlyDictionary<string, object> treeNode)
         {
             Value = treeNode["data"] as string;
-            if (treeNode["left"] != null) this.Left = new ExpectedDataBinaryTree(treeNode["left"] as System.Collections.Generic.Dictionary<string, object>);
-            if (treeNode["right"] != null) this.Right = new ExpectedDataBinaryTree(treeNode["right"] as System.Collections.Generic.Dictionary<string, object>);
+            if (treeNode["left"] != null) Left = new ExpectedDataBinaryTree(treeNode["left"] as Dictionary<string, object>);
+            if (treeNode["right"] != null) Right = new ExpectedDataBinaryTree(treeNode["right"] as Dictionary<string, object>);
         }
 
-        public int Level { get; }
         public string Value { get; }
-        public ExpectedDataBinaryTree Left { get; private set; }
-        public ExpectedDataBinaryTree Right { get; private set; }
+        public ExpectedDataBinaryTree Left { get; }
+        public ExpectedDataBinaryTree Right { get; }
 
         public IEnumerable<string> TestAsserts(string traverse = "")
         {
-            yield return $"Assert.Equal({this.Value}, tree{traverse}.Value);";
-            if (this.Left != null) foreach (var assert in this.Left.TestAsserts(traverse + ".Left")) yield return assert;
-            if (this.Right != null) foreach (var assert in this.Right.TestAsserts(traverse + ".Right")) yield return assert;
+            yield return $"Assert.Equal({Value}, tree{traverse}.Value);";
+            if (Left != null) foreach (var assert in Left.TestAsserts(traverse + ".Left")) yield return assert;
+            if (Right != null) foreach (var assert in Right.TestAsserts(traverse + ".Right")) yield return assert;
         }
     }
 
     public class BinarySearchTree : GeneratorExercise
     {
-        protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(System.Linq.IQueryable).Namespace };
+        protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(IQueryable).Namespace };
 
-        private StringBuilder testFactCodeLines;
-        void addCodeLine(string line) => testFactCodeLines.Append(line + "\r\n");
+        private StringBuilder _testFactCodeLines;
+        private void AddCodeLine(string line) => _testFactCodeLines.Append(line + "\r\n");
 
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            testFactCodeLines = new StringBuilder();
+            _testFactCodeLines = new StringBuilder();
             var canonicalDataCase = testMethodBody.CanonicalDataCase;
-            var input = canonicalDataCase.Properties["input"] as System.Collections.Generic.Dictionary<string, object>;
+            var input = canonicalDataCase.Properties["input"] as Dictionary<string, object>;
             var constructorData = input["treeData"] as string[];
 
-            if (constructorData.Length == 1) addCodeLine($"var tree = new BinarySearchTree({constructorData[0]});");
+            if (constructorData.Length == 1) AddCodeLine($"var tree = new BinarySearchTree({constructorData[0]});");
             else
             {
                 var constructorDataString = string.Join(", ", constructorData);
-                addCodeLine($"var tree = new BinarySearchTree(new[] {{ {constructorDataString} }});");
+                AddCodeLine($"var tree = new BinarySearchTree(new[] {{ {constructorDataString} }});");
             }
 
-            var expected = canonicalDataCase.Properties["expected"] as System.Collections.Generic.Dictionary<string, object>;
-            if (expected != null)
+            if (canonicalDataCase.Properties["expected"] is Dictionary<string, object> expected)
             {
-                var tree = new ExpectedDataBinaryTree(expected as System.Collections.Generic.Dictionary<string, object>);
+                var tree = new ExpectedDataBinaryTree(expected);
                 foreach (var assert in tree.TestAsserts())
-                    addCodeLine(assert);
+                    AddCodeLine(assert);
             }
             else
             {
                 var expectedArrayString = string.Join(", ", canonicalDataCase.Properties["expected"] as string[]);
-                addCodeLine($"Assert.Equal(new[] {{ {expectedArrayString} }}, tree.AsEnumerable());");
+                AddCodeLine($"Assert.Equal(new[] {{ {expectedArrayString} }}, tree.AsEnumerable());");
             }
 
-            return new[] { TemplateRenderer.RenderInline(testFactCodeLines.ToString(), testMethodBody.AssertTemplateParameters) };
+            return new[] { TemplateRenderer.RenderInline(_testFactCodeLines.ToString(), testMethodBody.AssertTemplateParameters) };
         }
     }
 }

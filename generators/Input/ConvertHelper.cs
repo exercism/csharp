@@ -6,22 +6,20 @@
 
         public static string ToMultiLineString(this object obj, string empty)
         {
-            var arr = obj as object[];
+            if (obj is object[] arr && arr.Length != 0) 
+                return string.Join("\n", arr);
+            
+            return empty;
 
-            if (arr == null || arr.Length == 0)
-                return empty;
-
-            return string.Join("\n", obj as object[]);
         }
 
         public static T[] ToArray<T>(this object obj)
         {
-            var arr = obj as T[];
+            if (obj is T[] arr && arr.Length != 0) 
+                return arr;
+            
+            return new T[0];
 
-            if (arr == null || arr.Length == 0)
-                return new T[0];
-
-            return arr;
         }
     }
 }

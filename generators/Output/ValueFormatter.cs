@@ -37,10 +37,10 @@ namespace Generators.Output
             }
         }
 
-        public static string[] FormatVariables(IDictionary<string, object> dict)
+        public static IEnumerable<string> FormatVariables(IDictionary<string, object> dict)
             => dict.Keys.SelectMany(key => FormatVariable(dict[key], key.ToVariableName())).ToArray();
 
-        public static string[] FormatVariable(object val, string name)
+        public static IEnumerable<string> FormatVariable(object val, string name)
         {
             switch (val)
             {
@@ -78,7 +78,7 @@ namespace Generators.Output
 
         private static string Format(this ulong ulng) => $"{ulng}UL";
 
-        private static string Format(this Enum @enumeration) =>
+        private static string Format(this Enum enumeration) =>
             $"{enumeration.GetType().Name}.{enumeration}";
 
         private static string Format(this Tuple<string, object> tuple) =>
@@ -133,7 +133,7 @@ namespace Generators.Output
         private static string ToNestedArray<T>(this IEnumerable<T> enumerable) =>
             enumerable.Any() ? $"{{ {string.Join(", ", enumerable)} }}" : string.Empty;
 
-        private static string[] FormatMultiLineString(string name, string str)
+        private static IEnumerable<string> FormatMultiLineString(string name, string str)
         {
             var strings = str.Split('\n');
             var formattedStrings = strings
@@ -144,10 +144,10 @@ namespace Generators.Output
             return FormatMultiLineVariable(formattedStrings, name);
         }
 
-        private static string[] FormatMultiLineEnumerable(IEnumerable<string> enumerable, string name, string constructor = null)
+        private static IEnumerable<string> FormatMultiLineEnumerable(IEnumerable<string> enumerable, string name, string constructor = null)
             => FormatMultiLineVariable(enumerable.Prepend("{").Append("}"), name, constructor);
 
-        private static string[] FormatMultiLineVariable(IEnumerable<string> enumerable, string name, string constructor = null)
+        private static IEnumerable<string> FormatMultiLineVariable(IEnumerable<string> enumerable, string name, string constructor = null)
             => enumerable.Select(line => line == "{" || line == "}" ? line : line.Indent())
                 .AddTrailingSemicolon()
                 .Prepend($"var {name} = {constructor}")

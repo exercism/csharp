@@ -27,7 +27,7 @@ namespace Generators.Exercises
                     "{"
                 };
 
-            expected.AddRange(expectedDictionary.Select(((kv, i) => $"    [\"{kv.Key}\"] = {FormatPosition(kv.Value)}{(i < expectedDictionary.Count - 1 ? "," : "")}")));
+            expected.AddRange(expectedDictionary.Select((kv, i) => $"    [\"{kv.Key}\"] = {FormatPosition(kv.Value)}{(i < expectedDictionary.Count - 1 ? "," : "")}"));
             expected.Add("}");
 
             canonicalDataCase.Expected = new UnescapedValue(string.Join(Environment.NewLine, expected));
@@ -41,27 +41,21 @@ namespace Generators.Exercises
                 yield return RenderTestMethodBodyAssertForSearchWord(kv.Key, kv.Value);
         }
 
-        private string RenderTestMethodBodyAssertForSearchWord(string word, dynamic expected)
+        private static string RenderTestMethodBodyAssertForSearchWord(string word, dynamic expected)
         {
-            if (expected == null)
-            {
-                return $"Assert.Null(expected[\"{word}\"]);";
-            }
-
-            return $"Assert.Equal(expected[\"{word}\"], actual[\"{word}\"]);";
+            return expected == null 
+                ? $"Assert.Null(expected[\"{word}\"]);" 
+                : $"Assert.Equal(expected[\"{word}\"], actual[\"{word}\"]);";
         }
 
-        private string FormatPosition(dynamic position)
+        private static string FormatPosition(dynamic position)
         {
-            if (position == null)
-            {
-                return "null";
-            }
-
-            return ValueFormatter.Format((FormatCoordinate(position["start"]), FormatCoordinate(position["end"])));
+            return position == null 
+                ? "null" : 
+                ValueFormatter.Format((FormatCoordinate(position["start"]), FormatCoordinate(position["end"])));
         }
 
-        private string FormatCoordinate(dynamic coordinate)
+        private static string FormatCoordinate(dynamic coordinate)
             => ValueFormatter.Format((coordinate["column"], coordinate["row"]));
 
         protected override IEnumerable<string> AdditionalNamespaces => new[]

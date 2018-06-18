@@ -19,7 +19,7 @@ namespace Generators.Exercises
             canonicalDataCase.Input["array"] = new UnescapedValue(ToProperObjArray(stringInput));
         }
 
-        private string ToProperObjArray(string input)
+        private static string ToProperObjArray(string input)
             => input
                 .Replace("System.Int32", "")
                 .Replace("]", "}")

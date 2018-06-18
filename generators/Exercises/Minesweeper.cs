@@ -17,9 +17,9 @@ namespace Generators.Exercises
             canonicalDataCase.Expected = ToMultiLineString(canonicalDataCase.Expected);
         }
 
-        private UnescapedValue ToMultiLineString(JArray input) => new UnescapedValue("Array.Empty<string>()");
+        private static UnescapedValue ToMultiLineString(JArray input) => new UnescapedValue("Array.Empty<string>()");
 
-        private UnescapedValue ToMultiLineString(IEnumerable<string> input)
+        private static UnescapedValue ToMultiLineString(IEnumerable<string> input)
         {
             const string template =
 @"new string[] 

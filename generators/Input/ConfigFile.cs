@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Newtonsoft.Json;
 using Generators.Output;
+using Newtonsoft.Json;
 
 namespace Generators.Input
 {

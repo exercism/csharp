@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Generators.Input;
 using Generators.Output;
@@ -19,12 +20,14 @@ namespace Generators.Exercises
 
         private static dynamic ConvertExpected(dynamic expected)
         {
-            var arr = expected as object[];
-
-            if (arr == null || arr.Length == 0)
-                return "";
-
-            return new UnescapedValue(Environment.NewLine + string.Join(Environment.NewLine, arr.Select(((x, i) => $"    \"{x}\\n\"{(i < arr.Length - 1 ? " +" : "")}"))));
+            if (expected is object[] arr && arr.Length != 0)
+                return new UnescapedValue(
+                    Environment.NewLine + 
+                    string.Join(
+                        Environment.NewLine,
+                            arr.Select((x, i) => $"    \"{x}\\n\"{(i < arr.Length - 1 ? " +" : "")}")));
+            
+            return "";
         }
 
         protected override TestClass CreateTestClass()
@@ -38,7 +41,7 @@ namespace Generators.Exercises
         protected override IEnumerable<string> AdditionalNamespaces => new[]
         {
             typeof(IDisposable).Namespace,
-            typeof(System.IO.File).Namespace
+            typeof(File).Namespace
         };
 
         protected override IEnumerable<string> RenderAdditionalMethods()

@@ -1,8 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.Text;
 using Generators.Input;
 using Generators.Output;
-using System.Collections.Generic;
 
 namespace Generators.Exercises
 {
@@ -29,19 +29,18 @@ namespace Generators.Exercises
             var builder = new StringBuilder();
             builder.AppendLine("var sut = new BowlingGame();");
 
-            if (testMethodBody.CanonicalDataCase.Input.ContainsKey(PreviousRolls))
+            if (!testMethodBody.CanonicalDataCase.Input.ContainsKey(PreviousRolls)) 
+                return new[] { builder.ToString() };
+
+            if (testMethodBody.CanonicalDataCase.Input[PreviousRolls] is int[] array)
             {
-                var array = testMethodBody.CanonicalDataCase.Input[PreviousRolls] as int[];
-                if (array == null)
-                {
-                    builder.Append("var previousRolls = Array.Empty<int>();");
-                }
-                else
-                {
-                    builder.Append("var previousRolls = new [] { ");
-                    builder.AppendJoin(", ", array);
-                    builder.AppendLine(" };");
-                }
+                builder.Append("var previousRolls = new [] { ");
+                builder.AppendJoin(", ", array);
+                builder.AppendLine(" };");
+            }
+            else
+            {
+                builder.Append("var previousRolls = Array.Empty<int>();");
             }
 
             return new[] { builder.ToString() };
@@ -49,23 +48,23 @@ namespace Generators.Exercises
 
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            var template = string.Empty;
             if (testMethodBody.CanonicalDataCase.ExceptionThrown != null && testMethodBody.CanonicalDataCase.Input.ContainsKey("roll"))
             {
-                template = "Assert.Throws<ArgumentException>(() => sut.Roll({{RollVal}}));";
+                const string template = "Assert.Throws<ArgumentException>(() => sut.Roll({{RollVal}}));";
                 var templateParams = new
                 {
                     RollVal = testMethodBody.CanonicalDataCase.Input["roll"]
                 };
                 return new[] { TemplateRenderer.RenderInline(template, templateParams) };
             }
-            else if (testMethodBody.CanonicalDataCase.ExceptionThrown != null && testMethodBody.CanonicalDataCase.Property == "score")
-            {
-                template = "Assert.Throws<ArgumentException>(() => sut.Score());";
-                return new[] { template };
-            }
 
-            return base.RenderTestMethodBodyAssert(testMethodBody);
+            if (testMethodBody.CanonicalDataCase.ExceptionThrown == null ||
+                testMethodBody.CanonicalDataCase.Property != "score")
+                return base.RenderTestMethodBodyAssert(testMethodBody);
+
+            const string throwTemplate = "Assert.Throws<ArgumentException>(() => sut.Score());";
+            return new[] { throwTemplate };
+
         }
 
         protected override IEnumerable<string> RenderTestMethodBodyAct(TestMethodBody testMethodBody)
@@ -98,7 +97,7 @@ var actual = sut.Score();
 
         protected override IEnumerable<string> RenderAdditionalMethods()
         {
-            return new string[] {
+            return new[] {
 @"
 public void DoRoll(ICollection<int> rolls, BowlingGame sut)
 {

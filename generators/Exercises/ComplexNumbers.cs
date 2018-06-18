@@ -33,10 +33,9 @@ namespace Generators.Exercises
 
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            if (testMethodBody.UseVariableForExpected)
-                return RenderComplexNumberAssert(testMethodBody);
-
-            return base.RenderTestMethodBodyAssert(testMethodBody);
+            return testMethodBody.UseVariableForExpected 
+                ? RenderComplexNumberAssert(testMethodBody) 
+                : base.RenderTestMethodBodyAssert(testMethodBody);
         }
 
         private static IEnumerable<string> RenderComplexNumberAssert(TestMethodBody testMethodBody)
@@ -50,10 +49,9 @@ namespace Generators.Exercises
 
         private static object ConvertToType(dynamic rawValue)
         {
-            if (IsComplexNumber(rawValue))
-                return new UnescapedValue($"new ComplexNumber({ValueFormatter.Format(ConvertMathDouble(rawValue[0]))}, {ValueFormatter.Format(ConvertMathDouble(rawValue[1]))})");
-
-            return rawValue;
+            return IsComplexNumber(rawValue) 
+                ? new UnescapedValue($"new ComplexNumber({ValueFormatter.Format(ConvertMathDouble(rawValue[0]))}, {ValueFormatter.Format(ConvertMathDouble(rawValue[1]))})") 
+                : rawValue;
         }
 
         private static bool IsComplexNumber(object rawValue) => rawValue is int[] || rawValue is double[] || rawValue is float[] || rawValue is JArray;

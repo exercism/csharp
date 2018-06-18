@@ -32,7 +32,7 @@ namespace Generators.Exercises
 
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            var template = $"Assert.Equal({{{{ ExpectedParameter }}}}, {{{{ TestedValue }}}}.ToString(\"yyyy-MM-dd\"));";
+            const string template = "Assert.Equal({{ ExpectedParameter }}, {{ TestedValue }}.ToString(\"yyyy-MM-dd\"));";
 
             return new[] { TemplateRenderer.RenderInline(template, testMethodBody.AssertTemplateParameters) };
         }

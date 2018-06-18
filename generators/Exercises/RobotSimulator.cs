@@ -35,9 +35,9 @@ namespace Generators.Exercises
             }
         }
 
-        private IEnumerable<string> RenderDefaultMethodBodyAct(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderDefaultMethodBodyAct(TestMethodBody testMethodBody)
         {
-            var template = @"sut.{{MethodInvocation}}();";
+            const string template = @"sut.{{MethodInvocation}}();";
 
             var templateParameters = new
             {
@@ -47,9 +47,9 @@ namespace Generators.Exercises
             return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
         }
 
-        private IEnumerable<string> RenderInstructionsMethodBodyAct(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderInstructionsMethodBodyAct(TestMethodBody testMethodBody)
         {
-            var template = @"sut.{{MethodInvocation}}(""{{Instructions}}"");";
+            const string template = @"sut.{{MethodInvocation}}(""{{Instructions}}"");";
 
             var templateParameters = new
             {
@@ -87,7 +87,7 @@ namespace Generators.Exercises
             return new[] { TemplateRenderer.RenderInline(template.ToString(), templateParameters) };
         }
 
-        private string GetDirectionEnum(string direction)
+        private static string GetDirectionEnum(string direction)
         {
             switch (direction)
             {
@@ -100,6 +100,6 @@ namespace Generators.Exercises
             }
         }
 
-        private string GetCoordinateInstance(dynamic coordinates) => $"new Coordinate({coordinates["x"]}, {coordinates["y"]})";
+        private static string GetCoordinateInstance(dynamic coordinates) => $"new Coordinate({coordinates["x"]}, {coordinates["y"]})";
     }
 }

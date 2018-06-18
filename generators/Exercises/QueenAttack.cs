@@ -1,7 +1,7 @@
-﻿using Generators.Input;
-using Generators.Output;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Generators.Input;
+using Generators.Output;
 
 namespace Generators.Exercises
 {
@@ -18,10 +18,9 @@ namespace Generators.Exercises
             if (testMethodBody.CanonicalDataCase.Property == "canAttack")
                 return new[] { RenderCanAttackAssert(testMethodBody) };
 
-            if (testMethodBody.UseVariableForTested)
-                return Array.Empty<string>();
-
-            return base.RenderTestMethodBodyAssert(testMethodBody);
+            return testMethodBody.UseVariableForTested 
+                ? Array.Empty<string>() 
+                : base.RenderTestMethodBodyAssert(testMethodBody);
         }
 
         private static string RenderCanAttackAssert(TestMethodBody testMethodBody)
@@ -40,7 +39,7 @@ Assert.{% if Expected %}True{% else %}False{% endif %}(QueenAttack.CanAttack(whi
                 whiteQueenY = whiteQueenPositions.Item2,
                 blackQueenX = blackQueenPositions.Item1,
                 blackQueenY = blackQueenPositions.Item2,
-                Expected = testMethodBody.CanonicalDataCase.Expected
+                testMethodBody.CanonicalDataCase.Expected
             };
 
             return TemplateRenderer.RenderInline(template, templateParameters);

@@ -13,7 +13,7 @@ namespace Generators.Exercises
             canonicalDataCase.Expected = ConvertExpected(canonicalDataCase.Expected);
         }
 
-        private dynamic ConvertExpected(dynamic expected)
+        private static dynamic ConvertExpected(dynamic expected)
         {
             var jArray = (JArray)expected;
 

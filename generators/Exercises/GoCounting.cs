@@ -77,10 +77,10 @@ namespace Generators.Exercises
             };
         }
 
-        private string FormatOwner(dynamic owner)
+        private static string FormatOwner(dynamic owner)
             => $"Owner.{(owner as string).ToLowerInvariant().Humanize()}";
 
-        private string FormatTerritory(dynamic territory)
+        private static string FormatTerritory(dynamic territory)
             => ValueFormatter.Format((territory as JArray).Select(coordinate => (coordinate[0].ToObject<int>(), coordinate[1].ToObject<int>())).ToArray());
 
         protected override IEnumerable<string> AdditionalNamespaces => new[]

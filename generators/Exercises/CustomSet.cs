@@ -39,15 +39,15 @@ namespace Generators.Exercises
 
         private static dynamic ConvertCustomSet(dynamic value)
         {
-            if (value is bool)
-                return value;
-
-            if (value is int[] values && values.Length > 0)
+            switch (value)
             {
-                return new UnescapedValue($"new CustomSet({ValueFormatter.Format(values)})");
+                case bool _:
+                    return value;
+                case int[] values when values.Length > 0:
+                    return new UnescapedValue($"new CustomSet({ValueFormatter.Format(values)})");
+                default:
+                    return new UnescapedValue("new CustomSet()");
             }
-
-            return new UnescapedValue($"new CustomSet()");
         }
     }
 }

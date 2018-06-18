@@ -26,10 +26,7 @@ namespace Generators.Output
             if (char.IsDigit(methodName[0]))
                 return "Number_" + methodName;
 
-            if (!char.IsLetter(methodName[0]))
-                return "Test_";
-
-            return methodName;
+            return !char.IsLetter(methodName[0]) ? "Test_" : methodName;
         }
 
         public static string ToTestedMethodName(this string input) => input.Dehumanize();

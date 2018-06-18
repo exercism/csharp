@@ -18,10 +18,9 @@ namespace Generators.Exercises
 
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            if (testMethodBody.CanonicalDataCase.Property == "IsAllergicTo")
-                return RenderIsAllergicToAssert(testMethodBody);
-
-            return base.RenderTestMethodBodyAssert(testMethodBody);
+            return testMethodBody.CanonicalDataCase.Property == "IsAllergicTo" 
+                ? RenderIsAllergicToAssert(testMethodBody) 
+                : base.RenderTestMethodBodyAssert(testMethodBody);
         }
 
         private static IEnumerable<string> RenderIsAllergicToAssert(TestMethodBody testMethodBody)

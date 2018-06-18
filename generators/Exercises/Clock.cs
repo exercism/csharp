@@ -47,32 +47,28 @@ namespace Generators.Exercises
                 return RenderEqualToAssert(testMethodBody);
             }
 
-            if (testMethodBody.CanonicalDataCase.Property != PropertyToString)
-            {
-                return RenderConsistencyToAssert(testMethodBody);
-            }
-
-            return base.RenderTestMethodBodyAssert(testMethodBody);
+            return testMethodBody.CanonicalDataCase.Property != PropertyToString 
+                ? RenderConsistencyToAssert(testMethodBody) 
+                : base.RenderTestMethodBodyAssert(testMethodBody);
         }
 
         private static IEnumerable<string> RenderConsistencyToAssert(TestMethodBody testMethodBody)
         {
-            var template = $"Assert.Equal({{{{ ExpectedParameter }}}}, {{{{ TestedValue }}}}.ToString());";
-
-            yield return TemplateRenderer.RenderInline(template, testMethodBody.AssertTemplateParameters);
+            const string template = "Assert.Equal({{ ExpectedParameter }}, {{ TestedValue }}.ToString());";
+            return new[] { TemplateRenderer.RenderInline(template, testMethodBody.AssertTemplateParameters) };
         }
 
         private static IEnumerable<string> RenderEqualToAssert(TestMethodBody testMethodBody)
         {
             var expectedParameter = testMethodBody.CanonicalDataCase.Input[ParamClock1];
-            var testedValue = "sut";
+            const string testedValue = "sut";
             var expectedEqual = testMethodBody.CanonicalDataCase.Expected;
 
             testMethodBody.AssertTemplateParameters = new { expectedParameter, testedValue };
 
             var template = expectedEqual
-                ? $"Assert.Equal({{{{ ExpectedParameter }}}}, {{{{ TestedValue }}}}); "
-                : $"Assert.NotEqual({{{{ ExpectedParameter }}}}, {{{{ TestedValue }}}});";
+                ? "Assert.Equal({{ ExpectedParameter }}, {{ TestedValue }}); "
+                : "Assert.NotEqual({{ ExpectedParameter }}, {{ TestedValue }});";
 
             return new[] { TemplateRenderer.RenderInline(template, testMethodBody.AssertTemplateParameters) };
         }

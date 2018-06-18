@@ -21,7 +21,6 @@ namespace Generators.Output
         public string ConstructorParameters => _testMethodBody.UseVariablesForConstructorParameters ? string.Join(", ", CanonicalDataCase.ConstructorInputParameters.Select(key => key.ToVariableName())) : ValueFormatter.Format(ConstructorInput);
 
         private CanonicalDataCase CanonicalDataCase => _testMethodBody.CanonicalDataCase;
-        private CanonicalData CanonicalData => _testMethodBody.CanonicalData;
 
         private string TestedClassName => CanonicalDataCase.Exercise.ToTestedClassName();
         private string TestedMethodName => CanonicalDataCase.Property.ToTestedMethodName();

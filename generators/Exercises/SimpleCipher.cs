@@ -25,15 +25,16 @@ namespace Generators.Exercises
 
             if (canonicalDataCase.Input.TryGetValue("ciphertext", out var cipherText))
             {
-                if (cipherText == "cipher.key")
+                switch (cipherText)
                 {
-                    canonicalDataCase.Input["ciphertext"] = new UnescapedValue("sut.Key.Substring(0, 10)");
-                }
-                else if (cipherText == "cipher.encode")
-                {
-                    var plaintext = ValueFormatter.Format(canonicalDataCase.Input["plaintext"]);
-                    canonicalDataCase.Input["ciphertext"] = new UnescapedValue($"sut.Encode({plaintext})");
-                    canonicalDataCase.SetInputParameters("ciphertext");
+                    case "cipher.key":
+                        canonicalDataCase.Input["ciphertext"] = new UnescapedValue("sut.Key.Substring(0, 10)");
+                        break;
+                    case "cipher.encode":
+                        var plaintext = ValueFormatter.Format(canonicalDataCase.Input["plaintext"]);
+                        canonicalDataCase.Input["ciphertext"] = new UnescapedValue($"sut.Encode({plaintext})");
+                        canonicalDataCase.SetInputParameters("ciphertext");
+                        break;
                 }
             }
 
@@ -45,18 +46,17 @@ namespace Generators.Exercises
 
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            if (testMethodBody.CanonicalDataCase.Property == "new")
+            switch (testMethodBody.CanonicalDataCase.Property)
             {
-                var key = ValueFormatter.Format(testMethodBody.CanonicalDataCase.Input["key"]);
-                return new[] { $"Assert.Throws<ArgumentException>(() => new SimpleCipher({key}));" };
+                case "new":
+                    var key = ValueFormatter.Format(testMethodBody.CanonicalDataCase.Input["key"]);
+                    return new[] { $"Assert.Throws<ArgumentException>(() => new SimpleCipher({key}));" };
+                case "key":
+                    var pattern = ValueFormatter.Format(testMethodBody.CanonicalDataCase.Expected["match"]);
+                    return new[] { $"Assert.Matches({pattern}, sut.Key);" };
+                default:
+                    return base.RenderTestMethodBodyAssert(testMethodBody);
             }
-            else if (testMethodBody.CanonicalDataCase.Property == "key")
-            {
-                var pattern = ValueFormatter.Format(testMethodBody.CanonicalDataCase.Expected["match"]);
-                return new[] { $"Assert.Matches({pattern}, sut.Key);" };
-            }
-
-            return base.RenderTestMethodBodyAssert(testMethodBody);
         }
 
         protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(ArgumentException).Namespace };

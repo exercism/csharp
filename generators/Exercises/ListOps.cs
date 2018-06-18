@@ -33,10 +33,9 @@ namespace Generators.Exercises
 
             if (canonicalDataCase.Expected is IEnumerable)
             {
-                if (canonicalDataCase.Input.ContainsKey("lists"))
-                    canonicalDataCase.Expected = ConvertToNestedList(canonicalDataCase.Expected, false);
-                else
-                    canonicalDataCase.Expected = ConvertToList(canonicalDataCase.Expected);
+                canonicalDataCase.Expected = canonicalDataCase.Input.ContainsKey("lists") 
+                    ? ConvertToNestedList(canonicalDataCase.Expected, false)
+                    : ConvertToList(canonicalDataCase.Expected);
             }
         }
 
@@ -56,20 +55,16 @@ namespace Generators.Exercises
 
         private static dynamic ConvertToList(dynamic value)
         {
-            if (value is JArray jArray)
+            switch (value)
             {
-                if (jArray.Count == 0)
+                case JArray jArray when jArray.Count == 0:
                     return new List<int>();
-
-                if (jArray.Any(jToken => jToken.Type == JTokenType.Array))
+                case JArray jArray when jArray.Any(jToken => jToken.Type == JTokenType.Array):
                     return jArray.Select(ConvertToList).ToList();
-
-                return jArray.ToObject<int[]>().ToList();
-            }
-
-            if (value is IEnumerable<int> ints)
-            {
-                return ints.ToList();
+                case JArray jArray:
+                    return jArray.ToObject<int[]>().ToList();
+                case IEnumerable<int> ints:
+                    return ints.ToList();
             }
 
             return value;
@@ -77,35 +72,30 @@ namespace Generators.Exercises
 
         private static dynamic ConvertToNestedList(dynamic value, bool unescapeEmpty)
         {
-            if (value is JArray jArray)
+            switch (value)
             {
-                if (jArray.Count == 0)
-                {
+                case JArray jArray when jArray.Count == 0:
                     if (unescapeEmpty)
                     {
                         return new UnescapedValue("new List<List<int>>()");
                     }
 
                     return new List<int>();
-                }
+                case JArray jArray:
+                    var nestedList = jArray
+                        .Children<JArray>()
+                        .Select(ConvertToList)
+                        .Select(ValueFormatter.Format)
+                        .Select(formattedValue => new UnescapedValue(formattedValue))
+                        .ToList();
 
-                var nestedList = jArray
-                    .Children<JArray>()
-                    .Select(ConvertToList)
-                    .Select(ValueFormatter.Format)
-                    .Select(formattedValue => new UnescapedValue(formattedValue))
-                    .ToList();
-
-                return new UnescapedValue(ValueFormatter.Format(nestedList)
-                    .Replace("<object>", "<int>")
-                    .Replace("new List<int> { new List<int>", "new List<List<int>> { new List<int>")
-                    .Replace("new[] { new List<List<int>>", "new List<List<List<int>>> { new List<List<int>>")
-                    .Replace("new[] { new List<int>", "new List<List<int>> { new List<int>"));
-            }
-
-            if (value is IEnumerable<int> ints)
-            {
-                return new UnescapedValue(ValueFormatter.Format(ints.ToList()));
+                    return new UnescapedValue(ValueFormatter.Format(nestedList)
+                        .Replace("<object>", "<int>")
+                        .Replace("new List<int> { new List<int>", "new List<List<int>> { new List<int>")
+                        .Replace("new[] { new List<List<int>>", "new List<List<List<int>>> { new List<List<int>>")
+                        .Replace("new[] { new List<int>", "new List<List<int>> { new List<int>"));
+                case IEnumerable<int> ints:
+                    return new UnescapedValue(ValueFormatter.Format(ints.ToList()));
             }
 
             return value;

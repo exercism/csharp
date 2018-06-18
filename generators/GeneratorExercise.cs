@@ -42,7 +42,7 @@ namespace Generators
 
         protected virtual IEnumerable<string> RenderAdditionalMethods() => Array.Empty<string>();
 
-        private HashSet<string> GetUsingNamespaces()
+        private IEnumerable<string> GetUsingNamespaces()
         {
             var usingNamespaces = new HashSet<string> { "Xunit" };
 
@@ -95,17 +95,15 @@ namespace Generators
                 return new TestMethodBodyWithExceptionCheck(canonicalDataCase, _canonicalData);
             }
 
-            if (canonicalDataCase.Expected is bool)
+            switch (canonicalDataCase.Expected)
             {
-                return new TestMethodBodyWithBooleanCheck(canonicalDataCase, _canonicalData);
+                case bool _:
+                    return new TestMethodBodyWithBooleanCheck(canonicalDataCase, _canonicalData);
+                case null:
+                    return new TestMethodBodyWithNullCheck(canonicalDataCase, _canonicalData);
+                default:
+                    return new TestMethodBodyWithEqualityCheck(canonicalDataCase, _canonicalData);
             }
-
-            if (canonicalDataCase.Expected is null)
-            {
-                return new TestMethodBodyWithNullCheck(canonicalDataCase, _canonicalData);
-            }
-
-            return new TestMethodBodyWithEqualityCheck(canonicalDataCase, _canonicalData);
         }
     }
 }

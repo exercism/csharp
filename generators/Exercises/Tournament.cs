@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
 using Generators.Input;
 using Generators.Output;
 
@@ -20,19 +22,19 @@ namespace Generators.Exercises
         protected override IEnumerable<string> AdditionalNamespaces => new[]
         {
             typeof(Array).Namespace,
-            typeof(System.IO.Stream).Namespace,
-            typeof(System.Text.UTF8Encoding).Namespace
+            typeof(Stream).Namespace,
+            typeof(UTF8Encoding).Namespace
         };
 
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            var template = @"Assert.Equal(expected, RunTally(rows));";
+            const string template = @"Assert.Equal(expected, RunTally(rows));";
             return new[] { TemplateRenderer.RenderInline(template, new { }) };
         }
 
         protected override IEnumerable<string> RenderAdditionalMethods()
         {
-            var methods = @"
+            const string methods = @"
 private string RunTally(string input)
 {
     var encoding = new UTF8Encoding();
@@ -44,7 +46,7 @@ private string RunTally(string input)
         return encoding.GetString(outStream.ToArray());
     }
 }";
-            return methods.Split("", System.StringSplitOptions.None);
+            return methods.Split("");
         }
     }
 }

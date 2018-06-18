@@ -38,7 +38,7 @@ Assert.Equal({% if GoalBucketExpected == 'two' %}Bucket.Two{% else %}Bucket.One{
             {
                 MovesExpected = testMethodBody.CanonicalDataCase.Expected["moves"],
                 OtherBucketExpected = testMethodBody.CanonicalDataCase.Expected["otherBucket"],
-                GoalBucketExpected = testMethodBody.CanonicalDataCase.Expected["goalBucket"],
+                GoalBucketExpected = testMethodBody.CanonicalDataCase.Expected["goalBucket"]
             };
 
             return new[] { TemplateRenderer.RenderInline(template, templateParameters) };

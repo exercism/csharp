@@ -1,3 +1,4 @@
+using System;
 using Generators.Input;
 
 namespace Generators.Exercises
@@ -9,7 +10,7 @@ namespace Generators.Exercises
             canonicalDataCase.Property = "GetLargestProduct";
                 
             var caseInputLessThanZero = (long)canonicalDataCase.Expected == -1;
-            canonicalDataCase.ExceptionThrown = caseInputLessThanZero ? typeof(System.ArgumentException) : null;
+            canonicalDataCase.ExceptionThrown = caseInputLessThanZero ? typeof(ArgumentException) : null;
         }
     }
 }

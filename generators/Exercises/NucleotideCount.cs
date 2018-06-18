@@ -1,7 +1,7 @@
-﻿using Generators.Input;
-using Generators.Output;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Generators.Input;
+using Generators.Output;
 
 namespace Generators.Exercises
 {
@@ -9,12 +9,12 @@ namespace Generators.Exercises
     {
         protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
-            if (!((Dictionary<string, object>)canonicalDataCase.Expected).ContainsKey("error"))
-            {
-                canonicalDataCase.UseVariableForExpected = true;
-                canonicalDataCase.SetConstructorInputParameters("strand");
-                canonicalDataCase.Expected = ConvertExpected(canonicalDataCase.Expected);
-            }
+            if (((Dictionary<string, object>) canonicalDataCase.Expected).ContainsKey("error")) 
+                return;
+
+            canonicalDataCase.UseVariableForExpected = true;
+            canonicalDataCase.SetConstructorInputParameters("strand");
+            canonicalDataCase.Expected = ConvertExpected(canonicalDataCase.Expected);
         }
 
         private static dynamic ConvertExpected(dynamic expected)
@@ -24,15 +24,12 @@ namespace Generators.Exercises
 
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            if (testMethodBody.UseVariableForExpected)
-            {
-                return RenderEqualBodyAssert(testMethodBody);
-            }
-
-            return RenderThrowsBodyAssert(testMethodBody);
+            return testMethodBody.UseVariableForExpected 
+                ? RenderEqualBodyAssert(testMethodBody) 
+                : RenderThrowsBodyAssert(testMethodBody);
         }
 
-        private IEnumerable<string> RenderEqualBodyAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderEqualBodyAssert(TestMethodBody testMethodBody)
         {
             const string template = @"Assert.Equal(expected, sut.{{ TestedMethodName }});";
 
@@ -44,7 +41,7 @@ namespace Generators.Exercises
             return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
         }
 
-        private IEnumerable<string> RenderThrowsBodyAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderThrowsBodyAssert(TestMethodBody testMethodBody)
         {
             const string template = @"Assert.Throws<InvalidNucleotideException>(() => new NucleotideCount(""{{ Input }}""));";
 

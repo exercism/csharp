@@ -23,16 +23,15 @@ namespace Generators.Exercises
 
         protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(Array).Namespace };
 
-        private dynamic FormatUInt32Array(dynamic input)
+        private static dynamic FormatUInt32Array(dynamic input)
         {
             var numbers = ToUInt32Array(input as IEnumerable);
             return numbers.Select(number => new UnescapedValue(string.Format("0x{0:X}u", number))).ToArray();
         }
 
-        private IEnumerable<uint> ToUInt32Array(IEnumerable input)
+        private static IEnumerable<uint> ToUInt32Array(IEnumerable input)
         {
-            foreach (var number in input)
-                yield return Convert.ToUInt32(number.ToString());
+            return input.Cast<object>().Select(number => Convert.ToUInt32(number.ToString()));
         }
     }
 }

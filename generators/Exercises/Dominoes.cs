@@ -17,7 +17,7 @@ namespace Generators.Exercises
 
         protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(Tuple).Namespace };
 
-        private UnescapedValue ConvertInput(dynamic input)
+        private static UnescapedValue ConvertInput(dynamic input)
         {
             var dominoes = (input as JArray).Children();
 

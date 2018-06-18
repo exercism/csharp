@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Generators.Input;
 using Generators.Output;
 using Humanizer;
@@ -8,13 +8,6 @@ namespace Generators.Exercises
 {
     public class Sublist : GeneratorExercise
     {
-        protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(IList<int>).Namespace };
-
-        private UnescapedValue InputValues(int[] list)
-        {
-            var template = (list != null) ? string.Join(", ", Array.ConvertAll<int, string>(list, (x) => { return $"{x}"; })) : "";
-            return new UnescapedValue($"new List<int>() {{ {template} }}".Replace("  ", " "));
-        }
         protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
         {
             canonicalDataCase.Input["listOne"] = InputValues(canonicalDataCase.Input["listOne"] as int[]);
@@ -22,6 +15,14 @@ namespace Generators.Exercises
 
             canonicalDataCase.Property = "classify";
             canonicalDataCase.Expected = new UnescapedValue($"SublistType.{(canonicalDataCase.Expected as string).Dehumanize()}");
+        }
+
+        protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(IList<int>).Namespace };
+
+        private static UnescapedValue InputValues(int[] list)
+        {
+            var template = list != null ? string.Join(", ", list.Select(x => x.ToString())) : "";
+            return new UnescapedValue($"new List<int>() {{ {template} }}".Replace("  ", " "));
         }
     }
 }
