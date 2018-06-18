@@ -16,18 +16,14 @@ namespace Generators.Exercises
                 else if (data.Property == "scalene")
                     data.Property = "IsScalene";
 
-                data.Input["sides"] = SplitArrayToValues(data.Input["sides"]);
-                data.SetInputParameters("sides");
+                data.Input["x"] = data.Input["sides"][0];
+                data.Input["y"] = data.Input["sides"][1];
+                data.Input["z"] = data.Input["sides"][2];
+                data.Input.Remove("sides");
+                data.SetInputParameters("x", "y", "z");
+
                 data.UseFullDescriptionPath = true;
-
             }
-        }
-
-        private UnescapedValue SplitArrayToValues(IEnumerable input)
-        {
-            const string template = "{% for item in {{input}} %}{{item}}{% if forloop.last == false %}, {% endif %}{% endfor %}";
-
-            return new UnescapedValue(TemplateRenderer.RenderInline(template, new { input }));
         }
     }
 }
