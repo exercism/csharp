@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Generators.Input;
-using Generators.Output;
-using System.Linq;
-using Humanizer;
+﻿using Generators.Input;
 
 namespace Generators.Exercises
 {

@@ -1,5 +1,4 @@
 ﻿using Generators.Input;
-using Generators.Output;
 using System.Collections.Generic;
 using System.Linq;
 

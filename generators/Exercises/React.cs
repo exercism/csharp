@@ -5,7 +5,6 @@ using System.Text;
 using System.Text.RegularExpressions;
 using Generators.Output;
 using Humanizer;
-using Newtonsoft.Json.Linq;
 
 namespace Generators.Exercises
 {

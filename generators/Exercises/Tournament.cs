@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Generators.Input;
 using Generators.Output;
-using Newtonsoft.Json.Linq;
 
 namespace Generators.Exercises
 {

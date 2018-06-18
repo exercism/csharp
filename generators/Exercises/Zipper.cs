@@ -3,7 +3,6 @@ using System.Linq;
 using System.Text;
 using Generators.Output;
 using Humanizer;
-using Newtonsoft.Json.Linq;
 
 namespace Generators.Exercises
 {

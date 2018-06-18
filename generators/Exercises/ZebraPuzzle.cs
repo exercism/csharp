@@ -1,5 +1,4 @@
-﻿using System;
-using Generators.Input;
+﻿using Generators.Input;
 using Generators.Output;
 using Humanizer;
 
