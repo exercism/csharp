@@ -5,17 +5,18 @@ namespace Generators.Output
 {
     public class TestMethodBodyWithEqualityCheck : TestMethodBody
     {
-        public TestMethodBodyWithEqualityCheck(CanonicalDataCase canonicalDataCase) : base(canonicalDataCase)
+        public TestMethodBodyWithEqualityCheck(TestMethodBodyData data) : base(data)
         {
+            Data.UseVariableForExpected = Data.UseVariableForExpected && !ExpectedIsEmptyEnumerable;
+            InitializeTemplateParameters();
+            
             AssertTemplateName = ExpectedIsEmptyEnumerable ? "AssertEqual_Empty" : "AssertEqual";
             AssertTemplateParameters = new { Data.ExpectedParameter, Data.TestedValue };
         }
 
-        public override bool UseVariableForExpected => base.UseVariableForExpected && !ExpectedIsEmptyEnumerable;
-
         private bool ExpectedIsEmptyEnumerable =>
-            !(CanonicalDataCase.Expected is string) &&
-            CanonicalDataCase.Expected is IEnumerable enumerable 
+            !(Data.CanonicalDataCase.Expected is string) &&
+            Data.CanonicalDataCase.Expected is IEnumerable enumerable 
             && enumerable.GetEnumerator().MoveNext() == false;
     }
 }

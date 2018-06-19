@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 2.5.0 of the canonical data.
+// This file was auto-generated based on version 2.6.0 of the canonical data.
 
 using Xunit;
 
@@ -62,6 +62,12 @@ public class IsbnVerifierTest
     public void Too_long_isbn_and_no_dashes()
     {
         Assert.False(IsbnVerifier.IsValid("3598215078X"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Too_short_isbn()
+    {
+        Assert.False(IsbnVerifier.IsValid("00"));
     }
 
     [Fact(Skip = "Remove to run test")]

@@ -35,7 +35,7 @@ namespace Generators.Exercises
 
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            var expectedDictionary = testMethodBody.CanonicalDataCase.Properties["expected"] as IDictionary<string, dynamic>;
+            var expectedDictionary = testMethodBody.Data.CanonicalDataCase.Properties["expected"] as IDictionary<string, dynamic>;
 
             foreach (var kv in expectedDictionary)
                 yield return RenderTestMethodBodyAssertForSearchWord(kv.Key, kv.Value);

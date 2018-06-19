@@ -15,10 +15,10 @@ namespace Generators.Exercises
             var arrange = new StringBuilder();
             arrange.AppendLine("var sut = new Reactor();");
 
-            var cells = RenderCells(testMethodBody.CanonicalDataCase.Input["cells"]);
+            var cells = RenderCells(testMethodBody.Data.CanonicalDataCase.Input["cells"]);
             arrange.AppendLine(cells);
 
-            var operations = RenderOperations(testMethodBody.CanonicalDataCase.Input["operations"]);
+            var operations = RenderOperations(testMethodBody.Data.CanonicalDataCase.Input["operations"]);
             arrange.AppendLine(operations);
 
             return new[] { arrange.ToString() };

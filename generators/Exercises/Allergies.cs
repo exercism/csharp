@@ -18,7 +18,7 @@ namespace Generators.Exercises
 
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            return testMethodBody.CanonicalDataCase.Property == "IsAllergicTo" 
+            return testMethodBody.Data.CanonicalDataCase.Property == "IsAllergicTo" 
                 ? RenderIsAllergicToAssert(testMethodBody) 
                 : base.RenderTestMethodBodyAssert(testMethodBody);
         }
@@ -30,7 +30,7 @@ namespace Generators.Exercises
 Assert.{% if allergy.result %}True{% else %}False{% endif %}(sut.IsAllergicTo(""{{ allergy.substance }}""));
 {%- endfor -%}";
 
-            var templateParameters = new { Allergies = testMethodBody.CanonicalDataCase.Expected };
+            var templateParameters = new { Allergies = testMethodBody.Data.CanonicalDataCase.Expected };
             return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
         }
     }

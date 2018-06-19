@@ -5,27 +5,38 @@ using Generators.Input;
 
 namespace Generators.Output
 {
-    public class TestMethodBodyData
+    public sealed class TestMethodBodyData
     {
         private const string SutVariableName = "sut";
         private const string TestedVariableName = "actual";
         private const string ExpectedVariableName = "expected";
 
-        private readonly TestMethodBody _testMethodBody;
+        public CanonicalDataCase CanonicalDataCase { get; }
 
-        public TestMethodBodyData(TestMethodBody testMethodBody) => _testMethodBody = testMethodBody;
+        public TestMethodBodyData(CanonicalDataCase canonicalDataCase)
+        {
+            CanonicalDataCase = canonicalDataCase;
 
-        public string TestedValue => _testMethodBody.UseVariableForTested ? TestedVariableName : TestedMethodInvocation;
-        public string InputParameters => _testMethodBody.UseVariablesForInput ? string.Join(", ", CanonicalDataCase.InputParameters.Select(key => key.ToVariableName())) : ValueFormatter.Format(Input);
-        public string ExpectedParameter => _testMethodBody.UseVariableForExpected ? ExpectedVariableName : ValueFormatter.Format(CanonicalDataCase.Expected);
-        public string ConstructorParameters => _testMethodBody.UseVariablesForConstructorParameters ? string.Join(", ", CanonicalDataCase.ConstructorInputParameters.Select(key => key.ToVariableName())) : ValueFormatter.Format(ConstructorInput);
+            UseVariablesForInput = CanonicalDataCase.UseVariablesForInput;
+            UseVariablesForConstructorParameters = CanonicalDataCase.UseVariablesForConstructorParameters;
+            UseVariableForExpected = CanonicalDataCase.UseVariableForExpected;
+            UseVariableForTested = CanonicalDataCase.UseVariableForTested;
+        }
 
-        private CanonicalDataCase CanonicalDataCase => _testMethodBody.CanonicalDataCase;
+        public bool UseVariablesForInput { get; set; }
+        public bool UseVariablesForConstructorParameters { get; set; }
+        public bool UseVariableForExpected { get; set; }
+        public bool UseVariableForTested { get; set; }
+
+        public string TestedValue => UseVariableForTested ? TestedVariableName : TestedMethodInvocation;
+        public string InputParameters => UseVariablesForInput ? string.Join(", ", CanonicalDataCase.InputParameters.Select(key => key.ToVariableName())) : ValueFormatter.Format(Input);
+        public string ExpectedParameter => UseVariableForExpected ? ExpectedVariableName : ValueFormatter.Format(CanonicalDataCase.Expected);
+        public string ConstructorParameters => UseVariablesForConstructorParameters ? string.Join(", ", CanonicalDataCase.ConstructorInputParameters.Select(key => key.ToVariableName())) : ValueFormatter.Format(ConstructorInput);
 
         private string TestedClassName => CanonicalDataCase.Exercise.ToTestedClassName();
         private string TestedMethodName => CanonicalDataCase.Property.ToTestedMethodName();
 
-        private IDictionary<string, object> Input => CanonicalDataCase.InputParameters.ToDictionary(key => key, key => CanonicalDataCase.Input[key]); 
+        private IDictionary<string, object> Input => CanonicalDataCase.InputParameters.ToDictionary(key => key, key => CanonicalDataCase.Input[key]);
         private IDictionary<string, object> ConstructorInput => CanonicalDataCase.ConstructorInputParameters.ToDictionary(key => key, key => CanonicalDataCase.Input[key]);
         private object Expected => CanonicalDataCase.Expected;
 
@@ -41,19 +52,19 @@ namespace Generators.Output
             {
                 var lines = new List<string>();
 
-                if (_testMethodBody.UseVariablesForInput)
+                if (UseVariablesForInput)
                     lines.AddRange(InputVariablesDeclaration);
 
-                if (_testMethodBody.UseVariablesForConstructorParameters)
+                if (UseVariablesForConstructorParameters)
                     lines.AddRange(ConstructorVariablesDeclaration);
 
                 if (CanonicalDataCase.TestedMethodType == TestedMethodType.Instance)
                     lines.AddRange(SutVariableDeclaration);
 
-                if (_testMethodBody.UseVariableForTested)
+                if (UseVariableForTested)
                     lines.AddRange(ActualVariableDeclaration);
 
-                if (_testMethodBody.UseVariableForExpected)
+                if (UseVariableForExpected)
                     lines.AddRange(ExpectedVariableDeclaration);
 
                 return lines;

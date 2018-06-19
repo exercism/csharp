@@ -54,12 +54,12 @@ namespace Generators.Exercises
 
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            if (testMethodBody.CanonicalDataCase.ExceptionThrown != null)
+            if (testMethodBody.Data.CanonicalDataCase.ExceptionThrown != null)
             {
                 return base.RenderTestMethodBodyAssert(testMethodBody);
             }
 
-            if (testMethodBody.CanonicalDataCase.Property == "territories")
+            if (testMethodBody.Data.CanonicalDataCase.Property == "territories")
             {
                 return new[]
                 {

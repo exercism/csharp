@@ -1,10 +1,8 @@
-﻿using Generators.Input;
-
-namespace Generators.Output
+﻿namespace Generators.Output
 {
     public class TestMethodBodyWithNullCheck : TestMethodBody
     {
-        public TestMethodBodyWithNullCheck(CanonicalDataCase canonicalDataCase) : base(canonicalDataCase)
+        public TestMethodBodyWithNullCheck(TestMethodBodyData data) : base(data)
         {
             AssertTemplateName = "AssertNull";
             AssertTemplateParameters = new { Data.TestedValue };

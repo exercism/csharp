@@ -36,7 +36,7 @@ namespace Generators.Exercises
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             _testFactCodeLines = new StringBuilder();
-            var canonicalDataCase = testMethodBody.CanonicalDataCase;
+            var canonicalDataCase = testMethodBody.Data.CanonicalDataCase;
             var input = canonicalDataCase.Properties["input"] as Dictionary<string, object>;
             var constructorData = input["treeData"] as string[];
 

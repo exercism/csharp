@@ -46,13 +46,13 @@ namespace Generators.Exercises
 
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            switch (testMethodBody.CanonicalDataCase.Property)
+            switch (testMethodBody.Data.CanonicalDataCase.Property)
             {
                 case "new":
-                    var key = ValueFormatter.Format(testMethodBody.CanonicalDataCase.Input["key"]);
+                    var key = ValueFormatter.Format(testMethodBody.Data.CanonicalDataCase.Input["key"]);
                     return new[] { $"Assert.Throws<ArgumentException>(() => new SimpleCipher({key}));" };
                 case "key":
-                    var pattern = ValueFormatter.Format(testMethodBody.CanonicalDataCase.Expected["match"]);
+                    var pattern = ValueFormatter.Format(testMethodBody.Data.CanonicalDataCase.Expected["match"]);
                     return new[] { $"Assert.Matches({pattern}, sut.Key);" };
                 default:
                     return base.RenderTestMethodBodyAssert(testMethodBody);

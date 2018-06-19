@@ -33,7 +33,7 @@ namespace Generators.Exercises
 
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            return testMethodBody.UseVariableForExpected 
+            return testMethodBody.Data.UseVariableForExpected 
                 ? RenderComplexNumberAssert(testMethodBody) 
                 : base.RenderTestMethodBodyAssert(testMethodBody);
         }

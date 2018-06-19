@@ -24,7 +24,7 @@ namespace Generators.Exercises
 
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            return testMethodBody.UseVariableForExpected 
+            return testMethodBody.Data.UseVariableForExpected 
                 ? RenderEqualBodyAssert(testMethodBody) 
                 : RenderThrowsBodyAssert(testMethodBody);
         }
@@ -35,7 +35,7 @@ namespace Generators.Exercises
 
             var templateParameters = new
             {
-                TestedMethodName = testMethodBody.CanonicalDataCase.Property.ToTestedMethodName()
+                TestedMethodName = testMethodBody.Data.CanonicalDataCase.Property.ToTestedMethodName()
             };
 
             return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
@@ -47,7 +47,7 @@ namespace Generators.Exercises
 
             var templateParameters = new
             {
-                Input = testMethodBody.CanonicalDataCase.Input["strand"]
+                Input = testMethodBody.Data.CanonicalDataCase.Input["strand"]
             };
 
             return new[] { TemplateRenderer.RenderInline(template, templateParameters) };

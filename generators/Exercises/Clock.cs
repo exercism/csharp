@@ -42,12 +42,12 @@ namespace Generators.Exercises
 
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            if (testMethodBody.CanonicalDataCase.Property == PropertyEquals)
+            if (testMethodBody.Data.CanonicalDataCase.Property == PropertyEquals)
             {
                 return RenderEqualToAssert(testMethodBody);
             }
 
-            return testMethodBody.CanonicalDataCase.Property != PropertyToString 
+            return testMethodBody.Data.CanonicalDataCase.Property != PropertyToString 
                 ? RenderConsistencyToAssert(testMethodBody) 
                 : base.RenderTestMethodBodyAssert(testMethodBody);
         }
@@ -60,9 +60,9 @@ namespace Generators.Exercises
 
         private static IEnumerable<string> RenderEqualToAssert(TestMethodBody testMethodBody)
         {
-            var expectedParameter = testMethodBody.CanonicalDataCase.Input[ParamClock1];
+            var expectedParameter = testMethodBody.Data.CanonicalDataCase.Input[ParamClock1];
             const string testedValue = "sut";
-            var expectedEqual = testMethodBody.CanonicalDataCase.Expected;
+            var expectedEqual = testMethodBody.Data.CanonicalDataCase.Expected;
 
             testMethodBody.AssertTemplateParameters = new { expectedParameter, testedValue };
 

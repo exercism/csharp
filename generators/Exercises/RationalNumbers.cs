@@ -19,9 +19,9 @@ namespace Generators.Exercises
     {
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            var input = testMethodBody.CanonicalDataCase.Properties["input"] as Dictionary<string, object>;
-            var operation = testMethodBody.CanonicalDataCase.Properties["property"].ToString();
-            var expected = testMethodBody.CanonicalDataCase.Properties["expected"];
+            var input = testMethodBody.Data.CanonicalDataCase.Properties["input"] as Dictionary<string, object>;
+            var operation = testMethodBody.Data.CanonicalDataCase.Properties["property"].ToString();
+            var expected = testMethodBody.Data.CanonicalDataCase.Properties["expected"];
             var operationName = char.ToUpper(operation[0]) + operation.Substring(1);
             var assertCodeLine = "";
             const string operationsWithOverloading = "add|+|sub|-|mul|*|div|/";

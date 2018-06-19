@@ -5,12 +5,12 @@ namespace Generators.Output
 {
     public class TestMethodBodyWithBooleanCheck : TestMethodBody
     {
-        public TestMethodBodyWithBooleanCheck(CanonicalDataCase canonicalDataCase) : base(canonicalDataCase)
+        public TestMethodBodyWithBooleanCheck(TestMethodBodyData data) : base(data)
         {
             AssertTemplateName = "AssertBoolean";
             AssertTemplateParameters = new { BooleanAssertMethod, Data.TestedValue };
         }
 
-        private string BooleanAssertMethod => Convert.ToBoolean(CanonicalDataCase.Expected).ToString();
+        private string BooleanAssertMethod => Convert.ToBoolean(Data.CanonicalDataCase.Expected).ToString();
     }
 }

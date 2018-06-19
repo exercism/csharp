@@ -9,9 +9,9 @@ namespace Generators.Exercises
     {
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            yield return RenderSut(testMethodBody.CanonicalDataCase);
+            yield return RenderSut(testMethodBody.Data.CanonicalDataCase);
 
-            foreach (var operation in testMethodBody.CanonicalDataCase.Input["operations"])
+            foreach (var operation in testMethodBody.Data.CanonicalDataCase.Input["operations"])
                 yield return RenderOperation(operation);
         }
 

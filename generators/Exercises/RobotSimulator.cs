@@ -27,7 +27,7 @@ namespace Generators.Exercises
 
         protected override IEnumerable<string> RenderTestMethodBodyAct(TestMethodBody testMethodBody)
         {
-            switch (testMethodBody.CanonicalDataCase.Property)
+            switch (testMethodBody.Data.CanonicalDataCase.Property)
             {
                 case "create": return Array.Empty<string>();
                 case "instructions": return RenderInstructionsMethodBodyAct(testMethodBody);
@@ -41,7 +41,7 @@ namespace Generators.Exercises
 
             var templateParameters = new
             {
-                MethodInvocation = testMethodBody.CanonicalDataCase.Property.ToTestedMethodName()
+                MethodInvocation = testMethodBody.Data.CanonicalDataCase.Property.ToTestedMethodName()
             };
 
             return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
@@ -54,7 +54,7 @@ namespace Generators.Exercises
             var templateParameters = new
             {
                 MethodInvocation = "Simulate",
-                Instructions = testMethodBody.CanonicalDataCase.Input["instructions"]
+                Instructions = testMethodBody.Data.CanonicalDataCase.Input["instructions"]
             };
 
             return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
@@ -62,7 +62,7 @@ namespace Generators.Exercises
 
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            var expected = testMethodBody.CanonicalDataCase.Expected as Dictionary<string, dynamic>;
+            var expected = testMethodBody.Data.CanonicalDataCase.Expected as Dictionary<string, dynamic>;
             expected.TryGetValue("position", out var position);
             expected.TryGetValue("direction", out var direction);
 

@@ -80,29 +80,33 @@ namespace Generators
 
         private string RenderTestMethodBody(CanonicalDataCase canonicalDataCase)
         {
-            var testMethodBody = CreateTestMethodBody(canonicalDataCase);
+            var testMethodBodyData = CreateTestMethodBodyData(canonicalDataCase);
+            var testMethodBody = CreateTestMethodBody(testMethodBodyData);
             testMethodBody.Arrange = RenderTestMethodBodyArrange(testMethodBody);
             testMethodBody.Act = RenderTestMethodBodyAct(testMethodBody);
             testMethodBody.Assert = RenderTestMethodBodyAssert(testMethodBody);
 
             return testMethodBody.Render();
         }
+        
+        protected virtual TestMethodBodyData CreateTestMethodBodyData(CanonicalDataCase canonicalDataCase)
+            => new TestMethodBodyData(canonicalDataCase);
 
-        protected virtual TestMethodBody CreateTestMethodBody(CanonicalDataCase canonicalDataCase)
+        protected virtual TestMethodBody CreateTestMethodBody(TestMethodBodyData data)
         {
-            if (canonicalDataCase.ExceptionThrown != null)
+            if (data.CanonicalDataCase.ExceptionThrown != null)
             {
-                return new TestMethodBodyWithExceptionCheck(canonicalDataCase);
+                return new TestMethodBodyWithExceptionCheck(data);
             }
 
-            switch (canonicalDataCase.Expected)
+            switch (data.CanonicalDataCase.Expected)
             {
                 case bool _:
-                    return new TestMethodBodyWithBooleanCheck(canonicalDataCase);
+                    return new TestMethodBodyWithBooleanCheck(data);
                 case null:
-                    return new TestMethodBodyWithNullCheck(canonicalDataCase);
+                    return new TestMethodBodyWithNullCheck(data);
                 default:
-                    return new TestMethodBodyWithEqualityCheck(canonicalDataCase);
+                    return new TestMethodBodyWithEqualityCheck(data);
             }
         }
     }

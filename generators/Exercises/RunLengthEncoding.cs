@@ -13,7 +13,7 @@ namespace Generators.Exercises
 
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            return testMethodBody.CanonicalDataCase.Property == "consistency" 
+            return testMethodBody.Data.CanonicalDataCase.Property == "consistency" 
                 ? RenderConsistencyToAssert(testMethodBody) 
                 : base.RenderTestMethodBodyAssert(testMethodBody);
         }
@@ -24,8 +24,8 @@ namespace Generators.Exercises
 
             var templateParameters = new
             {
-                ExpectedOutput = testMethodBody.CanonicalDataCase.Expected,
-                ExerciseName = testMethodBody.CanonicalDataCase.Exercise.ToTestedClassName()
+                ExpectedOutput = testMethodBody.Data.CanonicalDataCase.Expected,
+                ExerciseName = testMethodBody.Data.CanonicalDataCase.Exercise.ToTestedClassName()
             };
 
             return new[] { TemplateRenderer.RenderInline(template, templateParameters) };

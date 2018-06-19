@@ -1,18 +1,17 @@
-﻿using Generators.Input;
-
-namespace Generators.Output
+﻿namespace Generators.Output
 {
     public class TestMethodBodyWithExceptionCheck : TestMethodBody
     {
-        public TestMethodBodyWithExceptionCheck(CanonicalDataCase canonicalDataCase) : base(canonicalDataCase)
+        public TestMethodBodyWithExceptionCheck(TestMethodBodyData data) : base(data)
         {
+            Data.UseVariableForExpected = false;
+            Data.UseVariableForTested = false;
+            InitializeTemplateParameters();
+            
             AssertTemplateName = "AssertThrowsException";
             AssertTemplateParameters = new { ExceptionType, Data.TestedValue };
         }
 
-        public override bool UseVariableForExpected => false;
-        public override bool UseVariableForTested => false;
-
-        private string ExceptionType => CanonicalDataCase.ExceptionThrown.Name;
+        private string ExceptionType => Data.CanonicalDataCase.ExceptionThrown.Name;
     }
 }
