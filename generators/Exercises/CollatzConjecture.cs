@@ -1,13 +1,13 @@
 ﻿using System;
-using Generators.Input;
+using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class CollatzConjecture : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.ExceptionThrown = canonicalDataCase.Input["number"] <= 0 ? typeof(ArgumentException) : null;
+            data.ExceptionThrown = data.Input["number"] <= 0 ? typeof(ArgumentException) : null;
         }
     }
 }

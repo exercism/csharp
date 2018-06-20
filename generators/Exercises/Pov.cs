@@ -1,24 +1,23 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
-using Generators.Input;
 using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class Pov : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.UseVariablesForInput = true;
-            canonicalDataCase.UseVariableForExpected = true;
-            canonicalDataCase.ExceptionThrown = canonicalDataCase.Expected is null ? typeof(ArgumentException) : null;
+            data.UseVariablesForInput = true;
+            data.UseVariableForExpected = true;
+            data.ExceptionThrown = data.Expected is null ? typeof(ArgumentException) : null;
 
-            canonicalDataCase.Input["tree"] = RenderTree(canonicalDataCase.Input["tree"]);
+            data.Input["tree"] = RenderTree(data.Input["tree"]);
 
-            if (canonicalDataCase.Property == "fromPov")
+            if (data.Property == "fromPov")
             {
-                canonicalDataCase.Expected = RenderTree(canonicalDataCase.Expected);
+                data.Expected = RenderTree(data.Expected);
             }
         }
 

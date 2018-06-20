@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Generators.Input;
 using Generators.Output;
 using Newtonsoft.Json.Linq;
 
@@ -9,10 +8,10 @@ namespace Generators.Exercises
 {
     public class Dominoes : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.UseVariablesForInput = true;
-            canonicalDataCase.Input["dominoes"] = ConvertInput(canonicalDataCase.Input["dominoes"]);
+            data.UseVariablesForInput = true;
+            data.Input["dominoes"] = ConvertInput(data.Input["dominoes"]);
         }
 
         protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(Tuple).Namespace };

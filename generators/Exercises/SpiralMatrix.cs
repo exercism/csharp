@@ -1,16 +1,16 @@
 ﻿using System.Linq;
-using Generators.Input;
+using Generators.Output;
 using Newtonsoft.Json.Linq;
 
 namespace Generators.Exercises
 {
     public class SpiralMatrix : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.Property = "GetMatrix";
-            canonicalDataCase.UseVariableForExpected = true;
-            canonicalDataCase.Expected = ConvertExpected(canonicalDataCase.Expected);
+            data.Property = "GetMatrix";
+            data.UseVariableForExpected = true;
+            data.Expected = ConvertExpected(data.Expected);
         }
 
         private static dynamic ConvertExpected(dynamic expected)

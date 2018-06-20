@@ -1,25 +1,25 @@
-using Generators.Input;
+using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class Triangle : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            if (canonicalDataCase.Property == "equilateral")
-                canonicalDataCase.Property = "IsEquilateral";
-            else if (canonicalDataCase.Property == "isosceles")
-                canonicalDataCase.Property = "IsIsosceles";
-            else if (canonicalDataCase.Property == "scalene")
-                canonicalDataCase.Property = "IsScalene";
+            if (data.Property == "equilateral")
+                data.Property = "IsEquilateral";
+            else if (data.Property == "isosceles")
+                data.Property = "IsIsosceles";
+            else if (data.Property == "scalene")
+                data.Property = "IsScalene";
 
-            canonicalDataCase.Input["x"] = canonicalDataCase.Input["sides"][0];
-            canonicalDataCase.Input["y"] = canonicalDataCase.Input["sides"][1];
-            canonicalDataCase.Input["z"] = canonicalDataCase.Input["sides"][2];
-            canonicalDataCase.Input.Remove("sides");
-            canonicalDataCase.SetInputParameters("x", "y", "z");
+            data.Input["x"] = data.Input["sides"][0];
+            data.Input["y"] = data.Input["sides"][1];
+            data.Input["z"] = data.Input["sides"][2];
+            data.Input.Remove("sides");
+            data.SetInputParameters("x", "y", "z");
 
-            canonicalDataCase.UseFullDescriptionPath = true;
+            data.UseFullDescriptionPath = true;
         }
     }
 }

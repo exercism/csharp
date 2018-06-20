@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Generators.Input;
 using Generators.Output;
 
 namespace Generators.Exercises
@@ -16,39 +15,39 @@ namespace Generators.Exercises
         private const string PropertyEquals = "equals";
         private const string PropertyToString = "to_string";
 
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            if (canonicalDataCase.Property != PropertyEqual)
+            if (data.Property != PropertyEqual)
             {
-                canonicalDataCase.SetConstructorInputParameters(ParamHour, ParamMinute);
+                data.SetConstructorInputParameters(ParamHour, ParamMinute);
             }
             else
             {
-                canonicalDataCase.SetConstructorInputParameters(ParamClock2);
+                data.SetConstructorInputParameters(ParamClock2);
 
-                var result = (Dictionary<string, object>)canonicalDataCase.Input[ParamClock1];
-                canonicalDataCase.Input[ParamClock1] = new UnescapedValue($"new Clock({result[ParamHour]}, {result[ParamMinute]})");
+                var result = (Dictionary<string, object>)data.Input[ParamClock1];
+                data.Input[ParamClock1] = new UnescapedValue($"new Clock({result[ParamHour]}, {result[ParamMinute]})");
             }
 
-            if (canonicalDataCase.Property == PropertyCreate)
+            if (data.Property == PropertyCreate)
             {
-                canonicalDataCase.Property = PropertyToString;
+                data.Property = PropertyToString;
             }
-            else if (canonicalDataCase.Property == PropertyEqual)
+            else if (data.Property == PropertyEqual)
             {
-                canonicalDataCase.Property = PropertyEquals;
+                data.Property = PropertyEquals;
             }
         }
 
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            if (testMethodBody.Data.CanonicalDataCase.Property == PropertyEquals)
+            if (testMethodBody.Data.Property == PropertyEquals)
             {
                 return RenderEqualToAssert(testMethodBody);
             }
 
-            return testMethodBody.Data.CanonicalDataCase.Property != PropertyToString 
-                ? RenderConsistencyToAssert(testMethodBody) 
+            return testMethodBody.Data.Property != PropertyToString
+                ? RenderConsistencyToAssert(testMethodBody)
                 : base.RenderTestMethodBodyAssert(testMethodBody);
         }
 
@@ -60,9 +59,9 @@ namespace Generators.Exercises
 
         private static IEnumerable<string> RenderEqualToAssert(TestMethodBody testMethodBody)
         {
-            var expectedParameter = testMethodBody.Data.CanonicalDataCase.Input[ParamClock1];
+            var expectedParameter = testMethodBody.Data.Input[ParamClock1];
             const string testedValue = "sut";
-            var expectedEqual = testMethodBody.Data.CanonicalDataCase.Expected;
+            var expectedEqual = testMethodBody.Data.Expected;
 
             testMethodBody.AssertTemplateParameters = new { expectedParameter, testedValue };
 

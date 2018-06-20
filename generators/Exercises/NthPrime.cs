@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
-using Generators.Input;
+using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class NthPrime : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.ExceptionThrown = canonicalDataCase.Expected is Dictionary<string, object> ? typeof(ArgumentOutOfRangeException) : null;
+            data.ExceptionThrown = data.Expected is Dictionary<string, object> ? typeof(ArgumentOutOfRangeException) : null;
         }
     }
 }

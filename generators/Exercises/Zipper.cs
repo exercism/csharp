@@ -10,17 +10,17 @@ namespace Generators.Exercises
     {
         protected override IEnumerable<string> RenderTestMethodBodyArrange(TestMethodBody testMethodBody)
         {
-            var tree = RenderTree(testMethodBody.Data.CanonicalDataCase.Input["initialTree"]);
+            var tree = RenderTree(testMethodBody.Data.Input["initialTree"]);
             yield return $"var tree = {tree};";
             yield return "var sut = Zipper.FromTree(tree);";
 
-            var operations = RenderOperations(testMethodBody.Data.CanonicalDataCase.Input["operations"]);
+            var operations = RenderOperations(testMethodBody.Data.Input["operations"]);
             yield return $"var actual = sut{operations};";
         }
 
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            var expected = RenderExpected(testMethodBody.Data.CanonicalDataCase.Expected);
+            var expected = RenderExpected(testMethodBody.Data.Expected);
             if (expected == null)
             {
                 yield return "Assert.Null(actual);";

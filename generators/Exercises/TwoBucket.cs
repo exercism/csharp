@@ -1,18 +1,17 @@
 using System.Collections.Generic;
-using Generators.Input;
 using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class TwoBucket : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.TestedMethodType = TestedMethodType.Instance;
-            canonicalDataCase.SetConstructorInputParameters("bucketOne", "bucketTwo", "startBucket");
+            data.TestedMethodType = TestedMethodType.Instance;
+            data.SetConstructorInputParameters("bucketOne", "bucketTwo", "startBucket");
 
-            var startBucket = canonicalDataCase.Input["startBucket"];
-            canonicalDataCase.Input["startBucket"] = new UnescapedValue(startBucket == "two" ? "Bucket.Two" : "Bucket.One");
+            var startBucket = data.Input["startBucket"];
+            data.Input["startBucket"] = new UnescapedValue(startBucket == "two" ? "Bucket.Two" : "Bucket.One");
         }
 
         protected override IEnumerable<string> RenderTestMethodBodyAct(TestMethodBody testMethodBody)
@@ -36,9 +35,9 @@ Assert.Equal({% if GoalBucketExpected == 'two' %}Bucket.Two{% else %}Bucket.One{
 
             var templateParameters = new
             {
-                MovesExpected = testMethodBody.Data.CanonicalDataCase.Expected["moves"],
-                OtherBucketExpected = testMethodBody.Data.CanonicalDataCase.Expected["otherBucket"],
-                GoalBucketExpected = testMethodBody.Data.CanonicalDataCase.Expected["goalBucket"]
+                MovesExpected = testMethodBody.Data.Expected["moves"],
+                OtherBucketExpected = testMethodBody.Data.Expected["otherBucket"],
+                GoalBucketExpected = testMethodBody.Data.Expected["goalBucket"]
             };
 
             return new[] { TemplateRenderer.RenderInline(template, templateParameters) };

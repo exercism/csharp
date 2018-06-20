@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Generators.Input;
 using Generators.Output;
 using Newtonsoft.Json.Linq;
 
@@ -9,26 +8,26 @@ namespace Generators.Exercises
 {
     public class ComplexNumbers : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.Exercise = "complex-number";
-            canonicalDataCase.UseVariableForExpected = IsComplexNumber(canonicalDataCase.Expected);
-            canonicalDataCase.Expected = ConvertToType(canonicalDataCase.Expected);
+            data.Exercise = "complex-number";
+            data.UseVariableForExpected = IsComplexNumber(data.Expected);
+            data.Expected = ConvertToType(data.Expected);
 
-            var constructorParamName = canonicalDataCase.Input.ContainsKey("z") ? "z" : "z1";
-            canonicalDataCase.Input["real"] = ConvertMathDouble(canonicalDataCase.Input[constructorParamName][0]);
-            canonicalDataCase.Input["imaginary"] = ConvertMathDouble(canonicalDataCase.Input[constructorParamName][1]);
+            var constructorParamName = data.Input.ContainsKey("z") ? "z" : "z1";
+            data.Input["real"] = ConvertMathDouble(data.Input[constructorParamName][0]);
+            data.Input["imaginary"] = ConvertMathDouble(data.Input[constructorParamName][1]);
 
-            canonicalDataCase.SetInputParameters(GetInputParameters(canonicalDataCase, constructorParamName));
-            canonicalDataCase.SetConstructorInputParameters("real", "imaginary");
+            data.SetInputParameters(GetInputParameters(data, constructorParamName));
+            data.SetConstructorInputParameters("real", "imaginary");
 
-            var keys = canonicalDataCase.Input.Keys.ToArray();
+            var keys = data.Input.Keys.ToArray();
 
             foreach (var key in keys)
-                canonicalDataCase.Input[key] = ConvertToType(canonicalDataCase.Input[key]);
+                data.Input[key] = ConvertToType(data.Input[key]);
         }
 
-        private static string[] GetInputParameters(CanonicalDataCase canonicalDataCase, string constructorParamName)
+        private static string[] GetInputParameters(TestMethodBodyData canonicalDataCase, string constructorParamName)
             => canonicalDataCase.Input.Keys.Where(x => x != constructorParamName).ToArray();
 
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)

@@ -1,28 +1,27 @@
 ﻿using System.Collections;
-using Generators.Input;
 using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class Connect : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.UseVariablesForConstructorParameters = true;
-            canonicalDataCase.SetConstructorInputParameters("board");
-            canonicalDataCase.Property = "result";
-            canonicalDataCase.Input["board"] = ToMultiLineString(canonicalDataCase.Input["board"]);
+            data.UseVariablesForConstructorParameters = true;
+            data.SetConstructorInputParameters("board");
+            data.Property = "result";
+            data.Input["board"] = ToMultiLineString(data.Input["board"]);
 
-            switch (canonicalDataCase.Expected)
+            switch (data.Expected)
             {
                 case "X":
-                    canonicalDataCase.Expected = new UnescapedValue("ConnectWinner.Black");
+                    data.Expected = new UnescapedValue("ConnectWinner.Black");
                     break;
                 case "O":
-                    canonicalDataCase.Expected = new UnescapedValue("ConnectWinner.White");
+                    data.Expected = new UnescapedValue("ConnectWinner.White");
                     break;
                 case "":
-                    canonicalDataCase.Expected = new UnescapedValue("ConnectWinner.None");
+                    data.Expected = new UnescapedValue("ConnectWinner.None");
                     break;
             }
         }

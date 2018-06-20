@@ -29,7 +29,7 @@ namespace Generators
 
         private IEnumerable<Exercise> GetExercises()
         {
-            foreach (var exercise in ConfigFile.GetExercises())
+            foreach (var exercise in TrackConfigFile.GetExercises())
             {
                 var exerciseName = exercise.Name;
                 if (exercise.Deprecated)

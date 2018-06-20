@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Generators.Input;
 using Generators.Output;
 using Newtonsoft.Json.Linq;
 
@@ -9,23 +8,23 @@ namespace Generators.Exercises
 {
     public class PalindromeProducts : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            if (canonicalDataCase.Expected.ContainsKey("error"))
+            if (data.Expected.ContainsKey("error"))
             {
-                canonicalDataCase.ExceptionThrown = typeof(ArgumentException);
+                data.ExceptionThrown = typeof(ArgumentException);
             }
             else
             {
-                canonicalDataCase.UseVariableForTested = true;
-                canonicalDataCase.UseVariableForExpected = true;
-                canonicalDataCase.Expected = (canonicalDataCase.Expected["value"], FormatCoordinates(canonicalDataCase.Expected["factors"]));
+                data.UseVariableForTested = true;
+                data.UseVariableForExpected = true;
+                data.Expected = (data.Expected["value"], FormatCoordinates(data.Expected["factors"]));
             }
         }
 
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            if (testMethodBody.Data.CanonicalDataCase.ExceptionThrown != null)
+            if (testMethodBody.Data.ExceptionThrown != null)
             {
                 return base.RenderTestMethodBodyAssert(testMethodBody);
             }

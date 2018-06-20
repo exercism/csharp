@@ -1,27 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using Generators.Input;
+using Generators.Output;
 using Newtonsoft.Json.Linq;
 
 namespace Generators.Exercises
 {
     public class SaddlePoints : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.TestedMethodType = TestedMethodType.Instance;
-            canonicalDataCase.Property = "Calculate";
-            canonicalDataCase.SetConstructorInputParameters("matrix");
-            canonicalDataCase.UseVariablesForConstructorParameters = true;
-            canonicalDataCase.UseVariablesForInput = true;
-            canonicalDataCase.UseVariableForTested = true;
-            canonicalDataCase.UseVariableForExpected = true;
+            data.TestedMethodType = TestedMethodType.Instance;
+            data.Property = "Calculate";
+            data.SetConstructorInputParameters("matrix");
+            data.UseVariablesForConstructorParameters = true;
+            data.UseVariablesForInput = true;
+            data.UseVariableForTested = true;
+            data.UseVariableForExpected = true;
 
-            canonicalDataCase.Input["matrix"] = ToMultiDimensionalArray(canonicalDataCase.Input["matrix"]);
+            data.Input["matrix"] = ToMultiDimensionalArray(data.Input["matrix"]);
 
-            if (canonicalDataCase.Expected is Array array)
+            if (data.Expected is Array array)
             {
-                canonicalDataCase.Expected = ToTupleCollection(array);
+                data.Expected = ToTupleCollection(array);
             }
         }
 

@@ -1,18 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Generators.Input;
+using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class Etl : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.UseVariablesForInput = true;
-            canonicalDataCase.UseVariableForExpected = true;
-            canonicalDataCase.Input = ConvertInput(canonicalDataCase.Input);
-            canonicalDataCase.Expected = ConvertExpected(canonicalDataCase.Expected);
-            canonicalDataCase.SetInputParameters("input");
+            data.UseVariablesForInput = true;
+            data.UseVariableForExpected = true;
+            data.Input = ConvertInput(data.Input);
+            data.Expected = ConvertExpected(data.Expected);
+            data.SetInputParameters("input");
         }
 
         private static dynamic ConvertExpected(dynamic expected)

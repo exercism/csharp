@@ -1,21 +1,21 @@
 ﻿using System;
-using Generators.Input;
+using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class Forth : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.UseFullDescriptionPath = true;
+            data.UseFullDescriptionPath = true;
 
-            if (canonicalDataCase.Expected == null)
+            if (data.Expected == null)
             {
-                canonicalDataCase.ExceptionThrown = typeof(InvalidOperationException);
+                data.ExceptionThrown = typeof(InvalidOperationException);
             }
             else
             {
-                canonicalDataCase.Expected = string.Join(" ", canonicalDataCase.Expected);
+                data.Expected = string.Join(" ", data.Expected);
             }
         }
     }

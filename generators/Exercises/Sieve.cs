@@ -1,14 +1,14 @@
 ﻿using System;
-using Generators.Input;
+using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class Sieve : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.UseVariableForExpected = true;
-            canonicalDataCase.ExceptionThrown = canonicalDataCase.Input["limit"] < 2 ? typeof(ArgumentOutOfRangeException) : null;
+            data.UseVariableForExpected = true;
+            data.ExceptionThrown = data.Input["limit"] < 2 ? typeof(ArgumentOutOfRangeException) : null;
         }
     }
 }

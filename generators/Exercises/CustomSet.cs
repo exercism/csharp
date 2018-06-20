@@ -1,40 +1,39 @@
-﻿using Generators.Input;
-using Generators.Output;
+﻿using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class CustomSet : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.UseVariablesForInput = true;
+            data.UseVariablesForInput = true;
 
-            if (canonicalDataCase.Input.ContainsKey("set"))
+            if (data.Input.ContainsKey("set"))
             {
-                if (!(canonicalDataCase.Input["set"] is int[]))
+                if (!(data.Input["set"] is int[]))
                 {
-                    canonicalDataCase.Input["set"] = new UnescapedValue("");
+                    data.Input["set"] = new UnescapedValue("");
                 }
 
-                canonicalDataCase.SetConstructorInputParameters("set");
+                data.SetConstructorInputParameters("set");
             }
             else
             {
-                if (!(canonicalDataCase.Input["set1"] is int[]))
+                if (!(data.Input["set1"] is int[]))
                 {
-                    canonicalDataCase.Input["set1"] = new UnescapedValue("");
+                    data.Input["set1"] = new UnescapedValue("");
                 }
 
-                canonicalDataCase.SetConstructorInputParameters("set1");
-                canonicalDataCase.Input["set2"] = ConvertCustomSet(canonicalDataCase.Input["set2"]);
+                data.SetConstructorInputParameters("set1");
+                data.Input["set2"] = ConvertCustomSet(data.Input["set2"]);
 
-                if (canonicalDataCase.Property == "equal")
+                if (data.Property == "equal")
                 {
-                    canonicalDataCase.Property = "Equals";
+                    data.Property = "Equals";
                 }
             }
 
-            canonicalDataCase.Expected = ConvertCustomSet(canonicalDataCase.Expected);
+            data.Expected = ConvertCustomSet(data.Expected);
         }
 
         private static dynamic ConvertCustomSet(dynamic value)

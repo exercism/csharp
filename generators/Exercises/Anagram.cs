@@ -1,14 +1,14 @@
-using Generators.Input;
+using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class Anagram : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.UseVariablesForInput = true;
-            canonicalDataCase.UseVariableForExpected = true;
-            canonicalDataCase.SetConstructorInputParameters("subject");
+            data.UseVariablesForInput = true;
+            data.UseVariableForExpected = true;
+            data.SetConstructorInputParameters("subject");
         }
     }
 }

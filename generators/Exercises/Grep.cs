@@ -2,31 +2,30 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Generators.Input;
 using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class Grep : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.Property = "Match";
-            canonicalDataCase.Input["flags"] = string.Join(" ", canonicalDataCase.Input["flags"]);
-            canonicalDataCase.Expected = ConvertExpected(canonicalDataCase.Expected);
-            canonicalDataCase.UseVariablesForInput = true;
-            canonicalDataCase.UseVariableForExpected = true;
+            data.Property = "Match";
+            data.Input["flags"] = string.Join(" ", data.Input["flags"]);
+            data.Expected = ConvertExpected(data.Expected);
+            data.UseVariablesForInput = true;
+            data.UseVariableForExpected = true;
         }
 
         private static dynamic ConvertExpected(dynamic expected)
         {
             if (expected is object[] arr && arr.Length != 0)
                 return new UnescapedValue(
-                    Environment.NewLine + 
+                    Environment.NewLine +
                     string.Join(
                         Environment.NewLine,
                             arr.Select((x, i) => $"    \"{x}\\n\"{(i < arr.Length - 1 ? " +" : "")}")));
-            
+
             return "";
         }
 

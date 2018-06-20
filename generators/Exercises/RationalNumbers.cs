@@ -19,9 +19,9 @@ namespace Generators.Exercises
     {
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            var input = testMethodBody.Data.CanonicalDataCase.Properties["input"] as Dictionary<string, object>;
-            var operation = testMethodBody.Data.CanonicalDataCase.Properties["property"].ToString();
-            var expected = testMethodBody.Data.CanonicalDataCase.Properties["expected"];
+            var input = testMethodBody.Data.Properties["input"] as Dictionary<string, object>;
+            var operation = testMethodBody.Data.Properties["property"].ToString();
+            var expected = testMethodBody.Data.Properties["expected"];
             var operationName = char.ToUpper(operation[0]) + operation.Substring(1);
             var assertCodeLine = "";
             const string operationsWithOverloading = "add|+|sub|-|mul|*|div|/";
@@ -70,9 +70,9 @@ namespace Generators.Exercises
             return new[] { TemplateRenderer.RenderInline(assertCodeLine, testMethodBody.AssertTemplateParameters) };
         }
 
-        private static int Precision(object rawValue) 
-            => rawValue.ToString().Split(new[] { '.' }).Length <= 1 
-                    ? 0 
+        private static int Precision(object rawValue)
+            => rawValue.ToString().Split(new[] { '.' }).Length <= 1
+                    ? 0
                     : rawValue.ToString().Split(new[] { '.' })[1].Length;
     }
 }

@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 namespace Generators.Input
 {
-    public static class ConfigFile
+    public static class TrackConfigFile
     {
         private const string ConfigFilePath = "../config.json";
 

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Generators.Input;
 using Generators.Output;
 using Humanizer;
 
@@ -15,19 +14,19 @@ namespace Generators.Exercises
 
         private const string PropertyDay = "Day";
 
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.Property = PropertyDay;
-            canonicalDataCase.UseVariableForExpected = true;
-            canonicalDataCase.SetConstructorInputParameters(ParamMonth, ParamYear);
-            canonicalDataCase.SetInputParameters(ParamDayOfWeek, ParamWeek);
+            data.Property = PropertyDay;
+            data.UseVariableForExpected = true;
+            data.SetConstructorInputParameters(ParamMonth, ParamYear);
+            data.SetInputParameters(ParamDayOfWeek, ParamWeek);
 
-            canonicalDataCase.Input[ParamYear] = canonicalDataCase.Input[ParamYear];
-            canonicalDataCase.Input[ParamMonth] = canonicalDataCase.Input[ParamMonth];
-            canonicalDataCase.Input[ParamWeek] =
-                new UnescapedValue($"Schedule.{((string)canonicalDataCase.Input[ParamWeek]).Transform(To.SentenceCase)}");
-            canonicalDataCase.Input[ParamDayOfWeek] =
-                new UnescapedValue($"DayOfWeek.{((string)canonicalDataCase.Input[ParamDayOfWeek]).Transform(To.SentenceCase)}");
+            data.Input[ParamYear] = data.Input[ParamYear];
+            data.Input[ParamMonth] = data.Input[ParamMonth];
+            data.Input[ParamWeek] =
+                new UnescapedValue($"Schedule.{((string)data.Input[ParamWeek]).Transform(To.SentenceCase)}");
+            data.Input[ParamDayOfWeek] =
+                new UnescapedValue($"DayOfWeek.{((string)data.Input[ParamDayOfWeek]).Transform(To.SentenceCase)}");
         }
 
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)

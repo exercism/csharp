@@ -1,20 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Generators.Input;
 using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class NucleotideCount : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            if (((Dictionary<string, object>) canonicalDataCase.Expected).ContainsKey("error")) 
+            if (((Dictionary<string, object>)data.Expected).ContainsKey("error"))
                 return;
 
-            canonicalDataCase.UseVariableForExpected = true;
-            canonicalDataCase.SetConstructorInputParameters("strand");
-            canonicalDataCase.Expected = ConvertExpected(canonicalDataCase.Expected);
+            data.UseVariableForExpected = true;
+            data.SetConstructorInputParameters("strand");
+            data.Expected = ConvertExpected(data.Expected);
         }
 
         private static dynamic ConvertExpected(dynamic expected)
@@ -24,8 +23,8 @@ namespace Generators.Exercises
 
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            return testMethodBody.Data.UseVariableForExpected 
-                ? RenderEqualBodyAssert(testMethodBody) 
+            return testMethodBody.Data.UseVariableForExpected
+                ? RenderEqualBodyAssert(testMethodBody)
                 : RenderThrowsBodyAssert(testMethodBody);
         }
 
@@ -35,7 +34,7 @@ namespace Generators.Exercises
 
             var templateParameters = new
             {
-                TestedMethodName = testMethodBody.Data.CanonicalDataCase.Property.ToTestedMethodName()
+                TestedMethodName = testMethodBody.Data.Property.ToTestedMethodName()
             };
 
             return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
@@ -47,7 +46,7 @@ namespace Generators.Exercises
 
             var templateParameters = new
             {
-                Input = testMethodBody.Data.CanonicalDataCase.Input["strand"]
+                Input = testMethodBody.Data.Input["strand"]
             };
 
             return new[] { TemplateRenderer.RenderInline(template, templateParameters) };

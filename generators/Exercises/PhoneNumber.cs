@@ -1,14 +1,14 @@
 ﻿using System;
-using Generators.Input;
+using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class PhoneNumber : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.UseVariablesForInput = true;
-            canonicalDataCase.ExceptionThrown = canonicalDataCase.Expected is null ? typeof(ArgumentException) : null;
+            data.UseVariablesForInput = true;
+            data.ExceptionThrown = data.Expected is null ? typeof(ArgumentException) : null;
         }
     }
 }

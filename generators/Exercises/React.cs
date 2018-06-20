@@ -15,10 +15,10 @@ namespace Generators.Exercises
             var arrange = new StringBuilder();
             arrange.AppendLine("var sut = new Reactor();");
 
-            var cells = RenderCells(testMethodBody.Data.CanonicalDataCase.Input["cells"]);
+            var cells = RenderCells(testMethodBody.Data.Input["cells"]);
             arrange.AppendLine(cells);
 
-            var operations = RenderOperations(testMethodBody.Data.CanonicalDataCase.Input["operations"]);
+            var operations = RenderOperations(testMethodBody.Data.Input["operations"]);
             arrange.AppendLine(operations);
 
             return new[] { arrange.ToString() };
@@ -57,9 +57,9 @@ namespace Generators.Exercises
         {
             var match = Regex.Match((string)computeFunction, "if (.+) then (.+) else (.+)");
 
-            return match.Success 
-                ? $"{match.Groups[1]} ? {match.Groups[2]} : {match.Groups[3]}" 
-                : (string) computeFunction;
+            return match.Success
+                ? $"{match.Groups[1]} ? {match.Groups[2]} : {match.Groups[3]}"
+                : (string)computeFunction;
         }
 
         private static string RenderOperations(dynamic operations)

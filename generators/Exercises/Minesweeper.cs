@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Generators.Input;
 using Generators.Output;
 using Newtonsoft.Json.Linq;
 
@@ -8,13 +7,13 @@ namespace Generators.Exercises
 {
     public class Minesweeper : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.UseVariablesForInput = true;
-            canonicalDataCase.UseVariableForExpected = true;
+            data.UseVariablesForInput = true;
+            data.UseVariableForExpected = true;
 
-            canonicalDataCase.Input["minefield"] = ToMultiLineString(canonicalDataCase.Input["minefield"]);
-            canonicalDataCase.Expected = ToMultiLineString(canonicalDataCase.Expected);
+            data.Input["minefield"] = ToMultiLineString(data.Input["minefield"]);
+            data.Expected = ToMultiLineString(data.Expected);
         }
 
         private static UnescapedValue ToMultiLineString(JArray input) => new UnescapedValue("Array.Empty<string>()");

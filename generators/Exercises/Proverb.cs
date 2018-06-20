@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using Generators.Input;
+using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class Proverb : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.UseVariableForExpected = true;
-            canonicalDataCase.Input["strings"] = ConvertHelper.ToArray<string>(canonicalDataCase.Input["strings"]);
-            canonicalDataCase.Expected = ConvertHelper.ToArray<string>(canonicalDataCase.Expected);
+            data.UseVariableForExpected = true;
+            data.Input["strings"] = ConvertHelper.ToArray<string>(data.Input["strings"]);
+            data.Expected = ConvertHelper.ToArray<string>(data.Expected);
         }
 
         protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(Array).Namespace };

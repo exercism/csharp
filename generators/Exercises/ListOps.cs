@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Generators.Input;
 using Generators.Output;
 using Newtonsoft.Json.Linq;
 
@@ -10,32 +9,32 @@ namespace Generators.Exercises
 {
     public class ListOps : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.UseFullDescriptionPath = true;
-            canonicalDataCase.UseVariablesForInput = true;
-            canonicalDataCase.UseVariableForExpected = !(canonicalDataCase.Expected is int);
+            data.UseFullDescriptionPath = true;
+            data.UseVariablesForInput = true;
+            data.UseVariableForExpected = !(data.Expected is int);
 
-            if (canonicalDataCase.Input.TryGetValue("list", out var list))
-                canonicalDataCase.Input["list"] = ConvertToList(list);
+            if (data.Input.TryGetValue("list", out var list))
+                data.Input["list"] = ConvertToList(list);
 
-            if (canonicalDataCase.Input.TryGetValue("list1", out var list1))
-                canonicalDataCase.Input["list1"] = ConvertToList(list1);
+            if (data.Input.TryGetValue("list1", out var list1))
+                data.Input["list1"] = ConvertToList(list1);
 
-            if (canonicalDataCase.Input.TryGetValue("list2", out var list2))
-                canonicalDataCase.Input["list2"] = ConvertToList(list2);
+            if (data.Input.TryGetValue("list2", out var list2))
+                data.Input["list2"] = ConvertToList(list2);
 
-            if (canonicalDataCase.Input.TryGetValue("lists", out var lists))
-                canonicalDataCase.Input["lists"] = ConvertToNestedList(lists, true);
+            if (data.Input.TryGetValue("lists", out var lists))
+                data.Input["lists"] = ConvertToNestedList(lists, true);
 
-            if (canonicalDataCase.Input.TryGetValue("function", out var function))
-                canonicalDataCase.Input["function"] = ConvertToFunction(canonicalDataCase.Property, function);
+            if (data.Input.TryGetValue("function", out var function))
+                data.Input["function"] = ConvertToFunction(data.Property, function);
 
-            if (canonicalDataCase.Expected is IEnumerable)
+            if (data.Expected is IEnumerable)
             {
-                canonicalDataCase.Expected = canonicalDataCase.Input.ContainsKey("lists") 
-                    ? ConvertToNestedList(canonicalDataCase.Expected, false)
-                    : ConvertToList(canonicalDataCase.Expected);
+                data.Expected = data.Input.ContainsKey("lists")
+                    ? ConvertToNestedList(data.Expected, false)
+                    : ConvertToList(data.Expected);
             }
         }
 

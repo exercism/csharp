@@ -1,25 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using Generators.Input;
 using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class QueenAttack : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            if (canonicalDataCase.Property == "create")
-                SetCreatePropertyData(canonicalDataCase);
+            if (data.Property == "create")
+                SetCreatePropertyData(data);
         }
 
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            if (testMethodBody.Data.CanonicalDataCase.Property == "canAttack")
+            if (testMethodBody.Data.Property == "canAttack")
                 return new[] { RenderCanAttackAssert(testMethodBody) };
 
-            return testMethodBody.Data.UseVariableForTested 
-                ? Array.Empty<string>() 
+            return testMethodBody.Data.UseVariableForTested
+                ? Array.Empty<string>()
                 : base.RenderTestMethodBodyAssert(testMethodBody);
         }
 
@@ -30,8 +29,8 @@ namespace Generators.Exercises
 var blackQueen = QueenAttack.Create({{blackQueenX}},{{blackQueenY}});
 Assert.{% if Expected %}True{% else %}False{% endif %}(QueenAttack.CanAttack(whiteQueen, blackQueen));";
 
-            var whiteQueenPositions = GetCoordinatesFromPosition(testMethodBody.Data.CanonicalDataCase.Input["white_queen"]);
-            var blackQueenPositions = GetCoordinatesFromPosition(testMethodBody.Data.CanonicalDataCase.Input["black_queen"]);
+            var whiteQueenPositions = GetCoordinatesFromPosition(testMethodBody.Data.Input["white_queen"]);
+            var blackQueenPositions = GetCoordinatesFromPosition(testMethodBody.Data.Input["black_queen"]);
 
             var templateParameters = new
             {
@@ -39,7 +38,7 @@ Assert.{% if Expected %}True{% else %}False{% endif %}(QueenAttack.CanAttack(whi
                 whiteQueenY = whiteQueenPositions.Item2,
                 blackQueenX = blackQueenPositions.Item1,
                 blackQueenY = blackQueenPositions.Item2,
-                testMethodBody.Data.CanonicalDataCase.Expected
+                testMethodBody.Data.Expected
             };
 
             return TemplateRenderer.RenderInline(template, templateParameters);
@@ -55,7 +54,7 @@ Assert.{% if Expected %}True{% else %}False{% endif %}(QueenAttack.CanAttack(whi
             return Tuple.Create(positionX, positionY);
         }
 
-        private static void SetCreatePropertyData(CanonicalDataCase canonicalDataCase)
+        private static void SetCreatePropertyData(TestMethodBodyData canonicalDataCase)
         {
             var validExpected = canonicalDataCase.Expected >= 0;
 

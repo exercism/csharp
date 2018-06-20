@@ -1,13 +1,13 @@
-﻿using Generators.Input;
+﻿using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class BracketPush : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.Input["value"] = canonicalDataCase.Input["value"].Replace("\\", "\\\\");
-            canonicalDataCase.UseVariablesForInput = true;
+            data.Input["value"] = data.Input["value"].Replace("\\", "\\\\");
+            data.UseVariablesForInput = true;
         }
     }
 }

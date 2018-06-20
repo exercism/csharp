@@ -2,23 +2,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Generators.Input;
 using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class VariableLengthQuantity : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.UseVariableForExpected = true;
-            canonicalDataCase.UseVariablesForInput = true;
-            canonicalDataCase.Input["integers"] = FormatUInt32Array(canonicalDataCase.Input["integers"]);
+            data.UseVariableForExpected = true;
+            data.UseVariablesForInput = true;
+            data.Input["integers"] = FormatUInt32Array(data.Input["integers"]);
 
-            if (canonicalDataCase.Expected == null)
-                canonicalDataCase.ExceptionThrown = typeof(InvalidOperationException);
+            if (data.Expected == null)
+                data.ExceptionThrown = typeof(InvalidOperationException);
             else
-                canonicalDataCase.Expected = FormatUInt32Array(canonicalDataCase.Expected);
+                data.Expected = FormatUInt32Array(data.Expected);
         }
 
         protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(Array).Namespace };

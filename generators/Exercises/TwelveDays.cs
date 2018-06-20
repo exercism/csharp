@@ -1,17 +1,18 @@
 ﻿using Generators.Input;
+using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class TwelveDays : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.UseVariableForExpected = true;
-            canonicalDataCase.Expected = ConvertHelper.ToMultiLineString(canonicalDataCase.Expected);
+            data.UseVariableForExpected = true;
+            data.Expected = ConvertHelper.ToMultiLineString(data.Expected);
 
-            if (canonicalDataCase.Input["startVerse"] == canonicalDataCase.Input["endVerse"])
+            if (data.Input["startVerse"] == data.Input["endVerse"])
             {
-                canonicalDataCase.SetInputParameters("startVerse");
+                data.SetInputParameters("startVerse");
             }
         }
     }

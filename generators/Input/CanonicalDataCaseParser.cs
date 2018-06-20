@@ -9,27 +9,20 @@ namespace Generators.Input
     {
         private const string TokensPath = "$..*[?(@.property)]";
 
-        public static CanonicalDataCase[] Parse(JArray canonicalDataCasesJArray)
+        public static IReadOnlyCollection<CanonicalDataCase> Parse(JArray canonicalDataCasesJArray)
             => canonicalDataCasesJArray
                 .SelectTokens(TokensPath)
                 .Select(Parse)
                 .ToArray();
 
         private static CanonicalDataCase Parse(JToken canonicalDataCaseJToken)
-        {
-            var canonicalDataCase = new CanonicalDataCase
-            {
-                Property = canonicalDataCaseJToken.Value<string>("property"),
-                Properties = ToDictionary(canonicalDataCaseJToken),
-                Input = ToDictionary(canonicalDataCaseJToken["input"]),
-                Expected = ConvertJToken(canonicalDataCaseJToken["expected"]),
-                Description = canonicalDataCaseJToken.Value<string>("description"),
-                DescriptionPath = GetDescriptionPath(canonicalDataCaseJToken)
-            };
-            canonicalDataCase.SetInputParameters(canonicalDataCase.Input.Keys.ToArray());
-
-            return canonicalDataCase;
-        }
+            => new CanonicalDataCase(
+                property: canonicalDataCaseJToken.Value<string>("property"),
+                properties: ToReadOnlyDictionary(canonicalDataCaseJToken),
+                input: ToReadOnlyDictionary(canonicalDataCaseJToken["input"]),
+                expected: ConvertJToken(canonicalDataCaseJToken["expected"]),
+                description: canonicalDataCaseJToken.Value<string>("description"),
+                descriptionPath: GetDescriptionPath(canonicalDataCaseJToken));
 
         private static string[] GetDescriptionPath(JToken canonicalDataCaseToken)
         {
@@ -53,7 +46,7 @@ namespace Generators.Input
             return descriptionPath.Where(x => !string.IsNullOrEmpty(x)).ToArray();
         }
 
-        private static IDictionary<string, dynamic> ToDictionary(JToken jToken) => ConvertJToken(jToken);
+        private static IReadOnlyDictionary<string, dynamic> ToReadOnlyDictionary(JToken jToken) => ConvertJToken(jToken);
 
         private static dynamic ConvertJToken(JToken jToken)
         {
@@ -64,7 +57,7 @@ namespace Generators.Input
                 case JTokenType.Array:
                     return ConvertJArray((JArray)jToken);
                 case JTokenType.Property:
-                    return jToken.ToObject<IDictionary<string, dynamic>>();
+                    return jToken.ToObject<IReadOnlyDictionary<string, dynamic>>();
                 case JTokenType.Integer:
                     return ConvertIntegerJToken(jToken);
                 case JTokenType.Float:

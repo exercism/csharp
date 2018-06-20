@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using Generators.Input;
 using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class Gigasecond : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            var input = DateTime.Parse(canonicalDataCase.Input["birthdate"].ToString());
-            canonicalDataCase.Input["birthdate"] = new UnescapedValue(FormatDateTime(input));
-            canonicalDataCase.Expected = new UnescapedValue(FormatDateTime((DateTime)canonicalDataCase.Expected));
+            var input = DateTime.Parse(data.Input["birthdate"].ToString());
+            data.Input["birthdate"] = new UnescapedValue(FormatDateTime(input));
+            data.Expected = new UnescapedValue(FormatDateTime((DateTime)data.Expected));
         }
 
         protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(DateTime).Namespace };

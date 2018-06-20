@@ -8,18 +8,18 @@ namespace Generators.Exercises
 {
     public class WordSearch : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.UseVariablesForInput = true;
-            canonicalDataCase.UseVariableForTested = true;
-            canonicalDataCase.UseVariableForExpected = true;
-            canonicalDataCase.UseVariablesForConstructorParameters = true;
+            data.UseVariablesForInput = true;
+            data.UseVariableForTested = true;
+            data.UseVariableForExpected = true;
+            data.UseVariablesForConstructorParameters = true;
 
-            canonicalDataCase.SetConstructorInputParameters("grid");
+            data.SetConstructorInputParameters("grid");
 
-            canonicalDataCase.Input["grid"] = ConvertHelper.ToMultiLineString(canonicalDataCase.Input["grid"]);
+            data.Input["grid"] = ConvertHelper.ToMultiLineString(data.Input["grid"]);
 
-            var expectedDictionary = canonicalDataCase.Expected as IDictionary<string, dynamic>;
+            var expectedDictionary = data.Expected as IDictionary<string, dynamic>;
 
             var expected = new List<string>
                 {
@@ -30,12 +30,12 @@ namespace Generators.Exercises
             expected.AddRange(expectedDictionary.Select((kv, i) => $"    [\"{kv.Key}\"] = {FormatPosition(kv.Value)}{(i < expectedDictionary.Count - 1 ? "," : "")}"));
             expected.Add("}");
 
-            canonicalDataCase.Expected = new UnescapedValue(string.Join(Environment.NewLine, expected));
+            data.Expected = new UnescapedValue(string.Join(Environment.NewLine, expected));
         }
 
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            var expectedDictionary = testMethodBody.Data.CanonicalDataCase.Properties["expected"] as IDictionary<string, dynamic>;
+            var expectedDictionary = testMethodBody.Data.Properties["expected"] as IDictionary<string, dynamic>;
 
             foreach (var kv in expectedDictionary)
                 yield return RenderTestMethodBodyAssertForSearchWord(kv.Key, kv.Value);
@@ -43,15 +43,15 @@ namespace Generators.Exercises
 
         private static string RenderTestMethodBodyAssertForSearchWord(string word, dynamic expected)
         {
-            return expected == null 
-                ? $"Assert.Null(expected[\"{word}\"]);" 
+            return expected == null
+                ? $"Assert.Null(expected[\"{word}\"]);"
                 : $"Assert.Equal(expected[\"{word}\"], actual[\"{word}\"]);";
         }
 
         private static string FormatPosition(dynamic position)
         {
-            return position == null 
-                ? "null" : 
+            return position == null
+                ? "null" :
                 ValueFormatter.Format((FormatCoordinate(position["start"]), FormatCoordinate(position["end"])));
         }
 

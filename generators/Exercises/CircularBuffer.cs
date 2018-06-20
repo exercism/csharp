@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Generators.Input;
 using Generators.Output;
 
 namespace Generators.Exercises
@@ -9,13 +8,13 @@ namespace Generators.Exercises
     {
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            yield return RenderSut(testMethodBody.Data.CanonicalDataCase);
+            yield return RenderSut(testMethodBody.Data);
 
-            foreach (var operation in testMethodBody.Data.CanonicalDataCase.Input["operations"])
+            foreach (var operation in testMethodBody.Data.Input["operations"])
                 yield return RenderOperation(operation);
         }
 
-        private static string RenderSut(CanonicalDataCase canonicalDataCase)
+        private static string RenderSut(TestMethodBodyData canonicalDataCase)
         {
             var capacity = canonicalDataCase.Input["capacity"];
             return $"var buffer = new CircularBuffer<int>(capacity: {capacity});";
@@ -40,8 +39,8 @@ namespace Generators.Exercises
 
         private static string RenderReadOperation(dynamic operation)
         {
-            return operation["should_succeed"] 
-                ? $"Assert.Equal({operation["expected"]}, buffer.Read());" 
+            return operation["should_succeed"]
+                ? $"Assert.Equal({operation["expected"]}, buffer.Read());"
                 : "Assert.Throws<InvalidOperationException>(() => buffer.Read());";
         }
 

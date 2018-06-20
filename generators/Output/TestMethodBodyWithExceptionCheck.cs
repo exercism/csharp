@@ -12,6 +12,6 @@
             AssertTemplateParameters = new { ExceptionType, Data.TestedValue };
         }
 
-        private string ExceptionType => Data.CanonicalDataCase.ExceptionThrown.Name;
+        private string ExceptionType => Data.ExceptionThrown.Name;
     }
 }

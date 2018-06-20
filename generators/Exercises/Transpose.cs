@@ -1,17 +1,18 @@
 using Generators.Input;
+using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class Transpose : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.Property = "String";
-            canonicalDataCase.Input["lines"] = ConvertHelper.ToMultiLineString(canonicalDataCase.Input["lines"], "");
-            canonicalDataCase.Expected = ConvertHelper.ToMultiLineString(canonicalDataCase.Expected, "");
+            data.Property = "String";
+            data.Input["lines"] = ConvertHelper.ToMultiLineString(data.Input["lines"], "");
+            data.Expected = ConvertHelper.ToMultiLineString(data.Expected, "");
 
-            canonicalDataCase.UseVariablesForInput = true;
-            canonicalDataCase.UseVariableForExpected = true;
+            data.UseVariablesForInput = true;
+            data.UseVariableForExpected = true;
         }
     }
 }

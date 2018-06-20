@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
 namespace Generators.Input
 {
@@ -13,20 +14,18 @@ namespace Generators.Input
             var canonicalDataJsonContents = _canonicalDataFile.Contents(exercise);
             var canonicalDataJson = JObject.Parse(canonicalDataJsonContents);
 
-            var name = ParseName(canonicalDataJson);
+            var exerciseName = ParseExerciseName(canonicalDataJson);
             var version = ParseVersion(canonicalDataJson);
             var canonicalDataCases = ParseCanonicalDataCases(canonicalDataJson);
 
-            foreach (var canonicalDataCase in canonicalDataCases)
-                canonicalDataCase.Exercise = name;
-
-            return new CanonicalData(name, version, canonicalDataCases);
+            return new CanonicalData(exerciseName, version, canonicalDataCases);
         }
 
-        private static string ParseName(JToken canonicalDataJObject) => canonicalDataJObject.Value<string>("exercise");
+        private static string ParseExerciseName(JToken canonicalDataJObject) => canonicalDataJObject.Value<string>("exercise");
 
         private static string ParseVersion(JToken canonicalDataJObject) => canonicalDataJObject.Value<string>("version");
 
-        private static CanonicalDataCase[] ParseCanonicalDataCases(JObject canonicalDataJObject) => CanonicalDataCaseParser.Parse((JArray)canonicalDataJObject["cases"]);
+        private static IReadOnlyCollection<CanonicalDataCase> ParseCanonicalDataCases(JObject canonicalDataJObject) 
+            => CanonicalDataCaseParser.Parse((JArray)canonicalDataJObject["cases"]);
     }
 }

@@ -1,14 +1,14 @@
-﻿using Generators.Input;
+﻿using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class SpaceAge : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.Property = $"On_{canonicalDataCase.Input["planet"]}";
-            canonicalDataCase.SetInputParameters();
-            canonicalDataCase.SetConstructorInputParameters("seconds");
+            data.Property = $"On_{data.Input["planet"]}";
+            data.SetInputParameters();
+            data.SetConstructorInputParameters("seconds");
         }
     }
 }

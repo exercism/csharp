@@ -1,16 +1,16 @@
 ﻿using System;
-using Generators.Input;
+using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class Grains : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            if (ShouldThrowException(canonicalDataCase.Expected))
-                canonicalDataCase.ExceptionThrown = typeof(ArgumentOutOfRangeException);
+            if (ShouldThrowException(data.Expected))
+                data.ExceptionThrown = typeof(ArgumentOutOfRangeException);
             else
-                canonicalDataCase.Expected = (ulong)canonicalDataCase.Expected;
+                data.Expected = (ulong)data.Expected;
         }
 
         private static bool ShouldThrowException(dynamic value) => value is int i && i == -1;

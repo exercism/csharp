@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Generators.Input;
 
 namespace Generators.Output
 {
@@ -34,7 +33,7 @@ namespace Generators.Output
         {
             ArrangeTemplateParameters = new { Data.Variables };
             ActTemplateParameters = new { };
-            AssertTemplateParameters = new { Data.ExpectedParameter, Data.TestedValue };
+            AssertTemplateParameters = new { ExpectedParameter = Data.ExpectedParameter, TestedValue = Data.TestedValue };
         }
     }
 }

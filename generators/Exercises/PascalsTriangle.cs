@@ -1,19 +1,19 @@
 using System;
-using Generators.Input;
+using Generators.Output;
 using Newtonsoft.Json.Linq;
 
 namespace Generators.Exercises
 {
     public class PascalsTriangle : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.UseVariableForExpected = true;
-            canonicalDataCase.Property = "calculate";
-            if (canonicalDataCase.Expected is JArray jArray)
-                canonicalDataCase.Expected = jArray.ToObject<int[][]>();
+            data.UseVariableForExpected = true;
+            data.Property = "calculate";
+            if (data.Expected is JArray jArray)
+                data.Expected = jArray.ToObject<int[][]>();
             else
-                canonicalDataCase.ExceptionThrown = typeof(ArgumentOutOfRangeException);
+                data.ExceptionThrown = typeof(ArgumentOutOfRangeException);
         }
     }
 }

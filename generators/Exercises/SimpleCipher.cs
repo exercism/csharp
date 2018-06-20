@@ -1,58 +1,57 @@
 ﻿using System;
 using System.Collections.Generic;
-using Generators.Input;
 using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class SimpleCipher : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.UseFullDescriptionPath = true;
+            data.UseFullDescriptionPath = true;
 
-            if (canonicalDataCase.Property == "new")
+            if (data.Property == "new")
             {
                 return;
             }
 
-            canonicalDataCase.TestedMethodType = TestedMethodType.Instance;
+            data.TestedMethodType = TestedMethodType.Instance;
 
-            if (canonicalDataCase.Input.ContainsKey("key"))
+            if (data.Input.ContainsKey("key"))
             {
-                canonicalDataCase.SetConstructorInputParameters("key");
+                data.SetConstructorInputParameters("key");
             }
 
-            if (canonicalDataCase.Input.TryGetValue("ciphertext", out var cipherText))
+            if (data.Input.TryGetValue("ciphertext", out var cipherText))
             {
                 switch (cipherText)
                 {
                     case "cipher.key":
-                        canonicalDataCase.Input["ciphertext"] = new UnescapedValue("sut.Key.Substring(0, 10)");
+                        data.Input["ciphertext"] = new UnescapedValue("sut.Key.Substring(0, 10)");
                         break;
                     case "cipher.encode":
-                        var plaintext = ValueFormatter.Format(canonicalDataCase.Input["plaintext"]);
-                        canonicalDataCase.Input["ciphertext"] = new UnescapedValue($"sut.Encode({plaintext})");
-                        canonicalDataCase.SetInputParameters("ciphertext");
+                        var plaintext = ValueFormatter.Format(data.Input["plaintext"]);
+                        data.Input["ciphertext"] = new UnescapedValue($"sut.Encode({plaintext})");
+                        data.SetInputParameters("ciphertext");
                         break;
                 }
             }
 
-            if (canonicalDataCase.Expected is string s && s == "cipher.key")
+            if (data.Expected is string s && s == "cipher.key")
             {
-                canonicalDataCase.Expected = new UnescapedValue("sut.Key.Substring(0, 10)");
+                data.Expected = new UnescapedValue("sut.Key.Substring(0, 10)");
             }
         }
 
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            switch (testMethodBody.Data.CanonicalDataCase.Property)
+            switch (testMethodBody.Data.Property)
             {
                 case "new":
-                    var key = ValueFormatter.Format(testMethodBody.Data.CanonicalDataCase.Input["key"]);
+                    var key = ValueFormatter.Format(testMethodBody.Data.Input["key"]);
                     return new[] { $"Assert.Throws<ArgumentException>(() => new SimpleCipher({key}));" };
                 case "key":
-                    var pattern = ValueFormatter.Format(testMethodBody.Data.CanonicalDataCase.Expected["match"]);
+                    var pattern = ValueFormatter.Format(testMethodBody.Data.Expected["match"]);
                     return new[] { $"Assert.Matches({pattern}, sut.Key);" };
                 default:
                     return base.RenderTestMethodBodyAssert(testMethodBody);

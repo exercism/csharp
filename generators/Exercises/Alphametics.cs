@@ -1,24 +1,24 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Generators.Input;
+using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class Alphametics : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.UseVariableForExpected = true;
-            canonicalDataCase.UseVariableForTested = true;
+            data.UseVariableForExpected = true;
+            data.UseVariableForTested = true;
 
-            if (canonicalDataCase.Expected == null)
-                canonicalDataCase.ExceptionThrown = typeof(ArgumentException);
+            if (data.Expected == null)
+                data.ExceptionThrown = typeof(ArgumentException);
             else
-                canonicalDataCase.Expected = ConvertExpected(canonicalDataCase);
+                data.Expected = ConvertExpected(data);
         }
 
-        private static dynamic ConvertExpected(CanonicalDataCase canonicalDataCase)
+        private static dynamic ConvertExpected(TestMethodBodyData canonicalDataCase)
         {
             Dictionary<string, object> expected = canonicalDataCase.Expected;
             return expected.ToDictionary(kv => kv.Key[0], kv => int.Parse(kv.Value.ToString()));

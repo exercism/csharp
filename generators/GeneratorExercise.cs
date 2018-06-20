@@ -8,7 +8,6 @@ namespace Generators
 {
     public abstract class GeneratorExercise : Exercise
     {
-        private static readonly ExerciseWriter ExerciseWriter = new ExerciseWriter();
         private CanonicalData _canonicalData;
 
         public override string Name => GetType().ToExerciseName();
@@ -17,17 +16,10 @@ namespace Generators
         {
             _canonicalData = canonicalData;
 
-            foreach (var canonicalDataCase in _canonicalData.Cases)
-                UpdateCanonicalDataCase(canonicalDataCase);
-
             ExerciseWriter.WriteToFile(this);
         }
 
         public string Render() => CreateTestClass().Render();
-
-        protected virtual void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
-        {
-        }
 
         protected virtual IEnumerable<string> AdditionalNamespaces => Enumerable.Empty<string>();
 
@@ -42,64 +34,81 @@ namespace Generators
 
         protected virtual IEnumerable<string> RenderAdditionalMethods() => Array.Empty<string>();
 
-        private IEnumerable<string> GetUsingNamespaces()
+        private IEnumerable<string> GetUsingNamespaces(IEnumerable<TestMethodBodyData> testMethodBodyData)
         {
             var usingNamespaces = new HashSet<string> { "Xunit" };
 
-            foreach (var canonicalDataCase in _canonicalData.Cases.Where(canonicalDataCase => canonicalDataCase.ExceptionThrown != null))
-                usingNamespaces.Add(canonicalDataCase.ExceptionThrown.Namespace);
+            foreach (var data in testMethodBodyData.Where(x => x.ExceptionThrown != null))
+                usingNamespaces.Add(data.ExceptionThrown.Namespace);
 
             usingNamespaces.UnionWith(AdditionalNamespaces);
 
             return usingNamespaces;
         }
 
-        private IEnumerable<string> RenderTestMethods() => _canonicalData.Cases.Select(RenderTestMethod).Concat(RenderAdditionalMethods()).ToArray();
+        private IEnumerable<string> RenderTestMethods(IEnumerable<TestMethodBodyData> testMethodBodyData) 
+            => testMethodBodyData
+                    .Select(RenderTestMethod)
+                    .Concat(RenderAdditionalMethods())
+                    .ToArray();
 
-        protected virtual TestClass CreateTestClass() => new TestClass
+        protected virtual TestClass CreateTestClass()
         {
-            ClassName = Name.ToTestClassName(),
-            Methods = RenderTestMethods(),
-            CanonicalDataVersion = _canonicalData.Version,
-            UsingNamespaces = GetUsingNamespaces()
-        };
+            var testMethodBodyData = _canonicalData.Cases
+                .Select(canonicalDataCase => CreateTestMethodBodyData(_canonicalData, canonicalDataCase))
+                .ToArray();
 
-        private string RenderTestMethod(CanonicalDataCase canonicalDataCase, int index) => CreateTestMethod(canonicalDataCase, index).Render();
+            foreach (var data in testMethodBodyData)
+                UpdateTestMethodBodyData(data);
+            
+            return new TestClass
+            {
+                ClassName = Name.ToTestClassName(),
+                Methods = RenderTestMethods(testMethodBodyData),
+                CanonicalDataVersion = _canonicalData.Version,
+                UsingNamespaces = GetUsingNamespaces(testMethodBodyData)
+            };
+        }
 
-        protected virtual TestMethod CreateTestMethod(CanonicalDataCase canonicalDataCase, int index) => new TestMethod
+        private string RenderTestMethod(TestMethodBodyData data, int index) => CreateTestMethod(data, index).Render();
+
+        protected virtual TestMethod CreateTestMethod(TestMethodBodyData data, int index) => new TestMethod
         {
             Skip = index > 0,
-            Name = ToTestMethodName(canonicalDataCase),
-            Body = RenderTestMethodBody(canonicalDataCase)
+            Name = ToTestMethodName(data),
+            Body = RenderTestMethodBody(data)
         };
 
-        private static string ToTestMethodName(CanonicalDataCase canonicalDataCase)
-            => canonicalDataCase.UseFullDescriptionPath
-                ? string.Join(" - ", canonicalDataCase.DescriptionPath).ToTestMethodName()
-                : canonicalDataCase.Description.ToTestMethodName();
+        private static string ToTestMethodName(TestMethodBodyData data)
+            => data.UseFullDescriptionPath
+                ? string.Join(" - ", data.DescriptionPath).ToTestMethodName()
+                : data.Description.ToTestMethodName();
 
-        private string RenderTestMethodBody(CanonicalDataCase canonicalDataCase)
+        private string RenderTestMethodBody(TestMethodBodyData data)
         {
-            var testMethodBodyData = CreateTestMethodBodyData(canonicalDataCase);
-            var testMethodBody = CreateTestMethodBody(testMethodBodyData);
+            var testMethodBody = CreateTestMethodBody(data);
             testMethodBody.Arrange = RenderTestMethodBodyArrange(testMethodBody);
             testMethodBody.Act = RenderTestMethodBodyAct(testMethodBody);
             testMethodBody.Assert = RenderTestMethodBodyAssert(testMethodBody);
 
             return testMethodBody.Render();
         }
-        
-        protected virtual TestMethodBodyData CreateTestMethodBodyData(CanonicalDataCase canonicalDataCase)
-            => new TestMethodBodyData(canonicalDataCase);
+
+        protected virtual TestMethodBodyData CreateTestMethodBodyData(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase)
+            => new TestMethodBodyData(canonicalData, canonicalDataCase);
+
+        protected virtual void UpdateTestMethodBodyData(TestMethodBodyData data)
+        {
+        }
 
         protected virtual TestMethodBody CreateTestMethodBody(TestMethodBodyData data)
         {
-            if (data.CanonicalDataCase.ExceptionThrown != null)
+            if (data.ExceptionThrown != null)
             {
                 return new TestMethodBodyWithExceptionCheck(data);
             }
 
-            switch (data.CanonicalDataCase.Expected)
+            switch (data.Expected)
             {
                 case bool _:
                     return new TestMethodBodyWithBooleanCheck(data);

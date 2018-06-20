@@ -1,20 +1,19 @@
 ﻿using System.Collections.Generic;
-using Generators.Input;
 using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class RunLengthEncoding : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.Description = $"{canonicalDataCase.Property} {canonicalDataCase.Description}";
+            data.Description = $"{data.Property} {data.Description}";
         }
 
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            return testMethodBody.Data.CanonicalDataCase.Property == "consistency" 
-                ? RenderConsistencyToAssert(testMethodBody) 
+            return testMethodBody.Data.Property == "consistency"
+                ? RenderConsistencyToAssert(testMethodBody)
                 : base.RenderTestMethodBodyAssert(testMethodBody);
         }
 
@@ -24,8 +23,8 @@ namespace Generators.Exercises
 
             var templateParameters = new
             {
-                ExpectedOutput = testMethodBody.Data.CanonicalDataCase.Expected,
-                ExerciseName = testMethodBody.Data.CanonicalDataCase.Exercise.ToTestedClassName()
+                ExpectedOutput = testMethodBody.Data.Expected,
+                ExerciseName = testMethodBody.Data.Exercise.ToTestedClassName()
             };
 
             return new[] { TemplateRenderer.RenderInline(template, templateParameters) };

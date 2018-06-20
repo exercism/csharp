@@ -1,21 +1,21 @@
-using Generators.Input;
+using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class DifferenceOfSquares : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            switch(canonicalDataCase.Property)
+            switch (data.Property)
             {
                 case "squareOfSum":
-                    canonicalDataCase.Property = "CalculateSquareOfSum";
+                    data.Property = "CalculateSquareOfSum";
                     break;
                 case "sumOfSquares":
-                    canonicalDataCase.Property = "CalculateSumOfSquares";
+                    data.Property = "CalculateSumOfSquares";
                     break;
                 case "differenceOfSquares":
-                    canonicalDataCase.Property = "CalculateDifferenceOfSquares";
+                    data.Property = "CalculateDifferenceOfSquares";
                     break;
             }
         }

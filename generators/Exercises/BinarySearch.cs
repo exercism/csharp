@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using Generators.Input;
+using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class BinarySearch : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.Input["array"] = ConvertHelper.ToArray<int>(canonicalDataCase.Input["array"]);
-            canonicalDataCase.UseVariablesForConstructorParameters = true;
-            canonicalDataCase.SetConstructorInputParameters("array");
+            data.Input["array"] = ConvertHelper.ToArray<int>(data.Input["array"]);
+            data.UseVariablesForConstructorParameters = true;
+            data.SetConstructorInputParameters("array");
         }
 
         protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(Array).Namespace };

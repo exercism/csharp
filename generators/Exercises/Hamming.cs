@@ -1,13 +1,13 @@
 ﻿using System;
-using Generators.Input;
+using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class Hamming : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.ExceptionThrown = canonicalDataCase.Expected is int ? null : typeof(ArgumentException);
+            data.ExceptionThrown = data.Expected is int ? null : typeof(ArgumentException);
         }
     }
 }

@@ -1,22 +1,21 @@
-using Generators.Input;
 using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class FlattenArray : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.UseVariablesForInput = true;
-            canonicalDataCase.UseVariableForExpected = true;
+            data.UseVariablesForInput = true;
+            data.UseVariableForExpected = true;
 
-            var stringInput = canonicalDataCase.Input["array"].ToString();
+            var stringInput = data.Input["array"].ToString();
 
             // We skip reformatting of pure int arrays.
             if (stringInput.Contains("System.Int32"))
                 return;
 
-            canonicalDataCase.Input["array"] = new UnescapedValue(ToProperObjArray(stringInput));
+            data.Input["array"] = new UnescapedValue(ToProperObjArray(stringInput));
         }
 
         private static string ToProperObjArray(string input)

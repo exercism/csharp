@@ -1,14 +1,14 @@
 ﻿using System;
-using Generators.Input;
+using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class Say : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.Property = "InEnglish";
-            canonicalDataCase.ExceptionThrown = canonicalDataCase.Expected is int ? typeof(ArgumentOutOfRangeException) : null;
+            data.Property = "InEnglish";
+            data.ExceptionThrown = data.Expected is int ? typeof(ArgumentOutOfRangeException) : null;
         }
     }
 }

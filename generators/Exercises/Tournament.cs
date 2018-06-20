@@ -9,14 +9,14 @@ namespace Generators.Exercises
 {
     public class Tournament : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.Property = "RunTally";
-            canonicalDataCase.TestedMethodType = TestedMethodType.Static;
-            canonicalDataCase.UseVariablesForInput = true;
-            canonicalDataCase.UseVariableForExpected = true;
-            canonicalDataCase.Input["rows"] = ConvertHelper.ToMultiLineString(canonicalDataCase.Input["rows"], "");
-            canonicalDataCase.Expected = ConvertHelper.ToMultiLineString(canonicalDataCase.Expected);
+            data.Property = "RunTally";
+            data.TestedMethodType = TestedMethodType.Static;
+            data.UseVariablesForInput = true;
+            data.UseVariableForExpected = true;
+            data.Input["rows"] = ConvertHelper.ToMultiLineString(data.Input["rows"], "");
+            data.Expected = ConvertHelper.ToMultiLineString(data.Expected);
         }
 
         protected override IEnumerable<string> AdditionalNamespaces => new[]

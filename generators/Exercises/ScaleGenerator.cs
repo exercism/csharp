@@ -1,12 +1,12 @@
-﻿using Generators.Input;
+﻿using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class ScaleGenerator : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.UseVariableForExpected = true;
+            data.UseVariableForExpected = true;
         }
     }
 }

@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using Generators.Input;
+using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class BookStore : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.Expected = canonicalDataCase.Expected / 100.0f;
-            canonicalDataCase.Input["basket"] = ConvertHelper.ToArray<int>(canonicalDataCase.Input["basket"]);
-            canonicalDataCase.SetInputParameters("basket");
-            canonicalDataCase.UseVariablesForInput = true;
+            data.Expected = data.Expected / 100.0f;
+            data.Input["basket"] = ConvertHelper.ToArray<int>(data.Input["basket"]);
+            data.SetInputParameters("basket");
+            data.UseVariablesForInput = true;
         }
 
         protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(Array).Namespace };

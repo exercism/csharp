@@ -10,30 +10,30 @@ namespace Generators.Exercises
 {
     public class GoCounting : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.UseVariablesForInput = true;
-            canonicalDataCase.UseVariableForExpected = true;
-            canonicalDataCase.UseVariablesForConstructorParameters = true;
-            canonicalDataCase.UseVariableForTested = true;
+            data.UseVariablesForInput = true;
+            data.UseVariableForExpected = true;
+            data.UseVariablesForConstructorParameters = true;
+            data.UseVariableForTested = true;
 
-            canonicalDataCase.Input["board"] = ConvertHelper.ToMultiLineString(canonicalDataCase.Input["board"]);
-            canonicalDataCase.SetConstructorInputParameters("board");
+            data.Input["board"] = ConvertHelper.ToMultiLineString(data.Input["board"]);
+            data.SetConstructorInputParameters("board");
 
-            if (canonicalDataCase.Property == "territory")
+            if (data.Property == "territory")
             {
-                canonicalDataCase.Input["coordinate"] = (canonicalDataCase.Input["x"], canonicalDataCase.Input["y"]);
-                canonicalDataCase.SetInputParameters("coordinate");
+                data.Input["coordinate"] = (data.Input["x"], data.Input["y"]);
+                data.SetInputParameters("coordinate");
 
-                if (canonicalDataCase.Expected.ContainsKey("error"))
+                if (data.Expected.ContainsKey("error"))
                 {
-                    canonicalDataCase.ExceptionThrown = typeof(ArgumentException);
+                    data.ExceptionThrown = typeof(ArgumentException);
                 }
                 else
                 {
-                    var owner = FormatOwner(canonicalDataCase.Expected["owner"]);
-                    var territory = FormatTerritory(canonicalDataCase.Expected["territory"]);
-                    canonicalDataCase.Expected = (new UnescapedValue(owner), territory);
+                    var owner = FormatOwner(data.Expected["owner"]);
+                    var territory = FormatTerritory(data.Expected["territory"]);
+                    data.Expected = (new UnescapedValue(owner), territory);
                 }
             }
             else
@@ -42,24 +42,24 @@ namespace Generators.Exercises
                     {
                         "new Dictionary<Owner, ValueTuple<int,int>[]>",
                         "{",
-                        $"    [Owner.Black] = {FormatTerritory(canonicalDataCase.Expected["territoryBlack"])},",
-                        $"    [Owner.White] = {FormatTerritory(canonicalDataCase.Expected["territoryWhite"])},",
-                        $"    [Owner.None] = {FormatTerritory(canonicalDataCase.Expected["territoryNone"])}",
+                        $"    [Owner.Black] = {FormatTerritory(data.Expected["territoryBlack"])},",
+                        $"    [Owner.White] = {FormatTerritory(data.Expected["territoryWhite"])},",
+                        $"    [Owner.None] = {FormatTerritory(data.Expected["territoryNone"])}",
                         "}"
                     };
 
-                canonicalDataCase.Expected = new UnescapedValue(string.Join(Environment.NewLine, expected));
+                data.Expected = new UnescapedValue(string.Join(Environment.NewLine, expected));
             }
         }
 
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            if (testMethodBody.Data.CanonicalDataCase.ExceptionThrown != null)
+            if (testMethodBody.Data.ExceptionThrown != null)
             {
                 return base.RenderTestMethodBodyAssert(testMethodBody);
             }
 
-            if (testMethodBody.Data.CanonicalDataCase.Property == "territories")
+            if (testMethodBody.Data.Property == "territories")
             {
                 return new[]
                 {

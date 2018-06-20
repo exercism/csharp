@@ -1,5 +1,4 @@
 using System.Collections;
-using Generators.Input;
 
 namespace Generators.Output
 {
@@ -11,12 +10,12 @@ namespace Generators.Output
             InitializeTemplateParameters();
             
             AssertTemplateName = ExpectedIsEmptyEnumerable ? "AssertEqual_Empty" : "AssertEqual";
-            AssertTemplateParameters = new { Data.ExpectedParameter, Data.TestedValue };
+            AssertTemplateParameters = new { ExpectedParameter = Data.ExpectedParameter, TestedValue = Data.TestedValue };
         }
 
         private bool ExpectedIsEmptyEnumerable =>
-            !(Data.CanonicalDataCase.Expected is string) &&
-            Data.CanonicalDataCase.Expected is IEnumerable enumerable 
+            !(Data.Expected is string) &&
+            Data.Expected is IEnumerable enumerable 
             && enumerable.GetEnumerator().MoveNext() == false;
     }
 }

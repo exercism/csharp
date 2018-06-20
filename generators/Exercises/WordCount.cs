@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Generators.Input;
+using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class WordCount : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
         {
-            canonicalDataCase.UseVariableForExpected = true;
-            canonicalDataCase.UseVariableForTested = true;
-            canonicalDataCase.Expected = ConvertExpected(canonicalDataCase.Expected);
+            data.UseVariableForExpected = true;
+            data.UseVariableForTested = true;
+            data.Expected = ConvertExpected(data.Expected);
         }
 
         private static dynamic ConvertExpected(dynamic expected)

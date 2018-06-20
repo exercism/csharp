@@ -1,20 +1,19 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Generators.Input;
 using Generators.Output;
 
 namespace Generators.Exercises
 {
     public class OcrNumbers : GeneratorExercise
     {
-        protected override void UpdateCanonicalDataCase(CanonicalDataCase canonicalDataCase)
-        {   
-            canonicalDataCase.ExceptionThrown = canonicalDataCase.Expected is int && canonicalDataCase.Expected <= 0 ? typeof(ArgumentException) : null;
-            canonicalDataCase.Input["rows"] = ToDigitStringRepresentation(canonicalDataCase.Input["rows"]);
-            canonicalDataCase.Expected = canonicalDataCase.Expected.ToString();
-            canonicalDataCase.UseVariableForTested = true;
-            canonicalDataCase.UseVariablesForInput = true;
+        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
+        {
+            data.ExceptionThrown = data.Expected is int && data.Expected <= 0 ? typeof(ArgumentException) : null;
+            data.Input["rows"] = ToDigitStringRepresentation(data.Input["rows"]);
+            data.Expected = data.Expected.ToString();
+            data.UseVariableForTested = true;
+            data.UseVariablesForInput = true;
         }
 
         private static UnescapedValue ToDigitStringRepresentation(IEnumerable input)

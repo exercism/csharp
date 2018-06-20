@@ -1,5 +1,4 @@
 using System;
-using Generators.Input;
 
 namespace Generators.Output
 {
@@ -8,9 +7,9 @@ namespace Generators.Output
         public TestMethodBodyWithBooleanCheck(TestMethodBodyData data) : base(data)
         {
             AssertTemplateName = "AssertBoolean";
-            AssertTemplateParameters = new { BooleanAssertMethod, Data.TestedValue };
+            AssertTemplateParameters = new { BooleanAssertMethod, TestedValue = Data.TestedValue };
         }
 
-        private string BooleanAssertMethod => Convert.ToBoolean(Data.CanonicalDataCase.Expected).ToString();
+        private string BooleanAssertMethod => Convert.ToBoolean(Data.Expected).ToString();
     }
 }
