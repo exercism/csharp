@@ -34,11 +34,11 @@ namespace Generators
 
         protected virtual IEnumerable<string> RenderAdditionalMethods() => Array.Empty<string>();
 
-        private IEnumerable<string> GetUsingNamespaces(IEnumerable<TestMethodBodyData> testMethodBodyData)
+        private IEnumerable<string> GetUsingNamespaces(IEnumerable<TestData> testData)
         {
             var usingNamespaces = new HashSet<string> { "Xunit" };
 
-            foreach (var data in testMethodBodyData.Where(x => x.ExceptionThrown != null))
+            foreach (var data in testData.Where(x => x.ExceptionThrown != null))
                 usingNamespaces.Add(data.ExceptionThrown.Namespace);
 
             usingNamespaces.UnionWith(AdditionalNamespaces);
@@ -46,45 +46,45 @@ namespace Generators
             return usingNamespaces;
         }
 
-        private IEnumerable<string> RenderTestMethods(IEnumerable<TestMethodBodyData> testMethodBodyData) 
-            => testMethodBodyData
-                    .Select(RenderTestMethod)
-                    .Concat(RenderAdditionalMethods())
-                    .ToArray();
+        private IEnumerable<string> RenderTestMethods(IEnumerable<TestData> testData) 
+            => testData
+                .Select(RenderTestMethod)
+                .Concat(RenderAdditionalMethods())
+                .ToArray();
 
         protected virtual TestClass CreateTestClass()
         {
-            var testMethodBodyData = _canonicalData.Cases
-                .Select(canonicalDataCase => CreateTestMethodBodyData(_canonicalData, canonicalDataCase))
+            var testData = _canonicalData.Cases
+                .Select(canonicalDataCase => CreateTestData(_canonicalData, canonicalDataCase))
                 .ToArray();
 
-            foreach (var data in testMethodBodyData)
-                UpdateTestMethodBodyData(data);
+            foreach (var data in testData)
+                UpdateTestData(data);
             
             return new TestClass
             {
                 ClassName = Name.ToTestClassName(),
-                Methods = RenderTestMethods(testMethodBodyData),
+                Methods = RenderTestMethods(testData),
                 CanonicalDataVersion = _canonicalData.Version,
-                UsingNamespaces = GetUsingNamespaces(testMethodBodyData)
+                UsingNamespaces = GetUsingNamespaces(testData)
             };
         }
 
-        private string RenderTestMethod(TestMethodBodyData data, int index) => CreateTestMethod(data, index).Render();
+        private string RenderTestMethod(TestData data, int index) => CreateTestMethod(data, index).Render();
 
-        protected virtual TestMethod CreateTestMethod(TestMethodBodyData data, int index) => new TestMethod
+        protected virtual TestMethod CreateTestMethod(TestData data, int index) => new TestMethod
         {
             Skip = index > 0,
             Name = ToTestMethodName(data),
             Body = RenderTestMethodBody(data)
         };
 
-        private static string ToTestMethodName(TestMethodBodyData data)
+        private static string ToTestMethodName(TestData data)
             => data.UseFullDescriptionPath
                 ? string.Join(" - ", data.DescriptionPath).ToTestMethodName()
                 : data.Description.ToTestMethodName();
 
-        private string RenderTestMethodBody(TestMethodBodyData data)
+        private string RenderTestMethodBody(TestData data)
         {
             var testMethodBody = CreateTestMethodBody(data);
             testMethodBody.Arrange = RenderTestMethodBodyArrange(testMethodBody);
@@ -94,14 +94,14 @@ namespace Generators
             return testMethodBody.Render();
         }
 
-        protected virtual TestMethodBodyData CreateTestMethodBodyData(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase)
-            => new TestMethodBodyData(canonicalData, canonicalDataCase);
+        protected virtual TestData CreateTestData(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase)
+            => new TestData(canonicalData, canonicalDataCase);
 
-        protected virtual void UpdateTestMethodBodyData(TestMethodBodyData data)
+        protected virtual void UpdateTestData(TestData data)
         {
         }
 
-        protected virtual TestMethodBody CreateTestMethodBody(TestMethodBodyData data)
+        protected virtual TestMethodBody CreateTestMethodBody(TestData data)
         {
             if (data.ExceptionThrown != null)
             {

@@ -15,7 +15,7 @@ namespace Generators.Exercises
         private const string PropertyEquals = "equals";
         private const string PropertyToString = "to_string";
 
-        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
+        protected override void UpdateTestData(TestData data)
         {
             if (data.Property != PropertyEqual)
             {

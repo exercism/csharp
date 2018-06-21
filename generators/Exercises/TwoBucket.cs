@@ -5,7 +5,7 @@ namespace Generators.Exercises
 {
     public class TwoBucket : GeneratorExercise
     {
-        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
+        protected override void UpdateTestData(TestData data)
         {
             data.TestedMethodType = TestedMethodType.Instance;
             data.SetConstructorInputParameters("bucketOne", "bucketTwo", "startBucket");
@@ -20,7 +20,7 @@ namespace Generators.Exercises
 
             var templateParameters = new
             {
-                MethodInvocation = testMethodBody.Data.TestedMethodInvocation
+                MethodInvocation = testMethodBody.TestedMethodInvocation
             };
 
             return new[] { TemplateRenderer.RenderInline(template, templateParameters) };

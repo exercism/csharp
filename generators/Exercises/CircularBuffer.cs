@@ -14,7 +14,7 @@ namespace Generators.Exercises
                 yield return RenderOperation(operation);
         }
 
-        private static string RenderSut(TestMethodBodyData canonicalDataCase)
+        private static string RenderSut(TestData canonicalDataCase)
         {
             var capacity = canonicalDataCase.Input["capacity"];
             return $"var buffer = new CircularBuffer<int>(capacity: {capacity});";

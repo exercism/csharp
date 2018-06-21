@@ -5,7 +5,7 @@ namespace Generators.Exercises
 {
     public class Allergies : GeneratorExercise
     {
-        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
+        protected override void UpdateTestData(TestData data)
         {
             if (data.Property == "allergicTo")
                 data.Property = "IsAllergicTo";

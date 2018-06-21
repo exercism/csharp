@@ -4,7 +4,7 @@ namespace Generators.Exercises
 {
     public class ScaleGenerator : GeneratorExercise
     {
-        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
+        protected override void UpdateTestData(TestData data)
         {
             data.UseVariableForExpected = true;
         }

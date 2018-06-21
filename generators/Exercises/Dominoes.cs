@@ -8,7 +8,7 @@ namespace Generators.Exercises
 {
     public class Dominoes : GeneratorExercise
     {
-        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
+        protected override void UpdateTestData(TestData data)
         {
             data.UseVariablesForInput = true;
             data.Input["dominoes"] = ConvertInput(data.Input["dominoes"]);

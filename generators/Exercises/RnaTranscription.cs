@@ -5,7 +5,7 @@ namespace Generators.Exercises
 {
     public class RnaTranscription : GeneratorExercise
     {
-        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
+        protected override void UpdateTestData(TestData data)
         {
             data.ExceptionThrown = data.Expected is null ? typeof(ArgumentException) : null;
         }

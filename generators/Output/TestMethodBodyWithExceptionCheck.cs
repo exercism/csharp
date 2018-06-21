@@ -2,14 +2,14 @@
 {
     public class TestMethodBodyWithExceptionCheck : TestMethodBody
     {
-        public TestMethodBodyWithExceptionCheck(TestMethodBodyData data) : base(data)
+        public TestMethodBodyWithExceptionCheck(TestData data) : base(data)
         {
             Data.UseVariableForExpected = false;
             Data.UseVariableForTested = false;
             InitializeTemplateParameters();
             
             AssertTemplateName = "AssertThrowsException";
-            AssertTemplateParameters = new { ExceptionType, Data.TestedValue };
+            AssertTemplateParameters = new { ExceptionType, TestedValue };
         }
 
         private string ExceptionType => Data.ExceptionThrown.Name;

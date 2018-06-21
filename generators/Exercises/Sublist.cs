@@ -7,7 +7,7 @@ namespace Generators.Exercises
 {
     public class Sublist : GeneratorExercise
     {
-        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
+        protected override void UpdateTestData(TestData data)
         {
             data.Input["listOne"] = InputValues(data.Input["listOne"] as int[]);
             data.Input["listTwo"] = InputValues(data.Input["listTwo"] as int[]);

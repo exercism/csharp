@@ -14,7 +14,7 @@ namespace Generators.Exercises
 
         private const string PropertyDay = "Day";
 
-        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
+        protected override void UpdateTestData(TestData data)
         {
             data.Property = PropertyDay;
             data.UseVariableForExpected = true;

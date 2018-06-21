@@ -4,7 +4,7 @@ namespace Generators.Exercises
 {
     public class SpaceAge : GeneratorExercise
     {
-        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
+        protected override void UpdateTestData(TestData data)
         {
             data.Property = $"On_{data.Input["planet"]}";
             data.SetInputParameters();

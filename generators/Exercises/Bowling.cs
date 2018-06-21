@@ -9,7 +9,7 @@ namespace Generators.Exercises
     {
         private const string PreviousRolls = "previousRolls";
 
-        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
+        protected override void UpdateTestData(TestData data)
         {
             if (!(data.Expected is int))
             {

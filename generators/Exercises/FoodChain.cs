@@ -5,7 +5,7 @@ namespace Generators.Exercises
 {
     public class FoodChain : GeneratorExercise
     {
-        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
+        protected override void UpdateTestData(TestData data)
         {
             data.Expected = ConvertHelper.ToMultiLineString(data.Expected);
             data.UseVariableForExpected = true;

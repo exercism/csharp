@@ -7,7 +7,7 @@ namespace Generators.Exercises
 {
     public class AllYourBase : GeneratorExercise
     {
-        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
+        protected override void UpdateTestData(TestData data)
         {
             data.Input["digits"] = ConvertHelper.ToArray<int>(data.Input["digits"]);
             data.ExceptionThrown = data.Expected is Dictionary<string, object> ? typeof(ArgumentException) : null;

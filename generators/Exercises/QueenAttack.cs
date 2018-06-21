@@ -6,7 +6,7 @@ namespace Generators.Exercises
 {
     public class QueenAttack : GeneratorExercise
     {
-        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
+        protected override void UpdateTestData(TestData data)
         {
             if (data.Property == "create")
                 SetCreatePropertyData(data);
@@ -54,7 +54,7 @@ Assert.{% if Expected %}True{% else %}False{% endif %}(QueenAttack.CanAttack(whi
             return Tuple.Create(positionX, positionY);
         }
 
-        private static void SetCreatePropertyData(TestMethodBodyData canonicalDataCase)
+        private static void SetCreatePropertyData(TestData canonicalDataCase)
         {
             var validExpected = canonicalDataCase.Expected >= 0;
 

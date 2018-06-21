@@ -7,7 +7,7 @@ namespace Generators.Exercises
 {
     public class Alphametics : GeneratorExercise
     {
-        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
+        protected override void UpdateTestData(TestData data)
         {
             data.UseVariableForExpected = true;
             data.UseVariableForTested = true;
@@ -18,7 +18,7 @@ namespace Generators.Exercises
                 data.Expected = ConvertExpected(data);
         }
 
-        private static dynamic ConvertExpected(TestMethodBodyData canonicalDataCase)
+        private static dynamic ConvertExpected(TestData canonicalDataCase)
         {
             Dictionary<string, object> expected = canonicalDataCase.Expected;
             return expected.ToDictionary(kv => kv.Key[0], kv => int.Parse(kv.Value.ToString()));

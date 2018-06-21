@@ -7,7 +7,7 @@ namespace Generators.Exercises
 {
     public class OcrNumbers : GeneratorExercise
     {
-        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
+        protected override void UpdateTestData(TestData data)
         {
             data.ExceptionThrown = data.Expected is int && data.Expected <= 0 ? typeof(ArgumentException) : null;
             data.Input["rows"] = ToDigitStringRepresentation(data.Input["rows"]);

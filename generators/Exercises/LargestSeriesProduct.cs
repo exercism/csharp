@@ -5,7 +5,7 @@ namespace Generators.Exercises
 {
     public class LargestSeriesProduct : GeneratorExercise
     {
-        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
+        protected override void UpdateTestData(TestData data)
         {
             data.Property = "GetLargestProduct";
 

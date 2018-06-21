@@ -4,7 +4,7 @@ namespace Generators.Exercises
 {
     public class RailFenceCipher : GeneratorExercise
     {
-        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
+        protected override void UpdateTestData(TestData data)
         {
             data.UseVariablesForInput = true;
             data.UseVariableForExpected = true;

@@ -5,7 +5,7 @@ namespace Generators.Exercises
 {
     public class Grains : GeneratorExercise
     {
-        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
+        protected override void UpdateTestData(TestData data)
         {
             if (ShouldThrowException(data.Expected))
                 data.ExceptionThrown = typeof(ArgumentOutOfRangeException);

@@ -5,7 +5,7 @@ namespace Generators.Exercises
 {
     public class Yacht : GeneratorExercise
     {
-        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
+        protected override void UpdateTestData(TestData data)
         {   
             data.Exercise = "yacht-game";
             var category = data.Input["category"].ToString();

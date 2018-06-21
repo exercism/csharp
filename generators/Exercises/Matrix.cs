@@ -4,7 +4,7 @@ namespace Generators.Exercises
 {
     public class Matrix : GeneratorExercise
     {
-        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
+        protected override void UpdateTestData(TestData data)
         {
             data.Properties["string"] = data.Properties["input"]["string"];
             data.SetConstructorInputParameters("string");

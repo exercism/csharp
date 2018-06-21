@@ -9,7 +9,7 @@ namespace Generators.Exercises
 {
     public class Tournament : GeneratorExercise
     {
-        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
+        protected override void UpdateTestData(TestData data)
         {
             data.Property = "RunTally";
             data.TestedMethodType = TestedMethodType.Static;

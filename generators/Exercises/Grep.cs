@@ -8,7 +8,7 @@ namespace Generators.Exercises
 {
     public class Grep : GeneratorExercise
     {
-        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
+        protected override void UpdateTestData(TestData data)
         {
             data.Property = "Match";
             data.Input["flags"] = string.Join(" ", data.Input["flags"]);

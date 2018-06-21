@@ -7,7 +7,7 @@ namespace Generators.Exercises
 {
     public class SaddlePoints : GeneratorExercise
     {
-        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
+        protected override void UpdateTestData(TestData data)
         {
             data.TestedMethodType = TestedMethodType.Instance;
             data.Property = "Calculate";

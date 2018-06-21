@@ -1,10 +1,16 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Generators.Output
 {
     public abstract class TestMethodBody
     {
-        protected TestMethodBody(TestMethodBodyData data)
+        private const string SutVariableName = "sut";
+        private const string TestedVariableName = "actual";
+        private const string ExpectedVariableName = "expected";
+        
+        protected TestMethodBody(TestData data)
         {
             Data = data;
             InitializeTemplateParameters();
@@ -12,7 +18,7 @@ namespace Generators.Output
 
         public string TemplateName { get; set; } = "TestMethodBody";
 
-        public TestMethodBodyData Data { get; }
+        public TestData Data { get; }
 
         public string ArrangeTemplateName { get; set; } = "Arrange";
         public object ArrangeTemplateParameters { get; set; }
@@ -31,9 +37,66 @@ namespace Generators.Output
 
         protected void InitializeTemplateParameters()
         {
-            ArrangeTemplateParameters = new { Data.Variables };
+            ArrangeTemplateParameters = new { Variables };
             ActTemplateParameters = new { };
-            AssertTemplateParameters = new { ExpectedParameter = Data.ExpectedParameter, TestedValue = Data.TestedValue };
+            AssertTemplateParameters = new {ExpectedParameter, TestedValue };
+        }
+
+        protected string TestedValue => Data.UseVariableForTested ? TestedVariableName : TestedMethodInvocation;
+        protected string InputParameters => Data.UseVariablesForInput ? string.Join(", ", Data.InputParameters.Select(key => key.ToVariableName())) : ValueFormatter.Format(Input);
+        protected string ExpectedParameter => Data.UseVariableForExpected ? ExpectedVariableName : ValueFormatter.Format(Data.Expected);
+        protected string ConstructorParameters => Data.UseVariablesForConstructorParameters ? string.Join(", ", Data.ConstructorInputParameters.Select(key => key.ToVariableName())) : ValueFormatter.Format(ConstructorInput);
+        
+        private IDictionary<string, object> Input => Data.InputParameters.ToDictionary(key => key, key => Data.Input[key]);
+        private IDictionary<string, object> ConstructorInput => Data.ConstructorInputParameters.ToDictionary(key => key, key => Data.Input[key]);
+        
+        private IEnumerable<string> InputVariablesDeclaration => ValueFormatter.FormatVariables(Input);
+        private IEnumerable<string> ExpectedVariableDeclaration => ValueFormatter.FormatVariable(Data.Expected, ExpectedVariableName);
+        private IEnumerable<string> ConstructorVariablesDeclaration => ValueFormatter.FormatVariables(ConstructorInput);
+        private IEnumerable<string> SutVariableDeclaration => new[] { $"var {SutVariableName} = new {Data.TestedClassName}({ConstructorParameters});" };
+        private IEnumerable<string> ActualVariableDeclaration => new[] { $"var {TestedVariableName} = {TestedMethodInvocation};" };
+
+        public IEnumerable<string> Variables
+        {
+            get
+            {
+                var lines = new List<string>();
+
+                if (Data.UseVariablesForInput)
+                    lines.AddRange(InputVariablesDeclaration);
+
+                if (Data.UseVariablesForConstructorParameters)
+                    lines.AddRange(ConstructorVariablesDeclaration);
+
+                if (Data.TestedMethodType == TestedMethodType.Instance)
+                    lines.AddRange(SutVariableDeclaration);
+
+                if (Data.UseVariableForTested)
+                    lines.AddRange(ActualVariableDeclaration);
+
+                if (Data.UseVariableForExpected)
+                    lines.AddRange(ExpectedVariableDeclaration);
+
+                return lines;
+            }
+        }
+
+        public string TestedMethodInvocation
+        {
+            get
+            {
+                switch (Data.TestedMethodType)
+                {
+                    case TestedMethodType.Static:
+                        return $"{Data.TestedClassName}.{Data.TestedMethodName}({InputParameters})";
+                    case TestedMethodType.Instance:
+                        return $"{SutVariableName}.{Data.TestedMethodName}({InputParameters})";
+                    case TestedMethodType.Extension:
+                        return $"{InputParameters}.{Data.TestedMethodName}()";
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
         }
     }
 }

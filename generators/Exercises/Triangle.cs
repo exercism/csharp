@@ -4,7 +4,7 @@ namespace Generators.Exercises
 {
     public class Triangle : GeneratorExercise
     {
-        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
+        protected override void UpdateTestData(TestData data)
         {
             if (data.Property == "equilateral")
                 data.Property = "IsEquilateral";

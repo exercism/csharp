@@ -8,7 +8,7 @@ namespace Generators.Exercises
 {
     public class PalindromeProducts : GeneratorExercise
     {
-        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
+        protected override void UpdateTestData(TestData data)
         {
             if (data.Expected.ContainsKey("error"))
             {

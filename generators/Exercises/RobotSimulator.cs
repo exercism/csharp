@@ -7,7 +7,7 @@ namespace Generators.Exercises
 {
     public class RobotSimulator : GeneratorExercise
     {
-        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
+        protected override void UpdateTestData(TestData data)
         {
             const string direction = "direction";
             const string position = "position";

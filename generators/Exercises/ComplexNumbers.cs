@@ -8,7 +8,7 @@ namespace Generators.Exercises
 {
     public class ComplexNumbers : GeneratorExercise
     {
-        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
+        protected override void UpdateTestData(TestData data)
         {
             data.Exercise = "complex-number";
             data.UseVariableForExpected = IsComplexNumber(data.Expected);
@@ -27,7 +27,7 @@ namespace Generators.Exercises
                 data.Input[key] = ConvertToType(data.Input[key]);
         }
 
-        private static string[] GetInputParameters(TestMethodBodyData canonicalDataCase, string constructorParamName)
+        private static string[] GetInputParameters(TestData canonicalDataCase, string constructorParamName)
             => canonicalDataCase.Input.Keys.Where(x => x != constructorParamName).ToArray();
 
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)

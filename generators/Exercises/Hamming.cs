@@ -5,7 +5,7 @@ namespace Generators.Exercises
 {
     public class Hamming : GeneratorExercise
     {
-        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
+        protected override void UpdateTestData(TestData data)
         {
             data.ExceptionThrown = data.Expected is int ? null : typeof(ArgumentException);
         }

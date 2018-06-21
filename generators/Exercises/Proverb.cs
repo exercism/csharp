@@ -7,7 +7,7 @@ namespace Generators.Exercises
 {
     public class Proverb : GeneratorExercise
     {
-        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
+        protected override void UpdateTestData(TestData data)
         {
             data.UseVariableForExpected = true;
             data.Input["strings"] = ConvertHelper.ToArray<string>(data.Input["strings"]);

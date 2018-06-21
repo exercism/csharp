@@ -6,7 +6,7 @@ namespace Generators.Exercises
 {
     public class Rectangles : GeneratorExercise
     {
-        protected override void UpdateTestMethodBodyData(TestMethodBodyData data)
+        protected override void UpdateTestData(TestData data)
         {
             data.Property = "count";
             data.Input["strings"] = data.Input["strings"] as string[] ?? Array.Empty<string>();

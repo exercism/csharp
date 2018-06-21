@@ -2,10 +2,10 @@
 {
     public class TestMethodBodyWithNullCheck : TestMethodBody
     {
-        public TestMethodBodyWithNullCheck(TestMethodBodyData data) : base(data)
+        public TestMethodBodyWithNullCheck(TestData data) : base(data)
         {
             AssertTemplateName = "AssertNull";
-            AssertTemplateParameters = new { Data.TestedValue };
+            AssertTemplateParameters = new { TestedValue };
         }
     }
 }
