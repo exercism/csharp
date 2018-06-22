@@ -53,7 +53,7 @@ namespace Generators.Output
         private IEnumerable<string> InputVariablesDeclaration => ValueFormatter.FormatVariables(Input);
         private IEnumerable<string> ExpectedVariableDeclaration => ValueFormatter.FormatVariable(Data.Expected, ExpectedVariableName);
         private IEnumerable<string> ConstructorVariablesDeclaration => ValueFormatter.FormatVariables(ConstructorInput);
-        private IEnumerable<string> SutVariableDeclaration => new[] { $"var {SutVariableName} = new {Data.TestedClassName}({ConstructorParameters});" };
+        private IEnumerable<string> SutVariableDeclaration => new[] { $"var {SutVariableName} = new {Data.TestedClass}({ConstructorParameters});" };
         private IEnumerable<string> ActualVariableDeclaration => new[] { $"var {TestedVariableName} = {TestedMethodInvocation};" };
 
         public IEnumerable<string> Variables
@@ -88,11 +88,11 @@ namespace Generators.Output
                 switch (Data.TestedMethodType)
                 {
                     case TestedMethodType.Static:
-                        return $"{Data.TestedClassName}.{Data.TestedMethodName}({InputParameters})";
+                        return $"{Data.TestedClass}.{Data.TestedMethod}({InputParameters})";
                     case TestedMethodType.Instance:
-                        return $"{SutVariableName}.{Data.TestedMethodName}({InputParameters})";
+                        return $"{SutVariableName}.{Data.TestedMethod}({InputParameters})";
                     case TestedMethodType.Extension:
-                        return $"{InputParameters}.{Data.TestedMethodName}()";
+                        return $"{InputParameters}.{Data.TestedMethod}()";
                     default:
                         throw new ArgumentOutOfRangeException();
                 }

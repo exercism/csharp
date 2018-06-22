@@ -10,7 +10,7 @@ namespace Generators.Exercises
         protected override void UpdateTestData(TestData data)
         {
             data.TestedMethodType = TestedMethodType.Instance;
-            data.Property = "Calculate";
+            data.TestedMethod = "Calculate";
             data.SetConstructorInputParameters("matrix");
             data.UseVariablesForConstructorParameters = true;
             data.UseVariablesForInput = true;

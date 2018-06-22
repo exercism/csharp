@@ -8,7 +8,7 @@ namespace Generators.Exercises
     {
         protected override void UpdateTestData(TestData data)
         {
-            data.Property = "GetMatrix";
+            data.TestedMethod = "GetMatrix";
             data.UseVariableForExpected = true;
             data.Expected = ConvertExpected(data.Expected);
         }

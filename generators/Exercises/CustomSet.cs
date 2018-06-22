@@ -29,7 +29,7 @@ namespace Generators.Exercises
 
                 if (data.Property == "equal")
                 {
-                    data.Property = "Equals";
+                    data.TestedMethod = "Equals";
                 }
             }
 

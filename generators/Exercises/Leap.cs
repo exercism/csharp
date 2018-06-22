@@ -6,7 +6,7 @@ namespace Generators.Exercises
     {
         protected override void UpdateTestData(TestData data)
         {
-            data.Property = "IsLeapYear";
+            data.TestedMethod = "IsLeapYear";
         }
     }
 }

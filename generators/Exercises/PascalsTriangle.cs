@@ -9,7 +9,7 @@ namespace Generators.Exercises
         protected override void UpdateTestData(TestData data)
         {
             data.UseVariableForExpected = true;
-            data.Property = "calculate";
+            data.TestedMethod = "Calculate";
             if (data.Expected is JArray jArray)
                 data.Expected = jArray.ToObject<int[][]>();
             else

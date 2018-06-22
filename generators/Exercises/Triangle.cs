@@ -7,11 +7,11 @@ namespace Generators.Exercises
         protected override void UpdateTestData(TestData data)
         {
             if (data.Property == "equilateral")
-                data.Property = "IsEquilateral";
+                data.TestedMethod = "IsEquilateral";
             else if (data.Property == "isosceles")
-                data.Property = "IsIsosceles";
+                data.TestedMethod = "IsIsosceles";
             else if (data.Property == "scalene")
-                data.Property = "IsScalene";
+                data.TestedMethod = "IsScalene";
 
             data.Input["x"] = data.Input["sides"][0];
             data.Input["y"] = data.Input["sides"][1];

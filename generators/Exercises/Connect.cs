@@ -9,7 +9,7 @@ namespace Generators.Exercises
         {
             data.UseVariablesForConstructorParameters = true;
             data.SetConstructorInputParameters("board");
-            data.Property = "result";
+            data.TestedMethod = "Result";
             data.Input["board"] = ToMultiLineString(data.Input["board"]);
 
             switch (data.Expected)

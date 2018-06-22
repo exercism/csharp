@@ -7,7 +7,7 @@ namespace Generators.Exercises
     {
         protected override void UpdateTestData(TestData data)
         {
-            data.Property = "GetLargestProduct";
+            data.TestedMethod = "GetLargestProduct";
 
             var caseInputLessThanZero = (long)data.Expected == -1;
             data.ExceptionThrown = caseInputLessThanZero ? typeof(ArgumentException) : null;

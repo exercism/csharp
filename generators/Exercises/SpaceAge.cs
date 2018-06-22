@@ -6,7 +6,7 @@ namespace Generators.Exercises
     {
         protected override void UpdateTestData(TestData data)
         {
-            data.Property = $"On_{data.Input["planet"]}";
+            data.TestedMethod = $"On{data.Input["planet"]}";
             data.SetInputParameters();
             data.SetConstructorInputParameters("seconds");
         }

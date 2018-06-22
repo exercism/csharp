@@ -10,7 +10,7 @@ namespace Generators.Exercises
     {
         protected override void UpdateTestData(TestData data)
         {
-            data.Property = "Match";
+            data.TestedMethod = "Match";
             data.Input["flags"] = string.Join(" ", data.Input["flags"]);
             data.Expected = ConvertExpected(data.Expected);
             data.UseVariablesForInput = true;

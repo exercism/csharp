@@ -8,7 +8,7 @@ namespace Generators.Exercises
     {
         protected override void UpdateTestData(TestData data)
         {
-            data.Property = "count";
+            data.TestedMethod = "Count";
             data.Input["strings"] = data.Input["strings"] as string[] ?? Array.Empty<string>();
             data.UseVariablesForInput = true;
         }

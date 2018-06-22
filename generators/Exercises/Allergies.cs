@@ -8,7 +8,7 @@ namespace Generators.Exercises
         protected override void UpdateTestData(TestData data)
         {
             if (data.Property == "allergicTo")
-                data.Property = "IsAllergicTo";
+                data.TestedMethod = "IsAllergicTo";
             else if (data.Property == "list")
                 data.UseVariableForExpected = true;
 
@@ -17,7 +17,7 @@ namespace Generators.Exercises
 
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            return testMethodBody.Data.Property == "IsAllergicTo"
+            return testMethodBody.Data.Property == "allergicTo"
                 ? RenderIsAllergicToAssert(testMethodBody)
                 : base.RenderTestMethodBodyAssert(testMethodBody);
         }

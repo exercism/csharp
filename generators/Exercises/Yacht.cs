@@ -7,7 +7,7 @@ namespace Generators.Exercises
     {
         protected override void UpdateTestData(TestData data)
         {   
-            data.Exercise = "yacht-game";
+            data.TestedClass = "YachtGame";
             var category = data.Input["category"].ToString();
             var formattedCategory = StringDehumanizeExtensions.Dehumanize(category);
             data.Input["category"] = new UnescapedValue($"YachtCategory.{formattedCategory}");

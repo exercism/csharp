@@ -10,7 +10,7 @@ namespace Generators.Exercises
     {
         protected override void UpdateTestData(TestData data)
         {
-            data.Exercise = "complex-number";
+            data.TestedClass = "ComplexNumber";
             data.UseVariableForExpected = IsComplexNumber(data.Expected);
             data.Expected = ConvertToType(data.Expected);
 

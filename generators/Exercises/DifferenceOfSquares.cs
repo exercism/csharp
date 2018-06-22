@@ -9,13 +9,13 @@ namespace Generators.Exercises
             switch (data.Property)
             {
                 case "squareOfSum":
-                    data.Property = "CalculateSquareOfSum";
+                    data.TestedMethod = "CalculateSquareOfSum";
                     break;
                 case "sumOfSquares":
-                    data.Property = "CalculateSumOfSquares";
+                    data.TestedMethod = "CalculateSumOfSquares";
                     break;
                 case "differenceOfSquares":
-                    data.Property = "CalculateDifferenceOfSquares";
+                    data.TestedMethod = "CalculateDifferenceOfSquares";
                     break;
             }
         }

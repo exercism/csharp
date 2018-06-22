@@ -15,18 +15,23 @@ namespace Generators.Output
 
             Exercise = canonicalData.Exercise;
             Property = canonicalDataCase.Property;
+            
             Description = canonicalDataCase.Description;
             DescriptionPath = new List<string>(canonicalDataCase.DescriptionPath);
             
             SetInputParameters(canonicalDataCase.Input.Keys.ToArray());
+            
+            TestedClass = canonicalData.Exercise.ToTestedClassName();
+            TestedMethod = canonicalDataCase.Property.ToTestedMethodName();
         }
+        
+        public string Exercise { get; }
+        public string Property { get; }
         
         public IDictionary<string, dynamic> Properties { get; set; }
         public IDictionary<string, dynamic> Input { get; set; }
         public dynamic Expected { get; set; }
-
-        public string Exercise { get; set; }
-        public string Property { get; set; }
+        
         public string Description { get; set; }
         public IList<string> DescriptionPath { get; set; }
 
@@ -36,6 +41,8 @@ namespace Generators.Output
         public bool UseVariableForTested { get; set; }
         public bool UseFullDescriptionPath { get; set; }
 
+        public string TestedClass { get; set; }
+        public string TestedMethod { get; set; }
         public TestedMethodType TestedMethodType { get; set; }
         public Type ExceptionThrown { get; set; }
 
@@ -59,8 +66,5 @@ namespace Generators.Output
 
             TestedMethodType = TestedMethodType.Instance;
         }
-
-        public string TestedClassName => Exercise.ToTestedClassName();
-        public string TestedMethodName => Property.ToTestedMethodName();
     }
 }

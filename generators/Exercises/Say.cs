@@ -7,7 +7,7 @@ namespace Generators.Exercises
     {
         protected override void UpdateTestData(TestData data)
         {
-            data.Property = "InEnglish";
+            data.TestedMethod = "InEnglish";
             data.ExceptionThrown = data.Expected is int ? typeof(ArgumentOutOfRangeException) : null;
         }
     }

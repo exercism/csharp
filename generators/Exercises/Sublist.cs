@@ -12,7 +12,7 @@ namespace Generators.Exercises
             data.Input["listOne"] = InputValues(data.Input["listOne"] as int[]);
             data.Input["listTwo"] = InputValues(data.Input["listTwo"] as int[]);
 
-            data.Property = "classify";
+            data.TestedMethod = "Classify";
             data.Expected = new UnescapedValue($"SublistType.{(data.Expected as string).Dehumanize()}");
         }
 

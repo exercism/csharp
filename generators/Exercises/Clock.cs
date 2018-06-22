@@ -12,8 +12,6 @@ namespace Generators.Exercises
 
         private const string PropertyCreate = "create";
         private const string PropertyEqual = "equal";
-        private const string PropertyEquals = "equals";
-        private const string PropertyToString = "to_string";
 
         protected override void UpdateTestData(TestData data)
         {
@@ -31,22 +29,22 @@ namespace Generators.Exercises
 
             if (data.Property == PropertyCreate)
             {
-                data.Property = PropertyToString;
+                data.TestedMethod = "ToString";
             }
             else if (data.Property == PropertyEqual)
             {
-                data.Property = PropertyEquals;
+                data.TestedMethod = "Equals";
             }
         }
 
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            if (testMethodBody.Data.Property == PropertyEquals)
+            if (testMethodBody.Data.Property == PropertyEqual)
             {
                 return RenderEqualToAssert(testMethodBody);
             }
 
-            return testMethodBody.Data.Property != PropertyToString
+            return testMethodBody.Data.Property != PropertyCreate
                 ? RenderConsistencyToAssert(testMethodBody)
                 : base.RenderTestMethodBodyAssert(testMethodBody);
         }

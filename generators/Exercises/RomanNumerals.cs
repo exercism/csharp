@@ -7,7 +7,7 @@ namespace Generators.Exercises
         protected override void UpdateTestData(TestData data)
         {
             data.TestedMethodType = TestedMethodType.Extension;
-            data.Property = "ToRoman";
+            data.TestedMethod = "ToRoman";
         }
     }
 }

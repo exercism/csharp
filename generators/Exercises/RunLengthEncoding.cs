@@ -19,12 +19,12 @@ namespace Generators.Exercises
 
         private static IEnumerable<string> RenderConsistencyToAssert(TestMethodBody testMethodBody)
         {
-            const string template = @"Assert.Equal(""{{ExpectedOutput}}"", {{ExerciseName}}.Decode({{ExerciseName}}.Encode(""{{ExpectedOutput}}"")));";
+            const string template = @"Assert.Equal(""{{Expected}}"", {{TestedClassName}}.Decode({{TestedClassName}}.Encode(""{{Expected}}"")));";
 
             var templateParameters = new
             {
-                ExpectedOutput = testMethodBody.Data.Expected,
-                ExerciseName = testMethodBody.Data.Exercise.ToTestedClassName()
+                testMethodBody.Data.Expected,
+                TestedClassName = testMethodBody.Data.TestedClass
             };
 
             return new[] { TemplateRenderer.RenderInline(template, templateParameters) };

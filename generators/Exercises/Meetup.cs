@@ -16,7 +16,7 @@ namespace Generators.Exercises
 
         protected override void UpdateTestData(TestData data)
         {
-            data.Property = PropertyDay;
+            data.TestedMethod = PropertyDay;
             data.UseVariableForExpected = true;
             data.SetConstructorInputParameters(ParamMonth, ParamYear);
             data.SetInputParameters(ParamDayOfWeek, ParamWeek);

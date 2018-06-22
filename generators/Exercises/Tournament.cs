@@ -11,7 +11,7 @@ namespace Generators.Exercises
     {
         protected override void UpdateTestData(TestData data)
         {
-            data.Property = "RunTally";
+            data.TestedMethod = "RunTally";
             data.TestedMethodType = TestedMethodType.Static;
             data.UseVariablesForInput = true;
             data.UseVariableForExpected = true;

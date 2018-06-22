@@ -7,7 +7,7 @@ namespace Generators.Exercises
     {
         protected override void UpdateTestData(TestData data)
         {
-            data.Property = "String";
+            data.TestedMethod = "String";
             data.Input["lines"] = ConvertHelper.ToMultiLineString(data.Input["lines"], "");
             data.Expected = ConvertHelper.ToMultiLineString(data.Expected, "");
 

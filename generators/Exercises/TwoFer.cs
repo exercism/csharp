@@ -6,7 +6,7 @@ namespace Generators.Exercises
     {
         protected override void UpdateTestData(TestData data)
         {
-            data.Property = "Name";
+            data.TestedMethod = "Name";
         }
     }
 }
