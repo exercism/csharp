@@ -1,8 +1,8 @@
 // This file was auto-generated based on version 2.0.0 of the canonical data.
 
-using Xunit;
-using System;
 using FakeItEasy;
+using System;
+using Xunit;
 
 public class ReactTest
 {

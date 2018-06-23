@@ -27,7 +27,7 @@ namespace Generators
 
         private IEnumerable<string> GetNamespaces(IEnumerable<TestData> testData)
         {
-            var usingNamespaces = new HashSet<string> { "Xunit" };
+            var usingNamespaces = new SortedSet<string> { "Xunit" };
 
             foreach (var data in testData.Where(x => x.ExceptionThrown != null))
                 usingNamespaces.Add(data.ExceptionThrown.Namespace);

@@ -1,7 +1,7 @@
-// This file was auto-generated based on version 1.0.0 of the canonical data.
+// This file was auto-generated based on version 1.1.0 of the canonical data.
 
-using Xunit;
 using System;
+using Xunit;
 
 public class SimpleCipherTest
 {
@@ -9,14 +9,14 @@ public class SimpleCipherTest
     public void Random_key_cipher_can_encode()
     {
         var sut = new SimpleCipher();
-        Assert.Equal(sut.Key.Substring(0, 10), sut.Encode("aaaaaaaaaa"));
+        Assert.Equal("cipher.key.substring(0, plaintext.length)", sut.Encode("aaaaaaaaaa"));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Random_key_cipher_can_decode()
     {
         var sut = new SimpleCipher();
-        Assert.Equal("aaaaaaaaaa", sut.Decode(sut.Key.Substring(0, 10)));
+        Assert.Equal("aaaaaaaaaa", sut.Decode("cipher.key.substring(0, expected.length)"));
     }
 
     [Fact(Skip = "Remove to run test")]

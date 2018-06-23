@@ -1,7 +1,7 @@
 // This file was auto-generated based on version 2.3.0 of the canonical data.
 
-using Xunit;
 using System;
+using Xunit;
 
 public class AllYourBaseTest
 {
