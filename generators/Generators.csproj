@@ -4,12 +4,12 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="CommandLineParser" Version="2.1.1-beta" />
-    <PackageReference Include="DotLiquid" Version="2.0.200" />
-    <PackageReference Include="Humanizer" Version="2.2.0" />
+    <PackageReference Include="CommandLineParser" Version="2.2.1" />
+    <PackageReference Include="DotLiquid" Version="2.0.266" />
+    <PackageReference Include="Humanizer" Version="2.3.3" />
     <PackageReference Include="LibGit2Sharp.Portable" Version="0.24.10" />
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
-    <PackageReference Include="serilog" Version="2.5.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="serilog" Version="2.7.1" />
     <PackageReference Include="serilog.sinks.literate" Version="3.0.0" />
   </ItemGroup>
   <ItemGroup>
