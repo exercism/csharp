@@ -22,8 +22,15 @@ namespace Generators.Exercises
 
             data.SetInputParameters();
         }
+        
+        protected override void UpdateTestMethodBody(TestMethodBody body)
+        {
+            body.Arrange = RenderTestMethodBodyArrange(body);
+            body.Act = RenderTestMethodBodyAct(body);
+            body.Assert = RenderTestMethodBodyAssert(body);
+        }
 
-        protected override IEnumerable<string> RenderTestMethodBodyArrange(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderTestMethodBodyArrange(TestMethodBody testMethodBody)
         {
             var builder = new StringBuilder();
             builder.AppendLine("var sut = new BowlingGame();");
@@ -45,7 +52,7 @@ namespace Generators.Exercises
             return new[] { builder.ToString() };
         }
 
-        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             if (testMethodBody.Data.ExceptionThrown != null && testMethodBody.Data.Input.ContainsKey("roll"))
             {
@@ -59,14 +66,14 @@ namespace Generators.Exercises
 
             if (testMethodBody.Data.ExceptionThrown == null ||
                 testMethodBody.Data.Property != "score")
-                return base.RenderTestMethodBodyAssert(testMethodBody);
+                return testMethodBody.Assert;
 
             const string throwTemplate = "Assert.Throws<ArgumentException>(() => sut.Score());";
             return new[] { throwTemplate };
 
         }
 
-        protected override IEnumerable<string> RenderTestMethodBodyAct(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderTestMethodBodyAct(TestMethodBody testMethodBody)
         {
             var template =
     @"DoRoll(previousRolls, sut);

@@ -11,15 +11,20 @@ namespace Generators.Exercises
             if (data.Property == "create")
                 SetCreatePropertyData(data);
         }
+        
+        protected override void UpdateTestMethodBody(TestMethodBody body)
+        {
+            body.Assert = RenderTestMethodBodyAssert(body);
+        }
 
-        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             if (testMethodBody.Data.Property == "canAttack")
                 return new[] { RenderCanAttackAssert(testMethodBody) };
 
             return testMethodBody.Data.UseVariableForTested
                 ? Array.Empty<string>()
-                : base.RenderTestMethodBodyAssert(testMethodBody);
+                : testMethodBody.Assert;
         }
 
         private static string RenderCanAttackAssert(TestMethodBody testMethodBody)

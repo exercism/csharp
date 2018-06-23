@@ -51,12 +51,17 @@ namespace Generators.Exercises
                 data.Expected = new UnescapedValue(string.Join(Environment.NewLine, expected));
             }
         }
+        
+        protected override void UpdateTestMethodBody(TestMethodBody body)
+        {
+            body.Assert = RenderTestMethodBodyAssert(body);
+        }
 
-        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             if (testMethodBody.Data.ExceptionThrown != null)
             {
-                return base.RenderTestMethodBodyAssert(testMethodBody);
+                return testMethodBody.Assert;
             }
 
             if (testMethodBody.Data.Property == "territories")

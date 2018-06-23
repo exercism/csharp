@@ -9,12 +9,17 @@ namespace Generators.Exercises
         {
             data.Description = $"{data.Property} {data.Description}";
         }
+        
+        protected override void UpdateTestMethodBody(TestMethodBody body)
+        {
+            body.Assert = RenderTestMethodBodyAssert(body);
+        }
 
-        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             return testMethodBody.Data.Property == "consistency"
                 ? RenderConsistencyToAssert(testMethodBody)
-                : base.RenderTestMethodBodyAssert(testMethodBody);
+                : testMethodBody.Assert;
         }
 
         private static IEnumerable<string> RenderConsistencyToAssert(TestMethodBody testMethodBody)

@@ -29,12 +29,9 @@ namespace Generators.Exercises
             return "";
         }
 
-        protected override TestClass CreateTestClass()
+        protected override void UpdateTestClass(TestClass @class)
         {
-            var testClass = base.CreateTestClass();
-            testClass.TemplateName = "TestClassDisposable";
-
-            return testClass;
+            @class.TemplateName = "TestClassDisposable";
         }
 
         protected override IEnumerable<string> AdditionalNamespaces => new[]

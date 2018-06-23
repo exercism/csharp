@@ -8,7 +8,13 @@ namespace Generators.Exercises
 {
     public class Zipper : GeneratorExercise
     {
-        protected override IEnumerable<string> RenderTestMethodBodyArrange(TestMethodBody testMethodBody)
+        protected override void UpdateTestMethodBody(TestMethodBody body)
+        {
+            body.Arrange = RenderTestMethodBodyArrange(body);
+            body.Assert = RenderTestMethodBodyAssert(body);
+        }
+
+        private static IEnumerable<string> RenderTestMethodBodyArrange(TestMethodBody testMethodBody)
         {
             var tree = RenderTree(testMethodBody.Data.Input["initialTree"]);
             yield return $"var tree = {tree};";
@@ -18,7 +24,7 @@ namespace Generators.Exercises
             yield return $"var actual = sut{operations};";
         }
 
-        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             var expected = RenderExpected(testMethodBody.Data.Expected);
             if (expected == null)

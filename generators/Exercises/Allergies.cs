@@ -14,12 +14,17 @@ namespace Generators.Exercises
 
             data.SetConstructorInputParameters("score");
         }
+        
+        protected override void UpdateTestMethodBody(TestMethodBody body)
+        {
+            body.Assert = RenderTestMethodBodyAssert(body);
+        }
 
-        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             return testMethodBody.Data.Property == "allergicTo"
                 ? RenderIsAllergicToAssert(testMethodBody)
-                : base.RenderTestMethodBodyAssert(testMethodBody);
+                : testMethodBody.Assert;
         }
 
         private static IEnumerable<string> RenderIsAllergicToAssert(TestMethodBody testMethodBody)

@@ -42,8 +42,13 @@ namespace Generators.Exercises
                 data.Expected = new UnescapedValue("sut.Key.Substring(0, 10)");
             }
         }
+        
+        protected override void UpdateTestMethodBody(TestMethodBody body)
+        {
+            body.Assert = RenderTestMethodBodyAssert(body);
+        }
 
-        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             switch (testMethodBody.Data.Property)
             {
@@ -54,7 +59,7 @@ namespace Generators.Exercises
                     var pattern = ValueFormatter.Format(testMethodBody.Data.Expected["match"]);
                     return new[] { $"Assert.Matches({pattern}, sut.Key);" };
                 default:
-                    return base.RenderTestMethodBodyAssert(testMethodBody);
+                    return testMethodBody.Assert;
             }
         }
 

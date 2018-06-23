@@ -14,7 +14,13 @@ namespace Generators.Exercises
             data.Input["startBucket"] = new UnescapedValue(startBucket == "two" ? "Bucket.Two" : "Bucket.One");
         }
 
-        protected override IEnumerable<string> RenderTestMethodBodyAct(TestMethodBody testMethodBody)
+        protected override void UpdateTestMethodBody(TestMethodBody body)
+        {
+            body.Act = RenderTestMethodBodyAct(body);
+            body.Assert = RenderTestMethodBodyAssert(body);
+        }
+
+        private static IEnumerable<string> RenderTestMethodBodyAct(TestMethodBody testMethodBody)
         {
             const string template = @"var result = {{MethodInvocation}};";
 
@@ -26,7 +32,7 @@ namespace Generators.Exercises
             return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
         }
 
-        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             const string template =
 @"Assert.Equal({{MovesExpected}}, result.Moves);

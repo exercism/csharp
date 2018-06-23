@@ -33,7 +33,13 @@ namespace Generators.Exercises
             data.Expected = new UnescapedValue(string.Join(Environment.NewLine, expected));
         }
 
-        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        
+        protected override void UpdateTestMethodBody(TestMethodBody body)
+        {
+            body.Assert = RenderTestMethodBodyAssert(body);
+        }
+
+        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             var expectedDictionary = testMethodBody.Data.Properties["expected"] as IDictionary<string, dynamic>;
 

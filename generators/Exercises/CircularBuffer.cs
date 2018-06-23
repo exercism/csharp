@@ -6,7 +6,12 @@ namespace Generators.Exercises
 {
     public class CircularBuffer : GeneratorExercise
     {
-        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        protected override void UpdateTestMethodBody(TestMethodBody body)
+        {
+            body.Assert = RenderTestMethodBodyAssert(body);
+        }
+
+        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             yield return RenderSut(testMethodBody.Data);
 

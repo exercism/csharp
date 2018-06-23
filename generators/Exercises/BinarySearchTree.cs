@@ -32,8 +32,13 @@ namespace Generators.Exercises
 
         private StringBuilder _testFactCodeLines;
         private void AddCodeLine(string line) => _testFactCodeLines.Append(line + "\r\n");
+        
+        protected override void UpdateTestMethodBody(TestMethodBody body)
+        {
+            body.Assert = RenderTestMethodBodyAssert(body);
+        }
 
-        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        protected IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             _testFactCodeLines = new StringBuilder();
             var canonicalDataCase = testMethodBody.Data;

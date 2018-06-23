@@ -9,8 +9,14 @@ using Humanizer;
 namespace Generators.Exercises
 {
     public class React : GeneratorExercise
-    {
-        protected override IEnumerable<string> RenderTestMethodBodyArrange(TestMethodBody testMethodBody)
+    {   
+        protected override void UpdateTestMethodBody(TestMethodBody body)
+        {
+            body.Arrange = RenderTestMethodBodyArrange(body);
+            body.Assert = RenderTestMethodBodyAssert();
+        }
+
+        private static IEnumerable<string> RenderTestMethodBodyArrange(TestMethodBody testMethodBody)
         {
             var arrange = new StringBuilder();
             arrange.AppendLine("var sut = new Reactor();");
@@ -119,9 +125,8 @@ namespace Generators.Exercises
             }
         }
 
-        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody) => new[] {
-            ""
-        };
+        private static IEnumerable<string> RenderTestMethodBodyAssert()
+            => new[] { "" };
 
         protected override IEnumerable<string> AdditionalNamespaces => new[]
         {

@@ -19,22 +19,13 @@ namespace Generators
             ExerciseWriter.WriteToFile(this);
         }
 
-        public string Render() => CreateTestClass().Render();
+        public string Render() => CreateUpdatedTestClass().Render();
 
         protected virtual IEnumerable<string> AdditionalNamespaces => Enumerable.Empty<string>();
 
-        protected virtual IEnumerable<string> RenderTestMethodBodyArrange(TestMethodBody testMethodBody)
-            => new[] { TemplateRenderer.RenderPartial(testMethodBody.ArrangeTemplateName, testMethodBody.ArrangeTemplateParameters) };
-
-        protected virtual IEnumerable<string> RenderTestMethodBodyAct(TestMethodBody testMethodBody)
-            => new[] { TemplateRenderer.RenderPartial(testMethodBody.ActTemplateName, testMethodBody.ActTemplateParameters) };
-
-        protected virtual IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
-            => new[] { TemplateRenderer.RenderPartial(testMethodBody.AssertTemplateName, testMethodBody.AssertTemplateParameters) };
-
         protected virtual IEnumerable<string> RenderAdditionalMethods() => Array.Empty<string>();
 
-        private IEnumerable<string> GetUsingNamespaces(IEnumerable<TestData> testData)
+        private IEnumerable<string> GetNamespaces(IEnumerable<TestData> testData)
         {
             var usingNamespaces = new HashSet<string> { "Xunit" };
 
@@ -52,56 +43,66 @@ namespace Generators
                 .Concat(RenderAdditionalMethods())
                 .ToArray();
 
-        protected virtual TestClass CreateTestClass()
+        private TestClass CreateUpdatedTestClass()
         {
-            var testData = _canonicalData.Cases
-                .Select(canonicalDataCase => CreateTestData(_canonicalData, canonicalDataCase))
-                .ToArray();
+            var testClass = CreateTestClass();
+            UpdateTestClass(testClass);
 
-            foreach (var data in testData)
-                UpdateTestData(data);
-            
+            return testClass;
+        }
+
+        private TestClass CreateTestClass()
+        {
+            var testData = CreateUpdatedTestData();
+
             return new TestClass
             {
                 ClassName = Name.ToTestClassName(),
                 Methods = RenderTestMethods(testData),
                 CanonicalDataVersion = _canonicalData.Version,
-                UsingNamespaces = GetUsingNamespaces(testData)
+                Namespaces = GetNamespaces(testData)
             };
         }
+        
+        protected virtual void UpdateTestClass(TestClass @class)
+        {
+        }
 
-        private string RenderTestMethod(TestData data, int index) => CreateTestMethod(data, index).Render();
+        private string RenderTestMethod(TestData data, int index) => CreateUpdatedTestMethod(data, index).Render();
 
+        protected virtual TestMethod CreateUpdatedTestMethod(TestData data, int index)
+        {
+            var testMethod = CreateTestMethod(data, index);
+            UpdateTestMethod(testMethod);
+
+            return testMethod;
+        }
+        
         protected virtual TestMethod CreateTestMethod(TestData data, int index) => new TestMethod
         {
             Skip = index > 0,
             Name = ToTestMethodName(data),
-            Body = RenderTestMethodBody(data)
+            Body = CreateUpdatedTestMethodBody(data)
         };
+
+        protected virtual void UpdateTestMethod(TestMethod method)
+        {
+        }
 
         private static string ToTestMethodName(TestData data)
             => data.UseFullDescriptionPath
                 ? string.Join(" - ", data.DescriptionPath).ToTestMethodName()
                 : data.Description.ToTestMethodName();
 
-        private string RenderTestMethodBody(TestData data)
+        private TestMethodBody CreateUpdatedTestMethodBody(TestData data)
         {
             var testMethodBody = CreateTestMethodBody(data);
-            testMethodBody.Arrange = RenderTestMethodBodyArrange(testMethodBody);
-            testMethodBody.Act = RenderTestMethodBodyAct(testMethodBody);
-            testMethodBody.Assert = RenderTestMethodBodyAssert(testMethodBody);
+            UpdateTestMethodBody(testMethodBody);
 
-            return testMethodBody.Render();
+            return testMethodBody;
         }
 
-        protected virtual TestData CreateTestData(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase)
-            => new TestData(canonicalData, canonicalDataCase);
-
-        protected virtual void UpdateTestData(TestData data)
-        {
-        }
-
-        protected virtual TestMethodBody CreateTestMethodBody(TestData data)
+        private static TestMethodBody CreateTestMethodBody(TestData data)
         {
             if (data.ExceptionThrown != null)
             {
@@ -117,6 +118,28 @@ namespace Generators
                 default:
                     return new TestMethodBodyWithEqualityCheck(data);
             }
+        }
+        
+        protected virtual void UpdateTestMethodBody(TestMethodBody body)
+        {
+        }
+
+        private TestData[] CreateUpdatedTestData()
+        {
+            var testData = CreateTestData();
+    
+            foreach (var data in testData)
+                UpdateTestData(data);
+
+            return testData;
+        }
+        
+        private TestData[] CreateTestData() => _canonicalData.Cases.Select(CreateTestData).ToArray();
+
+        private TestData CreateTestData(CanonicalDataCase canonicalDataCase) => new TestData(_canonicalData, canonicalDataCase);
+
+        protected virtual void UpdateTestData(TestData data)
+        {
         }
     }
 }

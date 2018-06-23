@@ -21,12 +21,17 @@ namespace Generators.Exercises
                 data.Expected = (data.Expected["value"], FormatCoordinates(data.Expected["factors"]));
             }
         }
+        
+        protected override void UpdateTestMethodBody(TestMethodBody body)
+        {
+            body.Assert = RenderTestMethodBodyAssert(body);
+        }
 
-        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             if (testMethodBody.Data.ExceptionThrown != null)
             {
-                return base.RenderTestMethodBodyAssert(testMethodBody);
+                return testMethodBody.Assert;
             }
 
             return new[]

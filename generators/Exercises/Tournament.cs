@@ -25,8 +25,14 @@ namespace Generators.Exercises
             typeof(Stream).Namespace,
             typeof(UTF8Encoding).Namespace
         };
+        
+        
+        protected override void UpdateTestMethodBody(TestMethodBody body)
+        {
+            body.Assert = RenderTestMethodBodyAssert();
+        }
 
-        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderTestMethodBodyAssert()
         {
             const string template = @"Assert.Equal(expected, RunTally(rows));";
             return new[] { TemplateRenderer.RenderInline(template, new { }) };

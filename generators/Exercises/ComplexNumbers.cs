@@ -30,11 +30,16 @@ namespace Generators.Exercises
         private static string[] GetInputParameters(TestData canonicalDataCase, string constructorParamName)
             => canonicalDataCase.Input.Keys.Where(x => x != constructorParamName).ToArray();
 
-        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        protected override void UpdateTestMethodBody(TestMethodBody body)
+        {
+            body.Assert = RenderTestMethodBodyAssert(body);
+        }
+
+        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             return testMethodBody.Data.UseVariableForExpected
                 ? RenderComplexNumberAssert(testMethodBody)
-                : base.RenderTestMethodBodyAssert(testMethodBody);
+                : testMethodBody.Assert;
         }
 
         private static IEnumerable<string> RenderComplexNumberAssert(TestMethodBody testMethodBody)

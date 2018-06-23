@@ -9,7 +9,7 @@ namespace Generators.Output
         private const string SutVariableName = "sut";
         private const string TestedVariableName = "actual";
         private const string ExpectedVariableName = "expected";
-        
+
         protected TestMethodBody(TestData data)
         {
             Data = data;
@@ -33,23 +33,30 @@ namespace Generators.Output
         public IEnumerable<string> Arrange { get; set; }
         public IEnumerable<string> Assert { get; set; }
 
-        public virtual string Render() => TemplateRenderer.RenderPartial(TemplateName, new { Arrange, Act, Assert });
+        public virtual string Render()
+        {
+            Arrange = Arrange ?? RenderTestMethodBodyArrange();
+            Act = Act ?? RenderTestMethodBodyAct();
+            Assert = Assert ?? RenderTestMethodBodyAssert();
+
+            return TemplateRenderer.RenderPartial(TemplateName, new { Arrange, Act, Assert });
+        }
 
         protected void InitializeTemplateParameters()
         {
             ArrangeTemplateParameters = new { Variables };
             ActTemplateParameters = new { };
-            AssertTemplateParameters = new {ExpectedParameter, TestedValue };
+            AssertTemplateParameters = new { ExpectedParameter, TestedValue };
         }
 
         protected string TestedValue => Data.UseVariableForTested ? TestedVariableName : TestedMethodInvocation;
         protected string InputParameters => Data.UseVariablesForInput ? string.Join(", ", Data.InputParameters.Select(key => key.ToVariableName())) : ValueFormatter.Format(Input);
         protected string ExpectedParameter => Data.UseVariableForExpected ? ExpectedVariableName : ValueFormatter.Format(Data.Expected);
         protected string ConstructorParameters => Data.UseVariablesForConstructorParameters ? string.Join(", ", Data.ConstructorInputParameters.Select(key => key.ToVariableName())) : ValueFormatter.Format(ConstructorInput);
-        
+
         private IDictionary<string, object> Input => Data.InputParameters.ToDictionary(key => key, key => Data.Input[key]);
         private IDictionary<string, object> ConstructorInput => Data.ConstructorInputParameters.ToDictionary(key => key, key => Data.Input[key]);
-        
+
         private IEnumerable<string> InputVariablesDeclaration => ValueFormatter.FormatVariables(Input);
         private IEnumerable<string> ExpectedVariableDeclaration => ValueFormatter.FormatVariable(Data.Expected, ExpectedVariableName);
         private IEnumerable<string> ConstructorVariablesDeclaration => ValueFormatter.FormatVariables(ConstructorInput);
@@ -98,5 +105,14 @@ namespace Generators.Output
                 }
             }
         }
+
+        private IEnumerable<string> RenderTestMethodBodyArrange()
+            => new[] { TemplateRenderer.RenderPartial(ArrangeTemplateName, ArrangeTemplateParameters) };
+
+        private IEnumerable<string> RenderTestMethodBodyAct()
+            => new[] { TemplateRenderer.RenderPartial(ActTemplateName, ActTemplateParameters) };
+
+        private IEnumerable<string> RenderTestMethodBodyAssert()
+            => new[] { TemplateRenderer.RenderPartial(AssertTemplateName, AssertTemplateParameters) };
     }
 }

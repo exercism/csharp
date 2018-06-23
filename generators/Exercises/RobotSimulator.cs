@@ -24,7 +24,13 @@ namespace Generators.Exercises
             data.UseFullDescriptionPath = true;
         }
 
-        protected override IEnumerable<string> RenderTestMethodBodyAct(TestMethodBody testMethodBody)
+        protected override void UpdateTestMethodBody(TestMethodBody body)
+        {
+            body.Act = RenderTestMethodBodyAct(body);
+            body.Assert = RenderTestMethodBodyAssert(body);
+        }
+
+        private static IEnumerable<string> RenderTestMethodBodyAct(TestMethodBody testMethodBody)
         {
             switch (testMethodBody.Data.Property)
             {
@@ -59,7 +65,7 @@ namespace Generators.Exercises
             return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
         }
 
-        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             var expected = testMethodBody.Data.Expected as Dictionary<string, dynamic>;
             expected.TryGetValue("position", out var position);

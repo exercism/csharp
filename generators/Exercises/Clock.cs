@@ -36,8 +36,13 @@ namespace Generators.Exercises
                 data.TestedMethod = "Equals";
             }
         }
+        
+        protected override void UpdateTestMethodBody(TestMethodBody body)
+        {
+            body.Assert = RenderTestMethodBodyAssert(body);
+        }
 
-        protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
             if (testMethodBody.Data.Property == PropertyEqual)
             {
@@ -46,7 +51,7 @@ namespace Generators.Exercises
 
             return testMethodBody.Data.Property != PropertyCreate
                 ? RenderConsistencyToAssert(testMethodBody)
-                : base.RenderTestMethodBodyAssert(testMethodBody);
+                : testMethodBody.Assert;
         }
 
         private static IEnumerable<string> RenderConsistencyToAssert(TestMethodBody testMethodBody)
