@@ -2,7 +2,7 @@
 
 namespace Generators.Input
 {
-    public sealed class CanonicalDataCase
+    public class CanonicalDataCase
     {
         public CanonicalDataCase(string property, IReadOnlyDictionary<string, dynamic> properties,
             IReadOnlyDictionary<string, dynamic> input, dynamic expected,

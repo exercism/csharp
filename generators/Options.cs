@@ -9,7 +9,7 @@ namespace Generators
         private static string DefaultCanonicalDataDirectory
             => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "exercism", "problem-specifications");
 
-        [Option('e', "exercise", Required = false, 
+        [Option('e', "exercise", Required = false,
             HelpText = "Exercise to generate (defaults to all exercises).")]
         public string Exercise { get; set; }
 

@@ -32,8 +32,8 @@ namespace Generators.Exercises
 
         protected override IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
         {
-            return testMethodBody.Data.UseVariableForExpected 
-                ? RenderComplexNumberAssert(testMethodBody) 
+            return testMethodBody.Data.UseVariableForExpected
+                ? RenderComplexNumberAssert(testMethodBody)
                 : base.RenderTestMethodBodyAssert(testMethodBody);
         }
 
@@ -48,8 +48,8 @@ namespace Generators.Exercises
 
         private static object ConvertToType(dynamic rawValue)
         {
-            return IsComplexNumber(rawValue) 
-                ? new UnescapedValue($"new ComplexNumber({ValueFormatter.Format(ConvertMathDouble(rawValue[0]))}, {ValueFormatter.Format(ConvertMathDouble(rawValue[1]))})") 
+            return IsComplexNumber(rawValue)
+                ? new UnescapedValue($"new ComplexNumber({ValueFormatter.Format(ConvertMathDouble(rawValue[0]))}, {ValueFormatter.Format(ConvertMathDouble(rawValue[1]))})")
                 : rawValue;
         }
 

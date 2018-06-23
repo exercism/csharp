@@ -1,6 +1,6 @@
 ﻿namespace Generators
 {
-    public sealed class DeprecatedExercise : Exercise
+    public class DeprecatedExercise : Exercise
     {
         public DeprecatedExercise(string name) => Name = name;
 

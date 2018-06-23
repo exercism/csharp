@@ -29,7 +29,7 @@ namespace Generators.Exercises
         private static UnescapedValue ToMultiLineString(IEnumerable input)
         {
             const string template =
-@"new [] 
+    @"new [] 
 { 
     {% if input.size == 0 %}string.Empty{% else %}{% for item in {{input}} %}{% if forloop.length == 1 %}""{{item}}""{% break %}{% endif %}""{{item}}""{% if forloop.last == false %},{% else %}{{string.Empty}}{% endif %}
     {% endfor %}{% endif %} 

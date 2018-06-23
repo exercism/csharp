@@ -1,6 +1,6 @@
 ﻿namespace Generators
 {
-    public sealed class UnimplementedExercise : Exercise
+    public class UnimplementedExercise : Exercise
     {
         public UnimplementedExercise(string name) => Name = name;
 

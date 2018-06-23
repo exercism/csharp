@@ -2,7 +2,7 @@
 
 namespace Generators.Input
 {
-    public sealed class CanonicalData
+    public class CanonicalData
     {
         public CanonicalData(string exercise, string version, IReadOnlyCollection<CanonicalDataCase> cases)
             => (Exercise, Version, Cases) = (exercise, version, cases);

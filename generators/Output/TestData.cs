@@ -5,7 +5,7 @@ using Generators.Input;
 
 namespace Generators.Output
 {
-    public sealed class TestData
+    public class TestData
     {
         public TestData(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase)
         {
@@ -15,23 +15,23 @@ namespace Generators.Output
 
             Exercise = canonicalData.Exercise;
             Property = canonicalDataCase.Property;
-            
+
             Description = canonicalDataCase.Description;
             DescriptionPath = new List<string>(canonicalDataCase.DescriptionPath);
-            
+
             SetInputParameters(canonicalDataCase.Input.Keys.ToArray());
-            
+
             TestedClass = canonicalData.Exercise.ToTestedClassName();
             TestedMethod = canonicalDataCase.Property.ToTestedMethodName();
         }
-        
+
         public string Exercise { get; }
         public string Property { get; }
-        
+
         public IDictionary<string, dynamic> Properties { get; set; }
         public IDictionary<string, dynamic> Input { get; set; }
         public dynamic Expected { get; set; }
-        
+
         public string Description { get; set; }
         public IList<string> DescriptionPath { get; set; }
 

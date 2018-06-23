@@ -14,14 +14,15 @@ namespace Generators
         private readonly Dictionary<string, Type> _exerciseTypesByName;
 
         public ExerciseCollection(CanonicalDataFile canonicalDataFile)
-        {
-            _canonicalDataFile = canonicalDataFile;
+            => (_canonicalDataFile, _exerciseTypesByName) = (canonicalDataFile, GetExerciseTypesByName());
 
-            _exerciseTypesByName = Assembly.GetEntryAssembly()
+        private static Dictionary<string, Type> GetExerciseTypesByName()
+            => Assembly.GetEntryAssembly()
                 .GetTypes()
                 .Where(IsConcreteGenerator)
                 .ToDictionary(type => type.ToExerciseName(), StringComparer.OrdinalIgnoreCase);
-        }
+
+        private static bool IsConcreteGenerator(Type type) => typeof(Exercise).IsAssignableFrom(type);
 
         public IEnumerator<Exercise> GetEnumerator() => GetExercises().GetEnumerator();
 
@@ -31,7 +32,7 @@ namespace Generators
         {
             foreach (var exercise in TrackConfigFile.GetExercises())
             {
-                var exerciseName = exercise.Name;
+                var exerciseName = exercise.Slug.ToExerciseName();
                 if (exercise.Deprecated)
                     yield return new DeprecatedExercise(exerciseName);
                 else if (HasNoCanonicalData(exerciseName))
@@ -47,9 +48,7 @@ namespace Generators
 
         private bool IsNotImplemented(string exerciseName) => !_exerciseTypesByName.ContainsKey(exerciseName.ToExerciseName());
 
-        private Exercise CreateExercise(string exerciseName) 
+        private Exercise CreateExercise(string exerciseName)
             => (Exercise)Activator.CreateInstance(_exerciseTypesByName[exerciseName.ToExerciseName()]);
-
-        private static bool IsConcreteGenerator(Type type) => typeof(Exercise).IsAssignableFrom(type);
     }
 }

@@ -25,7 +25,7 @@ namespace Generators.Input
 
         private static string ParseVersion(JToken canonicalDataJObject) => canonicalDataJObject.Value<string>("version");
 
-        private static IReadOnlyCollection<CanonicalDataCase> ParseCanonicalDataCases(JObject canonicalDataJObject) 
+        private static IReadOnlyCollection<CanonicalDataCase> ParseCanonicalDataCases(JObject canonicalDataJObject)
             => CanonicalDataCaseParser.Parse((JArray)canonicalDataJObject["cases"]);
     }
 }

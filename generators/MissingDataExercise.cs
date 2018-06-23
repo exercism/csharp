@@ -1,6 +1,6 @@
 ﻿namespace Generators
 {
-    public sealed class MissingDataExercise : Exercise
+    public class MissingDataExercise : Exercise
     {
         public MissingDataExercise(string name) => Name = name;
 

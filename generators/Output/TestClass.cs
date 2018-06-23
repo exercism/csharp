@@ -9,7 +9,7 @@ namespace Generators.Output
         public IEnumerable<string> Methods { get; set; }
         public IEnumerable<string> UsingNamespaces { get; set; }
         public string TemplateName { get; set; } = "TestClass";
-        
+
         public string Render() => TemplateRenderer.RenderPartial(TemplateName, new { ClassName, CanonicalDataVersion, Methods, UsingNamespaces });
-    }    
+    }
 }

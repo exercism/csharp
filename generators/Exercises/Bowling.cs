@@ -69,7 +69,7 @@ namespace Generators.Exercises
         protected override IEnumerable<string> RenderTestMethodBodyAct(TestMethodBody testMethodBody)
         {
             var template =
-@"DoRoll(previousRolls, sut);
+    @"DoRoll(previousRolls, sut);
 ";
 
             if (testMethodBody.Data.ExceptionThrown != null)
@@ -80,7 +80,7 @@ namespace Generators.Exercises
             if (testMethodBody.Data.Input.ContainsKey("roll"))
             {
                 template +=
-@"sut.Roll({{RolVal}});
+    @"sut.Roll({{RolVal}});
 var actual = sut.Score();
 ";
                 var templateParameters = new

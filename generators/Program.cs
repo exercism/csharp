@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using CommandLine;
 using Generators.Input;
 using Generators.Output;
@@ -19,9 +18,9 @@ namespace Generators
                     .WithParsed(RegenerateTestClasses);
                 return 0;
             }
-            catch (Exception exception) when (!Debugger.IsAttached)
+            catch (Exception exception)
             {
-                Log.Error(exception, "Exception occured: {Message}", exception.Message);
+                Log.Error(exception, "Exception occured: {Exception}", exception.Message);
                 return 1;
             }
         }
@@ -52,7 +51,7 @@ namespace Generators
 
         private static void RegenerateTestClass(Exercise exercise, Options options, CanonicalDataParser canonicalDataParser)
         {
-            if (ShouldBeSkipped(exercise, options))
+            if (SkipGenerateTestClass(exercise, options))
                 return;
 
             switch (exercise)
@@ -75,7 +74,7 @@ namespace Generators
             }
         }
 
-        private static bool ShouldBeSkipped(Exercise exercise, Options options) 
+        private static bool SkipGenerateTestClass(Exercise exercise, Options options) 
             => DoesNotMatchFilteredExercise(exercise, options) || DoesNotMatchFilteredStatus(exercise, options);
 
         private static bool DoesNotMatchFilteredExercise(Exercise exercise, Options options) 

@@ -14,17 +14,16 @@ namespace Generators.Input
         {
             var jsonContents = File.ReadAllText(ConfigFilePath);
             var config = JsonConvert.DeserializeObject<Config>(jsonContents);
-            return config.Exercises.OrderBy(x => x.Name).ToArray();
+            return config.Exercises.OrderBy(x => x.Slug).ToArray();
         }
 
-        private class Config
+        private sealed class Config
         {
             public ConfigExercise[] Exercises { get; set; }
         }
 
         public class ConfigExercise
         {
-            public string Name => Slug.ToExerciseName();
             public string Slug { get; set; }
             public bool Deprecated { get; set; }
         }
