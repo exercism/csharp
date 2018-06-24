@@ -1,5 +1,6 @@
 ﻿using System;
 using CommandLine;
+using Generators.Helpers;
 using Generators.Input;
 using Generators.Output;
 using Serilog;

@@ -2,7 +2,7 @@ using System;
 using System.Text.RegularExpressions;
 using Humanizer;
 
-namespace Generators.Output
+namespace Generators.Helpers
 {
     public static class NameExtensions
     {

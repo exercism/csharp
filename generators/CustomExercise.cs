@@ -1,4 +1,5 @@
-﻿using Generators.Output;
+﻿using Generators.Helpers;
+using Generators.Output;
 
 namespace Generators
 {

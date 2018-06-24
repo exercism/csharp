@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Generators.Helpers;
 using Generators.Output;
 using Generators.Output.Templates;
 

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Generators.Output
+namespace Generators.Helpers
 {
     public static class TypesExtensions
     {

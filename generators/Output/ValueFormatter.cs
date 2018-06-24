@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using Generators.Helpers;
 using Newtonsoft.Json.Linq;
 
 namespace Generators.Output

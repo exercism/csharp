@@ -1,4 +1,4 @@
-﻿namespace Generators.Input
+﻿namespace Generators.Helpers
 {
     public static class ConvertHelper
     {

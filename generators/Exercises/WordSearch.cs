@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Generators.Helpers;
 using Generators.Input;
 using Generators.Output;
 
