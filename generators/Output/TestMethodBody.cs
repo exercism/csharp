@@ -10,13 +10,9 @@ namespace Generators.Output
         private const string TestedVariableName = "actual";
         private const string ExpectedVariableName = "expected";
 
-        protected TestMethodBody(TestData data)
-        {
-            Data = data;
-            InitializeTemplateParameters();
-        }
+        protected TestMethodBody(TestData data) => Data = data;
 
-        public string TemplateName { get; set; } = "TestMethodBody";
+        public string TemplateName { get; } = "TestMethodBody";
 
         public TestData Data { get; }
 
@@ -35,18 +31,15 @@ namespace Generators.Output
 
         public virtual string Render()
         {
+            ArrangeTemplateParameters = ArrangeTemplateParameters ?? new { Variables };
+            ActTemplateParameters = ActTemplateParameters ?? new { };
+            AssertTemplateParameters = AssertTemplateParameters ?? new { ExpectedParameter, TestedValue };
+            
             Arrange = Arrange ?? RenderTestMethodBodyArrange();
             Act = Act ?? RenderTestMethodBodyAct();
             Assert = Assert ?? RenderTestMethodBodyAssert();
 
             return TemplateRenderer.RenderPartial(TemplateName, new { Arrange, Act, Assert });
-        }
-
-        protected void InitializeTemplateParameters()
-        {
-            ArrangeTemplateParameters = new { Variables };
-            ActTemplateParameters = new { };
-            AssertTemplateParameters = new { ExpectedParameter, TestedValue };
         }
 
         protected string TestedValue => Data.UseVariableForTested ? TestedVariableName : TestedMethodInvocation;

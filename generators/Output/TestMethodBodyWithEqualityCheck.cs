@@ -6,14 +6,13 @@ namespace Generators.Output
     {
         public TestMethodBodyWithEqualityCheck(TestData data) : base(data)
         {
-            Data.UseVariableForExpected = Data.UseVariableForExpected && !ExpectedIsEmptyEnumerable;
-            InitializeTemplateParameters();
-
-            AssertTemplateName = ExpectedIsEmptyEnumerable ? "AssertEqual_Empty" : "AssertEqual";
+            Data.UseVariableForExpected = Data.UseVariableForExpected && !UseEmptyAssert;
+            
+            AssertTemplateName = UseEmptyAssert ? "AssertEqual_Empty" : "AssertEqual";
             AssertTemplateParameters = new { ExpectedParameter, TestedValue };
         }
 
-        private bool ExpectedIsEmptyEnumerable =>
+        private bool UseEmptyAssert =>
             !(Data.Expected is string) &&
             Data.Expected is IEnumerable enumerable
             && enumerable.GetEnumerator().MoveNext() == false;

@@ -6,7 +6,6 @@
         {
             Data.UseVariableForExpected = false;
             Data.UseVariableForTested = false;
-            InitializeTemplateParameters();
 
             AssertTemplateName = "AssertThrowsException";
             AssertTemplateParameters = new { ExceptionType, TestedValue };
