@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Generators.Output;
+using Generators.Output.Templates;
 
 namespace Generators.Exercises
 {

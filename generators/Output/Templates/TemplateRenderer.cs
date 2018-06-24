@@ -2,11 +2,11 @@
 using DotLiquid;
 using DotLiquid.FileSystems;
 
-namespace Generators.Output
+namespace Generators.Output.Templates
 {
     public static class TemplateRenderer
     {
-        private static readonly string EmbeddedTemplatesNamespace = $"{typeof(TemplateRenderer).Namespace}.Templates";
+        private static readonly string EmbeddedTemplatesNamespace = typeof(TemplateRenderer).Namespace;
 
         static TemplateRenderer()
         {

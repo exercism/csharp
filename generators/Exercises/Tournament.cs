@@ -4,6 +4,7 @@ using System.IO;
 using System.Text;
 using Generators.Input;
 using Generators.Output;
+using Generators.Output.Templates;
 
 namespace Generators.Exercises
 {

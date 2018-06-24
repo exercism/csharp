@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Generators.Output.Templates;
 
 namespace Generators.Output
 {

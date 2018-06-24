@@ -1,3 +1,5 @@
+using Generators.Output.Templates;
+
 namespace Generators.Output
 {
     public class TestMethod

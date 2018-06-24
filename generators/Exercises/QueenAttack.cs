@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Generators.Output;
+using Generators.Output.Templates;
 
 namespace Generators.Exercises
 {
