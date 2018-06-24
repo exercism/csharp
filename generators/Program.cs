@@ -1,11 +1,11 @@
 ﻿using System;
 using CommandLine;
-using Generators.Helpers;
-using Generators.Input;
-using Generators.Output;
+using Exercism.CSharp.Exercises;
+using Exercism.CSharp.Helpers;
+using Exercism.CSharp.Input;
 using Serilog;
 
-namespace Generators
+namespace Exercism.CSharp
 {
     public static class Program
     {

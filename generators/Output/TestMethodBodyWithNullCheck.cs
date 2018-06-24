@@ -1,4 +1,4 @@
-﻿namespace Generators.Output
+﻿namespace Exercism.CSharp.Output
 {
     public class TestMethodBodyWithNullCheck : TestMethodBody
     {

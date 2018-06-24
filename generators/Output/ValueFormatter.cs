@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using Generators.Helpers;
+using Exercism.CSharp.Helpers;
 using Newtonsoft.Json.Linq;
 
-namespace Generators.Output
+namespace Exercism.CSharp.Output
 {
     public static class ValueFormatter
     {

@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace Generators.Output
+namespace Exercism.CSharp.Output
 {
     public class TestClassFile
     {

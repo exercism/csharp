@@ -3,7 +3,7 @@ using System.Linq;
 using LibGit2Sharp;
 using Serilog;
 
-namespace Generators.Input
+namespace Exercism.CSharp.Input
 {
     public class CanonicalDataFile
     {

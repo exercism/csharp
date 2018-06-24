@@ -1,6 +1,6 @@
-using Generators.Output.Templates;
+using Exercism.CSharp.Output.Templates;
 
-namespace Generators.Output
+namespace Exercism.CSharp.Output
 {
     public class TestMethod
     {

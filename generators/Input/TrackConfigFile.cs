@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
 
-namespace Generators.Input
+namespace Exercism.CSharp.Input
 {
     public static class TrackConfigFile
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json.Linq;
 
-namespace Generators.Input
+namespace Exercism.CSharp.Input
 {
     public static class CanonicalDataCaseParser
     {

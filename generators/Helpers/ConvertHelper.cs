@@ -1,4 +1,4 @@
-﻿namespace Generators.Helpers
+﻿namespace Exercism.CSharp.Helpers
 {
     public static class ConvertHelper
     {

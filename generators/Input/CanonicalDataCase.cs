@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Generators.Input
+namespace Exercism.CSharp.Input
 {
     public class CanonicalDataCase
     {

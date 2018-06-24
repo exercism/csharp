@@ -2,7 +2,7 @@ using System;
 using System.Text.RegularExpressions;
 using Humanizer;
 
-namespace Generators.Helpers
+namespace Exercism.CSharp.Helpers
 {
     public static class NameExtensions
     {

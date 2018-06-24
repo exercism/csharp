@@ -2,7 +2,7 @@
 using DotLiquid;
 using DotLiquid.FileSystems;
 
-namespace Generators.Output.Templates
+namespace Exercism.CSharp.Output.Templates
 {
     public static class TemplateRenderer
     {

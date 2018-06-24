@@ -1,4 +1,4 @@
-﻿namespace Generators
+﻿namespace Exercism.CSharp
 {
     public enum GeneratorStatus
     {

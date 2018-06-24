@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Generators.Helpers;
-using Generators.Input;
+using Exercism.CSharp.Exercises;
+using Exercism.CSharp.Helpers;
+using Exercism.CSharp.Input;
 
-namespace Generators.Output
+namespace Exercism.CSharp.Output
 {
     public class TestData
     {

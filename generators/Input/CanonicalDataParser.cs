@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 
-namespace Generators.Input
+namespace Exercism.CSharp.Input
 {
     public class CanonicalDataParser
     {

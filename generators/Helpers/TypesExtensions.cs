@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Generators.Helpers
+namespace Exercism.CSharp.Helpers
 {
     public static class TypesExtensions
     {

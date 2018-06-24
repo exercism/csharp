@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Generators.Output
+namespace Exercism.CSharp.Output
 {
     public static class FormattingExtensions
     {

@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Generators.Helpers;
-using Generators.Output.Templates;
+using Exercism.CSharp.Exercises;
+using Exercism.CSharp.Helpers;
+using Exercism.CSharp.Output.Templates;
 
-namespace Generators.Output
+namespace Exercism.CSharp.Output
 {
     public abstract class TestMethodBody
     {

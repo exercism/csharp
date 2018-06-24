@@ -2,7 +2,7 @@
 using System.IO;
 using CommandLine;
 
-namespace Generators
+namespace Exercism.CSharp
 {
     public class Options
     {
