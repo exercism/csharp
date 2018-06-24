@@ -12,6 +12,9 @@ namespace Generators.Exercises
             data.Input["factors"] = ConvertHelper.ToArray<int>(data.Input["factors"]);
         }
 
-        protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(Array).Namespace };
+        protected override void UpdateNamespaces(ISet<string> namespaces)
+        {
+            namespaces.Add(typeof(Array).Namespace);
+        }
     }
 }

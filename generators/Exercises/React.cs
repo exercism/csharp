@@ -127,12 +127,12 @@ namespace Generators.Exercises
 
         private static IEnumerable<string> RenderTestMethodBodyAssert()
             => new[] { "" };
-
-        protected override IEnumerable<string> AdditionalNamespaces => new[]
+        
+        protected override void UpdateNamespaces(ISet<string> namespaces)
         {
-            typeof(EventHandler).Namespace,
-            "FakeItEasy"
-        };
+            namespaces.Add(typeof(EventHandler).Namespace);
+            namespaces.Add("FakeItEasy");
+        }
 
         private static string ToVariableName(dynamic value) => ((string)value).Camelize();
     }

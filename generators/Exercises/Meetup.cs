@@ -28,7 +28,7 @@ namespace Generators.Exercises
             data.Input[ParamDayOfWeek] =
                 new UnescapedValue($"DayOfWeek.{((string)data.Input[ParamDayOfWeek]).Transform(To.SentenceCase)}");
         }
-        
+
         protected override void UpdateTestMethodBody(TestMethodBody body)
         {
             body.Assert = RenderTestMethodBodyAssert(body);
@@ -41,6 +41,9 @@ namespace Generators.Exercises
             return new[] { TemplateRenderer.RenderInline(template, testMethodBody.AssertTemplateParameters) };
         }
 
-        protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(DayOfWeek).Namespace };
+        protected override void UpdateNamespaces(ISet<string> namespaces)
+        {
+            namespaces.Add(typeof(DayOfWeek).Namespace);
+        }
     }
 }

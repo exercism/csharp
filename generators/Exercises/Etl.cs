@@ -24,6 +24,9 @@ namespace Generators.Exercises
                 ["input"] = input.ToDictionary(kv => int.Parse(kv.Key), kv => (string[])kv.Value)
             };
 
-        protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(Dictionary<string, int>).Namespace };
+        protected override void UpdateNamespaces(ISet<string> namespaces)
+        {
+            namespaces.Add(typeof(Dictionary<string, int>).Namespace);
+        }
     }
 }

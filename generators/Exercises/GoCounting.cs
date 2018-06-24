@@ -87,11 +87,10 @@ namespace Generators.Exercises
 
         private static string FormatTerritory(dynamic territory)
             => ValueFormatter.Format((territory as JArray).Select(coordinate => (coordinate[0].ToObject<int>(), coordinate[1].ToObject<int>())).ToArray());
-
-        protected override IEnumerable<string> AdditionalNamespaces => new[]
+        
+        protected override void UpdateNamespaces(ISet<string> namespaces)
         {
-            typeof(ArgumentException).Namespace,
-            typeof(Dictionary<int,int>).Namespace
-        };
+            namespaces.Add(typeof(Dictionary<int,int>).Namespace);
+        }
     }
 }

@@ -13,7 +13,10 @@ namespace Generators.Exercises
             data.Expected = new UnescapedValue(FormatDateTime((DateTime)data.Expected));
         }
 
-        protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(DateTime).Namespace };
+        protected override void UpdateNamespaces(ISet<string> namespaces)
+        {
+            namespaces.Add(typeof(DateTime).Namespace);
+        }
 
         private static string FormatDateTime(DateTime dateTime)
         {

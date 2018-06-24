@@ -10,12 +10,9 @@ namespace Generators.Exercises
             data.UseVariableForExpected = true;
         }
 
-        protected override TestMethod CreateTestMethod(TestData canonicalDataCase, int index)
+        protected override void UpdateTestMethod(TestMethod method)
         {
-            var testMethod = base.CreateTestMethod(canonicalDataCase, index);
-            testMethod.Skip = false;
-
-            return testMethod;
+            method.Skip = false;
         }
     }
 }

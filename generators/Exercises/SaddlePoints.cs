@@ -25,7 +25,10 @@ namespace Generators.Exercises
             }
         }
 
-        protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(string).Namespace };
+        protected override void UpdateNamespaces(ISet<string> namespaces)
+        {
+            namespaces.Add(typeof(string).Namespace);
+        }
 
         private static dynamic ToMultiDimensionalArray(dynamic array)
         {

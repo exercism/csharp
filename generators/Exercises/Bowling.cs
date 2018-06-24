@@ -101,23 +101,27 @@ var actual = sut.Score();
             return new[] { template };
         }
 
-        protected override IEnumerable<string> RenderAdditionalMethods()
+        protected override void UpdateTestClass(TestClass @class)
         {
-            return new[] {
-@"
+            AddDoRollMethod(@class);
+        }
+
+        private static void AddDoRollMethod(TestClass @class)
+        {
+            @class.Methods.Add(@"
 public void DoRoll(ICollection<int> rolls, BowlingGame sut)
 {
     foreach (var roll in rolls)
     {
         sut.Roll(roll);
     }
-}" };
+}");
         }
-
-        protected override IEnumerable<string> AdditionalNamespaces => new[]
+        
+        protected override void UpdateNamespaces(ISet<string> namespaces)
         {
-            typeof(Array).Namespace,
-            typeof(ICollection<>).Namespace
-        };
+            namespaces.Add(typeof(Array).Namespace);
+            namespaces.Add(typeof(ICollection<>).Namespace);
+        }
     }
 }

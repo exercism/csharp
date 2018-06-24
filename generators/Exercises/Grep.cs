@@ -32,19 +32,22 @@ namespace Generators.Exercises
         protected override void UpdateTestClass(TestClass @class)
         {
             @class.TemplateName = "TestClassDisposable";
+
+            AddAdditionalMethods(@class);
         }
 
-        protected override IEnumerable<string> AdditionalNamespaces => new[]
+        private static void AddAdditionalMethods(TestClass @class)
         {
-            typeof(IDisposable).Namespace,
-            typeof(File).Namespace
-        };
+            AddIliadData(@class);
+            AddMidsummerNightData(@class);
+            AddParadiseLostData(@class);
+            AddConstructor(@class);
+            AddDisposeMethod(@class);
+        }
 
-        protected override IEnumerable<string> RenderAdditionalMethods()
+        private static void AddIliadData(TestClass @class)
         {
-            return new[]
-            {
-                @"
+            @class.Methods.Add(@"
 private const string IliadFileName = ""iliad.txt"";
 private const string IliadContents =
     ""Achilles sing, O Goddess! Peleus' son;\n"" +
@@ -55,8 +58,12 @@ private const string IliadContents =
     ""To dogs and to all ravening fowls a prey,\n"" +
     ""When fierce dispute had separated once\n"" +
     ""The noble Chief Achilles from the son\n"" +
-    ""Of Atreus, Agamemnon, King of men.\n"";",
-            @"
+    ""Of Atreus, Agamemnon, King of men.\n"";");
+        }
+
+        private static void AddMidsummerNightData(TestClass @class)
+        {
+            @class.Methods.Add(@"
 private const string MidsummerNightFileName = ""midsummer-night.txt"";
 private const string MidsummerNightContents =
     ""I do entreat your grace to pardon me.\n"" +
@@ -65,8 +72,12 @@ private const string MidsummerNightContents =
     ""In such a presence here to plead my thoughts;\n"" +
     ""But I beseech your grace that I may know\n"" +
     ""The worst that may befall me in this case,\n"" +
-    ""If I refuse to wed Demetrius.\n"";",
-            @"
+    ""If I refuse to wed Demetrius.\n"";");
+        }
+
+        private static void AddParadiseLostData(TestClass @class)
+        {
+            @class.Methods.Add(@"
 private const string ParadiseLostFileName = ""paradise-lost.txt"";
 private const string ParadiseLostContents =
     ""Of Mans First Disobedience, and the Fruit\n"" +
@@ -76,24 +87,37 @@ private const string ParadiseLostContents =
     ""Restore us, and regain the blissful Seat,\n"" +
     ""Sing Heav'nly Muse, that on the secret top\n"" +
     ""Of Oreb, or of Sinai, didst inspire\n"" +
-    ""That Shepherd, who first taught the chosen Seed\n"";",
-            @"
+    ""That Shepherd, who first taught the chosen Seed\n"";");
+        }
+
+        private static void AddConstructor(TestClass @class)
+        {
+            @class.Methods.Add(@"
 public GrepTest()
 {
     Directory.SetCurrentDirectory(Path.GetTempPath());
     File.WriteAllText(IliadFileName, IliadContents);
     File.WriteAllText(MidsummerNightFileName, MidsummerNightContents);
     File.WriteAllText(ParadiseLostFileName, ParadiseLostContents);
-}",
-            @"
+}");
+        }
+
+        private static void AddDisposeMethod(TestClass @class)
+        {
+            @class.Methods.Add(@"
 public void Dispose()
 {
     Directory.SetCurrentDirectory(Path.GetTempPath());
     File.Delete(IliadFileName);
     File.Delete(MidsummerNightFileName);
     File.Delete(ParadiseLostFileName);
-}"
-            };
+}");
+        }
+        
+        protected override void UpdateNamespaces(ISet<string> namespaces)
+        {
+            namespaces.Add(typeof(IDisposable).Namespace);
+            namespaces.Add(typeof(File).Namespace);
         }
     }
 }

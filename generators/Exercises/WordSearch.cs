@@ -64,10 +64,10 @@ namespace Generators.Exercises
         private static string FormatCoordinate(dynamic coordinate)
             => ValueFormatter.Format((coordinate["column"], coordinate["row"]));
 
-        protected override IEnumerable<string> AdditionalNamespaces => new[]
+        protected override void UpdateNamespaces(ISet<string> namespaces)
         {
-            typeof(ValueTuple<int,int>).Namespace,
-            typeof(Dictionary<string,ValueTuple<int,int>>).Namespace
-        };
+            namespaces.Add(typeof(ValueTuple<int, int>).Namespace);
+            namespaces.Add(typeof(Dictionary<string, ValueTuple<int, int>>).Namespace);
+        }
     }
 }

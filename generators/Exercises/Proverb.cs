@@ -14,6 +14,9 @@ namespace Generators.Exercises
             data.Expected = ConvertHelper.ToArray<string>(data.Expected);
         }
 
-        protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(Array).Namespace };
+        protected override void UpdateNamespaces(ISet<string> namespaces)
+        {
+            namespaces.Add(typeof(Array).Namespace);
+        }
     }
 }

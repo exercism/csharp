@@ -18,13 +18,13 @@ namespace Generators.Exercises
             data.Input["rows"] = ConvertHelper.ToMultiLineString(data.Input["rows"], "");
             data.Expected = ConvertHelper.ToMultiLineString(data.Expected);
         }
-
-        protected override IEnumerable<string> AdditionalNamespaces => new[]
+        
+        protected override void UpdateNamespaces(ISet<string> namespaces)
         {
-            typeof(Array).Namespace,
-            typeof(Stream).Namespace,
-            typeof(UTF8Encoding).Namespace
-        };
+            namespaces.Add(typeof(Array).Namespace);
+            namespaces.Add(typeof(Stream).Namespace);
+            namespaces.Add(typeof(UTF8Encoding).Namespace);
+        }
         
         
         protected override void UpdateTestMethodBody(TestMethodBody body)
@@ -38,9 +38,14 @@ namespace Generators.Exercises
             return new[] { TemplateRenderer.RenderInline(template, new { }) };
         }
 
-        protected override IEnumerable<string> RenderAdditionalMethods()
+        protected override void UpdateTestClass(TestClass @class)
         {
-            const string methods = @"
+            AddRunTallyMethod(@class);
+        }
+
+        private static void AddRunTallyMethod(TestClass @class)
+        {
+            @class.Methods.Add(@"
 private string RunTally(string input)
 {
     var encoding = new UTF8Encoding();
@@ -51,8 +56,7 @@ private string RunTally(string input)
         Tournament.Tally(inStream, outStream);
         return encoding.GetString(outStream.ToArray());
     }
-}";
-            return methods.Split("");
+}");
         }
     }
 }

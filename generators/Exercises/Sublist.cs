@@ -16,7 +16,10 @@ namespace Generators.Exercises
             data.Expected = new UnescapedValue($"SublistType.{(data.Expected as string).Dehumanize()}");
         }
 
-        protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(IList<int>).Namespace };
+        protected override void UpdateNamespaces(ISet<string> namespaces)
+        {
+            namespaces.Add(typeof(IList<int>).Namespace);
+        }
 
         private static UnescapedValue InputValues(int[] list)
         {

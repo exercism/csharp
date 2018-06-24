@@ -41,6 +41,11 @@ namespace Generators.Output
         public bool UseVariableForTested { get; set; }
         public bool UseFullDescriptionPath { get; set; }
 
+        public string TestMethod => 
+            UseFullDescriptionPath
+                ? string.Join(" - ", DescriptionPath).ToTestMethodName()
+                : Description.ToTestMethodName();
+
         public string TestedClass { get; set; }
         public string TestedMethod { get; set; }
         public TestedMethodType TestedMethodType { get; set; }

@@ -49,7 +49,10 @@ namespace Generators.Exercises
             return new[] { TemplateRenderer.RenderInline(template, testMethodBody.AssertTemplateParameters) };
         }
 
-        protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(Math).Namespace };
+        protected override void UpdateNamespaces(ISet<string> namespaces)
+        {
+            namespaces.Add(typeof(Math).Namespace);
+        }
 
         private static object ConvertToType(dynamic rawValue)
         {

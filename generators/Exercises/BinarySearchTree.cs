@@ -28,11 +28,14 @@ namespace Generators.Exercises
 
     public class BinarySearchTree : GeneratorExercise
     {
-        protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(IQueryable).Namespace };
+        protected override void UpdateNamespaces(ISet<string> namespaces)
+        {
+            namespaces.Add(typeof(IQueryable).Namespace);
+        }
 
         private StringBuilder _testFactCodeLines;
         private void AddCodeLine(string line) => _testFactCodeLines.Append(line + "\r\n");
-        
+
         protected override void UpdateTestMethodBody(TestMethodBody body)
         {
             body.Assert = RenderTestMethodBodyAssert(body);

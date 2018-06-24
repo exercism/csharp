@@ -14,7 +14,10 @@ namespace Generators.Exercises
             data.Input["dominoes"] = ConvertInput(data.Input["dominoes"]);
         }
 
-        protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(Tuple).Namespace };
+        protected override void UpdateNamespaces(ISet<string> namespaces)
+        {
+            namespaces.Add(typeof(Tuple).Namespace);
+        }
 
         private static UnescapedValue ConvertInput(dynamic input)
         {

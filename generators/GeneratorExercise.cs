@@ -19,90 +19,76 @@ namespace Generators
             ExerciseWriter.WriteToFile(this);
         }
 
-        public string Render() => CreateUpdatedTestClass().Render();
+        public string Render() => CreateTestClass().Render();
 
-        protected virtual IEnumerable<string> AdditionalNamespaces => Enumerable.Empty<string>();
-
-        protected virtual IEnumerable<string> RenderAdditionalMethods() => Array.Empty<string>();
-
-        private IEnumerable<string> GetNamespaces(IEnumerable<TestData> testData)
+        private IList<string> RenderTestMethods(IEnumerable<TestData> testData)
         {
-            var usingNamespaces = new SortedSet<string> { "Xunit" };
-
-            foreach (var data in testData.Where(x => x.ExceptionThrown != null))
-                usingNamespaces.Add(data.ExceptionThrown.Namespace);
-
-            usingNamespaces.UnionWith(AdditionalNamespaces);
-
-            return usingNamespaces;
-        }
-
-        private IEnumerable<string> RenderTestMethods(IEnumerable<TestData> testData) 
-            => testData
-                .Select(RenderTestMethod)
-                .Concat(RenderAdditionalMethods())
+            var testMethods = testData
+                .Select(CreateTestMethod)
                 .ToArray();
+            
+            Array.ForEach(testMethods, UpdateTestMethod);
 
-        private TestClass CreateUpdatedTestClass()
-        {
-            var testClass = CreateTestClass();
-            UpdateTestClass(testClass);
-
-            return testClass;
+            return testMethods.Select(testMethod => testMethod.Render()).ToList();
         }
 
         private TestClass CreateTestClass()
         {
-            var testData = CreateUpdatedTestData();
-
-            return new TestClass
+            var testData = CreateTestData();
+            var testClass = new TestClass
             {
                 ClassName = Name.ToTestClassName(),
                 Methods = RenderTestMethods(testData),
                 CanonicalDataVersion = _canonicalData.Version,
                 Namespaces = GetNamespaces(testData)
             };
+
+            UpdateTestClass(testClass);
+            return testClass;
         }
-        
+
         protected virtual void UpdateTestClass(TestClass @class)
         {
         }
 
-        private string RenderTestMethod(TestData data, int index) => CreateUpdatedTestMethod(data, index).Render();
-
-        protected virtual TestMethod CreateUpdatedTestMethod(TestData data, int index)
+        private ISet<string> GetNamespaces(IEnumerable<TestData> testData)
         {
-            var testMethod = CreateTestMethod(data, index);
-            UpdateTestMethod(testMethod);
+            var exceptionNamespaces = testData
+                .Where(x => x.ExceptionThrown != null)
+                .Select(x => x.ExceptionThrown.Namespace);
 
-            return testMethod;
+            var defaultNamespaces = new[] { "Xunit" };
+
+            var namespaces = new SortedSet<string>(defaultNamespaces.Concat(exceptionNamespaces));
+            UpdateNamespaces(namespaces);
+            
+            return namespaces;
         }
-        
-        protected virtual TestMethod CreateTestMethod(TestData data, int index) => new TestMethod
+
+        protected virtual void UpdateNamespaces(ISet<string> namespaces)
+        {
+        }
+
+        private TestMethod CreateTestMethod(TestData data, int index) => new TestMethod
         {
             Skip = index > 0,
-            Name = ToTestMethodName(data),
-            Body = CreateUpdatedTestMethodBody(data)
+            Name = data.TestMethod,
+            Body = CreateTestMethodBody(data)
         };
 
         protected virtual void UpdateTestMethod(TestMethod method)
         {
         }
 
-        private static string ToTestMethodName(TestData data)
-            => data.UseFullDescriptionPath
-                ? string.Join(" - ", data.DescriptionPath).ToTestMethodName()
-                : data.Description.ToTestMethodName();
-
-        private TestMethodBody CreateUpdatedTestMethodBody(TestData data)
+        private TestMethodBody CreateTestMethodBody(TestData data)
         {
-            var testMethodBody = CreateTestMethodBody(data);
+            var testMethodBody = CreateTestMethodBodyFromData(data);
             UpdateTestMethodBody(testMethodBody);
 
             return testMethodBody;
         }
 
-        private static TestMethodBody CreateTestMethodBody(TestData data)
+        private static TestMethodBody CreateTestMethodBodyFromData(TestData data)
         {
             if (data.ExceptionThrown != null)
             {
@@ -124,19 +110,15 @@ namespace Generators
         {
         }
 
-        private TestData[] CreateUpdatedTestData()
+        private TestData[] CreateTestData()
         {
-            var testData = CreateTestData();
+            var testData = _canonicalData.Cases
+                .Select(canonicalDataCase => new TestData(_canonicalData, canonicalDataCase))
+                .ToArray();
     
-            foreach (var data in testData)
-                UpdateTestData(data);
-
+            Array.ForEach(testData, UpdateTestData);
             return testData;
         }
-        
-        private TestData[] CreateTestData() => _canonicalData.Cases.Select(CreateTestData).ToArray();
-
-        private TestData CreateTestData(CanonicalDataCase canonicalDataCase) => new TestData(_canonicalData, canonicalDataCase);
 
         protected virtual void UpdateTestData(TestData data)
         {

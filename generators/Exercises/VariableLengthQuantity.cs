@@ -20,7 +20,10 @@ namespace Generators.Exercises
                 data.Expected = FormatUInt32Array(data.Expected);
         }
 
-        protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(Array).Namespace };
+        protected override void UpdateNamespaces(ISet<string> namespaces)
+        {
+            namespaces.Add(typeof(Array).Namespace);
+        }
 
         private static dynamic FormatUInt32Array(dynamic input)
         {

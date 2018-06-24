@@ -42,7 +42,7 @@ namespace Generators.Exercises
                 data.Expected = new UnescapedValue("sut.Key.Substring(0, 10)");
             }
         }
-        
+
         protected override void UpdateTestMethodBody(TestMethodBody body)
         {
             body.Assert = RenderTestMethodBodyAssert(body);
@@ -63,6 +63,9 @@ namespace Generators.Exercises
             }
         }
 
-        protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(ArgumentException).Namespace };
+        protected override void UpdateNamespaces(ISet<string> namespaces)
+        {
+            namespaces.Add(typeof(ArgumentException).Namespace);
+        }
     }
 }

@@ -13,6 +13,9 @@ namespace Generators.Exercises
             data.UseVariablesForInput = true;
         }
 
-        protected override IEnumerable<string> AdditionalNamespaces => new[] { typeof(Array).Namespace };
+        protected override void UpdateNamespaces(ISet<string> namespaces)
+        {
+            namespaces.Add(typeof(Array).Namespace);
+        }
     }
 }

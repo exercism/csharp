@@ -99,11 +99,11 @@ namespace Generators.Exercises
 
             return value;
         }
-
-        protected override IEnumerable<string> AdditionalNamespaces => new[]
+        
+        protected override void UpdateNamespaces(ISet<string> namespaces)
         {
-            typeof(Func<int,int>).Namespace,
-            typeof(List<int>).Namespace
-        };
+            namespaces.Add(typeof(Func<int,int>).Namespace);
+            namespaces.Add(typeof(List<int>).Namespace);
+        }
     }
 }
