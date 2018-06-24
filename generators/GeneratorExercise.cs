@@ -16,10 +16,10 @@ namespace Generators
         {
             _canonicalData = canonicalData;
 
-            ExerciseWriter.WriteToFile(this);
+            var testClass = CreateTestClass();
+            var testClassFile = new TestClassFile(testClass);
+            testClassFile.Write();
         }
-
-        public string Render() => CreateTestClass().Render();
 
         private IList<string> RenderTestMethods(IEnumerable<TestData> testData)
         {
@@ -37,9 +37,10 @@ namespace Generators
             var testData = CreateTestData();
             var testClass = new TestClass
             {
-                ClassName = Name.ToTestClassName(),
-                Methods = RenderTestMethods(testData),
+                Exercise = _canonicalData.Exercise,
                 CanonicalDataVersion = _canonicalData.Version,
+                ClassName = _canonicalData.Exercise.ToTestClassName(),
+                Methods = RenderTestMethods(testData),
                 Namespaces = GetNamespaces(testData)
             };
 

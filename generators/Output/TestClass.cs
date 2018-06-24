@@ -4,6 +4,7 @@ namespace Generators.Output
 {
     public class TestClass
     {   
+        public string Exercise { get; set; }
         public string ClassName { get; set; }
         public string CanonicalDataVersion { get; set; }
         public IList<string> Methods { get; set; }
