@@ -1,5 +1,7 @@
 ﻿[Fact{% if Skip %}(Skip = "Remove to run test"){% endif %}]
 public void {{ Name }}()
 {
-{{ Body | indent }}
+{%- for line in Lines -%}
+{{ line | indent }}
+{%- endfor -%}
 }

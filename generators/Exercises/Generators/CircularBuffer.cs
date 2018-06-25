@@ -6,16 +6,16 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class CircularBuffer : GeneratorExercise
     {
-        protected override void UpdateTestMethodBody(TestMethodBody body)
+        protected override void UpdateTestMethod(TestMethod method)
         {
-            body.Assert = RenderTestMethodBodyAssert(body);
+            method.Assert = RenderAssert(method);
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody body)
+        private static IEnumerable<string> RenderAssert(TestMethod method)
         {
-            yield return RenderSut(body.Data);
+            yield return RenderSut(method.Data);
 
-            foreach (var operation in body.Data.Input["operations"])
+            foreach (var operation in method.Data.Input["operations"])
                 yield return RenderOperation(operation);
         }
 

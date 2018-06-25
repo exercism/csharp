@@ -15,8 +15,9 @@ namespace Exercism.CSharp.Input
                 .Select(Parse)
                 .ToArray();
 
-        private static CanonicalDataCase Parse(JToken canonicalDataCaseJToken)
+        private static CanonicalDataCase Parse(JToken canonicalDataCaseJToken, int index)
             => new CanonicalDataCase(
+                index: index,
                 property: canonicalDataCaseJToken.Value<string>("property"),
                 properties: ToReadOnlyDictionary(canonicalDataCaseJToken),
                 input: ToReadOnlyDictionary(canonicalDataCaseJToken["input"]),

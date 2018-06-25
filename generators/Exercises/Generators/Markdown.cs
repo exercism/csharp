@@ -8,11 +8,7 @@ namespace Exercism.CSharp.Exercises.Generators
         {
             data.UseVariablesForInput = true;
             data.UseVariableForExpected = true;
-        }
-
-        protected override void UpdateTestMethod(TestMethod method)
-        {
-            method.Skip = false;
+            data.Skip = false;
         }
     }
 }

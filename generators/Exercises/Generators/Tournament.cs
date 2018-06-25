@@ -19,21 +19,21 @@ namespace Exercism.CSharp.Exercises.Generators
             data.Input["rows"] = ConvertHelper.ToMultiLineString(data.Input["rows"], "");
             data.Expected = ConvertHelper.ToMultiLineString(data.Expected);
         }
-        
+
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {
             namespaces.Add(typeof(Array).Namespace);
             namespaces.Add(typeof(Stream).Namespace);
             namespaces.Add(typeof(UTF8Encoding).Namespace);
         }
-        
-        
-        protected override void UpdateTestMethodBody(TestMethodBody body)
+
+
+        protected override void UpdateTestMethod(TestMethod method)
         {
-            body.Assert = RenderTestMethodBodyAssert();
+            method.Assert = RenderAssert();
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAssert()
+        private static IEnumerable<string> RenderAssert()
         {
             const string template = @"Assert.Equal(expected, RunTally(rows));";
             return new[] { TemplateRenderer.RenderInline(template, new { }) };

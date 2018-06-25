@@ -1,8 +1,8 @@
 namespace Exercism.CSharp.Output
 {
-    public class TestMethodBodyWithEmptyAssertion : TestMethodBody
+    public class TestMethodWithEmptyAssertion : TestMethod
     {
-        public TestMethodBodyWithEmptyAssertion(TestData data) : base(data)
+        public TestMethodWithEmptyAssertion(TestData data): base(data)
         {
             Data.UseVariableForExpected = false;
             

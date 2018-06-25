@@ -51,20 +51,20 @@ namespace Exercism.CSharp.Exercises.Generators
                 data.Expected = new UnescapedValue(string.Join(Environment.NewLine, expected));
             }
         }
-        
-        protected override void UpdateTestMethodBody(TestMethodBody body)
+
+        protected override void UpdateTestMethod(TestMethod method)
         {
-            body.Assert = RenderTestMethodBodyAssert(body);
+            method.Assert = RenderAssert(method);
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody body)
+        private static IEnumerable<string> RenderAssert(TestMethod method)
         {
-            if (body.Data.ExceptionThrown != null)
+            if (method.Data.ExceptionThrown != null)
             {
-                return body.Assert;
+                return method.Assert;
             }
 
-            if (body.Data.Property == "territories")
+            if (method.Data.Property == "territories")
             {
                 return new[]
                 {
@@ -87,10 +87,10 @@ namespace Exercism.CSharp.Exercises.Generators
 
         private static string FormatTerritory(dynamic territory)
             => ValueFormatter.Format((territory as JArray).Select(coordinate => (coordinate[0].ToObject<int>(), coordinate[1].ToObject<int>())).ToArray());
-        
+
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {
-            namespaces.Add(typeof(Dictionary<int,int>).Namespace);
+            namespaces.Add(typeof(Dictionary<int, int>).Namespace);
         }
     }
 }

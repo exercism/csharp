@@ -31,7 +31,7 @@ namespace Exercism.CSharp.Exercises.Generators
 
         protected override void UpdateTestClass(TestClass @class)
         {
-            @class.TemplateName = "TestClassDisposable";
+            @class.IsDisposable = true;
 
             AddAdditionalMethods(@class);
         }

@@ -15,25 +15,25 @@ namespace Exercism.CSharp.Exercises.Generators
             data.Input["startBucket"] = new UnescapedValue(startBucket == "two" ? "Bucket.Two" : "Bucket.One");
         }
 
-        protected override void UpdateTestMethodBody(TestMethodBody body)
+        protected override void UpdateTestMethod(TestMethod method)
         {
-            body.Act = RenderTestMethodBodyAct(body);
-            body.Assert = RenderTestMethodBodyAssert(body);
+            method.Act = RenderAct(method);
+            method.Assert = RenderAssert(method);
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAct(TestMethodBody body)
+        private static IEnumerable<string> RenderAct(TestMethod method)
         {
             const string template = @"var result = {{MethodInvocation}};";
 
             var templateParameters = new
             {
-                MethodInvocation = body.TestedMethodInvocation
+                MethodInvocation = method.TestedMethodInvocation
             };
 
             return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody body)
+        private static IEnumerable<string> RenderAssert(TestMethod method)
         {
             const string template =
 @"Assert.Equal({{MovesExpected}}, result.Moves);
@@ -42,9 +42,9 @@ Assert.Equal({% if GoalBucketExpected == 'two' %}Bucket.Two{% else %}Bucket.One{
 
             var templateParameters = new
             {
-                MovesExpected = body.Data.Expected["moves"],
-                OtherBucketExpected = body.Data.Expected["otherBucket"],
-                GoalBucketExpected = body.Data.Expected["goalBucket"]
+                MovesExpected = method.Data.Expected["moves"],
+                OtherBucketExpected = method.Data.Expected["otherBucket"],
+                GoalBucketExpected = method.Data.Expected["goalBucket"]
             };
 
             return new[] { TemplateRenderer.RenderInline(template, templateParameters) };

@@ -2,9 +2,9 @@ using System;
 
 namespace Exercism.CSharp.Output
 {
-    public class TestMethodBodyWithBooleanAssertion : TestMethodBody
+    public class TestMethodWithBooleanAssertion : TestMethod
     {
-        public TestMethodBodyWithBooleanAssertion(TestData data) : base(data)
+        public TestMethodWithBooleanAssertion(TestData data) : base(data)
         {
             AssertTemplateName = "AssertBoolean";
             AssertTemplateParameters = new { BooleanAssertMethod, TestedValue };

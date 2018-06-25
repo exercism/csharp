@@ -1,13 +1,13 @@
 ﻿namespace Exercism.CSharp.Output
 {
-    public class TestMethodBodyWithExceptionAssertion : TestMethodBody
+    public class TestMethodWithExceptionAssertion : TestMethod
     {
-        public TestMethodBodyWithExceptionAssertion(TestData data) : base(data)
+        public TestMethodWithExceptionAssertion(TestData data) : base(data)
         {
             Data.UseVariableForExpected = false;
             Data.UseVariableForTested = false;
 
-            AssertTemplateName = "AssertThrowsException";
+            AssertTemplateName = "AssertException";
             AssertTemplateParameters = new { ExceptionType, TestedValue };
         }
 

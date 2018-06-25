@@ -26,50 +26,50 @@ namespace Exercism.CSharp.Exercises.Generators
             data.UseFullDescriptionPath = true;
         }
 
-        protected override void UpdateTestMethodBody(TestMethodBody body)
+        protected override void UpdateTestMethod(TestMethod method)
         {
-            body.Act = RenderTestMethodBodyAct(body);
-            body.Assert = RenderTestMethodBodyAssert(body);
+            method.Act = RenderAct(method);
+            method.Assert = RenderAssert(method);
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAct(TestMethodBody body)
+        private static IEnumerable<string> RenderAct(TestMethod method)
         {
-            switch (body.Data.Property)
+            switch (method.Data.Property)
             {
                 case "create": return Array.Empty<string>();
-                case "instructions": return RenderInstructionsMethodBodyAct(body);
-                default: return RenderDefaultMethodBodyAct(body);
+                case "instructions": return RenderInstructionsAct(method);
+                default: return RenderDefaultAct(method);
             }
         }
 
-        private static IEnumerable<string> RenderDefaultMethodBodyAct(TestMethodBody body)
+        private static IEnumerable<string> RenderDefaultAct(TestMethod method)
         {
             const string template = @"sut.{{MethodInvocation}}();";
 
             var templateParameters = new
             {
-                MethodInvocation = body.Data.Property.ToTestedMethodName()
+                MethodInvocation = method.Data.Property.ToTestedMethodName()
             };
 
             return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
         }
 
-        private static IEnumerable<string> RenderInstructionsMethodBodyAct(TestMethodBody body)
+        private static IEnumerable<string> RenderInstructionsAct(TestMethod method)
         {
             const string template = @"sut.{{MethodInvocation}}(""{{Instructions}}"");";
 
             var templateParameters = new
             {
                 MethodInvocation = "Simulate",
-                Instructions = body.Data.Input["instructions"]
+                Instructions = method.Data.Input["instructions"]
             };
 
             return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody body)
+        private static IEnumerable<string> RenderAssert(TestMethod method)
         {
-            var expected = body.Data.Expected as Dictionary<string, dynamic>;
+            var expected = method.Data.Expected as Dictionary<string, dynamic>;
             expected.TryGetValue("position", out var position);
             expected.TryGetValue("direction", out var direction);
 

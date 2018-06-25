@@ -37,15 +37,15 @@ namespace Exercism.CSharp.Exercises.Generators
         private StringBuilder _testFactCodeLines;
         private void AddCodeLine(string line) => _testFactCodeLines.Append(line + "\r\n");
 
-        protected override void UpdateTestMethodBody(TestMethodBody body)
+        protected override void UpdateTestMethod(TestMethod method)
         {
-            body.Assert = RenderTestMethodBodyAssert(body);
+            method.Assert = RenderAssert(method);
         }
 
-        protected IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody body)
+        private IEnumerable<string> RenderAssert(TestMethod method)
         {
             _testFactCodeLines = new StringBuilder();
-            var canonicalDataCase = body.Data;
+            var canonicalDataCase = method.Data;
             var input = canonicalDataCase.Properties["input"] as Dictionary<string, object>;
             var constructorData = input["treeData"] as string[];
 

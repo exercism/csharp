@@ -30,16 +30,16 @@ namespace Exercism.CSharp.Exercises.Generators
                 new UnescapedValue($"DayOfWeek.{((string)data.Input[ParamDayOfWeek]).Transform(To.SentenceCase)}");
         }
 
-        protected override void UpdateTestMethodBody(TestMethodBody body)
+        protected override void UpdateTestMethod(TestMethod method)
         {
-            body.Assert = RenderTestMethodBodyAssert(body);
+            method.Assert = RenderAssert(method);
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody body)
+        private static IEnumerable<string> RenderAssert(TestMethod method)
         {
             const string template = "Assert.Equal({{ ExpectedParameter }}, {{ TestedValue }}.ToString(\"yyyy-MM-dd\"));";
 
-            return new[] { TemplateRenderer.RenderInline(template, new { body.ExpectedParameter, body.TestedValue }) };
+            return new[] { TemplateRenderer.RenderInline(template, new { method.ExpectedParameter, method.TestedValue }) };
         }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)

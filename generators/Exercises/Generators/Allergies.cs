@@ -15,27 +15,27 @@ namespace Exercism.CSharp.Exercises.Generators
 
             data.SetConstructorInputParameters("score");
         }
-        
-        protected override void UpdateTestMethodBody(TestMethodBody body)
+
+        protected override void UpdateTestMethod(TestMethod method)
         {
-            body.Assert = RenderTestMethodBodyAssert(body);
+            method.Assert = RenderAssert(method);
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody body)
+        private static IEnumerable<string> RenderAssert(TestMethod method)
         {
-            return body.Data.Property == "allergicTo"
-                ? RenderIsAllergicToAssert(body)
-                : body.Assert;
+            return method.Data.Property == "allergicTo"
+                ? RenderIsAllergicToAssert(method)
+                : method.Assert;
         }
 
-        private static IEnumerable<string> RenderIsAllergicToAssert(TestMethodBody body)
+        private static IEnumerable<string> RenderIsAllergicToAssert(TestMethod method)
         {
             const string template =
                 @"{%- for allergy in Allergies -%}
 Assert.{% if allergy.result %}True{% else %}False{% endif %}(sut.IsAllergicTo(""{{ allergy.substance }}""));
 {%- endfor -%}";
 
-            var templateParameters = new { Allergies = body.Data.Expected };
+            var templateParameters = new { Allergies = method.Data.Expected };
             return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
         }
     }

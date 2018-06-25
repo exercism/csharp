@@ -17,17 +17,17 @@ namespace Exercism.CSharp.Exercises.Generators
     }
 
     public class RationalNumbers : GeneratorExercise
-    {   
-        protected override void UpdateTestMethodBody(TestMethodBody body)
+    {
+        protected override void UpdateTestMethod(TestMethod method)
         {
-            body.Assert = RenderTestMethodBodyAssert(body);
+            method.Assert = RenderAssert(method);
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody body)
+        private static IEnumerable<string> RenderAssert(TestMethod method)
         {
-            var input = body.Data.Properties["input"] as Dictionary<string, object>;
-            var operation = body.Data.Properties["property"].ToString();
-            var expected = body.Data.Properties["expected"];
+            var input = method.Data.Properties["input"] as Dictionary<string, object>;
+            var operation = method.Data.Properties["property"].ToString();
+            var expected = method.Data.Properties["expected"];
             var operationName = char.ToUpper(operation[0]) + operation.Substring(1);
             var assertCodeLine = "";
             const string operationsWithOverloading = "add|+|sub|-|mul|*|div|/";

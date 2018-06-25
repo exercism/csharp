@@ -9,22 +9,22 @@ using Humanizer;
 namespace Exercism.CSharp.Exercises.Generators
 {
     public class React : GeneratorExercise
-    {   
-        protected override void UpdateTestMethodBody(TestMethodBody body)
+    {
+        protected override void UpdateTestMethod(TestMethod method)
         {
-            body.Arrange = RenderTestMethodBodyArrange(body);
-            body.Assert = RenderTestMethodBodyAssert();
+            method.Arrange = RenderArrange(method);
+            method.Assert = RenderAssert();
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyArrange(TestMethodBody body)
+        private static IEnumerable<string> RenderArrange(TestMethod method)
         {
             var arrange = new StringBuilder();
             arrange.AppendLine("var sut = new Reactor();");
 
-            var cells = RenderCells(body.Data.Input["cells"]);
+            var cells = RenderCells(method.Data.Input["cells"]);
             arrange.AppendLine(cells);
 
-            var operations = RenderOperations(body.Data.Input["operations"]);
+            var operations = RenderOperations(method.Data.Input["operations"]);
             arrange.AppendLine(operations);
 
             return new[] { arrange.ToString() };
@@ -125,9 +125,9 @@ namespace Exercism.CSharp.Exercises.Generators
             }
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAssert()
+        private static IEnumerable<string> RenderAssert()
             => new[] { "" };
-        
+
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {
             namespaces.Add(typeof(EventHandler).Namespace);

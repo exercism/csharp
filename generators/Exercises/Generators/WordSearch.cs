@@ -34,20 +34,20 @@ namespace Exercism.CSharp.Exercises.Generators
         }
 
         
-        protected override void UpdateTestMethodBody(TestMethodBody body)
+        protected override void UpdateTestMethod(TestMethod method)
         {
-            body.Assert = RenderTestMethodBodyAssert(body);
+            method.Assert = RenderAssert(method);
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody body)
+        private static IEnumerable<string> RenderAssert(TestMethod method)
         {
-            var expectedDictionary = body.Data.Properties["expected"] as IDictionary<string, dynamic>;
+            var expectedDictionary = method.Data.Properties["expected"] as IDictionary<string, dynamic>;
 
             foreach (var kv in expectedDictionary)
-                yield return RenderTestMethodBodyAssertForSearchWord(kv.Key, kv.Value);
+                yield return RenderAssertForSearchWord(kv.Key, kv.Value);
         }
 
-        private static string RenderTestMethodBodyAssertForSearchWord(string word, dynamic expected)
+        private static string RenderAssertForSearchWord(string word, dynamic expected)
         {
             return expected == null
                 ? $"Assert.Null(expected[\"{word}\"]);"

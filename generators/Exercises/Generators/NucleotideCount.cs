@@ -26,37 +26,37 @@ namespace Exercism.CSharp.Exercises.Generators
             namespaces.Add(typeof(Dictionary<char, int>).Namespace);
         }
 
-        protected override void UpdateTestMethodBody(TestMethodBody body)
+        protected override void UpdateTestMethod(TestMethod method)
         {
-            body.Assert = RenderTestMethodBodyAssert(body);
+            method.Assert = RenderAssert(method);
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody body)
+        private static IEnumerable<string> RenderAssert(TestMethod method)
         {
-            return body.Data.UseVariableForExpected
-                ? RenderEqualBodyAssert(body)
-                : RenderThrowsBodyAssert(body);
+            return method.Data.UseVariableForExpected
+                ? RenderEqualAssert(method)
+                : RenderThrowsAssert(method);
         }
 
-        private static IEnumerable<string> RenderEqualBodyAssert(TestMethodBody body)
+        private static IEnumerable<string> RenderEqualAssert(TestMethod method)
         {
             const string template = @"Assert.Equal(expected, sut.{{ TestedMethodName }});";
 
             var templateParameters = new
             {
-                TestedMethodName = body.Data.Property.ToTestedMethodName()
+                TestedMethodName = method.Data.Property.ToTestedMethodName()
             };
 
             return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
         }
 
-        private static IEnumerable<string> RenderThrowsBodyAssert(TestMethodBody body)
+        private static IEnumerable<string> RenderThrowsAssert(TestMethod method)
         {
             const string template = @"Assert.Throws<InvalidNucleotideException>(() => new NucleotideCount(""{{ Input }}""));";
 
             var templateParameters = new
             {
-                Input = body.Data.Input["strand"]
+                Input = method.Data.Input["strand"]
             };
 
             return new[] { TemplateRenderer.RenderInline(template, templateParameters) };

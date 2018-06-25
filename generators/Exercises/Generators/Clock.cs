@@ -37,35 +37,35 @@ namespace Exercism.CSharp.Exercises.Generators
                 data.TestedMethod = "Equals";
             }
         }
-        
-        protected override void UpdateTestMethodBody(TestMethodBody body)
+
+        protected override void UpdateTestMethod(TestMethod method)
         {
-            body.Assert = RenderTestMethodBodyAssert(body);
+            method.Assert = RenderAssert(method);
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody body)
+        private static IEnumerable<string> RenderAssert(TestMethod method)
         {
-            if (body.Data.Property == PropertyEqual)
+            if (method.Data.Property == PropertyEqual)
             {
-                return RenderEqualToAssert(body);
+                return RenderEqualToAssert(method);
             }
 
-            return body.Data.Property != PropertyCreate
-                ? RenderConsistencyToAssert(body)
-                : body.Assert;
+            return method.Data.Property != PropertyCreate
+                ? RenderConsistencyToAssert(method)
+                : method.Assert;
         }
 
-        private static IEnumerable<string> RenderConsistencyToAssert(TestMethodBody body)
+        private static IEnumerable<string> RenderConsistencyToAssert(TestMethod method)
         {
             const string template = "Assert.Equal({{ ExpectedParameter }}, {{ TestedValue }}.ToString());";
-            return new[] { TemplateRenderer.RenderInline(template, new { body.ExpectedParameter, body.TestedValue }) };
+            return new[] { TemplateRenderer.RenderInline(template, new { method.ExpectedParameter, method.TestedValue }) };
         }
 
-        private static IEnumerable<string> RenderEqualToAssert(TestMethodBody body)
+        private static IEnumerable<string> RenderEqualToAssert(TestMethod method)
         {
-            var expectedParameter = body.Data.Input[ParamClock1];
+            var expectedParameter = method.Data.Input[ParamClock1];
             const string testedValue = "sut";
-            var expectedEqual = body.Data.Expected;
+            var expectedEqual = method.Data.Expected;
 
             var assertTemplateParameters = new { expectedParameter, testedValue };
 

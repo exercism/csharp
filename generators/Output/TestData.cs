@@ -23,6 +23,8 @@ namespace Exercism.CSharp.Output
 
             SetInputParameters(canonicalDataCase.Input.Keys.ToArray());
 
+            Skip = canonicalDataCase.Index > 0;
+
             TestedClass = canonicalData.Exercise.ToTestedClassName();
             TestedMethod = canonicalDataCase.Property.ToTestedMethodName();
         }
@@ -37,6 +39,8 @@ namespace Exercism.CSharp.Output
         public string Description { get; set; }
         public IList<string> DescriptionPath { get; set; }
 
+        public bool Skip { get; set; }
+        
         public bool UseVariablesForInput { get; set; }
         public bool UseVariableForExpected { get; set; }
         public bool UseVariablesForConstructorParameters { get; set; }

@@ -8,25 +8,25 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class Zipper : GeneratorExercise
     {
-        protected override void UpdateTestMethodBody(TestMethodBody body)
+        protected override void UpdateTestMethod(TestMethod method)
         {
-            body.Arrange = RenderTestMethodBodyArrange(body);
-            body.Assert = RenderTestMethodBodyAssert(body);
+            method.Arrange = RenderArrange(method);
+            method.Assert = RenderAssert(method);
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyArrange(TestMethodBody body)
+        private static IEnumerable<string> RenderArrange(TestMethod method)
         {
-            var tree = RenderTree(body.Data.Input["initialTree"]);
+            var tree = RenderTree(method.Data.Input["initialTree"]);
             yield return $"var tree = {tree};";
             yield return "var sut = Zipper.FromTree(tree);";
 
-            var operations = RenderOperations(body.Data.Input["operations"]);
+            var operations = RenderOperations(method.Data.Input["operations"]);
             yield return $"var actual = sut{operations};";
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody body)
+        private static IEnumerable<string> RenderAssert(TestMethod method)
         {
-            var expected = RenderExpected(body.Data.Expected);
+            var expected = RenderExpected(method.Data.Expected);
             if (expected == null)
             {
                 yield return "Assert.Null(actual);";

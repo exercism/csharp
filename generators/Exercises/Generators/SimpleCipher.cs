@@ -43,23 +43,23 @@ namespace Exercism.CSharp.Exercises.Generators
             }
         }
 
-        protected override void UpdateTestMethodBody(TestMethodBody body)
+        protected override void UpdateTestMethod(TestMethod method)
         {
-            body.Assert = RenderTestMethodBodyAssert(body);
+            method.Assert = RenderAssert(method);
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody body)
+        private static IEnumerable<string> RenderAssert(TestMethod method)
         {
-            switch (body.Data.Property)
+            switch (method.Data.Property)
             {
                 case "new":
-                    var key = ValueFormatter.Format(body.Data.Input["key"]);
+                    var key = ValueFormatter.Format(method.Data.Input["key"]);
                     return new[] { $"Assert.Throws<ArgumentException>(() => new SimpleCipher({key}));" };
                 case "key":
-                    var pattern = ValueFormatter.Format(body.Data.Expected["match"]);
+                    var pattern = ValueFormatter.Format(method.Data.Expected["match"]);
                     return new[] { $"Assert.Matches({pattern}, sut.Key);" };
                 default:
-                    return body.Assert;
+                    return method.Assert;
             }
         }
 

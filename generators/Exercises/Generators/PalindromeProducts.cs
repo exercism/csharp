@@ -21,17 +21,17 @@ namespace Exercism.CSharp.Exercises.Generators
                 data.Expected = (data.Expected["value"], FormatCoordinates(data.Expected["factors"]));
             }
         }
-        
-        protected override void UpdateTestMethodBody(TestMethodBody body)
+
+        protected override void UpdateTestMethod(TestMethod method)
         {
-            body.Assert = RenderTestMethodBodyAssert(body);
+            method.Assert = RenderAssert(method);
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody body)
+        private static IEnumerable<string> RenderAssert(TestMethod method)
         {
-            if (body.Data.ExceptionThrown != null)
+            if (method.Data.ExceptionThrown != null)
             {
-                return body.Assert;
+                return method.Assert;
             }
 
             return new[]

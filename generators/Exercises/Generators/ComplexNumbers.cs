@@ -31,23 +31,23 @@ namespace Exercism.CSharp.Exercises.Generators
         private static string[] GetInputParameters(TestData canonicalDataCase, string constructorParamName)
             => canonicalDataCase.Input.Keys.Where(x => x != constructorParamName).ToArray();
 
-        protected override void UpdateTestMethodBody(TestMethodBody body)
+        protected override void UpdateTestMethod(TestMethod method)
         {
-            body.Assert = RenderTestMethodBodyAssert(body);
+            method.Assert = RenderAssert(method);
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody body)
+        private static IEnumerable<string> RenderAssert(TestMethod method)
         {
-            return body.Data.UseVariableForExpected
-                ? RenderComplexNumberAssert(body)
-                : body.Assert;
+            return method.Data.UseVariableForExpected
+                ? RenderComplexNumberAssert(method)
+                : method.Assert;
         }
 
-        private static IEnumerable<string> RenderComplexNumberAssert(TestMethodBody body)
+        private static IEnumerable<string> RenderComplexNumberAssert(TestMethod method)
         {
             const string template = "Assert.Equal({{ ExpectedParameter }}.Real(), {{ TestedValue }}.Real(), precision: 15);\r\nAssert.Equal({{ ExpectedParameter }}.Imaginary(), {{ TestedValue }}.Imaginary(), precision: 15);";
 
-            return new[] { TemplateRenderer.RenderInline(template, new { body.ExpectedParameter, body.TestedValue}) };
+            return new[] { TemplateRenderer.RenderInline(template, new { method.ExpectedParameter, method.TestedValue }) };
         }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)

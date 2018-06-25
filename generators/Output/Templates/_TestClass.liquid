@@ -1,10 +1,10 @@
 ﻿// This file was auto-generated based on version {{CanonicalDataVersion}} of the canonical data.
 
-{%- for namespace in UsingNamespaces -%}
+{%- for namespace in Namespaces -%}
 using {{ namespace }};
 {%- endfor -%}
 
-public class {{ClassName}}
+public class {{ClassName}}{% if IsDisposable %} : IDisposable{% endif %}
 {
 {%- for method in Methods -%}
 {{ method | indent }}

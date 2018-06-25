@@ -10,27 +10,27 @@ namespace Exercism.CSharp.Exercises.Generators
         {
             data.Description = $"{data.Property} {data.Description}";
         }
-        
-        protected override void UpdateTestMethodBody(TestMethodBody body)
+
+        protected override void UpdateTestMethod(TestMethod method)
         {
-            body.Assert = RenderTestMethodBodyAssert(body);
+            method.Assert = RenderAssert(method);
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody body)
+        private static IEnumerable<string> RenderAssert(TestMethod method)
         {
-            return body.Data.Property == "consistency"
-                ? RenderConsistencyToAssert(body)
-                : body.Assert;
+            return method.Data.Property == "consistency"
+                ? RenderConsistencyToAssert(method)
+                : method.Assert;
         }
 
-        private static IEnumerable<string> RenderConsistencyToAssert(TestMethodBody body)
+        private static IEnumerable<string> RenderConsistencyToAssert(TestMethod method)
         {
             const string template = @"Assert.Equal(""{{Expected}}"", {{TestedClassName}}.Decode({{TestedClassName}}.Encode(""{{Expected}}"")));";
 
             var templateParameters = new
             {
-                body.Data.Expected,
-                TestedClassName = body.Data.TestedClass
+                method.Data.Expected,
+                TestedClassName = method.Data.TestedClass
             };
 
             return new[] { TemplateRenderer.RenderInline(template, templateParameters) };

@@ -12,31 +12,31 @@ namespace Exercism.CSharp.Exercises.Generators
             if (data.Property == "create")
                 SetCreatePropertyData(data);
         }
-        
-        protected override void UpdateTestMethodBody(TestMethodBody body)
+
+        protected override void UpdateTestMethod(TestMethod method)
         {
-            body.Assert = RenderTestMethodBodyAssert(body);
+            method.Assert = RenderAssert(method);
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody body)
+        private static IEnumerable<string> RenderAssert(TestMethod method)
         {
-            if (body.Data.Property == "canAttack")
-                return new[] { RenderCanAttackAssert(body) };
+            if (method.Data.Property == "canAttack")
+                return new[] { RenderCanAttackAssert(method) };
 
-            return body.Data.UseVariableForTested
+            return method.Data.UseVariableForTested
                 ? Array.Empty<string>()
-                : body.Assert;
+                : method.Assert;
         }
 
-        private static string RenderCanAttackAssert(TestMethodBody body)
+        private static string RenderCanAttackAssert(TestMethod method)
         {
             const string template =
 @"var whiteQueen = QueenAttack.Create({{whiteQueenX}},{{whiteQueenY}});
 var blackQueen = QueenAttack.Create({{blackQueenX}},{{blackQueenY}});
 Assert.{% if Expected %}True{% else %}False{% endif %}(QueenAttack.CanAttack(whiteQueen, blackQueen));";
 
-            var whiteQueenPositions = GetCoordinatesFromPosition(body.Data.Input["white_queen"]);
-            var blackQueenPositions = GetCoordinatesFromPosition(body.Data.Input["black_queen"]);
+            var whiteQueenPositions = GetCoordinatesFromPosition(method.Data.Input["white_queen"]);
+            var blackQueenPositions = GetCoordinatesFromPosition(method.Data.Input["black_queen"]);
 
             var templateParameters = new
             {
@@ -44,7 +44,7 @@ Assert.{% if Expected %}True{% else %}False{% endif %}(QueenAttack.CanAttack(whi
                 whiteQueenY = whiteQueenPositions.Item2,
                 blackQueenX = blackQueenPositions.Item1,
                 blackQueenY = blackQueenPositions.Item2,
-                body.Data.Expected
+                method.Data.Expected
             };
 
             return TemplateRenderer.RenderInline(template, templateParameters);
