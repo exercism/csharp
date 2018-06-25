@@ -104,6 +104,9 @@ namespace Exercism.CSharp.Exercises
                 case null:
                     return new TestMethodBodyWithNullCheck(data);
                 default:
+                    if ((data.Expected as object).IsEmptyEnumerable())
+                        return new TestMethodBodyWithEmptyCheck(data);
+                            
                     return new TestMethodBodyWithEqualityCheck(data);
             }
         }
