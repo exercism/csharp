@@ -58,7 +58,7 @@ namespace Exercism.CSharp.Exercises.Generators
         private static IEnumerable<string> RenderConsistencyToAssert(TestMethodBody testMethodBody)
         {
             const string template = "Assert.Equal({{ ExpectedParameter }}, {{ TestedValue }}.ToString());";
-            return new[] { TemplateRenderer.RenderInline(template, testMethodBody.AssertTemplateParameters) };
+            return new[] { TemplateRenderer.RenderInline(template, new { testMethodBody.ExpectedParameter, testMethodBody.TestedValue }) };
         }
 
         private static IEnumerable<string> RenderEqualToAssert(TestMethodBody testMethodBody)
@@ -67,13 +67,13 @@ namespace Exercism.CSharp.Exercises.Generators
             const string testedValue = "sut";
             var expectedEqual = testMethodBody.Data.Expected;
 
-            testMethodBody.AssertTemplateParameters = new { expectedParameter, testedValue };
+            var assertTemplateParameters = new { expectedParameter, testedValue };
 
             var template = expectedEqual
                 ? "Assert.Equal({{ ExpectedParameter }}, {{ TestedValue }}); "
                 : "Assert.NotEqual({{ ExpectedParameter }}, {{ TestedValue }});";
 
-            return new[] { TemplateRenderer.RenderInline(template, testMethodBody.AssertTemplateParameters) };
+            return new[] { TemplateRenderer.RenderInline(template, assertTemplateParameters) };
         }
     }
 }

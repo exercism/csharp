@@ -68,7 +68,7 @@ namespace Exercism.CSharp.Exercises.Generators
                 AddCodeLine($"Assert.Equal(new[] {{ {expectedArrayString} }}, tree.AsEnumerable());");
             }
 
-            return new[] { TemplateRenderer.RenderInline(_testFactCodeLines.ToString(), testMethodBody.AssertTemplateParameters) };
+            return new[] { _testFactCodeLines.ToString() };
         }
     }
 }

@@ -45,9 +45,9 @@ namespace Exercism.CSharp.Output
             return TemplateRenderer.RenderPartial(TemplateName, new { Arrange, Act, Assert });
         }
 
-        protected string TestedValue => Data.UseVariableForTested ? TestedVariableName : TestedMethodInvocation;
+        public string TestedValue => Data.UseVariableForTested ? TestedVariableName : TestedMethodInvocation;
         protected string InputParameters => Data.UseVariablesForInput ? string.Join(", ", Data.InputParameters.Select(key => key.ToVariableName())) : ValueFormatter.Format(Input);
-        protected string ExpectedParameter => Data.UseVariableForExpected ? ExpectedVariableName : ValueFormatter.Format(Data.Expected);
+        public string ExpectedParameter => Data.UseVariableForExpected ? ExpectedVariableName : ValueFormatter.Format(Data.Expected);
         protected string ConstructorParameters => Data.UseVariablesForConstructorParameters ? string.Join(", ", Data.ConstructorInputParameters.Select(key => key.ToVariableName())) : ValueFormatter.Format(ConstructorInput);
 
         private IDictionary<string, object> Input => Data.InputParameters.ToDictionary(key => key, key => Data.Input[key]);

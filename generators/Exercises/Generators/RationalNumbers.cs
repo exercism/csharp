@@ -73,7 +73,7 @@ namespace Exercism.CSharp.Exercises.Generators
                     break;
             }
 
-            return new[] { TemplateRenderer.RenderInline(assertCodeLine, testMethodBody.AssertTemplateParameters) };
+            return new[] { assertCodeLine };
         }
 
         private static int Precision(object rawValue)

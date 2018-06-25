@@ -39,7 +39,7 @@ namespace Exercism.CSharp.Exercises.Generators
         {
             const string template = "Assert.Equal({{ ExpectedParameter }}, {{ TestedValue }}.ToString(\"yyyy-MM-dd\"));";
 
-            return new[] { TemplateRenderer.RenderInline(template, testMethodBody.AssertTemplateParameters) };
+            return new[] { TemplateRenderer.RenderInline(template, new { testMethodBody.ExpectedParameter, testMethodBody.TestedValue }) };
         }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)

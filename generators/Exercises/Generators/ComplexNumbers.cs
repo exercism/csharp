@@ -47,7 +47,7 @@ namespace Exercism.CSharp.Exercises.Generators
         {
             const string template = "Assert.Equal({{ ExpectedParameter }}.Real(), {{ TestedValue }}.Real(), precision: 15);\r\nAssert.Equal({{ ExpectedParameter }}.Imaginary(), {{ TestedValue }}.Imaginary(), precision: 15);";
 
-            return new[] { TemplateRenderer.RenderInline(template, testMethodBody.AssertTemplateParameters) };
+            return new[] { TemplateRenderer.RenderInline(template, new { testMethodBody.ExpectedParameter, testMethodBody.TestedValue}) };
         }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
