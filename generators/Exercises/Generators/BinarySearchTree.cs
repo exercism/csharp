@@ -42,10 +42,10 @@ namespace Exercism.CSharp.Exercises.Generators
             body.Assert = RenderTestMethodBodyAssert(body);
         }
 
-        protected IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        protected IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody body)
         {
             _testFactCodeLines = new StringBuilder();
-            var canonicalDataCase = testMethodBody.Data;
+            var canonicalDataCase = body.Data;
             var input = canonicalDataCase.Properties["input"] as Dictionary<string, object>;
             var constructorData = input["treeData"] as string[];
 

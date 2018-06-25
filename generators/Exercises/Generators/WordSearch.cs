@@ -39,9 +39,9 @@ namespace Exercism.CSharp.Exercises.Generators
             body.Assert = RenderTestMethodBodyAssert(body);
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody body)
         {
-            var expectedDictionary = testMethodBody.Data.Properties["expected"] as IDictionary<string, dynamic>;
+            var expectedDictionary = body.Data.Properties["expected"] as IDictionary<string, dynamic>;
 
             foreach (var kv in expectedDictionary)
                 yield return RenderTestMethodBodyAssertForSearchWord(kv.Key, kv.Value);

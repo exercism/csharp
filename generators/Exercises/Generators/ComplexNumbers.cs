@@ -36,18 +36,18 @@ namespace Exercism.CSharp.Exercises.Generators
             body.Assert = RenderTestMethodBodyAssert(body);
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody body)
         {
-            return testMethodBody.Data.UseVariableForExpected
-                ? RenderComplexNumberAssert(testMethodBody)
-                : testMethodBody.Assert;
+            return body.Data.UseVariableForExpected
+                ? RenderComplexNumberAssert(body)
+                : body.Assert;
         }
 
-        private static IEnumerable<string> RenderComplexNumberAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderComplexNumberAssert(TestMethodBody body)
         {
             const string template = "Assert.Equal({{ ExpectedParameter }}.Real(), {{ TestedValue }}.Real(), precision: 15);\r\nAssert.Equal({{ ExpectedParameter }}.Imaginary(), {{ TestedValue }}.Imaginary(), precision: 15);";
 
-            return new[] { TemplateRenderer.RenderInline(template, new { testMethodBody.ExpectedParameter, testMethodBody.TestedValue}) };
+            return new[] { TemplateRenderer.RenderInline(template, new { body.ExpectedParameter, body.TestedValue}) };
         }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)

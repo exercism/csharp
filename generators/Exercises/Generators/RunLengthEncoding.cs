@@ -16,21 +16,21 @@ namespace Exercism.CSharp.Exercises.Generators
             body.Assert = RenderTestMethodBodyAssert(body);
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody body)
         {
-            return testMethodBody.Data.Property == "consistency"
-                ? RenderConsistencyToAssert(testMethodBody)
-                : testMethodBody.Assert;
+            return body.Data.Property == "consistency"
+                ? RenderConsistencyToAssert(body)
+                : body.Assert;
         }
 
-        private static IEnumerable<string> RenderConsistencyToAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderConsistencyToAssert(TestMethodBody body)
         {
             const string template = @"Assert.Equal(""{{Expected}}"", {{TestedClassName}}.Decode({{TestedClassName}}.Encode(""{{Expected}}"")));";
 
             var templateParameters = new
             {
-                testMethodBody.Data.Expected,
-                TestedClassName = testMethodBody.Data.TestedClass
+                body.Data.Expected,
+                TestedClassName = body.Data.TestedClass
             };
 
             return new[] { TemplateRenderer.RenderInline(template, templateParameters) };

@@ -35,11 +35,11 @@ namespace Exercism.CSharp.Exercises.Generators
             body.Assert = RenderTestMethodBodyAssert(body);
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody body)
         {
             const string template = "Assert.Equal({{ ExpectedParameter }}, {{ TestedValue }}.ToString(\"yyyy-MM-dd\"));";
 
-            return new[] { TemplateRenderer.RenderInline(template, new { testMethodBody.ExpectedParameter, testMethodBody.TestedValue }) };
+            return new[] { TemplateRenderer.RenderInline(template, new { body.ExpectedParameter, body.TestedValue }) };
         }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)

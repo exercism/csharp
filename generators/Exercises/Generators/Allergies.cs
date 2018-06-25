@@ -21,21 +21,21 @@ namespace Exercism.CSharp.Exercises.Generators
             body.Assert = RenderTestMethodBodyAssert(body);
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody body)
         {
-            return testMethodBody.Data.Property == "allergicTo"
-                ? RenderIsAllergicToAssert(testMethodBody)
-                : testMethodBody.Assert;
+            return body.Data.Property == "allergicTo"
+                ? RenderIsAllergicToAssert(body)
+                : body.Assert;
         }
 
-        private static IEnumerable<string> RenderIsAllergicToAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderIsAllergicToAssert(TestMethodBody body)
         {
             const string template =
                 @"{%- for allergy in Allergies -%}
 Assert.{% if allergy.result %}True{% else %}False{% endif %}(sut.IsAllergicTo(""{{ allergy.substance }}""));
 {%- endfor -%}";
 
-            var templateParameters = new { Allergies = testMethodBody.Data.Expected };
+            var templateParameters = new { Allergies = body.Data.Expected };
             return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
         }
     }

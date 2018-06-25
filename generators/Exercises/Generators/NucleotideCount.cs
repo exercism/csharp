@@ -31,32 +31,32 @@ namespace Exercism.CSharp.Exercises.Generators
             body.Assert = RenderTestMethodBodyAssert(body);
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody body)
         {
-            return testMethodBody.Data.UseVariableForExpected
-                ? RenderEqualBodyAssert(testMethodBody)
-                : RenderThrowsBodyAssert(testMethodBody);
+            return body.Data.UseVariableForExpected
+                ? RenderEqualBodyAssert(body)
+                : RenderThrowsBodyAssert(body);
         }
 
-        private static IEnumerable<string> RenderEqualBodyAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderEqualBodyAssert(TestMethodBody body)
         {
             const string template = @"Assert.Equal(expected, sut.{{ TestedMethodName }});";
 
             var templateParameters = new
             {
-                TestedMethodName = testMethodBody.Data.Property.ToTestedMethodName()
+                TestedMethodName = body.Data.Property.ToTestedMethodName()
             };
 
             return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
         }
 
-        private static IEnumerable<string> RenderThrowsBodyAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderThrowsBodyAssert(TestMethodBody body)
         {
             const string template = @"Assert.Throws<InvalidNucleotideException>(() => new NucleotideCount(""{{ Input }}""));";
 
             var templateParameters = new
             {
-                Input = testMethodBody.Data.Input["strand"]
+                Input = body.Data.Input["strand"]
             };
 
             return new[] { TemplateRenderer.RenderInline(template, templateParameters) };

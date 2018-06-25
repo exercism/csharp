@@ -18,25 +18,25 @@ namespace Exercism.CSharp.Exercises.Generators
             body.Assert = RenderTestMethodBodyAssert(body);
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody body)
         {
-            if (testMethodBody.Data.Property == "canAttack")
-                return new[] { RenderCanAttackAssert(testMethodBody) };
+            if (body.Data.Property == "canAttack")
+                return new[] { RenderCanAttackAssert(body) };
 
-            return testMethodBody.Data.UseVariableForTested
+            return body.Data.UseVariableForTested
                 ? Array.Empty<string>()
-                : testMethodBody.Assert;
+                : body.Assert;
         }
 
-        private static string RenderCanAttackAssert(TestMethodBody testMethodBody)
+        private static string RenderCanAttackAssert(TestMethodBody body)
         {
             const string template =
 @"var whiteQueen = QueenAttack.Create({{whiteQueenX}},{{whiteQueenY}});
 var blackQueen = QueenAttack.Create({{blackQueenX}},{{blackQueenY}});
 Assert.{% if Expected %}True{% else %}False{% endif %}(QueenAttack.CanAttack(whiteQueen, blackQueen));";
 
-            var whiteQueenPositions = GetCoordinatesFromPosition(testMethodBody.Data.Input["white_queen"]);
-            var blackQueenPositions = GetCoordinatesFromPosition(testMethodBody.Data.Input["black_queen"]);
+            var whiteQueenPositions = GetCoordinatesFromPosition(body.Data.Input["white_queen"]);
+            var blackQueenPositions = GetCoordinatesFromPosition(body.Data.Input["black_queen"]);
 
             var templateParameters = new
             {
@@ -44,7 +44,7 @@ Assert.{% if Expected %}True{% else %}False{% endif %}(QueenAttack.CanAttack(whi
                 whiteQueenY = whiteQueenPositions.Item2,
                 blackQueenX = blackQueenPositions.Item1,
                 blackQueenY = blackQueenPositions.Item2,
-                testMethodBody.Data.Expected
+                body.Data.Expected
             };
 
             return TemplateRenderer.RenderInline(template, templateParameters);

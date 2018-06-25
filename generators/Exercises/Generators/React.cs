@@ -16,15 +16,15 @@ namespace Exercism.CSharp.Exercises.Generators
             body.Assert = RenderTestMethodBodyAssert();
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyArrange(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderTestMethodBodyArrange(TestMethodBody body)
         {
             var arrange = new StringBuilder();
             arrange.AppendLine("var sut = new Reactor();");
 
-            var cells = RenderCells(testMethodBody.Data.Input["cells"]);
+            var cells = RenderCells(body.Data.Input["cells"]);
             arrange.AppendLine(cells);
 
-            var operations = RenderOperations(testMethodBody.Data.Input["operations"]);
+            var operations = RenderOperations(body.Data.Input["operations"]);
             arrange.AppendLine(operations);
 
             return new[] { arrange.ToString() };

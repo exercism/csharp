@@ -23,11 +23,11 @@ namespace Exercism.CSharp.Exercises.Generators
             body.Assert = RenderTestMethodBodyAssert(body);
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody body)
         {
-            var input = testMethodBody.Data.Properties["input"] as Dictionary<string, object>;
-            var operation = testMethodBody.Data.Properties["property"].ToString();
-            var expected = testMethodBody.Data.Properties["expected"];
+            var input = body.Data.Properties["input"] as Dictionary<string, object>;
+            var operation = body.Data.Properties["property"].ToString();
+            var expected = body.Data.Properties["expected"];
             var operationName = char.ToUpper(operation[0]) + operation.Substring(1);
             var assertCodeLine = "";
             const string operationsWithOverloading = "add|+|sub|-|mul|*|div|/";

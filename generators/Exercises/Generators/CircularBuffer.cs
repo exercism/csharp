@@ -11,11 +11,11 @@ namespace Exercism.CSharp.Exercises.Generators
             body.Assert = RenderTestMethodBodyAssert(body);
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody body)
         {
-            yield return RenderSut(testMethodBody.Data);
+            yield return RenderSut(body.Data);
 
-            foreach (var operation in testMethodBody.Data.Input["operations"])
+            foreach (var operation in body.Data.Input["operations"])
                 yield return RenderOperation(operation);
         }
 

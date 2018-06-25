@@ -31,15 +31,15 @@ namespace Exercism.CSharp.Exercises.Generators
             body.Assert = RenderTestMethodBodyAssert(body);
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyArrange(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderTestMethodBodyArrange(TestMethodBody body)
         {
             var builder = new StringBuilder();
             builder.AppendLine("var sut = new BowlingGame();");
 
-            if (!testMethodBody.Data.Input.ContainsKey(PreviousRolls))
+            if (!body.Data.Input.ContainsKey(PreviousRolls))
                 return new[] { builder.ToString() };
 
-            if (testMethodBody.Data.Input[PreviousRolls] is int[] array)
+            if (body.Data.Input[PreviousRolls] is int[] array)
             {
                 builder.Append("var previousRolls = new [] { ");
                 builder.AppendJoin(", ", array);
@@ -53,39 +53,39 @@ namespace Exercism.CSharp.Exercises.Generators
             return new[] { builder.ToString() };
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody body)
         {
-            if (testMethodBody.Data.ExceptionThrown != null && testMethodBody.Data.Input.ContainsKey("roll"))
+            if (body.Data.ExceptionThrown != null && body.Data.Input.ContainsKey("roll"))
             {
                 const string template = "Assert.Throws<ArgumentException>(() => sut.Roll({{RollVal}}));";
                 var templateParams = new
                 {
-                    RollVal = testMethodBody.Data.Input["roll"]
+                    RollVal = body.Data.Input["roll"]
                 };
                 return new[] { TemplateRenderer.RenderInline(template, templateParams) };
             }
 
-            if (testMethodBody.Data.ExceptionThrown == null ||
-                testMethodBody.Data.Property != "score")
-                return testMethodBody.Assert;
+            if (body.Data.ExceptionThrown == null ||
+                body.Data.Property != "score")
+                return body.Assert;
 
             const string throwTemplate = "Assert.Throws<ArgumentException>(() => sut.Score());";
             return new[] { throwTemplate };
 
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAct(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderTestMethodBodyAct(TestMethodBody body)
         {
             var template =
     @"DoRoll(previousRolls, sut);
 ";
 
-            if (testMethodBody.Data.ExceptionThrown != null)
+            if (body.Data.ExceptionThrown != null)
             {
                 return new[] { template };
             }
 
-            if (testMethodBody.Data.Input.ContainsKey("roll"))
+            if (body.Data.Input.ContainsKey("roll"))
             {
                 template +=
     @"sut.Roll({{RolVal}});
@@ -93,7 +93,7 @@ var actual = sut.Score();
 ";
                 var templateParameters = new
                 {
-                    RolVal = testMethodBody.Data.Input["roll"]
+                    RolVal = body.Data.Input["roll"]
                 };
                 return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
             }

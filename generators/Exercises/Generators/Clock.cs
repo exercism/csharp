@@ -43,29 +43,29 @@ namespace Exercism.CSharp.Exercises.Generators
             body.Assert = RenderTestMethodBodyAssert(body);
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody body)
         {
-            if (testMethodBody.Data.Property == PropertyEqual)
+            if (body.Data.Property == PropertyEqual)
             {
-                return RenderEqualToAssert(testMethodBody);
+                return RenderEqualToAssert(body);
             }
 
-            return testMethodBody.Data.Property != PropertyCreate
-                ? RenderConsistencyToAssert(testMethodBody)
-                : testMethodBody.Assert;
+            return body.Data.Property != PropertyCreate
+                ? RenderConsistencyToAssert(body)
+                : body.Assert;
         }
 
-        private static IEnumerable<string> RenderConsistencyToAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderConsistencyToAssert(TestMethodBody body)
         {
             const string template = "Assert.Equal({{ ExpectedParameter }}, {{ TestedValue }}.ToString());";
-            return new[] { TemplateRenderer.RenderInline(template, new { testMethodBody.ExpectedParameter, testMethodBody.TestedValue }) };
+            return new[] { TemplateRenderer.RenderInline(template, new { body.ExpectedParameter, body.TestedValue }) };
         }
 
-        private static IEnumerable<string> RenderEqualToAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderEqualToAssert(TestMethodBody body)
         {
-            var expectedParameter = testMethodBody.Data.Input[ParamClock1];
+            var expectedParameter = body.Data.Input[ParamClock1];
             const string testedValue = "sut";
-            var expectedEqual = testMethodBody.Data.Expected;
+            var expectedEqual = body.Data.Expected;
 
             var assertTemplateParameters = new { expectedParameter, testedValue };
 

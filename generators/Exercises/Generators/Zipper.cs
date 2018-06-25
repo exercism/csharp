@@ -14,19 +14,19 @@ namespace Exercism.CSharp.Exercises.Generators
             body.Assert = RenderTestMethodBodyAssert(body);
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyArrange(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderTestMethodBodyArrange(TestMethodBody body)
         {
-            var tree = RenderTree(testMethodBody.Data.Input["initialTree"]);
+            var tree = RenderTree(body.Data.Input["initialTree"]);
             yield return $"var tree = {tree};";
             yield return "var sut = Zipper.FromTree(tree);";
 
-            var operations = RenderOperations(testMethodBody.Data.Input["operations"]);
+            var operations = RenderOperations(body.Data.Input["operations"]);
             yield return $"var actual = sut{operations};";
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody body)
         {
-            var expected = RenderExpected(testMethodBody.Data.Expected);
+            var expected = RenderExpected(body.Data.Expected);
             if (expected == null)
             {
                 yield return "Assert.Null(actual);";

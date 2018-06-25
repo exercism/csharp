@@ -57,14 +57,14 @@ namespace Exercism.CSharp.Exercises.Generators
             body.Assert = RenderTestMethodBodyAssert(body);
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody body)
         {
-            if (testMethodBody.Data.ExceptionThrown != null)
+            if (body.Data.ExceptionThrown != null)
             {
-                return testMethodBody.Assert;
+                return body.Assert;
             }
 
-            if (testMethodBody.Data.Property == "territories")
+            if (body.Data.Property == "territories")
             {
                 return new[]
                 {

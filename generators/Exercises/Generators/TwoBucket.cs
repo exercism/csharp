@@ -21,19 +21,19 @@ namespace Exercism.CSharp.Exercises.Generators
             body.Assert = RenderTestMethodBodyAssert(body);
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAct(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderTestMethodBodyAct(TestMethodBody body)
         {
             const string template = @"var result = {{MethodInvocation}};";
 
             var templateParameters = new
             {
-                MethodInvocation = testMethodBody.TestedMethodInvocation
+                MethodInvocation = body.TestedMethodInvocation
             };
 
             return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
         }
 
-        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody testMethodBody)
+        private static IEnumerable<string> RenderTestMethodBodyAssert(TestMethodBody body)
         {
             const string template =
 @"Assert.Equal({{MovesExpected}}, result.Moves);
@@ -42,9 +42,9 @@ Assert.Equal({% if GoalBucketExpected == 'two' %}Bucket.Two{% else %}Bucket.One{
 
             var templateParameters = new
             {
-                MovesExpected = testMethodBody.Data.Expected["moves"],
-                OtherBucketExpected = testMethodBody.Data.Expected["otherBucket"],
-                GoalBucketExpected = testMethodBody.Data.Expected["goalBucket"]
+                MovesExpected = body.Data.Expected["moves"],
+                OtherBucketExpected = body.Data.Expected["otherBucket"],
+                GoalBucketExpected = body.Data.Expected["goalBucket"]
             };
 
             return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
