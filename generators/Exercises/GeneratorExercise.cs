@@ -31,8 +31,8 @@ namespace Exercism.CSharp.Exercises
                 Exercise = _canonicalData.Exercise,
                 CanonicalDataVersion = _canonicalData.Version,
                 ClassName = _canonicalData.Exercise.ToTestClassName(),
-                Namespaces = GetNamespaces(),
-                Methods = RenderTestMethods()
+                Methods = GetMethods(),
+                Namespaces = GetNamespaces()
             };
 
             UpdateTestClass(testClass);
@@ -61,19 +61,21 @@ namespace Exercism.CSharp.Exercises
         {
         }
 
-        private IList<string> RenderTestMethods() 
-            => CreateTestMethods()
-                .Select(testMethod => testMethod.Render())
-                .ToList();
-
-        private IEnumerable<TestMethod> CreateTestMethods()
+        private IList<string> GetMethods()
         {
-            var testMethods = _testData
-                .Select(CreateTestMethod)
-                .ToArray();
-    
-            Array.ForEach(testMethods, UpdateTestMethod);
-            return testMethods;
+            var renderedMethods = new List<string>();
+
+            foreach (var data in _testData)
+            {
+                UpdateTestData(data);
+
+                var method = CreateTestMethod(data);
+                UpdateTestMethod(method);
+                
+                renderedMethods.Add(method.Render());
+            }
+
+            return renderedMethods;
         }
 
         private static TestMethod CreateTestMethod(TestData data)
@@ -99,18 +101,10 @@ namespace Exercism.CSharp.Exercises
         {
         }
 
-        private TestData[] CreateTestData()
-        {
-            var testData = _canonicalData.Cases
-                .Select(CreateTestData)
+        private TestData[] CreateTestData() => 
+            _canonicalData.Cases
+                .Select(canonicalDataCase => new TestData(_canonicalData, canonicalDataCase))
                 .ToArray();
-    
-            Array.ForEach(testData, UpdateTestData);
-            return testData;
-        }
-
-        private TestData CreateTestData(CanonicalDataCase canonicalDataCase) 
-            => new TestData(_canonicalData, canonicalDataCase);
 
         protected virtual void UpdateTestData(TestData data)
         {

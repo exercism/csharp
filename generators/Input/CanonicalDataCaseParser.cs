@@ -19,7 +19,6 @@ namespace Exercism.CSharp.Input
             => new CanonicalDataCase(
                 index: index,
                 property: canonicalDataCaseJToken.Value<string>("property"),
-                properties: ToReadOnlyDictionary(canonicalDataCaseJToken),
                 input: ToReadOnlyDictionary(canonicalDataCaseJToken["input"]),
                 expected: ConvertJToken(canonicalDataCaseJToken["expected"]),
                 description: canonicalDataCaseJToken.Value<string>("description"),

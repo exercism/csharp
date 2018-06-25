@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using Exercism.CSharp.Helpers;
@@ -8,6 +9,8 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class WordSearch : GeneratorExercise
     {
+        private IDictionary<string, dynamic> _expectedDictionary;
+        
         protected override void UpdateTestData(TestData data)
         {
             data.UseVariablesForInput = true;
@@ -19,7 +22,7 @@ namespace Exercism.CSharp.Exercises.Generators
 
             data.Input["grid"] = ConvertHelper.ToMultiLineString(data.Input["grid"]);
 
-            var expectedDictionary = data.Expected as IDictionary<string, dynamic>;
+            _expectedDictionary = (IDictionary<string, dynamic>)data.Expected;
 
             var expected = new List<string>
                 {
@@ -27,7 +30,7 @@ namespace Exercism.CSharp.Exercises.Generators
                     "{"
                 };
 
-            expected.AddRange(expectedDictionary.Select((kv, i) => $"    [\"{kv.Key}\"] = {FormatPosition(kv.Value)}{(i < expectedDictionary.Count - 1 ? "," : "")}"));
+            expected.AddRange(_expectedDictionary.Select((kv, i) => $"    [\"{kv.Key}\"] = {FormatPosition(kv.Value)}{(i < _expectedDictionary.Count - 1 ? "," : "")}"));
             expected.Add("}");
 
             data.Expected = new UnescapedValue(string.Join(Environment.NewLine, expected));
@@ -36,16 +39,13 @@ namespace Exercism.CSharp.Exercises.Generators
         
         protected override void UpdateTestMethod(TestMethod method)
         {
-            method.Assert = RenderAssert(method);
+            method.Assert = RenderAssert();
         }
 
-        private static IEnumerable<string> RenderAssert(TestMethod method)
-        {
-            var expectedDictionary = method.Data.Properties["expected"] as IDictionary<string, dynamic>;
-
-            foreach (var kv in expectedDictionary)
-                yield return RenderAssertForSearchWord(kv.Key, kv.Value);
-        }
+        private IEnumerable<string> RenderAssert()
+            => _expectedDictionary
+                    .Select(kv => RenderAssertForSearchWord(kv.Key, kv.Value))
+                    .Cast<string>();
 
         private static string RenderAssertForSearchWord(string word, dynamic expected)
         {

@@ -175,7 +175,7 @@ public class RationalNumbersTest
     [Fact(Skip = "Remove to run test")]
     public void Raise_a_real_number_to_a_negative_rational_number()
     {
-        Assert.Equal(0.333333333333333, 9.Expreal(new RationalNumber(-1, 2)), 15);
+        Assert.Equal(0.3333333, 9.Expreal(new RationalNumber(-1, 2)), 7);
     }
 
     [Fact(Skip = "Remove to run test")]

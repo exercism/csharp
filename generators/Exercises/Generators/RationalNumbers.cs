@@ -25,15 +25,13 @@ namespace Exercism.CSharp.Exercises.Generators
 
         private static IEnumerable<string> RenderAssert(TestMethod method)
         {
-            var input = method.Data.Properties["input"] as Dictionary<string, object>;
-            var operation = method.Data.Properties["property"].ToString();
-            var expected = method.Data.Properties["expected"];
-            var operationName = char.ToUpper(operation[0]) + operation.Substring(1);
+            var input = (Dictionary<string, object>)method.Data.Input;
+            var operationName = char.ToUpper(method.Data.Property[0]) + method.Data.Property.Substring(1);
             var assertCodeLine = "";
             const string operationsWithOverloading = "add|+|sub|-|mul|*|div|/";
-            string operationCode = operationsWithOverloading.Substring(operationsWithOverloading.IndexOf(operation.ToLower()) + 4, 1);
+            var operationCode = operationsWithOverloading.Substring(operationsWithOverloading.IndexOf(method.Data.Property.ToLower()) + 4, 1);
 
-            switch (operation.ToLower())
+            switch (method.Data.Property.ToLower())
             {
                 case "add":
                 case "sub":
@@ -42,7 +40,7 @@ namespace Exercism.CSharp.Exercises.Generators
                     {
                         var r1 = new RationalNumber((int[])input["r1"]);
                         var r2 = new RationalNumber((int[])input["r2"]);
-                        var e = new RationalNumber((int[])expected);
+                        var e = new RationalNumber((int[])method.Data.Expected);
                         assertCodeLine = "Assert.Equal(" + $"new RationalNumber ({e.Numerator}, {e.Denominator}), new RationalNumber({r1.Numerator}, {r1.Denominator}) {operationCode} (new RationalNumber({r2.Numerator}, {r2.Denominator})));";
                     }
                     break;
@@ -50,7 +48,7 @@ namespace Exercism.CSharp.Exercises.Generators
                 case "reduce":
                     {
                         var r = new RationalNumber((int[])input["r"]);
-                        var e = new RationalNumber((int[])expected);
+                        var e = new RationalNumber((int[])method.Data.Expected);
                         assertCodeLine = "Assert.Equal(" + $"new RationalNumber ({e.Numerator}, {e.Denominator}), new RationalNumber({r.Numerator}, {r.Denominator}).{operationName}());";
                     }
                     break;
@@ -58,7 +56,7 @@ namespace Exercism.CSharp.Exercises.Generators
                     {
                         var r = new RationalNumber((int[])input["r"]);
                         var n = input["n"];
-                        var e = new RationalNumber((int[])expected);
+                        var e = new RationalNumber((int[])method.Data.Expected);
                         assertCodeLine = "Assert.Equal(" + $"new RationalNumber ({e.Numerator}, {e.Denominator}), new RationalNumber({r.Numerator}, {r.Denominator}).{operationName}({n}));";
                     }
                     break;
@@ -66,7 +64,7 @@ namespace Exercism.CSharp.Exercises.Generators
                     {
                         var x = input["x"].ToString();
                         var r = new RationalNumber((int[])input["r"]);
-                        var e = ValueFormatter.Format(expected);
+                        var e = ValueFormatter.Format(method.Data.Expected);
                         var p = Precision(e);
                         assertCodeLine = "Assert.Equal(" + $"{e}, {x}.{operationName}(new RationalNumber({r.Numerator}, {r.Denominator})), {p});";
                     }

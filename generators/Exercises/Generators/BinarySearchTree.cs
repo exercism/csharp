@@ -46,7 +46,7 @@ namespace Exercism.CSharp.Exercises.Generators
         {
             _testFactCodeLines = new StringBuilder();
             var canonicalDataCase = method.Data;
-            var input = canonicalDataCase.Properties["input"] as Dictionary<string, object>;
+            var input = canonicalDataCase.Input as Dictionary<string, object>;
             var constructorData = input["treeData"] as string[];
 
             if (constructorData.Length == 1) AddCodeLine($"var tree = new BinarySearchTree({constructorData[0]});");
@@ -56,7 +56,7 @@ namespace Exercism.CSharp.Exercises.Generators
                 AddCodeLine($"var tree = new BinarySearchTree(new[] {{ {constructorDataString} }});");
             }
 
-            if (canonicalDataCase.Properties["expected"] is Dictionary<string, object> expected)
+            if (canonicalDataCase.Expected is Dictionary<string, object> expected)
             {
                 var tree = new ExpectedDataBinaryTree(expected);
                 foreach (var assert in tree.TestAsserts())
@@ -64,7 +64,7 @@ namespace Exercism.CSharp.Exercises.Generators
             }
             else
             {
-                var expectedArrayString = string.Join(", ", canonicalDataCase.Properties["expected"] as string[]);
+                var expectedArrayString = string.Join(", ", canonicalDataCase.Expected as string[]);
                 AddCodeLine($"Assert.Equal(new[] {{ {expectedArrayString} }}, tree.AsEnumerable());");
             }
 

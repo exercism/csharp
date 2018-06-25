@@ -11,7 +11,6 @@ namespace Exercism.CSharp.Output
     {
         public TestData(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase)
         {
-            Properties = new Dictionary<string, dynamic>(canonicalDataCase.Properties);
             Input = new Dictionary<string, dynamic>(canonicalDataCase.Input);
             Expected = canonicalDataCase.Expected;
 
@@ -32,7 +31,6 @@ namespace Exercism.CSharp.Output
         public string Exercise { get; }
         public string Property { get; }
 
-        public IDictionary<string, dynamic> Properties { get; set; }
         public IDictionary<string, dynamic> Input { get; set; }
         public dynamic Expected { get; set; }
 
@@ -40,14 +38,14 @@ namespace Exercism.CSharp.Output
         public IList<string> DescriptionPath { get; set; }
 
         public bool Skip { get; set; }
-        
+
         public bool UseVariablesForInput { get; set; }
         public bool UseVariableForExpected { get; set; }
         public bool UseVariablesForConstructorParameters { get; set; }
         public bool UseVariableForTested { get; set; }
         public bool UseFullDescriptionPath { get; set; }
 
-        public string TestMethod => 
+        public string TestMethod =>
             UseFullDescriptionPath
                 ? string.Join(" - ", DescriptionPath).ToTestMethodName()
                 : Description.ToTestMethodName();
