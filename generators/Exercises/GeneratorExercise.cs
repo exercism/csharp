@@ -94,20 +94,20 @@ namespace Exercism.CSharp.Exercises
         {
             if (data.ExceptionThrown != null)
             {
-                return new TestMethodBodyWithExceptionCheck(data);
+                return new TestMethodBodyWithExceptionAssertion(data);
             }
 
             switch (data.Expected)
             {
                 case bool _:
-                    return new TestMethodBodyWithBooleanCheck(data);
+                    return new TestMethodBodyWithBooleanAssertion(data);
                 case null:
-                    return new TestMethodBodyWithNullCheck(data);
+                    return new TestMethodBodyWithNullAssertion(data);
                 default:
                     if ((data.Expected as object).IsEmptyEnumerable())
-                        return new TestMethodBodyWithEmptyCheck(data);
+                        return new TestMethodBodyWithEmptyAssertion(data);
                             
-                    return new TestMethodBodyWithEqualityCheck(data);
+                    return new TestMethodBodyWithEqualityAssertion(data);
             }
         }
         

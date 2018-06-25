@@ -1,8 +1,8 @@
 ﻿namespace Exercism.CSharp.Output
 {
-    public class TestMethodBodyWithNullCheck : TestMethodBody
+    public class TestMethodBodyWithNullAssertion : TestMethodBody
     {
-        public TestMethodBodyWithNullCheck(TestData data) : base(data)
+        public TestMethodBodyWithNullAssertion(TestData data) : base(data)
         {
             AssertTemplateName = "AssertNull";
             AssertTemplateParameters = new { TestedValue };

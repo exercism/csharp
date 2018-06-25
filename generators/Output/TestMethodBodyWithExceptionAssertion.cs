@@ -1,8 +1,8 @@
 ﻿namespace Exercism.CSharp.Output
 {
-    public class TestMethodBodyWithExceptionCheck : TestMethodBody
+    public class TestMethodBodyWithExceptionAssertion : TestMethodBody
     {
-        public TestMethodBodyWithExceptionCheck(TestData data) : base(data)
+        public TestMethodBodyWithExceptionAssertion(TestData data) : base(data)
         {
             Data.UseVariableForExpected = false;
             Data.UseVariableForTested = false;
