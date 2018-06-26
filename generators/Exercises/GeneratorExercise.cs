@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using Exercism.CSharp.Helpers;
 using Exercism.CSharp.Input;
@@ -89,7 +90,7 @@ namespace Exercism.CSharp.Exercises
                 case null:
                     return new TestMethodWithNullAssertion(data);
                 default:
-                    if ((data.Expected as object).IsEmptyEnumerable())
+                    if (UseEmptyAssertion(data))
                         return new TestMethodWithEmptyAssertion(data);
                         
                     return new TestMethodWithEqualityAssertion(data);
@@ -107,6 +108,14 @@ namespace Exercism.CSharp.Exercises
 
         protected virtual void UpdateTestData(TestData data)
         {
+        }
+
+        private static bool UseEmptyAssertion(TestData data)
+        {   
+            if (data.Expected is string)
+                return false;
+            
+            return data.Expected is IEnumerable enumerable && enumerable.GetEnumerator().MoveNext() == false;
         }
     }
 }
