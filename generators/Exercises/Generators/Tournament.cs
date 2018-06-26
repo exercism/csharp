@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using Exercism.CSharp.Helpers;
 using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Templates;
 
@@ -16,8 +15,8 @@ namespace Exercism.CSharp.Exercises.Generators
             data.TestedMethodType = TestedMethodType.Static;
             data.UseVariablesForInput = true;
             data.UseVariableForExpected = true;
-            data.Input["rows"] = ConvertHelper.ToMultiLineString(data.Input["rows"], "");
-            data.Expected = ConvertHelper.ToMultiLineString(data.Expected);
+            data.Input["rows"] = new MultiLineString(data.Input["rows"]);
+            data.Expected = new MultiLineString(data.Expected);
         }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)

@@ -1,4 +1,3 @@
-using Exercism.CSharp.Helpers;
 using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
@@ -8,8 +7,8 @@ namespace Exercism.CSharp.Exercises.Generators
         protected override void UpdateTestData(TestData data)
         {
             data.TestedMethod = "String";
-            data.Input["lines"] = ConvertHelper.ToMultiLineString(data.Input["lines"], "");
-            data.Expected = ConvertHelper.ToMultiLineString(data.Expected, "");
+            data.Input["lines"] = new MultiLineString(data.Input["lines"]);
+            data.Expected = new MultiLineString(data.Expected);
 
             data.UseVariablesForInput = true;
             data.UseVariableForExpected = true;

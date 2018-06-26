@@ -1,5 +1,4 @@
-﻿using Exercism.CSharp.Helpers;
-using Exercism.CSharp.Output;
+﻿using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -7,7 +6,7 @@ namespace Exercism.CSharp.Exercises.Generators
     {
         protected override void UpdateTestData(TestData data)
         {
-            data.Expected = ConvertHelper.ToMultiLineString(data.Expected);
+            data.Expected = new MultiLineString(data.Expected);
             data.UseVariableForExpected = true;
 
             if (data.Input["startVerse"] == data.Input["endVerse"])

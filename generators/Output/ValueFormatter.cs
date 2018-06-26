@@ -14,6 +14,7 @@ namespace Exercism.CSharp.Output
             switch (val)
             {
                 case string str: return str.Format();
+                case MultiLineString multiLineString: return multiLineString.ToString().Format();
                 case double dbl: return dbl.Format();
                 case float flt: return flt.Format();
                 case ulong ulng: return ulng.Format();
@@ -47,6 +48,8 @@ namespace Exercism.CSharp.Output
             {
                 case string str when str.Contains("\n"):
                     return FormatMultiLineString(name, str);
+                case MultiLineString multiLineValue when multiLineValue.ToString().Contains("\n"):
+                    return FormatMultiLineString(name, multiLineValue.ToString());
                 case IEnumerable<string> strings:
                     if (!strings.Any())
                     {

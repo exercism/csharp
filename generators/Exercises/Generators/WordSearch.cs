@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using Exercism.CSharp.Helpers;
 using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
@@ -10,7 +8,7 @@ namespace Exercism.CSharp.Exercises.Generators
     public class WordSearch : GeneratorExercise
     {
         private IDictionary<string, dynamic> _expectedDictionary;
-        
+
         protected override void UpdateTestData(TestData data)
         {
             data.UseVariablesForInput = true;
@@ -20,7 +18,7 @@ namespace Exercism.CSharp.Exercises.Generators
 
             data.SetConstructorInputParameters("grid");
 
-            data.Input["grid"] = ConvertHelper.ToMultiLineString(data.Input["grid"]);
+            data.Input["grid"] = new MultiLineString(data.Input["grid"]);
 
             _expectedDictionary = (IDictionary<string, dynamic>)data.Expected;
 
@@ -36,7 +34,7 @@ namespace Exercism.CSharp.Exercises.Generators
             data.Expected = new UnescapedValue(string.Join(Environment.NewLine, expected));
         }
 
-        
+
         protected override void UpdateTestMethod(TestMethod method)
         {
             method.Assert = RenderAssert();

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Exercism.CSharp.Helpers;
 using Exercism.CSharp.Output;
 using Humanizer;
 using Newtonsoft.Json.Linq;
@@ -17,7 +16,7 @@ namespace Exercism.CSharp.Exercises.Generators
             data.UseVariablesForConstructorParameters = true;
             data.UseVariableForTested = true;
 
-            data.Input["board"] = ConvertHelper.ToMultiLineString(data.Input["board"]);
+            data.Input["board"] = new MultiLineString(data.Input["board"]);
             data.SetConstructorInputParameters("board");
 
             if (data.Property == "territory")
