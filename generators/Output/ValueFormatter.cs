@@ -126,8 +126,16 @@ namespace Exercism.CSharp.Output
 
         private static string Format(this int[,] multidimensionalArray)
         {
+            IEnumerable<T> SliceRow<T>(T[,] array, int row)
+            {
+                for (var i = array.GetLowerBound(1); i <= array.GetUpperBound(1); i++)
+                {
+                    yield return array[row, i];
+                }
+            }
+            
             return multidimensionalArray.GetLength(0) > 0
-                            ? $"new[,]\r\n{{\r\n    {string.Join(",\r\n    ", Enumerable.Range(0, multidimensionalArray.GetUpperBound(0) + 1).Select(x => multidimensionalArray.SliceRow(x).ToNestedArray()))}\r\n}}"
+                            ? $"new[,]\r\n{{\r\n    {string.Join(",\r\n    ", Enumerable.Range(0, multidimensionalArray.GetUpperBound(0) + 1).Select(x => SliceRow(multidimensionalArray, x).ToNestedArray()))}\r\n}}"
                             : "new int[,] { }";
         }
 
