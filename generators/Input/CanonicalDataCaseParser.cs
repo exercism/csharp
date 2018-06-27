@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Exercism.CSharp.Helpers;
 using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Input
@@ -24,27 +25,13 @@ namespace Exercism.CSharp.Input
                 description: canonicalDataCaseJToken.Value<string>("description"),
                 descriptionPath: GetDescriptionPath(canonicalDataCaseJToken));
 
-        private static string[] GetDescriptionPath(JToken canonicalDataCaseToken)
-        {
-            var descriptionPath = new Stack<string>();
-            var currentToken = canonicalDataCaseToken;
-
-            while (currentToken != null)
-            {
-                if (currentToken.Type == JTokenType.Object)
-                {
-                    var description = currentToken.SelectToken("description");
-                    if (description == null)
-                        break;
-
-                    descriptionPath.Push(description.ToObject<string>());
-                }
-
-                currentToken = currentToken.Parent;
-            }
-
-            return descriptionPath.Where(x => !string.IsNullOrEmpty(x)).ToArray();
-        }
+        private static string[] GetDescriptionPath(JToken canonicalDataCaseToken) 
+            => canonicalDataCaseToken.ParentsAndSelf()
+                .Where(token => token.Type == JTokenType.Object)
+                .Select(token => token.Value<string>("description"))
+                .Where(description => description != null)
+                .Reverse()
+                .ToArray();
 
         private static IReadOnlyDictionary<string, dynamic> ToReadOnlyDictionary(JToken jToken) => ConvertJToken(jToken);
 
