@@ -6,15 +6,6 @@ using Xunit;
 public class ComplexNumbersTest
 {
     [Fact]
-    public void Imaginary_unit()
-    {
-        var sut = new ComplexNumber(0, 1);
-        var expected = new ComplexNumber(-1, 0);
-        Assert.Equal(expected.Real(), sut.Mul(new ComplexNumber(0, 1)).Real(), precision: 15);
-        Assert.Equal(expected.Imaginary(), sut.Mul(new ComplexNumber(0, 1)).Imaginary(), precision: 15);
-    }
-
-    [Fact(Skip = "Remove to run test")]
     public void Real_part_of_a_purely_real_number()
     {
         var sut = new ComplexNumber(1, 0);
@@ -54,6 +45,15 @@ public class ComplexNumbersTest
     {
         var sut = new ComplexNumber(1, 2);
         Assert.Equal(2, sut.Imaginary());
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Imaginary_unit()
+    {
+        var sut = new ComplexNumber(0, 1);
+        var expected = new ComplexNumber(-1, 0);
+        Assert.Equal(expected.Real(), sut.Mul(new ComplexNumber(0, 1)).Real(), precision: 15);
+        Assert.Equal(expected.Imaginary(), sut.Mul(new ComplexNumber(0, 1)).Imaginary(), precision: 15);
     }
 
     [Fact(Skip = "Remove to run test")]

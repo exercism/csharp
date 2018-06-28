@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json.Linq;
 
@@ -6,15 +7,27 @@ namespace Exercism.CSharp.Input
 {
     public static class CanonicalDataCaseParser
     {
-        private const string TokensPath = "$..*[?(@.property)]";
-
-        public static IReadOnlyCollection<CanonicalDataCase> Parse(JArray canonicalDataCasesJArray)
-            => canonicalDataCasesJArray
-                .SelectTokens(TokensPath)
-                .Select(Parse)
+        public static IReadOnlyCollection<CanonicalDataCase> Parse(JToken canonicalDataCaseJToken) 
+            => GetCanonicalDataCaseTokens(canonicalDataCaseJToken)
+                .Select(ParseWithIndex)
                 .ToArray();
 
-        private static CanonicalDataCase Parse(JToken canonicalDataCaseJToken, int index)
+        private static IEnumerable<JToken> GetCanonicalDataCaseTokens(JToken currentJToken)
+        {
+            switch (currentJToken)
+            {
+                case JArray jArray:
+                    return jArray.SelectMany(GetCanonicalDataCaseTokens);
+                case JObject jObject when jObject.TryGetValue("cases", out var casesJToken) && casesJToken is JArray childJArray:
+                    return childJArray.SelectMany(GetCanonicalDataCaseTokens);
+                case JObject jObject when jObject.ContainsKey("property"):
+                    return new[] { jObject };
+                default:
+                    return Enumerable.Empty<JToken>();
+            }
+        }
+
+        private static CanonicalDataCase ParseWithIndex(JToken canonicalDataCaseJToken, int index)
             => new CanonicalDataCase(
                 index: index,
                 property: canonicalDataCaseJToken.Value<string>("property"),
