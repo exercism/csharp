@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using Exercism.CSharp.Helpers;
 using Exercism.CSharp.Output;
+using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -9,7 +9,9 @@ namespace Exercism.CSharp.Exercises.Generators
     {
         protected override void UpdateTestData(TestData data)
         {
-            data.Input["digits"] = ConvertHelper.ToArray<int>(data.Input["digits"]);
+            if (data.Input["digits"] is JArray)
+                data.Input["digits"] = Array.Empty<int>();
+
             data.ExceptionThrown = data.Expected is Dictionary<string, object> ? typeof(ArgumentException) : null;
             data.UseVariablesForInput = true;
             data.UseVariableForExpected = true;

@@ -18,14 +18,16 @@ namespace Exercism.CSharp.Input
         
         public static dynamic ConvertJToken(JToken jToken)
         {
-            switch (jToken?.Type)
+            if (jToken is JObject jObject)
+                return ConvertJObject(jObject);
+            
+            if (jToken is JArray jArray)
+                return ConvertJArray(jArray);
+
+            switch (jToken.Type)
             {
-                case JTokenType.Object:
-                    return ConvertJObject((JObject)jToken);
-                case JTokenType.Array:
-                    return ConvertJArray((JArray)jToken);
                 case JTokenType.Integer:
-                    return ConvertIntegerJToken(jToken);
+                    return ConvertJTokenToInteger(jToken);
                 case JTokenType.Float:
                     return jToken.ToObject<float>();
                 case JTokenType.String:
@@ -92,7 +94,7 @@ namespace Exercism.CSharp.Input
             }
         }
 
-        private static dynamic ConvertIntegerJToken(JToken jToken)
+        private static dynamic ConvertJTokenToInteger(JToken jToken)
         {
             var str = jToken.ToObject<string>();
 

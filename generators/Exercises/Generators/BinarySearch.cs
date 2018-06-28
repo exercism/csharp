@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Exercism.CSharp.Helpers;
 using Exercism.CSharp.Output;
+using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -9,7 +9,9 @@ namespace Exercism.CSharp.Exercises.Generators
     {
         protected override void UpdateTestData(TestData data)
         {
-            data.Input["array"] = ConvertHelper.ToArray<int>(data.Input["array"]);
+            if (data.Input["array"] is JArray)
+                data.Input["array"] = Array.Empty<int>();
+            
             data.UseVariablesForConstructorParameters = true;
             data.SetConstructorInputParameters("array");
         }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Exercism.CSharp.Helpers;
 using Exercism.CSharp.Output;
+using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -10,8 +10,12 @@ namespace Exercism.CSharp.Exercises.Generators
         protected override void UpdateTestData(TestData data)
         {
             data.UseVariableForExpected = true;
-            data.Input["strings"] = ConvertHelper.ToArray<string>(data.Input["strings"]);
-            data.Expected = ConvertHelper.ToArray<string>(data.Expected);
+            
+            if (data.Input["strings"] is JArray)
+                data.Input["strings"] = Array.Empty<string>();
+            
+            if (data.Expected is JArray)
+                data.Expected = Array.Empty<string>();
         }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
