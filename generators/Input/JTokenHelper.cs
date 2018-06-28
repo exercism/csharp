@@ -24,8 +24,6 @@ namespace Exercism.CSharp.Input
                     return ConvertJObject((JObject)jToken);
                 case JTokenType.Array:
                     return ConvertJArray((JArray)jToken);
-                case JTokenType.Property:
-                    return jToken.ToObject<IReadOnlyDictionary<string, dynamic>>();
                 case JTokenType.Integer:
                     return ConvertIntegerJToken(jToken);
                 case JTokenType.Float:
@@ -36,16 +34,6 @@ namespace Exercism.CSharp.Input
                     return jToken.ToObject<bool>();
                 case JTokenType.Date:
                     return jToken.ToObject<DateTime>();
-                case JTokenType.Raw:
-                    return jToken.ToObject<string>();
-                case JTokenType.Bytes:
-                    return jToken.ToObject<byte[]>();
-                case JTokenType.Guid:
-                    return jToken.ToObject<Guid>();
-                case JTokenType.Uri:
-                    return jToken.ToObject<Uri>();
-                case JTokenType.TimeSpan:
-                    return jToken.ToObject<TimeSpan>();
                 default:
                     return null;
             }
@@ -99,14 +87,6 @@ namespace Exercism.CSharp.Input
                     return jArray.ToObject<bool[]>();
                 case JTokenType.Date:
                     return jArray.ToObject<DateTime[]>();
-                case JTokenType.Bytes:
-                    return jArray.ToObject<byte[]>();
-                case JTokenType.Guid:
-                    return jArray.ToObject<Guid[]>();
-                case JTokenType.Uri:
-                    return jArray.ToObject<Uri[]>();
-                case JTokenType.TimeSpan:
-                    return jArray.ToObject<TimeSpan[]>();
                 default:
                     return jArray;
             }
