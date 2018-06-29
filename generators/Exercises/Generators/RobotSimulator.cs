@@ -32,17 +32,17 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert(method);
         }
 
-        private static IEnumerable<string> RenderAct(TestMethod method)
+        private static string RenderAct(TestMethod method)
         {
             switch (method.Data.Property)
             {
-                case "create": return Array.Empty<string>();
+                case "create": return null;
                 case "instructions": return RenderInstructionsAct(method);
                 default: return RenderDefaultAct(method);
             }
         }
 
-        private static IEnumerable<string> RenderDefaultAct(TestMethod method)
+        private static string RenderDefaultAct(TestMethod method)
         {
             const string template = @"sut.{{MethodInvocation}}();";
 
@@ -51,10 +51,10 @@ namespace Exercism.CSharp.Exercises.Generators
                 MethodInvocation = method.Data.Property.ToTestedMethodName()
             };
 
-            return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
+            return TemplateRenderer.RenderInline(template, templateParameters);
         }
 
-        private static IEnumerable<string> RenderInstructionsAct(TestMethod method)
+        private static string RenderInstructionsAct(TestMethod method)
         {
             const string template = @"sut.{{MethodInvocation}}(""{{Instructions}}"");";
 
@@ -64,10 +64,10 @@ namespace Exercism.CSharp.Exercises.Generators
                 Instructions = method.Data.Input["instructions"]
             };
 
-            return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
+            return TemplateRenderer.RenderInline(template, templateParameters);
         }
 
-        private static IEnumerable<string> RenderAssert(TestMethod method)
+        private static string RenderAssert(TestMethod method)
         {
             var expected = method.Data.Expected as Dictionary<string, dynamic>;
             expected.TryGetValue("position", out var position);
@@ -91,7 +91,7 @@ namespace Exercism.CSharp.Exercises.Generators
                 Y = position?["y"]
             };
 
-            return new[] { TemplateRenderer.RenderInline(template.ToString(), templateParameters) };
+            return TemplateRenderer.RenderInline(template.ToString(), templateParameters);
         }
 
         private static string GetDirectionEnum(string direction)

@@ -16,7 +16,7 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert();
         }
 
-        private static IEnumerable<string> RenderArrange(TestMethod method)
+        private static string RenderArrange(TestMethod method)
         {
             var arrange = new StringBuilder();
             arrange.AppendLine("var sut = new Reactor();");
@@ -27,7 +27,7 @@ namespace Exercism.CSharp.Exercises.Generators
             var operations = RenderOperations(method.Data.Input["operations"]);
             arrange.AppendLine(operations);
 
-            return new[] { arrange.ToString() };
+            return arrange.ToString();
         }
 
         private static string RenderCells(dynamic cells)
@@ -125,8 +125,7 @@ namespace Exercism.CSharp.Exercises.Generators
             }
         }
 
-        private static IEnumerable<string> RenderAssert()
-            => new[] { "" };
+        private static string RenderAssert() => string.Empty;
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {

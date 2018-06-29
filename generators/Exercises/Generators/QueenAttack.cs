@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Templates;
 
@@ -18,13 +17,13 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert(method);
         }
 
-        private static IEnumerable<string> RenderAssert(TestMethod method)
+        private static string RenderAssert(TestMethod method)
         {
             if (method.Data.Property == "canAttack")
-                return new[] { RenderCanAttackAssert(method) };
+                return RenderCanAttackAssert(method);
 
             return method.Data.UseVariableForTested
-                ? Array.Empty<string>()
+                ? string.Empty
                 : method.Assert;
         }
 

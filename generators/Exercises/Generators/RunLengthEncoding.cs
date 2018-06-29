@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Exercism.CSharp.Output;
+﻿using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Templates;
 
 namespace Exercism.CSharp.Exercises.Generators
@@ -16,14 +15,14 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert(method);
         }
 
-        private static IEnumerable<string> RenderAssert(TestMethod method)
+        private static string RenderAssert(TestMethod method)
         {
             return method.Data.Property == "consistency"
                 ? RenderConsistencyToAssert(method)
                 : method.Assert;
         }
 
-        private static IEnumerable<string> RenderConsistencyToAssert(TestMethod method)
+        private static string RenderConsistencyToAssert(TestMethod method)
         {
             const string template = @"Assert.Equal(""{{Expected}}"", {{TestedClassName}}.Decode({{TestedClassName}}.Encode(""{{Expected}}"")));";
 
@@ -33,7 +32,7 @@ namespace Exercism.CSharp.Exercises.Generators
                 TestedClassName = method.Data.TestedClass
             };
 
-            return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
+            return TemplateRenderer.RenderInline(template, templateParameters);
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Exercism.CSharp.Output;
 using Newtonsoft.Json.Linq;
 
@@ -27,18 +27,17 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert(method);
         }
 
-        private static IEnumerable<string> RenderAssert(TestMethod method)
+        private static string RenderAssert(TestMethod method)
         {
             if (method.Data.ExceptionThrown != null)
             {
                 return method.Assert;
             }
 
-            return new[]
-            {
-                "Assert.Equal(expected.Item1, actual.Item1);",
-                "Assert.Equal(expected.Item2, actual.Item2);"
-            };
+            var assert = new StringBuilder();
+            assert.AppendLine("Assert.Equal(expected.Item1, actual.Item1);");
+            assert.AppendLine("Assert.Equal(expected.Item2, actual.Item2);");
+            return assert.ToString();
         }
 
         private static string FormatCoordinates(dynamic coordinates)

@@ -40,10 +40,10 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert();
         }
 
-        private IEnumerable<string> RenderAssert()
-            => _expectedDictionary
+        private string RenderAssert()
+            => string.Join(Environment.NewLine, _expectedDictionary
                     .Select(kv => RenderAssertForSearchWord(kv.Key, kv.Value))
-                    .Cast<string>();
+                    .Cast<string>());
 
         private static string RenderAssertForSearchWord(string word, dynamic expected)
         {

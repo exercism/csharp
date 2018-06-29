@@ -22,7 +22,7 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert(method);
         }
 
-        private static IEnumerable<string> RenderAssert(TestMethod method)
+        private static string RenderAssert(TestMethod method)
         {
             var input = (Dictionary<string, object>)method.Data.Input;
             var operationName = char.ToUpper(method.Data.Property[0]) + method.Data.Property.Substring(1);
@@ -70,7 +70,7 @@ namespace Exercism.CSharp.Exercises.Generators
                     break;
             }
 
-            return new[] { assertCodeLine };
+            return assertCodeLine;
         }
 
         private static int Precision(object rawValue)

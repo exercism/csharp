@@ -43,7 +43,7 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert(method);
         }
 
-        private static IEnumerable<string> RenderAssert(TestMethod method)
+        private static string RenderAssert(TestMethod method)
         {
             if (method.Data.Property == PropertyEqual)
             {
@@ -55,13 +55,13 @@ namespace Exercism.CSharp.Exercises.Generators
                 : method.Assert;
         }
 
-        private static IEnumerable<string> RenderConsistencyToAssert(TestMethod method)
+        private static string RenderConsistencyToAssert(TestMethod method)
         {
             const string template = "Assert.Equal({{ ExpectedParameter }}, {{ TestedValue }}.ToString());";
-            return new[] { TemplateRenderer.RenderInline(template, new { method.ExpectedParameter, method.TestedValue }) };
+            return TemplateRenderer.RenderInline(template, new { method.ExpectedParameter, method.TestedValue });
         }
 
-        private static IEnumerable<string> RenderEqualToAssert(TestMethod method)
+        private static string RenderEqualToAssert(TestMethod method)
         {
             var expectedParameter = method.Data.Input[ParamClock1];
             const string testedValue = "sut";
@@ -73,7 +73,7 @@ namespace Exercism.CSharp.Exercises.Generators
                 ? "Assert.Equal({{ ExpectedParameter }}, {{ TestedValue }}); "
                 : "Assert.NotEqual({{ ExpectedParameter }}, {{ TestedValue }});";
 
-            return new[] { TemplateRenderer.RenderInline(template, assertTemplateParameters) };
+            return TemplateRenderer.RenderInline(template, assertTemplateParameters);
         }
     }
 }

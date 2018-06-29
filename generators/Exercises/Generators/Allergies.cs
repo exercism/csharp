@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Exercism.CSharp.Output;
+﻿using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Templates;
 
 namespace Exercism.CSharp.Exercises.Generators
@@ -21,14 +20,14 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert(method);
         }
 
-        private static IEnumerable<string> RenderAssert(TestMethod method)
+        private static string RenderAssert(TestMethod method)
         {
             return method.Data.Property == "allergicTo"
                 ? RenderIsAllergicToAssert(method)
                 : method.Assert;
         }
 
-        private static IEnumerable<string> RenderIsAllergicToAssert(TestMethod method)
+        private static string RenderIsAllergicToAssert(TestMethod method)
         {
             const string template =
                 @"{%- for allergy in Allergies -%}
@@ -36,7 +35,7 @@ Assert.{% if allergy.result %}True{% else %}False{% endif %}(sut.IsAllergicTo(""
 {%- endfor -%}";
 
             var templateParameters = new { Allergies = method.Data.Expected };
-            return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
+            return TemplateRenderer.RenderInline(template, templateParameters);
         }
     }
 }

@@ -31,13 +31,13 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert(method);
         }
 
-        private static IEnumerable<string> RenderArrange(TestMethod method)
+        private static string RenderArrange(TestMethod method)
         {
             var builder = new StringBuilder();
             builder.AppendLine("var sut = new BowlingGame();");
 
             if (!method.Data.Input.ContainsKey(PreviousRolls))
-                return new[] { builder.ToString() };
+                return builder.ToString();
 
             if (method.Data.Input[PreviousRolls] is int[] array)
             {
@@ -50,10 +50,10 @@ namespace Exercism.CSharp.Exercises.Generators
                 builder.Append("var previousRolls = Array.Empty<int>();");
             }
 
-            return new[] { builder.ToString() };
+            return builder.ToString();
         }
 
-        private static IEnumerable<string> RenderAssert(TestMethod method)
+        private static string RenderAssert(TestMethod method)
         {
             if (method.Data.ExceptionThrown != null && method.Data.Input.ContainsKey("roll"))
             {
@@ -62,7 +62,7 @@ namespace Exercism.CSharp.Exercises.Generators
                 {
                     RollVal = method.Data.Input["roll"]
                 };
-                return new[] { TemplateRenderer.RenderInline(template, templateParams) };
+                return TemplateRenderer.RenderInline(template, templateParams);
             }
 
             if (method.Data.ExceptionThrown == null ||
@@ -70,11 +70,11 @@ namespace Exercism.CSharp.Exercises.Generators
                 return method.Assert;
 
             const string throwTemplate = "Assert.Throws<ArgumentException>(() => sut.Score());";
-            return new[] { throwTemplate };
+            return throwTemplate;
 
         }
 
-        private static IEnumerable<string> RenderAct(TestMethod method)
+        private static string RenderAct(TestMethod method)
         {
             var template =
     @"DoRoll(previousRolls, sut);
@@ -82,7 +82,7 @@ namespace Exercism.CSharp.Exercises.Generators
 
             if (method.Data.ExceptionThrown != null)
             {
-                return new[] { template };
+                return template;
             }
 
             if (method.Data.Input.ContainsKey("roll"))
@@ -95,11 +95,11 @@ var actual = sut.Score();
                 {
                     RolVal = method.Data.Input["roll"]
                 };
-                return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
+                return TemplateRenderer.RenderInline(template, templateParameters);
             }
 
             template += "var actual = sut.Score();";
-            return new[] { template };
+            return template;
         }
 
         protected override void UpdateTestClass(TestClass @class)

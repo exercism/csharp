@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Templates;
 
@@ -21,7 +20,7 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert(method);
         }
 
-        private static IEnumerable<string> RenderAct(TestMethod method)
+        private static string RenderAct(TestMethod method)
         {
             const string template = @"var result = {{MethodInvocation}};";
 
@@ -30,10 +29,10 @@ namespace Exercism.CSharp.Exercises.Generators
                 MethodInvocation = method.TestedMethodInvocation
             };
 
-            return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
+            return TemplateRenderer.RenderInline(template, templateParameters);
         }
 
-        private static IEnumerable<string> RenderAssert(TestMethod method)
+        private static string RenderAssert(TestMethod method)
         {
             const string template =
 @"Assert.Equal({{MovesExpected}}, result.Moves);
@@ -47,7 +46,7 @@ Assert.Equal({% if GoalBucketExpected == 'two' %}Bucket.Two{% else %}Bucket.One{
                 GoalBucketExpected = method.Data.Expected["goalBucket"]
             };
 
-            return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
+            return TemplateRenderer.RenderInline(template, templateParameters);
         }
     }
 }

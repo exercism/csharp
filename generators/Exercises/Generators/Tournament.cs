@@ -26,17 +26,13 @@ namespace Exercism.CSharp.Exercises.Generators
             namespaces.Add(typeof(UTF8Encoding).Namespace);
         }
 
-
         protected override void UpdateTestMethod(TestMethod method)
         {
             method.Assert = RenderAssert();
         }
 
-        private static IEnumerable<string> RenderAssert()
-        {
-            const string template = @"Assert.Equal(expected, RunTally(rows));";
-            return new[] { TemplateRenderer.RenderInline(template, new { }) };
-        }
+        private static string RenderAssert() 
+            => TemplateRenderer.RenderInline(@"Assert.Equal(expected, RunTally(rows));", new { });
 
         protected override void UpdateTestClass(TestClass @class)
         {

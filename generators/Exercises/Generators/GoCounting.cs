@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Exercism.CSharp.Output;
 using Humanizer;
 using Newtonsoft.Json.Linq;
@@ -56,7 +57,7 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert(method);
         }
 
-        private static IEnumerable<string> RenderAssert(TestMethod method)
+        private static string RenderAssert(TestMethod method)
         {
             if (method.Data.ExceptionThrown != null)
             {
@@ -65,20 +66,18 @@ namespace Exercism.CSharp.Exercises.Generators
 
             if (method.Data.Property == "territories")
             {
-                return new[]
-                {
-                    "Assert.Equal(expected.Keys, actual.Keys);",
-                    "Assert.Equal(expected[Owner.Black], actual[Owner.Black]);",
-                    "Assert.Equal(expected[Owner.White], actual[Owner.White]);",
-                    "Assert.Equal(expected[Owner.None], actual[Owner.None]);"
-                };
+                var territoriesAssert = new StringBuilder();
+                territoriesAssert.AppendLine("Assert.Equal(expected.Keys, actual.Keys);");
+                territoriesAssert.AppendLine("Assert.Equal(expected[Owner.Black], actual[Owner.Black]);");
+                territoriesAssert.AppendLine("Assert.Equal(expected[Owner.White], actual[Owner.White]);");
+                territoriesAssert.AppendLine("Assert.Equal(expected[Owner.None], actual[Owner.None]);");
+                return territoriesAssert.ToString();
             }
 
-            return new[]
-            {
-                "Assert.Equal(expected.Item1, actual.Item1);",
-                "Assert.Equal(expected.Item2, actual.Item2);"
-            };
+            var assert = new StringBuilder();
+            assert.AppendLine("Assert.Equal(expected.Item1, actual.Item1);");
+            assert.AppendLine("Assert.Equal(expected.Item2, actual.Item2);");
+            return assert.ToString();
         }
 
         private static string FormatOwner(dynamic owner)

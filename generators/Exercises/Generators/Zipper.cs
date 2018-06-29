@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Exercism.CSharp.Output;
 using Humanizer;
 
@@ -14,28 +14,30 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert(method);
         }
 
-        private static IEnumerable<string> RenderArrange(TestMethod method)
+        private static string RenderArrange(TestMethod method)
         {
+            var arrange = new StringBuilder();
             var tree = RenderTree(method.Data.Input["initialTree"]);
-            yield return $"var tree = {tree};";
-            yield return "var sut = Zipper.FromTree(tree);";
+            arrange.AppendLine($"var tree = {tree};");
+            arrange.AppendLine("var sut = Zipper.FromTree(tree);");
 
             var operations = RenderOperations(method.Data.Input["operations"]);
-            yield return $"var actual = sut{operations};";
+            arrange.AppendLine($"var actual = sut{operations};");
+            return arrange.ToString();
         }
 
-        private static IEnumerable<string> RenderAssert(TestMethod method)
+        private static string RenderAssert(TestMethod method)
         {
             var expected = RenderExpected(method.Data.Expected);
             if (expected == null)
             {
-                yield return "Assert.Null(actual);";
+                return "Assert.Null(actual);";
             }
-            else
-            {
-                yield return $"var expected = {expected};";
-                yield return "Assert.Equal(expected, actual);";
-            }
+
+            var assert = new StringBuilder();
+            assert.AppendLine($"var expected = {expected};");
+            assert.AppendLine("Assert.Equal(expected, actual);");
+            return assert.ToString();
         }
 
         private static string RenderTree(dynamic tree)

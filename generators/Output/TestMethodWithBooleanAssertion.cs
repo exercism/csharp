@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 
 namespace Exercism.CSharp.Output
 {
@@ -9,6 +8,6 @@ namespace Exercism.CSharp.Output
         {
         }
         
-        protected override IEnumerable<string> RenderAssert() => Assertion.Boolean(TestedValue, Convert.ToBoolean(Data.Expected));
+        protected override string RenderAssert() => Assertion.Boolean(TestedValue, Convert.ToBoolean(Data.Expected));
     }
 }

@@ -23,16 +23,11 @@ namespace Exercism.CSharp.Output
         
         public object ArrangeTemplateParameters { get; set; }
         public object ActTemplateParameters { get; set; }
-
-        public string AssertTemplateName { get; set; } = "AssertEqual";
         public object AssertTemplateParameters { get; set; }
 
-        public IEnumerable<string> Act { get; set; }
-        public IEnumerable<string> Arrange { get; set; }
-        public IEnumerable<string> Assert { get; set; }
-
-        private IEnumerable<string> Lines =>
-            Arrange.Concat(Act).Concat(Assert).Where(line => !string.IsNullOrWhiteSpace(line));
+        public string Act { get; set; }
+        public string Arrange { get; set; }
+        public string Assert { get; set; }
 
         public string Render()
         {
@@ -44,7 +39,7 @@ namespace Exercism.CSharp.Output
             Act = Act ?? RenderAct();
             Assert = Assert ?? RenderAssert();
 
-            return TemplateRenderer.RenderPartial(TemplateName, new { Name = Data.TestMethod, Data.Skip, Lines });
+            return TemplateRenderer.RenderPartial(TemplateName, new { Name = Data.TestMethod, Data.Skip, Arrange, Act, Assert });
         }
 
         public string TestedValue => Data.UseVariableForTested ? TestedVariableName : TestedMethodInvocation;
@@ -105,12 +100,12 @@ namespace Exercism.CSharp.Output
             }
         }
 
-        private IEnumerable<string> RenderArrange()
-            => new[] { TemplateRenderer.RenderPartial(ArrangeTemplateName, ArrangeTemplateParameters) };
+        private string RenderArrange()
+            => TemplateRenderer.RenderPartial(ArrangeTemplateName, ArrangeTemplateParameters);
 
-        private IEnumerable<string> RenderAct()
-            => new[] { TemplateRenderer.RenderPartial(ActTemplateName, ActTemplateParameters) };
+        private string RenderAct()
+            => TemplateRenderer.RenderPartial(ActTemplateName, ActTemplateParameters);
 
-        protected abstract IEnumerable<string> RenderAssert();
+        protected abstract string RenderAssert();
     }
 }

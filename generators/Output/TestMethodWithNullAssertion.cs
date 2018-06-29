@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Exercism.CSharp.Output
+﻿namespace Exercism.CSharp.Output
 {
     public class TestMethodWithNullAssertion : TestMethod
     {
@@ -8,6 +6,6 @@ namespace Exercism.CSharp.Output
         {
         }
         
-        protected override IEnumerable<string> RenderAssert() => Assertion.Null(TestedValue);
+        protected override string RenderAssert() => Assertion.Null(TestedValue);
     }
 }

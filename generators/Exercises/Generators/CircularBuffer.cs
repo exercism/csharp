@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text;
 using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
@@ -11,12 +12,15 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert(method);
         }
 
-        private static IEnumerable<string> RenderAssert(TestMethod method)
+        private static string RenderAssert(TestMethod method)
         {
-            yield return RenderSut(method.Data);
+            var assert = new StringBuilder();
+            assert.AppendLine(RenderSut(method.Data));
 
             foreach (var operation in method.Data.Input["operations"])
-                yield return RenderOperation(operation);
+                assert.AppendLine(RenderOperation(operation));
+
+            return assert.ToString();
         }
 
         private static string RenderSut(TestData canonicalDataCase)

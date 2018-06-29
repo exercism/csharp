@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace Exercism.CSharp.Output
 {
     public class TestMethodWithEqualityAssertion : TestMethod
@@ -8,6 +6,6 @@ namespace Exercism.CSharp.Output
         {
         }
         
-        protected override IEnumerable<string> RenderAssert() => Assertion.Equal(TestedValue, ExpectedParameter);
+        protected override string RenderAssert() => Assertion.Equal(TestedValue, ExpectedParameter);
     }
 }

@@ -41,7 +41,7 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert(method);
         }
 
-        private IEnumerable<string> RenderAssert(TestMethod method)
+        private string RenderAssert(TestMethod method)
         {
             _testFactCodeLines = new StringBuilder();
             var canonicalDataCase = method.Data;
@@ -67,7 +67,7 @@ namespace Exercism.CSharp.Exercises.Generators
                 AddCodeLine($"Assert.Equal(new[] {{ {expectedArrayString} }}, tree.AsEnumerable());");
             }
 
-            return new[] { _testFactCodeLines.ToString() };
+            return _testFactCodeLines.ToString();
         }
     }
 }

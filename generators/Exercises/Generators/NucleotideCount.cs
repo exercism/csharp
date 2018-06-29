@@ -31,14 +31,14 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert(method);
         }
 
-        private static IEnumerable<string> RenderAssert(TestMethod method)
+        private static string RenderAssert(TestMethod method)
         {
             return method.Data.UseVariableForExpected
                 ? RenderEqualAssert(method)
                 : RenderThrowsAssert(method);
         }
 
-        private static IEnumerable<string> RenderEqualAssert(TestMethod method)
+        private static string RenderEqualAssert(TestMethod method)
         {
             const string template = @"Assert.Equal(expected, sut.{{ TestedMethodName }});";
 
@@ -47,10 +47,10 @@ namespace Exercism.CSharp.Exercises.Generators
                 TestedMethodName = method.Data.Property.ToTestedMethodName()
             };
 
-            return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
+            return TemplateRenderer.RenderInline(template, templateParameters);
         }
 
-        private static IEnumerable<string> RenderThrowsAssert(TestMethod method)
+        private static string RenderThrowsAssert(TestMethod method)
         {
             const string template = @"Assert.Throws<InvalidNucleotideException>(() => new NucleotideCount(""{{ Input }}""));";
 
@@ -59,7 +59,7 @@ namespace Exercism.CSharp.Exercises.Generators
                 Input = method.Data.Input["strand"]
             };
 
-            return new[] { TemplateRenderer.RenderInline(template, templateParameters) };
+            return TemplateRenderer.RenderInline(template, templateParameters);
         }
     }
 }
