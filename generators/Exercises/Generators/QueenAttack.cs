@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Templates;
 
@@ -29,34 +31,25 @@ namespace Exercism.CSharp.Exercises.Generators
 
         private static string RenderCanAttackAssert(TestMethod method)
         {
-            const string template =
-@"var whiteQueen = QueenAttack.Create({{whiteQueenX}},{{whiteQueenY}});
-var blackQueen = QueenAttack.Create({{blackQueenX}},{{blackQueenY}});
-Assert.{% if Expected %}True{% else %}False{% endif %}(QueenAttack.CanAttack(whiteQueen, blackQueen));";
+            var assert = new StringBuilder();
+            
+            var (whiteQueenX, whiteQueenY) = GetCoordinatesFromPosition((IDictionary<string, dynamic>)method.Data.Input["white_queen"]);
+            var (blackQueenX, blackQueenY) = GetCoordinatesFromPosition((IDictionary<string, dynamic>)method.Data.Input["black_queen"]);
 
-            var whiteQueenPositions = GetCoordinatesFromPosition(method.Data.Input["white_queen"]);
-            var blackQueenPositions = GetCoordinatesFromPosition(method.Data.Input["black_queen"]);
+            assert.AppendLine($"var whiteQueen = QueenAttack.Create({whiteQueenX},{whiteQueenY});");
+            assert.AppendLine($"var blackQueen = QueenAttack.Create({blackQueenX},{blackQueenY});");
+            assert.AppendLine(Assertion.Boolean((bool)method.Data.Expected, "QueenAttack.CanAttack(whiteQueen, blackQueen)"));
 
-            var templateParameters = new
-            {
-                whiteQueenX = whiteQueenPositions.Item1,
-                whiteQueenY = whiteQueenPositions.Item2,
-                blackQueenX = blackQueenPositions.Item1,
-                blackQueenY = blackQueenPositions.Item2,
-                method.Data.Expected
-            };
-
-            return TemplateRenderer.RenderInline(template, templateParameters);
+            return assert.ToString();
         }
 
-        private static Tuple<int, int> GetCoordinatesFromPosition(dynamic expected)
+        private static ValueTuple<int, int> GetCoordinatesFromPosition(IDictionary<string, dynamic> expected)
         {
             var coordinates = expected["position"];
-
             var positionX = (int)coordinates["row"];
             var positionY = (int)coordinates["column"];
 
-            return Tuple.Create(positionX, positionY);
+            return (positionX, positionY);
         }
 
         private static void SetCreatePropertyData(TestData canonicalDataCase)

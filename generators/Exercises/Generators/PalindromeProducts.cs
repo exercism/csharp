@@ -35,8 +35,8 @@ namespace Exercism.CSharp.Exercises.Generators
             }
 
             var assert = new StringBuilder();
-            assert.AppendLine("Assert.Equal(expected.Item1, actual.Item1);");
-            assert.AppendLine("Assert.Equal(expected.Item2, actual.Item2);");
+            assert.AppendLine(Assertion.Equal("expected.Item1", "actual.Item1"));
+            assert.AppendLine(Assertion.Equal("expected.Item2", "actual.Item2"));
             return assert.ToString();
         }
 

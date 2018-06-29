@@ -1,4 +1,5 @@
-﻿using Exercism.CSharp.Output;
+﻿using System.Text;
+using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Templates;
 
 namespace Exercism.CSharp.Exercises.Generators
@@ -29,13 +30,12 @@ namespace Exercism.CSharp.Exercises.Generators
 
         private static string RenderIsAllergicToAssert(TestMethod method)
         {
-            const string template =
-                @"{%- for allergy in Allergies -%}
-Assert.{% if allergy.result %}True{% else %}False{% endif %}(sut.IsAllergicTo(""{{ allergy.substance }}""));
-{%- endfor -%}";
+            var assert = new StringBuilder();
 
-            var templateParameters = new { Allergies = method.Data.Expected };
-            return TemplateRenderer.RenderInline(template, templateParameters);
+            foreach (var allergy in method.Data.Expected)
+                assert.AppendLine(Assertion.Boolean(allergy["result"], $"sut.IsAllergicTo({ValueFormatter.Format(allergy["substance"])})"));
+
+            return assert.ToString();
         }
     }
 }

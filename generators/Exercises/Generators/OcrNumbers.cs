@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using Exercism.CSharp.Output;
-using Exercism.CSharp.Output.Templates;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -17,12 +16,20 @@ namespace Exercism.CSharp.Exercises.Generators
             data.UseVariablesForInput = true;
         }
 
-        private static UnescapedValue ToDigitStringRepresentation(IEnumerable input)
+        private static UnescapedValue ToDigitStringRepresentation(string[] input)
         {
-            const string template = @" {% for item in {{input}} %}{% if forloop.first == true %}""{{item}}"" + ""\n"" +{% continue %}{% endif %}
-             ""{{item}}""{% if forloop.last == false %} + ""\n"" +{% endif %}{% endfor %}";
+            var lines = new StringBuilder();
+            lines.AppendLine();
 
-            return new UnescapedValue(TemplateRenderer.RenderInline(template, new { input }));
+            for (var i = 0; i < input.Length; i++)
+            {
+                lines.Append(ValueFormatter.Format(input[i]).Indent());
+
+                if (i < input.Length - 1)
+                    lines.Append(" + \"\\n\" +\n");
+            }
+
+            return new UnescapedValue(lines.ToString());
         }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)

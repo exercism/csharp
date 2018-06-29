@@ -57,21 +57,15 @@ namespace Exercism.CSharp.Exercises.Generators
         {
             if (method.Data.ExceptionThrown != null && method.Data.Input.ContainsKey("roll"))
             {
-                const string template = "Assert.Throws<ArgumentException>(() => sut.Roll({{RollVal}}));";
-                var templateParams = new
-                {
-                    RollVal = method.Data.Input["roll"]
-                };
-                return TemplateRenderer.RenderInline(template, templateParams);
+                var actual = ValueFormatter.Format(method.Data.Input["roll"]);
+                return Assertion.Throws(method.Data.ExceptionThrown.Name, $"sut.Roll({actual})");
             }
 
             if (method.Data.ExceptionThrown == null ||
                 method.Data.Property != "score")
                 return method.Assert;
-
-            const string throwTemplate = "Assert.Throws<ArgumentException>(() => sut.Score());";
-            return throwTemplate;
-
+            
+            return Assertion.Throws(method.Data.ExceptionThrown.Name, $"sut.Score()");
         }
 
         private static string RenderAct(TestMethod method)

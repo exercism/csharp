@@ -7,6 +7,6 @@ namespace Exercism.CSharp.Output
             Data.UseVariableForExpected = false;
         }
 
-        protected override string RenderAssert() => Assertion.Empty(TestedValue, ExpectedParameter);
+        protected override string RenderAssert() => Assertion.Empty(ExpectedParameter, TestedValue);
     }
 }

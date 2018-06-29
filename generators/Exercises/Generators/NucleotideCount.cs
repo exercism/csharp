@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Exercism.CSharp.Helpers;
 using Exercism.CSharp.Output;
-using Exercism.CSharp.Output.Templates;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -38,28 +36,13 @@ namespace Exercism.CSharp.Exercises.Generators
                 : RenderThrowsAssert(method);
         }
 
-        private static string RenderEqualAssert(TestMethod method)
-        {
-            const string template = @"Assert.Equal(expected, sut.{{ TestedMethodName }});";
-
-            var templateParameters = new
-            {
-                TestedMethodName = method.Data.Property.ToTestedMethodName()
-            };
-
-            return TemplateRenderer.RenderInline(template, templateParameters);
-        }
+        private static string RenderEqualAssert(TestMethod method) 
+            => Assertion.Equal("expected", $"sut.{method.Data.TestedMethod}");
 
         private static string RenderThrowsAssert(TestMethod method)
         {
-            const string template = @"Assert.Throws<InvalidNucleotideException>(() => new NucleotideCount(""{{ Input }}""));";
-
-            var templateParameters = new
-            {
-                Input = method.Data.Input["strand"]
-            };
-
-            return TemplateRenderer.RenderInline(template, templateParameters);
+            var strand = ValueFormatter.Format(method.Data.Input["strand"]);
+            return Assertion.Throws("InvalidNucleotideException", $"new NucleotideCount({strand})");
         }
     }
 }

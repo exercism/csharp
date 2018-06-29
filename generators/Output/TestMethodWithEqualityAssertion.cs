@@ -6,6 +6,6 @@ namespace Exercism.CSharp.Output
         {
         }
         
-        protected override string RenderAssert() => Assertion.Equal(TestedValue, ExpectedParameter);
+        protected override string RenderAssert() => Assertion.Equal(ExpectedParameter, TestedValue);
     }
 }

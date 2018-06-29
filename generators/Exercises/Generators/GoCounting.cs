@@ -67,16 +67,16 @@ namespace Exercism.CSharp.Exercises.Generators
             if (method.Data.Property == "territories")
             {
                 var territoriesAssert = new StringBuilder();
-                territoriesAssert.AppendLine("Assert.Equal(expected.Keys, actual.Keys);");
-                territoriesAssert.AppendLine("Assert.Equal(expected[Owner.Black], actual[Owner.Black]);");
-                territoriesAssert.AppendLine("Assert.Equal(expected[Owner.White], actual[Owner.White]);");
-                territoriesAssert.AppendLine("Assert.Equal(expected[Owner.None], actual[Owner.None]);");
+                territoriesAssert.AppendLine(Assertion.Equal("expected.Keys", "actual.Keys"));
+                territoriesAssert.AppendLine(Assertion.Equal("expected[Owner.Black]", "actual[Owner.Black]"));
+                territoriesAssert.AppendLine(Assertion.Equal("expected[Owner.White]", "actual[Owner.White]"));
+                territoriesAssert.AppendLine(Assertion.Equal("expected[Owner.None]", "actual[Owner.None]"));
                 return territoriesAssert.ToString();
             }
 
             var assert = new StringBuilder();
-            assert.AppendLine("Assert.Equal(expected.Item1, actual.Item1);");
-            assert.AppendLine("Assert.Equal(expected.Item2, actual.Item2);");
+            assert.AppendLine(Assertion.Equal("expected.Item1", "actual.Item1"));
+            assert.AppendLine(Assertion.Equal("expected.Item2", "actual.Item2"));
             return assert.ToString();
         }
 

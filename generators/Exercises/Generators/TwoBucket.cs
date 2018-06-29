@@ -1,5 +1,7 @@
+using System.Text;
 using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Templates;
+using Humanizer;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -20,33 +22,19 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert(method);
         }
 
-        private static string RenderAct(TestMethod method)
-        {
-            const string template = @"var result = {{MethodInvocation}};";
-
-            var templateParameters = new
-            {
-                MethodInvocation = method.TestedMethodInvocation
-            };
-
-            return TemplateRenderer.RenderInline(template, templateParameters);
-        }
+        private static string RenderAct(TestMethod method) => $"var result = {method.TestedMethodInvocation};";
 
         private static string RenderAssert(TestMethod method)
         {
-            const string template =
-@"Assert.Equal({{MovesExpected}}, result.Moves);
-Assert.Equal({{OtherBucketExpected}}, result.OtherBucket);
-Assert.Equal({% if GoalBucketExpected == 'two' %}Bucket.Two{% else %}Bucket.One{% endif %}, result.GoalBucket);";
+            var assert = new StringBuilder();
+            assert.AppendLine(Assertion.Equal(method.Data.Expected["moves"].ToString(), "result.Moves"));
+            assert.AppendLine(Assertion.Equal(method.Data.Expected["otherBucket"].ToString(), "result.OtherBucket"));
 
-            var templateParameters = new
-            {
-                MovesExpected = method.Data.Expected["moves"],
-                OtherBucketExpected = method.Data.Expected["otherBucket"],
-                GoalBucketExpected = method.Data.Expected["goalBucket"]
-            };
-
-            return TemplateRenderer.RenderInline(template, templateParameters);
+            var goalBucket = (string) method.Data.Expected["goalBucket"];
+            var expected = $"Bucket.{goalBucket.Humanize()}";
+            assert.AppendLine(Assertion.Equal(expected, "result.GoalBucket"));
+            
+            return assert.ToString();
         }
     }
 }

@@ -42,29 +42,12 @@ namespace Exercism.CSharp.Exercises.Generators
             }
         }
 
-        private static string RenderDefaultAct(TestMethod method)
-        {
-            const string template = @"sut.{{MethodInvocation}}();";
-
-            var templateParameters = new
-            {
-                MethodInvocation = method.Data.Property.ToTestedMethodName()
-            };
-
-            return TemplateRenderer.RenderInline(template, templateParameters);
-        }
+        private static string RenderDefaultAct(TestMethod method) => $"sut.{method.Data.TestedMethod}();";
 
         private static string RenderInstructionsAct(TestMethod method)
         {
-            const string template = @"sut.{{MethodInvocation}}(""{{Instructions}}"");";
-
-            var templateParameters = new
-            {
-                MethodInvocation = "Simulate",
-                Instructions = method.Data.Input["instructions"]
-            };
-
-            return TemplateRenderer.RenderInline(template, templateParameters);
+            var actual = ValueFormatter.Format(method.Data.Input["instructions"]);
+            return $"sut.Simulate({actual});";
         }
 
         private static string RenderAssert(TestMethod method)
@@ -73,25 +56,24 @@ namespace Exercism.CSharp.Exercises.Generators
             expected.TryGetValue("position", out var position);
             expected.TryGetValue("direction", out var direction);
 
-            var template = new StringBuilder();
+            var assert = new StringBuilder();
 
             if (direction != null)
-                template.AppendLine("Assert.Equal({{Direction}}, sut.Direction);");
+            {
+                var expectedDirection = GetDirectionEnum(direction);
+                assert.AppendLine(Assertion.Equal(expectedDirection, "sut.Direction"));
+            }   
 
             if (position != null)
             {
-                template.AppendLine("Assert.Equal({{X}}, sut.Coordinate.X);");
-                template.AppendLine("Assert.Equal({{Y}}, sut.Coordinate.Y);");
+                var x = ValueFormatter.Format(position["x"]);
+                var y = ValueFormatter.Format(position["y"]);
+                
+                assert.AppendLine(Assertion.Equal(x, "sut.Coordinate.X"));
+                assert.AppendLine(Assertion.Equal(y, "sut.Coordinate.Y"));
             }
-
-            var templateParameters = new
-            {
-                Direction = !string.IsNullOrEmpty(direction) ? GetDirectionEnum(direction) : null,
-                X = position?["x"],
-                Y = position?["y"]
-            };
-
-            return TemplateRenderer.RenderInline(template.ToString(), templateParameters);
+            
+            return assert.ToString();
         }
 
         private static string GetDirectionEnum(string direction)

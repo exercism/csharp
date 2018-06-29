@@ -1,24 +1,32 @@
-﻿using System;
-using Exercism.CSharp.Output.Templates;
+﻿using Exercism.CSharp.Output.Templates;
 
 namespace Exercism.CSharp.Output
 {
     public static class Assertion
     {
-        public static string Null(string testedValue) 
-            => Render("AssertNull", new { TestedValue = testedValue });
+        public static string Null(string actual) 
+            => Render("AssertNull", new { actual });
         
-        public static string Empty(string testedValue, string expectedParameter) 
-            => Render("AssertEmpty", new { TestedValue = testedValue, ExpectedParameter = expectedParameter });
+        public static string Empty(string expected, string actual) 
+            => Render("AssertEmpty", new { expected, actual });
         
-        public static string Equal(string testedValue, string expectedParameter) 
-            => Render("AssertEqual", new { TestedValue = testedValue, ExpectedParameter = expectedParameter });
+        public static string Equal(string expected, string actual) 
+            => Render("AssertEqual", new { expected, actual });
         
-        public static string Exception(string testedValue, Type exceptionType) 
-            => Render("AssertException", new { TestedValue = testedValue, ExceptionType = exceptionType.Name });
+        public static string EqualWithin(string expected, string actual, int precision) 
+            => Render("AssertEqualWithin", new { expected, actual, precision });
         
-        public static string Boolean(string testedValue, bool expected) 
-            => Render("AssertBoolean", new { TestedValue = testedValue, BooleanAssertMethod = expected.ToString() });
+        public static string NotEqual(string expected, string actual) 
+            => Render("AssertNotEqual", new { expected, actual });
+        
+        public static string Throws(string expectedException, string actual) 
+            => Render("AssertThrows", new { expected = expectedException, actual });
+        
+        public static string Boolean(bool expected, string actual) 
+            => Render("AssertBoolean", new { expected = expected.ToString(), actual });
+        
+        public static string Matches(string expected, string actual) 
+            => Render("AssertMatches", new { expected, actual });
         
         private static string Render(string template, object parameters)
             => TemplateRenderer.RenderPartial(template, parameters);

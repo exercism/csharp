@@ -31,12 +31,12 @@ namespace Exercism.CSharp.Exercises.Generators
             var expected = RenderExpected(method.Data.Expected);
             if (expected == null)
             {
-                return "Assert.Null(actual);";
+                return Assertion.Null("actual");
             }
 
             var assert = new StringBuilder();
             assert.AppendLine($"var expected = {expected};");
-            assert.AppendLine("Assert.Equal(expected, actual);");
+            assert.AppendLine(Assertion.Equal("expected", "actual"));
             return assert.ToString();
         }
 

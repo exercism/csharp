@@ -1,5 +1,4 @@
 ﻿using Exercism.CSharp.Output;
-using Exercism.CSharp.Output.Templates;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -24,15 +23,9 @@ namespace Exercism.CSharp.Exercises.Generators
 
         private static string RenderConsistencyToAssert(TestMethod method)
         {
-            const string template = @"Assert.Equal(""{{Expected}}"", {{TestedClassName}}.Decode({{TestedClassName}}.Encode(""{{Expected}}"")));";
-
-            var templateParameters = new
-            {
-                method.Data.Expected,
-                TestedClassName = method.Data.TestedClass
-            };
-
-            return TemplateRenderer.RenderInline(template, templateParameters);
+            var expected = ValueFormatter.Format(method.Data.Expected);
+            var actual = $"{method.Data.TestedClass}.Decode({method.Data.TestedClass}.Encode({expected}))";
+            return Assertion.Equal(expected, actual);
         }
     }
 }

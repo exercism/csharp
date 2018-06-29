@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Exercism.CSharp.Output;
-using Exercism.CSharp.Output.Templates;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -55,25 +54,16 @@ namespace Exercism.CSharp.Exercises.Generators
                 : method.Assert;
         }
 
-        private static string RenderConsistencyToAssert(TestMethod method)
-        {
-            const string template = "Assert.Equal({{ ExpectedParameter }}, {{ TestedValue }}.ToString());";
-            return TemplateRenderer.RenderInline(template, new { method.ExpectedParameter, method.TestedValue });
-        }
+        private static string RenderConsistencyToAssert(TestMethod method) 
+            => Assertion.Equal(method.ExpectedParameter, $"{method.TestedValue}.ToString()");
 
         private static string RenderEqualToAssert(TestMethod method)
         {
-            var expectedParameter = method.Data.Input[ParamClock1];
-            const string testedValue = "sut";
-            var expectedEqual = method.Data.Expected;
+            var expected = method.Data.Input[ParamClock1].ToString();
 
-            var assertTemplateParameters = new { expectedParameter, testedValue };
-
-            var template = expectedEqual
-                ? "Assert.Equal({{ ExpectedParameter }}, {{ TestedValue }}); "
-                : "Assert.NotEqual({{ ExpectedParameter }}, {{ TestedValue }});";
-
-            return TemplateRenderer.RenderInline(template, assertTemplateParameters);
+            return method.Data.Expected 
+                ? Assertion.Equal(expected, "sut")
+                : Assertion.NotEqual(expected, "sut");
         }
     }
 }

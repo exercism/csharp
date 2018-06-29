@@ -48,8 +48,8 @@ namespace Exercism.CSharp.Exercises.Generators
         private static string RenderAssertForSearchWord(string word, dynamic expected)
         {
             return expected == null
-                ? $"Assert.Null(expected[\"{word}\"]);"
-                : $"Assert.Equal(expected[\"{word}\"], actual[\"{word}\"]);";
+                ? Assertion.Null($"expected[\"{word}\"]")
+                : Assertion.Equal($"expected[\"{word}\"]", $"actual[\"{word}\"]");
         }
 
         private static string FormatPosition(dynamic position)

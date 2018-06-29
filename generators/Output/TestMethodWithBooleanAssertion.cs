@@ -8,6 +8,6 @@ namespace Exercism.CSharp.Output
         {
         }
         
-        protected override string RenderAssert() => Assertion.Boolean(TestedValue, Convert.ToBoolean(Data.Expected));
+        protected override string RenderAssert() => Assertion.Boolean(Convert.ToBoolean(Data.Expected), TestedValue);
     }
 }

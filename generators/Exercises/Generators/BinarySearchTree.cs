@@ -20,7 +20,7 @@ namespace Exercism.CSharp.Exercises.Generators
 
         public IEnumerable<string> TestAsserts(string traverse = "")
         {
-            yield return $"Assert.Equal({Value}, tree{traverse}.Value);";
+            yield return Assertion.Equal(Value, $"tree{traverse}.Value");
             if (Left != null) foreach (var assert in Left.TestAsserts(traverse + ".Left")) yield return assert;
             if (Right != null) foreach (var assert in Right.TestAsserts(traverse + ".Right")) yield return assert;
         }
@@ -64,7 +64,7 @@ namespace Exercism.CSharp.Exercises.Generators
             else
             {
                 var expectedArrayString = string.Join(", ", canonicalDataCase.Expected as string[]);
-                AddCodeLine($"Assert.Equal(new[] {{ {expectedArrayString} }}, tree.AsEnumerable());");
+                AddCodeLine(Assertion.Equal($"new[] {{ {expectedArrayString} }}", "tree.AsEnumerable()"));
             }
 
             return _testFactCodeLines.ToString();

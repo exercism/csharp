@@ -54,10 +54,10 @@ namespace Exercism.CSharp.Exercises.Generators
             {
                 case "new":
                     var key = ValueFormatter.Format(method.Data.Input["key"]);
-                    return $"Assert.Throws<ArgumentException>(() => new SimpleCipher({key}));";
+                    return Assertion.Throws("ArgumentException", $"new SimpleCipher({key})");
                 case "key":
                     var pattern = ValueFormatter.Format(method.Data.Expected["match"]);
-                    return $"Assert.Matches({pattern}, sut.Key);";
+                    return Assertion.Matches(pattern, "sut.Key");
                 default:
                     return method.Assert;
             }
