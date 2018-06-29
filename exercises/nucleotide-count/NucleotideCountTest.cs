@@ -64,6 +64,6 @@ public class NucleotideCountTest
     [Fact(Skip = "Remove to run test")]
     public void Strand_with_invalid_nucleotides()
     {
-        Assert.Throws<InvalidNucleotideException>(() => new NucleotideCount("AGXXACT"));
+        Assert.Throws<ArgumentException>(() => new NucleotideCount("AGXXACT"));
     }
 }

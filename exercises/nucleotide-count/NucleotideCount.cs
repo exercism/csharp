@@ -15,5 +15,3 @@ public class NucleotideCount
         }
     }
 }
-
-public class InvalidNucleotideException : Exception { }

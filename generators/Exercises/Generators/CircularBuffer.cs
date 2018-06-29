@@ -50,14 +50,14 @@ namespace Exercism.CSharp.Exercises.Generators
         {
             return operation["should_succeed"]
                 ? Assertion.Equal(operation["expected"].ToString(), "buffer.Read()")
-                : Assertion.Throws("InvalidOperationException", "buffer.Read()");
+                : Assertion.Throws<InvalidOperationException>("buffer.Read()");
         }
 
         private static string RenderWriteOperation(dynamic operation)
         {
             return operation["should_succeed"]
                 ? $"buffer.Write({operation["item"]});"
-                : Assertion.Throws("InvalidOperationException", $"buffer.Write({operation["item"]})");
+                : Assertion.Throws<InvalidOperationException>($"buffer.Write({operation["item"]})");
         }
 
         private static string RenderOverwriteOperation(dynamic operation)

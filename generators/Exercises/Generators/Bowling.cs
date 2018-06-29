@@ -58,14 +58,14 @@ namespace Exercism.CSharp.Exercises.Generators
             if (method.Data.ExceptionThrown != null && method.Data.Input.ContainsKey("roll"))
             {
                 var actual = ValueFormatter.Format(method.Data.Input["roll"]);
-                return Assertion.Throws(method.Data.ExceptionThrown.Name, $"sut.Roll({actual})");
+                return Assertion.Throws(method.Data.ExceptionThrown, $"sut.Roll({actual})");
             }
 
             if (method.Data.ExceptionThrown == null ||
                 method.Data.Property != "score")
                 return method.Assert;
             
-            return Assertion.Throws(method.Data.ExceptionThrown.Name, $"sut.Score()");
+            return Assertion.Throws(method.Data.ExceptionThrown, "sut.Score()");
         }
 
         private static string RenderAct(TestMethod method)

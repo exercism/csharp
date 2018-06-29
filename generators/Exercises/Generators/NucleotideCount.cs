@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Exercism.CSharp.Output;
 
@@ -42,7 +43,7 @@ namespace Exercism.CSharp.Exercises.Generators
         private static string RenderThrowsAssert(TestMethod method)
         {
             var strand = ValueFormatter.Format(method.Data.Input["strand"]);
-            return Assertion.Throws("InvalidNucleotideException", $"new NucleotideCount({strand})");
+            return Assertion.Throws<ArgumentException>($"new NucleotideCount({strand})");
         }
     }
 }

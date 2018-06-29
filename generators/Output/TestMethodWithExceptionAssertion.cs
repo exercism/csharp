@@ -8,6 +8,6 @@
             Data.UseVariableForTested = false;
         }
         
-        protected override string RenderAssert() => Assertion.Throws(Data.ExceptionThrown.Name, TestedValue);
+        protected override string RenderAssert() => Assertion.Throws(Data.ExceptionThrown, TestedValue);
     }
 }

@@ -20,9 +20,7 @@ public class NucleotideCount
         }
         catch (KeyNotFoundException)
         {
-            throw new InvalidNucleotideException();
+            throw new ArgumentException();
         }
     }
 }
-
-public class InvalidNucleotideException : Exception { }
