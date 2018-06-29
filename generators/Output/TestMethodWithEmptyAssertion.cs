@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Exercism.CSharp.Output
 {
     public class TestMethodWithEmptyAssertion : TestMethod
@@ -5,9 +7,8 @@ namespace Exercism.CSharp.Output
         public TestMethodWithEmptyAssertion(TestData data): base(data)
         {
             Data.UseVariableForExpected = false;
-            
-            AssertTemplateName = "AssertEmpty";
-            AssertTemplateParameters = new { ExpectedParameter, TestedValue };
         }
+
+        protected override IEnumerable<string> RenderAssert() => Assertion.Empty(TestedValue, ExpectedParameter);
     }
 }

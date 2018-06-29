@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Exercism.CSharp.Output
 {
@@ -6,10 +7,8 @@ namespace Exercism.CSharp.Output
     {
         public TestMethodWithBooleanAssertion(TestData data) : base(data)
         {
-            AssertTemplateName = "AssertBoolean";
-            AssertTemplateParameters = new { BooleanAssertMethod, TestedValue };
         }
-
-        private string BooleanAssertMethod => Convert.ToBoolean(Data.Expected).ToString();
+        
+        protected override IEnumerable<string> RenderAssert() => Assertion.Boolean(TestedValue, Convert.ToBoolean(Data.Expected));
     }
 }

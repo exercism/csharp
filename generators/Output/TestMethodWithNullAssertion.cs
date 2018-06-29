@@ -1,11 +1,13 @@
-﻿namespace Exercism.CSharp.Output
+﻿using System.Collections.Generic;
+
+namespace Exercism.CSharp.Output
 {
     public class TestMethodWithNullAssertion : TestMethod
     {
         public TestMethodWithNullAssertion(TestData data) : base(data)
         {
-            AssertTemplateName = "AssertNull";
-            AssertTemplateParameters = new { TestedValue };
         }
+        
+        protected override IEnumerable<string> RenderAssert() => Assertion.Null(TestedValue);
     }
 }

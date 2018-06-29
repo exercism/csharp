@@ -1,4 +1,6 @@
-﻿namespace Exercism.CSharp.Output
+﻿using System.Collections.Generic;
+
+namespace Exercism.CSharp.Output
 {
     public class TestMethodWithExceptionAssertion : TestMethod
     {
@@ -6,11 +8,8 @@
         {
             Data.UseVariableForExpected = false;
             Data.UseVariableForTested = false;
-
-            AssertTemplateName = "AssertException";
-            AssertTemplateParameters = new { ExceptionType, TestedValue };
         }
-
-        private string ExceptionType => Data.ExceptionThrown.Name;
+        
+        protected override IEnumerable<string> RenderAssert() => Assertion.Exception(TestedValue, Data.ExceptionThrown);
     }
 }

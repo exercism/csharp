@@ -13,15 +13,15 @@ namespace Exercism.CSharp.Output
         private const string TestedVariableName = "actual";
         private const string ExpectedVariableName = "expected";
         private const string TemplateName = "TestMethod";
+        
+        private const string ArrangeTemplateName = "Arrange";
+        private const string ActTemplateName = "Act";
 
         protected TestMethod(TestData data) => Data = data;
 
         public TestData Data { get; }
-
-        public string ArrangeTemplateName { get; set; } = "Arrange";
+        
         public object ArrangeTemplateParameters { get; set; }
-
-        public string ActTemplateName { get; set; } = "Act";
         public object ActTemplateParameters { get; set; }
 
         public string AssertTemplateName { get; set; } = "AssertEqual";
@@ -111,7 +111,6 @@ namespace Exercism.CSharp.Output
         private IEnumerable<string> RenderAct()
             => new[] { TemplateRenderer.RenderPartial(ActTemplateName, ActTemplateParameters) };
 
-        private IEnumerable<string> RenderAssert()
-            => new[] { TemplateRenderer.RenderPartial(AssertTemplateName, AssertTemplateParameters) };
+        protected abstract IEnumerable<string> RenderAssert();
     }
 }
