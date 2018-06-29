@@ -63,8 +63,9 @@ namespace Exercism.CSharp.Exercises.Generators
             }
             else
             {
-                var expectedArrayString = string.Join(", ", canonicalDataCase.Expected as string[]);
-                AddCodeLine(Assertion.Equal($"new[] {{ {expectedArrayString} }}", "tree.AsEnumerable()"));
+                var expectedNumbers = ((string[]) canonicalDataCase.Expected).Select(int.Parse).ToArray();
+                var expectedFormatted = ValueFormatter.Format(expectedNumbers);
+                AddCodeLine(Assertion.Equal(expectedFormatted, "tree.AsEnumerable()"));
             }
 
             return _testFactCodeLines.ToString();
