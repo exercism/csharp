@@ -4,6 +4,7 @@ using System.Linq;
 using Exercism.CSharp.Helpers;
 using Exercism.CSharp.Input;
 using Exercism.CSharp.Output;
+using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises
 {
@@ -11,6 +12,8 @@ namespace Exercism.CSharp.Exercises
     {
         private CanonicalData _canonicalData;
         private TestData[] _testData;
+
+        protected Render Render { get; } = new Render(); 
 
         public override string Name => GetType().ToExerciseName();
 

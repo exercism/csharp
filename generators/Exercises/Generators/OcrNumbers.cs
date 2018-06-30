@@ -17,7 +17,7 @@ namespace Exercism.CSharp.Exercises.Generators
             data.UseVariablesForInput = true;
         }
 
-        private static UnescapedValue ToDigitStringRepresentation(string[] input)
+        private UnescapedValue ToDigitStringRepresentation(string[] input)
         {
             var lines = new StringBuilder();
             lines.AppendLine();

@@ -6,6 +6,6 @@
         {
         }
         
-        protected override string RenderAssert() => Rendering.Render.Assert.Null(TestedValue);
+        protected override string RenderAssert() => Renderer.AssertNull(TestedValue);
     }
 }

@@ -19,7 +19,7 @@ namespace Exercism.CSharp.Exercises.Generators
             {
                 data.UseVariableForTested = true;
                 data.UseVariableForExpected = true;
-                data.Expected = (data.Expected["value"], FormatCoordinates(data.Expected["factors"]));
+                data.Expected = (data.Expected["value"], RenderCoordinates(data.Expected["factors"]));
             }
         }
 
@@ -28,7 +28,7 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert(method);
         }
 
-        private static string RenderAssert(TestMethod method)
+        private string RenderAssert(TestMethod method)
         {
             if (method.Data.ExceptionThrown != null)
             {
@@ -36,12 +36,17 @@ namespace Exercism.CSharp.Exercises.Generators
             }
 
             var assert = new StringBuilder();
-            assert.AppendLine(Render.Assert.Equal("expected.Item1", "actual.Item1"));
-            assert.AppendLine(Render.Assert.Equal("expected.Item2", "actual.Item2"));
+            assert.AppendLine(Render.AssertEqual("expected.Item1", "actual.Item1"));
+            assert.AppendLine(Render.AssertEqual("expected.Item2", "actual.Item2"));
             return assert.ToString();
         }
 
-        private static string FormatCoordinates(dynamic coordinates)
-            => Render.Object((coordinates as JArray).Select(coordinate => (coordinate[0].ToObject<int>(), coordinate[1].ToObject<int>())).ToArray());
+        private string RenderCoordinates(dynamic coordinates)
+            => Render.Object((coordinates as JArray)
+                .Select(RenderCoordinate)
+                .ToArray());
+
+        private static (int, int) RenderCoordinate(JToken coordinate)
+            => (coordinate[0].ToObject<int>(), coordinate[1].ToObject<int>());
     }
 }

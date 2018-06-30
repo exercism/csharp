@@ -23,7 +23,7 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert(method);
         }
 
-        private static string RenderAssert(TestMethod method)
+        private string RenderAssert(TestMethod method)
         {
             var input = (Dictionary<string, object>)method.Data.Input;
             var operationName = char.ToUpper(method.Data.Property[0]) + method.Data.Property.Substring(1);

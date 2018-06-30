@@ -10,8 +10,8 @@ namespace Exercism.CSharp.Exercises.Generators
         protected override void UpdateTestData(TestData data)
         {
             var input = DateTime.Parse(data.Input["birthdate"].ToString());
-            data.Input["birthdate"] = new UnescapedValue(FormatDateTime(input));
-            data.Expected = new UnescapedValue(FormatDateTime((DateTime)data.Expected));
+            data.Input["birthdate"] = new UnescapedValue(RenderDateTime(input));
+            data.Expected = new UnescapedValue(RenderDateTime((DateTime)data.Expected));
         }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
@@ -19,7 +19,7 @@ namespace Exercism.CSharp.Exercises.Generators
             namespaces.Add(typeof(DateTime).Namespace);
         }
 
-        private static string FormatDateTime(DateTime dateTime)
+        private static string RenderDateTime(DateTime dateTime)
         {
             return dateTime.Hour == 0 && dateTime.Minute == 0 && dateTime.Second == 0
                 ? $"new DateTime({dateTime.Year}, {dateTime.Month}, {dateTime.Day})"

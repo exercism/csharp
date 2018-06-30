@@ -13,12 +13,12 @@ namespace Exercism.CSharp.Exercises.Generators
         {
             data.UseVariableForExpected = true;
             data.UseVariablesForInput = true;
-            data.Input["integers"] = FormatUInt32Array(data.Input["integers"]);
+            data.Input["integers"] = RenderUInt32Array(data.Input["integers"]);
 
             if (data.Expected == null)
                 data.ExceptionThrown = typeof(InvalidOperationException);
             else
-                data.Expected = FormatUInt32Array(data.Expected);
+                data.Expected = RenderUInt32Array(data.Expected);
         }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
@@ -26,15 +26,16 @@ namespace Exercism.CSharp.Exercises.Generators
             namespaces.Add(typeof(Array).Namespace);
         }
 
-        private static dynamic FormatUInt32Array(dynamic input)
+        private static dynamic RenderUInt32Array(dynamic input)
         {
             var numbers = ToUInt32Array(input as IEnumerable);
-            return numbers.Select(number => new UnescapedValue(string.Format("0x{0:X}u", number))).ToArray();
+            return numbers.Select(RenderUInt32Number).ToArray();
         }
 
-        private static IEnumerable<uint> ToUInt32Array(IEnumerable input)
-        {
-            return input.Cast<object>().Select(number => Convert.ToUInt32(number.ToString()));
-        }
+        private static UnescapedValue RenderUInt32Number(uint number) 
+            => new UnescapedValue(string.Format("0x{0:X}u", number));
+
+        private static IEnumerable<uint> ToUInt32Array(IEnumerable input) 
+            => input.Cast<object>().Select(number => Convert.ToUInt32(number.ToString()));
     }
 }

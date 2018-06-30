@@ -53,19 +53,19 @@ namespace Exercism.CSharp.Exercises.Generators
             return builder.ToString();
         }
 
-        private static string RenderAssert(TestMethod method)
+        private string RenderAssert(TestMethod method)
         {
             if (method.Data.ExceptionThrown != null && method.Data.Input.ContainsKey("roll"))
             {
                 var actual = Render.Object(method.Data.Input["roll"]);
-                return Render.Assert.Throws(method.Data.ExceptionThrown, $"sut.Roll({actual})");
+                return Render.AssertThrows(method.Data.ExceptionThrown, $"sut.Roll({actual})");
             }
 
             if (method.Data.ExceptionThrown == null ||
                 method.Data.Property != "score")
                 return method.Assert;
             
-            return Render.Assert.Throws(method.Data.ExceptionThrown, "sut.Score()");
+            return Render.AssertThrows(method.Data.ExceptionThrown, "sut.Score()");
         }
 
         private static string RenderAct(TestMethod method)

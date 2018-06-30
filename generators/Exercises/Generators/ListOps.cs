@@ -70,7 +70,7 @@ namespace Exercism.CSharp.Exercises.Generators
             return value;
         }
 
-        private static dynamic ConvertToNestedList(dynamic value, bool unescapeEmpty)
+        private dynamic ConvertToNestedList(dynamic value, bool unescapeEmpty)
         {
             switch (value)
             {
@@ -86,7 +86,7 @@ namespace Exercism.CSharp.Exercises.Generators
                         .Children<JArray>()
                         .Select(ConvertToList)
                         .Select(Render.Object)
-                        .Select(formattedValue => new UnescapedValue(formattedValue))
+                        .Select(renderedValue => new UnescapedValue(renderedValue))
                         .ToList();
 
                     return new UnescapedValue(Render.Object(nestedList)

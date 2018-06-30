@@ -29,12 +29,11 @@ namespace Exercism.CSharp.Exercises.Generators
                     "{"
                 };
 
-            expected.AddRange(_expectedDictionary.Select((kv, i) => $"    [\"{kv.Key}\"] = {FormatPosition(kv.Value)}{(i < _expectedDictionary.Count - 1 ? "," : "")}"));
+            expected.AddRange(_expectedDictionary.Select((kv, i) => $"    [\"{kv.Key}\"] = {RenderPosition(kv.Value)}{(i < _expectedDictionary.Count - 1 ? "," : "")}"));
             expected.Add("}");
 
             data.Expected = new UnescapedValue(string.Join(Environment.NewLine, expected));
         }
-
 
         protected override void UpdateTestMethod(TestMethod method)
         {
@@ -46,21 +45,17 @@ namespace Exercism.CSharp.Exercises.Generators
                     .Select(kv => RenderAssertForSearchWord(kv.Key, kv.Value))
                     .Cast<string>());
 
-        private static string RenderAssertForSearchWord(string word, dynamic expected)
-        {
-            return expected == null
-                ? Render.Assert.Null($"expected[\"{word}\"]")
-                : Render.Assert.Equal($"expected[\"{word}\"]", $"actual[\"{word}\"]");
-        }
+        private string RenderAssertForSearchWord(string word, dynamic expected) 
+            => expected == null
+                ? Render.AssertNull($"expected[\"{word}\"]")
+                : Render.AssertEqual($"expected[\"{word}\"]", $"actual[\"{word}\"]");
 
-        private static string FormatPosition(dynamic position)
-        {
-            return position == null
+        private string RenderPosition(dynamic position) 
+            => position == null
                 ? "null" :
-                Render.Object((FormatCoordinate(position["start"]), FormatCoordinate(position["end"])));
-        }
+                Render.Object((RenderCoordinate(position["start"]), RenderCoordinate(position["end"])));
 
-        private static string FormatCoordinate(dynamic coordinate)
+        private string RenderCoordinate(dynamic coordinate)
             => Render.Object((coordinate["column"], coordinate["row"]));
 
         protected override void UpdateNamespaces(ISet<string> namespaces)

@@ -27,17 +27,17 @@ namespace Exercism.CSharp.Exercises.Generators
             return arrange.ToString();
         }
 
-        private static string RenderAssert(TestMethod method)
+        private string RenderAssert(TestMethod method)
         {
             var expected = RenderExpected(method.Data.Expected);
             if (expected == null)
             {
-                return Render.Assert.Null("actual");
+                return Render.AssertNull("actual");
             }
 
             var assert = new StringBuilder();
             assert.AppendLine($"var expected = {expected};");
-            assert.AppendLine(Render.Assert.Equal("expected", "actual"));
+            assert.AppendLine(Render.AssertEqual("expected", "actual"));
             return assert.ToString();
         }
 

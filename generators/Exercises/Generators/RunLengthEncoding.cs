@@ -15,18 +15,18 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert(method);
         }
 
-        private static string RenderAssert(TestMethod method)
+        private string RenderAssert(TestMethod method)
         {
             return method.Data.Property == "consistency"
                 ? RenderConsistencyToAssert(method)
                 : method.Assert;
         }
 
-        private static string RenderConsistencyToAssert(TestMethod method)
+        private string RenderConsistencyToAssert(TestMethod method)
         {
             var expected = Render.Object(method.Data.Expected);
             var actual = $"{method.Data.TestedClass}.Decode({method.Data.TestedClass}.Encode({expected}))";
-            return Render.Assert.Equal(expected, actual);
+            return Render.AssertEqual(expected, actual);
         }
     }
 }

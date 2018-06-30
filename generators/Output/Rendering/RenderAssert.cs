@@ -2,36 +2,36 @@
 
 namespace Exercism.CSharp.Output.Rendering
 {
-    public class RenderAssert
+    public partial class Render
     {
-        public string Null(string actual) 
-            => Render("AssertNull", new { actual });
+        public string AssertNull(string actual) 
+            => RenderTemplate("AssertNull", new { actual });
         
-        public string Empty(string expected, string actual) 
-            => Render("AssertEmpty", new { expected, actual });
+        public string AssertEmpty(string expected, string actual) 
+            => RenderTemplate("AssertEmpty", new { expected, actual });
         
-        public string Equal(string expected, string actual) 
-            => Render("AssertEqual", new { expected, actual });
+        public string AssertEqual(string expected, string actual) 
+            => RenderTemplate("AssertEqual", new { expected, actual });
         
-        public string EqualWithin(string expected, string actual, int precision) 
-            => Render("AssertEqualWithin", new { expected, actual, precision });
+        public string AssertEqualWithin(string expected, string actual, int precision) 
+            => RenderTemplate("AssertEqualWithin", new { expected, actual, precision });
         
-        public string NotEqual(string expected, string actual) 
-            => Render("AssertNotEqual", new { expected, actual });
+        public string AssertNotEqual(string expected, string actual) 
+            => RenderTemplate("AssertNotEqual", new { expected, actual });
         
-        public string Boolean(bool expected, string actual) 
-            => Render("AssertBoolean", new { expected = expected.ToString(), actual });
+        public string AssertBoolean(bool expected, string actual) 
+            => RenderTemplate("AssertBoolean", new { expected = expected.ToString(), actual });
         
-        public string Matches(string expected, string actual) 
-            => Render("AssertMatches", new { expected, actual });
+        public string AssertMatches(string expected, string actual) 
+            => RenderTemplate("AssertMatches", new { expected, actual });
         
-        public string Throws(Type expectedException, string actual) 
-            => Render("AssertThrows", new { expected = expectedException.Name, actual });
+        public string AssertThrows(Type expectedException, string actual) 
+            => RenderTemplate("AssertThrows", new { expected = expectedException.Name, actual });
         
-        public string Throws<T>(string actual) 
-            => Throws(typeof(T), actual);
+        public string AssertThrows<T>(string actual) 
+            => AssertThrows(typeof(T), actual);
         
-        private static string Render(string template, object parameters)
+        private static string RenderTemplate(string template, object parameters)
             => Template.Render(template, parameters);
     }
 }

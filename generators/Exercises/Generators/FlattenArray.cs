@@ -12,7 +12,7 @@ namespace Exercism.CSharp.Exercises.Generators
 
             var stringInput = data.Input["array"].ToString();
 
-            // We skip reformatting of pure int arrays.
+            // We skip rendering of pure int arrays.
             if (stringInput.Contains("System.Int32"))
                 return;
 

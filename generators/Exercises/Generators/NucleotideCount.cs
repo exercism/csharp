@@ -31,20 +31,18 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert(method);
         }
 
-        private static string RenderAssert(TestMethod method)
-        {
-            return method.Data.UseVariableForExpected
+        private string RenderAssert(TestMethod method) 
+            => method.Data.UseVariableForExpected
                 ? RenderEqualAssert(method)
                 : RenderThrowsAssert(method);
-        }
 
-        private static string RenderEqualAssert(TestMethod method) 
-            => Render.Assert.Equal("expected", $"sut.{method.Data.TestedMethod}");
+        private string RenderEqualAssert(TestMethod method) 
+            => Render.AssertEqual("expected", $"sut.{method.Data.TestedMethod}");
 
-        private static string RenderThrowsAssert(TestMethod method)
+        private string RenderThrowsAssert(TestMethod method)
         {
             var strand = Render.Object(method.Data.Input["strand"]);
-            return Render.Assert.Throws<ArgumentException>($"new NucleotideCount({strand})");
+            return Render.AssertThrows<ArgumentException>($"new NucleotideCount({strand})");
         }
     }
 }

@@ -18,13 +18,6 @@ namespace Exercism.CSharp.Exercises.Generators
         public string Value { get; }
         public ExpectedDataBinaryTree Left { get; }
         public ExpectedDataBinaryTree Right { get; }
-
-        public IEnumerable<string> TestAsserts(string traverse = "")
-        {
-            yield return Render.Assert.Equal(Value, $"tree{traverse}.Value");
-            if (Left != null) foreach (var assert in Left.TestAsserts(traverse + ".Left")) yield return assert;
-            if (Right != null) foreach (var assert in Right.TestAsserts(traverse + ".Right")) yield return assert;
-        }
     }
 
     public class BinarySearchTree : GeneratorExercise
@@ -59,17 +52,24 @@ namespace Exercism.CSharp.Exercises.Generators
             if (canonicalDataCase.Expected is Dictionary<string, object> expected)
             {
                 var tree = new ExpectedDataBinaryTree(expected);
-                foreach (var assert in tree.TestAsserts())
+                foreach (var assert in TestAsserts(tree))
                     AddCodeLine(assert);
             }
             else
             {
                 var expectedNumbers = ((string[]) canonicalDataCase.Expected).Select(int.Parse).ToArray();
-                var expectedFormatted = Render.Object(expectedNumbers);
-                AddCodeLine(Render.Assert.Equal(expectedFormatted, "tree.AsEnumerable()"));
+                var expectedRendered = Render.Object(expectedNumbers);
+                AddCodeLine(Render.AssertEqual(expectedRendered, "tree.AsEnumerable()"));
             }
 
             return _testFactCodeLines.ToString();
+        }
+
+        private IEnumerable<string> TestAsserts(ExpectedDataBinaryTree tree, string traverse = "")
+        {
+            yield return Render.AssertEqual(tree.Value, $"tree{traverse}.Value");
+            if (tree.Left != null) foreach (var assert in TestAsserts(tree.Left, traverse + ".Left")) yield return assert;
+            if (tree.Right != null) foreach (var assert in TestAsserts(tree.Right, traverse + ".Right")) yield return assert;
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert(method);
         }
 
-        private static string RenderAssert(TestMethod method)
+        private string RenderAssert(TestMethod method)
         {
             var assert = new StringBuilder();
             assert.AppendLine(RenderSut(method.Data));
@@ -30,7 +30,7 @@ namespace Exercism.CSharp.Exercises.Generators
             return $"var buffer = new CircularBuffer<int>(capacity: {capacity});";
         }
 
-        private static string RenderOperation(dynamic operation)
+        private string RenderOperation(dynamic operation)
         {
             switch (operation["operation"])
             {
@@ -47,18 +47,18 @@ namespace Exercism.CSharp.Exercises.Generators
             }
         }
 
-        private static string RenderReadOperation(dynamic operation)
+        private string RenderReadOperation(dynamic operation)
         {
             return operation["should_succeed"]
-                ? Render.Assert.Equal(operation["expected"].ToString(), "buffer.Read()")
-                : Render.Assert.Throws<InvalidOperationException>("buffer.Read()");
+                ? Render.AssertEqual(operation["expected"].ToString(), "buffer.Read()")
+                : Render.AssertThrows<InvalidOperationException>("buffer.Read()");
         }
 
-        private static string RenderWriteOperation(dynamic operation)
+        private string RenderWriteOperation(dynamic operation)
         {
             return operation["should_succeed"]
                 ? $"buffer.Write({operation["item"]});"
-                : Render.Assert.Throws<InvalidOperationException>($"buffer.Write({operation["item"]})");
+                : Render.AssertThrows<InvalidOperationException>($"buffer.Write({operation["item"]})");
         }
 
         private static string RenderOverwriteOperation(dynamic operation)

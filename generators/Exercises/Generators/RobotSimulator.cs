@@ -31,7 +31,7 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert(method);
         }
 
-        private static string RenderAct(TestMethod method)
+        private string RenderAct(TestMethod method)
         {
             switch (method.Data.Property)
             {
@@ -43,13 +43,13 @@ namespace Exercism.CSharp.Exercises.Generators
 
         private static string RenderDefaultAct(TestMethod method) => $"sut.{method.Data.TestedMethod}();";
 
-        private static string RenderInstructionsAct(TestMethod method)
+        private string RenderInstructionsAct(TestMethod method)
         {
             var actual = Render.Object(method.Data.Input["instructions"]);
             return $"sut.Simulate({actual});";
         }
 
-        private static string RenderAssert(TestMethod method)
+        private string RenderAssert(TestMethod method)
         {
             var expected = method.Data.Expected as Dictionary<string, dynamic>;
             expected.TryGetValue("position", out var position);
@@ -60,7 +60,7 @@ namespace Exercism.CSharp.Exercises.Generators
             if (direction != null)
             {
                 var expectedDirection = GetDirectionEnum(direction);
-                assert.AppendLine(Render.Assert.Equal(expectedDirection, "sut.Direction"));
+                assert.AppendLine(Render.AssertEqual(expectedDirection, "sut.Direction"));
             }   
 
             if (position != null)
@@ -68,8 +68,8 @@ namespace Exercism.CSharp.Exercises.Generators
                 var x = Render.Object(position["x"]);
                 var y = Render.Object(position["y"]);
                 
-                assert.AppendLine(Render.Assert.Equal(x, "sut.Coordinate.X"));
-                assert.AppendLine(Render.Assert.Equal(y, "sut.Coordinate.Y"));
+                assert.AppendLine(Render.AssertEqual(x, "sut.Coordinate.X"));
+                assert.AppendLine(Render.AssertEqual(y, "sut.Coordinate.Y"));
             }
             
             return assert.ToString();

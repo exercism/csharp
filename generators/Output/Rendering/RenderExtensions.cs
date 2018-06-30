@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Exercism.CSharp.Output.Rendering
 {
-    public static class FormattingExtensions
+    public static class RenderExtensions
     {
         public static string Indent(this string str, int level = 1) => $"{new string(' ', 4 * level)}{str}";
 

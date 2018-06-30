@@ -31,7 +31,7 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert();
         }
 
-        private static string RenderAssert() => Render.Assert.Equal("expected", "RunTally(rows)");
+        private string RenderAssert() => Render.AssertEqual("expected", "RunTally(rows)");
 
         protected override void UpdateTestClass(TestClass @class)
         {

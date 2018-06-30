@@ -37,18 +37,18 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert(method);
         }
 
-        private static string RenderAssert(TestMethod method)
+        private string RenderAssert(TestMethod method)
         {
             return method.Data.UseVariableForExpected
                 ? RenderComplexNumberAssert(method)
                 : method.Assert;
         }
 
-        private static string RenderComplexNumberAssert(TestMethod method)
+        private string RenderComplexNumberAssert(TestMethod method)
         {
             var assert = new StringBuilder();
-            assert.AppendLine(Render.Assert.EqualWithin($"{method.ExpectedParameter}.Real()", $"{method.TestedValue}.Real()", 15));
-            assert.AppendLine(Render.Assert.EqualWithin($"{method.ExpectedParameter}.Imaginary()", $"{method.TestedValue}.Imaginary()", 15));
+            assert.AppendLine(Render.AssertEqualWithin($"{method.ExpectedParameter}.Real()", $"{method.TestedValue}.Real()", 15));
+            assert.AppendLine(Render.AssertEqualWithin($"{method.ExpectedParameter}.Imaginary()", $"{method.TestedValue}.Imaginary()", 15));
 
             return assert.ToString();
         }
@@ -58,7 +58,7 @@ namespace Exercism.CSharp.Exercises.Generators
             namespaces.Add(typeof(Math).Namespace);
         }
 
-        private static object ConvertToType(dynamic rawValue) 
+        private object ConvertToType(dynamic rawValue) 
             => IsComplexNumber(rawValue)
                 ? new UnescapedValue($"new ComplexNumber({Render.Object(ConvertMathDouble(rawValue[0]))}, {Render.Object(ConvertMathDouble(rawValue[1]))})")
                 : rawValue;

@@ -49,16 +49,16 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert(method);
         }
 
-        private static string RenderAssert(TestMethod method)
+        private string RenderAssert(TestMethod method)
         {
             switch (method.Data.Property)
             {
                 case "new":
                     var key = Render.Object(method.Data.Input["key"]);
-                    return Render.Assert.Throws<ArgumentException>($"new SimpleCipher({key})");
+                    return Render.AssertThrows<ArgumentException>($"new SimpleCipher({key})");
                 case "key":
                     var pattern = Render.Object(method.Data.Expected["match"]);
-                    return Render.Assert.Matches(pattern, "sut.Key");
+                    return Render.AssertMatches(pattern, "sut.Key");
                 default:
                     return method.Assert;
             }

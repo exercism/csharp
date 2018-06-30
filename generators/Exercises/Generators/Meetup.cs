@@ -32,8 +32,8 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert(method);
         }
 
-        private static string RenderAssert(TestMethod method) 
-            => Render.Assert.Equal(method.ExpectedParameter, $"{method.TestedValue}.ToString(\"yyyy-MM-dd\")");
+        private string RenderAssert(TestMethod method) 
+            => Render.AssertEqual(method.ExpectedParameter, $"{method.TestedValue}.ToString(\"yyyy-MM-dd\")");
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {

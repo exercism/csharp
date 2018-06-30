@@ -19,7 +19,7 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert(method);
         }
 
-        private static string RenderAssert(TestMethod method)
+        private string RenderAssert(TestMethod method)
         {
             if (method.Data.Property == "canAttack")
                 return RenderCanAttackAssert(method);
@@ -29,7 +29,7 @@ namespace Exercism.CSharp.Exercises.Generators
                 : method.Assert;
         }
 
-        private static string RenderCanAttackAssert(TestMethod method)
+        private string RenderCanAttackAssert(TestMethod method)
         {
             var assert = new StringBuilder();
             
@@ -38,7 +38,7 @@ namespace Exercism.CSharp.Exercises.Generators
 
             assert.AppendLine($"var whiteQueen = QueenAttack.Create({whiteQueenX},{whiteQueenY});");
             assert.AppendLine($"var blackQueen = QueenAttack.Create({blackQueenX},{blackQueenY});");
-            assert.AppendLine(Render.Assert.Boolean((bool)method.Data.Expected, "QueenAttack.CanAttack(whiteQueen, blackQueen)"));
+            assert.AppendLine(Render.AssertBoolean((bool)method.Data.Expected, "QueenAttack.CanAttack(whiteQueen, blackQueen)"));
 
             return assert.ToString();
         }

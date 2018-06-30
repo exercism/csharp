@@ -16,6 +16,8 @@ namespace Exercism.CSharp.Output
         
         private const string ArrangeTemplateName = "Arrange";
         private const string ActTemplateName = "Act";
+        
+        protected Render Renderer { get; } = new Render();
 
         protected TestMethod(TestData data) => Data = data;
 
@@ -28,7 +30,7 @@ namespace Exercism.CSharp.Output
         public string Act { get; set; }
         public string Arrange { get; set; }
         public string Assert { get; set; }
-
+        
         public string Render()
         {
             ArrangeTemplateParameters = ArrangeTemplateParameters ?? new { Variables };
@@ -43,17 +45,17 @@ namespace Exercism.CSharp.Output
         }
 
         public string TestedValue => Data.UseVariableForTested ? TestedVariableName : TestedMethodInvocation;
-        public string ExpectedParameter => Data.UseVariableForExpected ? ExpectedVariableName : Rendering.Render.Object(Data.Expected);
+        public string ExpectedParameter => Data.UseVariableForExpected ? ExpectedVariableName : Renderer.Object(Data.Expected);
         
-        private string InputParameters => Data.UseVariablesForInput ? string.Join(", ", Data.InputParameters.Select(key => key.ToVariableName())) : Rendering.Render.Object(Input);
-        private string ConstructorParameters => Data.UseVariablesForConstructorParameters ? string.Join(", ", Data.ConstructorInputParameters.Select(key => key.ToVariableName())) : Rendering.Render.Object(ConstructorInput);
+        private string InputParameters => Data.UseVariablesForInput ? string.Join(", ", Data.InputParameters.Select(key => key.ToVariableName())) : Renderer.Object(Input);
+        private string ConstructorParameters => Data.UseVariablesForConstructorParameters ? string.Join(", ", Data.ConstructorInputParameters.Select(key => key.ToVariableName())) : Renderer.Object(ConstructorInput);
 
         private IDictionary<string, object> Input => Data.InputParameters.ToDictionary(key => key, key => Data.Input[key]);
         private IDictionary<string, object> ConstructorInput => Data.ConstructorInputParameters.ToDictionary(key => key, key => Data.Input[key]);
 
-        private IEnumerable<string> InputVariablesDeclaration => Rendering.Render.FormatVariables(Input);
-        private IEnumerable<string> ExpectedVariableDeclaration => Rendering.Render.FormatVariable(Data.Expected, ExpectedVariableName);
-        private IEnumerable<string> ConstructorVariablesDeclaration => Rendering.Render.FormatVariables(ConstructorInput);
+        private IEnumerable<string> InputVariablesDeclaration => Renderer.Variables(Input);
+        private IEnumerable<string> ExpectedVariableDeclaration => Renderer.Variable(Data.Expected, ExpectedVariableName);
+        private IEnumerable<string> ConstructorVariablesDeclaration => Renderer.Variables(ConstructorInput);
         private IEnumerable<string> SutVariableDeclaration => new[] { $"var {SutVariableName} = new {Data.TestedClass}({ConstructorParameters});" };
         private IEnumerable<string> ActualVariableDeclaration => new[] { $"var {TestedVariableName} = {TestedMethodInvocation};" };
 

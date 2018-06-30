@@ -37,7 +37,7 @@ namespace Exercism.CSharp.Exercises.Generators
             data.Expected = ConvertCustomSet(data.Expected);
         }
 
-        private static dynamic ConvertCustomSet(dynamic value)
+        private dynamic ConvertCustomSet(dynamic value)
         {
             switch (value)
             {

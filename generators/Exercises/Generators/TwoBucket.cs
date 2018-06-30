@@ -21,14 +21,14 @@ namespace Exercism.CSharp.Exercises.Generators
 
         private static string RenderAct(TestMethod method) => $"var result = {method.TestedMethodInvocation};";
 
-        private static string RenderAssert(TestMethod method)
+        private string RenderAssert(TestMethod method)
         {
             var assert = new StringBuilder();
-            assert.AppendLine(Render.Assert.Equal(method.Data.Expected["moves"].ToString(), "result.Moves"));
-            assert.AppendLine(Render.Assert.Equal(method.Data.Expected["otherBucket"].ToString(), "result.OtherBucket"));
+            assert.AppendLine(Render.AssertEqual(method.Data.Expected["moves"].ToString(), "result.Moves"));
+            assert.AppendLine(Render.AssertEqual(method.Data.Expected["otherBucket"].ToString(), "result.OtherBucket"));
 
             var expected = Render.Enum("Bucket", method.Data.Expected["goalBucket"]);
-            assert.AppendLine(Render.Assert.Equal(expected.ToString(), "result.GoalBucket"));
+            assert.AppendLine(Render.AssertEqual(expected.ToString(), "result.GoalBucket"));
             
             return assert.ToString();
         }
