@@ -1,32 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Newtonsoft.Json.Linq;
+using Exercism.CSharp.Helpers;
 
 namespace Exercism.CSharp.Output.Rendering
 {
     public partial class Render
     {
-        public string Array(IEnumerable<int> ints) =>
-            ints.Any() ? $"new[] {{ {string.Join(", ", ints)} }}" : "Array.Empty<int>()";
-        
-        public string Array(IEnumerable<string> strings) =>
-            strings.Any() ? $"new[] {{ {string.Join(", ", strings.Select(String))} }}" : "Array.Empty<string>()";
-
-        public string Array(IEnumerable<object> objects) =>
-            objects.Any() ? $"new[] {{ {string.Join(", ", objects.Select(Object))} }}" : "Array.Empty<object>()";
-        
-        public string Array(JArray jArray) =>
-            $"new[] {{ {string.Join(", ", jArray.Select(Array))} }}";
-        
-        public string Array(IEnumerable<UnescapedValue> unescapedValues) =>
-            $"new[] {{ {string.Join(", ", unescapedValues.Select(Object))} }}";
-
-        public string Array(IEnumerable<Tuple<string, object>> tuples) =>
-            $"new[] {{ {string.Join(", ", tuples.Select(Tuple))} }}";
-
-        public string Array(IEnumerable<ValueTuple<int, int>> tuples) => tuples.Any() ?
-            $"new[] {{ {string.Join(", ", tuples)} }}" : "Array.Empty<ValueTuple<int,int>>()";
+        public string Array<T>(IEnumerable<T> elements) =>
+            elements.Any()
+                ? $"new[] {{ {string.Join(", ", elements.Cast<object>().Select(Object))} }}"
+                : $"Array.Empty<{typeof(T).ToBuiltInTypeName()}>()";
 
         public string MultidimensionalArray(int[,] multidimensionalArray)
         {

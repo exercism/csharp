@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Net;
 using System.Text.RegularExpressions;
 using Humanizer;
@@ -36,12 +37,21 @@ namespace Exercism.CSharp.Helpers
 
         public static string ToBuiltInTypeName(this Type type)
         {
+            if (type.GenericTypeArguments.Any())
+            {
+                var genericTypeName = type.Name.Substring(0, type.Name.IndexOf("`", StringComparison.OrdinalIgnoreCase));
+                var genericTypeArguments = string.Join(",", type.GenericTypeArguments.Select(ToBuiltInTypeName));
+                return $"{genericTypeName}<{genericTypeArguments}>";
+            }   
+
             switch (type.FullName)
             {
                 case "System.Int32":
                     return "int";
                 case "System.Object":
                     return "object";
+                case "System.String":
+                    return "string";
                 default:
                     return type.Name;
             }

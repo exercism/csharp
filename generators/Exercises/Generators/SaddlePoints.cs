@@ -39,13 +39,17 @@ namespace Exercism.CSharp.Exercises.Generators
             return jArray.ToObject<int[,]>();
         }
 
-        private static IEnumerable<Tuple<string, object>> ToTupleCollection(Array array)
+        private static Tuple<string, object>[] ToTupleCollection(Array array)
         {
+            var tuples = new List<Tuple<string, object>>();
+            
             for (var x = 0; x < array.GetLength(0); x++)
             {
                 var current = array.GetValue(x) as Dictionary<string, object>;
-                yield return new Tuple<string, object>(current["row"].ToString(), current["column"].ToString());
+                tuples.Add(new Tuple<string, object>(current["row"].ToString(), current["column"].ToString()));
             }
+
+            return tuples.ToArray();
         }
     }
 }
