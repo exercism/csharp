@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
-using Humanizer;
 using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Exercises.Generators
@@ -34,7 +33,7 @@ namespace Exercism.CSharp.Exercises.Generators
                 {
                     var owner = FormatOwner(data.Expected["owner"]);
                     var territory = FormatTerritory(data.Expected["territory"]);
-                    data.Expected = (new UnescapedValue(owner), territory);
+                    data.Expected = (owner, territory);
                 }
             }
             else
@@ -81,8 +80,7 @@ namespace Exercism.CSharp.Exercises.Generators
             return assert.ToString();
         }
 
-        private static string FormatOwner(dynamic owner)
-            => $"Owner.{(owner as string).ToLowerInvariant().Humanize()}";
+        private static UnescapedValue FormatOwner(dynamic owner) => Render.Enum("Owner", owner);
 
         private static string FormatTerritory(dynamic territory)
             => Render.Object((territory as JArray).Select(coordinate => (coordinate[0].ToObject<int>(), coordinate[1].ToObject<int>())).ToArray());

@@ -1,7 +1,6 @@
 using System;
 using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
-using Humanizer;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -9,8 +8,8 @@ namespace Exercism.CSharp.Exercises.Generators
     {
         protected override void UpdateTestData(TestData data)
         {
-            if (data.Expected is string classificationType)
-                data.Expected = new UnescapedValue($"Classification.{classificationType.Transform(To.SentenceCase)}");
+            if (data.Expected is string)
+                data.Expected = Render.Enum("Classification", data.Expected);
             else
                 data.ExceptionThrown = typeof(ArgumentOutOfRangeException);
         }

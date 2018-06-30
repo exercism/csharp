@@ -2,7 +2,6 @@
 using System.Linq;
 using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
-using Humanizer;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -20,7 +19,7 @@ namespace Exercism.CSharp.Exercises.Generators
 
             var plants = (IEnumerable<string>)data.Expected;
             data.Expected = plants
-                .Select(x => new UnescapedValue($"Plant.{x.Humanize()}"))
+                .Select(plant => Render.Enum("Plant", plant))
                 .ToArray();
         }
     }

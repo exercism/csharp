@@ -1,6 +1,5 @@
 ﻿using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
-using Humanizer;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -8,8 +7,7 @@ namespace Exercism.CSharp.Exercises.Generators
     {
         protected override void UpdateTestData(TestData data)
         {
-            var nationality = data.Expected as string;
-            data.Expected = new UnescapedValue($"Nationality.{nationality.Humanize()}");
+            data.Expected = Render.Enum("Nationality", data.Expected);
         }
     }
 }

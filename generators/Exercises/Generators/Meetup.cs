@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
-using Humanizer;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -24,10 +23,8 @@ namespace Exercism.CSharp.Exercises.Generators
 
             data.Input[ParamYear] = data.Input[ParamYear];
             data.Input[ParamMonth] = data.Input[ParamMonth];
-            data.Input[ParamWeek] =
-                new UnescapedValue($"Schedule.{((string)data.Input[ParamWeek]).Transform(To.SentenceCase)}");
-            data.Input[ParamDayOfWeek] =
-                new UnescapedValue($"DayOfWeek.{((string)data.Input[ParamDayOfWeek]).Transform(To.SentenceCase)}");
+            data.Input[ParamWeek] = Render.Enum("Schedule", data.Input[ParamWeek]);
+            data.Input[ParamDayOfWeek] = Render.Enum("DayOfWeek", data.Input[ParamDayOfWeek]);
         }
 
         protected override void UpdateTestMethod(TestMethod method)

@@ -14,13 +14,13 @@ namespace Exercism.CSharp.Exercises.Generators
             switch (data.Expected)
             {
                 case "X":
-                    data.Expected = new UnescapedValue("ConnectWinner.Black");
+                    data.Expected = Render.Enum("ConnectWinner", "Black");
                     break;
                 case "O":
-                    data.Expected = new UnescapedValue("ConnectWinner.White");
+                    data.Expected = Render.Enum("ConnectWinner", "White");
                     break;
                 case "":
-                    data.Expected = new UnescapedValue("ConnectWinner.None");
+                    data.Expected = Render.Enum("ConnectWinner", "None");
                     break;
             }
         }

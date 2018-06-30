@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using Exercism.CSharp.Helpers;
+using Humanizer;
 using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Output.Rendering
@@ -10,6 +11,9 @@ namespace Exercism.CSharp.Output.Rendering
     public static class Render
     {   
         public static readonly RenderAssert Assert = new RenderAssert();
+
+        public static UnescapedValue Enum(string enumType, string enumCase)
+            => new UnescapedValue($"{enumType}.{enumCase.ToLower().Dehumanize()}");
         
         public static string Object(object val)
         {

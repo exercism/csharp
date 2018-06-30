@@ -2,7 +2,6 @@
 using System.Linq;
 using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
-using Humanizer;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -14,7 +13,7 @@ namespace Exercism.CSharp.Exercises.Generators
             data.Input["listTwo"] = InputValues(data.Input["listTwo"] as int[]);
 
             data.TestedMethod = "Classify";
-            data.Expected = new UnescapedValue($"SublistType.{(data.Expected as string).Dehumanize()}");
+            data.Expected = Render.Enum("SublistType", data.Expected);
         }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)

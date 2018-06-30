@@ -1,7 +1,6 @@
 using System.Text;
 using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
-using Humanizer;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -11,9 +10,7 @@ namespace Exercism.CSharp.Exercises.Generators
         {
             data.TestedMethodType = TestedMethodType.Instance;
             data.SetConstructorInputParameters("bucketOne", "bucketTwo", "startBucket");
-
-            var startBucket = data.Input["startBucket"];
-            data.Input["startBucket"] = new UnescapedValue(startBucket == "two" ? "Bucket.Two" : "Bucket.One");
+            data.Input["startBucket"] = Render.Enum("Bucket", data.Input["startBucket"]);
         }
 
         protected override void UpdateTestMethod(TestMethod method)
@@ -30,9 +27,8 @@ namespace Exercism.CSharp.Exercises.Generators
             assert.AppendLine(Render.Assert.Equal(method.Data.Expected["moves"].ToString(), "result.Moves"));
             assert.AppendLine(Render.Assert.Equal(method.Data.Expected["otherBucket"].ToString(), "result.OtherBucket"));
 
-            var goalBucket = (string) method.Data.Expected["goalBucket"];
-            var expected = $"Bucket.{goalBucket.Humanize()}";
-            assert.AppendLine(Render.Assert.Equal(expected, "result.GoalBucket"));
+            var expected = Render.Enum("Bucket", method.Data.Expected["goalBucket"]);
+            assert.AppendLine(Render.Assert.Equal(expected.ToString(), "result.GoalBucket"));
             
             return assert.ToString();
         }
