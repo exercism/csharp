@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Exercism.CSharp.Helpers;
 using Exercism.CSharp.Output;
-using Exercism.CSharp.Output.Templates;
+using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -46,7 +45,7 @@ namespace Exercism.CSharp.Exercises.Generators
 
         private static string RenderInstructionsAct(TestMethod method)
         {
-            var actual = ValueFormatter.Format(method.Data.Input["instructions"]);
+            var actual = Render.Object(method.Data.Input["instructions"]);
             return $"sut.Simulate({actual});";
         }
 
@@ -61,16 +60,16 @@ namespace Exercism.CSharp.Exercises.Generators
             if (direction != null)
             {
                 var expectedDirection = GetDirectionEnum(direction);
-                assert.AppendLine(Assertion.Equal(expectedDirection, "sut.Direction"));
+                assert.AppendLine(Render.Assert.Equal(expectedDirection, "sut.Direction"));
             }   
 
             if (position != null)
             {
-                var x = ValueFormatter.Format(position["x"]);
-                var y = ValueFormatter.Format(position["y"]);
+                var x = Render.Object(position["x"]);
+                var y = Render.Object(position["y"]);
                 
-                assert.AppendLine(Assertion.Equal(x, "sut.Coordinate.X"));
-                assert.AppendLine(Assertion.Equal(y, "sut.Coordinate.Y"));
+                assert.AppendLine(Render.Assert.Equal(x, "sut.Coordinate.X"));
+                assert.AppendLine(Render.Assert.Equal(y, "sut.Coordinate.Y"));
             }
             
             return assert.ToString();

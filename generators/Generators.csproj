@@ -14,6 +14,6 @@
     <PackageReference Include="serilog.sinks.literate" Version="3.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Output\Templates\*.liquid" />
+    <EmbeddedResource Include="Output\Rendering\Templates\*.liquid" />
   </ItemGroup>
 </Project>

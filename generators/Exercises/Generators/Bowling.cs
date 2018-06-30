@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Exercism.CSharp.Output;
-using Exercism.CSharp.Output.Templates;
+using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -57,43 +57,36 @@ namespace Exercism.CSharp.Exercises.Generators
         {
             if (method.Data.ExceptionThrown != null && method.Data.Input.ContainsKey("roll"))
             {
-                var actual = ValueFormatter.Format(method.Data.Input["roll"]);
-                return Assertion.Throws(method.Data.ExceptionThrown, $"sut.Roll({actual})");
+                var actual = Render.Object(method.Data.Input["roll"]);
+                return Render.Assert.Throws(method.Data.ExceptionThrown, $"sut.Roll({actual})");
             }
 
             if (method.Data.ExceptionThrown == null ||
                 method.Data.Property != "score")
                 return method.Assert;
             
-            return Assertion.Throws(method.Data.ExceptionThrown, "sut.Score()");
+            return Render.Assert.Throws(method.Data.ExceptionThrown, "sut.Score()");
         }
 
         private static string RenderAct(TestMethod method)
         {
-            var template =
-    @"DoRoll(previousRolls, sut);
-";
-
+            var act = new StringBuilder();
+            act.AppendLine("DoRoll(previousRolls, sut);");
+            
             if (method.Data.ExceptionThrown != null)
             {
-                return template;
+                return act.ToString();
             }
 
             if (method.Data.Input.ContainsKey("roll"))
             {
-                template +=
-    @"sut.Roll({{RolVal}});
-var actual = sut.Score();
-";
-                var templateParameters = new
-                {
-                    RolVal = method.Data.Input["roll"]
-                };
-                return TemplateRenderer.RenderInline(template, templateParameters);
+                act.AppendLine($"sut.Roll({method.Data.Input["roll"]});");
+                act.AppendLine("var actual = sut.Score();");
+                return act.ToString();
             }
 
-            template += "var actual = sut.Score();";
-            return template;
+            act.AppendLine("var actual = sut.Score();");
+            return act.ToString();
         }
 
         protected override void UpdateTestClass(TestClass @class)
@@ -104,7 +97,7 @@ var actual = sut.Score();
         private static void AddDoRollMethod(TestClass @class)
         {
             @class.Methods.Add(@"
-public void DoRoll(ICollection<int> rolls, BowlingGame sut)
+public void DoRoll(IEnumerable<int> rolls, BowlingGame sut)
 {
     foreach (var roll in rolls)
     {

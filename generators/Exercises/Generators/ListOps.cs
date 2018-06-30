@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Exercism.CSharp.Output;
+using Exercism.CSharp.Output.Rendering;
 using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Exercises.Generators
@@ -84,17 +85,17 @@ namespace Exercism.CSharp.Exercises.Generators
                     var nestedList = jArray
                         .Children<JArray>()
                         .Select(ConvertToList)
-                        .Select(ValueFormatter.Format)
+                        .Select(Render.Object)
                         .Select(formattedValue => new UnescapedValue(formattedValue))
                         .ToList();
 
-                    return new UnescapedValue(ValueFormatter.Format(nestedList)
+                    return new UnescapedValue(Render.Object(nestedList)
                         .Replace("<object>", "<int>")
                         .Replace("new List<int> { new List<int>", "new List<List<int>> { new List<int>")
                         .Replace("new[] { new List<List<int>>", "new List<List<List<int>>> { new List<List<int>>")
                         .Replace("new[] { new List<int>", "new List<List<int>> { new List<int>"));
                 case IEnumerable<int> ints:
-                    return new UnescapedValue(ValueFormatter.Format(ints.ToList()));
+                    return new UnescapedValue(Render.Object(ints.ToList()));
             }
 
             return value;

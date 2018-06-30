@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Exercism.CSharp.Exercises;
 using Exercism.CSharp.Helpers;
-using Exercism.CSharp.Output.Templates;
+using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Output
 {
@@ -39,21 +39,21 @@ namespace Exercism.CSharp.Output
             Act = Act ?? RenderAct();
             Assert = Assert ?? RenderAssert();
 
-            return TemplateRenderer.RenderPartial(TemplateName, new { Name = Data.TestMethod, Data.Skip, Arrange, Act, Assert });
+            return Template.Render(TemplateName, new { Name = Data.TestMethod, Data.Skip, Arrange, Act, Assert });
         }
 
         public string TestedValue => Data.UseVariableForTested ? TestedVariableName : TestedMethodInvocation;
-        public string ExpectedParameter => Data.UseVariableForExpected ? ExpectedVariableName : ValueFormatter.Format(Data.Expected);
+        public string ExpectedParameter => Data.UseVariableForExpected ? ExpectedVariableName : Rendering.Render.Object(Data.Expected);
         
-        private string InputParameters => Data.UseVariablesForInput ? string.Join(", ", Data.InputParameters.Select(key => key.ToVariableName())) : ValueFormatter.Format(Input);
-        private string ConstructorParameters => Data.UseVariablesForConstructorParameters ? string.Join(", ", Data.ConstructorInputParameters.Select(key => key.ToVariableName())) : ValueFormatter.Format(ConstructorInput);
+        private string InputParameters => Data.UseVariablesForInput ? string.Join(", ", Data.InputParameters.Select(key => key.ToVariableName())) : Rendering.Render.Object(Input);
+        private string ConstructorParameters => Data.UseVariablesForConstructorParameters ? string.Join(", ", Data.ConstructorInputParameters.Select(key => key.ToVariableName())) : Rendering.Render.Object(ConstructorInput);
 
         private IDictionary<string, object> Input => Data.InputParameters.ToDictionary(key => key, key => Data.Input[key]);
         private IDictionary<string, object> ConstructorInput => Data.ConstructorInputParameters.ToDictionary(key => key, key => Data.Input[key]);
 
-        private IEnumerable<string> InputVariablesDeclaration => ValueFormatter.FormatVariables(Input);
-        private IEnumerable<string> ExpectedVariableDeclaration => ValueFormatter.FormatVariable(Data.Expected, ExpectedVariableName);
-        private IEnumerable<string> ConstructorVariablesDeclaration => ValueFormatter.FormatVariables(ConstructorInput);
+        private IEnumerable<string> InputVariablesDeclaration => Rendering.Render.FormatVariables(Input);
+        private IEnumerable<string> ExpectedVariableDeclaration => Rendering.Render.FormatVariable(Data.Expected, ExpectedVariableName);
+        private IEnumerable<string> ConstructorVariablesDeclaration => Rendering.Render.FormatVariables(ConstructorInput);
         private IEnumerable<string> SutVariableDeclaration => new[] { $"var {SutVariableName} = new {Data.TestedClass}({ConstructorParameters});" };
         private IEnumerable<string> ActualVariableDeclaration => new[] { $"var {TestedVariableName} = {TestedMethodInvocation};" };
 
@@ -101,10 +101,10 @@ namespace Exercism.CSharp.Output
         }
 
         private string RenderArrange()
-            => TemplateRenderer.RenderPartial(ArrangeTemplateName, ArrangeTemplateParameters);
+            => Template.Render(ArrangeTemplateName, ArrangeTemplateParameters);
 
         private string RenderAct()
-            => TemplateRenderer.RenderPartial(ActTemplateName, ActTemplateParameters);
+            => Template.Render(ActTemplateName, ActTemplateParameters);
 
         protected abstract string RenderAssert();
     }

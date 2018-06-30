@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Exercism.CSharp.Output;
+using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -38,12 +39,12 @@ namespace Exercism.CSharp.Exercises.Generators
         }
 
         private static string RenderEqualAssert(TestMethod method) 
-            => Assertion.Equal("expected", $"sut.{method.Data.TestedMethod}");
+            => Render.Assert.Equal("expected", $"sut.{method.Data.TestedMethod}");
 
         private static string RenderThrowsAssert(TestMethod method)
         {
-            var strand = ValueFormatter.Format(method.Data.Input["strand"]);
-            return Assertion.Throws<ArgumentException>($"new NucleotideCount({strand})");
+            var strand = Render.Object(method.Data.Input["strand"]);
+            return Render.Assert.Throws<ArgumentException>($"new NucleotideCount({strand})");
         }
     }
 }

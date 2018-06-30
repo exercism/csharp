@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Exercism.CSharp.Output;
-using Exercism.CSharp.Output.Templates;
+using Exercism.CSharp.Output.Rendering;
 using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Exercises.Generators
@@ -47,8 +47,8 @@ namespace Exercism.CSharp.Exercises.Generators
         private static string RenderComplexNumberAssert(TestMethod method)
         {
             var assert = new StringBuilder();
-            assert.AppendLine(Assertion.EqualWithin($"{method.ExpectedParameter}.Real()", $"{method.TestedValue}.Real()", 15));
-            assert.AppendLine(Assertion.EqualWithin($"{method.ExpectedParameter}.Imaginary()", $"{method.TestedValue}.Imaginary()", 15));
+            assert.AppendLine(Render.Assert.EqualWithin($"{method.ExpectedParameter}.Real()", $"{method.TestedValue}.Real()", 15));
+            assert.AppendLine(Render.Assert.EqualWithin($"{method.ExpectedParameter}.Imaginary()", $"{method.TestedValue}.Imaginary()", 15));
 
             return assert.ToString();
         }
@@ -60,7 +60,7 @@ namespace Exercism.CSharp.Exercises.Generators
 
         private static object ConvertToType(dynamic rawValue) 
             => IsComplexNumber(rawValue)
-                ? new UnescapedValue($"new ComplexNumber({ValueFormatter.Format(ConvertMathDouble(rawValue[0]))}, {ValueFormatter.Format(ConvertMathDouble(rawValue[1]))})")
+                ? new UnescapedValue($"new ComplexNumber({Render.Object(ConvertMathDouble(rawValue[0]))}, {Render.Object(ConvertMathDouble(rawValue[1]))})")
                 : rawValue;
 
         private static bool IsComplexNumber(object rawValue) => rawValue is int[] || rawValue is double[] || rawValue is float[] || rawValue is JArray;

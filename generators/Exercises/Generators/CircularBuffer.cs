@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Exercism.CSharp.Output;
+using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -49,15 +50,15 @@ namespace Exercism.CSharp.Exercises.Generators
         private static string RenderReadOperation(dynamic operation)
         {
             return operation["should_succeed"]
-                ? Assertion.Equal(operation["expected"].ToString(), "buffer.Read()")
-                : Assertion.Throws<InvalidOperationException>("buffer.Read()");
+                ? Render.Assert.Equal(operation["expected"].ToString(), "buffer.Read()")
+                : Render.Assert.Throws<InvalidOperationException>("buffer.Read()");
         }
 
         private static string RenderWriteOperation(dynamic operation)
         {
             return operation["should_succeed"]
                 ? $"buffer.Write({operation["item"]});"
-                : Assertion.Throws<InvalidOperationException>($"buffer.Write({operation["item"]})");
+                : Render.Assert.Throws<InvalidOperationException>($"buffer.Write({operation["item"]})");
         }
 
         private static string RenderOverwriteOperation(dynamic operation)

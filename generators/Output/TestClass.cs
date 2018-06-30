@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Exercism.CSharp.Output.Templates;
+using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Output
 {
@@ -14,6 +14,6 @@ namespace Exercism.CSharp.Output
         public ISet<string> Namespaces { get; set; }
         public bool IsDisposable { get; set; }
 
-        public string Render() => TemplateRenderer.RenderPartial(TemplateName, new { ClassName, CanonicalDataVersion, Methods, Namespaces, IsDisposable });
+        public string Render() => Template.Render(TemplateName, new { ClassName, CanonicalDataVersion, Methods, Namespaces, IsDisposable });
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Exercism.CSharp.Output;
-using Exercism.CSharp.Output.Templates;
+using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -38,7 +38,7 @@ namespace Exercism.CSharp.Exercises.Generators
 
             assert.AppendLine($"var whiteQueen = QueenAttack.Create({whiteQueenX},{whiteQueenY});");
             assert.AppendLine($"var blackQueen = QueenAttack.Create({blackQueenX},{blackQueenY});");
-            assert.AppendLine(Assertion.Boolean((bool)method.Data.Expected, "QueenAttack.CanAttack(whiteQueen, blackQueen)"));
+            assert.AppendLine(Render.Assert.Boolean((bool)method.Data.Expected, "QueenAttack.CanAttack(whiteQueen, blackQueen)"));
 
             return assert.ToString();
         }

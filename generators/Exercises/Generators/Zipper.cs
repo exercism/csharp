@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text;
 using Exercism.CSharp.Output;
+using Exercism.CSharp.Output.Rendering;
 using Humanizer;
 
 namespace Exercism.CSharp.Exercises.Generators
@@ -31,12 +32,12 @@ namespace Exercism.CSharp.Exercises.Generators
             var expected = RenderExpected(method.Data.Expected);
             if (expected == null)
             {
-                return Assertion.Null("actual");
+                return Render.Assert.Null("actual");
             }
 
             var assert = new StringBuilder();
             assert.AppendLine($"var expected = {expected};");
-            assert.AppendLine(Assertion.Equal("expected", "actual"));
+            assert.AppendLine(Render.Assert.Equal("expected", "actual"));
             return assert.ToString();
         }
 

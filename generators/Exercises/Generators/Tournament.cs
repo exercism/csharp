@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using Exercism.CSharp.Output;
+using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -30,7 +31,7 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert();
         }
 
-        private static string RenderAssert() => Assertion.Equal("expected", "RunTally(rows)");
+        private static string RenderAssert() => Render.Assert.Equal("expected", "RunTally(rows)");
 
         protected override void UpdateTestClass(TestClass @class)
         {

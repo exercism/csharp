@@ -1,7 +1,7 @@
 ﻿using System;
 using DotLiquid;
 
-namespace Exercism.CSharp.Output
+namespace Exercism.CSharp.Output.Rendering
 {
     public class MultiLineString : ILiquidizable
     {

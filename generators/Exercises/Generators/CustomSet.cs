@@ -1,4 +1,5 @@
 ﻿using Exercism.CSharp.Output;
+using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -43,7 +44,7 @@ namespace Exercism.CSharp.Exercises.Generators
                 case bool _:
                     return value;
                 case int[] values when values.Length > 0:
-                    return new UnescapedValue($"new CustomSet({ValueFormatter.Format(values)})");
+                    return new UnescapedValue($"new CustomSet({Render.Object(values)})");
                 default:
                     return new UnescapedValue("new CustomSet()");
             }

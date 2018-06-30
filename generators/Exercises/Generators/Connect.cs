@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using Exercism.CSharp.Output;
-using Exercism.CSharp.Output.Templates;
+﻿using Exercism.CSharp.Output;
+using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -11,7 +10,6 @@ namespace Exercism.CSharp.Exercises.Generators
             data.UseVariablesForConstructorParameters = true;
             data.SetConstructorInputParameters("board");
             data.TestedMethod = "Result";
-            data.Input["board"] = ToMultiLineString(data.Input["board"]);
 
             switch (data.Expected)
             {
@@ -25,18 +23,6 @@ namespace Exercism.CSharp.Exercises.Generators
                     data.Expected = new UnescapedValue("ConnectWinner.None");
                     break;
             }
-        }
-
-        private static UnescapedValue ToMultiLineString(IEnumerable input)
-        {
-            const string template =
-    @"new [] 
-{ 
-    {% if input.size == 0 %}string.Empty{% else %}{% for item in {{input}} %}{% if forloop.length == 1 %}""{{item}}""{% break %}{% endif %}""{{item}}""{% if forloop.last == false %},{% else %}{{string.Empty}}{% endif %}
-    {% endfor %}{% endif %} 
-}";
-
-            return new UnescapedValue(TemplateRenderer.RenderInline(template, new { input }));
         }
     }
 }

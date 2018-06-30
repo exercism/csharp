@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Exercism.CSharp.Output;
+using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -48,19 +49,19 @@ namespace Exercism.CSharp.Exercises.Generators
         private static string RenderAssertForSearchWord(string word, dynamic expected)
         {
             return expected == null
-                ? Assertion.Null($"expected[\"{word}\"]")
-                : Assertion.Equal($"expected[\"{word}\"]", $"actual[\"{word}\"]");
+                ? Render.Assert.Null($"expected[\"{word}\"]")
+                : Render.Assert.Equal($"expected[\"{word}\"]", $"actual[\"{word}\"]");
         }
 
         private static string FormatPosition(dynamic position)
         {
             return position == null
                 ? "null" :
-                ValueFormatter.Format((FormatCoordinate(position["start"]), FormatCoordinate(position["end"])));
+                Render.Object((FormatCoordinate(position["start"]), FormatCoordinate(position["end"])));
         }
 
         private static string FormatCoordinate(dynamic coordinate)
-            => ValueFormatter.Format((coordinate["column"], coordinate["row"]));
+            => Render.Object((coordinate["column"], coordinate["row"]));
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {

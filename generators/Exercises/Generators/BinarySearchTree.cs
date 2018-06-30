@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text;
 using Exercism.CSharp.Output;
+using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -20,7 +21,7 @@ namespace Exercism.CSharp.Exercises.Generators
 
         public IEnumerable<string> TestAsserts(string traverse = "")
         {
-            yield return Assertion.Equal(Value, $"tree{traverse}.Value");
+            yield return Render.Assert.Equal(Value, $"tree{traverse}.Value");
             if (Left != null) foreach (var assert in Left.TestAsserts(traverse + ".Left")) yield return assert;
             if (Right != null) foreach (var assert in Right.TestAsserts(traverse + ".Right")) yield return assert;
         }
@@ -64,8 +65,8 @@ namespace Exercism.CSharp.Exercises.Generators
             else
             {
                 var expectedNumbers = ((string[]) canonicalDataCase.Expected).Select(int.Parse).ToArray();
-                var expectedFormatted = ValueFormatter.Format(expectedNumbers);
-                AddCodeLine(Assertion.Equal(expectedFormatted, "tree.AsEnumerable()"));
+                var expectedFormatted = Render.Object(expectedNumbers);
+                AddCodeLine(Render.Assert.Equal(expectedFormatted, "tree.AsEnumerable()"));
             }
 
             return _testFactCodeLines.ToString();

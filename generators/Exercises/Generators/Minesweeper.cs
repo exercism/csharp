@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Exercism.CSharp.Output;
-using Exercism.CSharp.Output.Templates;
 using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Exercises.Generators

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Exercism.CSharp.Output;
+using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -63,7 +64,7 @@ namespace Exercism.CSharp.Exercises.Generators
                     {
                         var x = input["x"].ToString();
                         var r = new RationalNumber((int[])input["r"]);
-                        var e = ValueFormatter.Format(method.Data.Expected);
+                        var e = Render.Object(method.Data.Expected);
                         var p = Precision(e);
                         assertCodeLine = "Assert.Equal(" + $"{e}, {x}.{operationName}(new RationalNumber({r.Numerator}, {r.Denominator})), {p});";
                     }

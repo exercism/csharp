@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Exercism.CSharp.Output;
+using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -30,7 +31,7 @@ namespace Exercism.CSharp.Exercises.Generators
                         data.Input["ciphertext"] = new UnescapedValue("sut.Key.Substring(0, 10)");
                         break;
                     case "cipher.encode":
-                        var plaintext = ValueFormatter.Format(data.Input["plaintext"]);
+                        var plaintext = Render.Object(data.Input["plaintext"]);
                         data.Input["ciphertext"] = new UnescapedValue($"sut.Encode({plaintext})");
                         data.SetInputParameters("ciphertext");
                         break;
@@ -53,11 +54,11 @@ namespace Exercism.CSharp.Exercises.Generators
             switch (method.Data.Property)
             {
                 case "new":
-                    var key = ValueFormatter.Format(method.Data.Input["key"]);
-                    return Assertion.Throws<ArgumentException>($"new SimpleCipher({key})");
+                    var key = Render.Object(method.Data.Input["key"]);
+                    return Render.Assert.Throws<ArgumentException>($"new SimpleCipher({key})");
                 case "key":
-                    var pattern = ValueFormatter.Format(method.Data.Expected["match"]);
-                    return Assertion.Matches(pattern, "sut.Key");
+                    var pattern = Render.Object(method.Data.Expected["match"]);
+                    return Render.Assert.Matches(pattern, "sut.Key");
                 default:
                     return method.Assert;
             }

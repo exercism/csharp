@@ -1,5 +1,6 @@
 using System;
 using Exercism.CSharp.Output;
+using Exercism.CSharp.Output.Rendering;
 using Humanizer;
 
 namespace Exercism.CSharp.Exercises.Generators

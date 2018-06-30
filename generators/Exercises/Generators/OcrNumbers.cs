@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Exercism.CSharp.Output;
+using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -23,7 +24,7 @@ namespace Exercism.CSharp.Exercises.Generators
 
             for (var i = 0; i < input.Length; i++)
             {
-                lines.Append(ValueFormatter.Format(input[i]).Indent());
+                lines.Append(Render.Object(input[i]).Indent());
 
                 if (i < input.Length - 1)
                     lines.Append(" + \"\\n\" +\n");

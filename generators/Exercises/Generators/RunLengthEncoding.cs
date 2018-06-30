@@ -1,4 +1,5 @@
 ﻿using Exercism.CSharp.Output;
+using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -23,9 +24,9 @@ namespace Exercism.CSharp.Exercises.Generators
 
         private static string RenderConsistencyToAssert(TestMethod method)
         {
-            var expected = ValueFormatter.Format(method.Data.Expected);
+            var expected = Render.Object(method.Data.Expected);
             var actual = $"{method.Data.TestedClass}.Decode({method.Data.TestedClass}.Encode({expected}))";
-            return Assertion.Equal(expected, actual);
+            return Render.Assert.Equal(expected, actual);
         }
     }
 }

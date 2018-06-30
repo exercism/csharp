@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text;
 using Exercism.CSharp.Output;
+using Exercism.CSharp.Output.Rendering;
 using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Exercises.Generators
@@ -35,12 +36,12 @@ namespace Exercism.CSharp.Exercises.Generators
             }
 
             var assert = new StringBuilder();
-            assert.AppendLine(Assertion.Equal("expected.Item1", "actual.Item1"));
-            assert.AppendLine(Assertion.Equal("expected.Item2", "actual.Item2"));
+            assert.AppendLine(Render.Assert.Equal("expected.Item1", "actual.Item1"));
+            assert.AppendLine(Render.Assert.Equal("expected.Item2", "actual.Item2"));
             return assert.ToString();
         }
 
         private static string FormatCoordinates(dynamic coordinates)
-            => ValueFormatter.Format((coordinates as JArray).Select(coordinate => (coordinate[0].ToObject<int>(), coordinate[1].ToObject<int>())).ToArray());
+            => Render.Object((coordinates as JArray).Select(coordinate => (coordinate[0].ToObject<int>(), coordinate[1].ToObject<int>())).ToArray());
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace Exercism.CSharp.Output.Templates
+namespace Exercism.CSharp.Output.Rendering
 {
     public static class IndentFilter
     {

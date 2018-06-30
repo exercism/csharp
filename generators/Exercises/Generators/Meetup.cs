@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Exercism.CSharp.Output;
-using Exercism.CSharp.Output.Templates;
+using Exercism.CSharp.Output.Rendering;
 using Humanizer;
 
 namespace Exercism.CSharp.Exercises.Generators
@@ -36,7 +36,7 @@ namespace Exercism.CSharp.Exercises.Generators
         }
 
         private static string RenderAssert(TestMethod method) 
-            => Assertion.Equal(method.ExpectedParameter, $"{method.TestedValue}.ToString(\"yyyy-MM-dd\")");
+            => Render.Assert.Equal(method.ExpectedParameter, $"{method.TestedValue}.ToString(\"yyyy-MM-dd\")");
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {

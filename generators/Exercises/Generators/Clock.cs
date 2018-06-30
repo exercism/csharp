@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Exercism.CSharp.Output;
+using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -55,15 +56,15 @@ namespace Exercism.CSharp.Exercises.Generators
         }
 
         private static string RenderConsistencyToAssert(TestMethod method) 
-            => Assertion.Equal(method.ExpectedParameter, $"{method.TestedValue}.ToString()");
+            => Render.Assert.Equal(method.ExpectedParameter, $"{method.TestedValue}.ToString()");
 
         private static string RenderEqualToAssert(TestMethod method)
         {
             var expected = method.Data.Input[ParamClock1].ToString();
 
             return method.Data.Expected 
-                ? Assertion.Equal(expected, "sut")
-                : Assertion.NotEqual(expected, "sut");
+                ? Render.Assert.Equal(expected, "sut")
+                : Render.Assert.NotEqual(expected, "sut");
         }
     }
 }

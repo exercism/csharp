@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Exercism.CSharp.Output;
+using Exercism.CSharp.Output.Rendering;
 using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Exercises.Generators

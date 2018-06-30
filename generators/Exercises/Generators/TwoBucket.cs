@@ -1,6 +1,6 @@
 using System.Text;
 using Exercism.CSharp.Output;
-using Exercism.CSharp.Output.Templates;
+using Exercism.CSharp.Output.Rendering;
 using Humanizer;
 
 namespace Exercism.CSharp.Exercises.Generators
@@ -27,12 +27,12 @@ namespace Exercism.CSharp.Exercises.Generators
         private static string RenderAssert(TestMethod method)
         {
             var assert = new StringBuilder();
-            assert.AppendLine(Assertion.Equal(method.Data.Expected["moves"].ToString(), "result.Moves"));
-            assert.AppendLine(Assertion.Equal(method.Data.Expected["otherBucket"].ToString(), "result.OtherBucket"));
+            assert.AppendLine(Render.Assert.Equal(method.Data.Expected["moves"].ToString(), "result.Moves"));
+            assert.AppendLine(Render.Assert.Equal(method.Data.Expected["otherBucket"].ToString(), "result.OtherBucket"));
 
             var goalBucket = (string) method.Data.Expected["goalBucket"];
             var expected = $"Bucket.{goalBucket.Humanize()}";
-            assert.AppendLine(Assertion.Equal(expected, "result.GoalBucket"));
+            assert.AppendLine(Render.Assert.Equal(expected, "result.GoalBucket"));
             
             return assert.ToString();
         }

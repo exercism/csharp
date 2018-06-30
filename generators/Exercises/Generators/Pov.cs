@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text;
 using Exercism.CSharp.Output;
+using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -30,7 +31,7 @@ namespace Exercism.CSharp.Exercises.Generators
 
             var sb = new StringBuilder();
 
-            var label = ValueFormatter.Format(tree["label"]);
+            var label = Render.Object(tree["label"]);
 
             if (tree.ContainsKey("children"))
             {

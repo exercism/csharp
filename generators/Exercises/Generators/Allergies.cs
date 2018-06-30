@@ -1,6 +1,6 @@
 ﻿using System.Text;
 using Exercism.CSharp.Output;
-using Exercism.CSharp.Output.Templates;
+using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -33,7 +33,7 @@ namespace Exercism.CSharp.Exercises.Generators
             var assert = new StringBuilder();
 
             foreach (var allergy in method.Data.Expected)
-                assert.AppendLine(Assertion.Boolean(allergy["result"], $"sut.IsAllergicTo({ValueFormatter.Format(allergy["substance"])})"));
+                assert.AppendLine(Render.Assert.Boolean(allergy["result"], $"sut.IsAllergicTo({Render.Object(allergy["substance"])})"));
 
             return assert.ToString();
         }
