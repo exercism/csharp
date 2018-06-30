@@ -1,16 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Exercism.CSharp.Helpers;
 
 namespace Exercism.CSharp.Output.Rendering
 {
     public partial class Render
-    {
-        public string List(List<int> ints) =>
-            ints.Any() ? $"new List<int> {{ {string.Join(", ", ints.Select(Int))} }}" : "new List<int>()";
-
-        public string List(List<object> objects) =>
+    {   
+        public string List<T>(List<T> objects) =>
             objects.Any()
-                ? $"new List<object> {{ {string.Join(", ", objects.Select(Object))} }}"
-                : "new List<object>()";
+                ? $"new List<{typeof(T).ToBuiltInTypeName()}> {{ {string.Join(", ", objects.Cast<object>().Select(Object))} }}"
+                : $"new List<{typeof(T).ToBuiltInTypeName()}>()";
     }
 }

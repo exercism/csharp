@@ -93,7 +93,9 @@ namespace Exercism.CSharp.Exercises.Generators
                         .Replace("<object>", "<int>")
                         .Replace("new List<int> { new List<int>", "new List<List<int>> { new List<int>")
                         .Replace("new[] { new List<List<int>>", "new List<List<List<int>>> { new List<List<int>>")
-                        .Replace("new[] { new List<int>", "new List<List<int>> { new List<int>"));
+                        .Replace("new[] { new List<int>", "new List<List<int>> { new List<int>")
+                        .Replace("new List<UnescapedValue> { new List<List<int>>", "new List<List<List<int>>> { new List<List<int>>")
+                        .Replace("new List<UnescapedValue> { new List<int>", "new List<List<int>> { new List<int>"));
                 case IEnumerable<int> ints:
                     return new UnescapedValue(Render.Object(ints.ToList()));
             }

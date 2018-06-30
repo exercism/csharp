@@ -1,4 +1,5 @@
 using System;
+using System.Net;
 using System.Text.RegularExpressions;
 using Humanizer;
 
@@ -32,5 +33,18 @@ namespace Exercism.CSharp.Helpers
         public static string ToTestedMethodName(this string input) => input.Dehumanize();
 
         public static string ToVariableName(this string input) => input.Camelize();
+
+        public static string ToBuiltInTypeName(this Type type)
+        {
+            switch (type.FullName)
+            {
+                case "System.Int32":
+                    return "int";
+                case "System.Object":
+                    return "object";
+                default:
+                    return type.Name;
+            }
+        }
     }
 }
