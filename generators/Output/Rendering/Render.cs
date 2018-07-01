@@ -19,7 +19,6 @@ namespace Exercism.CSharp.Output.Rendering
                 case float flt: return Float(flt);
                 case ulong ulng: return Ulong(ulng);
                 case char c: return Char(c);
-                case Tuple<string, object> tuple: return Tuple(tuple);
                 default:
                     if (RenderList(val))
                         return List((dynamic)val);

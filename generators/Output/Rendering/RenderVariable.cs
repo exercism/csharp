@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Exercism.CSharp.Helpers;
 
@@ -41,8 +40,6 @@ namespace Exercism.CSharp.Output.Rendering
                         dict.Keys.Select((key, i) =>
                             $"[{Int(key)}] = {Array(dict[key])}" + (i < dict.Keys.Count - 1 ? "," : "")), name,
                         "new Dictionary<int, string[]>");
-                case ValueTuple<int, int>[] tuples:
-                    return new[] {Array(tuples)};
                 default:
                     return new[] {$"var {name} = {Object(val)};"};
             }

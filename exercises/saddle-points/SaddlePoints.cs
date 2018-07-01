@@ -8,7 +8,7 @@ public class SaddlePoints
     {
     }
 
-    public IEnumerable<Tuple<int, int>> Calculate()
+    public IEnumerable<(int, int)> Calculate()
     {
         throw new NotImplementedException("You need to implement this function.");
     }

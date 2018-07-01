@@ -12,19 +12,15 @@ namespace Exercism.CSharp.Exercises.Generators
         protected override void UpdateTestData(TestData data)
         {
             data.UseVariablesForInput = true;
-            data.Input["dominoes"] = ConvertInput(data.Input["dominoes"]);
+            data.Input["dominoes"] = ConvertDominoes(data.Input["dominoes"]);
         }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {
-            namespaces.Add(typeof(Tuple).Namespace);
+            namespaces.Add(typeof(ValueTuple).Namespace);
         }
 
-        private static UnescapedValue ConvertInput(dynamic input)
-        {
-            var dominoes = ((JArray)input).Children();
-            var tuplesStringLiteral = dominoes.Select(s => s.ToObject<int[]>()).Select(s => $"Tuple.Create({s[0]}, {s[1]})");
-            return new UnescapedValue($"new Tuple<int, int>[] {{ {string.Join(", ", tuplesStringLiteral)} }}");
-        }
+        private static ValueTuple<int, int>[] ConvertDominoes(dynamic input) 
+            => ((JToken)input).ToObject<int[][]>().Select(x => (x[0], x[1])).ToArray();
     }
 }
