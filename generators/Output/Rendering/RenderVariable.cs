@@ -41,7 +41,7 @@ namespace Exercism.CSharp.Output.Rendering
                         dict.Keys.Select((key, i) =>
                             $"[{Int(key)}] = {Array(dict[key])}" + (i < dict.Keys.Count - 1 ? "," : "")), name,
                         "new Dictionary<int, string[]>");
-                case IEnumerable<ValueTuple<int, int>> tuples:
+                case ValueTuple<int, int>[] tuples:
                     return new[] {Array(tuples)};
                 default:
                     return new[] {$"var {name} = {Object(val)};"};

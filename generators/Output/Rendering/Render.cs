@@ -20,7 +20,6 @@ namespace Exercism.CSharp.Output.Rendering
                 case ulong ulng: return Ulong(ulng);
                 case char c: return Char(c);
                 case Tuple<string, object> tuple: return Tuple(tuple);
-                case int[,] multidimensionalArray: return MultidimensionalArray(multidimensionalArray);
                 default:
                     if (RenderList(val))
                         return List((dynamic)val);
