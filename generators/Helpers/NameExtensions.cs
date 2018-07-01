@@ -34,26 +34,29 @@ namespace Exercism.CSharp.Helpers
 
         public static string ToVariableName(this string input) => input.Camelize();
 
-        public static string ToBuiltInTypeName(this Type type)
+        public static string ToFriendlyName(this Type type)
         {
-            if (type.GenericTypeArguments.Any())
-            {
-                var genericTypeName = type.Name.Substring(0, type.Name.IndexOf("`", StringComparison.OrdinalIgnoreCase));
-                var genericTypeArguments = string.Join(",", type.GenericTypeArguments.Select(ToBuiltInTypeName));
-                return $"{genericTypeName}<{genericTypeArguments}>";
-            }   
-
-            switch (type.FullName)
-            {
-                case "System.Int32":
-                    return "int";
-                case "System.Object":
-                    return "object";
-                case "System.String":
-                    return "string";
-                default:
-                    return type.Name;
-            }
+            if (type == typeof(int))
+                return "int";
+            if (type == typeof(short))
+                return "short";
+            if (type == typeof(byte))
+                return "byte";
+            if (type == typeof(bool)) 
+                return "bool";
+            if (type == typeof(long))
+                return "long";
+            if (type == typeof(float))
+                return "float";
+            if (type == typeof(double))
+                return "double";
+            if (type == typeof(decimal))
+                return "decimal";
+            if (type == typeof(string))
+                return "string";
+            if (type.IsGenericType)
+                return type.Name.Split('`')[0] + "<" + string.Join(", ", type.GetGenericArguments().Select(ToFriendlyName).ToArray()) + ">";
+            return type.Name;
         }
     }
 }

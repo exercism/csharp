@@ -50,7 +50,7 @@ public class ListOpsTest
     [Fact(Skip = "Remove to run test")]
     public void Concatenate_a_list_of_lists_list_of_nested_lists()
     {
-        var lists = new List<List<List<int>>> { new List<List<int>> { new List<int> { 1 }, new List<int> { 2 } }, new List<List<int>> { new List<int> { 3 } }, new List<List<int>> { new List<int>() }, new List<List<int>> { new List<int> { 4, 5, 6 } } };
+        var lists = new List<UnescapedValue> { new List<Object> { new List<int> { 1 }, new List<int> { 2 } }, new List<Object> { new List<int> { 3 } }, new List<Object> { new List<int>() }, new List<Object> { new List<int> { 4, 5, 6 } } };
         var expected = new List<List<int>> { new List<int> { 1 }, new List<int> { 2 }, new List<int> { 3 }, new List<int>(), new List<int> { 4, 5, 6 } };
         Assert.Equal(expected, ListOps.Concat(lists));
     }

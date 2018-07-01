@@ -8,7 +8,7 @@ namespace Exercism.CSharp.Output.Rendering
     {   
         public string List<T>(List<T> elements) =>
             elements.Any()
-                ? $"new List<{typeof(T).ToBuiltInTypeName()}> {{ {string.Join(", ", elements.Cast<object>().Select(Object))} }}"
-                : $"new List<{typeof(T).ToBuiltInTypeName()}>()";
+                ? $"new List<{typeof(T).ToFriendlyName()}> {{ {string.Join(", ", elements.Cast<object>().Select(Object))} }}"
+                : $"new List<{typeof(T).ToFriendlyName()}>()";
     }
 }

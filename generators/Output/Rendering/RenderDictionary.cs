@@ -8,7 +8,7 @@ namespace Exercism.CSharp.Output.Rendering
     {   
         public string Dictionary<TKey, TValue>(IDictionary<TKey, TValue> dict) =>
             dict.Count == 0
-                ? $"new Dictionary<{typeof(TKey).ToBuiltInTypeName()}, {typeof(TValue).ToBuiltInTypeName()}> {{ {string.Join(", ", dict.Keys.Select(key => $"[{Object(key)}] = {Object(dict[key])}"))} }}"
-                : $"new Dictionary<{typeof(TKey).ToBuiltInTypeName()}, {typeof(TValue).ToBuiltInTypeName()}>";
+                ? $"new Dictionary<{typeof(TKey).ToFriendlyName()}, {typeof(TValue).ToFriendlyName()}> {{ {string.Join(", ", dict.Keys.Select(key => $"[{Object(key)}] = {Object(dict[key])}"))} }}"
+                : $"new Dictionary<{typeof(TKey).ToFriendlyName()}, {typeof(TValue).ToFriendlyName()}>";
     }
 }

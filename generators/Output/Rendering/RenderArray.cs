@@ -9,7 +9,7 @@ namespace Exercism.CSharp.Output.Rendering
         public string Array<T>(IEnumerable<T> elements) =>
             elements.Any()
                 ? $"new[] {{ {string.Join(", ", elements.Cast<object>().Select(Object))} }}"
-                : $"Array.Empty<{typeof(T).ToBuiltInTypeName()}>()";
+                : $"Array.Empty<{typeof(T).ToFriendlyName()}>()";
 
         public string MultidimensionalArray(int[,] multidimensionalArray)
         {
