@@ -47,8 +47,8 @@ namespace Exercism.CSharp.Output
         public string TestedValue => Data.UseVariableForTested ? TestedVariableName : TestedMethodInvocation;
         public string ExpectedParameter => Data.UseVariableForExpected ? ExpectedVariableName : Renderer.Object(Data.Expected);
         
-        private string InputParameters => Data.UseVariablesForInput ? string.Join(", ", Data.InputParameters.Select(key => key.ToVariableName())) : Renderer.Object(Input);
-        private string ConstructorParameters => Data.UseVariablesForConstructorParameters ? string.Join(", ", Data.ConstructorInputParameters.Select(key => key.ToVariableName())) : Renderer.Object(ConstructorInput);
+        private string InputParameters => string.Join(", ", Data.InputParameters.Select(key => Data.UseVariablesForInput ? key.ToVariableName() : Renderer.Object(Data.Input[key])));
+        private string ConstructorParameters => string.Join(", ", Data.ConstructorInputParameters.Select(key => Data.UseVariablesForConstructorParameters ? key.ToVariableName() : Renderer.Object(Data.Input[key])));
 
         private IDictionary<string, object> Input => Data.InputParameters.ToDictionary(key => key, key => Data.Input[key]);
         private IDictionary<string, object> ConstructorInput => Data.ConstructorInputParameters.ToDictionary(key => key, key => Data.Input[key]);

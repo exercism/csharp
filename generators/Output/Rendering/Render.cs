@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using Exercism.CSharp.Helpers;
-using Humanizer;
-using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Output.Rendering
 {
     public partial class Render
-    {   
+    {
         public string Object(object val)
         {
             if (val == null)
@@ -25,18 +20,17 @@ namespace Exercism.CSharp.Output.Rendering
                 case ulong ulng: return Ulong(ulng);
                 case char c: return Char(c);
                 case Tuple<string, object> tuple: return Tuple(tuple);
-                case IDictionary<string, object> dict: return Dictionary(dict);
-                case IDictionary<char, int> dict: return Dictionary(dict);
-                case IDictionary<string, int> dict: return Dictionary(dict);
-                case IDictionary<int, string[]> dict: return Dictionary(dict);
                 case int[,] multidimensionalArray: return MultidimensionalArray(multidimensionalArray);
-                default: 
+                default:
                     if (RenderList(val))
                         return List((dynamic)val);
 
                     if (RenderArray(val))
-                        return Array((dynamic) val);
-                    
+                        return Array((dynamic)val);
+
+                    if (RenderDictionary(val))
+                        return Dictionary((dynamic)val);
+
                     return val.ToString();
             }
         }
@@ -46,5 +40,8 @@ namespace Exercism.CSharp.Output.Rendering
 
         private static bool RenderArray(object obj)
             => obj.GetType().IsArray;
+
+        private static bool RenderDictionary(object obj)
+            => obj.GetType().IsGenericType && obj.GetType().GetGenericTypeDefinition() == typeof(Dictionary<,>);
     }
 }

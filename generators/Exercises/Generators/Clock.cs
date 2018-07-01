@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Exercism.CSharp.Output;
+﻿using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
@@ -15,17 +14,17 @@ namespace Exercism.CSharp.Exercises.Generators
         private const string PropertyEqual = "equal";
 
         protected override void UpdateTestData(TestData data)
-        {
-            if (data.Property != PropertyEqual)
+        {   
+            data.SetConstructorInputParameters(ParamHour, ParamMinute);
+            
+            if (data.Property == PropertyEqual)
             {
-                data.SetConstructorInputParameters(ParamHour, ParamMinute);
-            }
-            else
-            {
-                data.SetConstructorInputParameters(ParamClock2);
-
-                var result = (Dictionary<string, object>)data.Input[ParamClock1];
-                data.Input[ParamClock1] = new UnescapedValue($"new Clock({result[ParamHour]}, {result[ParamMinute]})");
+                var clock1 = data.Input[ParamClock1];
+                data.Input[ParamClock1] = new UnescapedValue($"new Clock({clock1[ParamHour]}, {clock1[ParamMinute]})");
+                
+                var clock2 = data.Input[ParamClock2];
+                data.Input[ParamHour] = clock2[ParamHour];
+                data.Input[ParamMinute] = clock2[ParamMinute];
             }
 
             if (data.Property == PropertyCreate)
@@ -60,7 +59,7 @@ namespace Exercism.CSharp.Exercises.Generators
 
         private string RenderEqualToAssert(TestMethod method)
         {
-            var expected = method.Data.Input[ParamClock1].ToString();
+            var expected = Render.Object(method.Data.Input[ParamClock1]);
 
             return method.Data.Expected 
                 ? Render.AssertEqual(expected, "sut")

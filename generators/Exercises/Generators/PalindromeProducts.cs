@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Text;
 using Exercism.CSharp.Output;
-using Exercism.CSharp.Output.Rendering;
 using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Exercises.Generators
