@@ -1,17 +1,28 @@
 ﻿using System;
-using DotLiquid;
+using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Output.Rendering
 {
-    public class MultiLineString : ILiquidizable
+    public class MultiLineString
     {
-        private readonly string _value;
-
-        public MultiLineString(object obj) 
-            => _value = string.Join("\n", obj as object[] ?? Array.Empty<object>());
-
-        public override string ToString() => _value;
-
-        public object ToLiquid() => _value;
+        public MultiLineString(object obj)
+        {
+            switch (obj)
+            {
+                case string[] lines:
+                    Lines = lines;
+                    break;
+                case string line:
+                    Lines = line.Split("\n");
+                    break;
+                case JArray _:
+                    Lines = Array.Empty<string>();
+                    break;
+                default:
+                    throw new ArgumentException("Unsupported multi-line string type", nameof(obj));
+            }
+        }
+        
+        public string[] Lines { get; }
     }
 }

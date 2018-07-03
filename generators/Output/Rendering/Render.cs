@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Exercism.CSharp.Output.Rendering
 {
@@ -13,7 +12,6 @@ namespace Exercism.CSharp.Output.Rendering
             switch (val)
             {
                 case string str: return String(str);
-                case MultiLineString multiLineString: return String(multiLineString.ToString());
                 case double dbl: return Double(dbl);
                 case int i: return Int(i);
                 case float flt: return Float(flt);

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Humanizer;
 
@@ -8,19 +9,25 @@ namespace Exercism.CSharp.Output.Rendering
     {
         public UnescapedValue Enum(string enumType, string enumCase)
             => new UnescapedValue($"{enumType}.{enumCase.ToLower().Dehumanize()}");
-       
-        public string String(string s) => s.EscapeSpecialCharacters().Quote();
 
         public string Char(char c) => $"'{c}'";
+       
+        public string String(string s) => s.EscapeSpecialCharacters().Quote();
         
-        public IEnumerable<string> MultiLineString(string name, string str)
+        public string StringMultiLine(MultiLineString multiLineString)
         {
-            var strings = str.Split('\n');
-            var renderedStrings = strings.Select((t, i) => i < strings.Length - 1
-                ? $"{String(t + "\n")} +"
-                : $"{String(t)}");
-
-            return MultiLineVariable(renderedStrings, name);
+            if (multiLineString.Lines.Length == 0)
+                return String(string.Empty);
+            
+            if (multiLineString.Lines.Length == 1)
+                return String(multiLineString.Lines[0]);
+            
+            return $"{Environment.NewLine}{string.Join(Environment.NewLine, RenderLines())}";
+            
+            IEnumerable<string> RenderLines() =>
+                multiLineString.Lines.Select((t, i) => i < multiLineString.Lines.Length - 1
+                    ? $"{String($"{t}\n").Indent()} +"
+                    : $"{String(t).Indent()}");
         }
     }
 }

@@ -14,10 +14,8 @@ namespace Exercism.CSharp.Output.Rendering
         {
             switch (val)
             {
-                case string str when str.Contains("\n"):
-                    return MultiLineString(name, str);
-                case MultiLineString multiLineValue when multiLineValue.ToString().Contains("\n"):
-                    return MultiLineString(name, multiLineValue.ToString());
+                case MultiLineString multiLineValue:
+                    return new[] { $"var {name} = {StringMultiLine(multiLineValue)};" };
                 case IEnumerable<string> strings:
                     if (!strings.Any())
                     {
