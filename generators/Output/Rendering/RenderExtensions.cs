@@ -2,14 +2,18 @@
 {
     public static class RenderExtensions
     {
-        public static string Indent(this string str, int level = 1) => $"{new string(' ', 4 * level)}{str}";
+        private const int IndentSize = 4;
 
-        public static string EscapeSpecialCharacters(this string s)
-            => s.Replace("\n", "\\n")
+        public static string Indent(this string str) => $"{new string(' ', IndentSize)}{str}";
+
+        public static string EscapeSpecialCharacters(this string str)
+            => str.Replace("\n", "\\n")
                 .Replace("\t", "\\t")
                 .Replace("\r", "\\r")
                 .Replace("\"", "\\\"");
 
-        public static string Quote(this string s) => $"\"{s}\"";
+        public static string Quote(this string str) => $"\"{str}\"";
+        
+        public static string Quote(this char c) => $"'{c}'";
     }
 }

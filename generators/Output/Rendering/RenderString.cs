@@ -10,7 +10,7 @@ namespace Exercism.CSharp.Output.Rendering
         public UnescapedValue Enum(string enumType, string enumCase)
             => new UnescapedValue($"{enumType}.{enumCase.ToLower().Dehumanize()}");
 
-        public string Char(char c) => $"'{c}'";
+        public string Char(char c) => c.Quote();
        
         public string String(string s) => s.EscapeSpecialCharacters().Quote();
         
