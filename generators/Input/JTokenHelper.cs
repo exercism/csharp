@@ -18,11 +18,13 @@ namespace Exercism.CSharp.Input
         
         public static dynamic ConvertJToken(JToken jToken)
         {
-            if (jToken is JObject jObject)
-                return ConvertJObject(jObject);
-            
-            if (jToken is JArray jArray)
-                return ConvertJArray(jArray);
+            switch (jToken)
+            {
+                case JObject jObject:
+                    return ConvertJObject(jObject);
+                case JArray jArray:
+                    return ConvertJArray(jArray);
+            }
 
             switch (jToken.Type)
             {

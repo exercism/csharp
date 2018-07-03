@@ -17,8 +17,8 @@ namespace Exercism.CSharp.Exercises.Generators
             data.Expected = ConvertToType(data.Expected);
 
             var constructorParamName = data.Input.ContainsKey("z") ? "z" : "z1";
-            data.Input["real"] = ConvertMathDouble(data.Input[constructorParamName][0]);
-            data.Input["imaginary"] = ConvertMathDouble(data.Input[constructorParamName][1]);
+            data.Input["real"] = ConvertToDouble(data.Input[constructorParamName][0]);
+            data.Input["imaginary"] = ConvertToDouble(data.Input[constructorParamName][1]);
 
             data.SetInputParameters(GetInputParameters(data, constructorParamName));
             data.SetConstructorInputParameters("real", "imaginary");
@@ -37,12 +37,10 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert(method);
         }
 
-        private string RenderAssert(TestMethod method)
-        {
-            return method.Data.UseVariableForExpected
+        private string RenderAssert(TestMethod method) 
+            => method.Data.UseVariableForExpected
                 ? RenderComplexNumberAssert(method)
                 : method.Assert;
-        }
 
         private string RenderComplexNumberAssert(TestMethod method)
         {
@@ -60,12 +58,12 @@ namespace Exercism.CSharp.Exercises.Generators
 
         private object ConvertToType(dynamic rawValue) 
             => IsComplexNumber(rawValue)
-                ? new UnescapedValue($"new ComplexNumber({Render.Object(ConvertMathDouble(rawValue[0]))}, {Render.Object(ConvertMathDouble(rawValue[1]))})")
+                ? new UnescapedValue($"new ComplexNumber({Render.Object(ConvertToDouble(rawValue[0]))}, {Render.Object(ConvertToDouble(rawValue[1]))})")
                 : rawValue;
 
         private static bool IsComplexNumber(object rawValue) => rawValue is int[] || rawValue is double[] || rawValue is float[] || rawValue is JArray;
 
-        private static object ConvertMathDouble(dynamic value)
+        private static object ConvertToDouble(dynamic value)
         {
             switch (value.ToString())
             {

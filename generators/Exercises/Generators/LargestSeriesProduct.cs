@@ -9,8 +9,8 @@ namespace Exercism.CSharp.Exercises.Generators
         {
             data.TestedMethod = "GetLargestProduct";
 
-            var caseInputLessThanZero = (long)data.Expected == -1;
-            data.ExceptionThrown = caseInputLessThanZero ? typeof(ArgumentException) : null;
+            if (data.Expected == -1)
+                data.ExceptionThrown = typeof(ArgumentException);
         }
     }
 }

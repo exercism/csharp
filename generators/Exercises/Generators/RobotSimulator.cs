@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text;
 using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
@@ -10,17 +9,10 @@ namespace Exercism.CSharp.Exercises.Generators
     {
         protected override void UpdateTestData(TestData data)
         {
-            const string direction = "direction";
-            const string position = "position";
-            const string coordinate = "coordinate";
+            data.Input["direction"] = RenderDirection(data.Input["direction"]);
+            data.Input["coordinate"] = RenderCreateCoordinate(data.Input["position"]);
 
-            var positionVal = new UnescapedValue(GetCoordinateInstance(data.Input[position]));
-            var directionVal = new UnescapedValue(GetDirectionEnum(data.Input[direction]));
-
-            data.Input[direction] = directionVal;
-            data.Input[coordinate] = positionVal;
-
-            data.SetConstructorInputParameters(direction, coordinate);
+            data.SetConstructorInputParameters("direction", "coordinate");
 
             data.UseFullDescriptionPath = true;
         }
@@ -51,7 +43,7 @@ namespace Exercism.CSharp.Exercises.Generators
 
         private string RenderAssert(TestMethod method)
         {
-            var expected = method.Data.Expected as Dictionary<string, dynamic>;
+            var expected = (Dictionary<string, dynamic>)method.Data.Expected;
             expected.TryGetValue("position", out var position);
             expected.TryGetValue("direction", out var direction);
 
@@ -59,35 +51,26 @@ namespace Exercism.CSharp.Exercises.Generators
 
             if (direction != null)
             {
-                var expectedDirection = GetDirectionEnum(direction);
-                assert.AppendLine(Render.AssertEqual(expectedDirection, "sut.Direction"));
-            }   
-
-            if (position != null)
-            {
-                var x = Render.Object(position["x"]);
-                var y = Render.Object(position["y"]);
-                
-                assert.AppendLine(Render.AssertEqual(x, "sut.Coordinate.X"));
-                assert.AppendLine(Render.AssertEqual(y, "sut.Coordinate.Y"));
+                var expectedDirection = RenderDirection(direction);
+                assert.AppendLine(Render.AssertEqual(Render.Object(expectedDirection), "sut.Direction"));
             }
-            
+
+            if (position == null)
+                return assert.ToString();
+
+            var x = Render.Object(position["x"]);
+            var y = Render.Object(position["y"]);
+                
+            assert.AppendLine(Render.AssertEqual(x, "sut.Coordinate.X"));
+            assert.AppendLine(Render.AssertEqual(y, "sut.Coordinate.Y"));
+
             return assert.ToString();
         }
 
-        private static string GetDirectionEnum(string direction)
-        {
-            switch (direction)
-            {
-                case "north": return "Direction.North";
-                case "east": return "Direction.East";
-                case "south": return "Direction.South";
-                case "west": return "Direction.West";
+        private UnescapedValue RenderDirection(string direction)
+            => Render.Enum("Direction", direction);
 
-                default: throw new ArgumentException("Unrecognized 'Direction' enum value");
-            }
-        }
-
-        private static string GetCoordinateInstance(dynamic coordinates) => $"new Coordinate({coordinates["x"]}, {coordinates["y"]})";
+        private static UnescapedValue RenderCreateCoordinate(dynamic coordinates)
+            => new UnescapedValue($"new Coordinate({coordinates["x"]}, {coordinates["y"]})");
     }
 }

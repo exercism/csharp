@@ -83,7 +83,7 @@ namespace Exercism.CSharp.Exercises.Generators
         private UnescapedValue RenderOwner(dynamic owner) => Render.Enum("Owner", owner);
 
         private string RenderTerritory(dynamic territory)
-            => Render.Object((territory as JArray).Select(coordinate => (coordinate[0].ToObject<int>(), coordinate[1].ToObject<int>())).ToArray());
+            => Render.Object(((JArray)territory).Select(coordinate => (coordinate[0].ToObject<int>(), coordinate[1].ToObject<int>())).ToArray());
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {

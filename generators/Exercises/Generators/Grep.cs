@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
 
@@ -18,17 +19,8 @@ namespace Exercism.CSharp.Exercises.Generators
             data.UseVariableForExpected = true;
         }
 
-        private static dynamic ConvertExpected(dynamic expected)
-        {
-            if (expected is object[] arr && arr.Length != 0)
-                return new UnescapedValue(
-                    Environment.NewLine +
-                    string.Join(
-                        Environment.NewLine,
-                            arr.Select((x, i) => $"    \"{x}\\n\"{(i < arr.Length - 1 ? " +" : "")}")));
-
-            return "";
-        }
+        private static MultiLineString ConvertExpected(dynamic expected) 
+            => new MultiLineString(expected as string[] ?? Array.Empty<string>());
 
         protected override void UpdateTestClass(TestClass @class)
         {

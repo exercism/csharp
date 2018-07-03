@@ -34,18 +34,12 @@ namespace Exercism.CSharp.Exercises.Generators
         private string RenderAssert(TestMethod method)
         {
             var assert = new StringBuilder();
-            var canonicalDataCase = method.Data;
-            var input = canonicalDataCase.Input as Dictionary<string, object>;
-            var constructorData = input["treeData"] as string[];
 
-            if (constructorData.Length == 1) assert.AppendLine(Render.Variable("tree", $"new BinarySearchTree({constructorData[0]})"));
-            else
-            {
-                var constructorDataString = string.Join(", ", constructorData);
-                assert.AppendLine(Render.Variable("tree", $"new BinarySearchTree(new[] {{ {constructorDataString} }})"));
-            }
+            var treeData = ConvertToIntegers(method.Data.Input["treeData"]);
+            var constructorParameters = Render.Object(treeData.Length == 1 ? treeData[0] : treeData);
+            assert.AppendLine(Render.Variable("tree", $"new BinarySearchTree({constructorParameters})"));
 
-            if (canonicalDataCase.Expected is Dictionary<string, object> expected)
+            if (method.Data.Expected is Dictionary<string, object> expected)
             {
                 var tree = new ExpectedDataBinaryTree(expected);
                 foreach (var testAssert in TestAsserts(tree))
@@ -53,13 +47,14 @@ namespace Exercism.CSharp.Exercises.Generators
             }
             else
             {
-                var expectedNumbers = ((string[]) canonicalDataCase.Expected).Select(int.Parse).ToArray();
-                var expectedRendered = Render.Object(expectedNumbers);
-                assert.AppendLine(Render.AssertEqual(expectedRendered, "tree.AsEnumerable()"));
+                var renderedExpected = Render.Object(ConvertToIntegers(method.Data.Expected));
+                assert.AppendLine(Render.AssertEqual(renderedExpected, "tree.AsEnumerable()"));
             }
 
             return assert.ToString();
         }
+
+        private static int[] ConvertToIntegers(dynamic data) => ((string[]) data).Select(int.Parse).ToArray();
 
         private IEnumerable<string> TestAsserts(ExpectedDataBinaryTree tree, string traverse = "")
         {

@@ -9,8 +9,19 @@ namespace Exercism.CSharp.Exercises.Generators
     {
         protected override void UpdateTestData(TestData data)
         {
-            if (data.Property == "create")
-                SetCreatePropertyData(data);
+            if (data.Property != "create")
+                return;
+
+            if (data.Expected < 0)
+                data.ExceptionThrown = typeof(ArgumentOutOfRangeException);
+
+            data.UseVariableForTested = true;
+
+            var coordinates = GetCoordinatesFromPosition(data.Input["queen"]);
+            data.Input["X"] = coordinates.Item1;
+            data.Input["Y"] = coordinates.Item2;
+
+            data.SetInputParameters("X", "Y");
         }
 
         protected override void UpdateTestMethod(TestMethod method)
@@ -31,7 +42,7 @@ namespace Exercism.CSharp.Exercises.Generators
         private string RenderCanAttackAssert(TestMethod method)
         {
             var assert = new StringBuilder();
-            
+
             var (whiteQueenX, whiteQueenY) = GetCoordinatesFromPosition((IDictionary<string, dynamic>)method.Data.Input["white_queen"]);
             var (blackQueenX, blackQueenY) = GetCoordinatesFromPosition((IDictionary<string, dynamic>)method.Data.Input["black_queen"]);
 
@@ -49,21 +60,6 @@ namespace Exercism.CSharp.Exercises.Generators
             var positionY = (int)coordinates["column"];
 
             return (positionX, positionY);
-        }
-
-        private static void SetCreatePropertyData(TestData canonicalDataCase)
-        {
-            var validExpected = canonicalDataCase.Expected >= 0;
-
-            canonicalDataCase.UseVariableForTested = validExpected;
-            canonicalDataCase.ExceptionThrown = validExpected ? null : typeof(ArgumentOutOfRangeException);
-            canonicalDataCase.Description = validExpected ? canonicalDataCase.Description + " does not throw exception" : canonicalDataCase.Description;
-
-            var coordinates = GetCoordinatesFromPosition(canonicalDataCase.Input["queen"]);
-            canonicalDataCase.Input["X"] = coordinates.Item1;
-            canonicalDataCase.Input["Y"] = coordinates.Item2;
-
-            canonicalDataCase.SetInputParameters("X", "Y");
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Exercism.CSharp.Helpers;
 
 namespace Exercism.CSharp.Output.Rendering
@@ -31,7 +30,7 @@ namespace Exercism.CSharp.Output.Rendering
         private bool RenderAsSingleLine<T>(T[] elements) 
             => !elements.Any() || IsNotArrayOfArrays(elements) && RenderedAsSingleLineDoesNotExceedMaximumLength(elements);
 
-        private bool IsNotArrayOfArrays<T>(T[] elements) 
+        private static bool IsNotArrayOfArrays<T>(T[] elements) 
             => !elements.GetType().GetElementType().IsArray;
 
         private bool RenderedAsSingleLineDoesNotExceedMaximumLength<T>(T[] elements) 

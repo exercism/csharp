@@ -1,5 +1,5 @@
+using Exercism.CSharp.Helpers;
 using Exercism.CSharp.Output;
-using Humanizer;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -7,7 +7,7 @@ namespace Exercism.CSharp.Exercises.Generators
     {
         protected override void UpdateTestData(TestData data)
         {
-            data.TestedMethod = $"Is{data.Property.Humanize()}";
+            data.TestedMethod = $"Is{data.TestedMethod}".ToTestedMethodName();
 
             data.Input["x"] = data.Input["sides"][0];
             data.Input["y"] = data.Input["sides"][1];

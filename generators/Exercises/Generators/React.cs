@@ -5,7 +5,6 @@ using System.Text;
 using System.Text.RegularExpressions;
 using Exercism.CSharp.Helpers;
 using Exercism.CSharp.Output;
-using Humanizer;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -31,16 +30,7 @@ namespace Exercism.CSharp.Exercises.Generators
             return arrange.ToString();
         }
 
-        private string RenderCells(dynamic cells)
-        {
-            if (cells.Length == 0)
-            {
-                return "";
-            }
-
-            var renderedCells = ((object[])cells).Select(RenderCell);
-            return string.Join(Environment.NewLine, renderedCells);
-        }
+        private string RenderCells(object[] cells) => string.Join(Environment.NewLine, cells.Select(RenderCell));
 
         private string RenderCell(dynamic cell)
         {
@@ -69,16 +59,8 @@ namespace Exercism.CSharp.Exercises.Generators
                 : (string)computeFunction;
         }
 
-        private string RenderOperations(dynamic operations)
-        {
-            if (operations.Length == 0)
-            {
-                return "";
-            }
-
-            var renderedOperations = ((object[])operations).Select(RenderOperation);
-            return string.Join(Environment.NewLine, renderedOperations);
-        }
+        private string RenderOperations(object[] operations) 
+            => string.Join(Environment.NewLine, operations.Select(RenderOperation));
 
         private string RenderOperation(dynamic operation)
         {
@@ -116,7 +98,7 @@ namespace Exercism.CSharp.Exercises.Generators
                     return $"Assert.Equal({operation["value"]}, {ToVariableName(operation["cell"])}.Value);";
                 case "add_callback":
                     var addCallbackName = ToVariableName(operation["name"]);
-                    return Render.Variable(addCallbackName, $"A.Fake<EventHandler<int>>()") + Environment.NewLine +
+                    return Render.Variable(addCallbackName, "A.Fake<EventHandler<int>>()") + Environment.NewLine +
                            $"{ToVariableName(operation["cell"])}.Changed += {addCallbackName};";
                 case "remove_callback":
                     var removeCallbackName = ToVariableName(operation["name"]);

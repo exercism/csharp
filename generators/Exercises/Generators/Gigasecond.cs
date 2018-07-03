@@ -14,16 +14,16 @@ namespace Exercism.CSharp.Exercises.Generators
             data.Expected = new UnescapedValue(RenderDateTime((DateTime)data.Expected));
         }
 
-        protected override void UpdateNamespaces(ISet<string> namespaces)
-        {
-            namespaces.Add(typeof(DateTime).Namespace);
-        }
-
         private static string RenderDateTime(DateTime dateTime)
         {
             return dateTime.Hour == 0 && dateTime.Minute == 0 && dateTime.Second == 0
                 ? $"new DateTime({dateTime.Year}, {dateTime.Month}, {dateTime.Day})"
                 : $"new DateTime({dateTime.Year}, {dateTime.Month}, {dateTime.Day}, {dateTime.Hour}, {dateTime.Minute}, {dateTime.Second})";
+        }
+
+        protected override void UpdateNamespaces(ISet<string> namespaces)
+        {
+            namespaces.Add(typeof(DateTime).Namespace);
         }
     }
 }

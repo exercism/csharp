@@ -8,7 +8,9 @@ namespace Exercism.CSharp.Exercises.Generators
         protected override void UpdateTestData(TestData data)
         {
             data.UseVariableForExpected = true;
-            data.ExceptionThrown = data.Input["limit"] < 2 ? typeof(ArgumentOutOfRangeException) : null;
+
+            if (data.Input["limit"] < 2)
+                data.ExceptionThrown = typeof(ArgumentOutOfRangeException);
         }
     }
 }

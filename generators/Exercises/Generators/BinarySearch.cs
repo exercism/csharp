@@ -12,8 +12,8 @@ namespace Exercism.CSharp.Exercises.Generators
             if (data.Input["array"] is JArray)
                 data.Input["array"] = Array.Empty<int>();
             
-            data.UseVariablesForConstructorParameters = true;
             data.SetConstructorInputParameters("array");
+            data.UseVariablesForConstructorParameters = true;
         }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)

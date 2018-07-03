@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Text;
 using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
 
@@ -12,8 +11,10 @@ namespace Exercism.CSharp.Exercises.Generators
         {
             data.UseVariablesForInput = true;
             data.UseVariableForExpected = true;
-            data.ExceptionThrown = data.Expected is null ? typeof(ArgumentException) : null;
-
+            
+            if (data.Expected is null)
+                data.ExceptionThrown = typeof(ArgumentException);
+            
             data.Input["tree"] = RenderTree(data.Input["tree"]);
 
             if (data.Property == "fromPov")
@@ -29,21 +30,15 @@ namespace Exercism.CSharp.Exercises.Generators
                 return null;
             }
 
-            var sb = new StringBuilder();
-
             var label = Render.Object(tree["label"]);
 
             if (tree.ContainsKey("children"))
             {
                 var children = string.Join(", ", ((object[])tree["children"]).Select(RenderTree));
-                sb.Append($"new Tree({label}, {children})");
+                return new UnescapedValue($"new Tree({label}, {children})");
             }
-            else
-            {
-                sb.Append($"new Tree({label})");
-            }
-
-            return new UnescapedValue(sb.ToString());
+            
+            return new UnescapedValue($"new Tree({label})");
         }
     }
 }

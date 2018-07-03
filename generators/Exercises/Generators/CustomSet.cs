@@ -1,5 +1,6 @@
 ﻿using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
+using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -11,7 +12,7 @@ namespace Exercism.CSharp.Exercises.Generators
 
             if (data.Input.ContainsKey("set"))
             {
-                if (!(data.Input["set"] is int[]))
+                if (data.Input["set"] is JArray)
                 {
                     data.Input["set"] = new UnescapedValue("");
                 }
@@ -20,7 +21,7 @@ namespace Exercism.CSharp.Exercises.Generators
             }
             else
             {
-                if (!(data.Input["set1"] is int[]))
+                if (data.Input["set1"] is JArray)
                 {
                     data.Input["set1"] = new UnescapedValue("");
                 }

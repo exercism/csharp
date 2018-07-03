@@ -8,7 +8,8 @@ namespace Exercism.CSharp.Exercises.Generators
     {
         protected override void UpdateTestData(TestData data)
         {
-            data.ExceptionThrown = data.Expected is Dictionary<string, object> ? typeof(ArgumentOutOfRangeException) : null;
+            if (data.Expected is Dictionary<string, object>)
+                data.ExceptionThrown = typeof(ArgumentOutOfRangeException);
         }
     }
 }

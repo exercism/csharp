@@ -7,7 +7,8 @@ namespace Exercism.CSharp.Exercises.Generators
     {
         protected override void UpdateTestData(TestData data)
         {
-            data.ExceptionThrown = data.Expected is bool ? typeof(ArgumentException) : null;
+            if (data.Expected is bool)
+                data.ExceptionThrown = typeof(ArgumentException);
         }
     }
 }

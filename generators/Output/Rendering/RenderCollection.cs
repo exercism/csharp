@@ -18,7 +18,7 @@ namespace Exercism.CSharp.Output.Rendering
         public string MultiLineCollectionInitializer<T>(IEnumerable<T> elements, Func<T, string> render)
             => CollectionInitializer(elements, line => render(line).Indent(), Environment.NewLine);
         
-        private string CollectionInitializer<T>(IEnumerable<T> elements, Func<T, string> render, string separator)
+        private static string CollectionInitializer<T>(IEnumerable<T> elements, Func<T, string> render, string separator)
             => $"{separator}{{{separator}{string.Join($",{separator}", elements.Select(render))}{separator}}}";
     }
 }

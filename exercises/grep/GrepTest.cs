@@ -12,8 +12,7 @@ public class GrepTest : IDisposable
         var pattern = "Agamemnon";
         var flags = "";
         var files = new[] { "iliad.txt" };
-        var expected = 
-            "Of Atreus, Agamemnon, King of men.\n";
+        var expected = "Of Atreus, Agamemnon, King of men.";
         Assert.Equal(expected, Grep.Match(pattern, flags, files));
     }
 
@@ -23,8 +22,7 @@ public class GrepTest : IDisposable
         var pattern = "Forbidden";
         var flags = "-n";
         var files = new[] { "paradise-lost.txt" };
-        var expected = 
-            "2:Of that Forbidden Tree, whose mortal tast\n";
+        var expected = "2:Of that Forbidden Tree, whose mortal tast";
         Assert.Equal(expected, Grep.Match(pattern, flags, files));
     }
 
@@ -34,8 +32,7 @@ public class GrepTest : IDisposable
         var pattern = "FORBIDDEN";
         var flags = "-i";
         var files = new[] { "paradise-lost.txt" };
-        var expected = 
-            "Of that Forbidden Tree, whose mortal tast\n";
+        var expected = "Of that Forbidden Tree, whose mortal tast";
         Assert.Equal(expected, Grep.Match(pattern, flags, files));
     }
 
@@ -45,8 +42,7 @@ public class GrepTest : IDisposable
         var pattern = "Forbidden";
         var flags = "-l";
         var files = new[] { "paradise-lost.txt" };
-        var expected = 
-            "paradise-lost.txt\n";
+        var expected = "paradise-lost.txt";
         Assert.Equal(expected, Grep.Match(pattern, flags, files));
     }
 
@@ -56,8 +52,7 @@ public class GrepTest : IDisposable
         var pattern = "With loss of Eden, till one greater Man";
         var flags = "-x";
         var files = new[] { "paradise-lost.txt" };
-        var expected = 
-            "With loss of Eden, till one greater Man\n";
+        var expected = "With loss of Eden, till one greater Man";
         Assert.Equal(expected, Grep.Match(pattern, flags, files));
     }
 
@@ -67,8 +62,7 @@ public class GrepTest : IDisposable
         var pattern = "OF ATREUS, Agamemnon, KIng of MEN.";
         var flags = "-n -i -x";
         var files = new[] { "iliad.txt" };
-        var expected = 
-            "9:Of Atreus, Agamemnon, King of men.\n";
+        var expected = "9:Of Atreus, Agamemnon, King of men.";
         Assert.Equal(expected, Grep.Match(pattern, flags, files));
     }
 
@@ -81,7 +75,7 @@ public class GrepTest : IDisposable
         var expected = 
             "Nor how it may concern my modesty,\n" +
             "But I beseech your grace that I may know\n" +
-            "The worst that may befall me in this case,\n";
+            "The worst that may befall me in this case,";
         Assert.Equal(expected, Grep.Match(pattern, flags, files));
     }
 
@@ -94,7 +88,7 @@ public class GrepTest : IDisposable
         var expected = 
             "3:Nor how it may concern my modesty,\n" +
             "5:But I beseech your grace that I may know\n" +
-            "6:The worst that may befall me in this case,\n";
+            "6:The worst that may befall me in this case,";
         Assert.Equal(expected, Grep.Match(pattern, flags, files));
     }
 
@@ -116,7 +110,7 @@ public class GrepTest : IDisposable
         var files = new[] { "iliad.txt" };
         var expected = 
             "Achilles sing, O Goddess! Peleus' son;\n" +
-            "The noble Chief Achilles from the son\n";
+            "The noble Chief Achilles from the son";
         Assert.Equal(expected, Grep.Match(pattern, flags, files));
     }
 
@@ -131,7 +125,7 @@ public class GrepTest : IDisposable
             "With loss of Eden, till one greater Man\n" +
             "Restore us, and regain the blissful Seat,\n" +
             "Sing Heav'nly Muse, that on the secret top\n" +
-            "That Shepherd, who first taught the chosen Seed\n";
+            "That Shepherd, who first taught the chosen Seed";
         Assert.Equal(expected, Grep.Match(pattern, flags, files));
     }
 
@@ -151,8 +145,7 @@ public class GrepTest : IDisposable
         var pattern = "Agamemnon";
         var flags = "";
         var files = new[] { "iliad.txt", "midsummer-night.txt", "paradise-lost.txt" };
-        var expected = 
-            "iliad.txt:Of Atreus, Agamemnon, King of men.\n";
+        var expected = "iliad.txt:Of Atreus, Agamemnon, King of men.";
         Assert.Equal(expected, Grep.Match(pattern, flags, files));
     }
 
@@ -165,7 +158,7 @@ public class GrepTest : IDisposable
         var expected = 
             "midsummer-night.txt:Nor how it may concern my modesty,\n" +
             "midsummer-night.txt:But I beseech your grace that I may know\n" +
-            "midsummer-night.txt:The worst that may befall me in this case,\n";
+            "midsummer-night.txt:The worst that may befall me in this case,";
         Assert.Equal(expected, Grep.Match(pattern, flags, files));
     }
 
@@ -179,7 +172,7 @@ public class GrepTest : IDisposable
             "midsummer-night.txt:5:But I beseech your grace that I may know\n" +
             "midsummer-night.txt:6:The worst that may befall me in this case,\n" +
             "paradise-lost.txt:2:Of that Forbidden Tree, whose mortal tast\n" +
-            "paradise-lost.txt:6:Sing Heav'nly Muse, that on the secret top\n";
+            "paradise-lost.txt:6:Sing Heav'nly Muse, that on the secret top";
         Assert.Equal(expected, Grep.Match(pattern, flags, files));
     }
 
@@ -191,7 +184,7 @@ public class GrepTest : IDisposable
         var files = new[] { "iliad.txt", "midsummer-night.txt", "paradise-lost.txt" };
         var expected = 
             "iliad.txt\n" +
-            "paradise-lost.txt\n";
+            "paradise-lost.txt";
         Assert.Equal(expected, Grep.Match(pattern, flags, files));
     }
 
@@ -211,7 +204,7 @@ public class GrepTest : IDisposable
             "midsummer-night.txt:If I refuse to wed Demetrius.\n" +
             "paradise-lost.txt:Brought Death into the World, and all our woe,\n" +
             "paradise-lost.txt:Restore us, and regain the blissful Seat,\n" +
-            "paradise-lost.txt:Sing Heav'nly Muse, that on the secret top\n";
+            "paradise-lost.txt:Sing Heav'nly Muse, that on the secret top";
         Assert.Equal(expected, Grep.Match(pattern, flags, files));
     }
 
@@ -224,7 +217,7 @@ public class GrepTest : IDisposable
         var expected = 
             "iliad.txt:Achilles sing, O Goddess! Peleus' son;\n" +
             "iliad.txt:The noble Chief Achilles from the son\n" +
-            "midsummer-night.txt:If I refuse to wed Demetrius.\n";
+            "midsummer-night.txt:If I refuse to wed Demetrius.";
         Assert.Equal(expected, Grep.Match(pattern, flags, files));
     }
 
@@ -234,8 +227,7 @@ public class GrepTest : IDisposable
         var pattern = "But I beseech your grace that I may know";
         var flags = "-x";
         var files = new[] { "iliad.txt", "midsummer-night.txt", "paradise-lost.txt" };
-        var expected = 
-            "midsummer-night.txt:But I beseech your grace that I may know\n";
+        var expected = "midsummer-night.txt:But I beseech your grace that I may know";
         Assert.Equal(expected, Grep.Match(pattern, flags, files));
     }
 
@@ -245,8 +237,7 @@ public class GrepTest : IDisposable
         var pattern = "WITH LOSS OF EDEN, TILL ONE GREATER MAN";
         var flags = "-n -i -x";
         var files = new[] { "iliad.txt", "midsummer-night.txt", "paradise-lost.txt" };
-        var expected = 
-            "paradise-lost.txt:4:With loss of Eden, till one greater Man\n";
+        var expected = "paradise-lost.txt:4:With loss of Eden, till one greater Man";
         Assert.Equal(expected, Grep.Match(pattern, flags, files));
     }
 

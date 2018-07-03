@@ -16,17 +16,19 @@ namespace Exercism.CSharp.Output.Rendering
         
         public string StringMultiLine(MultiLineString multiLineString)
         {
-            if (multiLineString.Lines.Length == 0)
-                return String(string.Empty);
-            
-            if (multiLineString.Lines.Length == 1)
-                return String(multiLineString.Lines[0]);
-            
-            return $"{Environment.NewLine}{string.Join(Environment.NewLine, RenderLines())}";
+            switch (multiLineString.Lines.Length)
+            {
+                case 0:
+                    return String(string.Empty);
+                case 1:
+                    return String(multiLineString.Lines[0]);
+                default:
+                    return $"{Environment.NewLine}{string.Join(Environment.NewLine, RenderLines())}";
+            }
             
             IEnumerable<string> RenderLines() =>
                 multiLineString.Lines.Select((t, i) => i < multiLineString.Lines.Length - 1
-                    ? $"{String($"{t}{Environment.NewLine}").Indent()} +"
+                    ? $"{String($"{t}\n").Indent()} +"
                     : $"{String(t).Indent()}");
         }
     }

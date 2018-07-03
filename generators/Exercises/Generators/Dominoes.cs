@@ -14,12 +14,12 @@ namespace Exercism.CSharp.Exercises.Generators
             data.Input["dominoes"] = ConvertDominoes(data.Input["dominoes"]);
         }
 
+        private static ValueTuple<int, int>[] ConvertDominoes(JToken input)
+            => input.ToObject<int[][]>().Select(x => (x[0], x[1])).ToArray();
+
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {
             namespaces.Add(typeof(ValueTuple).Namespace);
         }
-
-        private static ValueTuple<int, int>[] ConvertDominoes(dynamic input) 
-            => ((JToken)input).ToObject<int[][]>().Select(x => (x[0], x[1])).ToArray();
     }
 }

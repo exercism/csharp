@@ -1,20 +1,9 @@
-using System.Collections.Generic;
+using System;
 using Exercism.CSharp.Output;
+using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public struct RationalNumber
-    {
-        public RationalNumber(IReadOnlyList<int> n)
-        {
-            Numerator = n[0];
-            Denominator = n[1];
-        }
-
-        public int Numerator { get; }
-        public int Denominator { get; }
-    }
-
     public class RationalNumbers : GeneratorExercise
     {
         protected override void UpdateTestMethod(TestMethod method)
@@ -24,54 +13,28 @@ namespace Exercism.CSharp.Exercises.Generators
 
         private string RenderAssert(TestMethod method)
         {
-            var input = (Dictionary<string, object>)method.Data.Input;
-            var operationName = char.ToUpper(method.Data.Property[0]) + method.Data.Property.Substring(1);
-            var assertCodeLine = "";
-            const string operationsWithOverloading = "add|+|sub|-|mul|*|div|/";
-            var operationCode = operationsWithOverloading.Substring(operationsWithOverloading.IndexOf(method.Data.Property.ToLower()) + 4, 1);
-
-            switch (method.Data.Property.ToLower())
+            switch (method.Data.Property)
             {
                 case "add":
                 case "sub":
                 case "mul":
                 case "div":
-                    {
-                        var r1 = new RationalNumber((int[])input["r1"]);
-                        var r2 = new RationalNumber((int[])input["r2"]);
-                        var e = new RationalNumber((int[])method.Data.Expected);
-                        assertCodeLine = "Assert.Equal(" + $"new RationalNumber ({e.Numerator}, {e.Denominator}), new RationalNumber({r1.Numerator}, {r1.Denominator}) {operationCode} (new RationalNumber({r2.Numerator}, {r2.Denominator})));";
-                    }
-                    break;
+                    const string operationsWithOverloading = "add|+|sub|-|mul|*|div|/";
+                    var operationCode = operationsWithOverloading.Substring(operationsWithOverloading.IndexOf(method.Data.Property, StringComparison.OrdinalIgnoreCase) + 4, 1);
+                    return Render.AssertEqual(RenderRationalNumber(method.Data.Expected), $"{RenderRationalNumber(method.Data.Input["r1"])} {operationCode} ({RenderRationalNumber(method.Data.Input["r2"])})");
                 case "abs":
                 case "reduce":
-                    {
-                        var r = new RationalNumber((int[])input["r"]);
-                        var e = new RationalNumber((int[])method.Data.Expected);
-                        assertCodeLine = "Assert.Equal(" + $"new RationalNumber ({e.Numerator}, {e.Denominator}), new RationalNumber({r.Numerator}, {r.Denominator}).{operationName}());";
-                    }
-                    break;
+                    return Render.AssertEqual(RenderRationalNumber(method.Data.Expected), $"{RenderRationalNumber(method.Data.Input["r"])}.{method.Data.TestedMethod}()");
                 case "exprational":
-                    {
-                        var r = new RationalNumber((int[])input["r"]);
-                        var n = input["n"];
-                        var e = new RationalNumber((int[])method.Data.Expected);
-                        assertCodeLine = "Assert.Equal(" + $"new RationalNumber ({e.Numerator}, {e.Denominator}), new RationalNumber({r.Numerator}, {r.Denominator}).{operationName}({n}));";
-                    }
-                    break;
+                    return Render.AssertEqual(RenderRationalNumber(method.Data.Expected), $"{RenderRationalNumber(method.Data.Input["r"])}.{method.Data.TestedMethod}({method.Data.Input["n"]})");
                 case "expreal":
-                    {
-                        var x = input["x"].ToString();
-                        var r = new RationalNumber((int[])input["r"]);
-                        var e = Render.Object(method.Data.Expected);
-                        var p = Precision(e);
-                        assertCodeLine = "Assert.Equal(" + $"{e}, {x}.{operationName}(new RationalNumber({r.Numerator}, {r.Denominator})), {p});";
-                    }
-                    break;
+                    return Render.AssertEqual(method.ExpectedParameter, $"{method.Data.Input["x"]}.{method.Data.TestedMethod}({RenderRationalNumber(method.Data.Input["r"])}), {Precision(method.Data.Expected)}");
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
-
-            return assertCodeLine;
         }
+
+        private static string RenderRationalNumber(dynamic input) => $"new RationalNumber({input[0]}, {input[1]})";
 
         private static int Precision(object rawValue)
             => rawValue.ToString().Split(new[] { '.' }).Length <= 1

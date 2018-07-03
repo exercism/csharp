@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Exercism.CSharp.Output;
 
@@ -14,7 +15,7 @@ namespace Exercism.CSharp.Exercises.Generators
         }
 
         private static dynamic ConvertExpected(dynamic expected)
-            => ((Dictionary<string, object>)expected).ToDictionary(kv => kv.Key, kv => int.Parse(kv.Value.ToString()));
+            => ((Dictionary<string, object>)expected).ToDictionary(kv => kv.Key, kv => Convert.ToInt32(kv.Value));
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {

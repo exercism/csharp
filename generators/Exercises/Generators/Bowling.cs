@@ -11,14 +11,10 @@ namespace Exercism.CSharp.Exercises.Generators
 
         protected override void UpdateTestData(TestData data)
         {
-            if (!(data.Expected is int))
-            {
-                data.ExceptionThrown = typeof(ArgumentException);
-            }
-            else
-            {
+            if (data.Expected is int)
                 data.UseVariableForTested = true;
-            }
+            else
+                data.ExceptionThrown = typeof(ArgumentException);
 
             data.SetInputParameters();
         }
@@ -52,8 +48,7 @@ namespace Exercism.CSharp.Exercises.Generators
                 return Render.AssertThrows(method.Data.ExceptionThrown, $"sut.Roll({actual})");
             }
 
-            if (method.Data.ExceptionThrown == null ||
-                method.Data.Property != "score")
+            if (method.Data.ExceptionThrown == null || method.Data.Property != "score")
                 return method.Assert;
             
             return Render.AssertThrows(method.Data.ExceptionThrown, "sut.Score()");

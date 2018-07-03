@@ -9,7 +9,7 @@ namespace Exercism.CSharp.Exercises.Generators
     {
         protected override void UpdateTestData(TestData data)
         {
-            if (((Dictionary<string, object>)data.Expected).ContainsKey("error"))
+            if (data.Expected.ContainsKey("error"))
                 return;
 
             data.UseVariableForExpected = true;
@@ -18,7 +18,7 @@ namespace Exercism.CSharp.Exercises.Generators
         }
 
         private static dynamic ConvertExpected(dynamic expected)
-            => ((Dictionary<string, object>)expected).ToDictionary(kv => kv.Key[0], kv => int.Parse($"{kv.Value}"));
+            => ((Dictionary<string, object>)expected).ToDictionary(kv => kv.Key[0], kv => Convert.ToInt32(kv.Value));
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {

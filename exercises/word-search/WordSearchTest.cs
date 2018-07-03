@@ -13,9 +13,9 @@ public class WordSearchTest
         var grid = "jefblpepre";
         var sut = new WordSearch(grid);
         var actual = sut.Search(wordsToSearchFor);
-        var expected = new Dictionary<string, ((int, int), (int, int))?>
+        var expected = new Dictionary<string, Object>
         {
-            ["clojure"] = null
+            ["clojure"] = 
         };
         Assert.Null(expected["clojure"]);
     }
@@ -27,7 +27,7 @@ public class WordSearchTest
         var grid = "clojurermt";
         var sut = new WordSearch(grid);
         var actual = sut.Search(wordsToSearchFor);
-        var expected = new Dictionary<string, ((int, int), (int, int))?>
+        var expected = new Dictionary<string, Object>
         {
             ["clojure"] = ((1, 1), (7, 1))
         };
@@ -41,7 +41,7 @@ public class WordSearchTest
         var grid = "mtclojurer";
         var sut = new WordSearch(grid);
         var actual = sut.Search(wordsToSearchFor);
-        var expected = new Dictionary<string, ((int, int), (int, int))?>
+        var expected = new Dictionary<string, Object>
         {
             ["clojure"] = ((3, 1), (9, 1))
         };
@@ -55,7 +55,7 @@ public class WordSearchTest
         var grid = "coffeelplx";
         var sut = new WordSearch(grid);
         var actual = sut.Search(wordsToSearchFor);
-        var expected = new Dictionary<string, ((int, int), (int, int))?>
+        var expected = new Dictionary<string, Object>
         {
             ["coffee"] = ((1, 1), (6, 1))
         };
@@ -69,7 +69,7 @@ public class WordSearchTest
         var grid = "xcoffeezlp";
         var sut = new WordSearch(grid);
         var actual = sut.Search(wordsToSearchFor);
-        var expected = new Dictionary<string, ((int, int), (int, int))?>
+        var expected = new Dictionary<string, Object>
         {
             ["coffee"] = ((2, 1), (7, 1))
         };
@@ -85,7 +85,7 @@ public class WordSearchTest
             "tclojurerm";
         var sut = new WordSearch(grid);
         var actual = sut.Search(wordsToSearchFor);
-        var expected = new Dictionary<string, ((int, int), (int, int))?>
+        var expected = new Dictionary<string, Object>
         {
             ["clojure"] = ((2, 2), (8, 2))
         };
@@ -102,7 +102,7 @@ public class WordSearchTest
             "clojurermt";
         var sut = new WordSearch(grid);
         var actual = sut.Search(wordsToSearchFor);
-        var expected = new Dictionary<string, ((int, int), (int, int))?>
+        var expected = new Dictionary<string, Object>
         {
             ["clojure"] = ((1, 3), (7, 3))
         };
@@ -126,7 +126,7 @@ public class WordSearchTest
             "clojurermt";
         var sut = new WordSearch(grid);
         var actual = sut.Search(wordsToSearchFor);
-        var expected = new Dictionary<string, ((int, int), (int, int))?>
+        var expected = new Dictionary<string, Object>
         {
             ["clojure"] = ((1, 10), (7, 10))
         };
@@ -150,7 +150,7 @@ public class WordSearchTest
             "jalaycalmp";
         var sut = new WordSearch(grid);
         var actual = sut.Search(wordsToSearchFor);
-        var expected = new Dictionary<string, ((int, int), (int, int))?>
+        var expected = new Dictionary<string, Object>
         {
             ["clojure"] = ((1, 9), (7, 9))
         };
@@ -174,7 +174,7 @@ public class WordSearchTest
             "jalaycalmp";
         var sut = new WordSearch(grid);
         var actual = sut.Search(wordsToSearchFor);
-        var expected = new Dictionary<string, ((int, int), (int, int))?>
+        var expected = new Dictionary<string, Object>
         {
             ["fortran"] = ((1, 7), (7, 7))
         };
@@ -198,7 +198,7 @@ public class WordSearchTest
             "clojurermt";
         var sut = new WordSearch(grid);
         var actual = sut.Search(wordsToSearchFor);
-        var expected = new Dictionary<string, ((int, int), (int, int))?>
+        var expected = new Dictionary<string, Object>
         {
             ["clojure"] = ((1, 10), (7, 10)),
             ["fortran"] = ((1, 7), (7, 7))
@@ -214,7 +214,7 @@ public class WordSearchTest
         var grid = "rixilelhrs";
         var sut = new WordSearch(grid);
         var actual = sut.Search(wordsToSearchFor);
-        var expected = new Dictionary<string, ((int, int), (int, int))?>
+        var expected = new Dictionary<string, Object>
         {
             ["elixir"] = ((6, 1), (1, 1))
         };
@@ -238,7 +238,7 @@ public class WordSearchTest
             "clojurermt";
         var sut = new WordSearch(grid);
         var actual = sut.Search(wordsToSearchFor);
-        var expected = new Dictionary<string, ((int, int), (int, int))?>
+        var expected = new Dictionary<string, Object>
         {
             ["clojure"] = ((1, 10), (7, 10)),
             ["elixir"] = ((6, 5), (1, 5))
@@ -264,7 +264,7 @@ public class WordSearchTest
             "clojurermt";
         var sut = new WordSearch(grid);
         var actual = sut.Search(wordsToSearchFor);
-        var expected = new Dictionary<string, ((int, int), (int, int))?>
+        var expected = new Dictionary<string, Object>
         {
             ["clojure"] = ((1, 10), (7, 10)),
             ["elixir"] = ((6, 5), (1, 5)),
@@ -292,7 +292,7 @@ public class WordSearchTest
             "clojurermt";
         var sut = new WordSearch(grid);
         var actual = sut.Search(wordsToSearchFor);
-        var expected = new Dictionary<string, ((int, int), (int, int))?>
+        var expected = new Dictionary<string, Object>
         {
             ["clojure"] = ((1, 10), (7, 10)),
             ["elixir"] = ((6, 5), (1, 5)),
@@ -322,7 +322,7 @@ public class WordSearchTest
             "clojurermt";
         var sut = new WordSearch(grid);
         var actual = sut.Search(wordsToSearchFor);
-        var expected = new Dictionary<string, ((int, int), (int, int))?>
+        var expected = new Dictionary<string, Object>
         {
             ["clojure"] = ((1, 10), (7, 10)),
             ["elixir"] = ((6, 5), (1, 5)),
@@ -354,7 +354,7 @@ public class WordSearchTest
             "clojurermt";
         var sut = new WordSearch(grid);
         var actual = sut.Search(wordsToSearchFor);
-        var expected = new Dictionary<string, ((int, int), (int, int))?>
+        var expected = new Dictionary<string, Object>
         {
             ["clojure"] = ((1, 10), (7, 10)),
             ["elixir"] = ((6, 5), (1, 5)),
@@ -397,7 +397,7 @@ public class WordSearchTest
             "clojurermt";
         var sut = new WordSearch(grid);
         var actual = sut.Search(wordsToSearchFor);
-        var expected = new Dictionary<string, ((int, int), (int, int))?>
+        var expected = new Dictionary<string, Object>
         {
             ["clojure"] = ((1, 10), (7, 10)),
             ["elixir"] = ((6, 5), (1, 5)),
@@ -443,7 +443,7 @@ public class WordSearchTest
             "clojurermt";
         var sut = new WordSearch(grid);
         var actual = sut.Search(wordsToSearchFor);
-        var expected = new Dictionary<string, ((int, int), (int, int))?>
+        var expected = new Dictionary<string, Object>
         {
             ["clojure"] = ((1, 10), (7, 10)),
             ["elixir"] = ((6, 5), (1, 5)),
@@ -492,7 +492,7 @@ public class WordSearchTest
             "clojurermt";
         var sut = new WordSearch(grid);
         var actual = sut.Search(wordsToSearchFor);
-        var expected = new Dictionary<string, ((int, int), (int, int))?>
+        var expected = new Dictionary<string, Object>
         {
             ["clojure"] = ((1, 10), (7, 10)),
             ["elixir"] = ((6, 5), (1, 5)),
@@ -502,7 +502,7 @@ public class WordSearchTest
             ["lua"] = ((8, 9), (6, 7)),
             ["lisp"] = ((3, 6), (6, 3)),
             ["ruby"] = ((8, 6), (5, 9)),
-            ["haskell"] = null
+            ["haskell"] = 
         };
         Assert.Equal(expected["clojure"], actual["clojure"]);
         Assert.Equal(expected["elixir"], actual["elixir"]);

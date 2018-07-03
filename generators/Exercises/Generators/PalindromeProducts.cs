@@ -40,8 +40,8 @@ namespace Exercism.CSharp.Exercises.Generators
             return assert.ToString();
         }
 
-        private string RenderCoordinates(dynamic coordinates)
-            => Render.Object((coordinates as JArray)
+        private string RenderCoordinates(JArray coordinates)
+            => Render.Object(coordinates
                 .Select(RenderCoordinate)
                 .ToArray());
 

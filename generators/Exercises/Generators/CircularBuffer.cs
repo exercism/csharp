@@ -24,10 +24,7 @@ namespace Exercism.CSharp.Exercises.Generators
         }
 
         private string RenderSut(TestData canonicalDataCase)
-        {
-            var capacity = canonicalDataCase.Input["capacity"];
-            return Render.Variable("buffer", $"new CircularBuffer<int>(capacity: {capacity})");
-        }
+            => Render.Variable("buffer", $"new CircularBuffer<int>(capacity: {canonicalDataCase.Input["capacity"]})");
 
         private string RenderOperation(dynamic operation)
         {
@@ -46,19 +43,15 @@ namespace Exercism.CSharp.Exercises.Generators
             }
         }
 
-        private string RenderReadOperation(dynamic operation)
-        {
-            return operation["should_succeed"]
+        private string RenderReadOperation(dynamic operation) 
+            => operation["should_succeed"]
                 ? Render.AssertEqual(operation["expected"].ToString(), "buffer.Read()")
                 : Render.AssertThrows<InvalidOperationException>("buffer.Read()");
-        }
 
-        private string RenderWriteOperation(dynamic operation)
-        {
-            return operation["should_succeed"]
+        private string RenderWriteOperation(dynamic operation) 
+            => operation["should_succeed"]
                 ? $"buffer.Write({operation["item"]});"
                 : Render.AssertThrows<InvalidOperationException>($"buffer.Write({operation["item"]})");
-        }
 
         private static string RenderOverwriteOperation(dynamic operation)
             => $"buffer.Overwrite({operation["item"]});";

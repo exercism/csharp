@@ -8,7 +8,7 @@ namespace Exercism.CSharp.Exercises.Generators
         protected override void UpdateTestData(TestData data)
         {
             if (data.Property == "allergicTo")
-                data.TestedMethod = "IsAllergicTo";
+                data.TestedMethod = $"Is{data.TestedMethod}";
             else if (data.Property == "list")
                 data.UseVariableForExpected = true;
 
@@ -20,19 +20,17 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert(method);
         }
 
-        private string RenderAssert(TestMethod method)
-        {
-            return method.Data.Property == "allergicTo"
+        private string RenderAssert(TestMethod method) 
+            => method.Data.Property == "allergicTo"
                 ? RenderIsAllergicToAssert(method)
                 : method.Assert;
-        }
 
         private string RenderIsAllergicToAssert(TestMethod method)
         {
             var assert = new StringBuilder();
 
             foreach (var allergy in method.Data.Expected)
-                assert.AppendLine(Render.AssertBoolean(allergy["result"], $"sut.IsAllergicTo({Render.Object(allergy["substance"])})"));
+                assert.AppendLine(Render.AssertBoolean(allergy["result"], $"sut.{method.Data.TestedMethod}({Render.Object(allergy["substance"])})"));
 
             return assert.ToString();
         }

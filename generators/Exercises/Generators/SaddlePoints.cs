@@ -30,14 +30,7 @@ namespace Exercism.CSharp.Exercises.Generators
             namespaces.Add(typeof(string).Namespace);
         }
 
-        private static dynamic ToMultiDimensionalArray(dynamic array)
-        {
-            var jArray = (JArray)array;
-            if (jArray.Count == 1 && ((JArray)jArray[0]).Count == 0)
-                return new int[0, 0];
-
-            return jArray.ToObject<int[,]>();
-        }
+        private static dynamic ToMultiDimensionalArray(JArray jArray) => jArray.ToObject<int[,]>();
 
         private static ValueTuple<string, object>[] ToTupleCollection(Array array)
         {
@@ -45,7 +38,7 @@ namespace Exercism.CSharp.Exercises.Generators
             
             for (var x = 0; x < array.GetLength(0); x++)
             {
-                var current = array.GetValue(x) as Dictionary<string, object>;
+                var current = (Dictionary<string, object>)array.GetValue(x);
                 tuples.Add(new ValueTuple<string, object>(current["row"].ToString(), current["column"].ToString()));
             }
 

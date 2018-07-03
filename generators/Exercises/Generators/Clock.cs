@@ -49,9 +49,9 @@ namespace Exercism.CSharp.Exercises.Generators
                 return RenderEqualToAssert(method);
             }
 
-            return method.Data.Property != PropertyCreate
-                ? RenderConsistencyToAssert(method)
-                : method.Assert;
+            return method.Data.Property == PropertyCreate
+                ? method.Assert
+                : RenderConsistencyToAssert(method);
         }
 
         private string RenderConsistencyToAssert(TestMethod method) 

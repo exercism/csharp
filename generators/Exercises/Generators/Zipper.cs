@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
+using Exercism.CSharp.Helpers;
 using Exercism.CSharp.Output;
 using Humanizer;
 
@@ -18,8 +19,8 @@ namespace Exercism.CSharp.Exercises.Generators
         {
             var arrange = new StringBuilder();
             var tree = RenderTree(method.Data.Input["initialTree"]);
-            arrange.AppendLine(Render.Variable("tree", $"{tree}"));
-            arrange.AppendLine(Render.Variable("sut", $"Zipper.FromTree(tree)"));
+            arrange.AppendLine(Render.Variable("tree", tree));
+            arrange.AppendLine(Render.Variable("sut", "Zipper.FromTree(tree)"));
 
             var operations = RenderOperations(method.Data.Input["operations"]);
             arrange.AppendLine(Render.Variable("actual", $"sut{operations}"));
@@ -43,23 +44,15 @@ namespace Exercism.CSharp.Exercises.Generators
         private static string RenderTree(dynamic tree)
         {
             if (tree == null)
-            {
                 return "null";
-            }
 
-            var value = tree["value"];
-            var left = tree["left"] == null ? "null" : RenderTree(tree["left"]);
-            var right = tree["right"] == null ? "null" : RenderTree(tree["right"]);
-
-            return $"new BinTree({value}, {left}, {right})";
+            return $"new BinTree({tree["value"]}, {RenderTree(tree["left"])}, {RenderTree(tree["right"])})";
         }
 
         private static string RenderOperations(dynamic operations)
         {
             if (operations.Length == 0)
-            {
                 return "";
-            }
 
             return "." + string.Join(".", ((object[])operations).Select(RenderOperation));
         }
@@ -67,26 +60,26 @@ namespace Exercism.CSharp.Exercises.Generators
         private static string RenderOperation(dynamic operation)
         {
             var operationType = (string)operation["operation"];
+            var operationMethod = operationType.ToMethodName();
 
             switch (operationType)
             {
                 case "set_value":
-                    return $"SetValue({operation["item"]})";
+                    return $"{operationMethod}({operation["item"]})";
                 case "set_left":
-                    return $"SetLeft({RenderTree(operation["item"])})";
                 case "set_right":
-                    return $"SetRight({RenderTree(operation["item"])})";
+                    return $"{operationMethod}({RenderTree(operation["item"])})";
                 default:
-                    return $"{operationType.Pascalize()}()";
+                    return $"{operationMethod}()";
             }
         }
 
-        private static string RenderExpected(dynamic expected)
+        private string RenderExpected(dynamic expected)
         {
             switch (expected["type"])
             {
                 case "int":
-                    return expected["value"].ToString();
+                    return Render.Object(expected["value"]);
                 case "zipper":
                     if (expected.TryGetValue("value", out dynamic value) && value == null)
                     {

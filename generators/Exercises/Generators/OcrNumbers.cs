@@ -9,7 +9,9 @@ namespace Exercism.CSharp.Exercises.Generators
     {
         protected override void UpdateTestData(TestData data)
         {
-            data.ExceptionThrown = data.Expected is int i && i <= 0 ? typeof(ArgumentException) : null;
+            if (data.Expected is int i && i <= 0)
+                data.ExceptionThrown = typeof(ArgumentException);
+
             data.Input["rows"] = new MultiLineString(data.Input["rows"]);
             data.Expected = data.Expected.ToString();
             data.UseVariableForTested = true;

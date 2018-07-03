@@ -12,7 +12,9 @@ namespace Exercism.CSharp.Exercises.Generators
             if (data.Input["digits"] is JArray)
                 data.Input["digits"] = Array.Empty<int>();
 
-            data.ExceptionThrown = data.Expected is Dictionary<string, object> ? typeof(ArgumentException) : null;
+            if (data.Expected is Dictionary<string, object>)
+                data.ExceptionThrown = typeof(ArgumentException);
+
             data.UseVariablesForInput = true;
             data.UseVariableForExpected = true;
         }

@@ -16,10 +16,10 @@ namespace Exercism.CSharp.Exercises.Generators
             if (stringInput.Contains("System.Int32"))
                 return;
 
-            data.Input["array"] = new UnescapedValue(ToProperObjArray(stringInput));
+            data.Input["array"] = new UnescapedValue(ConvertToObjectArray(stringInput));
         }
 
-        private static string ToProperObjArray(string input)
+        private static string ConvertToObjectArray(string input)
             => input
                 .Replace("System.Int32", "")
                 .Replace("]", "}")

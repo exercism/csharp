@@ -6,7 +6,7 @@ namespace Exercism.CSharp.Exercises.Generators
     {
         protected override void UpdateTestData(TestData data)
         {
-            data.Description = $"{data.Property} {data.Description}";
+            data.UseFullDescriptionPath = true;
         }
 
         protected override void UpdateTestMethod(TestMethod method)
@@ -14,12 +14,10 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert(method);
         }
 
-        private string RenderAssert(TestMethod method)
-        {
-            return method.Data.Property == "consistency"
+        private string RenderAssert(TestMethod method) 
+            => method.Data.Property == "consistency"
                 ? RenderConsistencyToAssert(method)
                 : method.Assert;
-        }
 
         private string RenderConsistencyToAssert(TestMethod method)
         {

@@ -21,7 +21,7 @@ namespace Exercism.CSharp.Exercises.Generators
         private static dynamic ConvertExpected(TestData canonicalDataCase)
         {
             Dictionary<string, object> expected = canonicalDataCase.Expected;
-            return expected.ToDictionary(kv => kv.Key[0], kv => int.Parse(kv.Value.ToString()));
+            return expected.ToDictionary(kv => kv.Key[0], kv => Convert.ToInt32(kv.Value));
         }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)

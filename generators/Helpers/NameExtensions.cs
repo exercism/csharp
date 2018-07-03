@@ -30,7 +30,9 @@ namespace Exercism.CSharp.Helpers
             return !char.IsLetter(methodName[0]) ? "Test_" : methodName;
         }
 
-        public static string ToTestedMethodName(this string input) => input.Dehumanize();
+        public static string ToTestedMethodName(this string input) => input.ToMethodName();
+        
+        public static string ToMethodName(this string input) => input.Dehumanize();
 
         public static string ToVariableName(this string input) => input.Camelize();
 

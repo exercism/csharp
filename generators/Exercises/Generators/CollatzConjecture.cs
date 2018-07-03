@@ -7,7 +7,8 @@ namespace Exercism.CSharp.Exercises.Generators
     {
         protected override void UpdateTestData(TestData data)
         {
-            data.ExceptionThrown = data.Input["number"] <= 0 ? typeof(ArgumentException) : null;
+            if (data.Input["number"] <= 0)
+                data.ExceptionThrown = typeof(ArgumentException);
         }
     }
 }

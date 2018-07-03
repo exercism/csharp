@@ -12,10 +12,6 @@ namespace Exercism.CSharp.Exercises.Generators
             data.Expected = ConvertExpected(data.Expected);
         }
 
-        private static dynamic ConvertExpected(dynamic expected)
-        {
-            var jArray = (JArray)expected;
-            return jArray.Count == 0 ? new int[0, 0] : jArray.ToObject<int[,]>();
-        }
+        private static int[,] ConvertExpected(JArray jArray) => jArray.ToObject<int[,]>();
     }
 }

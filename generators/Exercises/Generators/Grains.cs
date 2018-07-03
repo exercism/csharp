@@ -7,12 +7,10 @@ namespace Exercism.CSharp.Exercises.Generators
     {
         protected override void UpdateTestData(TestData data)
         {
-            if (ShouldThrowException(data.Expected))
+            if (data.Expected is int i && i == -1)
                 data.ExceptionThrown = typeof(ArgumentOutOfRangeException);
             else
                 data.Expected = (ulong)data.Expected;
         }
-
-        private static bool ShouldThrowException(dynamic value) => value is int i && i == -1;
     }
 }

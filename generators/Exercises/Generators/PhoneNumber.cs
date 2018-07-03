@@ -8,7 +8,9 @@ namespace Exercism.CSharp.Exercises.Generators
         protected override void UpdateTestData(TestData data)
         {
             data.UseVariablesForInput = true;
-            data.ExceptionThrown = data.Expected is null ? typeof(ArgumentException) : null;
+
+            if (data.Expected is null)
+                data.ExceptionThrown = typeof(ArgumentException);
         }
     }
 }

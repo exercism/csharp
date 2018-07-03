@@ -8,7 +8,9 @@ namespace Exercism.CSharp.Exercises.Generators
         protected override void UpdateTestData(TestData data)
         {
             data.TestedMethod = "InEnglish";
-            data.ExceptionThrown = data.Expected is int ? typeof(ArgumentOutOfRangeException) : null;
+
+            if (data.Expected is int)
+                data.ExceptionThrown = typeof(ArgumentOutOfRangeException);
         }
     }
 }

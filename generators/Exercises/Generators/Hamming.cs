@@ -7,7 +7,8 @@ namespace Exercism.CSharp.Exercises.Generators
     {
         protected override void UpdateTestData(TestData data)
         {
-            data.ExceptionThrown = data.Expected is int ? null : typeof(ArgumentException);
+            if (!(data.Expected is int))
+                data.ExceptionThrown = typeof(ArgumentException);
         }
     }
 }

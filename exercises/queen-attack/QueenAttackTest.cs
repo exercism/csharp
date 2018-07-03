@@ -6,7 +6,7 @@ using Xunit;
 public class QueenAttackTest
 {
     [Fact]
-    public void Queen_with_a_valid_position_does_not_throw_exception()
+    public void Queen_with_a_valid_position()
     {
         var actual = QueenAttack.Create(2, 2);
     }

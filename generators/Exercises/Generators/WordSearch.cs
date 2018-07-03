@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using DotLiquid.Tags;
 using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
 
@@ -8,8 +10,6 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class WordSearch : GeneratorExercise
     {
-        private IDictionary<string, dynamic> _expectedDictionary;
-
         protected override void UpdateTestData(TestData data)
         {
             data.UseVariablesForInput = true;
@@ -20,43 +20,39 @@ namespace Exercism.CSharp.Exercises.Generators
             data.SetConstructorInputParameters("grid");
 
             data.Input["grid"] = new MultiLineString(data.Input["grid"]);
-
-            _expectedDictionary = (IDictionary<string, dynamic>)data.Expected;
-
-            var expected = new List<string>
-                {
-                    "new Dictionary<string, ((int, int), (int, int))?>",
-                    "{"
-                };
-
-            expected.AddRange(_expectedDictionary.Select((kv, i) => $"    [\"{kv.Key}\"] = {RenderPosition(kv.Value)}{(i < _expectedDictionary.Count - 1 ? "," : "")}"));
-            expected.Add("}");
-
-            data.Expected = new UnescapedValue(string.Join(Environment.NewLine, expected));
+            data.Expected = ((IDictionary<string, dynamic>)data.Expected).ToDictionary(kv => kv.Key, kv => ConvertToPosition(kv.Value));
         }
 
         protected override void UpdateTestMethod(TestMethod method)
         {
-            method.Assert = RenderAssert();
+            method.Assert = RenderAssert(method);
         }
 
-        private string RenderAssert()
-            => string.Join(Environment.NewLine, _expectedDictionary
-                    .Select(kv => RenderAssertForSearchWord(kv.Key, kv.Value))
-                    .Cast<string>());
+        private string RenderAssert(TestMethod method)
+        {
+            var assert = new StringBuilder();
+
+            foreach (var kv in (Dictionary<string, dynamic>) method.Data.Expected)
+                assert.AppendLine(RenderAssertForSearchWord(kv.Key, kv.Value));
+
+            return assert.ToString();
+        }
 
         private string RenderAssertForSearchWord(string word, dynamic expected) 
-            => expected == null
+            => expected is null
                 ? Render.AssertNull($"expected[\"{word}\"]")
                 : Render.AssertEqual($"expected[\"{word}\"]", $"actual[\"{word}\"]");
 
-        private string RenderPosition(dynamic position) 
-            => position == null
-                ? "null" :
-                Render.Object((RenderCoordinate(position["start"]), RenderCoordinate(position["end"])));
+        private static ((int, int), (int, int))? ConvertToPosition(dynamic position)
+        {
+            if (position == null)
+                return null;
 
-        private string RenderCoordinate(dynamic coordinate)
-            => Render.Object((coordinate["column"], coordinate["row"]));
+            return (ConvertToCoordinate(position["start"]), ConvertToCoordinate(position["end"]));
+        }
+
+        private static (int, int) ConvertToCoordinate(dynamic coordinate)
+            => (Convert.ToInt32(coordinate["column"]), Convert.ToInt32(coordinate["row"]));
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {

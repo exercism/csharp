@@ -14,6 +14,7 @@ namespace Exercism.CSharp.Output.Rendering
                 case string str: return String(str);
                 case double dbl: return Double(dbl);
                 case int i: return Int(i);
+                case uint ui: return Uint(ui);
                 case float flt: return Float(flt);
                 case ulong ulng: return Ulong(ulng);
                 case char c: return Char(c);

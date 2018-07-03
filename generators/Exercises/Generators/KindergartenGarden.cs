@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Exercism.CSharp.Output;
+using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -16,10 +17,12 @@ namespace Exercism.CSharp.Exercises.Generators
             else
                 data.SetConstructorInputParameters("diagram");
 
-            var plants = (IEnumerable<string>)data.Expected;
-            data.Expected = plants
+            data.Expected = ConvertExpected(data.Expected);
+        }
+
+        private UnescapedValue[] ConvertExpected(IEnumerable<string> plants) 
+            => plants
                 .Select(plant => Render.Enum("Plant", plant))
                 .ToArray();
-        }
     }
 }
