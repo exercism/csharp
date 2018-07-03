@@ -54,8 +54,12 @@ namespace Exercism.CSharp.Helpers
                 return "decimal";
             if (type == typeof(string))
                 return "string";
+            if (type == typeof(char))
+                return "char";
             if (type.IsGenericType)
-                return type.Name.Split('`')[0] + "<" + string.Join(", ", type.GetGenericArguments().Select(ToFriendlyName).ToArray()) + ">";
+                return $"{type.Name.Split('`')[0]}<{string.Join(", ", type.GetGenericArguments().Select(ToFriendlyName).ToArray())}>";
+            if (type.IsArray)
+                return $"{type.GetElementType().ToFriendlyName()}[]";
             return type.Name;
         }
     }
