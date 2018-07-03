@@ -26,7 +26,7 @@ namespace Exercism.CSharp.Output.Rendering
             
             IEnumerable<string> RenderLines() =>
                 multiLineString.Lines.Select((t, i) => i < multiLineString.Lines.Length - 1
-                    ? $"{String($"{t}\n").Indent()} +"
+                    ? $"{String($"{t}{Environment.NewLine}").Indent()} +"
                     : $"{String(t).Indent()}");
         }
     }

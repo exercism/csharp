@@ -10,27 +10,11 @@ namespace Exercism.CSharp.Exercises.Generators
     {
         protected override void UpdateTestData(TestData data)
         {
-            data.ExceptionThrown = data.Expected is int && data.Expected <= 0 ? typeof(ArgumentException) : null;
-            data.Input["rows"] = ToDigitStringRepresentation(data.Input["rows"]);
+            data.ExceptionThrown = data.Expected is int i && i <= 0 ? typeof(ArgumentException) : null;
+            data.Input["rows"] = new MultiLineString(data.Input["rows"]);
             data.Expected = data.Expected.ToString();
             data.UseVariableForTested = true;
             data.UseVariablesForInput = true;
-        }
-
-        private UnescapedValue ToDigitStringRepresentation(string[] input)
-        {
-            var lines = new StringBuilder();
-            lines.AppendLine();
-
-            for (var i = 0; i < input.Length; i++)
-            {
-                lines.Append(Render.Object(input[i]).Indent());
-
-                if (i < input.Length - 1)
-                    lines.Append(" + \"\\n\" +\n");
-            }
-
-            return new UnescapedValue(lines.ToString());
         }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
