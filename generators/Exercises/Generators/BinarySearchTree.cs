@@ -26,9 +26,6 @@ namespace Exercism.CSharp.Exercises.Generators
             namespaces.Add(typeof(IQueryable).Namespace);
         }
 
-        private StringBuilder _testFactCodeLines;
-        private void AddCodeLine(string line) => _testFactCodeLines.Append(line + "\r\n");
-
         protected override void UpdateTestMethod(TestMethod method)
         {
             method.Assert = RenderAssert(method);
@@ -36,39 +33,39 @@ namespace Exercism.CSharp.Exercises.Generators
 
         private string RenderAssert(TestMethod method)
         {
-            _testFactCodeLines = new StringBuilder();
+            var assert = new StringBuilder();
             var canonicalDataCase = method.Data;
             var input = canonicalDataCase.Input as Dictionary<string, object>;
             var constructorData = input["treeData"] as string[];
 
-            if (constructorData.Length == 1) AddCodeLine($"var tree = new BinarySearchTree({constructorData[0]});");
+            if (constructorData.Length == 1) assert.AppendLine($"var tree = new BinarySearchTree({constructorData[0]});");
             else
             {
                 var constructorDataString = string.Join(", ", constructorData);
-                AddCodeLine($"var tree = new BinarySearchTree(new[] {{ {constructorDataString} }});");
+                assert.AppendLine($"var tree = new BinarySearchTree(new[] {{ {constructorDataString} }});");
             }
 
             if (canonicalDataCase.Expected is Dictionary<string, object> expected)
             {
                 var tree = new ExpectedDataBinaryTree(expected);
-                foreach (var assert in TestAsserts(tree))
-                    AddCodeLine(assert);
+                foreach (var testAssert in TestAsserts(tree))
+                    assert.AppendLine(testAssert);
             }
             else
             {
                 var expectedNumbers = ((string[]) canonicalDataCase.Expected).Select(int.Parse).ToArray();
                 var expectedRendered = Render.Object(expectedNumbers);
-                AddCodeLine(Render.AssertEqual(expectedRendered, "tree.AsEnumerable()"));
+                assert.AppendLine(Render.AssertEqual(expectedRendered, "tree.AsEnumerable()"));
             }
 
-            return _testFactCodeLines.ToString();
+            return assert.ToString();
         }
 
         private IEnumerable<string> TestAsserts(ExpectedDataBinaryTree tree, string traverse = "")
         {
             yield return Render.AssertEqual(tree.Value, $"tree{traverse}.Value");
-            if (tree.Left != null) foreach (var assert in TestAsserts(tree.Left, traverse + ".Left")) yield return assert;
-            if (tree.Right != null) foreach (var assert in TestAsserts(tree.Right, traverse + ".Right")) yield return assert;
+            if (tree.Left != null) foreach (var assert in TestAsserts(tree.Left, $"{traverse}.Left")) yield return assert;
+            if (tree.Right != null) foreach (var assert in TestAsserts(tree.Right, $"{traverse}.Right")) yield return assert;
         }
     }
 }
