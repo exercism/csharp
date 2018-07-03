@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using Exercism.CSharp.Helpers;
-using Microsoft.VisualBasic.CompilerServices;
 
 namespace Exercism.CSharp.Output.Rendering
 {
@@ -16,15 +15,12 @@ namespace Exercism.CSharp.Output.Rendering
 
         public string ArrayMultiLine<T>(T[] elements)
         {
-            if (elements.Length == 0)
-                return $"Array.Empty<{typeof(T).ToFriendlyName()}>()";
-            
             if (RenderAsSingleLine())
                 return Array(elements);
 
             return $"new[]{Environment.NewLine}{{{Environment.NewLine}{string.Join($",{Environment.NewLine}", elements.Cast<object>().Select(Object).Select(line => line.Indent()))}{Environment.NewLine}}}";
 
-            bool RenderAsSingleLine() => IsNotArrayOfArrays() && RenderedAsSingleLineDoesNotExceedMaximumLength();
+            bool RenderAsSingleLine() => !elements.Any() || IsNotArrayOfArrays() && RenderedAsSingleLineDoesNotExceedMaximumLength();
             bool IsNotArrayOfArrays() => !elements.GetType().GetElementType().IsArray;
             bool RenderedAsSingleLineDoesNotExceedMaximumLength() => Array(elements).Length <= MaximumLengthForSingleLineValue;
         }

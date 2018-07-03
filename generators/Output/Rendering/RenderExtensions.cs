@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace Exercism.CSharp.Output.Rendering
+﻿namespace Exercism.CSharp.Output.Rendering
 {
     public static class RenderExtensions
     {
@@ -14,12 +11,5 @@ namespace Exercism.CSharp.Output.Rendering
                 .Replace("\"", "\\\"");
 
         public static string Quote(this string s) => $"\"{s}\"";
-
-        public static IEnumerable<string> AddTrailingSemicolon(this IEnumerable<string> enumerable)
-        {
-            var array = enumerable.ToArray();
-            array[array.Length - 1] += ";";
-            return array;
-        }
     }
 }
