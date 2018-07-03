@@ -9,38 +9,32 @@ namespace Exercism.CSharp.Output.Rendering
         private const int MaximumLengthForSingleLineValue = 68;
         
         public string Array<T>(T[] elements) =>
-            elements.Any()
-                ? $"new[] {{ {string.Join(", ", elements.Cast<object>().Select(Object))} }}"
-                : $"Array.Empty<{typeof(T).ToFriendlyName()}>()";
+            elements.Length == 0
+                ? $"Array.Empty<{typeof(T).ToFriendlyName()}>()"
+                : $"new[]{CollectionInitializer(elements)}";
 
-        public string ArrayMultiLine<T>(T[] elements)
-        {
-            if (RenderAsSingleLine())
-                return Array(elements);
+        public string ArrayMultiLine<T>(T[] elements) 
+            => RenderAsSingleLine(elements) 
+                ? Array(elements) 
+                : $"new[]{MultiLineCollectionInitializer(elements)}";
 
-            return $"new[]{Environment.NewLine}{{{Environment.NewLine}{string.Join($",{Environment.NewLine}", elements.Cast<object>().Select(Object).Select(line => line.Indent()))}{Environment.NewLine}}}";
-
-            bool RenderAsSingleLine() => !elements.Any() || IsNotArrayOfArrays() && RenderedAsSingleLineDoesNotExceedMaximumLength();
-            bool IsNotArrayOfArrays() => !elements.GetType().GetElementType().IsArray;
-            bool RenderedAsSingleLineDoesNotExceedMaximumLength() => Array(elements).Length <= MaximumLengthForSingleLineValue;
-        }
-
-        public string Array<T>(T[,] elements)
-        {
-            return elements.Length == 0 
+        public string Array<T>(T[,] elements) 
+            => elements.Length == 0 
                 ? $"new {typeof(T).ToFriendlyName()}[,] {{ }}" 
-                : $"new[,] {{ {string.Join(", ", elements.Rows().Select(RenderRow))} }}";
+                : $"new[,]{CollectionInitializer(elements.Rows())}";
 
-            string RenderRow(T[] row) => $"{{ {string.Join(", ", row.Cast<object>().Select(Object))} }}";
-        }
-
-        public string ArrayMultiLine<T>(T[,] elements)
-        {
-            return elements.Length == 0 
+        public string ArrayMultiLine<T>(T[,] elements) 
+            => elements.Length == 0 
                 ? $"new {typeof(T).ToFriendlyName()}[,] {{ }}" 
-                : $"new[,]{Environment.NewLine}{{{Environment.NewLine}{string.Join($",{Environment.NewLine}", elements.Rows().Select(RenderRow))}{Environment.NewLine}}}";
+                : $"new[,]{MultiLineCollectionInitializer(elements.Rows(), CollectionInitializer)}";
+        
+        private bool RenderAsSingleLine<T>(T[] elements) 
+            => !elements.Any() || IsNotArrayOfArrays(elements) && RenderedAsSingleLineDoesNotExceedMaximumLength(elements);
 
-            string RenderRow(T[] row) => $"{{ {string.Join(", ", row.Cast<object>().Select(Object))} }}".Indent();
-        }
+        private bool IsNotArrayOfArrays<T>(T[] elements) 
+            => !elements.GetType().GetElementType().IsArray;
+
+        private bool RenderedAsSingleLineDoesNotExceedMaximumLength<T>(T[] elements) 
+            => Array(elements).Length <= MaximumLengthForSingleLineValue;
     }
 }
