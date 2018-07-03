@@ -20,26 +20,26 @@ namespace Exercism.CSharp.Output.Rendering
                 case ulong ulng: return Ulong(ulng);
                 case char c: return Char(c);
                 default:
-                    if (RenderList(val))
+                    if (IsList(val))
                         return List((dynamic)val);
 
-                    if (RenderArray(val))
+                    if (IsArray(val))
                         return Array((dynamic)val);
 
-                    if (RenderDictionary(val))
+                    if (IsDictionary(val))
                         return Dictionary((dynamic)val);
 
                     return val.ToString();
             }
         }
 
-        private static bool RenderList(object obj)
+        private static bool IsList(object obj)
             => obj.GetType().IsGenericType && obj.GetType().GetGenericTypeDefinition() == typeof(List<>);
 
-        private static bool RenderArray(object obj)
+        private static bool IsArray(object obj)
             => obj.GetType().IsArray;
 
-        private static bool RenderDictionary(object obj)
+        private static bool IsDictionary(object obj)
             => obj.GetType().IsGenericType && obj.GetType().GetGenericTypeDefinition() == typeof(Dictionary<,>);
     }
 }

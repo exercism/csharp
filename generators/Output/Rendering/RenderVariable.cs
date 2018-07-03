@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Exercism.CSharp.Helpers;
 
@@ -20,28 +21,16 @@ namespace Exercism.CSharp.Output.Rendering
                 case IEnumerable<string> strings:
                     if (!strings.Any())
                     {
-                        return new[] {$"var {name} = Array.Empty<string>();"};
+                        return new[] { $"var {name} = Array.Empty<string>();" };
                     }
 
                     return MultiLineEnumerable(
                         strings.Select((str, i) => String(str) + (i < strings.Count() - 1 ? "," : "")), name, "new[]");
-                case IDictionary<char, int> dict:
-                    return MultiLineEnumerable(
-                        dict.Keys.Select((key, i) =>
-                            $"[{Char(key)}] = {Int(dict[key])}" + (i < dict.Keys.Count - 1 ? "," : "")), name,
-                        "new Dictionary<char, int>");
-                case IDictionary<string, int> dict:
-                    return MultiLineEnumerable(
-                        dict.Keys.Select((key, i) =>
-                            $"[{String(key)}] = {Int(dict[key])}" + (i < dict.Keys.Count - 1 ? "," : "")), name,
-                        "new Dictionary<string, int>");
-                case IDictionary<int, string[]> dict:
-                    return MultiLineEnumerable(
-                        dict.Keys.Select((key, i) =>
-                            $"[{Int(key)}] = {Array(dict[key])}" + (i < dict.Keys.Count - 1 ? "," : "")), name,
-                        "new Dictionary<int, string[]>");
                 default:
-                    return new[] {$"var {name} = {Object(val)};"};
+                    if (IsDictionary(val))
+                        return new[] { $"var {name} = {DictionaryMultiLine((dynamic)val)};" };
+
+                    return new[] { $"var {name} = {Object(val)};" };
             }
         }
 
