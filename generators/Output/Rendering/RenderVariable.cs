@@ -8,27 +8,30 @@ namespace Exercism.CSharp.Output.Rendering
     public partial class Render
     {
         public IEnumerable<string> Variables(IDictionary<string, object> dict)
-            => dict.Keys.SelectMany(key => Variable(dict[key], key.ToVariableName())).ToArray();
+            => dict.Select(Variable).ToArray();
 
-        public IEnumerable<string> Variable(object val, string name)
+        private string Variable(KeyValuePair<string, object> kv) 
+            => Variable(kv.Key.ToVariableName(), kv.Value);
+
+        public string Variable(string name, object val)
         {
             switch (val)
             {
                 case MultiLineString multiLineValue:
-                    return new[] { $"var {name} = {StringMultiLine(multiLineValue)};" };
+                    return $"var {name} = {StringMultiLine(multiLineValue)};";
                 case IEnumerable<string> strings:
                     if (!strings.Any())
                     {
-                        return new[] { $"var {name} = Array.Empty<string>();" };
+                        return $"var {name} = Array.Empty<string>();";
                     }
 
-                    return MultiLineEnumerable(
-                        strings.Select((str, i) => String(str) + (i < strings.Count() - 1 ? "," : "")), name, "new[]");
+                    return string.Join(Environment.NewLine, MultiLineEnumerable(
+                        strings.Select((str, i) => String(str) + (i < strings.Count() - 1 ? "," : "")), name, "new[]"));
                 default:
                     if (IsDictionary(val))
-                        return new[] { $"var {name} = {DictionaryMultiLine((dynamic)val)};" };
+                        return $"var {name} = {DictionaryMultiLine((dynamic)val)};";
 
-                    return new[] { $"var {name} = {Object(val)};" };
+                    return $"var {name} = {Object(val)};";
             }
         }
 

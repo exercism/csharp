@@ -53,8 +53,8 @@ namespace Exercism.CSharp.Output
         private IDictionary<string, object> Input => Data.InputParameters.ToDictionary(key => key, key => Data.Input[key]);
         private IDictionary<string, object> ConstructorInput => Data.ConstructorInputParameters.ToDictionary(key => key, key => Data.Input[key]);
 
+        private string ExpectedVariableDeclaration => Renderer.Variable(ExpectedVariableName, Data.Expected);
         private IEnumerable<string> InputVariablesDeclaration => Renderer.Variables(Input);
-        private IEnumerable<string> ExpectedVariableDeclaration => Renderer.Variable(Data.Expected, ExpectedVariableName);
         private IEnumerable<string> ConstructorVariablesDeclaration => Renderer.Variables(ConstructorInput);
         private IEnumerable<string> SutVariableDeclaration => new[] { $"var {SutVariableName} = new {Data.TestedClass}({ConstructorParameters});" };
         private IEnumerable<string> ActualVariableDeclaration => new[] { $"var {TestedVariableName} = {TestedMethodInvocation};" };
@@ -78,7 +78,7 @@ namespace Exercism.CSharp.Output
                     lines.AddRange(ActualVariableDeclaration);
 
                 if (Data.UseVariableForExpected)
-                    lines.AddRange(ExpectedVariableDeclaration);
+                    lines.Add(ExpectedVariableDeclaration);
 
                 return lines;
             }
