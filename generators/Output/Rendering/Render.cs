@@ -31,6 +31,23 @@ namespace Exercism.CSharp.Output.Rendering
             }
         }
 
+        public string ObjectMultiLine(object val)
+        {
+            switch (val)
+            {
+                case MultiLineString multiLineValue:
+                    return StringMultiLine(multiLineValue);
+                default:
+                    if (IsDictionary(val))
+                        return DictionaryMultiLine((dynamic) val);
+
+                    if (IsArray(val))
+                        return ArrayMultiLine((dynamic) val);
+
+                    return Object(val);
+            }
+        }
+
         private static bool IsList(object obj)
             => obj.GetType().IsGenericType && obj.GetType().GetGenericTypeDefinition() == typeof(List<>);
 

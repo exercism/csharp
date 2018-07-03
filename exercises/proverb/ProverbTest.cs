@@ -14,10 +14,7 @@ public class ProverbTest
     [Fact(Skip = "Remove to run test")]
     public void One_piece()
     {
-        var expected = new[]
-        {
-            "And all for the want of a nail."
-        };
+        var expected = new[] { "And all for the want of a nail." };
         Assert.Equal(expected, Proverb.Recite(new[] { "nail" }));
     }
 

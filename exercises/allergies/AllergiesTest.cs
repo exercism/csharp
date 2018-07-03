@@ -40,10 +40,7 @@ public class AllergiesTest
     public void Allergic_to_just_eggs()
     {
         var sut = new Allergies(1);
-        var expected = new[]
-        {
-            "eggs"
-        };
+        var expected = new[] { "eggs" };
         Assert.Equal(expected, sut.List());
     }
 
@@ -51,10 +48,7 @@ public class AllergiesTest
     public void Allergic_to_just_peanuts()
     {
         var sut = new Allergies(2);
-        var expected = new[]
-        {
-            "peanuts"
-        };
+        var expected = new[] { "peanuts" };
         Assert.Equal(expected, sut.List());
     }
 
@@ -62,10 +56,7 @@ public class AllergiesTest
     public void Allergic_to_just_strawberries()
     {
         var sut = new Allergies(8);
-        var expected = new[]
-        {
-            "strawberries"
-        };
+        var expected = new[] { "strawberries" };
         Assert.Equal(expected, sut.List());
     }
 
@@ -73,11 +64,7 @@ public class AllergiesTest
     public void Allergic_to_eggs_and_peanuts()
     {
         var sut = new Allergies(3);
-        var expected = new[]
-        {
-            "eggs",
-            "peanuts"
-        };
+        var expected = new[] { "eggs", "peanuts" };
         Assert.Equal(expected, sut.List());
     }
 
@@ -85,11 +72,7 @@ public class AllergiesTest
     public void Allergic_to_more_than_eggs_but_not_peanuts()
     {
         var sut = new Allergies(5);
-        var expected = new[]
-        {
-            "eggs",
-            "shellfish"
-        };
+        var expected = new[] { "eggs", "shellfish" };
         Assert.Equal(expected, sut.List());
     }
 
@@ -97,14 +80,7 @@ public class AllergiesTest
     public void Allergic_to_lots_of_stuff()
     {
         var sut = new Allergies(248);
-        var expected = new[]
-        {
-            "strawberries",
-            "tomatoes",
-            "chocolate",
-            "pollen",
-            "cats"
-        };
+        var expected = new[] { "strawberries", "tomatoes", "chocolate", "pollen", "cats" };
         Assert.Equal(expected, sut.List());
     }
 

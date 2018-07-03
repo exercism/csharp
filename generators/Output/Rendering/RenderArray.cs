@@ -1,17 +1,34 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Text;
 using Exercism.CSharp.Helpers;
+using Microsoft.VisualBasic.CompilerServices;
 
 namespace Exercism.CSharp.Output.Rendering
 {
     public partial class Render
-    {   
+    {
+        private const int MaximumLengthForSingleLineValue = 68;
+        
         public string Array<T>(T[] elements) =>
             elements.Any()
                 ? $"new[] {{ {string.Join(", ", elements.Cast<object>().Select(Object))} }}"
                 : $"Array.Empty<{typeof(T).ToFriendlyName()}>()";
-  
+
+        public string ArrayMultiLine<T>(T[] elements)
+        {
+            if (elements.Length == 0)
+                return $"Array.Empty<{typeof(T).ToFriendlyName()}>()";
+            
+            if (RenderAsSingleLine())
+                return Array(elements);
+
+            return $"new[]{Environment.NewLine}{{{Environment.NewLine}{string.Join($",{Environment.NewLine}", elements.Cast<object>().Select(Object).Select(line => line.Indent()))}{Environment.NewLine}}}";
+
+            bool RenderAsSingleLine() => IsNotArrayOfArrays() && RenderedAsSingleLineDoesNotExceedMaximumLength();
+            bool IsNotArrayOfArrays() => !elements.GetType().GetElementType().IsArray;
+            bool RenderedAsSingleLineDoesNotExceedMaximumLength() => Array(elements).Length <= MaximumLengthForSingleLineValue;
+        }
+
         public string Array<T>(T[,] elements)
         {
             return elements.Length == 0 
@@ -21,8 +38,13 @@ namespace Exercism.CSharp.Output.Rendering
             string RenderRow(T[] row) => $"{{ {string.Join(", ", row.Cast<object>().Select(Object))} }}";
         }
 
-        public IEnumerable<string> MultiLineEnumerable(IEnumerable<string> enumerable, string name,
-            string constructor = null)
-            => MultiLineVariable(enumerable.Prepend("{").Append("}"), name, constructor);
+        public string ArrayMultiLine<T>(T[,] elements)
+        {
+            return elements.Length == 0 
+                ? $"new {typeof(T).ToFriendlyName()}[,] {{ }}" 
+                : $"new[,]{Environment.NewLine}{{{Environment.NewLine}{string.Join($",{Environment.NewLine}", elements.Rows().Select(RenderRow))}{Environment.NewLine}}}";
+
+            string RenderRow(T[] row) => $"{{ {string.Join(", ", row.Cast<object>().Select(Object))} }}".Indent();
+        }
     }
 }

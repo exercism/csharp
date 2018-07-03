@@ -81,11 +81,7 @@ public class PovTest
         var from = "x";
         var to = "parent";
         var tree = new Tree("parent", new Tree("x"), new Tree("sibling"));
-        var expected = new[]
-        {
-            "x",
-            "parent"
-        };
+        var expected = new[] { "x", "parent" };
         Assert.Equal(expected, Pov.PathTo(from, to, tree));
     }
 
@@ -95,12 +91,7 @@ public class PovTest
         var from = "x";
         var to = "b";
         var tree = new Tree("parent", new Tree("a"), new Tree("x"), new Tree("b"), new Tree("c"));
-        var expected = new[]
-        {
-            "x",
-            "parent",
-            "b"
-        };
+        var expected = new[] { "x", "parent", "b" };
         Assert.Equal(expected, Pov.PathTo(from, to, tree));
     }
 
@@ -110,14 +101,7 @@ public class PovTest
         var from = "x";
         var to = "cousin-1";
         var tree = new Tree("grandparent", new Tree("parent", new Tree("x", new Tree("kid-0"), new Tree("kid-1")), new Tree("sibling-0"), new Tree("sibling-1")), new Tree("uncle", new Tree("cousin-0"), new Tree("cousin-1")));
-        var expected = new[]
-        {
-            "x",
-            "parent",
-            "grandparent",
-            "uncle",
-            "cousin-1"
-        };
+        var expected = new[] { "x", "parent", "grandparent", "uncle", "cousin-1" };
         Assert.Equal(expected, Pov.PathTo(from, to, tree));
     }
 
@@ -127,12 +111,7 @@ public class PovTest
         var from = "x";
         var to = "sibling-1";
         var tree = new Tree("grandparent", new Tree("parent", new Tree("x"), new Tree("sibling-0"), new Tree("sibling-1")));
-        var expected = new[]
-        {
-            "x",
-            "parent",
-            "sibling-1"
-        };
+        var expected = new[] { "x", "parent", "sibling-1" };
         Assert.Equal(expected, Pov.PathTo(from, to, tree));
     }
 
@@ -142,12 +121,7 @@ public class PovTest
         var from = "a";
         var to = "c";
         var tree = new Tree("parent", new Tree("a"), new Tree("x"), new Tree("b"), new Tree("c"));
-        var expected = new[]
-        {
-            "a",
-            "parent",
-            "c"
-        };
+        var expected = new[] { "a", "parent", "c" };
         Assert.Equal(expected, Pov.PathTo(from, to, tree));
     }
 

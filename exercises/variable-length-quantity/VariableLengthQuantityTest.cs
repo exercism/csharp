@@ -145,7 +145,24 @@ public class VariableLengthQuantityTest
     public void Many_multi_byte_values()
     {
         var integers = new[] { 0x2000u, 0x123456u, 0xFFFFFFFu, 0x0u, 0x3FFFu, 0x4000u };
-        var expected = new[] { 0xC0u, 0x0u, 0xC8u, 0xE8u, 0x56u, 0xFFu, 0xFFu, 0xFFu, 0x7Fu, 0x0u, 0xFFu, 0x7Fu, 0x81u, 0x80u, 0x0u };
+        var expected = new[]
+        {
+            0xC0u,
+            0x0u,
+            0xC8u,
+            0xE8u,
+            0x56u,
+            0xFFu,
+            0xFFu,
+            0xFFu,
+            0x7Fu,
+            0x0u,
+            0xFFu,
+            0x7Fu,
+            0x81u,
+            0x80u,
+            0x0u
+        };
         Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
     }
 
@@ -206,7 +223,24 @@ public class VariableLengthQuantityTest
     [Fact(Skip = "Remove to run test")]
     public void Multiple_values()
     {
-        var integers = new[] { 0xC0u, 0x0u, 0xC8u, 0xE8u, 0x56u, 0xFFu, 0xFFu, 0xFFu, 0x7Fu, 0x0u, 0xFFu, 0x7Fu, 0x81u, 0x80u, 0x0u };
+        var integers = new[]
+        {
+            0xC0u,
+            0x0u,
+            0xC8u,
+            0xE8u,
+            0x56u,
+            0xFFu,
+            0xFFu,
+            0xFFu,
+            0x7Fu,
+            0x0u,
+            0xFFu,
+            0x7Fu,
+            0x81u,
+            0x80u,
+            0x0u
+        };
         var expected = new[] { 0x2000u, 0x123456u, 0xFFFFFFFu, 0x0u, 0x3FFFu, 0x4000u };
         Assert.Equal(expected, VariableLengthQuantity.Decode(integers));
     }
