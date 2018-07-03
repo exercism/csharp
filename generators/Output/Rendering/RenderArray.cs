@@ -16,18 +16,9 @@ namespace Exercism.CSharp.Output.Rendering
         {
             return elements.Length == 0 
                 ? $"new {typeof(T).ToFriendlyName()}[,] {{ }}" 
-                : $"new[,] {{ {string.Join(", ", Rows(elements).Select(Row))} }}";
+                : $"new[,] {{ {string.Join(", ", elements.Rows().Select(RenderRow))} }}";
 
-            string Row(T[] row) => $"{{ {string.Join(", ", row.Cast<object>().Select(Object))} }}";
-        }
-
-        private static T[][] Rows<T>(T[,] elements)
-        {
-            return Enumerable.Range(0, elements.GetLength(0))
-                .Select(Row)
-                .ToArray();
-            
-            T[] Row(int row) => Enumerable.Range(0, elements.GetLength(1)).Select(col => elements[row, col]).ToArray();
+            string RenderRow(T[] row) => $"{{ {string.Join(", ", row.Cast<object>().Select(Object))} }}";
         }
 
         public IEnumerable<string> MultiLineEnumerable(IEnumerable<string> enumerable, string name,
