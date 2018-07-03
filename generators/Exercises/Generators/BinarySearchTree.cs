@@ -38,11 +38,11 @@ namespace Exercism.CSharp.Exercises.Generators
             var input = canonicalDataCase.Input as Dictionary<string, object>;
             var constructorData = input["treeData"] as string[];
 
-            if (constructorData.Length == 1) assert.AppendLine($"var tree = new BinarySearchTree({constructorData[0]});");
+            if (constructorData.Length == 1) assert.AppendLine(Render.Variable("tree", $"new BinarySearchTree({constructorData[0]})"));
             else
             {
                 var constructorDataString = string.Join(", ", constructorData);
-                assert.AppendLine($"var tree = new BinarySearchTree(new[] {{ {constructorDataString} }});");
+                assert.AppendLine(Render.Variable("tree", $"new BinarySearchTree(new[] {{ {constructorDataString} }})"));
             }
 
             if (canonicalDataCase.Expected is Dictionary<string, object> expected)

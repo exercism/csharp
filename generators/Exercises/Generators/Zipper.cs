@@ -14,15 +14,15 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert(method);
         }
 
-        private static string RenderArrange(TestMethod method)
+        private string RenderArrange(TestMethod method)
         {
             var arrange = new StringBuilder();
             var tree = RenderTree(method.Data.Input["initialTree"]);
-            arrange.AppendLine($"var tree = {tree};");
-            arrange.AppendLine("var sut = Zipper.FromTree(tree);");
+            arrange.AppendLine(Render.Variable("tree", $"{tree}"));
+            arrange.AppendLine(Render.Variable("sut", $"Zipper.FromTree(tree)"));
 
             var operations = RenderOperations(method.Data.Input["operations"]);
-            arrange.AppendLine($"var actual = sut{operations};");
+            arrange.AppendLine(Render.Variable("actual", $"sut{operations}"));
             return arrange.ToString();
         }
 
@@ -35,7 +35,7 @@ namespace Exercism.CSharp.Exercises.Generators
             }
 
             var assert = new StringBuilder();
-            assert.AppendLine($"var expected = {expected};");
+            assert.AppendLine(Render.Variable("expected", expected));
             assert.AppendLine(Render.AssertEqual("expected", "actual"));
             return assert.ToString();
         }

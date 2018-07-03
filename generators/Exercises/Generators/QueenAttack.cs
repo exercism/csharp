@@ -35,8 +35,8 @@ namespace Exercism.CSharp.Exercises.Generators
             var (whiteQueenX, whiteQueenY) = GetCoordinatesFromPosition((IDictionary<string, dynamic>)method.Data.Input["white_queen"]);
             var (blackQueenX, blackQueenY) = GetCoordinatesFromPosition((IDictionary<string, dynamic>)method.Data.Input["black_queen"]);
 
-            assert.AppendLine($"var whiteQueen = QueenAttack.Create({whiteQueenX},{whiteQueenY});");
-            assert.AppendLine($"var blackQueen = QueenAttack.Create({blackQueenX},{blackQueenY});");
+            assert.AppendLine(Render.Variable("whiteQueen", $"QueenAttack.Create({whiteQueenX},{whiteQueenY})"));
+            assert.AppendLine(Render.Variable("blackQueen", $"QueenAttack.Create({blackQueenX},{blackQueenY})"));
             assert.AppendLine(Render.AssertBoolean((bool)method.Data.Expected, "QueenAttack.CanAttack(whiteQueen, blackQueen)"));
 
             return assert.ToString();

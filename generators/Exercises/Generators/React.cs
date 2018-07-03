@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using Exercism.CSharp.Helpers;
 using Exercism.CSharp.Output;
 using Humanizer;
 
@@ -16,10 +17,10 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert();
         }
 
-        private static string RenderArrange(TestMethod method)
+        private string RenderArrange(TestMethod method)
         {
             var arrange = new StringBuilder();
-            arrange.AppendLine("var sut = new Reactor();");
+            arrange.AppendLine(Render.Variable("sut", "new Reactor()"));
 
             var cells = RenderCells(method.Data.Input["cells"]);
             arrange.AppendLine(cells);
@@ -30,7 +31,7 @@ namespace Exercism.CSharp.Exercises.Generators
             return arrange.ToString();
         }
 
-        private static string RenderCells(dynamic cells)
+        private string RenderCells(dynamic cells)
         {
             if (cells.Length == 0)
             {
@@ -41,7 +42,7 @@ namespace Exercism.CSharp.Exercises.Generators
             return string.Join(Environment.NewLine, renderedCells);
         }
 
-        private static string RenderCell(dynamic cell)
+        private string RenderCell(dynamic cell)
         {
             var cellType = (string)cell["type"];
             var cellName = ToVariableName(cell["name"]);
@@ -49,11 +50,11 @@ namespace Exercism.CSharp.Exercises.Generators
             switch (cellType)
             {
                 case "input":
-                    return $"var {cellName} = sut.CreateInputCell({cell["initial_value"]});";
+                    return Render.Variable(cellName, $"sut.CreateInputCell({cell["initial_value"]})");
                 case "compute":
                     var inputs = string.Join(", ", ((string[])cell["inputs"]).Select(ToVariableName));
                     var computeFunction = RenderComputeFunction(cell["compute_function"]);
-                    return $"var {cellName} = sut.CreateComputeCell(new[] {{ {inputs} }}, inputs => {computeFunction});";
+                    return Render.Variable(cellName, $"sut.CreateComputeCell(new[] {{ {inputs} }}, inputs => {computeFunction})");
                 default:
                     throw new InvalidOperationException($"Unknown cell type: {cellType}");
             }
@@ -68,7 +69,7 @@ namespace Exercism.CSharp.Exercises.Generators
                 : (string)computeFunction;
         }
 
-        private static string RenderOperations(dynamic operations)
+        private string RenderOperations(dynamic operations)
         {
             if (operations.Length == 0)
             {
@@ -79,7 +80,7 @@ namespace Exercism.CSharp.Exercises.Generators
             return string.Join(Environment.NewLine, renderedOperations);
         }
 
-        private static string RenderOperation(dynamic operation)
+        private string RenderOperation(dynamic operation)
         {
             var operationType = (string)operation["type"];
 
@@ -115,13 +116,13 @@ namespace Exercism.CSharp.Exercises.Generators
                     return $"Assert.Equal({operation["value"]}, {ToVariableName(operation["cell"])}.Value);";
                 case "add_callback":
                     var addCallbackName = ToVariableName(operation["name"]);
-                    return $"var {addCallbackName} = A.Fake<EventHandler<int>>();{Environment.NewLine}" +
+                    return Render.Variable(addCallbackName, $"A.Fake<EventHandler<int>>()") + Environment.NewLine +
                            $"{ToVariableName(operation["cell"])}.Changed += {addCallbackName};";
                 case "remove_callback":
                     var removeCallbackName = ToVariableName(operation["name"]);
                     return $"{ToVariableName(operation["cell"])}.Changed -= {removeCallbackName};";
                 default:
-                    return "qweqwe";
+                    throw new ArgumentOutOfRangeException();
             }
         }
 
@@ -133,6 +134,6 @@ namespace Exercism.CSharp.Exercises.Generators
             namespaces.Add("FakeItEasy");
         }
 
-        private static string ToVariableName(dynamic value) => ((string)value).Camelize();
+        private static string ToVariableName(dynamic value) => ((string)value).ToVariableName();
     }
 }

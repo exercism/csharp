@@ -18,7 +18,7 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert(method);
         }
 
-        private static string RenderAct(TestMethod method) => $"var result = {method.TestedMethodInvocation};";
+        private string RenderAct(TestMethod method) => Render.Variable("result", method.TestedMethodInvocation);
 
         private string RenderAssert(TestMethod method)
         {

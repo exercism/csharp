@@ -30,24 +30,16 @@ namespace Exercism.CSharp.Exercises.Generators
             method.Assert = RenderAssert(method);
         }
 
-        private static string RenderArrange(TestMethod method)
+        private string RenderArrange(TestMethod method)
         {
             var builder = new StringBuilder();
-            builder.AppendLine("var sut = new BowlingGame();");
+            builder.AppendLine(Render.Variable("sut", "new BowlingGame()"));
 
             if (!method.Data.Input.ContainsKey(PreviousRolls))
                 return builder.ToString();
 
-            if (method.Data.Input[PreviousRolls] is int[] array)
-            {
-                builder.Append("var previousRolls = new [] { ");
-                builder.AppendJoin(", ", array);
-                builder.AppendLine(" };");
-            }
-            else
-            {
-                builder.Append("var previousRolls = Array.Empty<int>();");
-            }
+            var previousRolls = method.Data.Input[PreviousRolls] as int[] ?? Array.Empty<int>();
+            builder.Append(Render.Variable("previousRolls", Render.ObjectMultiLine(previousRolls)));
 
             return builder.ToString();
         }
@@ -67,7 +59,7 @@ namespace Exercism.CSharp.Exercises.Generators
             return Render.AssertThrows(method.Data.ExceptionThrown, "sut.Score()");
         }
 
-        private static string RenderAct(TestMethod method)
+        private string RenderAct(TestMethod method)
         {
             var act = new StringBuilder();
             act.AppendLine("DoRoll(previousRolls, sut);");
@@ -80,11 +72,11 @@ namespace Exercism.CSharp.Exercises.Generators
             if (method.Data.Input.ContainsKey("roll"))
             {
                 act.AppendLine($"sut.Roll({method.Data.Input["roll"]});");
-                act.AppendLine("var actual = sut.Score();");
+                act.AppendLine(Render.Variable("actual", "sut.Score()"));
                 return act.ToString();
             }
 
-            act.AppendLine("var actual = sut.Score();");
+            act.AppendLine(Render.Variable("actual", "sut.Score()"));
             return act.ToString();
         }
 

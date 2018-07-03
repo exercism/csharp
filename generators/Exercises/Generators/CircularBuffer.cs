@@ -23,10 +23,10 @@ namespace Exercism.CSharp.Exercises.Generators
             return assert.ToString();
         }
 
-        private static string RenderSut(TestData canonicalDataCase)
+        private string RenderSut(TestData canonicalDataCase)
         {
             var capacity = canonicalDataCase.Input["capacity"];
-            return $"var buffer = new CircularBuffer<int>(capacity: {capacity});";
+            return Render.Variable("buffer", $"new CircularBuffer<int>(capacity: {capacity})");
         }
 
         private string RenderOperation(dynamic operation)

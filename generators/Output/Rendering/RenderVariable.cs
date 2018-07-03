@@ -10,8 +10,8 @@ namespace Exercism.CSharp.Output.Rendering
             => dict.Select(Variable).ToArray();
 
         private string Variable(KeyValuePair<string, object> kv) 
-            => Variable(kv.Key.ToVariableName(), kv.Value);
+            => Variable(kv.Key.ToVariableName(), ObjectMultiLine(kv.Value));
 
-        public string Variable(string name, object val) => $"var {name} = {ObjectMultiLine(val)};";
+        public string Variable(string name, string value) => $"var {name} = {value};";
     }
 }

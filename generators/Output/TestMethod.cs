@@ -44,6 +44,7 @@ namespace Exercism.CSharp.Output
             return Template.Render(TemplateName, new { Name = Data.TestMethod, Data.Skip, Arrange, Act, Assert });
         }
 
+        public string SutValue => $"new {Data.TestedClass}({ConstructorParameters})";
         public string TestedValue => Data.UseVariableForTested ? TestedVariableName : TestedMethodInvocation;
         public string ExpectedParameter => Data.UseVariableForExpected ? ExpectedVariableName : Renderer.Object(Data.Expected);
         
@@ -53,11 +54,11 @@ namespace Exercism.CSharp.Output
         private IDictionary<string, object> Input => Data.InputParameters.ToDictionary(key => key, key => Data.Input[key]);
         private IDictionary<string, object> ConstructorInput => Data.ConstructorInputParameters.ToDictionary(key => key, key => Data.Input[key]);
 
-        private string ExpectedVariableDeclaration => Renderer.Variable(ExpectedVariableName, Data.Expected);
+        private string ExpectedVariableDeclaration => Renderer.Variable(ExpectedVariableName, Renderer.ObjectMultiLine(Data.Expected));
         private IEnumerable<string> InputVariablesDeclaration => Renderer.Variables(Input);
         private IEnumerable<string> ConstructorVariablesDeclaration => Renderer.Variables(ConstructorInput);
-        private IEnumerable<string> SutVariableDeclaration => new[] { $"var {SutVariableName} = new {Data.TestedClass}({ConstructorParameters});" };
-        private IEnumerable<string> ActualVariableDeclaration => new[] { $"var {TestedVariableName} = {TestedMethodInvocation};" };
+        private IEnumerable<string> SutVariableDeclaration => new[] { Renderer.Variable(SutVariableName, SutValue) };
+        private IEnumerable<string> ActualVariableDeclaration => new[] { Renderer.Variable(TestedVariableName, TestedMethodInvocation) };
 
         public IEnumerable<string> Variables
         {
