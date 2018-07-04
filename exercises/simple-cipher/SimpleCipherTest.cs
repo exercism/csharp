@@ -9,14 +9,14 @@ public class SimpleCipherTest
     public void Random_key_cipher_can_encode()
     {
         var sut = new SimpleCipher();
-        Assert.Equal("cipher.key.substring(0, plaintext.length)", sut.Encode("aaaaaaaaaa"));
+        Assert.Equal(sut.Key.Substring(0, 10), sut.Encode("aaaaaaaaaa"));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Random_key_cipher_can_decode()
     {
         var sut = new SimpleCipher();
-        Assert.Equal("aaaaaaaaaa", sut.Decode("cipher.key.substring(0, expected.length)"));
+        Assert.Equal("aaaaaaaaaa", sut.Decode(sut.Key.Substring(0, 10)));
     }
 
     [Fact(Skip = "Remove to run test")]

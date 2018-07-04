@@ -25,22 +25,21 @@ namespace Exercism.CSharp.Exercises.Generators
 
             if (data.Input.TryGetValue("ciphertext", out var cipherText))
             {
-                switch (cipherText)
+                if (cipherText.StartsWith("cipher.key.substring"))
                 {
-                    case "cipher.key":
-                        data.Input["ciphertext"] = new UnescapedValue("sut.Key.Substring(0, 10)");
-                        break;
-                    case "cipher.encode":
-                        var plaintext = Render.Object(data.Input["plaintext"]);
-                        data.Input["ciphertext"] = new UnescapedValue($"sut.Encode({plaintext})");
-                        data.SetInputParameters("ciphertext");
-                        break;
+                    data.Input["ciphertext"] = new UnescapedValue($"sut.Key.Substring(0, {data.Expected.Length})");
+                }
+                else if (cipherText == "cipher.encode")
+                {
+                    var plaintext = Render.Object(data.Input["plaintext"]);
+                    data.Input["ciphertext"] = new UnescapedValue($"sut.Encode({plaintext})");
+                    data.SetInputParameters("ciphertext");
                 }
             }
 
-            if (data.Expected is string s && s == "cipher.key")
+            if (data.Expected is string s && s.StartsWith("cipher.key.substring"))
             {
-                data.Expected = new UnescapedValue("sut.Key.Substring(0, 10)");
+                data.Expected = new UnescapedValue($"sut.Key.Substring(0, {data.Input["plaintext"].Length})");
             }
         }
 
