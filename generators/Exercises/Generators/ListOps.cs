@@ -26,7 +26,7 @@ namespace Exercism.CSharp.Exercises.Generators
                 data.Input["list2"] = ConvertToList(list2);
 
             if (data.Input.TryGetValue("lists", out var lists))
-                data.Input["lists"] = ConvertToList(lists);
+                data.Input["lists"] = ConvertToNestedList(lists);
 
             if (data.Input.TryGetValue("function", out var function))
                 data.Input["function"] = ConvertToFunction(data.Property, function);
@@ -67,7 +67,12 @@ namespace Exercism.CSharp.Exercises.Generators
             
             throw new ArgumentException("Unsupported list type");
         }
-        
+
+        private static dynamic ConvertToNestedList(dynamic value) 
+            => IsEmptyList(value) 
+                ? new List<List<int>>() 
+                : ConvertToList(value);
+
         private static bool IsArrayOfIntegers(dynamic value) 
             => value is int [];
         
@@ -79,6 +84,9 @@ namespace Exercism.CSharp.Exercises.Generators
 
         private static bool IsListOfListOfListOfIntegers(dynamic value) 
             => value is JArray jArray && jArray.All(IsListOfListOfIntegers);
+        
+        private static bool IsEmptyList(dynamic value) 
+            => value is JArray jArray && jArray.Count == 0;
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {

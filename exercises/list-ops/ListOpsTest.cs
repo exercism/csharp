@@ -35,7 +35,7 @@ public class ListOpsTest
     [Fact(Skip = "Remove to run test")]
     public void Concatenate_a_list_of_lists_empty_list()
     {
-        var lists = new List<int>();
+        var lists = new List<List<int>>();
         Assert.Empty(ListOps.Concat(lists));
     }
 
