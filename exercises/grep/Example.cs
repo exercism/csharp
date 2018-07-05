@@ -71,7 +71,7 @@ public static class Grep
 
     private static Line CreateLine(string file, int index, string text) => new Line { File = file, Number = index + 1, Text = text };
 
-    private static string FormatMatchingFile(string file) => $"{file}\n";
+    private static string FormatMatchingFile(string file) => $"{file}";
 
     private static string FormatMatchingFiles(string pattern, Flags flags, string[] files)
     {
@@ -79,7 +79,7 @@ public static class Grep
             .Where(file => FindMatchingLines(pattern, flags, file).Any())
             .Select(FormatMatchingFile);
 
-        return string.Concat(matchingFiles);
+        return string.Join("\n", matchingFiles);
     }
     
     private static string FormatMatchingLine(Flags flags, string[] files, Line line)
@@ -89,18 +89,18 @@ public static class Grep
 
         if (printLineNumbers && printFileName)
         {
-            return $"{line.File}:{line.Number}:{line.Text}\n";
+            return $"{line.File}:{line.Number}:{line.Text}";
         }
         if (printLineNumbers && !printFileName)
         {
-            return $"{line.Number}:{line.Text}\n";
+            return $"{line.Number}:{line.Text}";
         }
         if (!printLineNumbers && printFileName)
         {
-            return $"{line.File}:{line.Text}\n";
+            return $"{line.File}:{line.Text}";
         }
 
-        return $"{line.Text}\n";
+        return $"{line.Text}";
     }
 
     private static string FormatMatchingLines(string pattern, Flags flags, string[] files)
@@ -109,6 +109,6 @@ public static class Grep
             .SelectMany(file => FindMatchingLines(pattern, flags, file))
             .Select(line => FormatMatchingLine(flags, files, line));
 
-        return string.Concat(matchingFiles);
+        return string.Join("\n", matchingFiles);
     }
 }
