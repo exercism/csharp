@@ -7,6 +7,9 @@ namespace Exercism.CSharp.Exercises.Generators
         protected override void UpdateTestData(TestData data)
         {
             data.TestedMethod = "Name";
+            
+            if (data.Input["name"] is null)
+                data.SetInputParameters();
         }
     }
 }

@@ -7,7 +7,7 @@ namespace Exercism.CSharp.Output.Rendering
         public string Object(object val)
         {
             if (val == null)
-                return null;
+                return "null";
 
             switch (val)
             {
