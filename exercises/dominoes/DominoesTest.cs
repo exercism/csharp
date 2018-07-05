@@ -8,7 +8,7 @@ public class DominoesTest
     [Fact]
     public void Empty_input_empty_output()
     {
-        var dominoes = Array.Empty<ValueTuple<int, int>>();
+        var dominoes = Array.Empty<(int, int)>();
         Assert.True(Dominoes.CanChain(dominoes));
     }
 

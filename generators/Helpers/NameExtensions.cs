@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text.RegularExpressions;
 using Humanizer;
 
@@ -7,6 +9,18 @@ namespace Exercism.CSharp.Helpers
 {
     public static class NameExtensions
     {
+        private static readonly HashSet<Type> ValueTupleTypes = new HashSet<Type>(new[]
+        {
+            typeof(ValueTuple<>),
+            typeof(ValueTuple<,>),
+            typeof(ValueTuple<,,>),
+            typeof(ValueTuple<,,,>),
+            typeof(ValueTuple<,,,,>),
+            typeof(ValueTuple<,,,,,>),
+            typeof(ValueTuple<,,,,,,>),
+            typeof(ValueTuple<,,,,,,,>)
+        });
+        
         public static string ToExerciseName(this Type exerciseType) => exerciseType.Name.ToExerciseName();
 
         public static string ToExerciseName(this string input) => input.Kebaberize();
@@ -58,8 +72,12 @@ namespace Exercism.CSharp.Helpers
                 return "string";
             if (type == typeof(char))
                 return "char";
+            if (type.IsGenericType && ValueTupleTypes.Contains(type.GetGenericTypeDefinition()))
+                return $"({string.Join(", ", type.GetGenericArguments().Select(ToFriendlyName))})";
+            if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>))
+                return $"{type.GetGenericArguments()[0].ToFriendlyName()}?";
             if (type.IsGenericType)
-                return $"{type.Name.Split('`')[0]}<{string.Join(", ", type.GetGenericArguments().Select(ToFriendlyName).ToArray())}>";
+                return $"{type.Name.Split('`')[0]}<{string.Join(", ", type.GetGenericArguments().Select(ToFriendlyName))}>";
             if (type.IsArray)
                 return $"{type.GetElementType().ToFriendlyName()}[]";
             return type.Name;

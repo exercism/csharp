@@ -20,7 +20,7 @@ namespace Exercism.CSharp.Exercises.Generators
             data.SetConstructorInputParameters("grid");
 
             data.Input["grid"] = new MultiLineString(data.Input["grid"]);
-            data.Expected = ((IDictionary<string, dynamic>)data.Expected).ToDictionary(kv => kv.Key, kv => ConvertToPosition(kv.Value));
+            data.Expected = ((IDictionary<string, dynamic>)data.Expected).ToDictionary(kv => kv.Key, kv => (((int, int), (int, int))?)ConvertToPosition(kv.Value));
         }
 
         protected override void UpdateTestMethod(TestMethod method)
@@ -32,7 +32,7 @@ namespace Exercism.CSharp.Exercises.Generators
         {
             var assert = new StringBuilder();
 
-            foreach (var kv in (Dictionary<string, dynamic>) method.Data.Expected)
+            foreach (var kv in method.Data.Expected)
                 assert.AppendLine(RenderAssertForSearchWord(kv.Key, kv.Value));
 
             return assert.ToString();

@@ -69,7 +69,7 @@ public class GoCountingTest
             "  W  ";
         var sut = new GoCounting(board);
         var actual = sut.Territory(coordinate);
-        var expected = (Owner.None, Array.Empty<ValueTuple<int, int>>());
+        var expected = (Owner.None, Array.Empty<(int, int)>());
         Assert.Equal(expected.Item1, actual.Item1);
         Assert.Equal(expected.Item2, actual.Item2);
     }
@@ -138,8 +138,8 @@ public class GoCountingTest
         var actual = sut.Territories();
         var expected = new Dictionary<Owner, ValueTuple<int,int>[]>
         {
-            [Owner.Black] = Array.Empty<ValueTuple<int, int>>(),
-            [Owner.White] = Array.Empty<ValueTuple<int, int>>(),
+            [Owner.Black] = Array.Empty<(int, int)>(),
+            [Owner.White] = Array.Empty<(int, int)>(),
             [Owner.None] = new[] { (0, 0) }
         };
         Assert.Equal(expected.Keys, actual.Keys);
@@ -160,7 +160,7 @@ public class GoCountingTest
         {
             [Owner.Black] = new[] { (0, 0), (0, 1) },
             [Owner.White] = new[] { (3, 0), (3, 1) },
-            [Owner.None] = Array.Empty<ValueTuple<int, int>>()
+            [Owner.None] = Array.Empty<(int, int)>()
         };
         Assert.Equal(expected.Keys, actual.Keys);
         Assert.Equal(expected[Owner.Black], actual[Owner.Black]);
@@ -177,8 +177,8 @@ public class GoCountingTest
         var expected = new Dictionary<Owner, ValueTuple<int,int>[]>
         {
             [Owner.Black] = new[] { (0, 0), (2, 0) },
-            [Owner.White] = Array.Empty<ValueTuple<int, int>>(),
-            [Owner.None] = Array.Empty<ValueTuple<int, int>>()
+            [Owner.White] = Array.Empty<(int, int)>(),
+            [Owner.None] = Array.Empty<(int, int)>()
         };
         Assert.Equal(expected.Keys, actual.Keys);
         Assert.Equal(expected[Owner.Black], actual[Owner.Black]);
