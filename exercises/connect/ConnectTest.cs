@@ -22,7 +22,10 @@ public class ConnectTest
     [Fact(Skip = "Remove to run test")]
     public void X_can_win_on_a_1x1_board()
     {
-        var board = new[] { "X" };
+        var board = new[]
+        {
+            "X"
+        };
         var sut = new Connect(board);
         Assert.Equal(ConnectWinner.Black, sut.Result());
     }
@@ -30,7 +33,10 @@ public class ConnectTest
     [Fact(Skip = "Remove to run test")]
     public void O_can_win_on_a_1x1_board()
     {
-        var board = new[] { "O" };
+        var board = new[]
+        {
+            "O"
+        };
         var sut = new Connect(board);
         Assert.Equal(ConnectWinner.White, sut.Result());
     }
@@ -38,7 +44,13 @@ public class ConnectTest
     [Fact(Skip = "Remove to run test")]
     public void Only_edges_does_not_make_a_winner()
     {
-        var board = new[] { "O O O X", " X . . X", "  X . . X", "   X O O O" };
+        var board = new[]
+        {
+            "O O O X",
+            " X . . X",
+            "  X . . X",
+            "   X O O O"
+        };
         var sut = new Connect(board);
         Assert.Equal(ConnectWinner.None, sut.Result());
     }

@@ -1,4 +1,5 @@
 ﻿using Exercism.CSharp.Output;
+using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -9,6 +10,8 @@ namespace Exercism.CSharp.Exercises.Generators
             data.UseVariablesForConstructorParameters = true;
             data.SetConstructorInputParameters("board");
             data.TestedMethod = "Result";
+            
+            data.Input["board"] = new UnescapedValue(Render.ArrayMultiLine(data.Input["board"]));
 
             switch (data.Expected)
             {

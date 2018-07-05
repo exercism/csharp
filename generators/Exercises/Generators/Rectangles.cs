@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Exercism.CSharp.Output;
+using Exercism.CSharp.Output.Rendering;
 using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Exercises.Generators
@@ -14,6 +15,8 @@ namespace Exercism.CSharp.Exercises.Generators
             
             if (data.Input["strings"] is JArray)
                 data.Input["strings"] = Array.Empty<string>();
+            
+            data.Input["strings"] = new UnescapedValue(Render.ArrayMultiLine(data.Input["strings"]));
         }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)

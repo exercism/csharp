@@ -15,63 +15,108 @@ public class RectanglesTest
     [Fact(Skip = "Remove to run test")]
     public void No_columns()
     {
-        var strings = new[] { "" };
+        var strings = new[]
+        {
+            ""
+        };
         Assert.Equal(0, Rectangles.Count(strings));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void No_rectangles()
     {
-        var strings = new[] { " " };
+        var strings = new[]
+        {
+            " "
+        };
         Assert.Equal(0, Rectangles.Count(strings));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void One_rectangle()
     {
-        var strings = new[] { "+-+", "| |", "+-+" };
+        var strings = new[]
+        {
+            "+-+",
+            "| |",
+            "+-+"
+        };
         Assert.Equal(1, Rectangles.Count(strings));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Two_rectangles_without_shared_parts()
     {
-        var strings = new[] { "  +-+", "  | |", "+-+-+", "| |  ", "+-+  " };
+        var strings = new[]
+        {
+            "  +-+",
+            "  | |",
+            "+-+-+",
+            "| |  ",
+            "+-+  "
+        };
         Assert.Equal(2, Rectangles.Count(strings));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Five_rectangles_with_shared_parts()
     {
-        var strings = new[] { "  +-+", "  | |", "+-+-+", "| | |", "+-+-+" };
+        var strings = new[]
+        {
+            "  +-+",
+            "  | |",
+            "+-+-+",
+            "| | |",
+            "+-+-+"
+        };
         Assert.Equal(5, Rectangles.Count(strings));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Rectangle_of_height_1_is_counted()
     {
-        var strings = new[] { "+--+", "+--+" };
+        var strings = new[]
+        {
+            "+--+",
+            "+--+"
+        };
         Assert.Equal(1, Rectangles.Count(strings));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Rectangle_of_width_1_is_counted()
     {
-        var strings = new[] { "++", "||", "++" };
+        var strings = new[]
+        {
+            "++",
+            "||",
+            "++"
+        };
         Assert.Equal(1, Rectangles.Count(strings));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Number_1x1_square_is_counted()
     {
-        var strings = new[] { "++", "++" };
+        var strings = new[]
+        {
+            "++",
+            "++"
+        };
         Assert.Equal(1, Rectangles.Count(strings));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Only_complete_rectangles_are_counted()
     {
-        var strings = new[] { "  +-+", "    |", "+-+-+", "| | -", "+-+-+" };
+        var strings = new[]
+        {
+            "  +-+",
+            "    |",
+            "+-+-+",
+            "| | -",
+            "+-+-+"
+        };
         Assert.Equal(1, Rectangles.Count(strings));
     }
 
