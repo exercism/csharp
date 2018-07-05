@@ -136,7 +136,7 @@ public class GoCountingTest
         var board = " ";
         var sut = new GoCounting(board);
         var actual = sut.Territories();
-        var expected = new Dictionary<Owner, ValueTuple<int,int>[]>
+        var expected = new Dictionary<Owner, (int, int)[]>
         {
             [Owner.Black] = Array.Empty<(int, int)>(),
             [Owner.White] = Array.Empty<(int, int)>(),
@@ -156,7 +156,7 @@ public class GoCountingTest
             " BW ";
         var sut = new GoCounting(board);
         var actual = sut.Territories();
-        var expected = new Dictionary<Owner, ValueTuple<int,int>[]>
+        var expected = new Dictionary<Owner, (int, int)[]>
         {
             [Owner.Black] = new[] { (0, 0), (0, 1) },
             [Owner.White] = new[] { (3, 0), (3, 1) },
@@ -174,7 +174,7 @@ public class GoCountingTest
         var board = " B ";
         var sut = new GoCounting(board);
         var actual = sut.Territories();
-        var expected = new Dictionary<Owner, ValueTuple<int,int>[]>
+        var expected = new Dictionary<Owner, (int, int)[]>
         {
             [Owner.Black] = new[] { (0, 0), (2, 0) },
             [Owner.White] = Array.Empty<(int, int)>(),

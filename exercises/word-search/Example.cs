@@ -9,7 +9,7 @@ public class WordSearch
     private readonly int height;
     private (int, int)[] positions;
 
-    private static readonly ValueTuple<int, int>[] Directions =
+    private static readonly (int, int)[] Directions =
     {
         ( 1,  0),
         ( 0,  1),
@@ -29,12 +29,12 @@ public class WordSearch
         positions = Positions();
     }
 
-    public Dictionary<string, ValueTuple<ValueTuple<int, int>, ValueTuple<int, int>>?> Search(IEnumerable<string> words)
+    public Dictionary<string, ((int, int), (int, int))?> Search(IEnumerable<string> words)
     {
         return words.ToDictionary(word => word, Search);
     }
 
-    private ValueTuple<ValueTuple<int, int>, ValueTuple<int, int>>? Search(string word)
+    private ((int, int), (int, int))? Search(string word)
     {
         return
             Positions()
@@ -42,7 +42,7 @@ public class WordSearch
                 .FirstOrDefault();
     }
 
-    private IEnumerable<ValueTuple<ValueTuple<int, int>, ValueTuple<int, int>>> Find(string word, ValueTuple<int, int> position, ValueTuple<int, int> direction)
+    private IEnumerable<((int, int), (int, int))> Find(string word, (int, int) position, (int, int) direction)
     {
         var current = position;
 
@@ -56,10 +56,10 @@ public class WordSearch
             current = (current.Item1 + direction.Item1, current.Item2 + direction.Item2);
         }
 
-        yield return ValueTuple.Create(position, (current.Item1 - direction.Item1, current.Item2 - direction.Item2));
+        yield return (position, (current.Item1 - direction.Item1, current.Item2 - direction.Item2));
     }
 
-    private char? FindChar(ValueTuple<int, int> coordinate)
+    private char? FindChar((int, int) coordinate)
     {
         if (coordinate.Item1 > 0 && coordinate.Item1 <= width && coordinate.Item2 > 0 && coordinate.Item2 <= height)
         {
@@ -69,7 +69,7 @@ public class WordSearch
         return null;
     }
 
-    private ValueTuple<int, int>[] Positions()
+    private (int, int)[] Positions()
     {
         return Enumerable.Range(1, width).SelectMany(x =>
                Enumerable.Range(1, height).Select(y => (x, y)))
