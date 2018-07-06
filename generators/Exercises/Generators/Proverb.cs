@@ -7,15 +7,15 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class Proverb : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.UseVariableForExpected = true;
+            testMethod.UseVariableForExpected = true;
             
-            if (data.Input["strings"] is JArray)
-                data.Input["strings"] = Array.Empty<string>();
+            if (testMethod.Input["strings"] is JArray)
+                testMethod.Input["strings"] = Array.Empty<string>();
             
-            if (data.Expected is JArray)
-                data.Expected = Array.Empty<string>();
+            if (testMethod.Expected is JArray)
+                testMethod.Expected = Array.Empty<string>();
         }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)

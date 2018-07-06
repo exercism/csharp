@@ -6,14 +6,14 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class PascalsTriangle : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.UseVariableForExpected = true;
-            data.TestedMethod = "Calculate";
-            if (data.Expected is JArray jArray)
-                data.Expected = jArray.ToObject<int[][]>();
+            testMethod.UseVariableForExpected = true;
+            testMethod.TestedMethod = "Calculate";
+            if (testMethod.Expected is JArray jArray)
+                testMethod.Expected = jArray.ToObject<int[][]>();
             else
-                data.ExceptionThrown = typeof(ArgumentOutOfRangeException);
+                testMethod.ExceptionThrown = typeof(ArgumentOutOfRangeException);
         }
     }
 }

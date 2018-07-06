@@ -5,10 +5,10 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class Hamming : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            if (!(data.Expected is int))
-                data.ExceptionThrown = typeof(ArgumentException);
+            if (!(testMethod.Expected is int))
+                testMethod.ExceptionThrown = typeof(ArgumentException);
         }
     }
 }

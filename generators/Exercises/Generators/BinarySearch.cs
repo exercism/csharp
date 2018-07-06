@@ -7,13 +7,13 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class BinarySearch : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            if (data.Input["array"] is JArray)
-                data.Input["array"] = Array.Empty<int>();
+            if (testMethod.Input["array"] is JArray)
+                testMethod.Input["array"] = Array.Empty<int>();
             
-            data.SetConstructorInputParameters("array");
-            data.UseVariablesForConstructorParameters = true;
+            testMethod.SetConstructorInputParameters("array");
+            testMethod.UseVariablesForConstructorParameters = true;
         }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)

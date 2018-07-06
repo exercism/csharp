@@ -7,11 +7,11 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class Gigasecond : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            var input = DateTime.Parse(data.Input["birthdate"].ToString());
-            data.Input["birthdate"] = new UnescapedValue(RenderDateTime(input));
-            data.Expected = new UnescapedValue(RenderDateTime((DateTime)data.Expected));
+            var input = DateTime.Parse(testMethod.Input["birthdate"].ToString());
+            testMethod.Input["birthdate"] = new UnescapedValue(RenderDateTime(input));
+            testMethod.Expected = new UnescapedValue(RenderDateTime((DateTime)testMethod.Expected));
         }
 
         private static string RenderDateTime(DateTime dateTime)

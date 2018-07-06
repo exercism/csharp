@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Exercism.CSharp.Helpers;
 using Newtonsoft.Json;
@@ -7,11 +8,11 @@ namespace Exercism.CSharp.Input
 {
     public static class TrackConfigFile
     {
-        private static readonly string ConfigFileName = $"{typeof(TrackConfigFile).Namespace}.config.json";
+        private static readonly string ConfigFilePath = Path.Combine("..", "config.json");
 
         public static IEnumerable<ConfigExercise> GetExercises()
         {
-            var jsonContents = EmbeddedResource.Read(ConfigFileName);
+            var jsonContents = File.ReadAllText(ConfigFilePath);
             var config = JsonConvert.DeserializeObject<Config>(jsonContents);
             return config.Exercises.OrderBy(x => x.Slug).ToArray();
         }

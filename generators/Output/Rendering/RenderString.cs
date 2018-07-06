@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Humanizer;
 
 namespace Exercism.CSharp.Output.Rendering
@@ -31,5 +32,7 @@ namespace Exercism.CSharp.Output.Rendering
                     ? $"{String($"{t}\n").Indent()} +"
                     : $"{String(t).Indent()}");
         }
+
+        public string Regex(Regex regex) => String(regex.ToString());
     }
 }

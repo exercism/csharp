@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using DotLiquid.Tags;
 using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
 
@@ -10,29 +9,26 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class WordSearch : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.UseVariablesForInput = true;
-            data.UseVariableForTested = true;
-            data.UseVariableForExpected = true;
-            data.UseVariablesForConstructorParameters = true;
+            testMethod.UseVariablesForInput = true;
+            testMethod.UseVariableForTested = true;
+            testMethod.UseVariableForExpected = true;
+            testMethod.UseVariablesForConstructorParameters = true;
 
-            data.SetConstructorInputParameters("grid");
+            testMethod.SetConstructorInputParameters("grid");
 
-            data.Input["grid"] = new MultiLineString(data.Input["grid"]);
-            data.Expected = ((IDictionary<string, dynamic>)data.Expected).ToDictionary(kv => kv.Key, kv => (((int, int), (int, int))?)ConvertToPosition(kv.Value));
+            testMethod.Input["grid"] = new MultiLineString(testMethod.Input["grid"]);
+            testMethod.Expected = ((IDictionary<string, dynamic>)testMethod.Expected).ToDictionary(kv => kv.Key, kv => (((int, int), (int, int))?)ConvertToPosition(kv.Value));
+
+            testMethod.Assert = RenderAssert(testMethod);
         }
 
-        protected override void UpdateTestMethod(TestMethod method)
-        {
-            method.Assert = RenderAssert(method);
-        }
-
-        private string RenderAssert(TestMethod method)
+        private string RenderAssert(TestMethod testMethod)
         {
             var assert = new StringBuilder();
 
-            foreach (var kv in method.Data.Expected)
+            foreach (var kv in testMethod.Expected)
                 assert.AppendLine(RenderAssertForSearchWord(kv.Key, kv.Value));
 
             return assert.ToString();

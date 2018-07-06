@@ -9,64 +9,61 @@ namespace Exercism.CSharp.Exercises.Generators
     {
         private const string PreviousRolls = "previousRolls";
 
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            if (data.Expected is int)
-                data.UseVariableForTested = true;
+            if (testMethod.Expected is int)
+                testMethod.UseVariableForTested = true;
             else
-                data.ExceptionThrown = typeof(ArgumentException);
+                testMethod.ExceptionThrown = typeof(ArgumentException);
 
-            data.SetInputParameters();
+            testMethod.SetInputParameters();
+
+            testMethod.Arrange = RenderArrange(testMethod);
+            testMethod.Act = RenderAct(testMethod);
+            testMethod.Assert = RenderAssert(testMethod);
         }
 
-        protected override void UpdateTestMethod(TestMethod method)
-        {
-            method.Arrange = RenderArrange(method);
-            method.Act = RenderAct(method);
-            method.Assert = RenderAssert(method);
-        }
-
-        private string RenderArrange(TestMethod method)
+        private string RenderArrange(TestMethod testMethod)
         {
             var builder = new StringBuilder();
             builder.AppendLine(Render.Variable("sut", "new BowlingGame()"));
 
-            if (!method.Data.Input.ContainsKey(PreviousRolls))
+            if (!testMethod.Input.ContainsKey(PreviousRolls))
                 return builder.ToString();
 
-            var previousRolls = method.Data.Input[PreviousRolls] as int[] ?? Array.Empty<int>();
+            var previousRolls = testMethod.Input[PreviousRolls] as int[] ?? Array.Empty<int>();
             builder.Append(Render.Variable("previousRolls", Render.ObjectMultiLine(previousRolls)));
 
             return builder.ToString();
         }
 
-        private string RenderAssert(TestMethod method)
+        private string RenderAssert(TestMethod testMethod)
         {
-            if (method.Data.ExceptionThrown != null && method.Data.Input.ContainsKey("roll"))
+            if (testMethod.ExceptionThrown != null && testMethod.Input.ContainsKey("roll"))
             {
-                var actual = Render.Object(method.Data.Input["roll"]);
-                return Render.AssertThrows(method.Data.ExceptionThrown, $"sut.Roll({actual})");
+                var actual = Render.Object(testMethod.Input["roll"]);
+                return Render.AssertThrows(testMethod.ExceptionThrown, $"sut.Roll({actual})");
             }
 
-            if (method.Data.ExceptionThrown == null || method.Data.Property != "score")
-                return method.Assert;
+            if (testMethod.ExceptionThrown == null || testMethod.Property != "score")
+                return testMethod.Assert;
             
-            return Render.AssertThrows(method.Data.ExceptionThrown, "sut.Score()");
+            return Render.AssertThrows(testMethod.ExceptionThrown, "sut.Score()");
         }
 
-        private string RenderAct(TestMethod method)
+        private string RenderAct(TestMethod testMethod)
         {
             var act = new StringBuilder();
             act.AppendLine("DoRoll(previousRolls, sut);");
             
-            if (method.Data.ExceptionThrown != null)
+            if (testMethod.ExceptionThrown != null)
             {
                 return act.ToString();
             }
 
-            if (method.Data.Input.ContainsKey("roll"))
+            if (testMethod.Input.ContainsKey("roll"))
             {
-                act.AppendLine($"sut.Roll({method.Data.Input["roll"]});");
+                act.AppendLine($"sut.Roll({testMethod.Input["roll"]});");
                 act.AppendLine(Render.Variable("actual", "sut.Score()"));
                 return act.ToString();
             }
@@ -75,14 +72,14 @@ namespace Exercism.CSharp.Exercises.Generators
             return act.ToString();
         }
 
-        protected override void UpdateTestClass(TestClass @class)
+        protected override void UpdateTestClass(TestClass testClass)
         {
-            AddDoRollMethod(@class);
+            AddDoRollMethod(testClass);
         }
 
-        private static void AddDoRollMethod(TestClass @class)
+        private static void AddDoRollMethod(TestClass testClass)
         {
-            @class.Methods.Add(@"
+            testClass.Methods.Add(@"
 public void DoRoll(IEnumerable<int> rolls, BowlingGame sut)
 {
     foreach (var roll in rolls)

@@ -7,19 +7,19 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class Pov : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.UseVariablesForInput = true;
-            data.UseVariableForExpected = true;
+            testMethod.UseVariablesForInput = true;
+            testMethod.UseVariableForExpected = true;
             
-            if (data.Expected is null)
-                data.ExceptionThrown = typeof(ArgumentException);
+            if (testMethod.Expected is null)
+                testMethod.ExceptionThrown = typeof(ArgumentException);
             
-            data.Input["tree"] = RenderTree(data.Input["tree"]);
+            testMethod.Input["tree"] = RenderTree(testMethod.Input["tree"]);
 
-            if (data.Property == "fromPov")
+            if (testMethod.Property == "fromPov")
             {
-                data.Expected = RenderTree(data.Expected);
+                testMethod.Expected = RenderTree(testMethod.Expected);
             }
         }
 

@@ -4,9 +4,9 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class Luhn : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.TestedMethod = "IsValid";
+            testMethod.TestedMethod = "IsValid";
         }
     }
 }

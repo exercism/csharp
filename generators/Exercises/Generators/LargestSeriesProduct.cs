@@ -5,12 +5,12 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class LargestSeriesProduct : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.TestedMethod = "GetLargestProduct";
+            testMethod.TestedMethod = "GetLargestProduct";
 
-            if (data.Expected == -1)
-                data.ExceptionThrown = typeof(ArgumentException);
+            if (testMethod.Expected == -1)
+                testMethod.ExceptionThrown = typeof(ArgumentException);
         }
     }
 }

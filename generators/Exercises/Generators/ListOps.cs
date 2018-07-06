@@ -10,30 +10,30 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class ListOps : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.UseFullDescriptionPath = true;
-            data.UseVariablesForInput = true;
-            data.UseVariableForExpected = !(data.Expected is int);
+            testMethod.TestMethodName = testMethod.TestMethodNameWithPath;
+            testMethod.UseVariablesForInput = true;
+            testMethod.UseVariableForExpected = !(testMethod.Expected is int);
 
-            if (data.Input.TryGetValue("list", out var list))
-                data.Input["list"] = ConvertToList(list);
+            if (testMethod.Input.TryGetValue("list", out var list))
+                testMethod.Input["list"] = ConvertToList(list);
 
-            if (data.Input.TryGetValue("list1", out var list1))
-                data.Input["list1"] = ConvertToList(list1);
+            if (testMethod.Input.TryGetValue("list1", out var list1))
+                testMethod.Input["list1"] = ConvertToList(list1);
 
-            if (data.Input.TryGetValue("list2", out var list2))
-                data.Input["list2"] = ConvertToList(list2);
+            if (testMethod.Input.TryGetValue("list2", out var list2))
+                testMethod.Input["list2"] = ConvertToList(list2);
 
-            if (data.Input.TryGetValue("lists", out var lists))
-                data.Input["lists"] = ConvertToNestedList(lists);
+            if (testMethod.Input.TryGetValue("lists", out var lists))
+                testMethod.Input["lists"] = ConvertToNestedList(lists);
 
-            if (data.Input.TryGetValue("function", out var function))
-                data.Input["function"] = ConvertToFunction(data.Property, function);
+            if (testMethod.Input.TryGetValue("function", out var function))
+                testMethod.Input["function"] = ConvertToFunction(testMethod.Property, function);
 
-            if (data.Expected is IEnumerable)
+            if (testMethod.Expected is IEnumerable)
             {
-                data.Expected = ConvertToList(data.Expected);
+                testMethod.Expected = ConvertToList(testMethod.Expected);
             }
         }
 

@@ -8,30 +8,27 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class PalindromeProducts : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            if (data.Expected.ContainsKey("error"))
+            if (testMethod.Expected.ContainsKey("error"))
             {
-                data.ExceptionThrown = typeof(ArgumentException);
+                testMethod.ExceptionThrown = typeof(ArgumentException);
             }
             else
             {
-                data.UseVariableForTested = true;
-                data.UseVariableForExpected = true;
-                data.Expected = (data.Expected["value"], RenderCoordinates(data.Expected["factors"]));
+                testMethod.UseVariableForTested = true;
+                testMethod.UseVariableForExpected = true;
+                testMethod.Expected = (testMethod.Expected["value"], RenderCoordinates(testMethod.Expected["factors"]));
             }
+
+            testMethod.Assert = RenderAssert(testMethod);
         }
 
-        protected override void UpdateTestMethod(TestMethod method)
+        private string RenderAssert(TestMethod testMethod)
         {
-            method.Assert = RenderAssert(method);
-        }
-
-        private string RenderAssert(TestMethod method)
-        {
-            if (method.Data.ExceptionThrown != null)
+            if (testMethod.ExceptionThrown != null)
             {
-                return method.Assert;
+                return testMethod.Assert;
             }
 
             var assert = new StringBuilder();

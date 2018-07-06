@@ -8,10 +8,10 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class Dominoes : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.UseVariablesForInput = true;
-            data.Input["dominoes"] = ConvertDominoes(data.Input["dominoes"]);
+            testMethod.UseVariablesForInput = true;
+            testMethod.Input["dominoes"] = ConvertDominoes(testMethod.Input["dominoes"]);
         }
 
         private static ValueTuple<int, int>[] ConvertDominoes(JToken input)

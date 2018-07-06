@@ -6,10 +6,10 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class NthPrime : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            if (data.Expected is Dictionary<string, object>)
-                data.ExceptionThrown = typeof(ArgumentOutOfRangeException);
+            if (testMethod.Expected is Dictionary<string, object>)
+                testMethod.ExceptionThrown = typeof(ArgumentOutOfRangeException);
         }
     }
 }

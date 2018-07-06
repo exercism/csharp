@@ -7,43 +7,40 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class RobotSimulator : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.Input["direction"] = RenderDirection(data.Input["direction"]);
-            data.Input["coordinate"] = RenderCreateCoordinate(data.Input["position"]);
+            testMethod.Input["direction"] = RenderDirection(testMethod.Input["direction"]);
+            testMethod.Input["coordinate"] = RenderCreateCoordinate(testMethod.Input["position"]);
 
-            data.SetConstructorInputParameters("direction", "coordinate");
+            testMethod.SetConstructorInputParameters("direction", "coordinate");
 
-            data.UseFullDescriptionPath = true;
+            testMethod.TestMethodName = testMethod.TestMethodNameWithPath;
+
+            testMethod.Act = RenderAct(testMethod);
+            testMethod.Assert = RenderAssert(testMethod);
         }
 
-        protected override void UpdateTestMethod(TestMethod method)
+        private string RenderAct(TestMethod testMethod)
         {
-            method.Act = RenderAct(method);
-            method.Assert = RenderAssert(method);
-        }
-
-        private string RenderAct(TestMethod method)
-        {
-            switch (method.Data.Property)
+            switch (testMethod.Property)
             {
                 case "create": return null;
-                case "instructions": return RenderInstructionsAct(method);
-                default: return RenderDefaultAct(method);
+                case "instructions": return RenderInstructionsAct(testMethod);
+                default: return RenderDefaultAct(testMethod);
             }
         }
 
-        private static string RenderDefaultAct(TestMethod method) => $"sut.{method.Data.TestedMethod}();";
+        private static string RenderDefaultAct(TestMethod testMethod) => $"sut.{testMethod.TestedMethod}();";
 
-        private string RenderInstructionsAct(TestMethod method)
+        private string RenderInstructionsAct(TestMethod testMethod)
         {
-            var actual = Render.Object(method.Data.Input["instructions"]);
+            var actual = Render.Object(testMethod.Input["instructions"]);
             return $"sut.Simulate({actual});";
         }
 
-        private string RenderAssert(TestMethod method)
+        private string RenderAssert(TestMethod testMethod)
         {
-            var expected = (Dictionary<string, dynamic>)method.Data.Expected;
+            var expected = (Dictionary<string, dynamic>)testMethod.Expected;
             expected.TryGetValue("position", out var position);
             expected.TryGetValue("direction", out var direction);
 

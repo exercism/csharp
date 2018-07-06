@@ -6,36 +6,36 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class CustomSet : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.UseVariablesForInput = true;
+            testMethod.UseVariablesForInput = true;
 
-            if (data.Input.ContainsKey("set"))
+            if (testMethod.Input.ContainsKey("set"))
             {
-                if (data.Input["set"] is JArray)
+                if (testMethod.Input["set"] is JArray)
                 {
-                    data.Input["set"] = new UnescapedValue("");
+                    testMethod.Input["set"] = new UnescapedValue("");
                 }
 
-                data.SetConstructorInputParameters("set");
+                testMethod.SetConstructorInputParameters("set");
             }
             else
             {
-                if (data.Input["set1"] is JArray)
+                if (testMethod.Input["set1"] is JArray)
                 {
-                    data.Input["set1"] = new UnescapedValue("");
+                    testMethod.Input["set1"] = new UnescapedValue("");
                 }
 
-                data.SetConstructorInputParameters("set1");
-                data.Input["set2"] = ConvertCustomSet(data.Input["set2"]);
+                testMethod.SetConstructorInputParameters("set1");
+                testMethod.Input["set2"] = ConvertCustomSet(testMethod.Input["set2"]);
 
-                if (data.Property == "equal")
+                if (testMethod.Property == "equal")
                 {
-                    data.TestedMethod = "Equals";
+                    testMethod.TestedMethod = "Equals";
                 }
             }
 
-            data.Expected = ConvertCustomSet(data.Expected);
+            testMethod.Expected = ConvertCustomSet(testMethod.Expected);
         }
 
         private dynamic ConvertCustomSet(dynamic value)

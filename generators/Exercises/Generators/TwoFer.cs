@@ -4,12 +4,12 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class TwoFer : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.TestedMethod = "Name";
+            testMethod.TestedMethod = "Name";
             
-            if (data.Input["name"] is null)
-                data.SetInputParameters();
+            if (testMethod.Input["name"] is null)
+                testMethod.SetInputParameters();
         }
     }
 }

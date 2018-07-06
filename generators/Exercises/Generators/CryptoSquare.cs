@@ -4,10 +4,10 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class CryptoSquare : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.UseVariablesForInput = true;
-            data.UseVariableForExpected = true;
+            testMethod.UseVariablesForInput = true;
+            testMethod.UseVariableForExpected = true;
         }
     }
 }

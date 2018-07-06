@@ -8,15 +8,15 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class Rectangles : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.UseVariablesForInput = true;
-            data.TestedMethod = "Count";
+            testMethod.UseVariablesForInput = true;
+            testMethod.TestedMethod = "Count";
             
-            if (data.Input["strings"] is JArray)
-                data.Input["strings"] = Array.Empty<string>();
+            if (testMethod.Input["strings"] is JArray)
+                testMethod.Input["strings"] = Array.Empty<string>();
             
-            data.Input["strings"] = new UnescapedValue(Render.ArrayMultiLine(data.Input["strings"]));
+            testMethod.Input["strings"] = new UnescapedValue(Render.ArrayMultiLine(testMethod.Input["strings"]));
         }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)

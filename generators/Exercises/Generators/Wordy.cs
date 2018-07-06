@@ -5,10 +5,10 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class Wordy : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            if (data.Expected is bool)
-                data.ExceptionThrown = typeof(ArgumentException);
+            if (testMethod.Expected is bool)
+                testMethod.ExceptionThrown = typeof(ArgumentException);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
 
@@ -7,59 +8,48 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class SimpleCipher : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.UseFullDescriptionPath = true;
-
-            if (data.Property == "new")
+            testMethod.TestMethodName = testMethod.TestMethodNameWithPath;
+            
+            if (testMethod.Input.ContainsKey("key"))
             {
+                testMethod.SetConstructorInputParameters("key");
+            }
+
+            if (testMethod.Property == "new")
+            {
+                testMethod.TestedMethodType = TestedMethodType.Constructor;
+                testMethod.ExceptionThrown = typeof(ArgumentException);
                 return;
             }
 
-            data.TestedMethodType = TestedMethodType.Instance;
-
-            if (data.Input.ContainsKey("key"))
+            if (testMethod.Property == "key")
             {
-                data.SetConstructorInputParameters("key");
+                testMethod.Expected = new Regex(testMethod.Expected["match"]);
+                testMethod.TestedMethodType = TestedMethodType.Property;
+                return;
             }
 
-            if (data.Input.TryGetValue("ciphertext", out var cipherText))
+            testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
+
+            if (testMethod.Input.TryGetValue("ciphertext", out var cipherText))
             {
                 if (cipherText.StartsWith("cipher.key.substring"))
                 {
-                    data.Input["ciphertext"] = new UnescapedValue($"sut.Key.Substring(0, {data.Expected.Length})");
+                    testMethod.Input["ciphertext"] = new UnescapedValue($"sut.Key.Substring(0, {testMethod.Expected.Length})");
                 }
                 else if (cipherText == "cipher.encode")
                 {
-                    var plaintext = Render.Object(data.Input["plaintext"]);
-                    data.Input["ciphertext"] = new UnescapedValue($"sut.Encode({plaintext})");
-                    data.SetInputParameters("ciphertext");
+                    var plaintext = Render.Object(testMethod.Input["plaintext"]);
+                    testMethod.Input["ciphertext"] = new UnescapedValue($"sut.Encode({plaintext})");
+                    testMethod.SetInputParameters("ciphertext");
                 }
             }
 
-            if (data.Expected is string s && s.StartsWith("cipher.key.substring"))
+            if (testMethod.Expected is string s && s.StartsWith("cipher.key.substring"))
             {
-                data.Expected = new UnescapedValue($"sut.Key.Substring(0, {data.Input["plaintext"].Length})");
-            }
-        }
-
-        protected override void UpdateTestMethod(TestMethod method)
-        {
-            method.Assert = RenderAssert(method);
-        }
-
-        private string RenderAssert(TestMethod method)
-        {
-            switch (method.Data.Property)
-            {
-                case "new":
-                    var key = Render.Object(method.Data.Input["key"]);
-                    return Render.AssertThrows<ArgumentException>($"new SimpleCipher({key})");
-                case "key":
-                    var pattern = Render.Object(method.Data.Expected["match"]);
-                    return Render.AssertMatches(pattern, "sut.Key");
-                default:
-                    return method.Assert;
+                testMethod.Expected = new UnescapedValue($"sut.Key.Substring(0, {testMethod.Input["plaintext"].Length})");
             }
         }
 

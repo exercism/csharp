@@ -5,13 +5,13 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class Change : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.UseVariablesForInput = true;
-            data.UseVariableForExpected = true;
+            testMethod.UseVariablesForInput = true;
+            testMethod.UseVariableForExpected = true;
 
-            if (data.Expected is int)
-                data.ExceptionThrown = typeof(ArgumentException);
+            if (testMethod.Expected is int)
+                testMethod.ExceptionThrown = typeof(ArgumentException);
         }
     }
 }

@@ -7,13 +7,13 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class Etl : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.UseVariablesForInput = true;
-            data.UseVariableForExpected = true;
-            data.Input = ConvertInput(data.Input);
-            data.Expected = ConvertExpected(data.Expected);
-            data.SetInputParameters("input");
+            testMethod.UseVariablesForInput = true;
+            testMethod.UseVariableForExpected = true;
+            testMethod.Input = ConvertInput(testMethod.Input);
+            testMethod.Expected = ConvertExpected(testMethod.Expected);
+            testMethod.SetInputParameters("input");
         }
 
         private static dynamic ConvertExpected(dynamic expected)

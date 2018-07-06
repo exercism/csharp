@@ -7,16 +7,16 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class AllYourBase : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            if (data.Input["digits"] is JArray)
-                data.Input["digits"] = Array.Empty<int>();
+            if (testMethod.Input["digits"] is JArray)
+                testMethod.Input["digits"] = Array.Empty<int>();
 
-            if (data.Expected is Dictionary<string, object>)
-                data.ExceptionThrown = typeof(ArgumentException);
+            if (testMethod.Expected is Dictionary<string, object>)
+                testMethod.ExceptionThrown = typeof(ArgumentException);
 
-            data.UseVariablesForInput = true;
-            data.UseVariableForExpected = true;
+            testMethod.UseVariablesForInput = true;
+            testMethod.UseVariableForExpected = true;
         }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)

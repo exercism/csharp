@@ -26,20 +26,20 @@ namespace Exercism.CSharp.Exercises.Generators
             namespaces.Add(typeof(IQueryable).Namespace);
         }
 
-        protected override void UpdateTestMethod(TestMethod method)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            method.Assert = RenderAssert(method);
+            testMethod.Assert = RenderAssert(testMethod);
         }
 
-        private string RenderAssert(TestMethod method)
+        private string RenderAssert(TestMethod testMethod)
         {
             var assert = new StringBuilder();
 
-            var treeData = ConvertToIntegers(method.Data.Input["treeData"]);
+            var treeData = ConvertToIntegers(testMethod.Input["treeData"]);
             var constructorParameters = Render.Object(treeData.Length == 1 ? treeData[0] : treeData);
             assert.AppendLine(Render.Variable("tree", $"new BinarySearchTree({constructorParameters})"));
 
-            if (method.Data.Expected is Dictionary<string, object> expected)
+            if (testMethod.Expected is Dictionary<string, object> expected)
             {
                 var tree = new ExpectedDataBinaryTree(expected);
                 foreach (var testAssert in TestAsserts(tree))
@@ -47,7 +47,7 @@ namespace Exercism.CSharp.Exercises.Generators
             }
             else
             {
-                var renderedExpected = Render.Object(ConvertToIntegers(method.Data.Expected));
+                var renderedExpected = Render.Object(ConvertToIntegers(testMethod.Expected));
                 assert.AppendLine(Render.AssertEqual(renderedExpected, "tree.AsEnumerable()"));
             }
 

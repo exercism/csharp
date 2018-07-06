@@ -5,24 +5,24 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class Connect : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.UseVariablesForConstructorParameters = true;
-            data.SetConstructorInputParameters("board");
-            data.TestedMethod = "Result";
+            testMethod.UseVariablesForConstructorParameters = true;
+            testMethod.SetConstructorInputParameters("board");
+            testMethod.TestedMethod = "Result";
             
-            data.Input["board"] = new UnescapedValue(Render.ArrayMultiLine(data.Input["board"]));
+            testMethod.Input["board"] = new UnescapedValue(Render.ArrayMultiLine(testMethod.Input["board"]));
 
-            switch (data.Expected)
+            switch (testMethod.Expected)
             {
                 case "X":
-                    data.Expected = Render.Enum("ConnectWinner", "Black");
+                    testMethod.Expected = Render.Enum("ConnectWinner", "Black");
                     break;
                 case "O":
-                    data.Expected = Render.Enum("ConnectWinner", "White");
+                    testMethod.Expected = Render.Enum("ConnectWinner", "White");
                     break;
                 case "":
-                    data.Expected = Render.Enum("ConnectWinner", "None");
+                    testMethod.Expected = Render.Enum("ConnectWinner", "None");
                     break;
             }
         }

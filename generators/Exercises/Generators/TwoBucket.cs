@@ -5,28 +5,25 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class TwoBucket : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.TestedMethodType = TestedMethodType.Instance;
-            data.SetConstructorInputParameters("bucketOne", "bucketTwo", "startBucket");
-            data.Input["startBucket"] = Render.Enum("Bucket", data.Input["startBucket"]);
+            testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
+            testMethod.SetConstructorInputParameters("bucketOne", "bucketTwo", "startBucket");
+            testMethod.Input["startBucket"] = Render.Enum("Bucket", testMethod.Input["startBucket"]);
+
+            testMethod.Act = RenderAct(testMethod);
+            testMethod.Assert = RenderAssert(testMethod);
         }
 
-        protected override void UpdateTestMethod(TestMethod method)
-        {
-            method.Act = RenderAct(method);
-            method.Assert = RenderAssert(method);
-        }
+        private string RenderAct(TestMethod testMethod) => Render.Variable("result", testMethod.TestedMethodInvocation);
 
-        private string RenderAct(TestMethod method) => Render.Variable("result", method.TestedMethodInvocation);
-
-        private string RenderAssert(TestMethod method)
+        private string RenderAssert(TestMethod testMethod)
         {
             var assert = new StringBuilder();
-            assert.AppendLine(Render.AssertEqual(method.Data.Expected["moves"].ToString(), "result.Moves"));
-            assert.AppendLine(Render.AssertEqual(method.Data.Expected["otherBucket"].ToString(), "result.OtherBucket"));
+            assert.AppendLine(Render.AssertEqual(testMethod.Expected["moves"].ToString(), "result.Moves"));
+            assert.AppendLine(Render.AssertEqual(testMethod.Expected["otherBucket"].ToString(), "result.OtherBucket"));
 
-            var expected = Render.Enum("Bucket", method.Data.Expected["goalBucket"]);
+            var expected = Render.Enum("Bucket", testMethod.Expected["goalBucket"]);
             assert.AppendLine(Render.AssertEqual(expected.ToString(), "result.GoalBucket"));
             
             return assert.ToString();

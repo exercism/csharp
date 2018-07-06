@@ -5,18 +5,18 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class FlattenArray : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.UseVariablesForInput = true;
-            data.UseVariableForExpected = true;
+            testMethod.UseVariablesForInput = true;
+            testMethod.UseVariableForExpected = true;
 
-            var stringInput = data.Input["array"].ToString();
+            var stringInput = testMethod.Input["array"].ToString();
 
             // We skip rendering of pure int arrays.
             if (stringInput.Contains("System.Int32"))
                 return;
 
-            data.Input["array"] = new UnescapedValue(ConvertToObjectArray(stringInput));
+            testMethod.Input["array"] = new UnescapedValue(ConvertToObjectArray(stringInput));
         }
 
         private static string ConvertToObjectArray(string input)

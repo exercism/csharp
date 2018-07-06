@@ -7,15 +7,15 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class OcrNumbers : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            if (data.Expected is int i && i <= 0)
-                data.ExceptionThrown = typeof(ArgumentException);
+            if (testMethod.Expected is int i && i <= 0)
+                testMethod.ExceptionThrown = typeof(ArgumentException);
 
-            data.Input["rows"] = new MultiLineString(data.Input["rows"]);
-            data.Expected = data.Expected.ToString();
-            data.UseVariableForTested = true;
-            data.UseVariablesForInput = true;
+            testMethod.Input["rows"] = new MultiLineString(testMethod.Input["rows"]);
+            testMethod.Expected = testMethod.Expected.ToString();
+            testMethod.UseVariableForTested = true;
+            testMethod.UseVariablesForInput = true;
         }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)

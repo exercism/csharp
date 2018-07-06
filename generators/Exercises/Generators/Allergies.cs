@@ -5,32 +5,29 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class Allergies : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            if (data.Property == "allergicTo")
-                data.TestedMethod = $"Is{data.TestedMethod}";
-            else if (data.Property == "list")
-                data.UseVariableForExpected = true;
+            if (testMethod.Property == "allergicTo")
+                testMethod.TestedMethod = $"Is{testMethod.TestedMethod}";
+            else if (testMethod.Property == "list")
+                testMethod.UseVariableForExpected = true;
 
-            data.SetConstructorInputParameters("score");
+            testMethod.SetConstructorInputParameters("score");
+
+            testMethod.Assert = RenderAssert(testMethod);
         }
 
-        protected override void UpdateTestMethod(TestMethod method)
-        {
-            method.Assert = RenderAssert(method);
-        }
+        private string RenderAssert(TestMethod testMethod) 
+            => testMethod.Property == "allergicTo"
+                ? RenderIsAllergicToAssert(testMethod)
+                : testMethod.Assert;
 
-        private string RenderAssert(TestMethod method) 
-            => method.Data.Property == "allergicTo"
-                ? RenderIsAllergicToAssert(method)
-                : method.Assert;
-
-        private string RenderIsAllergicToAssert(TestMethod method)
+        private string RenderIsAllergicToAssert(TestMethod testMethod)
         {
             var assert = new StringBuilder();
 
-            foreach (var allergy in method.Data.Expected)
-                assert.AppendLine(Render.AssertBoolean(allergy["result"], $"sut.{method.Data.TestedMethod}({Render.Object(allergy["substance"])})"));
+            foreach (var allergy in testMethod.Expected)
+                assert.AppendLine(Render.AssertBoolean(allergy["result"], $"sut.{testMethod.TestedMethod}({Render.Object(allergy["substance"])})"));
 
             return assert.ToString();
         }

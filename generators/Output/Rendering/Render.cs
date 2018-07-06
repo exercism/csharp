@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Exercism.CSharp.Output.Rendering
 {
@@ -21,6 +22,7 @@ namespace Exercism.CSharp.Output.Rendering
                 case float flt: return Float(flt);
                 case ulong ulng: return Ulong(ulng);
                 case char c: return Char(c);
+                case Regex regex: return Regex(regex);
                 default:
                     if (IsList(val))
                         return List((dynamic)val);

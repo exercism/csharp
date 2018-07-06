@@ -5,17 +5,17 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class Triangle : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.TestedMethod = $"Is{data.TestedMethod}".ToTestedMethodName();
+            testMethod.TestedMethod = $"Is{testMethod.TestedMethod}".ToTestedMethodName();
 
-            data.Input["x"] = data.Input["sides"][0];
-            data.Input["y"] = data.Input["sides"][1];
-            data.Input["z"] = data.Input["sides"][2];
-            data.Input.Remove("sides");
-            data.SetInputParameters("x", "y", "z");
+            testMethod.Input["x"] = testMethod.Input["sides"][0];
+            testMethod.Input["y"] = testMethod.Input["sides"][1];
+            testMethod.Input["z"] = testMethod.Input["sides"][2];
+            testMethod.Input.Remove("sides");
+            testMethod.SetInputParameters("x", "y", "z");
 
-            data.UseFullDescriptionPath = true;
+            testMethod.TestMethodName = testMethod.TestMethodNameWithPath;
         }
     }
 }

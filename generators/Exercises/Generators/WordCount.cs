@@ -7,11 +7,11 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class WordCount : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.UseVariableForExpected = true;
-            data.UseVariableForTested = true;
-            data.Expected = ConvertExpected(data.Expected);
+            testMethod.UseVariableForExpected = true;
+            testMethod.UseVariableForTested = true;
+            testMethod.Expected = ConvertExpected(testMethod.Expected);
         }
 
         private static dynamic ConvertExpected(dynamic expected)

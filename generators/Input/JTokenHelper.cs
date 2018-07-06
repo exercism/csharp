@@ -54,7 +54,7 @@ namespace Exercism.CSharp.Input
                 properties[key] = value is JToken jToken ? ConvertJToken(jToken) : value;
             }
 
-            return properties;
+            return new Dictionary<string, dynamic>(properties, StringComparer.OrdinalIgnoreCase);
         }
 
         private static dynamic ConvertJArray(JArray jArray)

@@ -1,59 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using Exercism.CSharp.Output;
+using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
     public class QueenAttack : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            if (data.Property != "create")
+            if (testMethod.Property == "create")
+            {
+                if (testMethod.Expected < 0)
+                {
+                    testMethod.ExceptionThrown = typeof(ArgumentOutOfRangeException);
+                }
+                else
+                {
+                    testMethod.UseVariableForTested = true;
+                    testMethod.Assert = string.Empty;
+                }
+
+                var coordinates = GetCoordinatesFromPosition(testMethod.Input["queen"]);
+                testMethod.Input["X"] = coordinates.Item1;
+                testMethod.Input["Y"] = coordinates.Item2;
+    
+                testMethod.SetInputParameters("X", "Y");
+                
                 return;
-
-            if (data.Expected < 0)
-                data.ExceptionThrown = typeof(ArgumentOutOfRangeException);
-
-            data.UseVariableForTested = true;
-
-            var coordinates = GetCoordinatesFromPosition(data.Input["queen"]);
-            data.Input["X"] = coordinates.Item1;
-            data.Input["Y"] = coordinates.Item2;
-
-            data.SetInputParameters("X", "Y");
+            }
+            
+            if (testMethod.Property == "canAttack")
+            {
+                testMethod.UseVariablesForInput = true;
+                testMethod.Input["white_queen"] = RenderQueen(testMethod.Input["white_queen"]);
+                testMethod.Input["black_queen"] = RenderQueen(testMethod.Input["black_queen"]);
+            }
         }
-
-        protected override void UpdateTestMethod(TestMethod method)
+        
+        private static UnescapedValue RenderQueen(dynamic input)
         {
-            method.Assert = RenderAssert(method);
+            var (x, y) = GetCoordinatesFromPosition((IDictionary<string, dynamic>)input);
+            return new UnescapedValue($"QueenAttack.Create({x},{y})");
         }
 
-        private string RenderAssert(TestMethod method)
-        {
-            if (method.Data.Property == "canAttack")
-                return RenderCanAttackAssert(method);
-
-            return method.Data.UseVariableForTested
-                ? string.Empty
-                : method.Assert;
-        }
-
-        private string RenderCanAttackAssert(TestMethod method)
-        {
-            var assert = new StringBuilder();
-
-            var (whiteQueenX, whiteQueenY) = GetCoordinatesFromPosition((IDictionary<string, dynamic>)method.Data.Input["white_queen"]);
-            var (blackQueenX, blackQueenY) = GetCoordinatesFromPosition((IDictionary<string, dynamic>)method.Data.Input["black_queen"]);
-
-            assert.AppendLine(Render.Variable("whiteQueen", $"QueenAttack.Create({whiteQueenX},{whiteQueenY})"));
-            assert.AppendLine(Render.Variable("blackQueen", $"QueenAttack.Create({blackQueenX},{blackQueenY})"));
-            assert.AppendLine(Render.AssertBoolean((bool)method.Data.Expected, "QueenAttack.CanAttack(whiteQueen, blackQueen)"));
-
-            return assert.ToString();
-        }
-
-        private static ValueTuple<int, int> GetCoordinatesFromPosition(IDictionary<string, dynamic> expected)
+        private static (int, int) GetCoordinatesFromPosition(IDictionary<string, dynamic> expected)
         {
             var coordinates = expected["position"];
             var positionX = (int)coordinates["row"];

@@ -8,16 +8,16 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class VariableLengthQuantity : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.UseVariableForExpected = true;
-            data.UseVariablesForInput = true;
-            data.Input["integers"] = ConvertToUInt32Array(data.Input["integers"]);
+            testMethod.UseVariableForExpected = true;
+            testMethod.UseVariablesForInput = true;
+            testMethod.Input["integers"] = ConvertToUInt32Array(testMethod.Input["integers"]);
 
-            if (data.Expected == null)
-                data.ExceptionThrown = typeof(InvalidOperationException);
+            if (testMethod.Expected == null)
+                testMethod.ExceptionThrown = typeof(InvalidOperationException);
             else
-                data.Expected = ConvertToUInt32Array(data.Expected);
+                testMethod.Expected = ConvertToUInt32Array(testMethod.Expected);
         }
 
         private static uint[] ConvertToUInt32Array(IEnumerable input) 

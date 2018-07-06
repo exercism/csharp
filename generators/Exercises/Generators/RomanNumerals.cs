@@ -4,10 +4,10 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class RomanNumerals : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.TestedMethodType = TestedMethodType.Extension;
-            data.TestedMethod = "ToRoman";
+            testMethod.TestedMethodType = TestedMethodType.ExtensionMethod;
+            testMethod.TestedMethod = "ToRoman";
         }
     }
 }

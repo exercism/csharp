@@ -5,14 +5,14 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class House : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.UseVariableForExpected = true;
-            data.Expected = new MultiLineString(data.Expected);
+            testMethod.UseVariableForExpected = true;
+            testMethod.Expected = new MultiLineString(testMethod.Expected);
 
-            if (data.Input["startVerse"] == data.Input["endVerse"])
+            if (testMethod.Input["startVerse"] == testMethod.Input["endVerse"])
             {
-                data.SetInputParameters("startVerse");
+                testMethod.SetInputParameters("startVerse");
             }
         }
     }

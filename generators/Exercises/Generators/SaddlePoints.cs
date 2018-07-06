@@ -7,21 +7,21 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class SaddlePoints : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.TestedMethodType = TestedMethodType.Instance;
-            data.TestedMethod = "Calculate";
-            data.SetConstructorInputParameters("matrix");
-            data.UseVariablesForConstructorParameters = true;
-            data.UseVariablesForInput = true;
-            data.UseVariableForTested = true;
-            data.UseVariableForExpected = true;
+            testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
+            testMethod.TestedMethod = "Calculate";
+            testMethod.SetConstructorInputParameters("matrix");
+            testMethod.UseVariablesForConstructorParameters = true;
+            testMethod.UseVariablesForInput = true;
+            testMethod.UseVariableForTested = true;
+            testMethod.UseVariableForExpected = true;
 
-            data.Input["matrix"] = ToMultiDimensionalArray(data.Input["matrix"]);
+            testMethod.Input["matrix"] = ToMultiDimensionalArray(testMethod.Input["matrix"]);
 
-            if (data.Expected is Array array)
+            if (testMethod.Expected is Array array)
             {
-                data.Expected = ToTupleCollection(array);
+                testMethod.Expected = ToTupleCollection(array);
             }
         }
 
@@ -32,14 +32,14 @@ namespace Exercism.CSharp.Exercises.Generators
 
         private static dynamic ToMultiDimensionalArray(JArray jArray) => jArray.ToObject<int[,]>();
 
-        private static ValueTuple<string, object>[] ToTupleCollection(Array array)
+        private static (string, object)[] ToTupleCollection(Array array)
         {
-            var tuples = new List<ValueTuple<string, object>>();
+            var tuples = new List<(string, object)>();
             
             for (var x = 0; x < array.GetLength(0); x++)
             {
                 var current = (Dictionary<string, object>)array.GetValue(x);
-                tuples.Add(new ValueTuple<string, object>(current["row"].ToString(), current["column"].ToString()));
+                tuples.Add((current["row"].ToString(), current["column"].ToString()));
             }
 
             return tuples.ToArray();

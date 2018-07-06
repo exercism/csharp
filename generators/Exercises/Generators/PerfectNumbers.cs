@@ -5,12 +5,12 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class PerfectNumbers : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            if (data.Expected is string)
-                data.Expected = Render.Enum("Classification", data.Expected);
+            if (testMethod.Expected is string)
+                testMethod.Expected = Render.Enum("Classification", testMethod.Expected);
             else
-                data.ExceptionThrown = typeof(ArgumentOutOfRangeException);
+                testMethod.ExceptionThrown = typeof(ArgumentOutOfRangeException);
         }
     }
 }

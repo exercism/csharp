@@ -5,14 +5,14 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class Transpose : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.TestedMethod = "String";
-            data.Input["lines"] = new MultiLineString(data.Input["lines"]);
-            data.Expected = new MultiLineString(data.Expected);
+            testMethod.TestedMethod = "String";
+            testMethod.Input["lines"] = new MultiLineString(testMethod.Input["lines"]);
+            testMethod.Expected = new MultiLineString(testMethod.Expected);
 
-            data.UseVariablesForInput = true;
-            data.UseVariableForExpected = true;
+            testMethod.UseVariablesForInput = true;
+            testMethod.UseVariableForExpected = true;
         }
     }
 }

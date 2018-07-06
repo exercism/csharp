@@ -5,12 +5,12 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class PhoneNumber : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.UseVariablesForInput = true;
+            testMethod.UseVariablesForInput = true;
 
-            if (data.Expected is null)
-                data.ExceptionThrown = typeof(ArgumentException);
+            if (testMethod.Expected is null)
+                testMethod.ExceptionThrown = typeof(ArgumentException);
         }
     }
 }

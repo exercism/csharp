@@ -6,29 +6,29 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class RationalNumbers : GeneratorExercise
     {
-        protected override void UpdateTestMethod(TestMethod method)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            method.Assert = RenderAssert(method);
+            testMethod.Assert = RenderAssert(testMethod);
         }
 
-        private string RenderAssert(TestMethod method)
+        private string RenderAssert(TestMethod testMethod)
         {
-            switch (method.Data.Property)
+            switch (testMethod.Property)
             {
                 case "add":
                 case "sub":
                 case "mul":
                 case "div":
                     const string operationsWithOverloading = "add|+|sub|-|mul|*|div|/";
-                    var operationCode = operationsWithOverloading.Substring(operationsWithOverloading.IndexOf(method.Data.Property, StringComparison.OrdinalIgnoreCase) + 4, 1);
-                    return Render.AssertEqual(RenderRationalNumber(method.Data.Expected), $"{RenderRationalNumber(method.Data.Input["r1"])} {operationCode} ({RenderRationalNumber(method.Data.Input["r2"])})");
+                    var operationCode = operationsWithOverloading.Substring(operationsWithOverloading.IndexOf(testMethod.Property, StringComparison.OrdinalIgnoreCase) + 4, 1);
+                    return Render.AssertEqual(RenderRationalNumber(testMethod.Expected), $"{RenderRationalNumber(testMethod.Input["r1"])} {operationCode} ({RenderRationalNumber(testMethod.Input["r2"])})");
                 case "abs":
                 case "reduce":
-                    return Render.AssertEqual(RenderRationalNumber(method.Data.Expected), $"{RenderRationalNumber(method.Data.Input["r"])}.{method.Data.TestedMethod}()");
+                    return Render.AssertEqual(RenderRationalNumber(testMethod.Expected), $"{RenderRationalNumber(testMethod.Input["r"])}.{testMethod.TestedMethod}()");
                 case "exprational":
-                    return Render.AssertEqual(RenderRationalNumber(method.Data.Expected), $"{RenderRationalNumber(method.Data.Input["r"])}.{method.Data.TestedMethod}({method.Data.Input["n"]})");
+                    return Render.AssertEqual(RenderRationalNumber(testMethod.Expected), $"{RenderRationalNumber(testMethod.Input["r"])}.{testMethod.TestedMethod}({testMethod.Input["n"]})");
                 case "expreal":
-                    return Render.AssertEqual(method.ExpectedParameter, $"{method.Data.Input["x"]}.{method.Data.TestedMethod}({RenderRationalNumber(method.Data.Input["r"])}), {Precision(method.Data.Expected)}");
+                    return Render.AssertEqual(testMethod.ExpectedParameter, $"{testMethod.Input["x"]}.{testMethod.TestedMethod}({RenderRationalNumber(testMethod.Input["r"])}), {Precision(testMethod.Expected)}");
                 default:
                     throw new ArgumentOutOfRangeException();
             }

@@ -4,10 +4,10 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class BracketPush : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.Input["value"] = data.Input["value"].Replace("\\", "\\\\");
-            data.UseVariablesForInput = true;
+            testMethod.Input["value"] = testMethod.Input["value"].Replace("\\", "\\\\");
+            testMethod.UseVariablesForInput = true;
         }
     }
 }

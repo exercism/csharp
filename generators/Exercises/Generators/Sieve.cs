@@ -5,12 +5,12 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class Sieve : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.UseVariableForExpected = true;
+            testMethod.UseVariableForExpected = true;
 
-            if (data.Input["limit"] < 2)
-                data.ExceptionThrown = typeof(ArgumentOutOfRangeException);
+            if (testMethod.Input["limit"] < 2)
+                testMethod.ExceptionThrown = typeof(ArgumentOutOfRangeException);
         }
     }
 }

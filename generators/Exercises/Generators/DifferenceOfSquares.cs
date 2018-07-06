@@ -4,9 +4,9 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class DifferenceOfSquares : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.TestedMethod = $"Calculate{data.TestedMethod}";
+            testMethod.TestedMethod = $"Calculate{testMethod.TestedMethod}";
         }
     }
 }

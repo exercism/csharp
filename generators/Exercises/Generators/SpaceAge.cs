@@ -4,11 +4,11 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class SpaceAge : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.TestedMethod = $"On{data.Input["planet"]}";
-            data.SetInputParameters();
-            data.SetConstructorInputParameters("seconds");
+            testMethod.TestedMethod = $"On{testMethod.Input["planet"]}";
+            testMethod.SetInputParameters();
+            testMethod.SetConstructorInputParameters("seconds");
         }
     }
 }

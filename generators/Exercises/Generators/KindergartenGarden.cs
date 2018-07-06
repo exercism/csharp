@@ -7,17 +7,17 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class KindergartenGarden : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.TestedMethodType = TestedMethodType.Instance;
-            data.UseFullDescriptionPath = true;
+            testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
+            testMethod.TestMethodName = testMethod.TestMethodNameWithPath;
 
-            if (data.Input.ContainsKey("students"))
-                data.SetConstructorInputParameters("diagram", "students");
+            if (testMethod.Input.ContainsKey("students"))
+                testMethod.SetConstructorInputParameters("diagram", "students");
             else
-                data.SetConstructorInputParameters("diagram");
+                testMethod.SetConstructorInputParameters("diagram");
 
-            data.Expected = ConvertExpected(data.Expected);
+            testMethod.Expected = ConvertExpected(testMethod.Expected);
         }
 
         private UnescapedValue[] ConvertExpected(IEnumerable<string> plants) 

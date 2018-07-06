@@ -13,26 +13,23 @@ namespace Exercism.CSharp.Exercises.Generators
 
         private const string PropertyDay = "Day";
 
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.TestedMethod = PropertyDay;
-            data.UseVariableForExpected = true;
-            data.SetConstructorInputParameters(ParamMonth, ParamYear);
-            data.SetInputParameters(ParamDayOfWeek, ParamWeek);
+            testMethod.TestedMethod = PropertyDay;
+            testMethod.UseVariableForExpected = true;
+            testMethod.SetConstructorInputParameters(ParamMonth, ParamYear);
+            testMethod.SetInputParameters(ParamDayOfWeek, ParamWeek);
 
-            data.Input[ParamYear] = data.Input[ParamYear];
-            data.Input[ParamMonth] = data.Input[ParamMonth];
-            data.Input[ParamWeek] = Render.Enum("Schedule", data.Input[ParamWeek]);
-            data.Input[ParamDayOfWeek] = Render.Enum("DayOfWeek", data.Input[ParamDayOfWeek]);
+            testMethod.Input[ParamYear] = testMethod.Input[ParamYear];
+            testMethod.Input[ParamMonth] = testMethod.Input[ParamMonth];
+            testMethod.Input[ParamWeek] = Render.Enum("Schedule", testMethod.Input[ParamWeek]);
+            testMethod.Input[ParamDayOfWeek] = Render.Enum("DayOfWeek", testMethod.Input[ParamDayOfWeek]);
+
+            testMethod.Assert = RenderAssert(testMethod);
         }
 
-        protected override void UpdateTestMethod(TestMethod method)
-        {
-            method.Assert = RenderAssert(method);
-        }
-
-        private string RenderAssert(TestMethod method) 
-            => Render.AssertEqual(method.ExpectedParameter, $"{method.TestedValue}.ToString(\"yyyy-MM-dd\")");
+        private string RenderAssert(TestMethod testMethod) 
+            => Render.AssertEqual(testMethod.ExpectedParameter, $"{testMethod.TestedValue}.ToString(\"yyyy-MM-dd\")");
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {

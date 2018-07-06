@@ -7,24 +7,24 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class CircularBuffer : GeneratorExercise
     {
-        protected override void UpdateTestMethod(TestMethod method)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            method.Assert = RenderAssert(method);
+            testMethod.Assert = RenderAssert(testMethod);
         }
 
-        private string RenderAssert(TestMethod method)
+        private string RenderAssert(TestMethod testMethod)
         {
             var assert = new StringBuilder();
-            assert.AppendLine(RenderSut(method.Data));
+            assert.AppendLine(RenderSut(testMethod));
 
-            foreach (var operation in method.Data.Input["operations"])
+            foreach (var operation in testMethod.Input["operations"])
                 assert.AppendLine(RenderOperation(operation));
 
             return assert.ToString();
         }
 
-        private string RenderSut(TestData canonicalDataCase)
-            => Render.Variable("buffer", $"new CircularBuffer<int>(capacity: {canonicalDataCase.Input["capacity"]})");
+        private string RenderSut(TestMethod testMethod)
+            => Render.Variable("buffer", $"new CircularBuffer<int>(capacity: {testMethod.Input["capacity"]})");
 
         private string RenderOperation(dynamic operation)
         {

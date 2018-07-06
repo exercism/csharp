@@ -3,33 +3,32 @@ using System.Linq;
 using System.Text;
 using Exercism.CSharp.Helpers;
 using Exercism.CSharp.Output;
-using Humanizer;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
     public class Zipper : GeneratorExercise
     {
-        protected override void UpdateTestMethod(TestMethod method)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            method.Arrange = RenderArrange(method);
-            method.Assert = RenderAssert(method);
+            testMethod.Arrange = RenderArrange(testMethod);
+            testMethod.Assert = RenderAssert(testMethod);
         }
 
-        private string RenderArrange(TestMethod method)
+        private string RenderArrange(TestMethod testMethod)
         {
             var arrange = new StringBuilder();
-            var tree = RenderTree(method.Data.Input["initialTree"]);
+            var tree = RenderTree(testMethod.Input["initialTree"]);
             arrange.AppendLine(Render.Variable("tree", tree));
             arrange.AppendLine(Render.Variable("sut", "Zipper.FromTree(tree)"));
 
-            var operations = RenderOperations(method.Data.Input["operations"]);
+            var operations = RenderOperations(testMethod.Input["operations"]);
             arrange.AppendLine(Render.Variable("actual", $"sut{operations}"));
             return arrange.ToString();
         }
 
-        private string RenderAssert(TestMethod method)
+        private string RenderAssert(TestMethod testMethod)
         {
-            var expected = RenderExpected(method.Data.Expected);
+            var expected = RenderExpected(testMethod.Expected);
             if (expected == null)
             {
                 return Render.AssertNull("actual");

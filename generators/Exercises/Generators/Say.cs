@@ -5,12 +5,12 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class Say : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.TestedMethod = "InEnglish";
+            testMethod.TestedMethod = "InEnglish";
 
-            if (data.Expected is int)
-                data.ExceptionThrown = typeof(ArgumentOutOfRangeException);
+            if (testMethod.Expected is int)
+                testMethod.ExceptionThrown = typeof(ArgumentOutOfRangeException);
         }
     }
 }

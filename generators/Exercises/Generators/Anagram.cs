@@ -4,11 +4,11 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class Anagram : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.UseVariablesForInput = true;
-            data.UseVariableForExpected = true;
-            data.SetConstructorInputParameters("subject");
+            testMethod.UseVariablesForInput = true;
+            testMethod.UseVariableForExpected = true;
+            testMethod.SetConstructorInputParameters("subject");
         }
     }
 }

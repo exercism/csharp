@@ -4,11 +4,11 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class RailFenceCipher : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.UseVariablesForInput = true;
-            data.UseVariableForExpected = true;
-            data.SetConstructorInputParameters("rails");
+            testMethod.UseVariablesForInput = true;
+            testMethod.UseVariableForExpected = true;
+            testMethod.SetConstructorInputParameters("rails");
         }
     }
 }

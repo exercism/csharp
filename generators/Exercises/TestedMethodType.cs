@@ -2,8 +2,10 @@ namespace Exercism.CSharp.Exercises
 {
     public enum TestedMethodType
     {
-        Static,
-        Instance,
-        Extension
+        StaticMethod,
+        InstanceMethod,
+        ExtensionMethod,
+        Property,
+        Constructor
     }
 }

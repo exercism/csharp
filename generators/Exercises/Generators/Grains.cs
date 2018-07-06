@@ -5,12 +5,12 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class Grains : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            if (data.Expected is int i && i == -1)
-                data.ExceptionThrown = typeof(ArgumentOutOfRangeException);
+            if (testMethod.Expected is int i && i == -1)
+                testMethod.ExceptionThrown = typeof(ArgumentOutOfRangeException);
             else
-                data.Expected = (ulong)data.Expected;
+                testMethod.Expected = (ulong)testMethod.Expected;
         }
     }
 }

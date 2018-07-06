@@ -5,12 +5,12 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class Markdown : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.UseVariablesForInput = true;
-            data.UseVariableForExpected = true;
-            data.Input["markdown"] = new MultiLineString(data.Input["markdown"]);
-            data.Skip = false;
+            testMethod.UseVariablesForInput = true;
+            testMethod.UseVariableForExpected = true;
+            testMethod.Input["markdown"] = new MultiLineString(testMethod.Input["markdown"]);
+            testMethod.Skip = false;
         }
     }
 }

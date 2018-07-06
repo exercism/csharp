@@ -4,25 +4,22 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class RunLengthEncoding : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.UseFullDescriptionPath = true;
+            testMethod.TestMethodName = testMethod.TestMethodNameWithPath;
+
+            testMethod.Assert = RenderAssert(testMethod);
         }
 
-        protected override void UpdateTestMethod(TestMethod method)
-        {
-            method.Assert = RenderAssert(method);
-        }
+        private string RenderAssert(TestMethod testMethod) 
+            => testMethod.Property == "consistency"
+                ? RenderConsistencyToAssert(testMethod)
+                : testMethod.Assert;
 
-        private string RenderAssert(TestMethod method) 
-            => method.Data.Property == "consistency"
-                ? RenderConsistencyToAssert(method)
-                : method.Assert;
-
-        private string RenderConsistencyToAssert(TestMethod method)
+        private string RenderConsistencyToAssert(TestMethod testMethod)
         {
-            var expected = Render.Object(method.Data.Expected);
-            var actual = $"{method.Data.TestedClass}.Decode({method.Data.TestedClass}.Encode({expected}))";
+            var expected = Render.Object(testMethod.Expected);
+            var actual = $"{testMethod.TestedClass}.Decode({testMethod.TestedClass}.Encode({expected}))";
             return Render.AssertEqual(expected, actual);
         }
     }

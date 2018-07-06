@@ -10,21 +10,21 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class React : GeneratorExercise
     {
-        protected override void UpdateTestMethod(TestMethod method)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            method.Arrange = RenderArrange(method);
-            method.Assert = RenderAssert();
+            testMethod.Arrange = RenderArrange(testMethod);
+            testMethod.Assert = RenderAssert();
         }
 
-        private string RenderArrange(TestMethod method)
+        private string RenderArrange(TestMethod testMethod)
         {
             var arrange = new StringBuilder();
             arrange.AppendLine(Render.Variable("sut", "new Reactor()"));
 
-            var cells = RenderCells(method.Data.Input["cells"]);
+            var cells = RenderCells(testMethod.Input["cells"]);
             arrange.AppendLine(cells);
 
-            var operations = RenderOperations(method.Data.Input["operations"]);
+            var operations = RenderOperations(testMethod.Input["operations"]);
             arrange.AppendLine(operations);
 
             return arrange.ToString();

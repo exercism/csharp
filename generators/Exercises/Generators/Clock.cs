@@ -13,55 +13,52 @@ namespace Exercism.CSharp.Exercises.Generators
         private const string PropertyCreate = "create";
         private const string PropertyEqual = "equal";
 
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {   
-            data.SetConstructorInputParameters(ParamHour, ParamMinute);
+            testMethod.SetConstructorInputParameters(ParamHour, ParamMinute);
             
-            if (data.Property == PropertyEqual)
+            if (testMethod.Property == PropertyEqual)
             {
-                var clock1 = data.Input[ParamClock1];
-                data.Input[ParamClock1] = new UnescapedValue($"new Clock({clock1[ParamHour]}, {clock1[ParamMinute]})");
+                var clock1 = testMethod.Input[ParamClock1];
+                testMethod.Input[ParamClock1] = new UnescapedValue($"new Clock({clock1[ParamHour]}, {clock1[ParamMinute]})");
                 
-                var clock2 = data.Input[ParamClock2];
-                data.Input[ParamHour] = clock2[ParamHour];
-                data.Input[ParamMinute] = clock2[ParamMinute];
+                var clock2 = testMethod.Input[ParamClock2];
+                testMethod.Input[ParamHour] = clock2[ParamHour];
+                testMethod.Input[ParamMinute] = clock2[ParamMinute];
             }
 
-            if (data.Property == PropertyCreate)
+            if (testMethod.Property == PropertyCreate)
             {
-                data.TestedMethod = "ToString";
+                testMethod.TestedMethod = "ToString";
             }
-            else if (data.Property == PropertyEqual)
+            else if (testMethod.Property == PropertyEqual)
             {
-                data.TestedMethod = "Equals";
+                testMethod.TestedMethod = "Equals";
             }
+
+            testMethod.Assert = RenderAssert(testMethod);
         }
 
-        protected override void UpdateTestMethod(TestMethod method)
+        private string RenderAssert(TestMethod testMethod)
         {
-            method.Assert = RenderAssert(method);
-        }
-
-        private string RenderAssert(TestMethod method)
-        {
-            if (method.Data.Property == PropertyEqual)
+            if (testMethod.Property == PropertyEqual)
             {
-                return RenderEqualToAssert(method);
+                return RenderEqualToAssert(testMethod);
             }
 
-            return method.Data.Property == PropertyCreate
-                ? method.Assert
-                : RenderConsistencyToAssert(method);
+            return testMethod.Property == PropertyCreate
+                ? testMethod.Assert
+                : RenderConsistencyToAssert(testMethod);
         }
 
-        private string RenderConsistencyToAssert(TestMethod method) 
-            => Render.AssertEqual(method.ExpectedParameter, $"{method.TestedValue}.ToString()");
+        private string RenderConsistencyToAssert(TestMethod testMethod) 
+            => Render.AssertEqual(testMethod.ExpectedParameter, $"{testMethod.TestedValue}.ToString()");
 
-        private string RenderEqualToAssert(TestMethod method)
+        private string RenderEqualToAssert(TestMethod testMethod)
         {
-            var expected = Render.Object(method.Data.Input[ParamClock1]);
+            var expected = Render.Object(testMethod.Input[ParamClock1]);
 
-            return method.Data.Expected 
+            return testMethod.Expected 
                 ? Render.AssertEqual(expected, "sut")
                 : Render.AssertNotEqual(expected, "sut");
         }

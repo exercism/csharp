@@ -7,10 +7,10 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class SumOfMultiples : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            if (data.Input["factors"] is JArray)
-                data.Input["factors"] = Array.Empty<int>();
+            if (testMethod.Input["factors"] is JArray)
+                testMethod.Input["factors"] = Array.Empty<int>();
         }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)

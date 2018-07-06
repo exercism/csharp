@@ -5,10 +5,10 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class CollatzConjecture : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            if (data.Input["number"] <= 0)
-                data.ExceptionThrown = typeof(ArgumentException);
+            if (testMethod.Input["number"] <= 0)
+                testMethod.ExceptionThrown = typeof(ArgumentException);
         }
     }
 }

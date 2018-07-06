@@ -5,11 +5,11 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class SpiralMatrix : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.TestedMethod = "GetMatrix";
-            data.UseVariableForExpected = true;
-            data.Expected = ConvertExpected(data.Expected);
+            testMethod.TestedMethod = "GetMatrix";
+            testMethod.UseVariableForExpected = true;
+            testMethod.Expected = ConvertExpected(testMethod.Expected);
         }
 
         private static int[,] ConvertExpected(JArray jArray) => jArray.ToObject<int[,]>();

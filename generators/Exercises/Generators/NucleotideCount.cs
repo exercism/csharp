@@ -7,14 +7,21 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class NucleotideCount : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            if (data.Expected.ContainsKey("error"))
-                return;
+            if (testMethod.Expected.ContainsKey("error"))
+            {
+                testMethod.ExceptionThrown = typeof(ArgumentException);
+                testMethod.TestedMethodType = TestedMethodType.Constructor;
+            }
+            else
+            {
+                testMethod.Expected = ConvertExpected(testMethod.Expected);
+                testMethod.TestedMethodType = TestedMethodType.Property;
+            }
 
-            data.UseVariableForExpected = true;
-            data.SetConstructorInputParameters("strand");
-            data.Expected = ConvertExpected(data.Expected);
+            testMethod.UseVariableForExpected = true;
+            testMethod.SetConstructorInputParameters("strand");
         }
 
         private static dynamic ConvertExpected(dynamic expected)
@@ -24,25 +31,6 @@ namespace Exercism.CSharp.Exercises.Generators
         {
             namespaces.Add(typeof(ArgumentException).Namespace);
             namespaces.Add(typeof(Dictionary<char, int>).Namespace);
-        }
-
-        protected override void UpdateTestMethod(TestMethod method)
-        {
-            method.Assert = RenderAssert(method);
-        }
-
-        private string RenderAssert(TestMethod method) 
-            => method.Data.UseVariableForExpected
-                ? RenderEqualAssert(method)
-                : RenderThrowsAssert(method);
-
-        private string RenderEqualAssert(TestMethod method) 
-            => Render.AssertEqual("expected", $"sut.{method.Data.TestedMethod}");
-
-        private string RenderThrowsAssert(TestMethod method)
-        {
-            var strand = Render.Object(method.Data.Input["strand"]);
-            return Render.AssertThrows<ArgumentException>($"new NucleotideCount({strand})");
         }
     }
 }

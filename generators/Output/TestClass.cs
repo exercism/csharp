@@ -10,7 +10,7 @@ namespace Exercism.CSharp.Output
         public string Exercise { get; set; }
         public string ClassName { get; set; }
         public string CanonicalDataVersion { get; set; }
-        public ICollection<string> Methods { get; set; }
+        public IList<string> Methods { get; set; }
         public ISet<string> Namespaces { get; set; }
         public bool IsDisposable { get; set; }
 

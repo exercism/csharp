@@ -9,38 +9,28 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class Tournament : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.TestedMethod = "RunTally";
-            data.TestedMethodType = TestedMethodType.Static;
-            data.UseVariablesForInput = true;
-            data.UseVariableForExpected = true;
-            data.Input["rows"] = new MultiLineString(data.Input["rows"]);
-            data.Expected = new MultiLineString(data.Expected);
-        }
+            testMethod.TestedMethod = "RunTally";
+            testMethod.TestedMethodType = TestedMethodType.StaticMethod;
+            testMethod.UseVariablesForInput = true;
+            testMethod.UseVariableForExpected = true;
+            testMethod.Input["rows"] = new MultiLineString(testMethod.Input["rows"]);
+            testMethod.Expected = new MultiLineString(testMethod.Expected);
 
-        protected override void UpdateNamespaces(ISet<string> namespaces)
-        {
-            namespaces.Add(typeof(Array).Namespace);
-            namespaces.Add(typeof(Stream).Namespace);
-            namespaces.Add(typeof(UTF8Encoding).Namespace);
-        }
-
-        protected override void UpdateTestMethod(TestMethod method)
-        {
-            method.Assert = RenderAssert();
+            testMethod.Assert = RenderAssert();
         }
 
         private string RenderAssert() => Render.AssertEqual("expected", "RunTally(rows)");
 
-        protected override void UpdateTestClass(TestClass @class)
+        protected override void UpdateTestClass(TestClass testClass)
         {
-            AddRunTallyMethod(@class);
+            AddRunTallyMethod(testClass);
         }
 
-        private static void AddRunTallyMethod(TestClass @class)
+        private static void AddRunTallyMethod(TestClass testClass)
         {
-            @class.Methods.Add(@"
+            testClass.Methods.Add(@"
 private string RunTally(string input)
 {
     var encoding = new UTF8Encoding();
@@ -52,6 +42,13 @@ private string RunTally(string input)
         return encoding.GetString(outStream.ToArray());
     }
 }");
+        }
+
+        protected override void UpdateNamespaces(ISet<string> namespaces)
+        {
+            namespaces.Add(typeof(Array).Namespace);
+            namespaces.Add(typeof(Stream).Namespace);
+            namespaces.Add(typeof(UTF8Encoding).Namespace);
         }
     }
 }

@@ -10,61 +10,58 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class GoCounting : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.UseVariablesForInput = true;
-            data.UseVariableForExpected = true;
-            data.UseVariablesForConstructorParameters = true;
-            data.UseVariableForTested = true;
+            testMethod.UseVariablesForInput = true;
+            testMethod.UseVariableForExpected = true;
+            testMethod.UseVariablesForConstructorParameters = true;
+            testMethod.UseVariableForTested = true;
 
-            data.Input["board"] = new MultiLineString(data.Input["board"]);
-            data.SetConstructorInputParameters("board");
+            testMethod.Input["board"] = new MultiLineString(testMethod.Input["board"]);
+            testMethod.SetConstructorInputParameters("board");
 
-            if (data.Property == "territory")
+            if (testMethod.Property == "territory")
             {
-                data.Input["coordinate"] = (data.Input["x"], data.Input["y"]);
-                data.SetInputParameters("coordinate");
+                testMethod.Input["coordinate"] = (testMethod.Input["x"], testMethod.Input["y"]);
+                testMethod.SetInputParameters("coordinate");
 
-                if (data.Expected.ContainsKey("error"))
+                if (testMethod.Expected.ContainsKey("error"))
                 {
-                    data.ExceptionThrown = typeof(ArgumentException);
+                    testMethod.ExceptionThrown = typeof(ArgumentException);
                 }
                 else
                 {
-                    var owner = RenderOwner(data.Expected["owner"]);
-                    var territory = RenderTerritory(data.Expected["territory"]);
-                    data.Expected = (owner, territory);
+                    var owner = RenderOwner(testMethod.Expected["owner"]);
+                    var territory = RenderTerritory(testMethod.Expected["territory"]);
+                    testMethod.Expected = (owner, territory);
                 }
             }
             else
             {
                 var expected = new[]
                     {
-                        "new Dictionary<Owner, ValueTuple<int,int>[]>",
+                        "new Dictionary<Owner, (int, int)[]>",
                         "{",
-                        $"    [Owner.Black] = {RenderTerritory(data.Expected["territoryBlack"])},",
-                        $"    [Owner.White] = {RenderTerritory(data.Expected["territoryWhite"])},",
-                        $"    [Owner.None] = {RenderTerritory(data.Expected["territoryNone"])}",
+                        $"    [Owner.Black] = {RenderTerritory(testMethod.Expected["territoryBlack"])},",
+                        $"    [Owner.White] = {RenderTerritory(testMethod.Expected["territoryWhite"])},",
+                        $"    [Owner.None] = {RenderTerritory(testMethod.Expected["territoryNone"])}",
                         "}"
                     };
 
-                data.Expected = new UnescapedValue(string.Join(Environment.NewLine, expected));
+                testMethod.Expected = new UnescapedValue(string.Join(Environment.NewLine, expected));
             }
+
+            testMethod.Assert = RenderAssert(testMethod);
         }
 
-        protected override void UpdateTestMethod(TestMethod method)
+        private string RenderAssert(TestMethod testMethod)
         {
-            method.Assert = RenderAssert(method);
-        }
-
-        private string RenderAssert(TestMethod method)
-        {
-            if (method.Data.ExceptionThrown != null)
+            if (testMethod.ExceptionThrown != null)
             {
-                return method.Assert;
+                return testMethod.Assert;
             }
 
-            if (method.Data.Property == "territories")
+            if (testMethod.Property == "territories")
             {
                 var territoriesAssert = new StringBuilder();
                 territoriesAssert.AppendLine(Render.AssertEqual("expected.Keys", "actual.Keys"));

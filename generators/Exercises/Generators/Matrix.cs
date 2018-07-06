@@ -4,10 +4,10 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class Matrix : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.SetConstructorInputParameters("string");
-            data.SetInputParameters("index");
+            testMethod.SetConstructorInputParameters("string");
+            testMethod.SetInputParameters("index");
         }
     }
 }

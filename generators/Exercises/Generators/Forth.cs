@@ -5,17 +5,17 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class Forth : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.UseFullDescriptionPath = true;
+            testMethod.TestMethodName = testMethod.TestMethodNameWithPath;
 
-            if (data.Expected == null)
+            if (testMethod.Expected == null)
             {
-                data.ExceptionThrown = typeof(InvalidOperationException);
+                testMethod.ExceptionThrown = typeof(InvalidOperationException);
             }
             else
             {
-                data.Expected = string.Join(" ", data.Expected);
+                testMethod.Expected = string.Join(" ", testMethod.Expected);
             }
         }
     }

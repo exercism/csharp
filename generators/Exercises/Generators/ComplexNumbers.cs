@@ -10,43 +10,40 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class ComplexNumbers : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.TestedClass = "ComplexNumber";
-            data.UseVariableForExpected = IsComplexNumber(data.Expected);
-            data.Expected = ConvertToType(data.Expected);
+            testMethod.TestedClass = "ComplexNumber";
+            testMethod.UseVariableForExpected = IsComplexNumber(testMethod.Expected);
+            testMethod.Expected = ConvertToType(testMethod.Expected);
 
-            var constructorParamName = data.Input.ContainsKey("z") ? "z" : "z1";
-            data.Input["real"] = ConvertToDouble(data.Input[constructorParamName][0]);
-            data.Input["imaginary"] = ConvertToDouble(data.Input[constructorParamName][1]);
+            var constructorParamName = testMethod.Input.ContainsKey("z") ? "z" : "z1";
+            testMethod.Input["real"] = ConvertToDouble(testMethod.Input[constructorParamName][0]);
+            testMethod.Input["imaginary"] = ConvertToDouble(testMethod.Input[constructorParamName][1]);
 
-            data.SetInputParameters(GetInputParameters(data, constructorParamName));
-            data.SetConstructorInputParameters("real", "imaginary");
+            testMethod.SetInputParameters(GetInputParameters(testMethod, constructorParamName));
+            testMethod.SetConstructorInputParameters("real", "imaginary");
 
-            var keys = data.Input.Keys.ToArray();
+            var keys = testMethod.Input.Keys.ToArray();
 
             foreach (var key in keys)
-                data.Input[key] = ConvertToType(data.Input[key]);
+                testMethod.Input[key] = ConvertToType(testMethod.Input[key]);
+
+            testMethod.Assert = RenderAssert(testMethod);
         }
 
-        private static string[] GetInputParameters(TestData canonicalDataCase, string constructorParamName)
-            => canonicalDataCase.Input.Keys.Where(x => x != constructorParamName).ToArray();
+        private static string[] GetInputParameters(TestMethod testMethod, string constructorParamName)
+            => testMethod.Input.Keys.Where(x => x != constructorParamName).ToArray();
 
-        protected override void UpdateTestMethod(TestMethod method)
-        {
-            method.Assert = RenderAssert(method);
-        }
+        private string RenderAssert(TestMethod testMethod) 
+            => testMethod.UseVariableForExpected
+                ? RenderComplexNumberAssert(testMethod)
+                : testMethod.Assert;
 
-        private string RenderAssert(TestMethod method) 
-            => method.Data.UseVariableForExpected
-                ? RenderComplexNumberAssert(method)
-                : method.Assert;
-
-        private string RenderComplexNumberAssert(TestMethod method)
+        private string RenderComplexNumberAssert(TestMethod testMethod)
         {
             var assert = new StringBuilder();
-            assert.AppendLine(Render.AssertEqualWithin($"{method.ExpectedParameter}.Real()", $"{method.TestedValue}.Real()", 15));
-            assert.AppendLine(Render.AssertEqualWithin($"{method.ExpectedParameter}.Imaginary()", $"{method.TestedValue}.Imaginary()", 15));
+            assert.AppendLine(Render.AssertEqualWithin($"{testMethod.ExpectedParameter}.Real()", $"{testMethod.TestedValue}.Real()", 15));
+            assert.AppendLine(Render.AssertEqualWithin($"{testMethod.ExpectedParameter}.Imaginary()", $"{testMethod.TestedValue}.Imaginary()", 15));
 
             return assert.ToString();
         }

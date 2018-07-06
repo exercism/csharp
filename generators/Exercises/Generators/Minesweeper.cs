@@ -8,15 +8,15 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class Minesweeper : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.UseVariablesForInput = true;
-            data.UseVariableForExpected = true;
+            testMethod.UseVariablesForInput = true;
+            testMethod.UseVariableForExpected = true;
             
-            if (data.Input["minefield"] is JArray)
-                data.Input["minefield"] = Array.Empty<string>();
+            if (testMethod.Input["minefield"] is JArray)
+                testMethod.Input["minefield"] = Array.Empty<string>();
 
-            data.Input["minefield"] = new UnescapedValue(Render.ArrayMultiLine(data.Input["minefield"]));
+            testMethod.Input["minefield"] = new UnescapedValue(Render.ArrayMultiLine(testMethod.Input["minefield"]));
         }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)

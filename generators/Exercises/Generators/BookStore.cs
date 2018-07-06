@@ -7,14 +7,14 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class BookStore : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            if (data.Input["basket"] is JArray)
-                data.Input["basket"] = Array.Empty<int>();
+            if (testMethod.Input["basket"] is JArray)
+                testMethod.Input["basket"] = Array.Empty<int>();
             
-            data.Expected = data.Expected / 100.0f;
-            data.SetInputParameters("basket");
-            data.UseVariablesForInput = true;
+            testMethod.Expected = testMethod.Expected / 100.0f;
+            testMethod.SetInputParameters("basket");
+            testMethod.UseVariablesForInput = true;
         }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)

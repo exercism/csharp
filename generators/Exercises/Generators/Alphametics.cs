@@ -7,20 +7,20 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class Alphametics : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.UseVariableForExpected = true;
-            data.UseVariableForTested = true;
+            testMethod.UseVariableForExpected = true;
+            testMethod.UseVariableForTested = true;
 
-            if (data.Expected == null)
-                data.ExceptionThrown = typeof(ArgumentException);
+            if (testMethod.Expected == null)
+                testMethod.ExceptionThrown = typeof(ArgumentException);
             else
-                data.Expected = ConvertExpected(data);
+                testMethod.Expected = ConvertExpected(testMethod);
         }
 
-        private static dynamic ConvertExpected(TestData canonicalDataCase)
+        private static dynamic ConvertExpected(TestMethod testMethod)
         {
-            Dictionary<string, object> expected = canonicalDataCase.Expected;
+            Dictionary<string, object> expected = testMethod.Expected;
             return expected.ToDictionary(kv => kv.Key[0], kv => Convert.ToInt32(kv.Value));
         }
 

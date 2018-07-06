@@ -7,13 +7,13 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class Sublist : GeneratorExercise
     {
-        protected override void UpdateTestData(TestData data)
+        protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            data.Input["listOne"] = ConvertToList(data.Input["listOne"]);
-            data.Input["listTwo"] = ConvertToList(data.Input["listTwo"]);
+            testMethod.Input["listOne"] = ConvertToList(testMethod.Input["listOne"]);
+            testMethod.Input["listTwo"] = ConvertToList(testMethod.Input["listTwo"]);
 
-            data.TestedMethod = "Classify";
-            data.Expected = Render.Enum("SublistType", data.Expected);
+            testMethod.TestedMethod = "Classify";
+            testMethod.Expected = Render.Enum("SublistType", testMethod.Expected);
         }
 
         private static List<int> ConvertToList(dynamic value) => new List<int>(value as int[] ?? Array.Empty<int>());

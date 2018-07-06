@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Exercism.CSharp.Helpers;
 using Exercism.CSharp.Input;
@@ -10,12 +9,9 @@ namespace Exercism.CSharp.Exercises
 {
     public abstract class GeneratorExercise : Exercise
     {
-        private CanonicalData _canonicalData;
-        private TestData[] _testData;
-
-        protected Render Render { get; } = new Render(); 
-
         public override string Name => GetType().ToExerciseName();
+        
+        protected Render Render { get; } = new Render();
 
         public void Regenerate(CanonicalData canonicalData)
         {   
@@ -23,28 +19,29 @@ namespace Exercism.CSharp.Exercises
             TestClassFile.Write(testClass);
         }
 
-        private TestClass CreateTestClass()
+        private TestClass CreateTestClass(CanonicalData canonicalData)
         {
+            var testMethods = CreateTestMethods(canonicalData);
             var testClass = new TestClass
             {
-                Exercise = _canonicalData.Exercise,
-                CanonicalDataVersion = _canonicalData.Version,
-                ClassName = _canonicalData.Exercise.ToTestClassName(),
-                Methods = GetMethods(),
-                Namespaces = GetNamespaces()
+                Exercise = canonicalData.Exercise,
+                CanonicalDataVersion = canonicalData.Version,
+                ClassName = canonicalData.Exercise.ToTestClassName(),
+                Methods = testMethods.Select(testMethod => testMethod.Render()).ToList(),
+                Namespaces = GetNamespaces(testMethods)
             };
-
             UpdateTestClass(testClass);
+
             return testClass;
         }
 
-        protected virtual void UpdateTestClass(TestClass @class)
+        protected virtual void UpdateTestClass(TestClass testClass)
         {
         }
 
-        private ISet<string> GetNamespaces()
+        private ISet<string> GetNamespaces(IEnumerable<TestMethod> testMethods)
         {
-            var exceptionNamespaces = _testData
+            var exceptionNamespaces = testMethods
                 .Where(x => x.ExceptionThrown != null)
                 .Select(x => x.ExceptionThrown.Namespace);
 
@@ -52,69 +49,29 @@ namespace Exercism.CSharp.Exercises
 
             var namespaces = new SortedSet<string>(defaultNamespaces.Concat(exceptionNamespaces));
             UpdateNamespaces(namespaces);
-            
+
             return namespaces;
         }
 
         protected virtual void UpdateNamespaces(ISet<string> namespaces)
         {
         }
-
-        private IList<string> GetMethods()
-        {
-            var renderedMethods = new List<string>();
-
-            foreach (var data in _testData)
-            {
-                UpdateTestData(data);
-
-                var method = CreateTestMethod(data);
-                UpdateTestMethod(method);
-                
-                renderedMethods.Add(method.Render());
-            }
-
-            return renderedMethods;
-        }
-
-        private static TestMethod CreateTestMethod(TestData data)
-        {
-            if (data.ExceptionThrown != null)
-                return new TestMethodWithExceptionAssertion(data);
-
-            switch (data.Expected)
-            {
-                case bool _:
-                    return new TestMethodWithBooleanAssertion(data);
-                case null:
-                    return new TestMethodWithNullAssertion(data);
-                default:
-                    if (UseEmptyAssertion(data))
-                        return new TestMethodWithEmptyAssertion(data);
-                        
-                    return new TestMethodWithEqualityAssertion(data);
-            }
-        }
-
-        protected virtual void UpdateTestMethod(TestMethod method)
-        {
-        }
-
-        private TestData[] CreateTestData() => 
-            _canonicalData.Cases
-                .Select(canonicalDataCase => new TestData(_canonicalData, canonicalDataCase))
+        
+        private TestMethod[] CreateTestMethods(CanonicalData canonicalData) =>
+            canonicalData.Cases
+                .Select(canonicalDataCase => CreateTestMethod(canonicalData, canonicalDataCase))
                 .ToArray();
 
-        protected virtual void UpdateTestData(TestData data)
+        private TestMethod CreateTestMethod(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase)
         {
+            var testMethod = new TestMethod(canonicalData, canonicalDataCase);
+            UpdateTestMethod(testMethod);
+
+            return testMethod;
         }
 
-        private static bool UseEmptyAssertion(TestData data)
-        {   
-            if (data.Expected is string)
-                return false;
-            
-            return data.Expected is IEnumerable enumerable && enumerable.GetEnumerator().MoveNext() == false;
+        protected virtual void UpdateTestMethod(TestMethod testMethod)
+        {
         }
     }
 }
