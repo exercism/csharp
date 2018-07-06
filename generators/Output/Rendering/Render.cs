@@ -37,6 +37,9 @@ namespace Exercism.CSharp.Output.Rendering
 
         public string ObjectMultiLine(object val)
         {
+            if (val == null)
+                return "null";
+
             switch (val)
             {
                 case MultiLineString multiLineValue:
@@ -63,10 +66,10 @@ namespace Exercism.CSharp.Output.Rendering
         private static bool IsDictionary(object obj)
             => obj.GetType().IsGenericType && obj.GetType().GetGenericTypeDefinition() == typeof(Dictionary<,>);
         
+        private static bool RenderAsSingleLine<T>(T[,] elements) => false;
+        
         private bool RenderAsSingleLine<T>(T[] elements) 
             => !elements.Any() || IsNotArrayOfArrays(elements) && RenderedAsSingleLineDoesNotExceedMaximumLength(elements);
-
-        private bool RenderAsSingleLine<T>(T[,] elements) => false;
 
         private static bool IsNotArrayOfArrays<T>(T[] elements) 
             => !elements.GetType().GetElementType().IsArray;
