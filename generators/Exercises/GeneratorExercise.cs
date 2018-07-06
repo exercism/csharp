@@ -18,13 +18,9 @@ namespace Exercism.CSharp.Exercises
         public override string Name => GetType().ToExerciseName();
 
         public void Regenerate(CanonicalData canonicalData)
-        {
-            _canonicalData = canonicalData;
-            _testData = CreateTestData();
-
-            var testClass = CreateTestClass();
-            var testClassFile = new TestClassFile(testClass);
-            testClassFile.Write();
+        {   
+            var testClass = CreateTestClass(canonicalData);
+            TestClassFile.Write(testClass);
         }
 
         private TestClass CreateTestClass()

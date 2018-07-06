@@ -2,23 +2,19 @@
 
 namespace Exercism.CSharp.Output
 {
-    public class TestClassFile
+    public static class TestClassFile
     {
-        private readonly TestClass _testClass;
-
-        public TestClassFile(TestClass testClass) => _testClass = testClass;
-
-        public void Write()
+        public static void Write(TestClass testClass)
         {
-            var testClassFilePath = TestClassFilePath;
-            var testClassContents = _testClass.Render();
+            var testClassFilePath = TestClassFilePath(testClass);
+            var testClassContents = testClass.Render();
 
             Directory.CreateDirectory(Path.GetDirectoryName(testClassFilePath));
             File.WriteAllText(testClassFilePath, testClassContents);
         }
 
-        private string TestClassFilePath => Path.Combine("..", "exercises", _testClass.Exercise, TestClassFileName);
+        private static string TestClassFilePath(TestClass testClass) => Path.Combine("..", "exercises", testClass.Exercise, TestClassFileName(testClass));
 
-        private string TestClassFileName => $"{_testClass.ClassName}.cs";
+        private static string TestClassFileName(TestClass testClass) => $"{testClass.ClassName}.cs";
     }
 }
