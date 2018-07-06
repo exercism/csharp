@@ -8,7 +8,8 @@ namespace Exercism.CSharp.Exercises.Generators
         {
             testMethod.UseVariablesForInput = true;
             testMethod.UseVariableForExpected = true;
-            testMethod.SetConstructorInputParameters("rails");
+            testMethod.ConstructorInputParameters = new[] { "rails" };
+            testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
         }
     }
 }

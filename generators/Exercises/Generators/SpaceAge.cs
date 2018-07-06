@@ -1,4 +1,5 @@
-﻿using Exercism.CSharp.Output;
+﻿using System;
+using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -7,8 +8,10 @@ namespace Exercism.CSharp.Exercises.Generators
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
             testMethod.TestedMethod = $"On{testMethod.Input["planet"]}";
-            testMethod.SetInputParameters();
-            testMethod.SetConstructorInputParameters("seconds");
+            testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
+
+            testMethod.InputParameters = Array.Empty<string>();
+            testMethod.ConstructorInputParameters = new[] {"seconds"};
         }
     }
 }

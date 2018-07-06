@@ -28,7 +28,7 @@ namespace Exercism.CSharp.Exercises.Generators
                 case "exprational":
                     return Render.AssertEqual(RenderRationalNumber(testMethod.Expected), $"{RenderRationalNumber(testMethod.Input["r"])}.{testMethod.TestedMethod}({testMethod.Input["n"]})");
                 case "expreal":
-                    return Render.AssertEqual(testMethod.ExpectedParameter, $"{testMethod.Input["x"]}.{testMethod.TestedMethod}({RenderRationalNumber(testMethod.Input["r"])}), {Precision(testMethod.Expected)}");
+                    return Render.AssertEqualWithin(Render.Object(testMethod.Expected), $"{testMethod.Input["x"]}.{testMethod.TestedMethod}({RenderRationalNumber(testMethod.Input["r"])})", Precision(testMethod.Expected));
                 default:
                     throw new ArgumentOutOfRangeException();
             }

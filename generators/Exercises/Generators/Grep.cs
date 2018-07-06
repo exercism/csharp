@@ -38,7 +38,7 @@ namespace Exercism.CSharp.Exercises.Generators
 
         private static void AddIliadData(TestClass testClass)
         {
-            testClass.Methods.Add(@"
+            testClass.AdditionalMethods.Add(@"
 private const string IliadFileName = ""iliad.txt"";
 private const string IliadContents =
     ""Achilles sing, O Goddess! Peleus' son;\n"" +
@@ -54,7 +54,7 @@ private const string IliadContents =
 
         private static void AddMidsummerNightData(TestClass testClass)
         {
-            testClass.Methods.Add(@"
+            testClass.AdditionalMethods.Add(@"
 private const string MidsummerNightFileName = ""midsummer-night.txt"";
 private const string MidsummerNightContents =
     ""I do entreat your grace to pardon me.\n"" +
@@ -68,7 +68,7 @@ private const string MidsummerNightContents =
 
         private static void AddParadiseLostData(TestClass testClass)
         {
-            testClass.Methods.Add(@"
+            testClass.AdditionalMethods.Add(@"
 private const string ParadiseLostFileName = ""paradise-lost.txt"";
 private const string ParadiseLostContents =
     ""Of Mans First Disobedience, and the Fruit\n"" +
@@ -83,7 +83,7 @@ private const string ParadiseLostContents =
 
         private static void AddConstructor(TestClass testClass)
         {
-            testClass.Methods.Add(@"
+            testClass.AdditionalMethods.Add(@"
 public GrepTest()
 {
     Directory.SetCurrentDirectory(Path.GetTempPath());
@@ -95,7 +95,7 @@ public GrepTest()
 
         private static void AddDisposeMethod(TestClass testClass)
         {
-            testClass.Methods.Add(@"
+            testClass.AdditionalMethods.Add(@"
 public void Dispose()
 {
     Directory.SetCurrentDirectory(Path.GetTempPath());

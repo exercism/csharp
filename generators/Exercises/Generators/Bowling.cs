@@ -16,7 +16,7 @@ namespace Exercism.CSharp.Exercises.Generators
             else
                 testMethod.ExceptionThrown = typeof(ArgumentException);
 
-            testMethod.SetInputParameters();
+            testMethod.InputParameters = Array.Empty<string>();
 
             testMethod.Arrange = RenderArrange(testMethod);
             testMethod.Act = RenderAct(testMethod);
@@ -79,7 +79,7 @@ namespace Exercism.CSharp.Exercises.Generators
 
         private static void AddDoRollMethod(TestClass testClass)
         {
-            testClass.Methods.Add(@"
+            testClass.AdditionalMethods.Add(@"
 public void DoRoll(IEnumerable<int> rolls, BowlingGame sut)
 {
     foreach (var roll in rolls)

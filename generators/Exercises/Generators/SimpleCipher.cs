@@ -14,7 +14,8 @@ namespace Exercism.CSharp.Exercises.Generators
             
             if (testMethod.Input.ContainsKey("key"))
             {
-                testMethod.SetConstructorInputParameters("key");
+                testMethod.ConstructorInputParameters = new[] { "key" };
+                testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
             }
 
             if (testMethod.Property == "new")
@@ -43,7 +44,7 @@ namespace Exercism.CSharp.Exercises.Generators
                 {
                     var plaintext = Render.Object(testMethod.Input["plaintext"]);
                     testMethod.Input["ciphertext"] = new UnescapedValue($"sut.Encode({plaintext})");
-                    testMethod.SetInputParameters("ciphertext");
+                    testMethod.InputParameters = new[] { "ciphertext" };
                 }
             }
 

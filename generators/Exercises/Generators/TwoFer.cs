@@ -1,4 +1,5 @@
-﻿using Exercism.CSharp.Output;
+﻿using System;
+using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -9,7 +10,7 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.TestedMethod = "Name";
             
             if (testMethod.Input["name"] is null)
-                testMethod.SetInputParameters();
+                testMethod.InputParameters = Array.Empty<string>();
         }
     }
 }

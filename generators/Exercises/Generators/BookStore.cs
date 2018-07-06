@@ -13,7 +13,7 @@ namespace Exercism.CSharp.Exercises.Generators
                 testMethod.Input["basket"] = Array.Empty<int>();
             
             testMethod.Expected = testMethod.Expected / 100.0f;
-            testMethod.SetInputParameters("basket");
+            testMethod.InputParameters = new[] { "basket" };
             testMethod.UseVariablesForInput = true;
         }
 

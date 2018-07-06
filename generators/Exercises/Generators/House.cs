@@ -12,7 +12,7 @@ namespace Exercism.CSharp.Exercises.Generators
 
             if (testMethod.Input["startVerse"] == testMethod.Input["endVerse"])
             {
-                testMethod.SetInputParameters("startVerse");
+                testMethod.InputParameters = new[] { "startVerse" };
             }
         }
     }

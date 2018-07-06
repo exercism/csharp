@@ -8,7 +8,8 @@ namespace Exercism.CSharp.Exercises.Generators
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
             testMethod.UseVariablesForConstructorParameters = true;
-            testMethod.SetConstructorInputParameters("board");
+            testMethod.ConstructorInputParameters = new[] { "board" };
+            testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
             testMethod.TestedMethod = "Result";
             
             testMethod.Input["board"] = new UnescapedValue(Render.ArrayMultiLine(testMethod.Input["board"]));

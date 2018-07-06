@@ -16,41 +16,27 @@ namespace Exercism.CSharp.Exercises
         public void Regenerate(CanonicalData canonicalData)
         {   
             var testClass = CreateTestClass(canonicalData);
-            TestClassFile.Write(testClass);
+            var testClassOutput = new TestClassOutput(testClass);
+            testClassOutput.WriteToFile();
         }
 
         private TestClass CreateTestClass(CanonicalData canonicalData)
         {
             var testMethods = CreateTestMethods(canonicalData);
-            var testClass = new TestClass
-            {
-                Exercise = canonicalData.Exercise,
-                CanonicalDataVersion = canonicalData.Version,
-                ClassName = canonicalData.Exercise.ToTestClassName(),
-                Methods = testMethods.Select(testMethod => testMethod.Render()).ToList(),
-                Namespaces = GetNamespaces(testMethods)
-            };
+            var testClass = new TestClass(
+                exercise: canonicalData.Exercise,
+                version: canonicalData.Version,
+                className: canonicalData.Exercise.ToTestClassName(),
+                testMethods: testMethods
+            );
             UpdateTestClass(testClass);
+            UpdateNamespaces(testClass.Namespaces);
 
             return testClass;
         }
 
         protected virtual void UpdateTestClass(TestClass testClass)
         {
-        }
-
-        private ISet<string> GetNamespaces(IEnumerable<TestMethod> testMethods)
-        {
-            var exceptionNamespaces = testMethods
-                .Where(x => x.ExceptionThrown != null)
-                .Select(x => x.ExceptionThrown.Namespace);
-
-            var defaultNamespaces = new[] { "Xunit" };
-
-            var namespaces = new SortedSet<string>(defaultNamespaces.Concat(exceptionNamespaces));
-            UpdateNamespaces(namespaces);
-
-            return namespaces;
         }
 
         protected virtual void UpdateNamespaces(ISet<string> namespaces)

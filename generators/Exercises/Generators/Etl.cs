@@ -11,19 +11,19 @@ namespace Exercism.CSharp.Exercises.Generators
         {
             testMethod.UseVariablesForInput = true;
             testMethod.UseVariableForExpected = true;
-            testMethod.Input = ConvertInput(testMethod.Input);
+            
+            var input = ConvertInput(testMethod.Input);
+            testMethod.Input.Clear();
+            testMethod.Input["input"] = input;
             testMethod.Expected = ConvertExpected(testMethod.Expected);
-            testMethod.SetInputParameters("input");
+            testMethod.InputParameters = new[] { "input" };
         }
 
         private static dynamic ConvertExpected(dynamic expected)
             => ((Dictionary<string, object>)expected).ToDictionary(kv => kv.Key, kv => Convert.ToInt32(kv.Value));
 
-        private static IDictionary<string, dynamic> ConvertInput(IDictionary<string, dynamic> input)
-            => new Dictionary<string, dynamic>
-            {
-                ["input"] = input.ToDictionary(kv => Convert.ToInt32(kv.Key), kv => (string[])kv.Value)
-            };
+        private static IDictionary<int, string[]> ConvertInput(IDictionary<string, dynamic> input)
+            => input.ToDictionary(kv => Convert.ToInt32(kv.Key), kv => (string[]) kv.Value);
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {

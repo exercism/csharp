@@ -24,9 +24,8 @@ namespace Exercism.CSharp.Exercises.Generators
                 var coordinates = GetCoordinatesFromPosition(testMethod.Input["queen"]);
                 testMethod.Input["X"] = coordinates.Item1;
                 testMethod.Input["Y"] = coordinates.Item2;
-    
-                testMethod.SetInputParameters("X", "Y");
-                
+
+                testMethod.InputParameters = new[] { "X", "Y" };
                 return;
             }
             

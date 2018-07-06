@@ -13,6 +13,8 @@ namespace Exercism.CSharp.Exercises.Generators
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
             testMethod.TestedClass = "ComplexNumber";
+            testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
+            
             testMethod.UseVariableForExpected = IsComplexNumber(testMethod.Expected);
             testMethod.Expected = ConvertToType(testMethod.Expected);
 
@@ -20,8 +22,8 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.Input["real"] = ConvertToDouble(testMethod.Input[constructorParamName][0]);
             testMethod.Input["imaginary"] = ConvertToDouble(testMethod.Input[constructorParamName][1]);
 
-            testMethod.SetInputParameters(GetInputParameters(testMethod, constructorParamName));
-            testMethod.SetConstructorInputParameters("real", "imaginary");
+            testMethod.InputParameters = GetInputParameters(testMethod, constructorParamName);
+            testMethod.ConstructorInputParameters = new[] {"real", "imaginary"};
 
             var keys = testMethod.Input.Keys.ToArray();
 
@@ -41,9 +43,12 @@ namespace Exercism.CSharp.Exercises.Generators
 
         private string RenderComplexNumberAssert(TestMethod testMethod)
         {
+            var inputParameters = testMethod.Input.ContainsKey("z") ? "" : Render.Object(testMethod.Input["z2"]);
+            var actual = $"sut.{testMethod.TestedMethod}({inputParameters})"; 
+            
             var assert = new StringBuilder();
-            assert.AppendLine(Render.AssertEqualWithin($"{testMethod.ExpectedParameter}.Real()", $"{testMethod.TestedValue}.Real()", 15));
-            assert.AppendLine(Render.AssertEqualWithin($"{testMethod.ExpectedParameter}.Imaginary()", $"{testMethod.TestedValue}.Imaginary()", 15));
+            assert.AppendLine(Render.AssertEqualWithin("expected.Real()", $"{actual}.Real()", 7));
+            assert.AppendLine(Render.AssertEqualWithin("expected.Imaginary()", $"{actual}.Imaginary()", 7));
 
             return assert.ToString();
         }
@@ -55,8 +60,11 @@ namespace Exercism.CSharp.Exercises.Generators
 
         private object ConvertToType(dynamic rawValue) 
             => IsComplexNumber(rawValue)
-                ? new UnescapedValue($"new ComplexNumber({Render.Object(ConvertToDouble(rawValue[0]))}, {Render.Object(ConvertToDouble(rawValue[1]))})")
+                ? RenderComplexNumber(rawValue)
                 : rawValue;
+
+        private UnescapedValue RenderComplexNumber(dynamic rawValue) 
+            => new UnescapedValue($"new ComplexNumber({Render.Object(ConvertToDouble(rawValue[0]))}, {Render.Object(ConvertToDouble(rawValue[1]))})");
 
         private static bool IsComplexNumber(object rawValue) => rawValue is int[] || rawValue is double[] || rawValue is float[] || rawValue is JArray;
 

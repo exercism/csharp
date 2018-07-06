@@ -12,8 +12,8 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.Input["direction"] = RenderDirection(testMethod.Input["direction"]);
             testMethod.Input["coordinate"] = RenderCreateCoordinate(testMethod.Input["position"]);
 
-            testMethod.SetConstructorInputParameters("direction", "coordinate");
-
+            testMethod.ConstructorInputParameters = new[] { "direction", "coordinate" };
+            testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
             testMethod.TestMethodName = testMethod.TestMethodNameWithPath;
 
             testMethod.Act = RenderAct(testMethod);

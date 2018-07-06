@@ -15,8 +15,9 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.UseVariableForTested = true;
             testMethod.UseVariableForExpected = true;
             testMethod.UseVariablesForConstructorParameters = true;
-
-            testMethod.SetConstructorInputParameters("grid");
+            
+            testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
+            testMethod.ConstructorInputParameters = new[] { "grid" };
 
             testMethod.Input["grid"] = new MultiLineString(testMethod.Input["grid"]);
             testMethod.Expected = ((IDictionary<string, dynamic>)testMethod.Expected).ToDictionary(kv => kv.Key, kv => (((int, int), (int, int))?)ConvertToPosition(kv.Value));

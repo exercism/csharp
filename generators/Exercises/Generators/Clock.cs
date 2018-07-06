@@ -14,9 +14,10 @@ namespace Exercism.CSharp.Exercises.Generators
         private const string PropertyEqual = "equal";
 
         protected override void UpdateTestMethod(TestMethod testMethod)
-        {   
-            testMethod.SetConstructorInputParameters(ParamHour, ParamMinute);
-            
+        {
+            testMethod.ConstructorInputParameters = new[] { ParamHour, ParamMinute };
+            testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
+
             if (testMethod.Property == PropertyEqual)
             {
                 var clock1 = testMethod.Input[ParamClock1];
@@ -52,7 +53,7 @@ namespace Exercism.CSharp.Exercises.Generators
         }
 
         private string RenderConsistencyToAssert(TestMethod testMethod) 
-            => Render.AssertEqual(testMethod.ExpectedParameter, $"{testMethod.TestedValue}.ToString()");
+            => Render.AssertEqual(Render.Object(testMethod.Expected), $"sut.{testMethod.TestedMethod}({testMethod.Input["value"]}).ToString()");
 
         private string RenderEqualToAssert(TestMethod testMethod)
         {

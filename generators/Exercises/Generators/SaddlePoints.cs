@@ -11,7 +11,8 @@ namespace Exercism.CSharp.Exercises.Generators
         {
             testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
             testMethod.TestedMethod = "Calculate";
-            testMethod.SetConstructorInputParameters("matrix");
+            testMethod.ConstructorInputParameters = new[] { "matrix" };
+
             testMethod.UseVariablesForConstructorParameters = true;
             testMethod.UseVariablesForInput = true;
             testMethod.UseVariableForTested = true;

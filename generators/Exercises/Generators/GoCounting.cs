@@ -18,12 +18,13 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.UseVariableForTested = true;
 
             testMethod.Input["board"] = new MultiLineString(testMethod.Input["board"]);
-            testMethod.SetConstructorInputParameters("board");
+            testMethod.ConstructorInputParameters = new[] { "board" };
+            testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
 
             if (testMethod.Property == "territory")
             {
                 testMethod.Input["coordinate"] = (testMethod.Input["x"], testMethod.Input["y"]);
-                testMethod.SetInputParameters("coordinate");
+                testMethod.InputParameters = new[] {"coordinate"};
 
                 if (testMethod.Expected.ContainsKey("error"))
                 {

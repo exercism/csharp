@@ -8,23 +8,21 @@ namespace Exercism.CSharp.Exercises.Generators
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
             testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
-            testMethod.SetConstructorInputParameters("bucketOne", "bucketTwo", "startBucket");
-            testMethod.Input["startBucket"] = Render.Enum("Bucket", testMethod.Input["startBucket"]);
+            testMethod.ConstructorInputParameters = new[] { "bucketOne", "bucketTwo", "startBucket" };
 
-            testMethod.Act = RenderAct(testMethod);
+            testMethod.Input["startBucket"] = Render.Enum("Bucket", testMethod.Input["startBucket"]);
+            testMethod.UseVariableForTested = true;
             testMethod.Assert = RenderAssert(testMethod);
         }
-
-        private string RenderAct(TestMethod testMethod) => Render.Variable("result", testMethod.TestedMethodInvocation);
 
         private string RenderAssert(TestMethod testMethod)
         {
             var assert = new StringBuilder();
-            assert.AppendLine(Render.AssertEqual(testMethod.Expected["moves"].ToString(), "result.Moves"));
-            assert.AppendLine(Render.AssertEqual(testMethod.Expected["otherBucket"].ToString(), "result.OtherBucket"));
+            assert.AppendLine(Render.AssertEqual(testMethod.Expected["moves"].ToString(), "actual.Moves"));
+            assert.AppendLine(Render.AssertEqual(testMethod.Expected["otherBucket"].ToString(), "actual.OtherBucket"));
 
             var expected = Render.Enum("Bucket", testMethod.Expected["goalBucket"]);
-            assert.AppendLine(Render.AssertEqual(expected.ToString(), "result.GoalBucket"));
+            assert.AppendLine(Render.AssertEqual(expected.ToString(), "actual.GoalBucket"));
             
             return assert.ToString();
         }

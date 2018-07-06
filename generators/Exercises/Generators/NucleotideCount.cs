@@ -21,7 +21,7 @@ namespace Exercism.CSharp.Exercises.Generators
             }
 
             testMethod.UseVariableForExpected = true;
-            testMethod.SetConstructorInputParameters("strand");
+            testMethod.ConstructorInputParameters = new[] { "strand" };
         }
 
         private static dynamic ConvertExpected(dynamic expected)

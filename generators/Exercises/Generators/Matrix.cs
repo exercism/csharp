@@ -6,8 +6,9 @@ namespace Exercism.CSharp.Exercises.Generators
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            testMethod.SetConstructorInputParameters("string");
-            testMethod.SetInputParameters("index");
+            testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
+            testMethod.ConstructorInputParameters = new[] { "string" };
+            testMethod.InputParameters = new[] { "index" };
         }
     }
 }

@@ -12,7 +12,8 @@ namespace Exercism.CSharp.Exercises.Generators
             else if (testMethod.Property == "list")
                 testMethod.UseVariableForExpected = true;
 
-            testMethod.SetConstructorInputParameters("score");
+            testMethod.ConstructorInputParameters = new[] { "score" };
+            testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
 
             testMethod.Assert = RenderAssert(testMethod);
         }

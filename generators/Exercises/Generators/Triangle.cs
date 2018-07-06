@@ -8,14 +8,13 @@ namespace Exercism.CSharp.Exercises.Generators
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
             testMethod.TestedMethod = $"Is{testMethod.TestedMethod}".ToTestedMethodName();
+            testMethod.TestMethodName = testMethod.TestMethodNameWithPath;
 
             testMethod.Input["x"] = testMethod.Input["sides"][0];
             testMethod.Input["y"] = testMethod.Input["sides"][1];
             testMethod.Input["z"] = testMethod.Input["sides"][2];
             testMethod.Input.Remove("sides");
-            testMethod.SetInputParameters("x", "y", "z");
-
-            testMethod.TestMethodName = testMethod.TestMethodNameWithPath;
+            testMethod.InputParameters = new[] { "x", "y", "z" };
         }
     }
 }

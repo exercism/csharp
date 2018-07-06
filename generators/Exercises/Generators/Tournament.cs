@@ -30,7 +30,7 @@ namespace Exercism.CSharp.Exercises.Generators
 
         private static void AddRunTallyMethod(TestClass testClass)
         {
-            testClass.Methods.Add(@"
+            testClass.AdditionalMethods.Add(@"
 private string RunTally(string input)
 {
     var encoding = new UTF8Encoding();

@@ -9,6 +9,7 @@ namespace Exercism.CSharp.Exercises.Generators
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
             testMethod.UseVariablesForInput = true;
+            testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
 
             if (testMethod.Input.ContainsKey("set"))
             {
@@ -17,7 +18,7 @@ namespace Exercism.CSharp.Exercises.Generators
                     testMethod.Input["set"] = new UnescapedValue("");
                 }
 
-                testMethod.SetConstructorInputParameters("set");
+                testMethod.ConstructorInputParameters = new[] { "set" };
             }
             else
             {
@@ -26,7 +27,7 @@ namespace Exercism.CSharp.Exercises.Generators
                     testMethod.Input["set1"] = new UnescapedValue("");
                 }
 
-                testMethod.SetConstructorInputParameters("set1");
+                testMethod.ConstructorInputParameters = new[] { "set1" };
                 testMethod.Input["set2"] = ConvertCustomSet(testMethod.Input["set2"]);
 
                 if (testMethod.Property == "equal")

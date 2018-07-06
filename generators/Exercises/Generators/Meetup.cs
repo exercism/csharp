@@ -16,20 +16,18 @@ namespace Exercism.CSharp.Exercises.Generators
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
             testMethod.TestedMethod = PropertyDay;
+            testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
             testMethod.UseVariableForExpected = true;
-            testMethod.SetConstructorInputParameters(ParamMonth, ParamYear);
-            testMethod.SetInputParameters(ParamDayOfWeek, ParamWeek);
+            testMethod.ConstructorInputParameters = new[] { ParamMonth, ParamYear };
+            testMethod.InputParameters = new[] { ParamDayOfWeek, ParamWeek };
 
             testMethod.Input[ParamYear] = testMethod.Input[ParamYear];
             testMethod.Input[ParamMonth] = testMethod.Input[ParamMonth];
             testMethod.Input[ParamWeek] = Render.Enum("Schedule", testMethod.Input[ParamWeek]);
             testMethod.Input[ParamDayOfWeek] = Render.Enum("DayOfWeek", testMethod.Input[ParamDayOfWeek]);
 
-            testMethod.Assert = RenderAssert(testMethod);
+            testMethod.Expected = DateTime.Parse(testMethod.Expected);
         }
-
-        private string RenderAssert(TestMethod testMethod) 
-            => Render.AssertEqual(testMethod.ExpectedParameter, $"{testMethod.TestedValue}.ToString(\"yyyy-MM-dd\")");
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {

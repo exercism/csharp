@@ -13,9 +13,9 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.TestMethodName = testMethod.TestMethodNameWithPath;
 
             if (testMethod.Input.ContainsKey("students"))
-                testMethod.SetConstructorInputParameters("diagram", "students");
+                testMethod.ConstructorInputParameters = new[] { "diagram", "students" };
             else
-                testMethod.SetConstructorInputParameters("diagram");
+                testMethod.ConstructorInputParameters = new[] { "diagram" };
 
             testMethod.Expected = ConvertExpected(testMethod.Expected);
         }
