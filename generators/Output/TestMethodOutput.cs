@@ -12,70 +12,71 @@ namespace Exercism.CSharp.Output
 {
     public class TestMethodOutput
     {
+        private const string SutVariableName = "sut";
+        private const string TestedVariableName = "actual";
+        private const string ExpectedVariableName = "expected";
+        
+        private static readonly Render Renderer = new Render();
         private readonly TestMethod _testMethod;
 
         public TestMethodOutput(TestMethod testMethod) => _testMethod = testMethod;
 
-        private const string SutVariableName = "sut";
-        private const string TestedVariableName = "actual";
-        private const string ExpectedVariableName = "expected";
-
-        private static readonly Render Renderer = new Render();
-
-        public string SutValue => $"new {_testMethod.TestedClass}({ConstructorParameters})";
-        public string TestedValue => _testMethod.UseVariableForTested ? TestedVariableName : TestedMethodInvocation;
-        public string ExpectedParameter => _testMethod.UseVariableForExpected ? ExpectedVariableName : Renderer.Object(_testMethod.Expected);
-        
-        private string InputParameters => string.Join(", ", _testMethod.InputParameters.Select(key => _testMethod.UseVariablesForInput ? key.ToVariableName() : Renderer.Object(_testMethod.Input[key])));
-        private string ConstructorParameters => string.Join(", ", _testMethod.ConstructorInputParameters.Select(key => _testMethod.UseVariablesForConstructorParameters ? key.ToVariableName() : Renderer.Object(_testMethod.Input[key])));
-
-        private string ExpectedVariableDeclaration => Renderer.Variable(ExpectedVariableName, Renderer.ObjectMultiLine(_testMethod.Expected));
-        private IEnumerable<string> InputVariablesDeclaration => Renderer.Variables(_testMethod.InputParameters.ToDictionary(key => key, key => _testMethod.Input[key]));
-        private IEnumerable<string> ConstructorVariablesDeclaration => Renderer.Variables(_testMethod.ConstructorInputParameters.ToDictionary(key => key, key => _testMethod.Input[key]));
-        private IEnumerable<string> SutVariableDeclaration => new[] { Renderer.Variable(SutVariableName, SutValue) };
-        private IEnumerable<string> ActualVariableDeclaration => new[] { Renderer.Variable(TestedVariableName, TestedMethodInvocation) };
-
-        public IEnumerable<string> Variables
+        private IEnumerable<string> Variables
         {
             get
             {
                 var lines = new List<string>();
 
                 if (_testMethod.UseVariablesForInput)
-                    lines.AddRange(InputVariablesDeclaration);
+                    lines.AddRange(InputVariables);
 
                 if (_testMethod.UseVariablesForConstructorParameters)
-                    lines.AddRange(ConstructorVariablesDeclaration);
+                    lines.AddRange(ConstructorVariables);
 
                 if (_testMethod.UseVariableForSut)
-                    lines.AddRange(SutVariableDeclaration);
+                    lines.Add(SutVariableDeclaration);
 
                 if (_testMethod.UseVariableForTested)
-                    lines.AddRange(ActualVariableDeclaration);
+                    lines.Add(TestedVariable);
 
                 if (_testMethod.UseVariableForExpected)
-                    lines.Add(ExpectedVariableDeclaration);
+                    lines.Add(ExpectedVariable);
 
                 return lines;
             }
         }
-
-        public string TestedMethodInvocation
+        
+        private IEnumerable<string> InputVariables => Renderer.Variables(_testMethod.InputParameters.ToDictionary(key => key, key => _testMethod.Input[key]));
+        private string InputValues => string.Join(", ", _testMethod.InputParameters.Select(key => _testMethod.UseVariablesForInput ? key.ToVariableName() : Renderer.Object(_testMethod.Input[key])));
+        
+        private IEnumerable<string> ConstructorVariables => Renderer.Variables(_testMethod.ConstructorInputParameters.ToDictionary(key => key, key => _testMethod.Input[key]));
+        private string ConstructorValues => string.Join(", ", _testMethod.ConstructorInputParameters.Select(key => _testMethod.UseVariablesForConstructorParameters ? key.ToVariableName() : Renderer.Object(_testMethod.Input[key])));
+        
+        private string SutVariableDeclaration => Renderer.Variable(SutVariableName, SutParameter);
+        private string SutParameter => _testMethod.UseVariableForSut ? $"new {_testMethod.TestedClass}({ConstructorValues})" : SutVariableName;
+        
+        private string TestedVariable => Renderer.Variable(TestedVariableName, TestedMethodInvocation);
+        private string TestedValue => _testMethod.UseVariableForTested ? TestedVariableName : TestedMethodInvocation;
+        
+        private string ExpectedVariable => Renderer.Variable(ExpectedVariableName, Renderer.ObjectMultiLine(_testMethod.Expected));
+        private string ExpectedValue => _testMethod.UseVariableForExpected ? ExpectedVariableName : Renderer.Object(_testMethod.Expected);
+        
+        private string TestedMethodInvocation
         {
             get
             {
                 switch (_testMethod.TestedMethodType)
                 {
                     case TestedMethodType.StaticMethod:
-                        return $"{_testMethod.TestedClass}.{_testMethod.TestedMethod}({InputParameters})";
+                        return $"{_testMethod.TestedClass}.{_testMethod.TestedMethod}({InputValues})";
                     case TestedMethodType.ExtensionMethod:
-                        return $"{InputParameters}.{_testMethod.TestedMethod}()";
+                        return $"{InputValues}.{_testMethod.TestedMethod}()";
                     case TestedMethodType.InstanceMethod:
-                        return $"{SutVariableName}.{_testMethod.TestedMethod}({InputParameters})";
+                        return $"{SutVariableName}.{_testMethod.TestedMethod}({InputValues})";
                     case TestedMethodType.Property:
                         return $"{SutVariableName}.{_testMethod.TestedMethod}";
                     case TestedMethodType.Constructor:
-                        return $"new {_testMethod.TestedClass}({ConstructorParameters})";
+                        return $"new {_testMethod.TestedClass}({ConstructorValues})";
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
@@ -84,13 +85,13 @@ namespace Exercism.CSharp.Output
         
         public string Render()
         {
-            UpdateBasedOnCurrentAssertType();
+            Update();
 
             _testMethod.Arrange = _testMethod.Arrange ?? RenderArrange();
             _testMethod.Act = _testMethod.Act ?? RenderAct();
             _testMethod.Assert = _testMethod.Assert ?? RenderAssert();
 
-            return Template.Render("TestMethod", new { Name = _testMethod.TestMethodName, _testMethod.Skip, _testMethod.Arrange, _testMethod.Act, _testMethod.Assert });
+            return Template.Render("TestMethod", RenderValues);
         }
 
         private string RenderArrange() => Template.Render("Arrange", new { Variables });
@@ -102,9 +103,9 @@ namespace Exercism.CSharp.Output
             switch (CurrentAssertType)
             {
                 case AssertType.Equal:
-                    return Renderer.AssertEqual(ExpectedParameter, TestedValue);
+                    return Renderer.AssertEqual(ExpectedValue, TestedValue);
                 case AssertType.Empty:
-                    return Renderer.AssertEmpty(ExpectedParameter, TestedValue);
+                    return Renderer.AssertEmpty(ExpectedValue, TestedValue);
                 case AssertType.Null:
                     return Renderer.AssertNull(TestedValue);
                 case AssertType.Throws:
@@ -112,13 +113,15 @@ namespace Exercism.CSharp.Output
                 case AssertType.Boolean:
                     return Renderer.AssertBoolean(Convert.ToBoolean(_testMethod.Expected), TestedValue);
                 case AssertType.Matches:
-                    return Renderer.AssertMatches(ExpectedParameter, TestedValue);
+                    return Renderer.AssertMatches(ExpectedValue, TestedValue);
                 default:
                     throw new ArgumentOutOfRangeException();
             }
         }
+        
+        private object RenderValues => new { Name = _testMethod.TestMethodName, _testMethod.Skip, _testMethod.Arrange, _testMethod.Act, _testMethod.Assert };
 
-        private void UpdateBasedOnCurrentAssertType()
+        private void Update()
         {
             switch (CurrentAssertType)
             {
