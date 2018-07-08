@@ -7,11 +7,12 @@ namespace Exercism.CSharp.Exercises.Generators
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
+            testMethod.UseVariableForTested = true;
+            
             testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
             testMethod.ConstructorInputParameters = new[] { "bucketOne", "bucketTwo", "startBucket" };
-
             testMethod.Input["startBucket"] = Render.Enum("Bucket", testMethod.Input["startBucket"]);
-            testMethod.UseVariableForTested = true;
+            
             testMethod.Assert = RenderAssert(testMethod);
         }
 

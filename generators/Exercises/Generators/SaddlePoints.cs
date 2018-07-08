@@ -31,7 +31,7 @@ namespace Exercism.CSharp.Exercises.Generators
             namespaces.Add(typeof(string).Namespace);
         }
 
-        private static dynamic ToMultiDimensionalArray(JArray jArray) => jArray.ToObject<int[,]>();
+        private static dynamic ToMultiDimensionalArray(JToken jArray) => jArray.ToObject<int[,]>();
 
         private static (string, object)[] ToTupleCollection(Array array)
         {

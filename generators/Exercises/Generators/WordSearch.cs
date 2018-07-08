@@ -20,10 +20,13 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.ConstructorInputParameters = new[] { "grid" };
 
             testMethod.Input["grid"] = new MultiLineString(testMethod.Input["grid"]);
-            testMethod.Expected = ((IDictionary<string, dynamic>)testMethod.Expected).ToDictionary(kv => kv.Key, kv => (((int, int), (int, int))?)ConvertToPosition(kv.Value));
+            testMethod.Expected = ConvertExpected(testMethod);
 
             testMethod.Assert = RenderAssert(testMethod);
         }
+
+        private static Dictionary<string, ((int, int), (int, int))?> ConvertExpected(TestMethod testMethod) 
+            => ((IDictionary<string, dynamic>)testMethod.Expected).ToDictionary(kv => kv.Key, kv => (((int, int), (int, int))?)ConvertToPosition(kv.Value));
 
         private string RenderAssert(TestMethod testMethod)
         {

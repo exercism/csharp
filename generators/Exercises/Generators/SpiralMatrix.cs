@@ -12,6 +12,6 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.Expected = ConvertExpected(testMethod.Expected);
         }
 
-        private static int[,] ConvertExpected(JArray jArray) => jArray.ToObject<int[,]>();
+        private static int[,] ConvertExpected(JToken jArray) => jArray.ToObject<int[,]>();
     }
 }

@@ -7,8 +7,6 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class Bowling : GeneratorExercise
     {
-        private const string PreviousRolls = "previousRolls";
-
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
             if (testMethod.Expected is int)
@@ -28,10 +26,10 @@ namespace Exercism.CSharp.Exercises.Generators
             var builder = new StringBuilder();
             builder.AppendLine(Render.Variable("sut", "new BowlingGame()"));
 
-            if (!testMethod.Input.ContainsKey(PreviousRolls))
+            if (!testMethod.Input.ContainsKey("previousRolls"))
                 return builder.ToString();
 
-            var previousRolls = testMethod.Input[PreviousRolls] as int[] ?? Array.Empty<int>();
+            var previousRolls = testMethod.Input["previousRolls"] as int[] ?? Array.Empty<int>();
             builder.Append(Render.Variable("previousRolls", Render.ObjectMultiLine(previousRolls)));
 
             return builder.ToString();

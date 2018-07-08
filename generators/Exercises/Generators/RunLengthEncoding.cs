@@ -8,13 +8,9 @@ namespace Exercism.CSharp.Exercises.Generators
         {
             testMethod.TestMethodName = testMethod.TestMethodNameWithPath;
 
-            testMethod.Assert = RenderAssert(testMethod);
+            if (testMethod.Property == "consistency")
+                testMethod.Assert = RenderConsistencyToAssert(testMethod);
         }
-
-        private string RenderAssert(TestMethod testMethod) 
-            => testMethod.Property == "consistency"
-                ? RenderConsistencyToAssert(testMethod)
-                : testMethod.Assert;
 
         private string RenderConsistencyToAssert(TestMethod testMethod)
         {

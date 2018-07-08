@@ -5,63 +5,51 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     public class Clock : GeneratorExercise
     {
-        private const string ParamClock1 = "clock1";
-        private const string ParamClock2 = "clock2";
-        private const string ParamHour = "hour";
-        private const string ParamMinute = "minute";
-
-        private const string PropertyCreate = "create";
-        private const string PropertyEqual = "equal";
-
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            testMethod.ConstructorInputParameters = new[] { ParamHour, ParamMinute };
+            testMethod.ConstructorInputParameters = new[] { "hour", "minute" };
             testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
 
-            if (testMethod.Property == PropertyEqual)
-            {
-                var clock1 = testMethod.Input[ParamClock1];
-                testMethod.Input[ParamClock1] = new UnescapedValue($"new Clock({clock1[ParamHour]}, {clock1[ParamMinute]})");
-                
-                var clock2 = testMethod.Input[ParamClock2];
-                testMethod.Input[ParamHour] = clock2[ParamHour];
-                testMethod.Input[ParamMinute] = clock2[ParamMinute];
-            }
-
-            if (testMethod.Property == PropertyCreate)
-            {
-                testMethod.TestedMethod = "ToString";
-            }
-            else if (testMethod.Property == PropertyEqual)
-            {
-                testMethod.TestedMethod = "Equals";
-            }
-
-            testMethod.Assert = RenderAssert(testMethod);
+            if (testMethod.Property == "create")
+                UpdateTestMethodForCreateProperty(testMethod);
+            else if (testMethod.Property == "equal")
+                UpdateTestMethodForEqualProperty(testMethod);
+            else
+                UpdateTestMethodForConsistencyProperty(testMethod);
         }
 
-        private string RenderAssert(TestMethod testMethod)
+        private static void UpdateTestMethodForCreateProperty(TestMethod testMethod)
         {
-            if (testMethod.Property == PropertyEqual)
-            {
-                return RenderEqualToAssert(testMethod);
-            }
-
-            return testMethod.Property == PropertyCreate
-                ? testMethod.Assert
-                : RenderConsistencyToAssert(testMethod);
+            testMethod.TestedMethod = "ToString";
         }
 
-        private string RenderConsistencyToAssert(TestMethod testMethod) 
-            => Render.AssertEqual(Render.Object(testMethod.Expected), $"sut.{testMethod.TestedMethod}({testMethod.Input["value"]}).ToString()");
+        private void UpdateTestMethodForEqualProperty(TestMethod testMethod)
+        {
+            var clock1 = testMethod.Input["clock1"];
+            testMethod.Input["clock1"] = new UnescapedValue($"new Clock({clock1["hour"]}, {clock1["minute"]})");
+
+            var clock2 = testMethod.Input["clock2"];
+            testMethod.Input["hour"] = clock2["hour"];
+            testMethod.Input["minute"] = clock2["minute"];
+
+            testMethod.Assert = RenderEqualToAssert(testMethod);
+        }
 
         private string RenderEqualToAssert(TestMethod testMethod)
         {
-            var expected = Render.Object(testMethod.Input[ParamClock1]);
+            var expected = Render.Object(testMethod.Input["clock1"]);
 
             return testMethod.Expected 
                 ? Render.AssertEqual(expected, "sut")
                 : Render.AssertNotEqual(expected, "sut");
         }
+
+        private void UpdateTestMethodForConsistencyProperty(TestMethod testMethod)
+        {
+            testMethod.Assert = RenderConsistencyToAssert(testMethod);
+        }
+
+        private string RenderConsistencyToAssert(TestMethod testMethod) 
+            => Render.AssertEqual(Render.Object(testMethod.Expected), $"sut.{testMethod.TestedMethod}({testMethod.Input["value"]}).ToString()");
     }
 }

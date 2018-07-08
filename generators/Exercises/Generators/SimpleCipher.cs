@@ -13,25 +13,30 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.TestMethodName = testMethod.TestMethodNameWithPath;
             
             if (testMethod.Input.ContainsKey("key"))
-            {
                 testMethod.ConstructorInputParameters = new[] { "key" };
-                testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
-            }
-
+            
             if (testMethod.Property == "new")
-            {
-                testMethod.TestedMethodType = TestedMethodType.Constructor;
-                testMethod.ExceptionThrown = typeof(ArgumentException);
-                return;
-            }
+                UpdateTestMethodForNewProperty(testMethod);
+            else if (testMethod.Property == "key")
+                UpdateTestMethodForKeyProperty(testMethod);
+            else
+                UpdateTestMethodForEncodeOrDecodeProperty(testMethod);
+        }
 
-            if (testMethod.Property == "key")
-            {
-                testMethod.Expected = new Regex(testMethod.Expected["match"]);
-                testMethod.TestedMethodType = TestedMethodType.Property;
-                return;
-            }
+        private static void UpdateTestMethodForNewProperty(TestMethod testMethod)
+        {
+            testMethod.TestedMethodType = TestedMethodType.Constructor;
+            testMethod.ExceptionThrown = typeof(ArgumentException);
+        }
 
+        private static void UpdateTestMethodForKeyProperty(TestMethod testMethod)
+        {
+            testMethod.Expected = new Regex(testMethod.Expected["match"]);
+            testMethod.TestedMethodType = TestedMethodType.Property;
+        }
+
+        private void UpdateTestMethodForEncodeOrDecodeProperty(TestMethod testMethod)
+        {
             testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
 
             if (testMethod.Input.TryGetValue("ciphertext", out var cipherText))
@@ -44,7 +49,7 @@ namespace Exercism.CSharp.Exercises.Generators
                 {
                     var plaintext = Render.Object(testMethod.Input["plaintext"]);
                     testMethod.Input["ciphertext"] = new UnescapedValue($"sut.Encode({plaintext})");
-                    testMethod.InputParameters = new[] { "ciphertext" };
+                    testMethod.InputParameters = new[] {"ciphertext"};
                 }
             }
 

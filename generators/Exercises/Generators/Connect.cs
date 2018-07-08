@@ -1,4 +1,5 @@
-﻿using Exercism.CSharp.Output;
+﻿using DotLiquid.Exceptions;
+using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
@@ -13,18 +14,21 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.TestedMethod = "Result";
             
             testMethod.Input["board"] = new UnescapedValue(Render.ArrayMultiLine(testMethod.Input["board"]));
+            testMethod.Expected = ConvertExpected(testMethod);
+        }
 
+        private UnescapedValue ConvertExpected(TestMethod testMethod)
+        {
             switch (testMethod.Expected)
             {
                 case "X":
-                    testMethod.Expected = Render.Enum("ConnectWinner", "Black");
-                    break;
+                    return Render.Enum("ConnectWinner", "Black");
                 case "O":
-                    testMethod.Expected = Render.Enum("ConnectWinner", "White");
-                    break;
+                    return Render.Enum("ConnectWinner", "White");
                 case "":
-                    testMethod.Expected = Render.Enum("ConnectWinner", "None");
-                    break;
+                    return Render.Enum("ConnectWinner", "None");
+                default:
+                    throw new ArgumentException("Unsupported expected value");
             }
         }
     }

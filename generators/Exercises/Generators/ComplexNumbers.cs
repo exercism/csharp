@@ -53,11 +53,6 @@ namespace Exercism.CSharp.Exercises.Generators
             return assert.ToString();
         }
 
-        protected override void UpdateNamespaces(ISet<string> namespaces)
-        {
-            namespaces.Add(typeof(Math).Namespace);
-        }
-
         private object ConvertToType(dynamic rawValue) 
             => IsComplexNumber(rawValue)
                 ? RenderComplexNumber(rawValue)
@@ -81,6 +76,11 @@ namespace Exercism.CSharp.Exercises.Generators
                 default:
                     return double.Parse(value.ToString());
             }
+        }
+
+        protected override void UpdateNamespaces(ISet<string> namespaces)
+        {
+            namespaces.Add(typeof(Math).Namespace);
         }
     }
 }

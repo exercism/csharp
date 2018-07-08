@@ -10,6 +10,7 @@ namespace Exercism.CSharp.Exercises.Generators
         {
             testMethod.UseVariableForExpected = true;
             testMethod.TestedMethod = "Calculate";
+
             if (testMethod.Expected is JArray jArray)
                 testMethod.Expected = jArray.ToObject<int[][]>();
             else

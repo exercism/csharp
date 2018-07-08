@@ -11,11 +11,14 @@ namespace Exercism.CSharp.Exercises.Generators
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
             testMethod.TestedMethod = "Match";
-            testMethod.Input["flags"] = string.Join(" ", testMethod.Input["flags"]);
+            testMethod.Input["flags"] = ConvertFlags(testMethod);
             testMethod.Expected = ConvertExpected(testMethod.Expected);
             testMethod.UseVariablesForInput = true;
             testMethod.UseVariableForExpected = true;
         }
+
+        private static dynamic ConvertFlags(TestMethod testMethod) 
+            => string.Join(" ", testMethod.Input["flags"]);
 
         private static MultiLineString ConvertExpected(dynamic expected) 
             => new MultiLineString(expected as string[] ?? Array.Empty<string>());
