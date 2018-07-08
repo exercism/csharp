@@ -19,18 +19,12 @@ namespace Exercism.CSharp.Exercises.Generators
                 testMethod.UseVariableForTested = true;
                 testMethod.UseVariableForExpected = true;
                 testMethod.Expected = (testMethod.Expected["value"], RenderCoordinates(testMethod.Expected["factors"]));
+                testMethod.Assert = RenderAssert();
             }
-
-            testMethod.Assert = RenderAssert(testMethod);
         }
 
-        private string RenderAssert(TestMethod testMethod)
+        private string RenderAssert()
         {
-            if (testMethod.ExceptionThrown != null)
-            {
-                return testMethod.Assert;
-            }
-
             var assert = new StringBuilder();
             assert.AppendLine(Render.AssertEqual("expected.Item1", "actual.Item1"));
             assert.AppendLine(Render.AssertEqual("expected.Item2", "actual.Item2"));

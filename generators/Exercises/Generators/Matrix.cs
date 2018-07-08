@@ -8,7 +8,6 @@ namespace Exercism.CSharp.Exercises.Generators
         {
             testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
             testMethod.ConstructorInputParameters = new[] { "string" };
-            testMethod.InputParameters = new[] { "index" };
         }
     }
 }

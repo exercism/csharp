@@ -1,4 +1,4 @@
-# Test Generators
+# Test generators
 
 Test generators allow tracks to generate tests automatically without having to write them ourselves. Each test generator reads from the exercise's `canonical data`, which defines the name of the test, its inputs, and outputs. You can read more about exercism's approach to test suites [here](https://github.com/exercism/docs/blob/master/language-tracks/exercises/anatomy/test-suites.md).
 
@@ -6,7 +6,8 @@ Generating tests automatically removes any sort of user error when creating test
 
 An example of a canonical data file can be found [here](https://github.com/exercism/problem-specifications/blob/master/exercises/bob/canonical-data.json)
 
-## Common Terms
+## Common terms
+
 When looking through the canonical data and the generator code base, we use a lot of common terminology. This list hopefully clarifies what they represent.
 
 - Canonical Data - Represents the entire test suite.
@@ -16,13 +17,14 @@ When looking through the canonical data and the generator code base, we use a lo
 - Input - The input for the test case.
 - Expected - The expected value when running the test case.
 
-## Adding A Simple Generator
-Adding a test generator file is straightforward. Simply add a new file to the generators folder with the name of the exercise (in PascalCase), and extend the `GeneratorExercise` abstract class.
+## Adding a simple generator
 
-An example of a simple generator would be the Bob exercise. The source is below, but you can freely view it in the repository [here](https://github.com/exercism/csharp/blob/master/generators/Exercises/Bob.cs).
+Adding a test generator file is straightforward. Simply add a new file to the `Exercises/Generators` folder with the name of the exercise (in PascalCase), and extend the `GeneratorExercise` abstract class.
+
+An example of a simple generator would be the Bob exercise. The source is displayed below, but you can freely view it in the repository [here](https://github.com/exercism/csharp/blob/master/generators/Exercises/Bob.cs).
 
 ```csharp
-namespace Generators.Exercises
+namespace Exercism.CSharp.Exercises.Generators
 {
     public class Bob : GeneratorExercise
     {
@@ -32,71 +34,215 @@ namespace Generators.Exercises
 
 This is a fully working generator, no other code needs to be written. However, it's simplicity stems from the fact that the test suite and the program itself are relatively trivial.
 
-## Adding A Complex Generator
+## Adding a complex generator
 
-A more *complex* generator would be the ComplexNumbers generator found [here](https://github.com/exercism/csharp/blob/master/generators/Exercises/ComplexNumbers.cs).
+When the default generator output is not sufficient, you can override the `GeneratorExercise` class' virtual methods to override the default behavior.
 
-The `GeneratorExercise` abstract class currently exposes five methods that are used for overriding the default behavior when generating an exercise.
+### Method 1: UpdateTestMethod(TestMethod testMethod)
 
-### void UpdateCanonicalData(CanonicalData canonicalData)
-Update the canonical data for a given test. 
+Update the test method that described the test method being generated. When you are required to customize a test generator, overriding this method is virtually always what you want to do.
 
-The most common use for this override is to iterate over each of the canonical data cases.
+There are many things that can be customized, of which we'll list the more common usages.
 
-As an example, if you wanted to change the default behavior so that when the `Input` value of a test is a negative number, an exception should be thrown, the code would look like this.
+#### Customize test data
+
+There are quite some generators that want to change the input or expected value.
+
+An example of this is the [bracket-push](https://github.com/exercism/csharp/blob/master/generators/Exercises/Generators/BracketPush.cs) generator, which input value with the key `"value"` requires some additional escaping:
 
 ```csharp
-protected override void UpdateCanonicalData(CanonicalData canonicalData)
+protected override void UpdateTestMethod(TestMethod testMethod)
 {
-  foreach (var canonicalDataCase in canonicalData.Cases)
+    testMethod.Input["value"] = testMethod.Input["value"].Replace("\\", "\\\\");
+    // [...]
+}
+```
+
+Another common use case is to handle empty arrays. If an array is empty, its type will default to `JArray`, which doesn't have any type information. To allow the generator to output a correctly typed array, we have to convert the `JArray` to an array first.
+
+An example of this is the [proverb](https://github.com/exercism/csharp/blob/master/generators/Exercises/Generators/Proverb.cs) generator, which converts the `JArray` to an empty `string` array:
+
+```csharp
+protected override void UpdateTestMethod(TestMethod testMethod)
+{
+    // [...]
+
+    if (testMethod.Input["strings"] is JArray)
+        testMethod.Input["strings"] = Array.Empty<string>();
+
+    if (testMethod.Expected is JArray)
+        testMethod.Expected = Array.Empty<string>();
+}
+```
+
+#### Output test data as variables
+
+Sometimes, it might make sense to not define a test method's data inline, but as variables.
+
+An example of this is the [crypto square](https://github.com/exercism/csharp/blob/master/generators/Exercises/Generators/CryptoSquare.cs) generator, which indicates that both the test method input as well as the expected value, should be stored in variables:
+
+```csharp
+protected override void UpdateTestMethod(TestMethod testMethod)
+{
+    testMethod.UseVariablesForInput = true;
+    testMethod.UseVariableForExpected = true;
+}
+```
+
+#### Custom tested method type
+
+By default, the generator will test a static method. However, you can also test for instance methods, extension methods, properties and constructors.
+
+An example of this is the [roman numerals](https://github.com/exercism/csharp/blob/master/generators/Exercises/Generators/RomanNumerals.cs) generator, which indicates that it tests an extensions method:
+
+```csharp
+protected override void UpdateTestMethod(TestMethod testMethod)
+{
+    testMethod.TestedMethodType = TestedMethodType.ExtensionMethod;
+    testMethod.TestedMethod = "ToRoman";
+}
+```
+
+#### Change names used
+
+As we saw in the previous example, you can also customize the name of the tested method. You are also allowed to customize the tested class' name and the test method name.
+
+An example of this is the [triangle](https://github.com/exercism/csharp/blob/master/generators/Exercises/Generators/Triangle.cs) generator, which by default generates duplicate test method names (which will be a compile-time error), but instead uses the `TestMethodNameWithPath` to use the full path as the test method name (effectively making the test method name unique):
+
+```csharp
+protected override void UpdateTestMethod(TestMethod testMethod)
+{
+    // [...]
+    testMethod.TestMethodName = testMethod.TestMethodNameWithPath;
+    // [...]
+}
+```
+
+#### Test for an exception being thrown
+
+Some test methods want to verify that an exception is being thrown.
+
+An example of this is the [RNA transcription]() generator, which defines that some test methods should throws an `ArgumentException`:
+
+```csharp
+protected override void UpdateTestMethod(TestMethod testMethod)
+{
+    if (testMethod.Expected is null)
+        testMethod.ExceptionThrown = typeof(ArgumentException);
+}
+```
+
+Note that `ArgumentException` type's namespace will be automatically added to the list of namespaces used in the test class.
+
+#### Custom input/constructor parameters
+
+In some case, you might want to override the parameters that are used as input parameters.
+
+An example of this is the [two fer]() generator, which does not use any input parameters when the `"name"` input parameter is set to `null`:
+
+```csharp
+protected override void UpdateTestMethod(TestMethod testMethod)
+{
+  // [...]
+
+  if (testMethod.Input["name"] is null)
+    testMethod.InputParameters = Array.Empty<string>();
+}
+```
+
+If a test method tests an instance method, you can also specify which parameters to use as constructor parameters (the others will be input parameters, unless specified otherwise).
+
+An example of this is the [matrix]() generator, which specifies that the `"string"` parameter should be passed as a constructor parameter:
+
+```csharp
+protected override void UpdateTestMethod(TestMethod testMethod)
+{
+  testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
+  testMethod.ConstructorInputParameters = new[] { "string" };
+}
+```
+
+#### Custom arrange/act/assert code
+
+Although this should be used as a last resort, some generators might want to skip the default generation completely and control which arrange, act or assert code the test method should contain.
+
+An example of this is the [run-length-encoding](https://github.com/exercism/csharp/blob/master/generators/Exercises/Generators/RunLengthEncoding.cs) generator, which uses a custom assertion for one specific property:
+
+```csharp
+protected override void UpdateTestMethod(TestMethod testMethod)
+{
+    // [...]
+
+    if (testMethod.Property == "consistency")
+        testMethod.Assert = RenderConsistencyToAssert(testMethod);
+}
+
+private string RenderConsistencyToAssert(TestMethod testMethod)
+{
+    var expected = Render.Object(testMethod.Expected);
+    var actual = $"{testMethod.TestedClass}.Decode({testMethod.TestedClass}.Encode({expected}))";
+    return Render.AssertEqual(expected, actual);
+}
+```
+
+Note that the `Render` instance is used to render the assertion and the expected value.
+
+### Method 2: UpdateNamespaces(ISet<string> namespaces)
+
+Allows additional namespaces to be added to the test suite.
+
+All tests use the `Xunit` framework, so each test class will automatically include the `Xunit` namespace. However, some test classes may require additional namespaces.
+
+An example of this is the [gigasecond](https://github.com/exercism/csharp/blob/master/generators/Exercises/Generators/Gigasecond.cs) generator, which uses the `DateTime` class in its test methods, and thus adds its namespace to the list of namespaces:
+
+```csharp
+protected override void UpdateNamespaces(ISet<string> namespaces)
+{
+    namespaces.Add(typeof(DateTime).Namespace);
+}
+```
+
+Note that as mentioned before, the namespace of any thrown exception types are automaticall added to the list of namespaces.
+
+### Method 3: UpdateTestClass(TestClass testClass)
+
+This method allows you to customize the output of the test class. Only in rare cases would you want to override this method. The most common use case to override this method, is to add additional (helper) methods to the test suite.
+
+An example of this is the [Tournament](https://github.com/exercism/csharp/blob/master/generators/Exercises/Tournament.cs) generator, which adds a helper method to the test suite:
+
+```csharp
+protected override void UpdateTestClass(TestClass testClass)
+{
+    AddRunTallyMethod(testClass);
+}
+
+private static void AddRunTallyMethod(TestClass testClass)
+{
+    testClass.AdditionalMethods.Add(@"
+private string RunTally(string input)
+{
+  var encoding = new UTF8Encoding();
+
+  using (var inStream = new MemoryStream(encoding.GetBytes(input)))
+  using (var outStream = new MemoryStream())
   {
-    var caseInputLessThanZero = (long)canonicalDataCase.Input["number"] < 0;
-    canonicalDataCase.ExceptionThrown = caseInputLessThanZero ? typeof(ArgumentException) : null;
+    Tournament.Tally(inStream, outStream);
+    return encoding.GetString(outStream.ToArray());
   }
+}");
 }
 ```
 
-### HashSet\<string\> AddAdditionalNamespaces()
-Allows more namespaces to be added to the test suite. 
-
-The tests use `Xunit` so all tests will automatically include the `Xunit` namespace. However, more advanced tests may require additional namespaces.
-
-```csharp
-protected override HashSet<string> AddAdditionalNamespaces()
-{
-  return new HashSet<string>()
-  {
-    typeof(Dictionary<char, int>).Namespace
-  };
-}
-```
-
-This snippet would add the namespace that the `Dictionary<char, int>` collection lives in (`System.Collections.Generic`).
-
-### string RenderTestMethodBody[Arrange/Act/Assert]
-Override the default behavior when rendering a test methods arrange, act, and/or assert sections.
-
-More advanced tests may need to leverage a `template`. A template allows you to add additional code to a test and assert more complex statements.
-
-An example of this is the [RunLengthEncoding](https://github.com/exercism/csharp/blob/master/generators/Exercises/RunLengthEncoding.cs) test.
-
-Here the **Assert** is being overridden. The assert needs to call additional functions, but only if the property is `consistency`. Otherwise, render the assert as usual.
-
-### string[] RenderAdditionalMethods()
-Allow additional methods to be added to the test suite.
-
-There may exist cases where a suite of unit tests will need to reuse the same logic in each of the tests. Rather than duplicating code, this method allows you to provide helper methods for the tests.
-
-An example of this is the [Tournament](https://github.com/exercism/csharp/blob/master/generators/Exercises/Tournament.cs#L45) generator.
-
-Additional methods added using this override will be added to the bottom of the test suite.
+Additional methods will be added to the bottom of the test suite.
 
 ## Updating Existing Files
+
 It is possible that an existing exercise does not match the canonical data. It is OK to update the exercise stub and/or the exercise example to follow the canonical data! An example might be that an exercise is named SumOfMultiples, but the SumOfMultiples.cs and Example.cs files both use `Multiples` as the name of the class.
 
 Also, if you find an issue with one of the existing generators or test suites simply open up the generator that you would like to update, make your changes, and then run the generators.
 
 ## Running The Generators
+
 This repository is coded against [.NET Core](https://www.microsoft.com/net/core). To run the generators all you need to do is run the following command in the generators directory:
 
 `dotnet run`
@@ -112,4 +258,5 @@ Once the generator has been run, you can view the output of your generation by n
 `exercises/bob/BobTest.cs`
 
 ## Submitting A Generator
+
 If you are satisfied with the output of your generator, we would love for you to submit a pull request! Please include your generator, updated test suite, and any other corresponding files that you may have changed.
