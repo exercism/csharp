@@ -1,5 +1,7 @@
+using System.Linq;
 using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
+using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -10,19 +12,22 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.UseVariablesForInput = true;
             testMethod.UseVariableForExpected = true;
 
-            var stringInput = testMethod.Input["array"].ToString();
-
-            // We skip rendering of pure int arrays.
-            if (stringInput.Contains("System.Int32"))
-                return;
-
-            testMethod.Input["array"] = new UnescapedValue(ConvertToObjectArray(stringInput));
+            var renderedArray = Render.ArrayMultiLine(ConvertToObjectArray(testMethod.Input["array"]));
+            testMethod.Input["array"] = new UnescapedValue(renderedArray.Replace("new[]", "new object[]"));
         }
 
-        private static string ConvertToObjectArray(string input)
-            => input
-                .Replace("System.Int32", "")
-                .Replace("]", "}")
-                .Replace("[", "new object[] {");
+        private static dynamic ConvertToObjectArray(dynamic input)
+        {   
+            if (input is int[] ints)
+                return ints;
+
+            if (input is JArray jArray)
+                return jArray.Cast<object>().Select(ConvertToObjectArray).ToArray();
+
+            if (input is JToken jToken && jToken.Type == JTokenType.Null)
+                return null;
+
+            return input;
+        }
     }
 }

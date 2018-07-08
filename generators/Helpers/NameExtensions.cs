@@ -71,6 +71,8 @@ namespace Exercism.CSharp.Helpers
                 return "string";
             if (type == typeof(char))
                 return "char";
+            if (type == typeof(object))
+                return "object";
             if (type.IsGenericType && ValueTupleTypes.Contains(type.GetGenericTypeDefinition()))
                 return $"({string.Join(", ", type.GetGenericArguments().Select(ToFriendlyName))})";
             if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>))
