@@ -60,10 +60,10 @@ public class GoCounting
 
         var coords = new[]
         {
-            (col,   row - 1),
-            (col-1, row),
-            (col+1, row),
-            (col,   row+1)
+            (col,     row - 1),
+            (col - 1, row),
+            (col + 1, row),
+            (col,     row + 1)
         };
 
         return coords.Where(IsValidCoordinate);
