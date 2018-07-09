@@ -9,7 +9,8 @@ public class MinesweeperTest
     public void No_rows()
     {
         var minefield = Array.Empty<string>();
-        Assert.Empty(Minesweeper.Annotate(minefield));
+        var expected = Array.Empty<string>();
+        Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -19,7 +20,10 @@ public class MinesweeperTest
         {
             ""
         };
-        var expected = new[] { "" };
+        var expected = new[]
+        {
+            ""
+        };
         Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 
@@ -32,7 +36,12 @@ public class MinesweeperTest
             "   ",
             "   "
         };
-        var expected = new[] { "   ", "   ", "   " };
+        var expected = new[]
+        {
+            "   ",
+            "   ",
+            "   "
+        };
         Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 
@@ -45,7 +54,12 @@ public class MinesweeperTest
             "***",
             "***"
         };
-        var expected = new[] { "***", "***", "***" };
+        var expected = new[]
+        {
+            "***",
+            "***",
+            "***"
+        };
         Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 
@@ -58,7 +72,12 @@ public class MinesweeperTest
             " * ",
             "   "
         };
-        var expected = new[] { "111", "1*1", "111" };
+        var expected = new[]
+        {
+            "111",
+            "1*1",
+            "111"
+        };
         Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 
@@ -71,7 +90,12 @@ public class MinesweeperTest
             "* *",
             "***"
         };
-        var expected = new[] { "***", "*8*", "***" };
+        var expected = new[]
+        {
+            "***",
+            "*8*",
+            "***"
+        };
         Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 
@@ -82,7 +106,10 @@ public class MinesweeperTest
         {
             " * * "
         };
-        var expected = new[] { "1*2*1" };
+        var expected = new[]
+        {
+            "1*2*1"
+        };
         Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 
@@ -93,7 +120,10 @@ public class MinesweeperTest
         {
             "*   *"
         };
-        var expected = new[] { "*1 1*" };
+        var expected = new[]
+        {
+            "*1 1*"
+        };
         Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 
@@ -108,7 +138,14 @@ public class MinesweeperTest
             "*",
             " "
         };
-        var expected = new[] { "1", "*", "2", "*", "1" };
+        var expected = new[]
+        {
+            "1",
+            "*",
+            "2",
+            "*",
+            "1"
+        };
         Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 
@@ -123,7 +160,14 @@ public class MinesweeperTest
             " ",
             "*"
         };
-        var expected = new[] { "*", "1", " ", "1", "*" };
+        var expected = new[]
+        {
+            "*",
+            "1",
+            " ",
+            "1",
+            "*"
+        };
         Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 
@@ -138,7 +182,14 @@ public class MinesweeperTest
             "  *  ",
             "  *  "
         };
-        var expected = new[] { " 2*2 ", "25*52", "*****", "25*52", " 2*2 " };
+        var expected = new[]
+        {
+            " 2*2 ",
+            "25*52",
+            "*****",
+            "25*52",
+            " 2*2 "
+        };
         Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 
@@ -154,7 +205,15 @@ public class MinesweeperTest
             " *  * ",
             "      "
         };
-        var expected = new[] { "1*22*1", "12*322", " 123*2", "112*4*", "1*22*2", "111111" };
+        var expected = new[]
+        {
+            "1*22*1",
+            "12*322",
+            " 123*2",
+            "112*4*",
+            "1*22*2",
+            "111111"
+        };
         Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 }

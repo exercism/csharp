@@ -12,12 +12,13 @@ namespace Exercism.CSharp.Exercises.Generators
         {
             testMethod.UseVariablesForInput = true;
             testMethod.UseVariableForExpected = true;
-            
-            if (testMethod.Input["minefield"] is JArray)
-                testMethod.Input["minefield"] = Array.Empty<string>();
 
-            testMethod.Input["minefield"] = new UnescapedValue(Render.ArrayMultiLine(testMethod.Input["minefield"]));
+            testMethod.Input["minefield"] = RenderAsMultilineArray(testMethod.Input["minefield"]);
+            testMethod.Expected = RenderAsMultilineArray(testMethod.Expected);
         }
+
+        private UnescapedValue RenderAsMultilineArray(dynamic value) 
+            => new UnescapedValue(Render.ArrayMultiLine(value as string[] ?? Array.Empty<string>()));
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {
