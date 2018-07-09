@@ -79,7 +79,7 @@ protected override void UpdateTestMethod(TestMethod testMethod)
 
 Sometimes, it might make sense to not define a test method's data inline, but as variables.
 
-An example of this is the [crypto square](https://github.com/exercism/csharp/blob/master/generators/Exercises/Generators/CryptoSquare.cs) generator, which indicates that both the test method input as well as the expected value, should be stored in variables:
+An example of this is the [crypto-square](https://github.com/exercism/csharp/blob/master/generators/Exercises/Generators/CryptoSquare.cs) generator, which indicates that both the test method input as well as the expected value, should be stored in variables:
 
 ```csharp
 protected override void UpdateTestMethod(TestMethod testMethod)
@@ -93,7 +93,7 @@ protected override void UpdateTestMethod(TestMethod testMethod)
 
 By default, the generator will test a static method. However, you can also test for instance methods, extension methods, properties and constructors.
 
-An example of this is the [roman numerals](https://github.com/exercism/csharp/blob/master/generators/Exercises/Generators/RomanNumerals.cs) generator, which indicates that it tests an extensions method:
+An example of this is the [roman-numerals](https://github.com/exercism/csharp/blob/master/generators/Exercises/Generators/RomanNumerals.cs) generator, which indicates that it tests an extensions method:
 
 ```csharp
 protected override void UpdateTestMethod(TestMethod testMethod)
@@ -122,7 +122,7 @@ protected override void UpdateTestMethod(TestMethod testMethod)
 
 Some test methods want to verify that an exception is being thrown.
 
-An example of this is the [RNA transcription]() generator, which defines that some test methods should throws an `ArgumentException`:
+An example of this is the [rna-transcription](https://github.com/exercism/csharp/blob/master/generators/Exercises/Generators/RnaTranscription.cs) generator, which defines that some test methods should throws an `ArgumentException`:
 
 ```csharp
 protected override void UpdateTestMethod(TestMethod testMethod)
@@ -138,7 +138,7 @@ Note that `ArgumentException` type's namespace will be automatically added to th
 
 In some case, you might want to override the parameters that are used as input parameters.
 
-An example of this is the [two fer]() generator, which does not use any input parameters when the `"name"` input parameter is set to `null`:
+An example of this is the [two-fer](https://github.com/exercism/csharp/blob/master/generators/Exercises/Generators/TwoFer.cs) generator, which does not use any input parameters when the `"name"` input parameter is set to `null`:
 
 ```csharp
 protected override void UpdateTestMethod(TestMethod testMethod)
@@ -152,7 +152,7 @@ protected override void UpdateTestMethod(TestMethod testMethod)
 
 If a test method tests an instance method, you can also specify which parameters to use as constructor parameters (the others will be input parameters, unless specified otherwise).
 
-An example of this is the [matrix]() generator, which specifies that the `"string"` parameter should be passed as a constructor parameter:
+An example of this is the [matrix](https://github.com/exercism/csharp/blob/master/generators/Exercises/Generators/Matrix.cs) generator, which specifies that the `"string"` parameter should be passed as a constructor parameter:
 
 ```csharp
 protected override void UpdateTestMethod(TestMethod testMethod)
@@ -208,7 +208,7 @@ Note that as mentioned before, the namespace of any thrown exception types are a
 
 This method allows you to customize the output of the test class. Only in rare cases would you want to override this method. The most common use case to override this method, is to add additional (helper) methods to the test suite.
 
-An example of this is the [Tournament](https://github.com/exercism/csharp/blob/master/generators/Exercises/Tournament.cs) generator, which adds a helper method to the test suite:
+An example of this is the [tournament](https://github.com/exercism/csharp/blob/master/generators/Exercises/Generators/Tournament.cs) generator, which adds a helper method to the test suite:
 
 ```csharp
 protected override void UpdateTestClass(TestClass testClass)
