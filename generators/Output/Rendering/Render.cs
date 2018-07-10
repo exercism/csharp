@@ -6,9 +6,7 @@ using System.Text.RegularExpressions;
 namespace Exercism.CSharp.Output.Rendering
 {
     public partial class Render
-    {   
-        private const int MaximumLengthForSingleLineValue = 108;
-        
+    {
         public string Object(object val)
         {
             if (val == null)
@@ -53,9 +51,9 @@ namespace Exercism.CSharp.Output.Rendering
                         return DictionaryMultiLine((dynamic) val);
 
                     if (IsArray(val))
-                        return RenderAsSingleLine((dynamic)val) 
-                            ? Array((dynamic) val)
-                            : ArrayMultiLine((dynamic) val);
+                        return RenderArrayAsMultiline((dynamic) val) 
+                            ? ArrayMultiLine((dynamic) val)
+                            : Array((dynamic) val);
 
                     return Object(val);
             }
@@ -70,15 +68,12 @@ namespace Exercism.CSharp.Output.Rendering
         private static bool IsDictionary(object obj)
             => obj.GetType().IsGenericType && obj.GetType().GetGenericTypeDefinition() == typeof(Dictionary<,>);
         
-        private static bool RenderAsSingleLine<T>(T[,] _) => false;
-        
-        private bool RenderAsSingleLine<T>(T[] elements) 
-            => !elements.Any() || IsNotArrayOfArrays(elements) && RenderedAsSingleLineDoesNotExceedMaximumLength(elements);
+        private static bool RenderArrayAsMultiline<T>(T[,] _) => true;
 
-        private static bool IsNotArrayOfArrays<T>(T[] elements) 
-            => !elements.GetType().GetElementType().IsArray;
+        private static bool RenderArrayAsMultiline<T>(T[] elements)
+            => IsNestedArray(elements) && elements.Length > 0;
 
-        private bool RenderedAsSingleLineDoesNotExceedMaximumLength<T>(T[] elements) 
-            => Array(elements).Length <= MaximumLengthForSingleLineValue;
+        private static bool IsNestedArray<T>(T[] elements) 
+            => elements.GetType().GetElementType().IsArray;
     }
 }
