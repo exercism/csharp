@@ -88,17 +88,7 @@ public class AllergiesTest
     public void Allergic_to_everything()
     {
         var sut = new Allergies(255);
-        var expected = new[]
-        {
-            "eggs",
-            "peanuts",
-            "shellfish",
-            "strawberries",
-            "tomatoes",
-            "chocolate",
-            "pollen",
-            "cats"
-        };
+        var expected = new[] { "eggs", "peanuts", "shellfish", "strawberries", "tomatoes", "chocolate", "pollen", "cats" };
         Assert.Equal(expected, sut.List());
     }
 
@@ -106,16 +96,7 @@ public class AllergiesTest
     public void Ignore_non_allergen_score_parts()
     {
         var sut = new Allergies(509);
-        var expected = new[]
-        {
-            "eggs",
-            "shellfish",
-            "strawberries",
-            "tomatoes",
-            "chocolate",
-            "pollen",
-            "cats"
-        };
+        var expected = new[] { "eggs", "shellfish", "strawberries", "tomatoes", "chocolate", "pollen", "cats" };
         Assert.Equal(expected, sut.List());
     }
 }

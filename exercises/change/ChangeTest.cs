@@ -46,24 +46,7 @@ public class ChangeTest
     {
         var coins = new[] { 1, 2, 5, 10, 20, 50, 100 };
         var target = 999;
-        var expected = new[]
-        {
-            2,
-            2,
-            5,
-            20,
-            20,
-            50,
-            100,
-            100,
-            100,
-            100,
-            100,
-            100,
-            100,
-            100,
-            100
-        };
+        var expected = new[] { 2, 2, 5, 20, 20, 50, 100, 100, 100, 100, 100, 100, 100, 100, 100 };
         Assert.Equal(expected, Change.FindFewestCoins(coins, target));
     }
 

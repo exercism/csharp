@@ -25,13 +25,7 @@ public class PokerTest
     [Fact(Skip = "Remove to run test")]
     public void A_tie_has_multiple_winners()
     {
-        var hands = new[]
-        {
-            "4D 5S 6S 8D 3C",
-            "2S 4C 7S 9H 10H",
-            "3S 4S 5D 6H JH",
-            "3H 4H 5C 6C JD"
-        };
+        var hands = new[] { "4D 5S 6S 8D 3C", "2S 4C 7S 9H 10H", "3S 4S 5D 6H JH", "3H 4H 5C 6C JD" };
         var actual = Poker.BestHands(hands);
         var expected = new[] { "3S 4S 5D 6H JH", "3H 4H 5C 6C JD" };
         Assert.Equal(expected, actual);

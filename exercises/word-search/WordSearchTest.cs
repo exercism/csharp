@@ -374,16 +374,7 @@ public class WordSearchTest
     [Fact(Skip = "Remove to run test")]
     public void Should_locate_words_written_bottom_left_to_top_right()
     {
-        var wordsToSearchFor = new[]
-        {
-            "clojure",
-            "elixir",
-            "ecmascript",
-            "rust",
-            "java",
-            "lua",
-            "lisp"
-        };
+        var wordsToSearchFor = new[] { "clojure", "elixir", "ecmascript", "rust", "java", "lua", "lisp" };
         var grid = 
             "jefblpepre\n" +
             "camdcimgtc\n" +
@@ -419,17 +410,7 @@ public class WordSearchTest
     [Fact(Skip = "Remove to run test")]
     public void Should_locate_words_written_top_right_to_bottom_left()
     {
-        var wordsToSearchFor = new[]
-        {
-            "clojure",
-            "elixir",
-            "ecmascript",
-            "rust",
-            "java",
-            "lua",
-            "lisp",
-            "ruby"
-        };
+        var wordsToSearchFor = new[] { "clojure", "elixir", "ecmascript", "rust", "java", "lua", "lisp", "ruby" };
         var grid = 
             "jefblpepre\n" +
             "camdcimgtc\n" +
@@ -467,18 +448,7 @@ public class WordSearchTest
     [Fact(Skip = "Remove to run test")]
     public void Should_fail_to_locate_a_word_that_is_not_in_the_puzzle()
     {
-        var wordsToSearchFor = new[]
-        {
-            "clojure",
-            "elixir",
-            "ecmascript",
-            "rust",
-            "java",
-            "lua",
-            "lisp",
-            "ruby",
-            "haskell"
-        };
+        var wordsToSearchFor = new[] { "clojure", "elixir", "ecmascript", "rust", "java", "lua", "lisp", "ruby", "haskell" };
         var grid = 
             "jefblpepre\n" +
             "camdcimgtc\n" +

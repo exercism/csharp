@@ -7,42 +7,14 @@ public class ScaleGeneratorTest
     [Fact]
     public void Chromatic_scale_with_sharps()
     {
-        var expected = new[]
-        {
-            "C",
-            "C#",
-            "D",
-            "D#",
-            "E",
-            "F",
-            "F#",
-            "G",
-            "G#",
-            "A",
-            "A#",
-            "B"
-        };
+        var expected = new[] { "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B" };
         Assert.Equal(expected, ScaleGenerator.Pitches("C"));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Chromatic_scale_with_flats()
     {
-        var expected = new[]
-        {
-            "F",
-            "Gb",
-            "G",
-            "Ab",
-            "A",
-            "Bb",
-            "B",
-            "C",
-            "Db",
-            "D",
-            "Eb",
-            "E"
-        };
+        var expected = new[] { "F", "Gb", "G", "Ab", "A", "Bb", "B", "C", "Db", "D", "Eb", "E" };
         Assert.Equal(expected, ScaleGenerator.Pitches("F"));
     }
 

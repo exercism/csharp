@@ -60,30 +60,7 @@ public class BowlingTest
     public void A_spare_in_the_last_frame_gets_a_one_roll_bonus_that_is_counted_once()
     {
         var sut = new BowlingGame();
-        var previousRolls = new[]
-        {
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            7,
-            3,
-            7
-        };
+        var previousRolls = new[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 3, 7 };
         DoRoll(previousRolls, sut);
         var actual = sut.Score();
         Assert.Equal(17, actual);
@@ -123,30 +100,7 @@ public class BowlingTest
     public void A_strike_in_the_last_frame_gets_a_two_roll_bonus_that_is_counted_once()
     {
         var sut = new BowlingGame();
-        var previousRolls = new[]
-        {
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            10,
-            7,
-            1
-        };
+        var previousRolls = new[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 7, 1 };
         DoRoll(previousRolls, sut);
         var actual = sut.Score();
         Assert.Equal(18, actual);
@@ -156,30 +110,7 @@ public class BowlingTest
     public void Rolling_a_spare_with_the_two_roll_bonus_does_not_get_a_bonus_roll()
     {
         var sut = new BowlingGame();
-        var previousRolls = new[]
-        {
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            10,
-            7,
-            3
-        };
+        var previousRolls = new[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 7, 3 };
         DoRoll(previousRolls, sut);
         var actual = sut.Score();
         Assert.Equal(20, actual);
@@ -189,30 +120,7 @@ public class BowlingTest
     public void Strikes_with_the_two_roll_bonus_do_not_get_bonus_rolls()
     {
         var sut = new BowlingGame();
-        var previousRolls = new[]
-        {
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            10,
-            10,
-            10
-        };
+        var previousRolls = new[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 10 };
         DoRoll(previousRolls, sut);
         var actual = sut.Score();
         Assert.Equal(30, actual);
@@ -222,30 +130,7 @@ public class BowlingTest
     public void A_strike_with_the_one_roll_bonus_after_a_spare_in_the_last_frame_does_not_get_a_bonus()
     {
         var sut = new BowlingGame();
-        var previousRolls = new[]
-        {
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            7,
-            3,
-            10
-        };
+        var previousRolls = new[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 3, 10 };
         DoRoll(previousRolls, sut);
         var actual = sut.Score();
         Assert.Equal(20, actual);
@@ -301,29 +186,7 @@ public class BowlingTest
     public void Two_bonus_rolls_after_a_strike_in_the_last_frame_cannot_score_more_than_10_points()
     {
         var sut = new BowlingGame();
-        var previousRolls = new[]
-        {
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            10,
-            5
-        };
+        var previousRolls = new[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 5 };
         DoRoll(previousRolls, sut);
         Assert.Throws<ArgumentException>(() => sut.Roll(6));
     }
@@ -332,30 +195,7 @@ public class BowlingTest
     public void Two_bonus_rolls_after_a_strike_in_the_last_frame_can_score_more_than_10_points_if_one_is_a_strike()
     {
         var sut = new BowlingGame();
-        var previousRolls = new[]
-        {
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            10,
-            10,
-            6
-        };
+        var previousRolls = new[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 6 };
         DoRoll(previousRolls, sut);
         var actual = sut.Score();
         Assert.Equal(26, actual);
@@ -365,29 +205,7 @@ public class BowlingTest
     public void The_second_bonus_rolls_after_a_strike_in_the_last_frame_cannot_be_a_strike_if_the_first_one_is_not_a_strike()
     {
         var sut = new BowlingGame();
-        var previousRolls = new[]
-        {
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            10,
-            6
-        };
+        var previousRolls = new[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 6 };
         DoRoll(previousRolls, sut);
         Assert.Throws<ArgumentException>(() => sut.Roll(10));
     }
@@ -396,29 +214,7 @@ public class BowlingTest
     public void Second_bonus_roll_after_a_strike_in_the_last_frame_cannot_score_more_than_10_points()
     {
         var sut = new BowlingGame();
-        var previousRolls = new[]
-        {
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            10,
-            10
-        };
+        var previousRolls = new[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10 };
         DoRoll(previousRolls, sut);
         Assert.Throws<ArgumentException>(() => sut.Roll(11));
     }
@@ -463,29 +259,7 @@ public class BowlingTest
     public void Both_bonus_rolls_for_a_strike_in_the_last_frame_must_be_rolled_before_score_can_be_calculated()
     {
         var sut = new BowlingGame();
-        var previousRolls = new[]
-        {
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            10,
-            10
-        };
+        var previousRolls = new[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10 };
         DoRoll(previousRolls, sut);
         Assert.Throws<ArgumentException>(() => sut.Score());
     }
@@ -503,30 +277,7 @@ public class BowlingTest
     public void Cannot_roll_after_bonus_roll_for_spare()
     {
         var sut = new BowlingGame();
-        var previousRolls = new[]
-        {
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            7,
-            3,
-            2
-        };
+        var previousRolls = new[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 3, 2 };
         DoRoll(previousRolls, sut);
         Assert.Throws<ArgumentException>(() => sut.Roll(2));
     }
@@ -535,30 +286,7 @@ public class BowlingTest
     public void Cannot_roll_after_bonus_rolls_for_strike()
     {
         var sut = new BowlingGame();
-        var previousRolls = new[]
-        {
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            10,
-            3,
-            2
-        };
+        var previousRolls = new[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 3, 2 };
         DoRoll(previousRolls, sut);
         Assert.Throws<ArgumentException>(() => sut.Roll(2));
     }

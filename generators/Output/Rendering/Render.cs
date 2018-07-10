@@ -7,7 +7,7 @@ namespace Exercism.CSharp.Output.Rendering
 {
     public partial class Render
     {   
-        private const int MaximumLengthForSingleLineValue = 68;
+        private const int MaximumLengthForSingleLineValue = 108;
         
         public string Object(object val)
         {
@@ -70,7 +70,7 @@ namespace Exercism.CSharp.Output.Rendering
         private static bool IsDictionary(object obj)
             => obj.GetType().IsGenericType && obj.GetType().GetGenericTypeDefinition() == typeof(Dictionary<,>);
         
-        private static bool RenderAsSingleLine<T>(T[,] elements) => false;
+        private static bool RenderAsSingleLine<T>(T[,] _) => false;
         
         private bool RenderAsSingleLine<T>(T[] elements) 
             => !elements.Any() || IsNotArrayOfArrays(elements) && RenderedAsSingleLineDoesNotExceedMaximumLength(elements);

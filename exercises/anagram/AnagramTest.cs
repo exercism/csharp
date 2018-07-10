@@ -41,15 +41,7 @@ public class AnagramTest
     [Fact(Skip = "Remove to run test")]
     public void Detects_three_anagrams()
     {
-        var candidates = new[]
-        {
-            "gallery",
-            "ballerina",
-            "regally",
-            "clergy",
-            "largely",
-            "leading"
-        };
+        var candidates = new[] { "gallery", "ballerina", "regally", "clergy", "largely", "leading" };
         var sut = new Anagram("allergy");
         var expected = new[] { "gallery", "regally", "largely" };
         Assert.Equal(expected, sut.Anagrams(candidates));
