@@ -2,7 +2,7 @@
 
 Test generators allow tracks to generate tests automatically without having to write them ourselves. Each test generator reads from the exercise's `canonical data`, which defines the name of the test, its inputs, and outputs. You can read more about exercism's approach to test suites [here](https://github.com/exercism/docs/blob/master/language-tracks/exercises/anatomy/test-suites.md).
 
-Generating tests automatically removes any sort of user error when creating tests. We want the tests to be accurate with respect to its canonical data. Test generation also makes it much easier to keep tests up to date. As the canonical data changes, the tests will be automatically updated when the generator for that test is run.
+Generating tests automatically removes any sort of user error when creating tests. Furthermore, we want the tests to be accurate with respect to its canonical data. Test generation also makes it much easier to keep tests up to date. As the canonical data changes, the tests will be automatically updated when the generator for that test is run.
 
 An example of a canonical data file can be found [here](https://github.com/exercism/problem-specifications/blob/master/exercises/bob/canonical-data.json)
 
@@ -19,7 +19,7 @@ When looking through the canonical data and the generator code base, we use a lo
 
 ## Adding a simple generator
 
-Adding a test generator file is straightforward. Simply add a new file to the `Exercises/Generators` folder with the name of the exercise (in PascalCase), and extend the `GeneratorExercise` abstract class.
+Adding a test generator is straightforward. Simply add a new file to the `Exercises/Generators` folder with the name of the exercise (in PascalCase), and create a class that extends the `GeneratorExercise` class.
 
 An example of a simple generator would be the Bob exercise. The source is displayed below, but you can freely view it in the repository [here](https://github.com/exercism/csharp/blob/master/generators/Exercises/Bob.cs).
 
@@ -32,11 +32,11 @@ namespace Exercism.CSharp.Exercises.Generators
 }
 ```
 
-This is a fully working generator, no other code needs to be written. However, it's simplicity stems from the fact that the test suite and the program itself are relatively trivial.
+This is a fully working generator, no other code needs to be written! However, it's simplicity stems from the fact that the test suite and the program itself are relatively trivial.
 
 ## Adding a complex generator
 
-When the default generator output is not sufficient, you can override the `GeneratorExercise` class' virtual methods to override the default behavior.
+When the generator's default output is not sufficient, you can override the `GeneratorExercise` class' virtual methods to override the default behavior.
 
 ### Method 1: UpdateTestMethod(TestMethod testMethod)
 
@@ -46,9 +46,9 @@ There are many things that can be customized, of which we'll list the more commo
 
 #### Customize test data
 
-There are quite some generators that want to change the input or expected value.
+It is not uncommon that a generator has to transform its input data or expected value to a different value/representation.
 
-An example of this is the [bracket-push](https://github.com/exercism/csharp/blob/master/generators/Exercises/Generators/BracketPush.cs) generator, which input value with the key `"value"` requires some additional escaping:
+An example of this is the [bracket-push](https://github.com/exercism/csharp/blob/master/generators/Exercises/Generators/BracketPush.cs) generator, which has a `"value"` input value, which is of type `string`. However, this `string` value contains a backslash, which needs to escaped in order for it to be rendered correctly:
 
 ```csharp
 protected override void UpdateTestMethod(TestMethod testMethod)
@@ -122,7 +122,7 @@ protected override void UpdateTestMethod(TestMethod testMethod)
 
 Some test methods want to verify that an exception is being thrown.
 
-An example of this is the [rna-transcription](https://github.com/exercism/csharp/blob/master/generators/Exercises/Generators/RnaTranscription.cs) generator, which defines that some test methods should throws an `ArgumentException`:
+An example of this is the [rna-transcription](https://github.com/exercism/csharp/blob/master/generators/Exercises/Generators/RnaTranscription.cs) generator, which defines that some of its test methods should throw an `ArgumentException`:
 
 ```csharp
 protected override void UpdateTestMethod(TestMethod testMethod)
@@ -136,7 +136,7 @@ Note that `ArgumentException` type's namespace will be automatically added to th
 
 #### Custom input/constructor parameters
 
-In some case, you might want to override the parameters that are used as input parameters.
+In some cases, you might want to override the parameters that are used as input parameters.
 
 An example of this is the [two-fer](https://github.com/exercism/csharp/blob/master/generators/Exercises/Generators/TwoFer.cs) generator, which does not use any input parameters when the `"name"` input parameter is set to `null`:
 
@@ -202,7 +202,7 @@ protected override void UpdateNamespaces(ISet<string> namespaces)
 }
 ```
 
-Note that as mentioned before, the namespace of any thrown exception types are automaticall added to the list of namespaces.
+Note that as mentioned before, the namespace of any thrown exception types are automatically added to the list of namespaces.
 
 ### Method 3: UpdateTestClass(TestClass testClass)
 
