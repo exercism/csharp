@@ -1,12 +1,12 @@
 // This file was auto-generated based on version 2.1.0 of the canonical data.
 
-using Xunit;
 using System;
+using Xunit;
 
 public class QueenAttackTest
 {
     [Fact]
-    public void Queen_with_a_valid_position_does_not_throw_exception()
+    public void Queen_with_a_valid_position()
     {
         var actual = QueenAttack.Create(2, 2);
     }

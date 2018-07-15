@@ -1,17 +1,11 @@
 // This file was auto-generated based on version 1.1.0 of the canonical data.
 
-using Xunit;
 using System;
+using Xunit;
 
 public class GrainsTest
 {
     [Fact]
-    public void Returns_the_total_number_of_grains_on_the_board()
-    {
-        Assert.Equal(18446744073709551615UL, Grains.Total());
-    }
-
-    [Fact(Skip = "Remove to run test")]
     public void Number_1()
     {
         Assert.Equal(1UL, Grains.Square(1));
@@ -69,5 +63,11 @@ public class GrainsTest
     public void Square_greater_than_64_raises_an_exception()
     {
         Assert.Throws<ArgumentOutOfRangeException>(() => Grains.Square(65));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Returns_the_total_number_of_grains_on_the_board()
+    {
+        Assert.Equal(18446744073709551615UL, Grains.Total());
     }
 }

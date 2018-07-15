@@ -4,7 +4,7 @@ using System.Linq;
 
 public static class Dominoes
 {
-    public static bool CanChain(IEnumerable<Tuple<int, int>> dominoes)
+    public static bool CanChain(IEnumerable<(int, int)> dominoes)
     {
         if (!dominoes.Any())
         {
@@ -21,17 +21,17 @@ public static class Dominoes
         return dominoes.Skip(1).Rotate().Any(sublist => PossibleChains(domino, sublist).Any(CanChain));
     }
 
-    public static IEnumerable<Tuple<int, int>[]> PossibleChains(Tuple<int, int> domino, IEnumerable<Tuple<int, int>> remainder)
+    public static IEnumerable<(int, int)[]> PossibleChains((int, int) domino, IEnumerable<(int, int)> remainder)
     {
         var head = remainder.First();
 
         if (domino.Item2 == head.Item1)
         {
-            yield return new[] { Tuple.Create(domino.Item1, head.Item2) }.Concat(remainder.Skip(1)).ToArray();
+            yield return new[] { (domino.Item1, head.Item2) }.Concat(remainder.Skip(1)).ToArray();
         }
         else if (domino.Item2 == head.Item2)
         {
-            yield return new[] { Tuple.Create(domino.Item1, head.Item1) }.Concat(remainder.Skip(1)).ToArray();
+            yield return new[] { (domino.Item1, head.Item1) }.Concat(remainder.Skip(1)).ToArray();
         }
     }
 

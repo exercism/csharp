@@ -1,18 +1,15 @@
-// This file was auto-generated based on version 1.2.0 of the canonical data.
+// This file was auto-generated based on version 1.2.1 of the canonical data.
 
-using Xunit;
 using System;
 using System.Collections.Generic;
+using Xunit;
 
 public class WordSearchTest
 {
     [Fact]
     public void Should_accept_an_initial_game_grid_and_a_target_search_word()
     {
-        var wordsToSearchFor = new[]
-        {
-            "clojure"
-        };
+        var wordsToSearchFor = new[] { "clojure" };
         var grid = "jefblpepre";
         var sut = new WordSearch(grid);
         var actual = sut.Search(wordsToSearchFor);
@@ -26,10 +23,7 @@ public class WordSearchTest
     [Fact(Skip = "Remove to run test")]
     public void Should_locate_one_word_written_left_to_right()
     {
-        var wordsToSearchFor = new[]
-        {
-            "clojure"
-        };
+        var wordsToSearchFor = new[] { "clojure" };
         var grid = "clojurermt";
         var sut = new WordSearch(grid);
         var actual = sut.Search(wordsToSearchFor);
@@ -43,10 +37,7 @@ public class WordSearchTest
     [Fact(Skip = "Remove to run test")]
     public void Should_locate_the_same_word_written_left_to_right_in_a_different_position()
     {
-        var wordsToSearchFor = new[]
-        {
-            "clojure"
-        };
+        var wordsToSearchFor = new[] { "clojure" };
         var grid = "mtclojurer";
         var sut = new WordSearch(grid);
         var actual = sut.Search(wordsToSearchFor);
@@ -60,10 +51,7 @@ public class WordSearchTest
     [Fact(Skip = "Remove to run test")]
     public void Should_locate_a_different_left_to_right_word()
     {
-        var wordsToSearchFor = new[]
-        {
-            "coffee"
-        };
+        var wordsToSearchFor = new[] { "coffee" };
         var grid = "coffeelplx";
         var sut = new WordSearch(grid);
         var actual = sut.Search(wordsToSearchFor);
@@ -77,10 +65,7 @@ public class WordSearchTest
     [Fact(Skip = "Remove to run test")]
     public void Should_locate_that_different_left_to_right_word_in_a_different_position()
     {
-        var wordsToSearchFor = new[]
-        {
-            "coffee"
-        };
+        var wordsToSearchFor = new[] { "coffee" };
         var grid = "xcoffeezlp";
         var sut = new WordSearch(grid);
         var actual = sut.Search(wordsToSearchFor);
@@ -94,10 +79,7 @@ public class WordSearchTest
     [Fact(Skip = "Remove to run test")]
     public void Should_locate_a_left_to_right_word_in_two_line_grid()
     {
-        var wordsToSearchFor = new[]
-        {
-            "clojure"
-        };
+        var wordsToSearchFor = new[] { "clojure" };
         var grid = 
             "jefblpepre\n" +
             "tclojurerm";
@@ -113,10 +95,7 @@ public class WordSearchTest
     [Fact(Skip = "Remove to run test")]
     public void Should_locate_a_left_to_right_word_in_three_line_grid()
     {
-        var wordsToSearchFor = new[]
-        {
-            "clojure"
-        };
+        var wordsToSearchFor = new[] { "clojure" };
         var grid = 
             "camdcimgtc\n" +
             "jefblpepre\n" +
@@ -133,10 +112,7 @@ public class WordSearchTest
     [Fact(Skip = "Remove to run test")]
     public void Should_locate_a_left_to_right_word_in_ten_line_grid()
     {
-        var wordsToSearchFor = new[]
-        {
-            "clojure"
-        };
+        var wordsToSearchFor = new[] { "clojure" };
         var grid = 
             "jefblpepre\n" +
             "camdcimgtc\n" +
@@ -160,10 +136,7 @@ public class WordSearchTest
     [Fact(Skip = "Remove to run test")]
     public void Should_locate_that_left_to_right_word_in_a_different_position_in_a_ten_line_grid()
     {
-        var wordsToSearchFor = new[]
-        {
-            "clojure"
-        };
+        var wordsToSearchFor = new[] { "clojure" };
         var grid = 
             "jefblpepre\n" +
             "camdcimgtc\n" +
@@ -187,10 +160,7 @@ public class WordSearchTest
     [Fact(Skip = "Remove to run test")]
     public void Should_locate_a_different_left_to_right_word_in_a_ten_line_grid()
     {
-        var wordsToSearchFor = new[]
-        {
-            "fortran"
-        };
+        var wordsToSearchFor = new[] { "fortran" };
         var grid = 
             "jefblpepre\n" +
             "camdcimgtc\n" +
@@ -214,11 +184,7 @@ public class WordSearchTest
     [Fact(Skip = "Remove to run test")]
     public void Should_locate_multiple_words()
     {
-        var wordsToSearchFor = new[]
-        {
-            "fortran",
-            "clojure"
-        };
+        var wordsToSearchFor = new[] { "fortran", "clojure" };
         var grid = 
             "jefblpepre\n" +
             "camdcimgtc\n" +
@@ -244,10 +210,7 @@ public class WordSearchTest
     [Fact(Skip = "Remove to run test")]
     public void Should_locate_a_single_word_written_right_to_left()
     {
-        var wordsToSearchFor = new[]
-        {
-            "elixir"
-        };
+        var wordsToSearchFor = new[] { "elixir" };
         var grid = "rixilelhrs";
         var sut = new WordSearch(grid);
         var actual = sut.Search(wordsToSearchFor);
@@ -261,11 +224,7 @@ public class WordSearchTest
     [Fact(Skip = "Remove to run test")]
     public void Should_locate_multiple_words_written_in_different_horizontal_directions()
     {
-        var wordsToSearchFor = new[]
-        {
-            "elixir",
-            "clojure"
-        };
+        var wordsToSearchFor = new[] { "elixir", "clojure" };
         var grid = 
             "jefblpepre\n" +
             "camdcimgtc\n" +
@@ -291,12 +250,7 @@ public class WordSearchTest
     [Fact(Skip = "Remove to run test")]
     public void Should_locate_words_written_top_to_bottom()
     {
-        var wordsToSearchFor = new[]
-        {
-            "clojure",
-            "elixir",
-            "ecmascript"
-        };
+        var wordsToSearchFor = new[] { "clojure", "elixir", "ecmascript" };
         var grid = 
             "jefblpepre\n" +
             "camdcimgtc\n" +
@@ -324,13 +278,7 @@ public class WordSearchTest
     [Fact(Skip = "Remove to run test")]
     public void Should_locate_words_written_bottom_to_top()
     {
-        var wordsToSearchFor = new[]
-        {
-            "clojure",
-            "elixir",
-            "ecmascript",
-            "rust"
-        };
+        var wordsToSearchFor = new[] { "clojure", "elixir", "ecmascript", "rust" };
         var grid = 
             "jefblpepre\n" +
             "camdcimgtc\n" +
@@ -360,14 +308,7 @@ public class WordSearchTest
     [Fact(Skip = "Remove to run test")]
     public void Should_locate_words_written_top_left_to_bottom_right()
     {
-        var wordsToSearchFor = new[]
-        {
-            "clojure",
-            "elixir",
-            "ecmascript",
-            "rust",
-            "java"
-        };
+        var wordsToSearchFor = new[] { "clojure", "elixir", "ecmascript", "rust", "java" };
         var grid = 
             "jefblpepre\n" +
             "camdcimgtc\n" +
@@ -399,15 +340,7 @@ public class WordSearchTest
     [Fact(Skip = "Remove to run test")]
     public void Should_locate_words_written_bottom_right_to_top_left()
     {
-        var wordsToSearchFor = new[]
-        {
-            "clojure",
-            "elixir",
-            "ecmascript",
-            "rust",
-            "java",
-            "lua"
-        };
+        var wordsToSearchFor = new[] { "clojure", "elixir", "ecmascript", "rust", "java", "lua" };
         var grid = 
             "jefblpepre\n" +
             "camdcimgtc\n" +
@@ -441,16 +374,7 @@ public class WordSearchTest
     [Fact(Skip = "Remove to run test")]
     public void Should_locate_words_written_bottom_left_to_top_right()
     {
-        var wordsToSearchFor = new[]
-        {
-            "clojure",
-            "elixir",
-            "ecmascript",
-            "rust",
-            "java",
-            "lua",
-            "lisp"
-        };
+        var wordsToSearchFor = new[] { "clojure", "elixir", "ecmascript", "rust", "java", "lua", "lisp" };
         var grid = 
             "jefblpepre\n" +
             "camdcimgtc\n" +
@@ -486,17 +410,7 @@ public class WordSearchTest
     [Fact(Skip = "Remove to run test")]
     public void Should_locate_words_written_top_right_to_bottom_left()
     {
-        var wordsToSearchFor = new[]
-        {
-            "clojure",
-            "elixir",
-            "ecmascript",
-            "rust",
-            "java",
-            "lua",
-            "lisp",
-            "ruby"
-        };
+        var wordsToSearchFor = new[] { "clojure", "elixir", "ecmascript", "rust", "java", "lua", "lisp", "ruby" };
         var grid = 
             "jefblpepre\n" +
             "camdcimgtc\n" +
@@ -534,18 +448,7 @@ public class WordSearchTest
     [Fact(Skip = "Remove to run test")]
     public void Should_fail_to_locate_a_word_that_is_not_in_the_puzzle()
     {
-        var wordsToSearchFor = new[]
-        {
-            "clojure",
-            "elixir",
-            "ecmascript",
-            "rust",
-            "java",
-            "lua",
-            "lisp",
-            "ruby",
-            "haskell"
-        };
+        var wordsToSearchFor = new[] { "clojure", "elixir", "ecmascript", "rust", "java", "lua", "lisp", "ruby", "haskell" };
         var grid = 
             "jefblpepre\n" +
             "camdcimgtc\n" +

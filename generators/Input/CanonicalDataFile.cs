@@ -3,7 +3,7 @@ using System.Linq;
 using LibGit2Sharp;
 using Serilog;
 
-namespace Generators.Input
+namespace Exercism.CSharp.Input
 {
     public class CanonicalDataFile
     {
@@ -14,16 +14,13 @@ namespace Generators.Input
 
         private readonly Options _options;
 
-        public CanonicalDataFile(Options options)
-        {
-            _options = options;
-        }
+        public CanonicalDataFile(Options options) => _options = options;
 
         public bool Exists(string exercise) => File.Exists(GetExerciseCanonicalDataPath(exercise));
 
         public string Contents(string exercise) => File.ReadAllText(GetExerciseCanonicalDataPath(exercise));
 
-        private string GetExerciseCanonicalDataPath(string exercise) 
+        private string GetExerciseCanonicalDataPath(string exercise)
             => Path.Combine(_options.CanonicalDataDirectory, "exercises", exercise, "canonical-data.json");
 
         public void DownloadData()
@@ -55,10 +52,10 @@ namespace Generators.Input
             using (var repository = new Repository(_options.CanonicalDataDirectory))
             {
                 Commands.Fetch(repository, ProblemSpecificationsRemote, Enumerable.Empty<string>(), new FetchOptions(), null);
-                
+
                 var remoteBranch = repository.Branches[ProblemSpecificationsRemoteBranch];
                 repository.Reset(ResetMode.Hard, remoteBranch.Tip);
-            }   
+            }
 
             Log.Information("Updated repository to latest version.");
         }

@@ -15,7 +15,7 @@ public class SpiralMatrixTest
     {
         var expected = new[,]
         {
-            { 1 }
+             { 1 }
         };
         Assert.Equal(expected, SpiralMatrix.GetMatrix(1));
     }
@@ -25,8 +25,8 @@ public class SpiralMatrixTest
     {
         var expected = new[,]
         {
-            { 1, 2 },
-            { 4, 3 }
+             { 1, 2 },
+             { 4, 3 }
         };
         Assert.Equal(expected, SpiralMatrix.GetMatrix(2));
     }
@@ -36,9 +36,9 @@ public class SpiralMatrixTest
     {
         var expected = new[,]
         {
-            { 1, 2, 3 },
-            { 8, 9, 4 },
-            { 7, 6, 5 }
+             { 1, 2, 3 },
+             { 8, 9, 4 },
+             { 7, 6, 5 }
         };
         Assert.Equal(expected, SpiralMatrix.GetMatrix(3));
     }
@@ -48,10 +48,10 @@ public class SpiralMatrixTest
     {
         var expected = new[,]
         {
-            { 1, 2, 3, 4 },
-            { 12, 13, 14, 5 },
-            { 11, 16, 15, 6 },
-            { 10, 9, 8, 7 }
+             { 1, 2, 3, 4 },
+             { 12, 13, 14, 5 },
+             { 11, 16, 15, 6 },
+             { 10, 9, 8, 7 }
         };
         Assert.Equal(expected, SpiralMatrix.GetMatrix(4));
     }
@@ -61,11 +61,11 @@ public class SpiralMatrixTest
     {
         var expected = new[,]
         {
-            { 1, 2, 3, 4, 5 },
-            { 16, 17, 18, 19, 6 },
-            { 15, 24, 25, 20, 7 },
-            { 14, 23, 22, 21, 8 },
-            { 13, 12, 11, 10, 9 }
+             { 1, 2, 3, 4, 5 },
+             { 16, 17, 18, 19, 6 },
+             { 15, 24, 25, 20, 7 },
+             { 14, 23, 22, 21, 8 },
+             { 13, 12, 11, 10, 9 }
         };
         Assert.Equal(expected, SpiralMatrix.GetMatrix(5));
     }

@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.1.0 of the canonical data.
+// This file was auto-generated based on version 1.2.0 of the canonical data.
 
 using Xunit;
 
@@ -80,5 +80,11 @@ public class LuhnTest
     public void Input_digit_9_is_correctly_converted_to_output_digit_9()
     {
         Assert.True(Luhn.IsValid("091"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Strings_with_non_digits_is_invalid()
+    {
+        Assert.False(Luhn.IsValid(":9"));
     }
 }

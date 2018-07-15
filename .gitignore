@@ -10,7 +10,7 @@ packages/
 obj/
 bin/
 *.userprefs
-.dotnet/
+*.DotSettings.user
 .dotnet/
 
 .vs/

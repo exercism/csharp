@@ -1,7 +1,7 @@
 // This file was auto-generated based on version 1.0.0 of the canonical data.
 
-using Xunit;
 using System.Linq;
+using Xunit;
 
 public class BinarySearchTreeTest
 {
@@ -10,19 +10,6 @@ public class BinarySearchTreeTest
     {
         var tree = new BinarySearchTree(4);
         Assert.Equal(4, tree.Value);
-    }
-
-    [Fact(Skip = "Remove to run test")]
-    public void Can_create_complex_tree()
-    {
-        var tree = new BinarySearchTree(new[] { 4, 2, 6, 1, 3, 5, 7 });
-        Assert.Equal(4, tree.Value);
-        Assert.Equal(2, tree.Left.Value);
-        Assert.Equal(1, tree.Left.Left.Value);
-        Assert.Equal(3, tree.Left.Right.Value);
-        Assert.Equal(6, tree.Right.Value);
-        Assert.Equal(5, tree.Right.Left.Value);
-        Assert.Equal(7, tree.Right.Right.Value);
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -47,6 +34,19 @@ public class BinarySearchTreeTest
         var tree = new BinarySearchTree(new[] { 4, 5 });
         Assert.Equal(4, tree.Value);
         Assert.Equal(5, tree.Right.Value);
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Can_create_complex_tree()
+    {
+        var tree = new BinarySearchTree(new[] { 4, 2, 6, 1, 3, 5, 7 });
+        Assert.Equal(4, tree.Value);
+        Assert.Equal(2, tree.Left.Value);
+        Assert.Equal(1, tree.Left.Left.Value);
+        Assert.Equal(3, tree.Left.Right.Value);
+        Assert.Equal(6, tree.Right.Value);
+        Assert.Equal(5, tree.Right.Left.Value);
+        Assert.Equal(7, tree.Right.Right.Value);
     }
 
     [Fact(Skip = "Remove to run test")]

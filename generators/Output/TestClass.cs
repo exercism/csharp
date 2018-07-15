@@ -1,15 +1,18 @@
 ﻿using System.Collections.Generic;
 
-namespace Generators.Output
+namespace Exercism.CSharp.Output
 {
     public class TestClass
     {
-        public string ClassName { get; set; }
-        public string CanonicalDataVersion { get; set; }
-        public IList<string> Methods { get; set; }
-        public ISet<string> UsingNamespaces { get; set; }
-        public string TemplateName { get; set; } = "TestClass";
+        public TestClass(string exercise, string version, string className, IReadOnlyCollection<TestMethod> testMethods)
+            => (Exercise, Version, ClassName, TestMethods) = (exercise, version, className, testMethods);
         
-        public string Render() => TemplateRenderer.RenderPartial(TemplateName, new { ClassName, CanonicalDataVersion, Methods, UsingNamespaces });
-    }    
+        public string Exercise { get; }
+        public string ClassName { get; }
+        public string Version { get; }
+        public IReadOnlyCollection<TestMethod> TestMethods { get; }
+        public ICollection<string> AdditionalMethods { get; } = new List<string>();
+        public ISet<string> Namespaces { get; } = new SortedSet<string>();
+        public bool IsDisposable { get; set; }
+    }
 }

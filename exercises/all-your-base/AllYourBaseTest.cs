@@ -1,7 +1,7 @@
 // This file was auto-generated based on version 2.3.0 of the canonical data.
 
-using Xunit;
 using System;
+using Xunit;
 
 public class AllYourBaseTest
 {
@@ -89,7 +89,7 @@ public class AllYourBaseTest
     public void Empty_list()
     {
         var inputBase = 2;
-        var digits = new int[0];
+        var digits = Array.Empty<int>();
         var outputBase = 10;
         var expected = new[] { 0 };
         Assert.Equal(expected, AllYourBase.Rebase(inputBase, digits, outputBase));
@@ -138,7 +138,7 @@ public class AllYourBaseTest
     public void Input_base_is_zero()
     {
         var inputBase = 0;
-        var digits = new int[0];
+        var digits = Array.Empty<int>();
         var outputBase = 10;
         Assert.Throws<ArgumentException>(() => AllYourBase.Rebase(inputBase, digits, outputBase));
     }

@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 2.4.0 of the canonical data.
+// This file was auto-generated based on version 2.7.0 of the canonical data.
 
 using Xunit;
 
@@ -65,15 +65,15 @@ public class IsbnVerifierTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Isbn_without_check_digit()
+    public void Too_short_isbn()
     {
-        Assert.False(IsbnVerifier.IsValid("3-598-21507"));
+        Assert.False(IsbnVerifier.IsValid("00"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Too_long_isbn()
+    public void Isbn_without_check_digit()
     {
-        Assert.False(IsbnVerifier.IsValid("3-598-21507-XX"));
+        Assert.False(IsbnVerifier.IsValid("3-598-21507"));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -92,5 +92,17 @@ public class IsbnVerifierTest
     public void Input_is_9_characters()
     {
         Assert.False(IsbnVerifier.IsValid("134456729"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Invalid_characters_are_not_ignored()
+    {
+        Assert.False(IsbnVerifier.IsValid("3132P34035"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Input_is_too_long_but_contains_a_valid_isbn()
+    {
+        Assert.False(IsbnVerifier.IsValid("98245726788"));
     }
 }

@@ -1,9 +1,9 @@
 // This file was auto-generated based on version 1.4.0 of the canonical data.
 
-using Xunit;
 using System;
 using System.IO;
 using System.Text;
+using Xunit;
 
 public class TournamentTest
 {

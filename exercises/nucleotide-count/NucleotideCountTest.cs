@@ -1,7 +1,8 @@
 // This file was auto-generated based on version 1.3.0 of the canonical data.
 
-using Xunit;
+using System;
 using System.Collections.Generic;
+using Xunit;
 
 public class NucleotideCountTest
 {
@@ -64,6 +65,6 @@ public class NucleotideCountTest
     [Fact(Skip = "Remove to run test")]
     public void Strand_with_invalid_nucleotides()
     {
-        Assert.Throws<InvalidNucleotideException>(() => new NucleotideCount("AGXXACT"));
+        Assert.Throws<ArgumentException>(() => new NucleotideCount("AGXXACT"));
     }
 }

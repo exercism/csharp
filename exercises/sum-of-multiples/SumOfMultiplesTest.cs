@@ -1,5 +1,6 @@
 // This file was auto-generated based on version 1.2.0 of the canonical data.
 
+using System;
 using Xunit;
 
 public class SumOfMultiplesTest
@@ -79,6 +80,6 @@ public class SumOfMultiplesTest
     [Fact(Skip = "Remove to run test")]
     public void Multiples_of_an_empty_list_up_to_10000()
     {
-        Assert.Equal(0, SumOfMultiples.Sum(new int[0], 10000));
+        Assert.Equal(0, SumOfMultiples.Sum(Array.Empty<int>(), 10000));
     }
 }

@@ -15,20 +15,20 @@ public class SaddlePoints
         this.minCols = Columns().Select(r => r.Min()).ToArray();
     }
 
-    public IEnumerable<Tuple<int, int>> Calculate()
+    public IEnumerable<(int, int)> Calculate()
     {
         return Coordinates().Where(IsSaddlePoint);
     }
 
-    private bool IsSaddlePoint(Tuple<int, int> coordinate)
+    private bool IsSaddlePoint((int, int) coordinate)
     {
         return maxRows[coordinate.Item1] == values[coordinate.Item1, coordinate.Item2] &&
                 minCols[coordinate.Item2] == values[coordinate.Item1, coordinate.Item2];
     }
 
-    private IEnumerable<Tuple<int, int>> Coordinates()
+    private IEnumerable<(int, int)> Coordinates()
     {
-        return Enumerable.Range(0, RowCount).SelectMany(x => Enumerable.Range(0, ColumnCount).Select(y => Tuple.Create(x, y)));
+        return Enumerable.Range(0, RowCount).SelectMany(x => Enumerable.Range(0, ColumnCount).Select(y => (x, y)));
     }
 
     private IEnumerable<IEnumerable<int>> Rows()

@@ -1,8 +1,8 @@
 // This file was auto-generated based on version 1.0.0 of the canonical data.
 
-using Xunit;
 using System;
 using System.Collections.Generic;
+using Xunit;
 
 public class GoCountingTest
 {
@@ -69,7 +69,7 @@ public class GoCountingTest
             "  W  ";
         var sut = new GoCounting(board);
         var actual = sut.Territory(coordinate);
-        var expected = (Owner.None, new ValueTuple<int,int>[0]);
+        var expected = (Owner.None, Array.Empty<(int, int)>());
         Assert.Equal(expected.Item1, actual.Item1);
         Assert.Equal(expected.Item2, actual.Item2);
     }
@@ -136,10 +136,10 @@ public class GoCountingTest
         var board = " ";
         var sut = new GoCounting(board);
         var actual = sut.Territories();
-        var expected = new Dictionary<Owner, ValueTuple<int,int>[]>
+        var expected = new Dictionary<Owner, (int, int)[]>
         {
-            [Owner.Black] = new ValueTuple<int,int>[0],
-            [Owner.White] = new ValueTuple<int,int>[0],
+            [Owner.Black] = Array.Empty<(int, int)>(),
+            [Owner.White] = Array.Empty<(int, int)>(),
             [Owner.None] = new[] { (0, 0) }
         };
         Assert.Equal(expected.Keys, actual.Keys);
@@ -156,11 +156,11 @@ public class GoCountingTest
             " BW ";
         var sut = new GoCounting(board);
         var actual = sut.Territories();
-        var expected = new Dictionary<Owner, ValueTuple<int,int>[]>
+        var expected = new Dictionary<Owner, (int, int)[]>
         {
             [Owner.Black] = new[] { (0, 0), (0, 1) },
             [Owner.White] = new[] { (3, 0), (3, 1) },
-            [Owner.None] = new ValueTuple<int,int>[0]
+            [Owner.None] = Array.Empty<(int, int)>()
         };
         Assert.Equal(expected.Keys, actual.Keys);
         Assert.Equal(expected[Owner.Black], actual[Owner.Black]);
@@ -174,11 +174,11 @@ public class GoCountingTest
         var board = " B ";
         var sut = new GoCounting(board);
         var actual = sut.Territories();
-        var expected = new Dictionary<Owner, ValueTuple<int,int>[]>
+        var expected = new Dictionary<Owner, (int, int)[]>
         {
             [Owner.Black] = new[] { (0, 0), (2, 0) },
-            [Owner.White] = new ValueTuple<int,int>[0],
-            [Owner.None] = new ValueTuple<int,int>[0]
+            [Owner.White] = Array.Empty<(int, int)>(),
+            [Owner.None] = Array.Empty<(int, int)>()
         };
         Assert.Equal(expected.Keys, actual.Keys);
         Assert.Equal(expected[Owner.Black], actual[Owner.Black]);

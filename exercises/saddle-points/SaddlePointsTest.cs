@@ -1,7 +1,7 @@
 // This file was auto-generated based on version 1.1.0 of the canonical data.
 
-using Xunit;
 using System;
+using Xunit;
 
 public class SaddlePointsTest
 {
@@ -10,13 +10,13 @@ public class SaddlePointsTest
     {
         var matrix = new[,]
         {
-            { 9, 8, 7 },
-            { 5, 3, 2 },
-            { 6, 6, 7 }
+             { 9, 8, 7 },
+             { 5, 3, 2 },
+             { 6, 6, 7 }
         };
         var sut = new SaddlePoints(matrix);
         var actual = sut.Calculate();
-        var expected = new[] { Tuple.Create(1, 0) };
+        var expected = new[] { (1, 0) };
         Assert.Equal(expected, actual);
     }
 
@@ -34,9 +34,9 @@ public class SaddlePointsTest
     {
         var matrix = new[,]
         {
-            { 1, 2, 3 },
-            { 3, 1, 2 },
-            { 2, 3, 1 }
+             { 1, 2, 3 },
+             { 3, 1, 2 },
+             { 2, 3, 1 }
         };
         var sut = new SaddlePoints(matrix);
         var actual = sut.Calculate();
@@ -48,13 +48,13 @@ public class SaddlePointsTest
     {
         var matrix = new[,]
         {
-            { 4, 5, 4 },
-            { 3, 5, 5 },
-            { 1, 5, 4 }
+             { 4, 5, 4 },
+             { 3, 5, 5 },
+             { 1, 5, 4 }
         };
         var sut = new SaddlePoints(matrix);
         var actual = sut.Calculate();
-        var expected = new[] { Tuple.Create(0, 1), Tuple.Create(1, 1), Tuple.Create(2, 1) };
+        var expected = new[] { (0, 1), (1, 1), (2, 1) };
         Assert.Equal(expected, actual);
     }
 
@@ -63,13 +63,13 @@ public class SaddlePointsTest
     {
         var matrix = new[,]
         {
-            { 8, 7, 9 },
-            { 6, 7, 6 },
-            { 3, 2, 5 }
+             { 8, 7, 9 },
+             { 6, 7, 6 },
+             { 3, 2, 5 }
         };
         var sut = new SaddlePoints(matrix);
         var actual = sut.Calculate();
-        var expected = new[] { Tuple.Create(2, 2) };
+        var expected = new[] { (2, 2) };
         Assert.Equal(expected, actual);
     }
 }

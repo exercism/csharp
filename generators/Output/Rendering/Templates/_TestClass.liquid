@@ -1,0 +1,14 @@
+﻿// This file was auto-generated based on version {{Version}} of the canonical data.
+
+{%- for namespace in Namespaces -%}
+using {{ namespace }};
+{%- endfor -%}
+
+public class {{ClassName}}{% if IsDisposable %} : IDisposable{% endif %}
+{
+{%- for method in Methods -%}
+{{ method | indent }}
+{%- if forloop.last == false %}
+{% endif -%}
+{%- endfor -%}
+}

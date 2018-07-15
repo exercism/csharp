@@ -1,5 +1,6 @@
 // This file was auto-generated based on version 1.1.0 of the canonical data.
 
+using System;
 using Xunit;
 
 public class BinarySearchTest
@@ -79,7 +80,7 @@ public class BinarySearchTest
     [Fact(Skip = "Remove to run test")]
     public void Nothing_is_included_in_an_empty_array()
     {
-        var array = new int[0];
+        var array = Array.Empty<int>();
         var sut = new BinarySearch(array);
         Assert.Equal(-1, sut.Find(1));
     }
