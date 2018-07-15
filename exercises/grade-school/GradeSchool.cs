@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-public class School
+public class GradeSchool
 {
     public void Add(string student, int grade)
     {
