@@ -2,35 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-public class Series
+public static class Series
 {
-    private readonly string numbers;
-
-    public Series(string numbers)
+    public static string[] Slices(string numbers, int sliceLength)
     {
-        this.numbers = numbers;
-    }
+        if (numbers.Length == 0 || sliceLength <= 0 || sliceLength > numbers.Length)
+            throw new ArgumentException();
 
-    public int[][] Slices(int sliceLength)
-    {
-        if (sliceLength > numbers.Length)
-            throw new ArgumentException("Slice length can't be longer than the given number");
-
-        var result = new List<int[]>();
-
-        for (int i = 0; SliceEndIndex(sliceLength, i) < numbers.Length; i++)
-            result.Add(SplitIntoInts(numbers.Substring(i, sliceLength)));
-
-        return result.ToArray();
-    }
-
-    private static int SliceEndIndex(int sliceLength, int idx)
-    {
-        return idx + sliceLength - 1;
-    }
-
-    private static int[] SplitIntoInts(string value)
-    {
-        return value.Select(x => int.Parse(x.ToString())).ToArray();
+        return Enumerable.Range(0, numbers.Length - sliceLength + 1)
+            .Select(i => numbers.Substring(i, sliceLength))
+            .ToArray();
     }
 }
