@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-public class School
+public class GradeSchool
 {
     private readonly Dictionary<int, IList<string>> roster = new Dictionary<int, IList<string>>();
     
