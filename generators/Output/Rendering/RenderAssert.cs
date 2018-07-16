@@ -25,6 +25,9 @@ namespace Exercism.CSharp.Output.Rendering
         public string AssertMatches(string expected, string actual) 
             => RenderTemplate("AssertMatches", new { expected, actual });
         
+        public string AssertInRange(string expected, string lower, string upper) 
+            => RenderTemplate("AssertInRange", new { expected, lower, upper });
+        
         public string AssertThrows(Type expectedException, string actual) 
             => RenderTemplate("AssertThrows", new { expected = expectedException.Name, actual });
         

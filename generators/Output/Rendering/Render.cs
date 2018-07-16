@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text.RegularExpressions;
 
 namespace Exercism.CSharp.Output.Rendering
@@ -23,6 +24,7 @@ namespace Exercism.CSharp.Output.Rendering
                 case char c: return Char(c);
                 case DateTime dateTime: return DateTime(dateTime);
                 case Regex regex: return Regex(regex);
+                case BigInteger bigInt: return BigInteger(bigInt);
                 default:
                     if (IsList(val))
                         return List((dynamic)val);

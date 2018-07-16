@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using System.Numerics;
 
 namespace Exercism.CSharp.Output.Rendering
 {
@@ -13,5 +14,7 @@ namespace Exercism.CSharp.Output.Rendering
         public string Ulong(ulong ulng) => $"{ulng}UL";
 
         public string Uint(uint ui) => string.Format("0x{0:X}u", ui);
+
+        public string BigInteger(BigInteger bigInt) => $"new BigInteger({bigInt.ToString()})";
     }
 }
