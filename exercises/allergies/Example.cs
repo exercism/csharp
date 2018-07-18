@@ -1,38 +1,28 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+
+[Flags]
+public enum Allergen
+{
+    Eggs         = 1 << 0,
+    Peanuts      = 1 << 1,
+    Shellfish    = 1 << 2,
+    Strawberries = 1 << 3,
+    Tomatoes     = 1 << 4,
+    Chocolate    = 1 << 5,
+    Pollen       = 1 << 6,
+    Cats         = 1 << 7
+}
 
 public class Allergies
 {
     private readonly int score;
-    private static readonly Dictionary<string, int> AvailableAllergies = new Dictionary<string, int>
-        {
-            { "eggs", 1 },
-            { "peanuts", 2 },
-            { "shellfish", 4 },
-            { "strawberries", 8 },
-            { "tomatoes", 16 },
-            { "chocolate", 32 },
-            { "pollen", 64 },
-            { "cats", 128 }
-        };
 
-    public Allergies(int score)
-    {
-        this.score = score;
-    }
+    public Allergies(int score) => this.score = score;
 
-    public bool IsAllergicTo(string allergy)
-    {
-        return IsInAllergyScore(AvailableAllergies[allergy]);
-    }
+    public bool IsAllergicTo(Allergen allergen) => (score & (int)allergen) != 0;
 
-    public IList<string> List()
-    {
-        return AvailableAllergies.Where(x => IsInAllergyScore(x.Value)).Select(x => x.Key).ToList();
-    }
-
-    private bool IsInAllergyScore(int allergyValue)
-    {
-        return (score & allergyValue) == allergyValue;
-    }
+    public Allergen[] List()
+        => Enum.GetValues(typeof(Allergen)).Cast<Allergen>().Where(IsAllergicTo).ToArray();
 }

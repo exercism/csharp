@@ -1,5 +1,16 @@
 using System;
-using System.Collections.Generic;
+
+public enum Allergen
+{
+    Eggs,
+    Peanuts,
+    Shellfish,
+    Strawberries,
+    Tomatoes,
+    Chocolate,
+    Pollen,
+    Cats
+}
 
 public class Allergies
 {
@@ -7,12 +18,12 @@ public class Allergies
     {
     }
 
-    public bool IsAllergicTo(string allergy)
+    public bool IsAllergicTo(Allergen allergen)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public IList<string> List()
+    public Allergen[] List()
     {
         throw new NotImplementedException("You need to implement this function.");
     }
