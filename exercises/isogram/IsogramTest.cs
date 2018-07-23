@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.3.0 of the canonical data.
+// This file was auto-generated based on version 1.4.0 of the canonical data.
 
 using Xunit;
 
@@ -20,6 +20,12 @@ public class IsogramTest
     public void Word_with_one_duplicated_character()
     {
         Assert.False(Isogram.IsIsogram("eleven"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Word_with_one_duplicated_character_from_the_end_of_the_alphabet()
+    {
+        Assert.False(Isogram.IsIsogram("zzyzx"));
     }
 
     [Fact(Skip = "Remove to run test")]
