@@ -7,11 +7,12 @@ namespace Exercism.CSharp.Exercises.Generators
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            testMethod.TestedMethod = $"On{testMethod.Input["planet"]}";
             testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
-
-            testMethod.InputParameters = Array.Empty<string>();
-            testMethod.ConstructorInputParameters = new[] {"seconds"};
+            testMethod.ConstructorInputParameters = new[] { "seconds" };
+            testMethod.Assert = RenderAssert(testMethod);
         }
+
+        private string RenderAssert(TestMethod testMethod)
+            => Render.AssertEqualWithin(Render.Object(testMethod.Expected), $"sut.On{testMethod.Input["planet"]}()", 2);
     }
 }

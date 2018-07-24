@@ -8,55 +8,55 @@ public class SpaceAgeTest
     public void Age_on_earth()
     {
         var sut = new SpaceAge(1000000000);
-        Assert.Equal(31.69, sut.OnEarth());
+        Assert.Equal(31.69, sut.OnEarth(), precision: 2);
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Age_on_mercury()
     {
         var sut = new SpaceAge(2134835688);
-        Assert.Equal(280.88, sut.OnMercury());
+        Assert.Equal(280.88, sut.OnMercury(), precision: 2);
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Age_on_venus()
     {
         var sut = new SpaceAge(189839836);
-        Assert.Equal(9.78, sut.OnVenus());
+        Assert.Equal(9.78, sut.OnVenus(), precision: 2);
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Age_on_mars()
     {
         var sut = new SpaceAge(2329871239);
-        Assert.Equal(39.25, sut.OnMars());
+        Assert.Equal(39.25, sut.OnMars(), precision: 2);
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Age_on_jupiter()
     {
         var sut = new SpaceAge(901876382);
-        Assert.Equal(2.41, sut.OnJupiter());
+        Assert.Equal(2.41, sut.OnJupiter(), precision: 2);
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Age_on_saturn()
     {
         var sut = new SpaceAge(3000000000);
-        Assert.Equal(3.23, sut.OnSaturn());
+        Assert.Equal(3.23, sut.OnSaturn(), precision: 2);
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Age_on_uranus()
     {
         var sut = new SpaceAge(3210123456);
-        Assert.Equal(1.21, sut.OnUranus());
+        Assert.Equal(1.21, sut.OnUranus(), precision: 2);
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Age_on_neptune()
     {
         var sut = new SpaceAge(8210123456);
-        Assert.Equal(1.58, sut.OnNeptune());
+        Assert.Equal(1.58, sut.OnNeptune(), precision: 2);
     }
 }
