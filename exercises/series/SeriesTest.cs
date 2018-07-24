@@ -43,17 +43,7 @@ public class SeriesTest
     [Fact(Skip = "Remove to run test")]
     public void Slices_of_a_long_series()
     {
-        var expected = new[]
-        {
-            "91849",
-            "18493",
-            "84939",
-            "49390",
-            "93904",
-            "39042",
-            "90424",
-            "04243"
-        };
+        var expected = new[] { "91849", "18493", "84939", "49390", "93904", "39042", "90424", "04243" };
         Assert.Equal(expected, Series.Slices("918493904243", 5));
     }
 
