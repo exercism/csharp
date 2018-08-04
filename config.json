@@ -61,6 +61,7 @@
       "difficulty": 1,
       "topics": [
         "arrays",
+        "math",
         "transforming"
       ]
     },
@@ -131,7 +132,7 @@
         "control_flow_conditionals",
         "control_flow_loops",
         "integers",
-        "mathematics"
+        "math"
       ]
     },
     {
@@ -141,7 +142,7 @@
       "unlocked_by": "sum-of-multiples",
       "difficulty": 2,
       "topics": [
-        "mathematics"
+        "math"
       ]
     },
     {
@@ -151,7 +152,7 @@
       "unlocked_by": "leap",
       "difficulty": 4,
       "topics": [
-        "mathematics"
+        "math"
       ]
     },
     {
@@ -271,7 +272,8 @@
       "difficulty": 1,
       "topics": [
         "control_flow_loops",
-        "integers"
+        "integers",
+        "math"
       ]
     },
     {
@@ -401,7 +403,8 @@
       "unlocked_by": "leap",
       "difficulty": 3,
       "topics": [
-        "integers"
+        "integers",
+        "math"
       ]
     },
     {
@@ -434,7 +437,7 @@
       "difficulty": 3,
       "topics": [
         "filtering",
-        "mathematics"
+        "math"
       ]
     },
     {
@@ -544,6 +547,7 @@
       "difficulty": 4,
       "topics": [
         "integers",
+        "math",
         "strings",
         "transforming"
       ]
@@ -567,7 +571,7 @@
       "difficulty": 4,
       "topics": [
         "integers",
-        "mathematics",
+        "math",
         "overloading"
       ]
     },
@@ -625,7 +629,7 @@
       "difficulty": 4,
       "topics": [
         "integers",
-        "mathematics"
+        "math"
       ]
     },
     {
@@ -646,6 +650,7 @@
       "difficulty": 4,
       "topics": [
         "integers",
+        "math",
         "transforming"
       ]
     },
@@ -658,7 +663,7 @@
       "topics": [
         "arrays",
         "control_flow_loops",
-        "mathematics"
+        "math"
       ]
     },
     {
@@ -1008,7 +1013,7 @@
       "unlocked_by": "book-store",
       "difficulty": 6,
       "topics": [
-        "mathematics"
+        "math"
       ]
     },
     {
@@ -1053,6 +1058,7 @@
       "difficulty": 6,
       "topics": [
         "algorithms",
+        "math",
         "strings",
         "tuples"
       ]
@@ -1064,7 +1070,7 @@
       "unlocked_by": "leap",
       "difficulty": 6,
       "topics": [
-        "mathematics",
+        "math",
         "tuples"
       ]
     },
@@ -1089,6 +1095,7 @@
       "topics": [
         "algorithms",
         "integers",
+        "math",
         "transforming"
       ]
     },
