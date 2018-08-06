@@ -31,10 +31,19 @@ The Hamming distance between these two DNA strands is 7.
 
 # Implementation notes
 
-The Hamming distance is only defined for sequences of equal length. This means
-that based on the definition, each language could deal with getting sequences
-of equal length differently.
+The Hamming distance is only defined for sequences of equal length, so
+an attempt to calculate it between sequences of different lengths should
+not work. The general handling of this situation (e.g., raising an
+exception vs returning a special value) may differ between languages.
 
+## Running the tests
+
+To run the tests, run the command `dotnet test` from within the exercise directory.
+
+## Further information
+
+For more detailed information about the C# track, including how to get help if
+you're having trouble, please visit the exercism.io [C# language page](http://exercism.io/languages/csharp/resources).
 
 ## Source
 

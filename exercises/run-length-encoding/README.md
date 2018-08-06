@@ -23,6 +23,14 @@ the letters A through Z (either lower or upper case) and whitespace. This way
 data to be encoded will never contain any numbers and numbers inside data to
 be decoded always represent the count for the following character.
 
+## Running the tests
+
+To run the tests, run the command `dotnet test` from within the exercise directory.
+
+## Further information
+
+For more detailed information about the C# track, including how to get help if
+you're having trouble, please visit the exercism.io [C# language page](http://exercism.io/languages/csharp/resources).
 
 ## Source
 

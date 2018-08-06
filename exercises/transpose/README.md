@@ -58,6 +58,14 @@ In general, all characters from the input should also be present in the transpos
 That means that if a column in the input text contains only spaces on its bottom-most row(s),
 the corresponding output row should contain the spaces in its right-most column(s).
 
+## Running the tests
+
+To run the tests, run the command `dotnet test` from within the exercise directory.
+
+## Further information
+
+For more detailed information about the C# track, including how to get help if
+you're having trouble, please visit the exercism.io [C# language page](http://exercism.io/languages/csharp/resources).
 
 ## Source
 

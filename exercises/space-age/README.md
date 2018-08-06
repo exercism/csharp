@@ -17,6 +17,14 @@ be able to say that they're 31.69 Earth-years old.
 If you're wondering why Pluto didn't make the cut, go watch [this
 youtube video](http://www.youtube.com/watch?v=Z_2gbGXzFbs).
 
+## Running the tests
+
+To run the tests, run the command `dotnet test` from within the exercise directory.
+
+## Further information
+
+For more detailed information about the C# track, including how to get help if
+you're having trouble, please visit the exercism.io [C# language page](http://exercism.io/languages/csharp/resources).
 
 ## Source
 

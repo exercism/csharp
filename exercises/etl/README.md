@@ -46,6 +46,14 @@ variety of languages, each with its own unique scoring table. For
 example, an "E" is scored at 2 in the Māori-language version of the
 game while being scored at 4 in the Hawaiian-language version.
 
+## Running the tests
+
+To run the tests, run the command `dotnet test` from within the exercise directory.
+
+## Further information
+
+For more detailed information about the C# track, including how to get help if
+you're having trouble, please visit the exercism.io [C# language page](http://exercism.io/languages/csharp/resources).
 
 ## Source
 

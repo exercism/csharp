@@ -13,6 +13,14 @@ in the input; the digits need not be *numerically consecutive*.
 For the input `'73167176531330624919225119674426574742355349194934'`,
 the largest product for a series of 6 digits is 23520.
 
+## Running the tests
+
+To run the tests, run the command `dotnet test` from within the exercise directory.
+
+## Further information
+
+For more detailed information about the C# track, including how to get help if
+you're having trouble, please visit the exercism.io [C# language page](http://exercism.io/languages/csharp/resources).
 
 ## Source
 

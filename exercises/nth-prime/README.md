@@ -16,6 +16,14 @@ See [this article](https://blogs.msdn.microsoft.com/pedram/2007/06/02/lazy-evalu
 
 Note: to help speedup calculation, you should not check numbers which you know beforehand will never be prime. For more information, see the [Sieve of Eratosthenes](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes).
 
+## Running the tests
+
+To run the tests, run the command `dotnet test` from within the exercise directory.
+
+## Further information
+
+For more detailed information about the C# track, including how to get help if
+you're having trouble, please visit the exercism.io [C# language page](http://exercism.io/languages/csharp/resources).
 
 ## Source
 

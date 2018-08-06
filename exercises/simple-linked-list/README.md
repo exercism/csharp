@@ -25,6 +25,14 @@ implement your own abstract data type.
 This exercise requires you to create a linked list data structure which can be iterated. This requires you to implement the IEnumerable\<T> interface. 
 For more information, see [this page](https://msdn.microsoft.com/en-us/library/9eekhta0(v=vs.110).aspx).
 
+## Running the tests
+
+To run the tests, run the command `dotnet test` from within the exercise directory.
+
+## Further information
+
+For more detailed information about the C# track, including how to get help if
+you're having trouble, please visit the exercism.io [C# language page](http://exercism.io/languages/csharp/resources).
 
 ## Source
 

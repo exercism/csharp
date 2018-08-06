@@ -26,6 +26,14 @@ You'd also be able to answer whether the queens can attack each other.
 In this case, that answer would be yes, they can, because both pieces
 share a diagonal.
 
+## Running the tests
+
+To run the tests, run the command `dotnet test` from within the exercise directory.
+
+## Further information
+
+For more detailed information about the C# track, including how to get help if
+you're having trouble, please visit the exercism.io [C# language page](http://exercism.io/languages/csharp/resources).
 
 ## Source
 

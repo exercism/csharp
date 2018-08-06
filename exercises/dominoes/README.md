@@ -14,6 +14,14 @@ For stones `[1|2]`, `[4|1]` and `[2|3]` the resulting chain is not valid: `[4|1]
 
 Some test cases may use duplicate stones in a chain solution, assume that multiple Domino sets are being used.
 
+## Running the tests
+
+To run the tests, run the command `dotnet test` from within the exercise directory.
+
+## Further information
+
+For more detailed information about the C# track, including how to get help if
+you're having trouble, please visit the exercism.io [C# language page](http://exercism.io/languages/csharp/resources).
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

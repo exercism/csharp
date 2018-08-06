@@ -27,8 +27,16 @@ To conclude, the only valid moves are:
 - emptying one bucket and doing nothing to the other
 - filling one bucket and doing nothing to the other
 
-Written with <3 at [Fullstack Academy](http://www.fullstackacademy.com/) by [Lindsay](http://lindsaylevine.com).
+Written with <3 at [Fullstack Academy](http://www.fullstackacademy.com/) by Lindsay Levine.
 
+## Running the tests
+
+To run the tests, run the command `dotnet test` from within the exercise directory.
+
+## Further information
+
+For more detailed information about the C# track, including how to get help if
+you're having trouble, please visit the exercism.io [C# language page](http://exercism.io/languages/csharp/resources).
 
 ## Source
 

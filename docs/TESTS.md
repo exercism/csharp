@@ -17,5 +17,5 @@ To help you get started, each exercise comes with a stub implementation file. Yo
 You should be able to solve most exercises without using any external packages. However, for the exercises where you do want to use an external package, you can add it to your project by running the following command:
 
 ```bash
-dotnet add package <package-name>
+dotnet add package [package-name]
 ```

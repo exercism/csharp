@@ -21,6 +21,14 @@ is the 3's place, the third to last is the 9's place, etc.
 If your language provides a method in the standard library to perform the
 conversion, pretend it doesn't exist and implement it yourself.
 
+## Running the tests
+
+To run the tests, run the command `dotnet test` from within the exercise directory.
+
+## Further information
+
+For more detailed information about the C# track, including how to get help if
+you're having trouble, please visit the exercism.io [C# language page](http://exercism.io/languages/csharp/resources).
 
 ## Source
 

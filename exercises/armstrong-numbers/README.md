@@ -5,12 +5,20 @@ An [Armstrong number](https://en.wikipedia.org/wiki/Narcissistic_number) is a nu
 For example:
 
 - 9 is an Armstrong number, because `9 = 9^1 = 9`
-- 10 is *not* an Armstrong number, because `10 != 1^2 + 0^2 = 2`
+- 10 is *not* an Armstrong number, because `10 != 1^2 + 0^2 = 1`
 - 153 is an Armstrong number, because: `153 = 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153`
 - 154 is *not* an Armstrong number, because: `154 != 1^3 + 5^3 + 4^3 = 1 + 125 + 64 = 190`
 
 Write some code to determine whether a number is an Armstrong number.
 
+## Running the tests
+
+To run the tests, run the command `dotnet test` from within the exercise directory.
+
+## Further information
+
+For more detailed information about the C# track, including how to get help if
+you're having trouble, please visit the exercism.io [C# language page](http://exercism.io/languages/csharp/resources).
 
 ## Source
 
