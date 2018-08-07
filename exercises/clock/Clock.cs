@@ -1,6 +1,6 @@
 using System;
 
-public struct Clock
+public class Clock
 {
     public Clock(int hours, int minutes)
     {

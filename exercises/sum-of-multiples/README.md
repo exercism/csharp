@@ -12,6 +12,14 @@ The sum of these multiples is 78.
 This exercise requires you to process a collection of data. You can simplify your code by using LINQ (Language Integrated Query).
 For more information, see [this page](https://docs.microsoft.com/en-us/dotnet/articles/standard/using-linq).
 
+## Running the tests
+
+To run the tests, run the command `dotnet test` from within the exercise directory.
+
+## Further information
+
+For more detailed information about the C# track, including how to get help if
+you're having trouble, please visit the exercism.io [C# language page](http://exercism.io/languages/csharp/resources).
 
 ## Source
 

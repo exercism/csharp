@@ -14,6 +14,14 @@ working version.  Version control tools like git can help here as well.
 Please keep a log of what changes you've made and make a comment on the exercise
 containing that log, this will help reviewers.
 
+## Running the tests
+
+To run the tests, run the command `dotnet test` from within the exercise directory.
+
+## Further information
+
+For more detailed information about the C# track, including how to get help if
+you're having trouble, please visit the exercism.io [C# language page](http://exercism.io/languages/csharp/resources).
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.
