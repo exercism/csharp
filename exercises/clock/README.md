@@ -7,7 +7,7 @@ You should be able to add and subtract minutes to it.
 Two clocks that represent the same time should be equal to each other.
 
 ## Hints
-This exercise requires you to implements a type-specific method for determining equality of instances.
+This exercise requires you to implement a type-specific method for determining equality of instances.
 For more information, see [this page]
 (https://docs.microsoft.com/en-us/dotnet/core/api/System.IEquatable-1) .
 
