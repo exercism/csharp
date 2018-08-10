@@ -25,11 +25,11 @@ Param(
 
 $SCRIPT_DIR = $PSScriptRoot
 $TOOLS_DIR = Join-Path $SCRIPT_DIR "tools"
-$CAKE_VERSION = "0.26.1"
+$CAKE_VERSION = "0.27.1"
 $CAKE_DIR = Join-Path $TOOLS_DIR "Cake.$CAKE_VERSION"
 $CAKE_DLL = Join-Path $CAKE_DIR "Cake.dll"
 $CAKE_ZIP = Join-Path $TOOLS_DIR "Cake.$CAKE_VERSION.zip"
-$CAKE_ZIP_URL = "https://github.com/cake-build/cake/releases/download/v0.26.1/Cake-bin-coreclr-v$CAKE_VERSION.zip"
+$CAKE_ZIP_URL = "https://github.com/cake-build/cake/releases/download/v$CAKE_VERSION/Cake-bin-coreclr-v$CAKE_VERSION.zip"
 $DOTNET_VERSION = "2.1.302"
 $DOTNET_DIR = Join-Path $TOOLS_DIR "dotnet.$DOTNET_VERSION"
 $DOTNET_COMMAND = Join-Path $DOTNET_DIR "dotnet.exe"
