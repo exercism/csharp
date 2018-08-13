@@ -29,9 +29,9 @@ This image is a great example of the Caesar Cipher:
 
 For example:
 
-Giving "iamapandabear" as input to the encode function returns the cipher "ldpdsdqgdehdu". Obscure enough to keep our message secret in transit.
+Giving "iamapandabear" as input to the encode method returns the cipher "ldpdsdqgdehdu". Obscure enough to keep our message secret in transit.
 
-When "ldpdsdqgdehdu" is put into the decode function it would return
+When "ldpdsdqgdehdu" is put into the decode method it would return
 the original "iamapandabear" letting your friend read your original
 message.
 
