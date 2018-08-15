@@ -17,7 +17,7 @@ Your code should be able to produce the collection of squares:
 
 - 1, 4, 9, 16, 25
 
-Check out the test suite to see the expected function signature.
+Check out the test suite to see the expected method signature.
 
 ## Restrictions
 
@@ -25,7 +25,8 @@ Keep your hands off that collect/map/fmap/whatchamacallit functionality
 provided by your standard library!
 Solve this one yourself using other basic tools instead.
 
-## Hints		
+## Hints
+
 This exercise requires you to write an extension method. For more information, see [this page](https://msdn.microsoft.com/en-us//library/bb383977.aspx).
 
 ## Running the tests
@@ -42,4 +43,5 @@ you're having trouble, please visit the exercism.io [C# language page](http://ex
 Conversation with James Edward Gray II [https://twitter.com/jeg2](https://twitter.com/jeg2)
 
 ## Submitting Incomplete Solutions
+
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

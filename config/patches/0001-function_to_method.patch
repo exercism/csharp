@@ -1,0 +1,254 @@
+diff --git a/exercises/accumulate/README.md b/exercises/accumulate/README.md
+index 81cf1e4..c9d0cb8 100644
+--- a/exercises/accumulate/README.md
++++ b/exercises/accumulate/README.md
+@@ -17,7 +17,7 @@ Your code should be able to produce the collection of squares:
+ 
+ - 1, 4, 9, 16, 25
+ 
+-Check out the test suite to see the expected function signature.
++Check out the test suite to see the expected method signature.
+ 
+ ## Restrictions
+ 
+@@ -25,7 +25,8 @@ Keep your hands off that collect/map/fmap/whatchamacallit functionality
+ provided by your standard library!
+ Solve this one yourself using other basic tools instead.
+ 
+-## Hints		
++## Hints
++
+ This exercise requires you to write an extension method. For more information, see [this page](https://msdn.microsoft.com/en-us//library/bb383977.aspx).
+ 
+ ## Running the tests
+@@ -42,4 +43,5 @@ you're having trouble, please visit the exercism.io [C# language page](http://ex
+ Conversation with James Edward Gray II [https://twitter.com/jeg2](https://twitter.com/jeg2)
+ 
+ ## Submitting Incomplete Solutions
++
+ It's possible to submit an incomplete solution so you can see how others have completed the exercise.
+diff --git a/exercises/alphametics/README.md b/exercises/alphametics/README.md
+index 2dc28f6..e2497b3 100644
+--- a/exercises/alphametics/README.md
++++ b/exercises/alphametics/README.md
+@@ -1,6 +1,6 @@
+ # Alphametics
+ 
+-Write a function to solve alphametics puzzles.
++Write a method to solve alphametics puzzles.
+ 
+ [Alphametics](https://en.wikipedia.org/wiki/Alphametics) is a puzzle where
+ letters in words are replaced with numbers.
+@@ -29,15 +29,15 @@ words, translated into numbers, then make a valid sum.
+ Each letter must represent a different digit, and the leading digit of
+ a multi-digit number must not be zero.
+ 
+-Write a function to solve alphametics puzzles.
++Write a method to solve alphametics puzzles.
+ 
+ ## Hints
++
+ - To parse the text, you could try to use the [Sprache](https://github.com/sprache/Sprache/blob/develop/README.md) library. You can also find a good tutorial [here](https://www.thomaslevesque.com/2017/02/23/easy-text-parsing-in-c-with-sprache/).
+ - You can solve this exercise with a brute force algorithm, but this will possibly have a poor runtime performance.
+-Try to find a more sophisticated solution. 
++  Try to find a more sophisticated solution.
+ - Hint: You could try the column-wise addition algorithm that is usually taught in school.
+ 
+-
+ ## Running the tests
+ 
+ To run the tests, run the command `dotnet test` from within the exercise directory.
+@@ -48,4 +48,5 @@ For more detailed information about the C# track, including how to get help if
+ you're having trouble, please visit the exercism.io [C# language page](http://exercism.io/languages/csharp/resources).
+ 
+ ## Submitting Incomplete Solutions
++
+ It's possible to submit an incomplete solution so you can see how others have completed the exercise.
+diff --git a/exercises/flatten-array/README.md b/exercises/flatten-array/README.md
+index e8e0b20..c075be1 100644
+--- a/exercises/flatten-array/README.md
++++ b/exercises/flatten-array/README.md
+@@ -2,7 +2,7 @@
+ 
+ Take a nested list and return a single flattened list with all values except nil/null.
+ 
+-The challenge is to write a function that accepts an arbitrarily-deep nested list-like structure and returns a flattened structure without any nil/null values.
++The challenge is to write a method that accepts an arbitrarily-deep nested list-like structure and returns a flattened structure without any nil/null values.
+ 
+ For Example
+ 
+@@ -24,4 +24,5 @@ you're having trouble, please visit the exercism.io [C# language page](http://ex
+ Interview Question [https://reference.wolfram.com/language/ref/Flatten.html](https://reference.wolfram.com/language/ref/Flatten.html)
+ 
+ ## Submitting Incomplete Solutions
++
+ It's possible to submit an incomplete solution so you can see how others have completed the exercise.
+diff --git a/exercises/go-counting/README.md b/exercises/go-counting/README.md
+index a2b43da..95d6253 100644
+--- a/exercises/go-counting/README.md
++++ b/exercises/go-counting/README.md
+@@ -7,16 +7,16 @@ are gained by completely encircling empty intersections with your
+ stones. The encircled intersections of a player are known as its
+ territory.
+ 
+-Write a function that determines the territory of each player. You may
++Write a method that determines the territory of each player. You may
+ assume that any stones that have been stranded in enemy territory have
+ already been taken off the board.
+ 
+-Write a function that determines the territory which includes a specified coordinate.
++Write a method that determines the territory which includes a specified coordinate.
+ 
+ Multiple empty intersections may be encircled at once and for encircling
+ only horizontal and vertical neighbours count. In the following diagram
+ the stones which matter are marked "O" and the stones that don't are
+-marked "I" (ignored).  Empty spaces represent empty intersections.
++marked "I" (ignored). Empty spaces represent empty intersections.
+ 
+ ```text
+ +----+
+@@ -45,4 +45,5 @@ For more detailed information about the C# track, including how to get help if
+ you're having trouble, please visit the exercism.io [C# language page](http://exercism.io/languages/csharp/resources).
+ 
+ ## Submitting Incomplete Solutions
++
+ It's possible to submit an incomplete solution so you can see how others have completed the exercise.
+diff --git a/exercises/hello-world/README.md b/exercises/hello-world/README.md
+index 7e05640..794cb60 100644
+--- a/exercises/hello-world/README.md
++++ b/exercises/hello-world/README.md
+@@ -8,7 +8,7 @@ or environment.
+ 
+ The objectives are simple:
+ 
+-- Write a function that returns the string "Hello, World!".
++- Write a method that returns the string "Hello, World!".
+ - Run the test suite and make sure that it succeeds.
+ - Submit your solution and check it at the website.
+ 
+@@ -25,7 +25,8 @@ you're having trouble, please visit the exercism.io [C# language page](http://ex
+ 
+ ## Source
+ 
+-This is an exercise to introduce users to using Exercism [http://en.wikipedia.org/wiki/%22Hello,_world!%22_program](http://en.wikipedia.org/wiki/%22Hello,_world!%22_program)
++This is an exercise to introduce users to using Exercism [http://en.wikipedia.org/wiki/%22Hello,\_world!%22_program](http://en.wikipedia.org/wiki/%22Hello,_world!%22_program)
+ 
+ ## Submitting Incomplete Solutions
++
+ It's possible to submit an incomplete solution so you can see how others have completed the exercise.
+diff --git a/exercises/parallel-letter-frequency/README.md b/exercises/parallel-letter-frequency/README.md
+index 45ffc25..98821ea 100644
+--- a/exercises/parallel-letter-frequency/README.md
++++ b/exercises/parallel-letter-frequency/README.md
+@@ -4,7 +4,7 @@ Count the frequency of letters in texts using parallel computation.
+ 
+ Parallelism is about doing things in parallel that can also be done
+ sequentially. A common example is counting the frequency of letters.
+-Create a function that returns the total frequency of each letter in a
++Create a method that returns the total frequency of each letter in a
+ list of texts and that employs parallelism.
+ 
+ ## Running the tests
+@@ -17,4 +17,5 @@ For more detailed information about the C# track, including how to get help if
+ you're having trouble, please visit the exercism.io [C# language page](http://exercism.io/languages/csharp/resources).
+ 
+ ## Submitting Incomplete Solutions
++
+ It's possible to submit an incomplete solution so you can see how others have completed the exercise.
+diff --git a/exercises/roman-numerals/README.md b/exercises/roman-numerals/README.md
+index ff2ca53..ae048ee 100644
+--- a/exercises/roman-numerals/README.md
++++ b/exercises/roman-numerals/README.md
+@@ -1,6 +1,6 @@
+ # Roman Numerals
+ 
+-Write a function to convert from normal numbers to Roman Numerals.
++Write a method to convert from normal numbers to Roman Numerals.
+ 
+ The Romans were a clever bunch. They conquered most of Europe and ruled
+ it for hundreds of years. They invented concrete and straight roads and
+@@ -43,8 +43,8 @@ In Roman numerals 1990 is MCMXC:
+ See also: http://www.novaroma.org/via_romana/numbers.html
+ 
+ ## Hints
+-This exercise requires you to write an extension method. For more information, see [this page](https://msdn.microsoft.com/en-us//library/bb383977.aspx).
+ 
++This exercise requires you to write an extension method. For more information, see [this page](https://msdn.microsoft.com/en-us//library/bb383977.aspx).
+ 
+ ## Running the tests
+ 
+@@ -60,4 +60,5 @@ you're having trouble, please visit the exercism.io [C# language page](http://ex
+ The Roman Numeral Kata [http://codingdojo.org/cgi-bin/index.pl?KataRomanNumerals](http://codingdojo.org/cgi-bin/index.pl?KataRomanNumerals)
+ 
+ ## Submitting Incomplete Solutions
++
+ It's possible to submit an incomplete solution so you can see how others have completed the exercise.
+diff --git a/exercises/secret-handshake/README.md b/exercises/secret-handshake/README.md
+index c9e721a..bb6a409 100644
+--- a/exercises/secret-handshake/README.md
++++ b/exercises/secret-handshake/README.md
+@@ -20,10 +20,10 @@ Given a decimal number, convert it to the appropriate sequence of events for a s
+ 
+ Here's a couple of examples:
+ 
+-Given the input 3, the function would return the array
++Given the input 3, the method would return the array
+ ["wink", "double blink"] because 3 is 11 in binary.
+ 
+-Given the input 19, the function would return the array
++Given the input 19, the method would return the array
+ ["double blink", "wink"] because 19 is 10011 in binary.
+ Notice that the addition of 16 (10000 in binary)
+ has caused the array to be reversed.
+@@ -42,4 +42,5 @@ you're having trouble, please visit the exercism.io [C# language page](http://ex
+ Bert, in Mary Poppins [http://www.imdb.com/title/tt0058331/quotes/qt0437047](http://www.imdb.com/title/tt0058331/quotes/qt0437047)
+ 
+ ## Submitting Incomplete Solutions
++
+ It's possible to submit an incomplete solution so you can see how others have completed the exercise.
+diff --git a/exercises/simple-cipher/README.md b/exercises/simple-cipher/README.md
+index 65c9b27..e66502b 100644
+--- a/exercises/simple-cipher/README.md
++++ b/exercises/simple-cipher/README.md
+@@ -29,9 +29,9 @@ This image is a great example of the Caesar Cipher:
+ 
+ For example:
+ 
+-Giving "iamapandabear" as input to the encode function returns the cipher "ldpdsdqgdehdu". Obscure enough to keep our message secret in transit.
++Giving "iamapandabear" as input to the encode method returns the cipher "ldpdsdqgdehdu". Obscure enough to keep our message secret in transit.
+ 
+-When "ldpdsdqgdehdu" is put into the decode function it would return
++When "ldpdsdqgdehdu" is put into the decode method it would return
+ the original "iamapandabear" letting your friend read your original
+ message.
+ 
+@@ -95,4 +95,5 @@ you're having trouble, please visit the exercism.io [C# language page](http://ex
+ Substitution Cipher at Wikipedia [http://en.wikipedia.org/wiki/Substitution_cipher](http://en.wikipedia.org/wiki/Substitution_cipher)
+ 
+ ## Submitting Incomplete Solutions
++
+ It's possible to submit an incomplete solution so you can see how others have completed the exercise.
+diff --git a/exercises/word-search/README.md b/exercises/word-search/README.md
+index 2bea144..715df22 100644
+--- a/exercises/word-search/README.md
++++ b/exercises/word-search/README.md
+@@ -28,10 +28,10 @@ letter of each word.
+ 
+ ## HINTS
+ 
+-One of the uses of Tuples is returning multiple values from a function.   In this exercise, write
+-a function that returns a Tuple (the x- and y- part of a coordinate).
++One of the uses of Tuples is returning multiple values from a function. In this exercise, write
++a method that returns a Tuple (the x- and y- part of a coordinate).
+ 
+-For more information on Tuples, see [this link](https://msdn.microsoft.com/en-us/library/system.tuple(v=vs.110).aspx).
++For more information on Tuples, see [this link](<https://msdn.microsoft.com/en-us/library/system.tuple(v=vs.110).aspx>).
+ 
+ ## Running the tests
+ 
+@@ -43,4 +43,5 @@ For more detailed information about the C# track, including how to get help if
+ you're having trouble, please visit the exercism.io [C# language page](http://exercism.io/languages/csharp/resources).
+ 
+ ## Submitting Incomplete Solutions
++
+ It's possible to submit an incomplete solution so you can see how others have completed the exercise.
