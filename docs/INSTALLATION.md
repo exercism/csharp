@@ -8,7 +8,7 @@ After completing the installation, you can verify if the CLI was installed succe
 dotnet --version
 ```
 
-It the output is a version greater than or equal to `2.1.0`, the .NET Core SDK has been installed succesfully.
+If the output is a version greater than or equal to `2.1.0`, the .NET Core SDK has been installed succesfully.
 
 ### Using an IDE
 
