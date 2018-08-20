@@ -2,7 +2,7 @@
 
 Take a nested list and return a single flattened list with all values except nil/null.
 
-The challenge is to write a function that accepts an arbitrarily-deep nested list-like structure and returns a flattened structure without any nil/null values.
+The challenge is to write a method that accepts an arbitrarily-deep nested list-like structure and returns a flattened structure without any nil/null values.
 
 For Example
 
@@ -24,4 +24,5 @@ you're having trouble, please visit the exercism.io [C# language page](http://ex
 Interview Question [https://reference.wolfram.com/language/ref/Flatten.html](https://reference.wolfram.com/language/ref/Flatten.html)
 
 ## Submitting Incomplete Solutions
+
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

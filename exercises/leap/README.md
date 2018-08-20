@@ -26,6 +26,11 @@ phenomenon, go watch [this youtube video][video].
 
 [video]: http://www.youtube.com/watch?v=xX96xng7sAE
 
+## Notes
+
+The DateTime class in C# provides a built-in [IsLeapYear](https://msdn.microsoft.com/en-us/library/system.datetime.isleapyear(v=vs.110).aspx) method
+which you should pretend doesn't exist for the purposes of implementing this exercise.
+
 ## Running the tests
 
 To run the tests, run the command `dotnet test` from within the exercise directory.
