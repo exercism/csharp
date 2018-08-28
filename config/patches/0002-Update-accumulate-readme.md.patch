@@ -1,7 +1,7 @@
 From fc4782d33ee52cb35dbd472cbac3709363b62123 Mon Sep 17 00:00:00 2001
 From: Christopher Pritchard <chrispritchard.nz@gmail.com>
 Date: Tue, 28 Aug 2018 11:13:51 +1200
-Subject: [PATCH] Update README.md
+Subject: [PATCH] Update accumulate README.md
 
 Added select to the list of ops to avoid. A number of my students have solved this just using select, which is called map in other languages
 ---
