@@ -1,0 +1,26 @@
+From fc4782d33ee52cb35dbd472cbac3709363b62123 Mon Sep 17 00:00:00 2001
+From: Christopher Pritchard <chrispritchard.nz@gmail.com>
+Date: Tue, 28 Aug 2018 11:13:51 +1200
+Subject: [PATCH] Update accumulate README.md
+
+Added select to the list of ops to avoid. A number of my students have solved this just using select, which is called map in other languages
+---
+ exercises/accumulate/README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/exercises/accumulate/README.md b/exercises/accumulate/README.md
+index c9d0cb8..f9679c7 100644
+--- a/exercises/accumulate/README.md
++++ b/exercises/accumulate/README.md
+@@ -21,7 +21,7 @@ Check out the test suite to see the expected method signature.
+ 
+ ## Restrictions
+ 
+-Keep your hands off that collect/map/fmap/whatchamacallit functionality
++Keep your hands off that select/collect/map/fmap/whatchamacallit functionality
+ provided by your standard library!
+ Solve this one yourself using other basic tools instead.
+ 
+-- 
+2.15.1.windows.2
+

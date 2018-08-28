@@ -21,7 +21,7 @@ Check out the test suite to see the expected method signature.
 
 ## Restrictions
 
-Keep your hands off that collect/map/fmap/whatchamacallit functionality
+Keep your hands off that select/collect/map/fmap/whatchamacallit functionality
 provided by your standard library!
 Solve this one yourself using other basic tools instead.
 
