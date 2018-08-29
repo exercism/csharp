@@ -1,0 +1,26 @@
+From 0013570e4434f13c3840f8ee494efe611184cb15 Mon Sep 17 00:00:00 2001
+From: Chris Pritchard <chris.pritchard@edpay.nz>
+Date: Wed, 29 Aug 2018 13:33:53 +1200
+Subject: [PATCH] Changed Insert to Add to be consistent with the tests\nFixes
+ the compile error
+
+---
+ exercises/custom-set/CustomSet.cs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/exercises/custom-set/CustomSet.cs b/exercises/custom-set/CustomSet.cs
+index e05e389..776afaf 100644
+--- a/exercises/custom-set/CustomSet.cs
++++ b/exercises/custom-set/CustomSet.cs
+@@ -7,7 +7,7 @@ public CustomSet(params int[] values)
+         throw new NotImplementedException("You need to implement this function.");
+     }
+ 
+-    public CustomSet Insert(int value)
++    public CustomSet Add(int value)
+     {
+         throw new NotImplementedException("You need to implement this function.");
+     }
+-- 
+2.14.2.windows.3
+
