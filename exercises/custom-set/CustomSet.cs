@@ -7,7 +7,7 @@ public class CustomSet
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public CustomSet Insert(int value)
+    public CustomSet Add(int value)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
