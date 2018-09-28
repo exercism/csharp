@@ -45,17 +45,6 @@ public class AccumulateTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Accumulate_is_lazy()
-    {
-        var counter = 0;
-        var accumulation = new[] { 1, 2, 3 }.Accumulate(x => x * counter++);
-
-        Assert.Equal(0, counter);
-        accumulation.ToList();
-        Assert.Equal(3, counter);
-    }
-
-    [Fact(Skip = "Remove to run test")]
     public void Accumulate_allows_different_return_type()
     {
         Assert.Equal(new[] { "1", "2", "3" }, new[] { 1, 2, 3 }.Accumulate(x => x.ToString()));
