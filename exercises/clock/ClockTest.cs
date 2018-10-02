@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 2.2.1 of the canonical data.
+// This file was auto-generated based on version 2.3.0 of the canonical data.
 
 using Xunit;
 
@@ -352,5 +352,12 @@ public class ClockTest
     {
         var sut = new Clock(-54, -11513);
         Assert.Equal(new Clock(18, 7), sut);
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Full_clock_and_zeroed_clock()
+    {
+        var sut = new Clock(0, 0);
+        Assert.Equal(new Clock(24, 0), sut);
     }
 }
