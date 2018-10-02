@@ -35,7 +35,7 @@ To run the tests, run the command `dotnet test` from within the exercise directo
 
 ### Laziness test
 
-Since `accumulate` returns an IEnumerable it's execution can be deferred until `ToList()` it is called on it and this is tested with the `Accumulate_is_lazy` method
+Since `accumulate` returns an `IEnumerable`, it's execution is deferred until `ToList()` it is called on it, which is tested with the `Accumulate_is_lazy` method
 
 ## Further information
 
