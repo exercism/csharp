@@ -17,7 +17,7 @@ namespace Exercism.CSharp.Exercises.Generators
 
         private static void UpdateTestMethodForCreateProperty(TestMethod testMethod)
         {
-            if (testMethod.Expected < 0)
+            if (testMethod.Expected is Dictionary<string, object> || testMethod.Expected < 0)
             {
                 testMethod.ExceptionThrown = typeof(ArgumentOutOfRangeException);
             }
@@ -31,7 +31,7 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.Input["X"] = coordinates.Item1;
             testMethod.Input["Y"] = coordinates.Item2;
 
-            testMethod.InputParameters = new[] {"X", "Y"};
+            testMethod.InputParameters = new[] { "X", "Y" };
         }
 
         private static void UpdateTestMethodForCanAttackProperty(TestMethod testMethod)
