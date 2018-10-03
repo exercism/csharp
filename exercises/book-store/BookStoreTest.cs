@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.3.0 of the canonical data.
+// This file was auto-generated based on version 1.4.0 of the canonical data.
 
 using System;
 using Xunit;
@@ -58,6 +58,13 @@ public class BookStoreTest
     public void Two_groups_of_four_is_cheaper_than_group_of_five_plus_group_of_three()
     {
         var basket = new[] { 1, 1, 2, 2, 3, 3, 4, 5 };
+        Assert.Equal(51.2, BookStore.Total(basket));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Two_groups_of_four_is_cheaper_than_groups_of_five_and_three()
+    {
+        var basket = new[] { 1, 1, 2, 3, 4, 4, 5, 5 };
         Assert.Equal(51.2, BookStore.Total(basket));
     }
 

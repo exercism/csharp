@@ -4,67 +4,67 @@ using System.Linq;
 
 public static class BookStore
 {
-    public static double Total(IEnumerable<int> books)
+    private const double BookPrice = 8.0;
+
+    public static double Total(int[] books)
     {
-        return Total(books, 0);
+        if (books.Length == 0)
+            return 0.0;
+
+        var bookGroups = BookGroupsWithCount(books);
+
+        return Enumerable.Range(1, bookGroups.Length)
+            .Min(size => CalculateTotalCost(bookGroups, size, 0.0));
     }
 
-    private static double Total(IEnumerable<int> books, double priceSoFar)
+    private static int[] BookGroupsWithCount(int[] books)
+        => books
+            .GroupBy(book => book)
+            .Select(book => book.Count())
+            .OrderByDescending(book => book)
+            .ToArray();
+
+    private static double CalculateTotalCost(int[] bookGroups, int numberOfBooksToRemove, double totalCost)
     {
-        if (!books.Any())
+        var numberOfBooks = Math.Min(numberOfBooksToRemove, bookGroups.Length);
+        if (numberOfBooks == 0)
         {
-            return priceSoFar;
+            return totalCost + RegularPrice(bookGroups.Sum());
         }
 
-        var groups = books
-            .GroupBy(b => b)
-            .Select(g => g.Key)
-            .ToList();
-
-        var minPrice = double.MaxValue;
-
-        for (int i = groups.Count; i >= 1; i--)
-        {
-            var itemsToRemove = groups.Take(i).ToList();
-            var remaining = books.ToList();
-
-            foreach (var item in itemsToRemove)
-            {
-                remaining.Remove(item);
-            }
-
-            var price = Total(remaining.ToList(), priceSoFar + CostPerGroup(i));
-            minPrice = Math.Min(minPrice, price);
-        }
-
-        return minPrice;
+        var updatedBookGroups = RemoveBooks(bookGroups, numberOfBooks);
+        var updatedTotalCost = totalCost + BooksPrice(numberOfBooks);
+        return CalculateTotalCost(updatedBookGroups, numberOfBooks, updatedTotalCost);
     }
 
-    private static double CostPerGroup(int groupSize)
-    {
-        double discountPercentage;
+    private static int[] RemoveBooks(int[] bookGroups, int numberOfBooks)
+        => bookGroups
+            .Take(numberOfBooks)
+            .Select(RemoveBook)
+            .Concat(bookGroups.Skip(numberOfBooks))
+            .Where(i => i > 0)
+            .OrderByDescending(x => x)
+            .ToArray();
 
-        switch (groupSize)
+    private static int RemoveBook(int books) => books - 1;
+
+    private static double BooksPrice(int differentBooks)
+        => ApplyDiscount(RegularPrice(differentBooks), DiscountPercentage(differentBooks));
+
+    private static double RegularPrice(int books) => books * BookPrice;
+
+    private static double DiscountPercentage(int differentBooks)
+    {
+        switch (differentBooks)
         {
-            case 1:
-                discountPercentage = 0;
-                break;
-            case 2:
-                discountPercentage = 5;
-                break;
-            case 3:
-                discountPercentage = 10;
-                break;
-            case 4:
-                discountPercentage = 20;
-                break;
-            case 5:
-                discountPercentage = 25;
-                break;
-            default:
-                throw new InvalidOperationException($"Invalid group size: {groupSize}");
+            case 5: return 25.0;
+            case 4: return 20.0;
+            case 3: return 10.0;
+            case 2: return 5.0;
+            default: return 0.0;
         }
-        
-        return 8 * groupSize * (100 - discountPercentage) / 100;
     }
+
+    private static double ApplyDiscount(double price, double discountPercentage)
+        => Math.Round(price * (100.0f - discountPercentage) / 100.0f, 2);
 }
