@@ -9,7 +9,7 @@ namespace Exercism.CSharp.Exercises.Generators
         {
             testMethod.TestedMethod = "InEnglish";
 
-            if (testMethod.Expected is int)
+            if (!(testMethod.Expected is string))
                 testMethod.ExceptionThrown = typeof(ArgumentOutOfRangeException);
         }
     }
