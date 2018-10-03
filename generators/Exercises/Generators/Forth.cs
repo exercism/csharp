@@ -1,5 +1,5 @@
-﻿using System;
-using Exercism.CSharp.Output;
+﻿using Exercism.CSharp.Output;
+using System;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -9,7 +9,7 @@ namespace Exercism.CSharp.Exercises.Generators
         {
             testMethod.TestMethodName = testMethod.TestMethodNameWithPath;
 
-            if (testMethod.Expected == null)
+            if (testMethod.Expected == null || string.Join(" ", testMethod.Expected).StartsWith("[error"))
             {
                 testMethod.ExceptionThrown = typeof(InvalidOperationException);
             }
