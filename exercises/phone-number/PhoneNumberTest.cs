@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.4.0 of the canonical data.
+// This file was auto-generated based on version 1.6.0 of the canonical data.
 
 using System;
 using Xunit;
@@ -100,6 +100,34 @@ public class PhoneNumberTest
     public void Invalid_if_exchange_code_starts_with_1()
     {
         var phrase = "(223) 156-7890";
+        Assert.Throws<ArgumentException>(() => PhoneNumber.Clean(phrase));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Invalid_if_area_code_starts_with_0_on_valid_11_digit_number()
+    {
+        var phrase = "1 (023) 456-7890";
+        Assert.Throws<ArgumentException>(() => PhoneNumber.Clean(phrase));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Invalid_if_area_code_starts_with_1_on_valid_11_digit_number()
+    {
+        var phrase = "1 (123) 456-7890";
+        Assert.Throws<ArgumentException>(() => PhoneNumber.Clean(phrase));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Invalid_if_exchange_code_starts_with_0_on_valid_11_digit_number()
+    {
+        var phrase = "1 (223) 056-7890";
+        Assert.Throws<ArgumentException>(() => PhoneNumber.Clean(phrase));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Invalid_if_exchange_code_starts_with_1_on_valid_11_digit_number()
+    {
+        var phrase = "1 (223) 156-7890";
         Assert.Throws<ArgumentException>(() => PhoneNumber.Clean(phrase));
     }
 }

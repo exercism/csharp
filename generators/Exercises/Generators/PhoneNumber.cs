@@ -9,7 +9,7 @@ namespace Exercism.CSharp.Exercises.Generators
         {
             testMethod.UseVariablesForInput = true;
 
-            if (testMethod.Expected is null)
+            if (!(testMethod.Expected is string))
                 testMethod.ExceptionThrown = typeof(ArgumentException);
         }
     }
