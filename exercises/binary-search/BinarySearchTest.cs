@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.1.0 of the canonical data.
+// This file was auto-generated based on version 1.2.0 of the canonical data.
 
 using System;
 using Xunit;
@@ -58,7 +58,7 @@ public class BinarySearchTest
     {
         var array = new[] { 1, 3, 4, 6, 8, 9, 11 };
         var sut = new BinarySearch(array);
-        Assert.Equal(-1, sut.Find(7));
+        Assert.Equal(new Dictionary<string, object> { ["error"] = "value not in array" }, sut.Find(7));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -66,7 +66,7 @@ public class BinarySearchTest
     {
         var array = new[] { 1, 3, 4, 6, 8, 9, 11 };
         var sut = new BinarySearch(array);
-        Assert.Equal(-1, sut.Find(0));
+        Assert.Equal(new Dictionary<string, object> { ["error"] = "value not in array" }, sut.Find(0));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -74,7 +74,7 @@ public class BinarySearchTest
     {
         var array = new[] { 1, 3, 4, 6, 8, 9, 11 };
         var sut = new BinarySearch(array);
-        Assert.Equal(-1, sut.Find(13));
+        Assert.Equal(new Dictionary<string, object> { ["error"] = "value not in array" }, sut.Find(13));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -82,6 +82,6 @@ public class BinarySearchTest
     {
         var array = Array.Empty<int>();
         var sut = new BinarySearch(array);
-        Assert.Equal(-1, sut.Find(1));
+        Assert.Equal(new Dictionary<string, object> { ["error"] = "value not in array" }, sut.Find(1));
     }
 }
