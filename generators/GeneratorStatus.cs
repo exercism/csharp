@@ -2,10 +2,11 @@
 {
     public enum GeneratorStatus
     {
+        All,
         Implemented,
         Unimplemented,
         MissingData,
+        Outdated,
         Custom,
-        All
     }
 }

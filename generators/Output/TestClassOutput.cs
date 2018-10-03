@@ -16,7 +16,7 @@ namespace Exercism.CSharp.Output
         
         public void WriteToFile()
         {
-            var filePath = FilePath;
+            var filePath = FilePathHelper.TestClassFilePath(_testClass.Exercise, _testClass.ClassName);
             var renderedContents = Render();
 
             Directory.CreateDirectory(Path.GetDirectoryName(filePath));
@@ -46,9 +46,5 @@ namespace Exercism.CSharp.Output
                     .Concat(_testClass.Namespaces)
                     .Append("Xunit")
                     .ToSortedSet();
-
-        private string FilePath => Path.Combine("..", "exercises", _testClass.Exercise, FileName);
-
-        private string FileName => $"{_testClass.ClassName}.cs";
     }
 }
