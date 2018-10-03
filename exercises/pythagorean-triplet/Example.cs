@@ -47,6 +47,22 @@ public class Triplet
         return triplets;
     }
 
+    //This is needed for unit tests.
+    public override bool Equals(object obj)
+    {
+        var triplet = obj as Triplet;
+        if (triplet is null)
+            return false;
+        return (triplet.a == a && triplet.b == b && triplet.c == c) ||
+            (triplet.a == b && triplet.b == a || triplet.c == c);
+    }
+
+    //This is needed for unit tests.
+    public override int GetHashCode()
+    {
+        return unchecked(a.GetHashCode() * 17 + b.GetHashCode() * 17 + c.GetHashCode());
+    }
+
     private static bool ShouldIncludeTriplet(int sum, Triplet triplet)
     {
         return triplet.IsPythagorean() && (sum == 0 || triplet.Sum() == sum);
