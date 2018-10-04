@@ -69,6 +69,9 @@ namespace Exercism.CSharp
                 case CustomExercise _:
                     Log.Information("{Exercise}: has customized tests", exercise.Name);
                     break;
+                case OutdatedExercise _:
+                    Log.Information("{Exercise}: is outdated", exercise.Name);
+                    break;
                 case MissingDataExercise _:
                     Log.Warning("{Exercise}: missing canonical data", exercise.Name);
                     break;
@@ -93,6 +96,8 @@ namespace Exercism.CSharp
                     return !(exercise is UnimplementedExercise);
                 case GeneratorStatus.MissingData:
                     return !(exercise is MissingDataExercise);
+                case GeneratorStatus.Outdated:
+                    return !(exercise is OutdatedExercise);
                 case GeneratorStatus.Custom:
                     return !(exercise is CustomExercise);
                 default:
