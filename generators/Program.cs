@@ -40,14 +40,16 @@ namespace Exercism.CSharp
             var canonicalDataFile = new CanonicalDataFile(options);
             canonicalDataFile.DownloadData();
 
-            Log.Information("Re-generating test classes...");
+            if(options.ShouldGenerate)
+                Log.Information("Re-generating test classes...");
             
             var canonicalDataParser = new CanonicalDataParser(canonicalDataFile);
 
             foreach (var exercise in new ExerciseCollection(canonicalDataFile, options))
                 RegenerateTestClass(exercise, options, canonicalDataParser);
 
-            Log.Information("Re-generated test classes.");
+            if (options.ShouldGenerate)
+                Log.Information("Re-generated test classes.");
         }
 
         private static void RegenerateTestClass(Exercise exercise, Options options, CanonicalDataParser canonicalDataParser)
