@@ -7,7 +7,7 @@ namespace Exercism.CSharp.Exercises.Generators
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            if (testMethod.Expected is bool)
+            if (!(testMethod.Expected is int))
                 testMethod.ExceptionThrown = typeof(ArgumentException);
         }
     }
