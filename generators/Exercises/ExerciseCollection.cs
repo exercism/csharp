@@ -56,7 +56,7 @@ namespace Exercism.CSharp.Exercises
             var filePath = FilePathHelper.TestClassFilePath(exerciseName, exerciseName.ToTestClassName());
             var firsLine = File.ReadLines(filePath).First();
 
-            if(firsLine.StartsWith("//")) {
+            if (firsLine.StartsWith("//")) {
                 var testversion = Regex.Match(firsLine, @"[\d\.]{5}").Value;
                 var canonicalDataParser = new CanonicalDataParser(_canonicalDataFile);
                 var canonicalDataVersion = canonicalDataParser.Parse(exerciseName).Version;
