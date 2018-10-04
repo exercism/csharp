@@ -9,8 +9,10 @@ namespace Exercism.CSharp.Exercises.Generators
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            if (testMethod.Expected is int i && i <= 0)
+            if (!(testMethod.Expected is string))
+            {
                 testMethod.ExceptionThrown = typeof(ArgumentException);
+            }
 
             testMethod.Input["rows"] = new MultiLineString(testMethod.Input["rows"]);
             testMethod.Expected = testMethod.Expected.ToString();
