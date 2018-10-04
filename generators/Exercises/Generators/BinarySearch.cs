@@ -15,6 +15,11 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.ConstructorInputParameters = new[] { "array" };
             testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
             testMethod.UseVariablesForConstructorParameters = true;
+
+            if (testMethod.Expected is Dictionary<string, object> && testMethod.Expected.ContainsKey("error"))
+            {
+                testMethod.Expected = -1;
+            }
         }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
