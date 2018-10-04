@@ -25,9 +25,12 @@ namespace Exercism.CSharp
             HelpText = "Use the cached canonical data and don't update the data.")]
         public bool CacheCanonicalData { get; set; }
 
-        public void Normalize()
+        public bool ShouldGenerate { get; set; }
+
+        public void Setup()
         {
             CanonicalDataDirectory = CanonicalDataDirectory ?? DefaultCanonicalDataDirectory;
+            ShouldGenerate = Exercise != null;
         }
     }
 }

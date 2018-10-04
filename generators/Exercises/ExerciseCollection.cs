@@ -14,9 +14,10 @@ namespace Exercism.CSharp.Exercises
     {
         private readonly CanonicalDataFile _canonicalDataFile;
         private readonly Dictionary<string, Type> _exerciseTypesByName;
+        private readonly Options _options;
 
-        public ExerciseCollection(CanonicalDataFile canonicalDataFile)
-            => (_canonicalDataFile, _exerciseTypesByName) = (canonicalDataFile, GetExerciseTypesByName());
+        public ExerciseCollection(CanonicalDataFile canonicalDataFile, Options options)
+            => (_canonicalDataFile, _options, _exerciseTypesByName) = (canonicalDataFile, options, GetExerciseTypesByName());
 
         private static Dictionary<string, Type> GetExerciseTypesByName()
             => Assembly.GetEntryAssembly()
@@ -35,13 +36,14 @@ namespace Exercism.CSharp.Exercises
             foreach (var exercise in TrackConfigFile.GetExercises())
             {
                 var exerciseName = exercise.Slug.ToExerciseName();
+
                 if (exercise.Deprecated)
                     yield return new DeprecatedExercise(exerciseName);
                 else if (HasNoCanonicalData(exerciseName))
                     yield return new MissingDataExercise(exerciseName);
                 else if (IsNotImplemented(exerciseName))
                     yield return new UnimplementedExercise(exerciseName);
-                else if (IsOutdated(exerciseName))
+                else if (IsOutdated(exerciseName) && !_options.ShouldGenerate)
                     yield return new OutdatedExercise(exerciseName);
                 else
                     yield return CreateExercise(exerciseName);
