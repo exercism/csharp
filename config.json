@@ -1290,6 +1290,15 @@
       ]
     },
     {
+      "slug": "rest-api",
+      "uuid": "4c89b6a8-0e89-46c9-5a7e-31bfe6a57007",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 0,
+      "topics": null,
+      "deprecated": false
+    },
+    {
       "slug": "binary",
       "uuid": "cef7deef-54ce-4201-b263-7cd2098533f8",
       "core": false,

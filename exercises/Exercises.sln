@@ -230,6 +230,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yacht", "yacht\Yacht.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RationalNumbers", "rational-numbers\RationalNumbers.csproj", "{0CBB430D-BF64-436F-93BE-8E8088DBCBFE}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestApi", "rest-api\RestApi.csproj", "{DFF04F1E-2963-4A88-AF92-D14AD48617F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -692,6 +694,10 @@ Global
 		{0CBB430D-BF64-436F-93BE-8E8088DBCBFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CBB430D-BF64-436F-93BE-8E8088DBCBFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0CBB430D-BF64-436F-93BE-8E8088DBCBFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFF04F1E-2963-4A88-AF92-D14AD48617F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFF04F1E-2963-4A88-AF92-D14AD48617F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFF04F1E-2963-4A88-AF92-D14AD48617F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFF04F1E-2963-4A88-AF92-D14AD48617F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
