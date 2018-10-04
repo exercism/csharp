@@ -35,12 +35,15 @@ namespace Exercism.CSharp.Exercises
             foreach (var exercise in TrackConfigFile.GetExercises())
             {
                 var exerciseName = exercise.Slug.ToExerciseName();
+
                 if (exercise.Deprecated)
                     yield return new DeprecatedExercise(exerciseName);
                 else if (HasNoCanonicalData(exerciseName))
                     yield return new MissingDataExercise(exerciseName);
                 else if (IsNotImplemented(exerciseName))
                     yield return new UnimplementedExercise(exerciseName);
+                else if (IsOutdated(exerciseName) && !_options.ShouldGenerate)
+                    yield return new OutdatedExercise(exerciseName);
                 else
                     yield return CreateExercise(exerciseName);
             }
