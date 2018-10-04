@@ -14,7 +14,7 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.UseVariablesForInput = true;
             testMethod.Input["integers"] = ConvertToUInt32Array(testMethod.Input["integers"]);
 
-            if (testMethod.Expected == null || testMethod.Expected is Dictionary<string,object> objError)
+            if (testMethod.Expected == null || testMethod.Expected is Dictionary<string,object>)
                 testMethod.ExceptionThrown = typeof(InvalidOperationException);
             else
                 testMethod.Expected = ConvertToUInt32Array(testMethod.Expected);
