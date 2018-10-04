@@ -17,32 +17,27 @@ namespace generators.Exercises.Generators
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {
             namespaces.Add(typeof(Array).Namespace);
-            namespaces.Add(typeof(HashSet<int>).Namespace);
-            namespaces.Add("System.Linq");
         }
 
         private string RenderAssert(TestMethod testMethod)
         {
             return Render.AssertEqual(
-                RenderExpected(testMethod.Expected),
-                RenderActual(testMethod.Input["n"]));
+                RenderExpected(testMethod.Expected)
+                , RenderActual(testMethod.Input["n"]));
         }
 
-        private string RenderActual(dynamic input) => $"Triplet.Where({input}, 1, {input}).ToHashSet()";
+        private string RenderActual(dynamic input) => $"PythagoreanTriplet.TripletsWithSum({input})";
 
         private string RenderExpected(dynamic value)
         {
-            var sb = new StringBuilder();
-            sb.AppendLine("new Triplet[]{");
             var array = value as JArray;
+            var expected = new List<(int, int, int)>();
             foreach (var item in array)
             {
                 var input = (item as JArray).ToObject<int[]>();
-                sb.AppendLine($"    new Triplet({input[0]}, {input[1]}, {input[2]}),");
+                expected.Add((input[0], input[1], input[2]));
             }
-            sb.AppendLine("}.ToHashSet()");
-
-            return sb.ToString();
+            return Render.ArrayMultiLine(expected.ToArray());
         }
     }
 }
