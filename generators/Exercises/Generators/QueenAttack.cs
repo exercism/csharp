@@ -17,7 +17,7 @@ namespace Exercism.CSharp.Exercises.Generators
 
         private static void UpdateTestMethodForCreateProperty(TestMethod testMethod)
         {
-            if (testMethod.Expected is Dictionary<string, object> || testMethod.Expected < 0)
+            if (testMethod.Expected is Dictionary<string, object>)
             {
                 testMethod.ExceptionThrown = typeof(ArgumentOutOfRangeException);
             }
