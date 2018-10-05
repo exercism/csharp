@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.1.0 of the canonical data.
+// This file was auto-generated based on version 1.2.0 of the canonical data.
 
 using Xunit;
 
@@ -27,6 +27,16 @@ public class AllergiesTest
         Assert.True(sut.IsAllergicTo(Allergen.Eggs));
         Assert.True(sut.IsAllergicTo(Allergen.Shellfish));
         Assert.False(sut.IsAllergicTo(Allergen.Strawberries));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Allergic_to_strawberries_but_not_peanuts()
+    {
+        var sut = new Allergies(9);
+        Assert.True(sut.IsAllergicTo(Allergen.Eggs));
+        Assert.False(sut.IsAllergicTo(Allergen.Peanuts));
+        Assert.False(sut.IsAllergicTo(Allergen.Shellfish));
+        Assert.True(sut.IsAllergicTo(Allergen.Strawberries));
     }
 
     [Fact(Skip = "Remove to run test")]
