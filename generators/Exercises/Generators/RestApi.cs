@@ -10,6 +10,7 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.UseVariablesForInput = true;
             testMethod.UseVariableForTested = true;
             testMethod.UseVariableForExpected = true;
+            testMethod.UseVariablesForConstructorParameters = true;
 
             testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
             testMethod.ConstructorInputParameters = new[] { "database" };
