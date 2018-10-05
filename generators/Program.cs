@@ -16,7 +16,7 @@ namespace Exercism.CSharp
             try
             {
                 Parser.Default.ParseArguments<Options>(args)
-                    .WithParsed(options => RegenerateTestClasses(options ,args));
+                    .WithParsed(RegenerateTestClasses);
                 return 0;
             }
             catch (Exception exception)
@@ -33,9 +33,9 @@ namespace Exercism.CSharp
                 .CreateLogger();
         }
 
-        private static void RegenerateTestClasses(Options options, string[] args)
+        private static void RegenerateTestClasses(Options options)
         {
-            options.Setup(args);
+            options.Setup();
 
             var canonicalDataFile = new CanonicalDataFile(options);
             canonicalDataFile.DownloadData();
@@ -61,22 +61,18 @@ namespace Exercism.CSharp
             {
                 case GeneratorExercise generatorExercise:
                     var canonicalData = canonicalDataParser.Parse(exercise.Name);
+                    generatorExercise.Regenerate(canonicalData);
 
-                    if (generatorExercise.IsOutdated(canonicalData) && options.Status == GeneratorStatus.Outdated)
-                    {
-                        Log.Information("{Exercise}: is outdated", exercise.Name);
-                    }
-                    else if (options.ShouldGenerate)
-                    {
-                        generatorExercise.Regenerate(canonicalData);
-                        Log.Information("{Exercise}: tests generated", exercise.Name);
-                    }
+                    Log.Information("{Exercise}: tests generated", exercise.Name);
                     break;
                 case UnimplementedExercise _:
                     Log.Error("{Exercise}: missing test generator", exercise.Name);
                     break;
                 case CustomExercise _:
                     Log.Information("{Exercise}: has customized tests", exercise.Name);
+                    break;
+                case OutdatedExercise _:
+                    Log.Information("{Exercise}: is outdated", exercise.Name);
                     break;
                 case MissingDataExercise _:
                     Log.Warning("{Exercise}: missing canonical data", exercise.Name);
@@ -103,7 +99,7 @@ namespace Exercism.CSharp
                 case GeneratorStatus.MissingData:
                     return !(exercise is MissingDataExercise);
                 case GeneratorStatus.Outdated:
-                    return !(exercise is GeneratorExercise);
+                    return !(exercise is OutdatedExercise);
                 case GeneratorStatus.Custom:
                     return !(exercise is CustomExercise);
                 default:
