@@ -16,7 +16,7 @@ namespace Exercism.CSharp
             try
             {
                 Parser.Default.ParseArguments<Options>(args)
-                    .WithParsed(RegenerateTestClasses);
+                    .WithParsed(options => RegenerateTestClasses(options, args));
                 return 0;
             }
             catch (Exception exception)
@@ -33,9 +33,9 @@ namespace Exercism.CSharp
                 .CreateLogger();
         }
 
-        private static void RegenerateTestClasses(Options options)
+        private static void RegenerateTestClasses(Options options, string[] args)
         {
-            options.Setup();
+            options.Setup(args);
 
             var canonicalDataFile = new CanonicalDataFile(options);
             canonicalDataFile.DownloadData();
