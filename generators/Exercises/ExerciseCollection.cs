@@ -15,7 +15,7 @@ namespace Exercism.CSharp.Exercises
         private readonly CanonicalDataFile _canonicalDataFile;
         private readonly Dictionary<string, Type> _exerciseTypesByName;
 
-        public ExerciseCollection(CanonicalDataFile canonicalDataFile)
+        public ExerciseCollection(CanonicalDataFile canonicalDataFile, Options options)
             => (_canonicalDataFile, _exerciseTypesByName) = (canonicalDataFile, GetExerciseTypesByName());
 
         private static Dictionary<string, Type> GetExerciseTypesByName()
@@ -41,8 +41,6 @@ namespace Exercism.CSharp.Exercises
                     yield return new MissingDataExercise(exerciseName);
                 else if (IsNotImplemented(exerciseName))
                     yield return new UnimplementedExercise(exerciseName);
-                else if (IsOutdated(exerciseName))
-                    yield return new OutdatedExercise(exerciseName);
                 else
                     yield return CreateExercise(exerciseName);
             }
