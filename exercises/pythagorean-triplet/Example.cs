@@ -10,9 +10,8 @@ public static class PythagoreanTriplet
         for (var c = sum / 2; c > 1; c--)
         {
             var left = sum - c;
-            for (var a = 1; left - a > a; a++)
+            for (int a = 1, b = left - a; b > a; a++, b--)
             {
-                var b = left - a;
                 if (a * a + b * b == c * c)
                     yield return (a, b, c);
             }
