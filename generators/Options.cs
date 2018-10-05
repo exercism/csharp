@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using CommandLine;
 
 namespace Exercism.CSharp
@@ -27,10 +28,17 @@ namespace Exercism.CSharp
 
         public bool ShouldGenerate { get; set; }
 
-        public void Setup()
+        public void Setup(string[] args)
         {
             CanonicalDataDirectory = CanonicalDataDirectory ?? DefaultCanonicalDataDirectory;
-            ShouldGenerate = Exercise != null;
+            if (!args.Any())
+                ShouldGenerate = true;
+
+            foreach (var arg in args)
+            {
+                if(arg.StartsWith("-e") || arg.StartsWith("--ex"))
+                    ShouldGenerate = true;
+            }
         }
     }
 }
