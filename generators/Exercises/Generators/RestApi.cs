@@ -7,7 +7,10 @@ namespace Exercism.CSharp.Exercises.Generators
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
+            testMethod.UseVariablesForInput = true;
             testMethod.UseVariableForTested = true;
+            testMethod.UseVariableForExpected = true;
+
             testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
             testMethod.ConstructorInputParameters = new[] { "database" };
             testMethod.Input["database"] = JsonConvert.SerializeObject(testMethod.Input["database"]["users"]);
