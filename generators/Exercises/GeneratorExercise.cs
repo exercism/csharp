@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
 using Exercism.CSharp.Helpers;
 using Exercism.CSharp.Input;
 using Exercism.CSharp.Output;
@@ -14,20 +12,6 @@ namespace Exercism.CSharp.Exercises
         public override string Name => GetType().ToExerciseName();
         
         protected Render Render { get; } = new Render();
-
-        public bool IsOutdated(CanonicalData canonicalData)
-        {
-            var filePath = FilePathHelper.TestClassFilePath(Name, Name.ToTestClassName());
-            var firsLine = File.ReadLines(filePath).First();
-
-            if (firsLine.StartsWith("//"))
-            {
-                var currentTestversion = Regex.Match(firsLine, @"[\d\.]{5}").Value;
-                return currentTestversion != canonicalData.Version;
-            }
-
-            return false;
-        }
 
         public void Regenerate(CanonicalData canonicalData)
         {   
