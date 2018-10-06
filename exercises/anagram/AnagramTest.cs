@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.3.0 of the canonical data.
+// This file was auto-generated based on version 1.4.0 of the canonical data.
 
 using Xunit;
 
@@ -99,9 +99,9 @@ public class AnagramTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Capital_word_is_not_own_anagram()
+    public void Words_are_not_anagrams_of_themselves_case_insensitive_()
     {
-        var candidates = new[] { "Banana" };
+        var candidates = new[] { "BANANA", "Banana", "banana" };
         var sut = new Anagram("BANANA");
         Assert.Empty(sut.FindAnagrams(candidates));
     }
