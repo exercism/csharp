@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using CommandLine;
 
 namespace Exercism.CSharp
@@ -25,9 +26,18 @@ namespace Exercism.CSharp
             HelpText = "Use the cached canonical data and don't update the data.")]
         public bool CacheCanonicalData { get; set; }
 
-        public void Normalize()
+        public bool ShouldGenerate { get; set; }
+
+        public void Setup(string[] args)
         {
             CanonicalDataDirectory = CanonicalDataDirectory ?? DefaultCanonicalDataDirectory;
+            if (!args.Any())
+                ShouldGenerate = true;
+            foreach (var arg in args)
+            {
+                if (arg.StartsWith("-e") || arg.StartsWith("--ex"))
+                    ShouldGenerate = true;
+            }
         }
     }
 }
