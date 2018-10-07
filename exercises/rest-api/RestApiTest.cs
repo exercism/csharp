@@ -59,7 +59,7 @@ public class RestApiTest
         var database = "[{\"name\":\"Adam\",\"owes\":{},\"owed_by\":{},\"balance\":0.0},{\"name\":\"Bob\",\"owes\":{\"Chuck\":3.0},\"owed_by\":{},\"balance\":-3.0},{\"name\":\"Chuck\",\"owes\":{},\"owed_by\":{\"Bob\":3.0},\"balance\":3.0}]";
         var sut = new RestApi(database);
         var actual = sut.Post(url, payload);
-        var expected = "[{\"name\":\"Adam\",\"owes\":{},\"owed_by\":{\"Bob\":3.0},\"balance\":3.0},{\"name\":\"Bob\",\"owes\":{\"Adam\":3.0,\"Chuck\":3.0},\"owed_by\":{},\"balance\":-6}]";
+        var expected = "[{\"name\":\"Adam\",\"owes\":{},\"owed_by\":{\"Bob\":3.0},\"balance\":3.0},{\"name\":\"Bob\",\"owes\":{\"Adam\":3.0,\"Chuck\":3.0},\"owed_by\":{},\"balance\":-6.0}]";
         Assert.Equal(expected, actual);
     }
 
