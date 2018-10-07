@@ -25,7 +25,7 @@ namespace Exercism.CSharp.Exercises.Generators
             switch (testMethod.Property)
             {
                 case "create": return null;
-                case "instructions": return RenderInstructionsAct(testMethod);
+                case "move": return RenderInstructionsAct(testMethod);
                 default: return RenderDefaultAct(testMethod);
             }
         }
