@@ -117,8 +117,7 @@ public class RestApi
             lender.Lend(borrower, amount);
             borrower.Borrow(lender, amount);
 
-            // Replace to workaround inconsistency in specs
-            return JsonConvert.SerializeObject(new[] { lender, borrower }.OrderBy(x => x.name)).Replace("-6.0", "-6");
+            return JsonConvert.SerializeObject(new[] { lender, borrower }.OrderBy(x => x.name));
         }
 
         return String.Empty;
