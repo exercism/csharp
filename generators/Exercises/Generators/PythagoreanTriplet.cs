@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 using Exercism.CSharp.Exercises;
 using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
-using Newtonsoft.Json.Linq;
 
 namespace generators.Exercises.Generators
 {
@@ -12,32 +11,17 @@ namespace generators.Exercises.Generators
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            testMethod.Assert = RenderAssert(testMethod);
+            testMethod.Expected = ConvertExpected(testMethod.Expected);
         }
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {
             namespaces.Add(typeof(Array).Namespace);
         }
-
-        private string RenderAssert(TestMethod testMethod)
+        private dynamic ConvertExpected(dynamic value)
         {
-            return Render.AssertEqual(
-                RenderExpected(testMethod.Expected)
-                , RenderActual(testMethod.Input["n"]));
-        }
-
-        private string RenderActual(dynamic input) => $"PythagoreanTriplet.TripletsWithSum({input})";
-
-        private string RenderExpected(dynamic value)
-        {
-            var array = value as JArray;
-            var expected = new List<(int, int, int)>();
-            foreach (var item in array)
-            {
-                var input = (item as JArray).ToObject<int[]>();
-                expected.Add((input[0], input[1], input[2]));
-            }
-            return Render.ArrayMultiLine(expected.ToArray());
+            int[][] values = value.ToObject<int[][]>();
+            var triplets = values.Select(ints => (ints[0], ints[1], ints[2])).ToArray();
+            return new UnescapedValue(Render.ArrayMultiLine(triplets));
         }
     }
 }
