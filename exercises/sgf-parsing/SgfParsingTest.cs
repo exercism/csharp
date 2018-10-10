@@ -31,14 +31,16 @@ public class SgfParsingTest
     public void Node_without_properties()
     {
         var encoded = "(;)";
-        Assert.Equal(new SgfTree(new Dictionary<string, string[]>()), SgfParser.ParseTree(encoded));
+        var expected = new SgfTree(new Dictionary<string, string[]>());
+        Assert.Equal(expected, SgfParser.ParseTree(encoded));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Single_node_tree()
     {
         var encoded = "(;A[B])";
-        Assert.Equal(new SgfTree(new Dictionary<string, string[]> { ["A"] = new[] { "B" } } ), SgfParser.ParseTree(encoded));
+        var expected = new SgfTree(new Dictionary<string, string[]> { ["A"] = new[] { "B" } } );
+        Assert.Equal(expected, SgfParser.ParseTree(encoded));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -66,27 +68,31 @@ public class SgfParsingTest
     public void Two_nodes()
     {
         var encoded = "(;A[B];B[C])";
-        Assert.Equal(new SgfTree(new Dictionary<string, string[]> { ["A"] = new[] { "B" } } ,new SgfTree(new Dictionary<string, string[]> { ["B"] = new[] { "C" } } )), SgfParser.ParseTree(encoded));
+        var expected = new SgfTree(new Dictionary<string, string[]> { ["A"] = new[] { "B" } } ,new SgfTree(new Dictionary<string, string[]> { ["B"] = new[] { "C" } } ));
+        Assert.Equal(expected, SgfParser.ParseTree(encoded));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Two_child_trees()
     {
         var encoded = "(;A[B](;B[C])(;C[D]))";
-        Assert.Equal(new SgfTree(new Dictionary<string, string[]> { ["A"] = new[] { "B" } } ,new SgfTree(new Dictionary<string, string[]> { ["B"] = new[] { "C" } } ), new SgfTree(new Dictionary<string, string[]> { ["C"] = new[] { "D" } } )), SgfParser.ParseTree(encoded));
+        var expected = new SgfTree(new Dictionary<string, string[]> { ["A"] = new[] { "B" } } ,new SgfTree(new Dictionary<string, string[]> { ["B"] = new[] { "C" } } ), new SgfTree(new Dictionary<string, string[]> { ["C"] = new[] { "D" } } ));
+        Assert.Equal(expected, SgfParser.ParseTree(encoded));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Multiple_property_values()
     {
         var encoded = "(;A[b][c][d])";
-        Assert.Equal(new SgfTree(new Dictionary<string, string[]> { ["A"] = new[] { "b", "c", "d" } } ), SgfParser.ParseTree(encoded));
+        var expected = new SgfTree(new Dictionary<string, string[]> { ["A"] = new[] { "b", "c", "d" } } );
+        Assert.Equal(expected, SgfParser.ParseTree(encoded));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Escaped_property()
     {
         var encoded = "(;A[\\]b\\nc\\nd\\t\\te \\n\\]])";
-        Assert.Equal(new SgfTree(new Dictionary<string, string[]> { ["A"] = new[] { "]b\nc\nd  e \n]" } } ), SgfParser.ParseTree(encoded));
+        var expected = new SgfTree(new Dictionary<string, string[]> { ["A"] = new[] { "]b\nc\nd  e \n]" } } );
+        Assert.Equal(expected, SgfParser.ParseTree(encoded));
     }
 }
