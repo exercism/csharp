@@ -19,11 +19,9 @@ namespace Exercism.CSharp.Exercises.Generators
 
             testMethod.TestedClass = "SgfParser";
             testMethod.TestedMethod = "ParseTree";
-
             testMethod.UseVariablesForInput = true;
-
+            testMethod.UseVariableForExpected = true;
             testMethod.Input["encoded"] = testMethod.Input.FirstOrDefault().Value.Replace("\\","\\\\");
-
         }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
