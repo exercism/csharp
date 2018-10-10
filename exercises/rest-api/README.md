@@ -1,4 +1,4 @@
-# REST API
+# Rest Api
 
 Implement a RESTful API for tracking IOUs.
 
@@ -38,7 +38,6 @@ Your task is to implement a simple [RESTful API](https://en.wikipedia.org/wiki/R
 - Example RESTful APIs
   - [GitHub](https://developer.github.com/v3/)
   - [Reddit](https://www.reddit.com/dev/api/)
-
 ## Running the tests
 
 To run the tests, run the command `dotnet test` from within the exercise directory.
