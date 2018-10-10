@@ -7,16 +7,16 @@ are gained by completely encircling empty intersections with your
 stones. The encircled intersections of a player are known as its
 territory.
 
-Write a method that determines the territory of each player. You may
+Write a function that determines the territory of each player. You may
 assume that any stones that have been stranded in enemy territory have
 already been taken off the board.
 
-Write a method that determines the territory which includes a specified coordinate.
+Write a function that determines the territory which includes a specified coordinate.
 
 Multiple empty intersections may be encircled at once and for encircling
 only horizontal and vertical neighbours count. In the following diagram
 the stones which matter are marked "O" and the stones that don't are
-marked "I" (ignored). Empty spaces represent empty intersections.
+marked "I" (ignored).  Empty spaces represent empty intersections.
 
 ```text
 +----+
@@ -45,5 +45,4 @@ For more detailed information about the C# track, including how to get help if
 you're having trouble, please visit the exercism.io [C# language page](http://exercism.io/languages/csharp/resources).
 
 ## Submitting Incomplete Solutions
-
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

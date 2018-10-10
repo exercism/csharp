@@ -8,7 +8,7 @@ or environment.
 
 The objectives are simple:
 
-- Write a method that returns the string "Hello, World!".
+- Write a function that returns the string "Hello, World!".
 - Run the test suite and make sure that it succeeds.
 - Submit your solution and check it at the website.
 
@@ -25,8 +25,7 @@ you're having trouble, please visit the exercism.io [C# language page](http://ex
 
 ## Source
 
-This is an exercise to introduce users to using Exercism [http://en.wikipedia.org/wiki/%22Hello,\_world!%22_program](http://en.wikipedia.org/wiki/%22Hello,_world!%22_program)
+This is an exercise to introduce users to using Exercism [http://en.wikipedia.org/wiki/%22Hello,_world!%22_program](http://en.wikipedia.org/wiki/%22Hello,_world!%22_program)
 
 ## Submitting Incomplete Solutions
-
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

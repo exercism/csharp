@@ -13,8 +13,8 @@ for A, and so with the others."
 
 Ciphers are very straight-forward algorithms that allow us to render
 text less readable while still allowing easy deciphering. They are
-vulnerable to many forms of cryptoanalysis, but we are lucky that
-generally our little sisters are not cryptoanalysts.
+vulnerable to many forms of cryptanalysis, but we are lucky that
+generally our little sisters are not cryptanalysts.
 
 The Caesar Cipher was used for some messages from Julius Caesar that
 were sent afield. Now Caesar knew that the cipher wasn't very good, but
@@ -29,9 +29,9 @@ This image is a great example of the Caesar Cipher:
 
 For example:
 
-Giving "iamapandabear" as input to the encode method returns the cipher "ldpdsdqgdehdu". Obscure enough to keep our message secret in transit.
+Giving "iamapandabear" as input to the encode function returns the cipher "ldpdsdqgdehdu". Obscure enough to keep our message secret in transit.
 
-When "ldpdsdqgdehdu" is put into the decode method it would return
+When "ldpdsdqgdehdu" is put into the decode function it would return
 the original "iamapandabear" letting your friend read your original
 message.
 
@@ -95,5 +95,4 @@ you're having trouble, please visit the exercism.io [C# language page](http://ex
 Substitution Cipher at Wikipedia [http://en.wikipedia.org/wiki/Substitution_cipher](http://en.wikipedia.org/wiki/Substitution_cipher)
 
 ## Submitting Incomplete Solutions
-
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.
