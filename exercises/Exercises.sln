@@ -232,6 +232,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RationalNumbers", "rational
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AffineCipher", "affine-cipher\AffineCipher.csproj", "{758DDF02-FFE7-4A4A-BD7C-0B189F3257C9}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestApi", "rest-api\RestApi.csproj", "{DFF04F1E-2963-4A88-AF92-D14AD48617F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -698,6 +700,10 @@ Global
 		{758DDF02-FFE7-4A4A-BD7C-0B189F3257C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{758DDF02-FFE7-4A4A-BD7C-0B189F3257C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{758DDF02-FFE7-4A4A-BD7C-0B189F3257C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFF04F1E-2963-4A88-AF92-D14AD48617F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFF04F1E-2963-4A88-AF92-D14AD48617F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFF04F1E-2963-4A88-AF92-D14AD48617F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFF04F1E-2963-4A88-AF92-D14AD48617F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

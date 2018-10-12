@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.2.0 of the canonical data.
+// This file was auto-generated based on version 1.4.0 of the canonical data.
 
 using Xunit;
 
@@ -65,13 +65,13 @@ public class BobTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Only_numbers()
+    public void No_letters()
     {
         Assert.Equal("Whatever.", Bob.Response("1, 2, 3"));
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Question_with_only_numbers()
+    public void Question_with_no_letters()
     {
         Assert.Equal("Sure.", Bob.Response("4?"));
     }
@@ -85,7 +85,7 @@ public class BobTest
     [Fact(Skip = "Remove to run test")]
     public void Shouting_with_no_exclamation_mark()
     {
-        Assert.Equal("Whoa, chill out!", Bob.Response("I HATE YOU"));
+        Assert.Equal("Whoa, chill out!", Bob.Response("I HATE THE DMV"));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -127,7 +127,7 @@ public class BobTest
     [Fact(Skip = "Remove to run test")]
     public void Multiple_line_question()
     {
-        Assert.Equal("Whatever.", Bob.Response("\nDoes this cryogenic chamber make me look fat?\nno"));
+        Assert.Equal("Whatever.", Bob.Response("\nDoes this cryogenic chamber make me look fat?\nNo."));
     }
 
     [Fact(Skip = "Remove to run test")]

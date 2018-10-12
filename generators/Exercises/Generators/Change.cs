@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
@@ -10,7 +11,7 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.UseVariablesForInput = true;
             testMethod.UseVariableForExpected = true;
 
-            if (testMethod.Expected is int)
+            if (testMethod.Expected is Dictionary<String, Object>)
                 testMethod.ExceptionThrown = typeof(ArgumentException);
         }
     }

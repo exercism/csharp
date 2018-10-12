@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.2.0 of the canonical data.
+// This file was auto-generated based on version 1.3.0 of the canonical data.
 
 using Xunit;
 
@@ -78,6 +78,32 @@ public class MarkdownTest
             "* __Bold Item__\n" +
             "* _Italic Item_";
         var expected = "<h1>Header!</h1><ul><li><strong>Bold Item</strong></li><li><em>Italic Item</em></li></ul>";
+        Assert.Equal(expected, Markdown.Parse(markdown));
+    }
+
+    [Fact]
+    public void With_markdown_symbols_in_the_header_text_that_should_not_be_interpreted()
+    {
+        var markdown = "# This is a header with # and * in the text";
+        var expected = "<h1>This is a header with # and * in the text</h1>";
+        Assert.Equal(expected, Markdown.Parse(markdown));
+    }
+
+    [Fact]
+    public void With_markdown_symbols_in_the_list_item_text_that_should_not_be_interpreted()
+    {
+        var markdown = 
+            "* Item 1 with a # in the text\n" +
+            "* Item 2 with * in the text";
+        var expected = "<ul><li>Item 1 with a # in the text</li><li>Item 2 with * in the text</li></ul>";
+        Assert.Equal(expected, Markdown.Parse(markdown));
+    }
+
+    [Fact]
+    public void With_markdown_symbols_in_the_paragraph_text_that_should_not_be_interpreted()
+    {
+        var markdown = "This is a paragraph with # and * in the text";
+        var expected = "<p>This is a paragraph with # and * in the text</p>";
         Assert.Equal(expected, Markdown.Parse(markdown));
     }
 }

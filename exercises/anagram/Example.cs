@@ -11,7 +11,7 @@ public class Anagram
         this.baseWord = baseWord;
     }
 
-    public string[] Anagrams(string[] potentialMatches)
+    public string[] FindAnagrams(string[] potentialMatches)
     {
         List<string> matches = new List<string>();
 

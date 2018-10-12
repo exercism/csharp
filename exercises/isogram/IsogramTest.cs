@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.4.0 of the canonical data.
+// This file was auto-generated based on version 1.6.0 of the canonical data.
 
 using Xunit;
 
@@ -41,6 +41,12 @@ public class IsogramTest
     }
 
     [Fact(Skip = "Remove to run test")]
+    public void Word_with_duplicated_character_in_mixed_case_lowercase_first()
+    {
+        Assert.False(Isogram.IsIsogram("alphAbet"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
     public void Hypothetical_isogrammic_word_with_hyphen()
     {
         Assert.True(Isogram.IsIsogram("thumbscrew-japingly"));
@@ -62,5 +68,11 @@ public class IsogramTest
     public void Duplicated_character_in_the_middle()
     {
         Assert.False(Isogram.IsIsogram("accentor"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Same_first_and_last_characters()
+    {
+        Assert.False(Isogram.IsIsogram("angola"));
     }
 }

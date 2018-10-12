@@ -7,7 +7,7 @@ public class Anagram
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public string[] Anagrams(string[] potentialMatches)
+    public string[] FindAnagrams(string[] potentialMatches)
     {
         throw new NotImplementedException("You need to implement this function.");
     }

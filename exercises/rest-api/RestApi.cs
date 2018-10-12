@@ -1,26 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
 
-public enum Owner
+public class RestApi
 {
-    None,
-    Black,
-    White
-}
-
-public class GoCounting
-{
-    public GoCounting(string input)
+    public RestApi(string database)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public Tuple<Owner, IEnumerable<(int, int)>> Territory((int, int) coord)
+    public string Get(string url, string payload = null)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public Dictionary<Owner, IEnumerable<(int, int)>> Territories()
+    public string Post(string url, string payload)
     {
         throw new NotImplementedException("You need to implement this function.");
     }

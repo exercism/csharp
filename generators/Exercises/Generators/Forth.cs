@@ -1,5 +1,6 @@
-﻿using System;
-using Exercism.CSharp.Output;
+﻿using Exercism.CSharp.Output;
+using System;
+using System.Collections.Generic;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
@@ -9,7 +10,7 @@ namespace Exercism.CSharp.Exercises.Generators
         {
             testMethod.TestMethodName = testMethod.TestMethodNameWithPath;
 
-            if (testMethod.Expected == null)
+            if (testMethod.Expected is Dictionary<string, object>)
             {
                 testMethod.ExceptionThrown = typeof(InvalidOperationException);
             }

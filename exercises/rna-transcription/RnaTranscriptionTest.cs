@@ -1,10 +1,16 @@
-// This file was auto-generated based on version 1.2.0 of the canonical data.
+// This file was auto-generated based on version 1.3.0 of the canonical data.
 
 using Xunit;
 
 public class RnaTranscriptionTest
 {
     [Fact]
+    public void Empty_rna_sequence()
+    {
+        Assert.Equal("", RnaTranscription.ToRna(""));
+    }
+
+    [Fact(Skip = "Remove to run test")]
     public void Rna_complement_of_cytosine_is_guanine()
     {
         Assert.Equal("G", RnaTranscription.ToRna("C"));
