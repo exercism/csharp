@@ -13,6 +13,11 @@ var parallelOptions = new ParallelOptions
     MaxDegreeOfParallelism = System.Environment.ProcessorCount
 };
 
+Task("BuildGenerators")
+    .Does(() => {
+       DotNetCoreBuild("./generators/Generators.csproj");
+    });
+
 Task("Clean")
     .Does(() => {
 		CleanDirectory(exercisesBuildDir);   
@@ -77,14 +82,9 @@ Task("TestUsingExampleImplementation")
         Parallel.ForEach(allProjects, parallelOptions, (project) => DotNetCoreTest(project.FullPath));
     });
 
-Task("BuildGenerators")
-    .Does(() => {
-       DotNetCoreBuild("./generators/Generators.csproj");
-    });
-
 Task("Default")
-    .IsDependentOn("TestUsingExampleImplementation")
     .IsDependentOn("BuildGenerators")
+    .IsDependentOn("TestUsingExampleImplementation")
     .Does(() => { });
 
 RunTarget(target);
