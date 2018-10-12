@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class AffineCipher
+public static class AffineCipher
 {
     private static int m = 26;
 
-    public string Encode(string plainText, int a, int b)
+    public static string Encode(string plainText, int a, int b)
     {
         var inverse = FindInverse(a, m);
 
@@ -28,7 +28,7 @@ public class AffineCipher
         return sb.ToString();
     }
 
-    public string Decode(string cipheredText, int a, int b)
+    public static string Decode(string cipheredText, int a, int b)
     {
         var inv = FindInverse(a, m);
 
@@ -44,7 +44,7 @@ public class AffineCipher
         return sb.ToString();
     }
 
-    private Char Decrypt(Char c, int a, int b)
+    private static Char Decrypt(Char c, int a, int b)
     {
         if (!char.IsLetter(c))
         {
@@ -68,7 +68,7 @@ public class AffineCipher
         return (Char)(mod + 97);
     }
 
-    private Char Encrypt(Char c, int a, int b)
+    private static Char Encrypt(Char c, int a, int b)
     {
         if (!char.IsLetter(c))
         {
@@ -92,7 +92,7 @@ public class AffineCipher
         return (Char)(mod + 97);
     }
 
-    private int FindInverse(int a, int b)
+    private static int FindInverse(int a, int b)
     {
         var (x0, x1, y0, y1) = (1, 0, 0, 1);
 
