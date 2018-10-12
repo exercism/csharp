@@ -70,21 +70,21 @@ Task("ReplaceStubWithExample")
         }
     });
 
-Task("TestUsingExampleImplementation")
-    .IsDependentOn("ReplaceStubWithExample")
-    .Does(() => {
-        var allProjects = GetFiles(exercisesBuildDir + "/*/*.csproj");
-        Parallel.ForEach(allProjects, parallelOptions, (project) => DotNetCoreTest(project.FullPath));
-    });
 
 Task("BuildGenerators")
     .Does(() => {
        DotNetCoreBuild("./generators/Generators.csproj");
     });
 
+Task("TestUsingExampleImplementation")
+    .IsDependentOn("ReplaceStubWithExample")
+    .Does(() => {
+        var allProjects = GetFiles(exercisesBuildDir + "/*/*.csproj");
+        Parallel.ForEach(allProjects, parallelOptions, (project) => DotNetCoreTest(project.FullPath));
+    });
 Task("Default")
-    .IsDependentOn("TestUsingExampleImplementation")
     .IsDependentOn("BuildGenerators")
+    .IsDependentOn("TestUsingExampleImplementation")
     .Does(() => { });
 
 RunTarget(target);
