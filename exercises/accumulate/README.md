@@ -33,6 +33,10 @@ This exercise requires you to write an extension method. For more information, s
 
 To run the tests, run the command `dotnet test` from within the exercise directory.
 
+### Laziness test
+
+Since `accumulate` returns an `IEnumerable`, it's execution is deferred until `ToList()` it is called on it, which is tested with the `Accumulate_is_lazy` method
+
 ## Further information
 
 For more detailed information about the C# track, including how to get help if
