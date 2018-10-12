@@ -1336,6 +1336,18 @@
       "difficulty": 0,
       "topics": null,
       "deprecated": true
+    },
+    {
+      "slug": "affine-cipher",
+      "uuid": "2462D9AE-6483-40C6-955A-79CB2AC25B34",
+      "core": false,
+      "unlocked_by": "bob",
+      "difficulty": 4,
+      "topics": [
+        "cryptography",
+        "math",
+        "strings"
+      ]
     }
   ]
 }
