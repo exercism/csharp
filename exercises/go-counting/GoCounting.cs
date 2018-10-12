@@ -15,7 +15,7 @@ public class GoCounting
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public Tuple<Owner, IEnumerable<(int, int)>> TerritoryFor((int, int) coord)
+    public Tuple<Owner, IEnumerable<(int, int)>> Territory((int, int) coord)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
