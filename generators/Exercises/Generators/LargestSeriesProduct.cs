@@ -9,7 +9,7 @@ namespace Exercism.CSharp.Exercises.Generators
         {
             testMethod.TestedMethod = "GetLargestProduct";
 
-            if (testMethod.Expected == -1)
+            if (testMethod.Expected is System.Collections.IDictionary)
                 testMethod.ExceptionThrown = typeof(ArgumentException);
         }
     }
