@@ -13,7 +13,7 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.Input["b"] = testMethod.Input["key"]["b"];
             testMethod.InputParameters = new[] { "phrase", "a", "b" };
 
-            if (!testMethod.Expected is string)
+            if (!(testMethod.Expected is string))
             {
                 testMethod.ExceptionThrown = typeof(ArgumentException);
             }
