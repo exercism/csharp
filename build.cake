@@ -78,7 +78,12 @@ Task("ReplaceStubWithExample")
 Task("TestUsingExampleImplementation")
     .IsDependentOn("ReplaceStubWithExample")
     .Does(() => {
-        DotNetCoreTest(exercisesBuildDir + "/Exercises.sln");
+        if(!string.IsNullOrEmpty(exercise)) {
+            DotNetCoreTest(exercisesBuildDir + $"/{exercise}/{exercise}.csproj");
+        }
+        else {
+            DotNetCoreTest(exercisesBuildDir + "/Exercises.sln");
+        } 
     });
 
 Task("Default")
