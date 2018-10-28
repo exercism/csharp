@@ -986,9 +986,9 @@
       "slug": "darts",
       "uuid": "cdde6c8c-0608-467d-a749-b53ec6168ecc ",
       "core": false,
-      "unlocked_by": null,
-      "difficulty": 4,
-      "topics": null
+      "unlocked_by": "leap",
+      "difficulty": 2,
+      "topics": ["floating_point_numbers", "math"]
     }
   ]
 }
