@@ -230,9 +230,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yacht", "yacht\Yacht.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RationalNumbers", "rational-numbers\RationalNumbers.csproj", "{0CBB430D-BF64-436F-93BE-8E8088DBCBFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AffineCipher", "affine-cipher\AffineCipher.csproj", "{758DDF02-FFE7-4A4A-BD7C-0B189F3257C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AffineCipher", "affine-cipher\AffineCipher.csproj", "{758DDF02-FFE7-4A4A-BD7C-0B189F3257C9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestApi", "rest-api\RestApi.csproj", "{DFF04F1E-2963-4A88-AF92-D14AD48617F2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Darts", "darts\Darts.csproj", "{202E2755-AB2F-4EA5-94D0-574487079CFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -704,6 +706,10 @@ Global
 		{DFF04F1E-2963-4A88-AF92-D14AD48617F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DFF04F1E-2963-4A88-AF92-D14AD48617F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DFF04F1E-2963-4A88-AF92-D14AD48617F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{202E2755-AB2F-4EA5-94D0-574487079CFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{202E2755-AB2F-4EA5-94D0-574487079CFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{202E2755-AB2F-4EA5-94D0-574487079CFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{202E2755-AB2F-4EA5-94D0-574487079CFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
