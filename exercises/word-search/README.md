@@ -28,10 +28,10 @@ letter of each word.
 
 ## HINTS
 
-One of the uses of Tuples is returning multiple values from a function. In this exercise, write
-a method that returns a Tuple (the x- and y- part of a coordinate).
+One of the uses of Tuples is returning multiple values from a function.   In this exercise, write
+a function that returns a Tuple (the x- and y- part of a coordinate).
 
-For more information on Tuples, see [this link](<https://msdn.microsoft.com/en-us/library/system.tuple(v=vs.110).aspx>).
+For more information on Tuples, see [this link](https://msdn.microsoft.com/en-us/library/system.tuple(v=vs.110).aspx).
 
 ## Running the tests
 
@@ -43,5 +43,4 @@ For more detailed information about the C# track, including how to get help if
 you're having trouble, please visit the exercism.io [C# language page](http://exercism.io/languages/csharp/resources).
 
 ## Submitting Incomplete Solutions
-
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

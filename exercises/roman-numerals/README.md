@@ -1,6 +1,6 @@
 # Roman Numerals
 
-Write a method to convert from normal numbers to Roman Numerals.
+Write a function to convert from normal numbers to Roman Numerals.
 
 The Romans were a clever bunch. They conquered most of Europe and ruled
 it for hundreds of years. They invented concrete and straight roads and
@@ -43,8 +43,8 @@ In Roman numerals 1990 is MCMXC:
 See also: http://www.novaroma.org/via_romana/numbers.html
 
 ## Hints
-
 This exercise requires you to write an extension method. For more information, see [this page](https://msdn.microsoft.com/en-us//library/bb383977.aspx).
+
 
 ## Running the tests
 
@@ -60,5 +60,4 @@ you're having trouble, please visit the exercism.io [C# language page](http://ex
 The Roman Numeral Kata [http://codingdojo.org/cgi-bin/index.pl?KataRomanNumerals](http://codingdojo.org/cgi-bin/index.pl?KataRomanNumerals)
 
 ## Submitting Incomplete Solutions
-
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

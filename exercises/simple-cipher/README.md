@@ -29,9 +29,9 @@ This image is a great example of the Caesar Cipher:
 
 For example:
 
-Giving "iamapandabear" as input to the encode method returns the cipher "ldpdsdqgdehdu". Obscure enough to keep our message secret in transit.
+Giving "iamapandabear" as input to the encode function returns the cipher "ldpdsdqgdehdu". Obscure enough to keep our message secret in transit.
 
-When "ldpdsdqgdehdu" is put into the decode method it would return
+When "ldpdsdqgdehdu" is put into the decode function it would return
 the original "iamapandabear" letting your friend read your original
 message.
 
@@ -61,10 +61,7 @@ substitution cipher a little more fault tolerant by providing a source
 of randomness and ensuring that the key contains only lowercase letters.
 
 If someone doesn't submit a key at all, generate a truly random key of
-at least 100 characters in length.
-
-If the key submitted is not composed only of lowercase letters, your
-solution should handle the error in a language-appropriate way.
+at least 100 alphanumeric characters in length.
 
 ## Extensions
 
@@ -95,5 +92,4 @@ you're having trouble, please visit the exercism.io [C# language page](http://ex
 Substitution Cipher at Wikipedia [http://en.wikipedia.org/wiki/Substitution_cipher](http://en.wikipedia.org/wiki/Substitution_cipher)
 
 ## Submitting Incomplete Solutions
-
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.
