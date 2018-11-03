@@ -12,16 +12,14 @@ namespace Exercism.CSharp.Exercises.Generators
             if (testMethod.Expected.ContainsKey("error"))
             {
                 testMethod.ExceptionThrown = typeof(ArgumentException);
-                testMethod.TestedMethodType = TestedMethodType.Constructor;
             }
             else
             {
                 testMethod.Expected = ConvertExpected(testMethod.Expected);
-                testMethod.TestedMethodType = TestedMethodType.Property;
             }
 
             testMethod.UseVariableForExpected = true;
-            testMethod.ConstructorInputParameters = new[] { "strand" };
+            testMethod.TestedMethod = "Count";
         }
 
         private static dynamic ConvertExpected(dynamic expected)
