@@ -37,8 +37,7 @@ namespace Exercism.CSharp.Exercises.Generators
                 return null;
             }
 
-            var label = Render.Object(tree["properties"]);
-            label = (label as string).Replace("object", "string[]");
+            var label = Render.Object(tree["properties"]).Replace("object", "string[]");
             if (tree.ContainsKey("children"))
             {
                 var children = string.Empty;
