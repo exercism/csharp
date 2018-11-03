@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.1.0 of the canonical data.
+// This file was auto-generated based on version 1.2.0 of the canonical data.
 
 using System;
 using Xunit;
@@ -80,23 +80,5 @@ public class SimpleCipherTest
     {
         var sut = new SimpleCipher("abc");
         Assert.Equal("iboaqcnecbfcr", sut.Encode("iamapandabear"));
-    }
-
-    [Fact(Skip = "Remove to run test")]
-    public void Incorrect_key_cipher_throws_an_error_with_an_all_uppercase_key()
-    {
-        Assert.Throws<ArgumentException>(() => new SimpleCipher("ABCDEF"));
-    }
-
-    [Fact(Skip = "Remove to run test")]
-    public void Incorrect_key_cipher_throws_an_error_with_a_numeric_key()
-    {
-        Assert.Throws<ArgumentException>(() => new SimpleCipher("12345"));
-    }
-
-    [Fact(Skip = "Remove to run test")]
-    public void Incorrect_key_cipher_throws_an_error_with_empty_key()
-    {
-        Assert.Throws<ArgumentException>(() => new SimpleCipher(""));
     }
 }

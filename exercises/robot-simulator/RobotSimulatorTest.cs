@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 3.0.0 of the canonical data.
+// This file was auto-generated based on version 3.1.0 of the canonical data.
 
 using Xunit;
 
@@ -143,7 +143,7 @@ public class RobotSimulatorTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Where_r_turn_right_l_turn_left_and_a_advance_the_robot_can_follow_a_series_of_instructions_and_end_up_with_the_correct_position_and_direction_instructions_to_move_east_and_north()
+    public void Where_r_turn_right_l_turn_left_and_a_advance_the_robot_can_follow_a_series_of_instructions_and_end_up_with_the_correct_position_and_direction_instructions_to_move_east_and_north_from_readme()
     {
         var sut = new RobotSimulator(Direction.North, new Coordinate(7, 3));
         sut.Simulate("RAALAL");
@@ -173,7 +173,7 @@ public class RobotSimulatorTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Where_r_turn_right_l_turn_left_and_a_advance_the_robot_can_follow_a_series_of_instructions_and_end_up_with_the_correct_position_and_direction_instructions_to_move_east_and_north1()
+    public void Where_r_turn_right_l_turn_left_and_a_advance_the_robot_can_follow_a_series_of_instructions_and_end_up_with_the_correct_position_and_direction_instructions_to_move_east_and_north()
     {
         var sut = new RobotSimulator(Direction.South, new Coordinate(8, 4));
         sut.Simulate("LAAARRRALLLL");

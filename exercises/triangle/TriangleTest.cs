@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.1.0 of the canonical data.
+// This file was auto-generated based on version 1.2.0 of the canonical data.
 
 using Xunit;
 
@@ -65,9 +65,21 @@ public class TriangleTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Returns_true_if_the_triangle_is_isosceles_sides_that_violate_triangle_inequality_are_not_isosceles_even_if_two_are_equal()
+    public void Returns_true_if_the_triangle_is_isosceles_sides_that_violate_triangle_inequality_are_not_isosceles_even_if_two_are_equal_1_()
     {
         Assert.False(Triangle.IsIsosceles(1, 1, 3));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Returns_true_if_the_triangle_is_isosceles_sides_that_violate_triangle_inequality_are_not_isosceles_even_if_two_are_equal_2_()
+    {
+        Assert.False(Triangle.IsIsosceles(1, 3, 1));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Returns_true_if_the_triangle_is_isosceles_sides_that_violate_triangle_inequality_are_not_isosceles_even_if_two_are_equal_3_()
+    {
+        Assert.False(Triangle.IsIsosceles(3, 1, 1));
     }
 
     [Fact(Skip = "Remove to run test")]

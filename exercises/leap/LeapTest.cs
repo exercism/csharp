@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.3.0 of the canonical data.
+// This file was auto-generated based on version 1.4.0 of the canonical data.
 
 using Xunit;
 
@@ -26,5 +26,11 @@ public class LeapTest
     public void Year_divisible_by_400_is_leap_year()
     {
         Assert.True(Leap.IsLeapYear(2000));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Year_divisible_by_200_not_divisible_by_400_is_common_year()
+    {
+        Assert.False(Leap.IsLeapYear(1800));
     }
 }

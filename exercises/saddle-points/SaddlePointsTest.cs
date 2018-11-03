@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.1.0 of the canonical data.
+// This file was auto-generated based on version 1.3.0 of the canonical data.
 
 using System;
 using Xunit;
@@ -44,7 +44,7 @@ public class SaddlePointsTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Can_identify_multiple_saddle_points()
+    public void Can_identify_multiple_saddle_points_in_a_column()
     {
         var matrix = new[,]
         {
@@ -55,6 +55,21 @@ public class SaddlePointsTest
         var sut = new SaddlePoints(matrix);
         var actual = sut.Calculate();
         var expected = new[] { (0, 1), (1, 1), (2, 1) };
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Can_identify_multiple_saddle_points_in_a_row()
+    {
+        var matrix = new[,]
+        {
+             { 6, 7, 8 },
+             { 5, 5, 5 },
+             { 7, 5, 6 }
+        };
+        var sut = new SaddlePoints(matrix);
+        var actual = sut.Calculate();
+        var expected = new[] { (1, 0), (1, 1), (1, 2) };
         Assert.Equal(expected, actual);
     }
 
@@ -70,6 +85,49 @@ public class SaddlePointsTest
         var sut = new SaddlePoints(matrix);
         var actual = sut.Calculate();
         var expected = new[] { (2, 2) };
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Can_identify_saddle_points_in_a_non_square_matrix()
+    {
+        var matrix = new[,]
+        {
+             { 3, 1, 3 },
+             { 3, 2, 4 }
+        };
+        var sut = new SaddlePoints(matrix);
+        var actual = sut.Calculate();
+        var expected = new[] { (0, 0), (0, 2) };
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Can_identify_that_saddle_points_in_a_single_column_matrix_are_those_with_the_minimum_value()
+    {
+        var matrix = new[,]
+        {
+             { 2 },
+             { 1 },
+             { 4 },
+             { 1 }
+        };
+        var sut = new SaddlePoints(matrix);
+        var actual = sut.Calculate();
+        var expected = new[] { (1, 0), (3, 0) };
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Can_identify_that_saddle_points_in_a_single_row_matrix_are_those_with_the_maximum_value()
+    {
+        var matrix = new[,]
+        {
+             { 2, 5, 3, 5 }
+        };
+        var sut = new SaddlePoints(matrix);
+        var actual = sut.Calculate();
+        var expected = new[] { (0, 1), (0, 3) };
         Assert.Equal(expected, actual);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Exercism.CSharp.Output;
 using Newtonsoft.Json.Linq;
 
@@ -43,7 +44,7 @@ namespace Exercism.CSharp.Exercises.Generators
                 tuples.Add((current["row"].ToString(), current["column"].ToString()));
             }
 
-            return tuples.ToArray();
+            return tuples.OrderBy(x => x).ToArray();
         }
     }
 }

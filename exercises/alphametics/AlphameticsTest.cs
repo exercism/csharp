@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.2.0 of the canonical data.
+// This file was auto-generated based on version 1.3.0 of the canonical data.
 
 using System;
 using System.Collections.Generic;
@@ -29,6 +29,19 @@ public class AlphameticsTest
     public void Leading_zero_solution_is_invalid()
     {
         Assert.Throws<ArgumentException>(() => Alphametics.Solve("ACA + DD == BD"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Puzzle_with_two_digits_final_carry()
+    {
+        var actual = Alphametics.Solve("A + A + A + A + A + A + A + A + A + A + A + B == BCC");
+        var expected = new Dictionary<char, int>
+        {
+            ['A'] = 9,
+            ['B'] = 1,
+            ['C'] = 0
+        };
+        Assert.Equal(expected, actual);
     }
 
     [Fact(Skip = "Remove to run test")]

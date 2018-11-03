@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.3.0 of the canonical data.
+// This file was auto-generated based on version 1.4.0 of the canonical data.
 
 using Xunit;
 
@@ -92,6 +92,13 @@ public class BracketPushTest
     public void Paired_and_wrong_nested_brackets()
     {
         var value = "[({]})";
+        Assert.False(BracketPush.IsPaired(value));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Paired_and_incomplete_brackets()
+    {
+        var value = "{}[";
         Assert.False(BracketPush.IsPaired(value));
     }
 
