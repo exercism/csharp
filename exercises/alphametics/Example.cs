@@ -1,144 +1,107 @@
-﻿using Sprache;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System;
 
 public static class Alphametics
 {
-    public static IDictionary<char, int> Solve(string equation)
+    public static IDictionary<char, int> Solve(string equation) => AlphameticsSolver.Solve(Parse(equation));
+
+    private static AlphameticsEquation Parse(string equation)
     {
-        var expression = ExpressionParser.Equation.Parse(equation);
-        
-        var maps = GetValidMaps(expression.Chars, expression.StartChars);
-        var solution = maps.FirstOrDefault(map => expression.Solve(map) == 0);
-
-        if (solution == null)
-            throw new ArgumentException(nameof(equation));
-
-        return solution;
+        var (left, right) = ParseOperands(equation);
+        return new AlphameticsEquation(left, right);
     }
+
+    private static (string[] left, string[] right) ParseOperands(string equation)
+    {
+        var leftAndRightOperands = equation.Split(" == ");
+        var left = leftAndRightOperands[0].Split(" + ");
+        var right = leftAndRightOperands[1].Split(" + ");
+
+        return (left, right);
+    }
+}
+
+public class AlphameticsEquation
+{
+    public AlphameticsEquation(string[] left, string[] right)
+    {
+        foreach (var leftSideOperand in left)
+            ProcessOperand(leftSideOperand, 1);
+
+        foreach (var rightSideOperand in right)
+            ProcessOperand(rightSideOperand, -1);
+    }
+
+    public Dictionary<char, long> LettersWithCount { get; } = new Dictionary<char, long>();
+    public HashSet<char> NonZeroLetters { get; } = new HashSet<char>();
+
+    private void ProcessOperand(string operand, long multiplyCountBy)
+    {
+        var letterCount = multiplyCountBy;
+
+        for (var i = operand.Length - 1; i >= 0; i--)
+        {
+            var letter = operand[i];
+            if (LettersWithCount.TryGetValue(letter, out var existingCount))
+                LettersWithCount[letter] = existingCount + letterCount;
+            else
+                LettersWithCount[letter] = letterCount;
+
+            letterCount *= 10;
+        }
+
+        NonZeroLetters.Add(operand[0]);
+    }
+}
+
+public static class AlphameticsSolver
+{
+    private static AlphameticsEquation _equation;
     
-    private static IEnumerable<IDictionary<char, int>> GetValidMaps(HashSet<char> chars, HashSet<char> startChars)
-        => GetMaps(chars, startChars).Where(map => IsValidMap(map, startChars));
+    public static IDictionary<char, int> Solve(AlphameticsEquation equation)
+    {
+        _equation = equation;
+        
+        var letterCount = LetterCountCombinations(equation).FirstOrDefault(IsSolution) ?? throw new ArgumentException();
+        return SolutionForLetterCount(letterCount);
+    }
 
-    private static IEnumerable<IDictionary<char, int>> GetMaps(HashSet<char> chars, HashSet<char> startChars)
-        => GetDigitPermutations(chars.Count).Select(digits => GetMap(digits, chars));
+    private static IEnumerable<int[]> LetterCountCombinations(AlphameticsEquation equation) 
+        => Enumerable.Range(0, 10)
+            .ToArray()
+            .Permutations(equation.LettersWithCount.Count);
 
-    private static IEnumerable<IEnumerable<int>> GetDigitPermutations(int length) 
-        => Enumerable.Range(0, 10).Permutations(length);
+    private static bool IsSolution(int[] letterCountCombination)
+    {
+        if (LetterCountHasInvalidNonZeroLetter())
+            return false;
 
-    private static IDictionary<char, int> GetMap(IEnumerable<int> digits, IEnumerable<char> chars)
-        => digits.Zip(chars, (i, c) => new KeyValuePair<char, int>(c, i)).ToDictionary(x => x.Key, x => x.Value);
+        return _equation.LettersWithCount.Values
+                .Zip(letterCountCombination, (count, solutionCount) => count * solutionCount).Sum() == 0;
 
-    private static bool IsValidMap(IDictionary<char, int> map, IEnumerable<char> startChars) =>
-        !startChars.Any(c => map[c] == 0);
+        bool LetterCountHasInvalidNonZeroLetter()
+        {
+            var zeroLetterIndex = Array.IndexOf(letterCountCombination, 0);
+            return zeroLetterIndex != -1 && _equation.NonZeroLetters.Contains(_equation.LettersWithCount.Keys.ElementAt(zeroLetterIndex));
+        }
+    }
+
+    private static Dictionary<char, int> SolutionForLetterCount(IEnumerable<int> letterCount) 
+        => letterCount
+            .Zip(_equation.LettersWithCount.Keys, (x, y) => new KeyValuePair<char, int>(y, x))
+            .ToDictionary(x => x.Key, x => x.Value);
 }
 
 public static class EnumerableExtensions
 {
-    public static IEnumerable<IEnumerable<T>> Permutations<T>(this IEnumerable<T> input, int length)
+    public static IEnumerable<T[]> Permutations<T>(this T[] source, int length)
     {
         if (length == 1)
-            return input.Select(t => new T[] { t });
+            return source.Select(t => new[] {t});
 
-        return Permutations(input, length - 1)
-            .SelectMany(t => input.Where(o => !t.Contains(o)),
-                (t1, t2) => t1.Concat(new T[] { t2 }));
+        return source.Permutations(length - 1)
+            .SelectMany(t => source.Where(o => !t.Contains(o)),
+                (t1, t2) => t1.Concat(new T[] {t2}).ToArray());
     }
-}
-
-public enum ExpressionType
-{
-    Add,
-    Equal
-}
-
-public abstract class Expression
-{
-    public abstract HashSet<char> Chars { get; }
-    public abstract HashSet<char> StartChars { get; }
-    public abstract int Solve(IDictionary<char, int> mapping);
-}
-
-public class PlaceholderExpression : Expression
-{
-    public PlaceholderExpression(string value)
-    {
-        Value = value;
-        Chars = new HashSet<char>(value);
-        StartChars = new HashSet<char> { value[0] };
-    }
-
-    public override HashSet<char> Chars { get; }
-    public override HashSet<char> StartChars { get; }
-
-    public string Value { get; }
-
-    public static PlaceholderExpression Create(string value) => new PlaceholderExpression(value);
-
-    public override int Solve(IDictionary<char, int> mapping) => Value.Aggregate(0, (acc, x) => acc * 10 + mapping[x]);
-}
-
-public abstract class BinaryExpression : Expression
-{
-    public BinaryExpression(Expression left, Expression right)
-    {
-        Left = left;
-        Right = right;
-
-        Chars = new HashSet<char>(Left.Chars);
-        Chars.UnionWith(Right.Chars);
-
-        StartChars = new HashSet<char>(Left.StartChars);
-        StartChars.UnionWith(Right.StartChars);
-    }
-
-    public Expression Left { get; }
-    public Expression Right { get; }
-
-    public override HashSet<char> Chars { get; }
-    public override HashSet<char> StartChars { get; }
-
-    public static BinaryExpression Create(ExpressionType type, Expression left, Expression right)
-    {
-        switch (type)
-        {
-            case ExpressionType.Add:
-                return new AddExpression(left, right);
-            case ExpressionType.Equal:
-                return new EqualExpression(left, right);
-            default:
-                throw new InvalidOperationException("Invalid expression");
-        }
-    }
-}
-
-public class AddExpression : BinaryExpression
-{
-    public AddExpression(Expression left, Expression right) : base(left, right)
-    {
-    }
-
-    public override int Solve(IDictionary<char, int> mapping) => Left.Solve(mapping) + Right.Solve(mapping);
-}
-
-public class EqualExpression : BinaryExpression
-{
-    public EqualExpression(Expression left, Expression right) : base(left, right)
-    {
-    }
-
-    public override int Solve(IDictionary<char, int> mapping) => Left.Solve(mapping) - Right.Solve(mapping);
-}
-
-public static class ExpressionParser
-{
-    public static Parser<ExpressionType> Operator(string op, ExpressionType operatorType)
-        => Parse.String(op).Token().Return(operatorType);
-
-    public static readonly Parser<ExpressionType> Add = Operator("+", ExpressionType.Add);
-    public static readonly Parser<ExpressionType> Equality = Operator("==", ExpressionType.Equal);
-    public static readonly Parser<Expression> Operand = Parse.Upper.AtLeastOnce().Text().Select(PlaceholderExpression.Create);
-    public static readonly Parser<Expression> Expr = Parse.ChainOperator(Add, Operand, BinaryExpression.Create);
-    public static readonly Parser<Expression> Equation = Parse.ChainOperator(Equality, Expr, BinaryExpression.Create);
 }
