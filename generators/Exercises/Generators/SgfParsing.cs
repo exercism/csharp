@@ -11,8 +11,7 @@ namespace Exercism.CSharp.Exercises.Generators
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            if (testMethod.Expected is Dictionary<string, object> &&
-                (testMethod.Expected as Dictionary<string, object>).ContainsKey("error"))
+            if (testMethod.ExpectedIsError)
                 testMethod.ExceptionThrown = typeof(ArgumentException);
             else
                 testMethod.Expected = RenderTree(testMethod.Expected);

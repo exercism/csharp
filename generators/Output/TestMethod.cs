@@ -50,6 +50,7 @@ namespace Exercism.CSharp.Output
         public string TestedMethod { get; set; }
         public TestedMethodType TestedMethodType { get; set; }
         public Type ExceptionThrown { get; set; }
+        public bool ExpectedIsError => Expected is Dictionary<string, object> dict && dict.ContainsKey("error");
         
         public IReadOnlyCollection<string> InputParameters
         {

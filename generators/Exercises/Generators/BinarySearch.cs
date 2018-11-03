@@ -16,7 +16,7 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
             testMethod.UseVariablesForConstructorParameters = true;
 
-            if (testMethod.Expected is Dictionary<string, object> && testMethod.Expected.ContainsKey("error"))
+            if (testMethod.ExpectedIsError)
             {
                 testMethod.Expected = -1;
             }

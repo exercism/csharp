@@ -12,7 +12,7 @@ namespace Exercism.CSharp.Exercises.Generators
             if (testMethod.Input["digits"] is JArray)
                 testMethod.Input["digits"] = Array.Empty<int>();
 
-            if (testMethod.Expected is Dictionary<string, object>)
+            if (testMethod.ExpectedIsError)
                 testMethod.ExceptionThrown = typeof(ArgumentException);
 
             testMethod.UseVariablesForInput = true;
