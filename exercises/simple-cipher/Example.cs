@@ -1,7 +1,6 @@
 using System;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 
 public class SimpleCipher
 {
@@ -18,10 +17,8 @@ public class SimpleCipher
 
     public SimpleCipher(string key)
     {
-        Key = IsValidKey(key) ? key : throw new ArgumentException("Invalid key");
+        Key = key;
     }
-
-    private static bool IsValidKey(string key) => Regex.IsMatch(key, "^[a-z]+$");
 
     public string Encode(string plaintext)
     {

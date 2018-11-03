@@ -17,7 +17,7 @@ public class SaddlePoints
 
     public IEnumerable<(int, int)> Calculate()
     {
-        return Coordinates().Where(IsSaddlePoint);
+        return Coordinates().Where(IsSaddlePoint).ToArray();
     }
 
     private bool IsSaddlePoint((int, int) coordinate)

@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.1.0 of the canonical data.
+// This file was auto-generated based on version 1.2.0 of the canonical data.
 
 using Xunit;
 
@@ -74,5 +74,17 @@ public class AtbashCipherTest
     public void Decode_all_the_letters()
     {
         Assert.Equal("thequickbrownfoxjumpsoverthelazydog", AtbashCipher.Decode("gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Decode_with_too_many_spaces()
+    {
+        Assert.Equal("exercism", AtbashCipher.Decode("vc vix    r hn"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Decode_with_no_spaces()
+    {
+        Assert.Equal("anobstacleisoftenasteppingstone", AtbashCipher.Decode("zmlyhgzxovrhlugvmzhgvkkrmthglmv"));
     }
 }

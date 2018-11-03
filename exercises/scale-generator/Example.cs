@@ -14,12 +14,12 @@ public static class ScaleGenerator
     private static string[] SkipInterval(char interval, string[] scale) => scale.Skip(Intervals[interval]).ToArray();
     private static string[] Shift(int index, string[] scale) => scale.Skip(index).Concat(scale.Take(index)).ToArray();
 
-    public static string[] Pitches(string tonic)
+    public static string[] Chromatic(string tonic)
     {
-        return Pitches(tonic, "mmmmmmmmmmmm");
+        return Interval(tonic, "mmmmmmmmmmmm");
     }
 
-    public static string[] Pitches(string tonic, string pattern)
+    public static string[] Interval(string tonic, string pattern)
     {
         var scale = Scale(tonic);
         var index = Array.FindIndex(scale, pitch => string.Equals(pitch, tonic, StringComparison.OrdinalIgnoreCase));

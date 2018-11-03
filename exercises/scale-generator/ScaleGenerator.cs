@@ -2,12 +2,12 @@
 
 public static class ScaleGenerator
 {
-    public static string[] Pitches(string tonic)
+    public static string[] Chromatic(string tonic)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public static string[] Pitches(string tonic, string pattern)
+    public static string[] Interval(string tonic, string pattern)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
