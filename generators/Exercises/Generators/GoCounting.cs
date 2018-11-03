@@ -32,7 +32,7 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.Input["coordinate"] = (testMethod.Input["x"], testMethod.Input["y"]);
             testMethod.InputParameters = new[] {"coordinate"};
 
-            if (testMethod.Expected.ContainsKey("error"))
+            if (testMethod.ExpectedIsError)
             {
                 testMethod.ExceptionThrown = typeof(ArgumentException);
             }

@@ -11,8 +11,7 @@ namespace Exercism.CSharp.Exercises.Generators
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            if (testMethod.Expected is Dictionary<string, object> &&
-                (testMethod.Expected as Dictionary<string, object>).ContainsKey("error"))
+            if (testMethod.ExpectedIsError)
                 testMethod.ExceptionThrown = typeof(ArgumentException);
             else
                 testMethod.Expected = RenderTree(testMethod.Expected);
@@ -37,8 +36,7 @@ namespace Exercism.CSharp.Exercises.Generators
                 return null;
             }
 
-            var label = Render.Object(tree["properties"]);
-            label = (label as string).Replace("object", "string[]");
+            var label = Render.Object(tree["properties"]).Replace("object", "string[]");
             if (tree.ContainsKey("children"))
             {
                 var children = string.Empty;

@@ -10,7 +10,7 @@ namespace Exercism.CSharp.Exercises.Generators
         {
             testMethod.TestMethodName = testMethod.TestMethodNameWithPath;
 
-            if (testMethod.Expected is Dictionary<string, object>)
+            if (testMethod.ExpectedIsError)
             {
                 testMethod.ExceptionThrown = typeof(InvalidOperationException);
             }

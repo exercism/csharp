@@ -11,7 +11,7 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.UseVariablesForInput = true;
             testMethod.UseVariableForExpected = true;
 
-            if (testMethod.Expected is Dictionary<String, Object>)
+            if (testMethod.ExpectedIsError)
                 testMethod.ExceptionThrown = typeof(ArgumentException);
         }
     }

@@ -10,7 +10,7 @@ namespace Exercism.CSharp.Exercises.Generators
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            if (testMethod.Expected.ContainsKey("error"))
+            if (testMethod.ExpectedIsError)
             {
                 testMethod.ExceptionThrown = typeof(ArgumentException);
             }

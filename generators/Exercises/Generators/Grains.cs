@@ -8,7 +8,7 @@ namespace Exercism.CSharp.Exercises.Generators
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            if (testMethod.Expected is Dictionary<String, object>)
+            if (testMethod.ExpectedIsError)
                 testMethod.ExceptionThrown = typeof(ArgumentOutOfRangeException);
             else
                 testMethod.Expected = (ulong)testMethod.Expected;
