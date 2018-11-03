@@ -12,9 +12,7 @@ namespace Exercism.CSharp.Exercises.Generators
             if (testMethod.Input["array"] is JArray)
                 testMethod.Input["array"] = Array.Empty<int>();
 
-            testMethod.ConstructorInputParameters = new[] { "array" };
-            testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
-            testMethod.UseVariablesForConstructorParameters = true;
+            testMethod.UseVariablesForInput = true;
 
             if (testMethod.Expected is Dictionary<string, object> && testMethod.Expected.ContainsKey("error"))
             {

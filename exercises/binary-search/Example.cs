@@ -1,30 +1,26 @@
-﻿public class BinarySearch
+﻿public static class BinarySearch
 {
-    private readonly int[] _input;
-
-    public BinarySearch(int[] input) => _input = input;
-
-    public int Find(int target)
+    public static int Find(int[] input, int target)
     {
-        if (_input.Length == 0)
+        if (input.Length == 0)
             return -1;
         
-        return FindHelper(target, 0, _input.Length - 1);
+        return FindHelper(input, target, 0, input.Length - 1);
     }
 
-    private int FindHelper(int target, int minIndex, int maxIndex)
+    private static int FindHelper(int[] input, int target, int minIndex, int maxIndex)
     {
         var middleIndex = (minIndex + maxIndex) / 2;
 
-        if (_input[middleIndex] == target)
+        if (input[middleIndex] == target)
             return middleIndex;
 
-        if (middleIndex <= 0 || middleIndex >= _input.Length - 1 || minIndex == maxIndex)
+        if (middleIndex <= 0 || middleIndex >= input.Length - 1 || minIndex == maxIndex)
             return -1;
 
-        if (_input[middleIndex] > target)
-            return FindHelper(target, minIndex, middleIndex - 1);
+        if (input[middleIndex] > target)
+            return FindHelper(input, target, minIndex, middleIndex - 1);
 
-        return FindHelper(target, middleIndex + 1, maxIndex);
+        return FindHelper(input, target, middleIndex + 1, maxIndex);
     }
 }

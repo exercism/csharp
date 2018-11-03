@@ -9,7 +9,6 @@ public class NucleotideCountTest
     [Fact]
     public void Empty_strand()
     {
-        var sut = new NucleotideCount("");
         var expected = new Dictionary<char, int>
         {
             ['A'] = 0,
@@ -17,13 +16,12 @@ public class NucleotideCountTest
             ['G'] = 0,
             ['T'] = 0
         };
-        Assert.Equal(expected, sut.NucleotideCounts);
+        Assert.Equal(expected, NucleotideCount.Count(""));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Can_count_one_nucleotide_in_single_character_input()
     {
-        var sut = new NucleotideCount("G");
         var expected = new Dictionary<char, int>
         {
             ['A'] = 0,
@@ -31,13 +29,12 @@ public class NucleotideCountTest
             ['G'] = 1,
             ['T'] = 0
         };
-        Assert.Equal(expected, sut.NucleotideCounts);
+        Assert.Equal(expected, NucleotideCount.Count("G"));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Strand_with_repeated_nucleotide()
     {
-        var sut = new NucleotideCount("GGGGGGG");
         var expected = new Dictionary<char, int>
         {
             ['A'] = 0,
@@ -45,13 +42,12 @@ public class NucleotideCountTest
             ['G'] = 7,
             ['T'] = 0
         };
-        Assert.Equal(expected, sut.NucleotideCounts);
+        Assert.Equal(expected, NucleotideCount.Count("GGGGGGG"));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Strand_with_multiple_nucleotides()
     {
-        var sut = new NucleotideCount("AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC");
         var expected = new Dictionary<char, int>
         {
             ['A'] = 20,
@@ -59,12 +55,12 @@ public class NucleotideCountTest
             ['G'] = 17,
             ['T'] = 21
         };
-        Assert.Equal(expected, sut.NucleotideCounts);
+        Assert.Equal(expected, NucleotideCount.Count("AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC"));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Strand_with_invalid_nucleotides()
     {
-        Assert.Throws<ArgumentException>(() => new NucleotideCount("AGXXACT"));
+        Assert.Throws<ArgumentException>(() => NucleotideCount.Count("AGXXACT"));
     }
 }
