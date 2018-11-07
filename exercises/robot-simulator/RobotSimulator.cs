@@ -8,21 +8,9 @@ public enum Direction
     West
 }
 
-public struct Coordinate
+public class Robot
 {
-    public Coordinate(int x, int y)
-    {
-        X = x;
-        Y = y;
-    }
-
-    public int X { get; }
-    public int Y { get; }
-}
-
-public class RobotSimulator
-{
-    public RobotSimulator(Direction direction, Coordinate coordinate)
+    public Robot(Direction direction, int x, int y)
     {
     }
 
@@ -34,7 +22,15 @@ public class RobotSimulator
         }
     }
 
-    public Coordinate Coordinate
+    public int X
+    {
+        get
+        {
+            throw new NotImplementedException("You need to implement this function.");
+        }
+    }
+
+    public int Y
     {
         get
         {

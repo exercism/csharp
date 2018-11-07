@@ -15,6 +15,7 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.ConstructorInputParameters = new[] { "direction", "coordinate" };
             testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
             testMethod.TestMethodName = testMethod.TestMethodNameWithPath;
+            testMethod.TestedClass = "Robot";
 
             testMethod.Act = RenderAct(testMethod);
             testMethod.Assert = RenderAssert(testMethod);
@@ -58,8 +59,8 @@ namespace Exercism.CSharp.Exercises.Generators
             var x = Render.Object(position["x"]);
             var y = Render.Object(position["y"]);
                 
-            assert.AppendLine(Render.AssertEqual(x, "sut.Coordinate.X"));
-            assert.AppendLine(Render.AssertEqual(y, "sut.Coordinate.Y"));
+            assert.AppendLine(Render.AssertEqual(x, "sut.X"));
+            assert.AppendLine(Render.AssertEqual(y, "sut.Y"));
 
             return assert.ToString();
         }
@@ -68,6 +69,6 @@ namespace Exercism.CSharp.Exercises.Generators
             => Render.Enum("Direction", direction);
 
         private static UnescapedValue RenderCreateCoordinate(dynamic coordinates)
-            => new UnescapedValue($"new Coordinate({coordinates["x"]}, {coordinates["y"]})");
+            => new UnescapedValue($"{coordinates["x"]}, {coordinates["y"]}");
     }
 }
