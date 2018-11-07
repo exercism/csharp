@@ -8,28 +8,18 @@ public enum Direction
     West
 }
 
-public struct Coordinate
+public class Robot
 {
-    public Coordinate(int x, int y)
+    public Robot(Direction bearing, int x, int Y)
     {
+        Direction = bearing;
         X = x;
         Y = y;
     }
 
-    public int X { get; }
-    public int Y { get; }
-}
-
-public class RobotSimulator
-{
-    public RobotSimulator(Direction bearing, Coordinate coordinate)
-    {
-        Direction = bearing;
-        Coordinate = coordinate;
-    }
-
     public Direction Direction { get; private set; }
-    public Coordinate Coordinate { get; private set; }
+    public int X { get; private set; }
+    public int Y { get; private set; }
 
     public void TurnRight()
     {
@@ -78,16 +68,16 @@ public class RobotSimulator
         switch (Direction)
         {
             case Direction.North:
-                Coordinate = new Coordinate(Coordinate.X, Coordinate.Y + 1);
+                Y++;
                 break;
             case Direction.East:
-                Coordinate = new Coordinate(Coordinate.X + 1, Coordinate.Y);
+                X++;
                 break;
             case Direction.South:
-                Coordinate = new Coordinate(Coordinate.X, Coordinate.Y - 1);
+                Y--;
                 break;
             case Direction.West:
-                Coordinate = new Coordinate(Coordinate.X - 1, Coordinate.Y);
+                X--;
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
