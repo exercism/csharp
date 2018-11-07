@@ -10,7 +10,7 @@ public enum Direction
 
 public class Robot
 {
-    public Robot(Direction bearing, int x, int Y)
+    public Robot(Direction bearing, int x, int y)
     {
         Direction = bearing;
         X = x;
