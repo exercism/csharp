@@ -8,9 +8,9 @@ public enum Direction
     West
 }
 
-public class Robot
+public class RobotSimulator
 {
-    public Robot(Direction bearing, int x, int y)
+    public RobotSimulator(Direction bearing, int x, int y)
     {
         Direction = bearing;
         X = x;
@@ -21,7 +21,54 @@ public class Robot
     public int X { get; private set; }
     public int Y { get; private set; }
 
-    public void TurnRight()
+    public void Move(string instructions)
+    {
+        foreach (var instruction in instructions)
+        {
+            Move(instruction);
+        }
+    }
+
+    private void Move(char code)
+    {
+        switch (code)
+        {
+            case 'L':
+                TurnLeft();
+                break;
+            case 'R':
+                TurnRight();
+                break;
+            case 'A':
+                Advance();
+                break;
+            default:
+                throw new ArgumentOutOfRangeException("Invalid instruction");
+        }
+    }
+
+    private void TurnLeft()
+    {
+        switch (Direction)
+        {
+            case Direction.North:
+                Direction = Direction.West;
+                break;
+            case Direction.East:
+                Direction = Direction.North;
+                break;
+            case Direction.South:
+                Direction = Direction.East;
+                break;
+            case Direction.West:
+                Direction = Direction.South;
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+    }
+
+    private void TurnRight()
     {
         switch (Direction)
         {
@@ -42,28 +89,7 @@ public class Robot
         }
     }
 
-    public void TurnLeft()
-    {
-        switch (Direction)
-        {
-            case Direction.North:
-                Direction = Direction.West;
-                break;
-            case Direction.East:
-                Direction = Direction.North;
-                break;
-            case Direction.South:
-                Direction = Direction.East;
-                break;
-            case Direction.West:
-                Direction = Direction.South;
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
-    }
-
-    public void Advance()
+    private void Advance()
     {
         switch (Direction)
         {
@@ -81,32 +107,6 @@ public class Robot
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
-        }
-    }
-
-    public void Simulate(string instructions)
-    {
-        foreach (var instruction in instructions)
-        {
-            ProcessInstruction(instruction);
-        }
-    }
-
-    public void ProcessInstruction(char code)
-    {
-        switch (code)
-        {
-            case 'L':
-                TurnLeft();
-                break;
-            case 'R':
-                TurnRight();
-                break;
-            case 'A':
-                Advance();
-                break;
-            default:
-                throw new ArgumentOutOfRangeException("Invalid instruction");
         }
     }
 }

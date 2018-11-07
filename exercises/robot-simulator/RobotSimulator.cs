@@ -8,9 +8,9 @@ public enum Direction
     West
 }
 
-public class Robot
+public class RobotSimulator
 {
-    public Robot(Direction direction, int x, int y)
+    public RobotSimulator(Direction direction, int x, int y)
     {
     }
 
@@ -38,22 +38,7 @@ public class Robot
         }
     }
 
-    public void TurnRight()
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
-
-    public void TurnLeft()
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
-
-    public void Advance()
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
-
-    public void Simulate(string instructions)
+    public void Move(string instructions)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
