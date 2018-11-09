@@ -18,22 +18,26 @@ this look-up, pretend it doesn't exist and implement it yourself.
 
 ## Notes
 
-Though our exercise adopts some very simple rules, there is more to
+- Though our exercise adopts some very simple rules, there is more to
 learn!
 
-For a delightful, four minute explanation of the whole leap year
+  For a delightful, four minute explanation of the whole leap year
 phenomenon, go watch [this youtube video][video].
 
-[video]: http://www.youtube.com/watch?v=xX96xng7sAE
+  [video]: http://www.youtube.com/watch?v=xX96xng7sAE
 
-## Notes
-
-The DateTime class in C# provides a built-in [IsLeapYear](https://msdn.microsoft.com/en-us/library/system.datetime.isleapyear(v=vs.110).aspx) method
+- The DateTime class in C# provides a built-in [IsLeapYear](https://msdn.microsoft.com/en-us/library/system.datetime.isleapyear(v=vs.110).aspx) method
 which you should pretend doesn't exist for the purposes of implementing this exercise.
 
 ## Running the tests
 
 To run the tests, run the command `dotnet test` from within the exercise directory.
+
+Most of the tests provided in the C# track's exercises have a `Skip`
+property set on their attribute.
+This is meant to help you focus on making one test pass at a time.
+Your work is not ready to submit until you have removed all the `Skip`
+attributes and all the tests are passing.
 
 ## Further information
 
