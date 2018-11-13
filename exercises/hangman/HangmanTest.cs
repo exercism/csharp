@@ -1,135 +1,342 @@
-﻿using Xunit;
+﻿using System;
+using Xunit;
+using Microsoft.Reactive.Testing;
+using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Reactive.Concurrency;
 
-public class HangmanTest
+public class HangmanTests: ReactiveTest
 {
     [Fact]
-    public void Initially_9_failures_are_allowed()
+    public void Initial_state_masks_the_word()
     {
-        var game = new HangmanGame("foo");
+        // Arrange
+        Hangman hangman = new Hangman("foo");
+        string actual = "";
 
-        HangmanState lastState = null;
-        game.StateChanged += (sender, state) => lastState = state;
+        // Act
+        // to learn more about observers check out http://reactivex.io/documentation/observable.html
+        // This time Easy-does-it, we just check if subscribing notifies an OnNext with the initial state
+        // There is marble diagram for each test https://bitbucket.org/achary/rx-marbles/src/master/docs/syntax.md?fileviewer=file-view-default
+        // +a->
+        hangman.StateObservable.Subscribe(
+            x => actual = x.MaskedWord,
 
-        game.Start();
-
-        Assert.Equal(HangmanStatus.Busy, lastState.Status);
-        Assert.Equal(9, lastState.RemainingGuesses);
+        // Assert
+            ex => throw new Exception("Should not finish with too many tries"),
+            () => throw new Exception("Should not win yet"));
+        Assert.Equal("___", actual);
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Initially_no_letters_are_guessed()
+    public void Initial_state_have_9_failures_allowed()
     {
-        var game = new HangmanGame("foo");
-        
-        HangmanState lastState = null;
-        game.StateChanged += (sender, state) => lastState = state;
+        // Arrange
+        Hangman hangman = new Hangman("foo");
+        int actual = 9;
 
-        game.Start();
+        // Act
+        // +a->
+        hangman.StateObservable.Subscribe(x => actual = x.RemainingGuesses);
 
-        Assert.Equal("___", lastState.MaskedWord);
+        // Assert
+        Assert.Equal(9, actual);
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Initial_state_have_no_guessed_chars()
+    {
+        // Arrange
+        Hangman hangman = new Hangman("foo");
+        // for detecting initialization it's not empty
+        ImmutableHashSet<char> actual = new HashSet<char> {'x'}.ToImmutableHashSet();
+
+        // Act
+        // +a->
+        hangman.StateObservable.Subscribe( x => actual = x.GuessedChars);
+
+        // Assert
+        Assert.Equal(new HashSet<char>().ToImmutableHashSet(), actual);
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Guess_changes_state()
+    {
+        // Arrange
+        Hangman hangman = new Hangman("foo");
+        HangmanState actual= null;
+        hangman.StateObservable.Subscribe(x => actual = x);
+        var initial = actual;
+
+        // Act
+        // +--x->
+        // +a-b->
+        hangman.GuessObserver.OnNext('x');
+
+        // Assert
+        Assert.NotEqual(initial, actual);
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Wrong_guess_decrements_remaining_guesses()
+    {
+        // Arrange
+        Hangman hangman = new Hangman("foo");
+        HangmanState actual= null;
+        hangman.StateObservable.Subscribe(x => actual = x);
+        var initial = actual;
+
+        // Act
+        // +--x->
+        // +a-b->
+        hangman.GuessObserver.OnNext('x');
+
+        // Assert
+        Assert.Equal(initial.RemainingGuesses - 1, actual.RemainingGuesses);
     }
 
     [Fact(Skip = "Remove to run test")]
     public void After_10_failures_the_game_is_over()
     {
-        var game = new HangmanGame("foo");
-        
-        HangmanState lastState = null;
-        game.StateChanged += (sender, state) => lastState = state;
-
-        game.Start();
-
-        for (var i = 0; i < 10; i++)
+        // Arrange
+        TestScheduler scheduler = new TestScheduler();
+        IObservable<HangmanState> Create()
         {
-            game.Guess('x');
+            var game = new Hangman("foo");
+            for (var i = 1; i <= 10; i++)
+            {
+                scheduler.Schedule(TimeSpan.FromTicks(i * 100), () => game.GuessObserver.OnNext('x'));
+            }
+
+            return game.StateObservable;
         }
 
-        Assert.Equal(HangmanStatus.Lose, lastState.Status);
+        var expected = new[]
+        {
+            OnNext<HangmanState>(100, hangmanState => hangmanState.RemainingGuesses == 9),
+            OnNext<HangmanState>(200, hangmanState => hangmanState.RemainingGuesses == 8),
+            OnNext<HangmanState>(300, hangmanState => hangmanState.RemainingGuesses == 7),
+            OnNext<HangmanState>(400, hangmanState => hangmanState.RemainingGuesses == 6),
+            OnNext<HangmanState>(500, hangmanState => hangmanState.RemainingGuesses == 5),
+            OnNext<HangmanState>(600, hangmanState => hangmanState.RemainingGuesses == 4),
+            OnNext<HangmanState>(700, hangmanState => hangmanState.RemainingGuesses == 3),
+            OnNext<HangmanState>(800, hangmanState => hangmanState.RemainingGuesses == 2),
+            OnNext<HangmanState>(900, hangmanState => hangmanState.RemainingGuesses == 1),
+            OnNext<HangmanState>(1000, hangmanState => hangmanState.RemainingGuesses == 0),
+            OnError<HangmanState>(1100, ex => ex is GameFailedException)
+        };
+
+        // Act
+        // +--x-x-x-x-x-x-x-x-x-x->
+        // +a-b-c-d-e-f-g-h-i-j-#
+        ITestableObserver<HangmanState> testableObserver = scheduler.Start(Create, 100, 100, 3000);
+
+        // Assert
+        ReactiveAssert.AreElementsEqual(expected, testableObserver.Messages);
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Feeding_a_correct_letter_removes_underscores()
     {
-        var game = new HangmanGame("foobar");
+        // Arrange
+        TestScheduler scheduler = new TestScheduler();
+        IObservable<HangmanState> Create()
+        {
+            var game = new Hangman("foobar");
+            scheduler.Schedule(TimeSpan.FromTicks(100), () => game.GuessObserver.OnNext('b'));
+            scheduler.Schedule(TimeSpan.FromTicks(200), () => game.GuessObserver.OnNext('o'));
+            return game.StateObservable;
+        }
 
-        HangmanState lastState = null;
-        game.StateChanged += (sender, state) => lastState = state;
+        var expected = new[]
+        {
+            OnNext<HangmanState>(100, hangmanState => hangmanState.RemainingGuesses == 9 && hangmanState.MaskedWord == "______"),
+            OnNext<HangmanState>(200, hangmanState => hangmanState.RemainingGuesses == 9 && hangmanState.MaskedWord == "___b__"),
+            OnNext<HangmanState>(300, hangmanState => hangmanState.RemainingGuesses == 9 && hangmanState.MaskedWord == "_oob__")
+        };
 
-        game.Start();
+        // Act
+        // +--b-o->
+        // +a-b-c->
+        ITestableObserver<HangmanState> testableObserver = scheduler.Start(Create, 100, 100, 3000);
 
-        game.Guess('b');
-
-        Assert.Equal(HangmanStatus.Busy, lastState.Status);
-        Assert.Equal(9, lastState.RemainingGuesses);
-        Assert.Equal("___b__", lastState.MaskedWord);
-
-        game.Guess('o');
-
-        Assert.Equal(HangmanStatus.Busy, lastState.Status);
-        Assert.Equal(9, lastState.RemainingGuesses);
-        Assert.Equal("_oob__", lastState.MaskedWord);
+        // Assert
+        ReactiveAssert.AreElementsEqual(expected, testableObserver.Messages);
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Feeding_a_correct_letter_twice_counts_as_a_failure()
     {
-        var game = new HangmanGame("foobar");
-        
-        HangmanState lastState = null;
-        game.StateChanged += (sender, state) => lastState = state;
+        // Arrange
+        TestScheduler scheduler = new TestScheduler();
+        IObservable<HangmanState> Create()
+        {
+            var game = new Hangman("foobar");
+            scheduler.Schedule(TimeSpan.FromTicks(100), () => game.GuessObserver.OnNext('b'));
+            scheduler.Schedule(TimeSpan.FromTicks(200), () => game.GuessObserver.OnNext('b'));
+            return game.StateObservable;
+        }
 
-        game.Start();
+        var expected = new[]
+        {
+            OnNext<HangmanState>(100, hangmanState => hangmanState.RemainingGuesses == 9 && hangmanState.MaskedWord == "______"),
+            OnNext<HangmanState>(200, hangmanState => hangmanState.RemainingGuesses == 9 && hangmanState.MaskedWord == "___b__"),
+            OnNext<HangmanState>(300, hangmanState => hangmanState.RemainingGuesses == 8 && hangmanState.MaskedWord == "___b__")
+        };
 
-        game.Guess('b');
+        // Act
+        // +--b-b->
+        // +a-b-c->
+        ITestableObserver<HangmanState> testableObserver = scheduler.Start(Create, 100, 100, 3000);
 
-        Assert.Equal(HangmanStatus.Busy, lastState.Status);
-        Assert.Equal(9, lastState.RemainingGuesses);
-        Assert.Equal("___b__", lastState.MaskedWord);
-
-        game.Guess('b');
-
-        Assert.Equal(HangmanStatus.Busy, lastState.Status);
-        Assert.Equal(8, lastState.RemainingGuesses);
-        Assert.Equal("___b__", lastState.MaskedWord);
+        // Assert
+        ReactiveAssert.AreElementsEqual(expected, testableObserver.Messages);
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Getting_all_the_letters_right_makes_for_a_win()
     {
-        var game = new HangmanGame("hello");
-        
-        HangmanState lastState = null;
-        game.StateChanged += (sender, state) => lastState = state;
+        // Arrange
+        TestScheduler scheduler = new TestScheduler();
+        IObservable<HangmanState> Create()
+        {
+            var game = new Hangman("hello");
+            scheduler.Schedule(TimeSpan.FromTicks(100), () => game.GuessObserver.OnNext('b'));
+            scheduler.Schedule(TimeSpan.FromTicks(200), () => game.GuessObserver.OnNext('e'));
+            scheduler.Schedule(TimeSpan.FromTicks(300), () => game.GuessObserver.OnNext('l'));
+            scheduler.Schedule(TimeSpan.FromTicks(400), () => game.GuessObserver.OnNext('o'));
+            scheduler.Schedule(TimeSpan.FromTicks(500), () => game.GuessObserver.OnNext('h'));
+            return game.StateObservable;
+        }
 
-        game.Start();
+        var expected = new[]
+        {
+            OnNext<HangmanState>(100, hangmanState => hangmanState.RemainingGuesses == 9 && hangmanState.MaskedWord == "_____"),
+            OnNext<HangmanState>(200, hangmanState => hangmanState.RemainingGuesses == 8 && hangmanState.MaskedWord == "_____"),
+            OnNext<HangmanState>(300, hangmanState => hangmanState.RemainingGuesses == 8 && hangmanState.MaskedWord == "_e___"),
+            OnNext<HangmanState>(400, hangmanState => hangmanState.RemainingGuesses == 8 && hangmanState.MaskedWord == "_ell_"),
+            OnNext<HangmanState>(500, hangmanState => hangmanState.RemainingGuesses == 8 && hangmanState.MaskedWord == "_ello"),
+            OnCompleted<HangmanState>(600)
+        };
 
-        game.Guess('b');
+        // Act
+        // +--b-e-l-o-h->
+        // +a-b-c-d-e-|
+        ITestableObserver<HangmanState> testableObserver = scheduler.Start(Create, 100, 100, 3000);
 
-        Assert.Equal(HangmanStatus.Busy, lastState.Status);
-        Assert.Equal(8, lastState.RemainingGuesses);
-        Assert.Equal("_____", lastState.MaskedWord);
+        // Assert
+        ReactiveAssert.AreElementsEqual(expected, testableObserver.Messages);
+    }
 
-        game.Guess('e');
+    // Advanced mode on>
+    [Fact(Skip = "Remove to run test")]
+    public void Second_player_sees_the_same_game_already_started()
+    {
+        // Arrange
+        TestScheduler scheduler = new TestScheduler();
+        var player2 = scheduler.CreateObserver<HangmanState>();
+        var game = new Hangman("hello");
 
-        Assert.Equal(HangmanStatus.Busy, lastState.Status);
-        Assert.Equal(8, lastState.RemainingGuesses);
-        Assert.Equal("_e___", lastState.MaskedWord);
+        var player1 = game.StateObservable;
+        Ready(player1);
 
-        game.Guess('l');
+        scheduler.Schedule(TimeSpan.FromTicks(100), () => game.GuessObserver.OnNext('e'));
+        scheduler.Schedule(TimeSpan.FromTicks(200), () => game.GuessObserver.OnNext('l'));
+        scheduler.Schedule(TimeSpan.FromTicks(150), () => game.StateObservable.Subscribe(player2));
 
-        Assert.Equal(HangmanStatus.Busy, lastState.Status);
-        Assert.Equal(8, lastState.RemainingGuesses);
-        Assert.Equal("_ell_", lastState.MaskedWord);
+        var expected = new[]
+        {
+            OnNext<HangmanState>(150, hangmanState => hangmanState.RemainingGuesses == 9 && hangmanState.MaskedWord == "_e___"),
+            OnNext<HangmanState>(200, hangmanState => hangmanState.RemainingGuesses == 9 && hangmanState.MaskedWord == "_ell_")
+        };
 
-        game.Guess('o');
+        // Act
+        // +--e--l->
+        // +a-b--c->
+        // ...+b-c->
+        scheduler.Start();
 
-        Assert.Equal(HangmanStatus.Busy, lastState.Status);
-        Assert.Equal(8, lastState.RemainingGuesses);
-        Assert.Equal("_ello", lastState.MaskedWord);
+        // Assert
+        ReactiveAssert.AreElementsEqual(expected, player2.Messages);
+    }
 
-        game.Guess('h');
+    private IDisposable Ready(IObservable<HangmanState> player)
+    {
+        return player.Subscribe(x => { });
+    }
 
-        Assert.Equal(HangmanStatus.Win, lastState.Status);
-        Assert.Equal("hello", lastState.MaskedWord);
+    // Expert mode on>
+    [Fact(Skip = "Remove to run test")]
+    public void Multiple_player_sees_the_same_game_already_started()
+    {
+        // Arrange
+        TestScheduler scheduler = new TestScheduler();
+        var player2 = scheduler.CreateObserver<HangmanState>();
+        var player3 = scheduler.CreateObserver<HangmanState>();
+        var game = new Hangman("hello");
+
+        var player1 = game.StateObservable;
+        Ready(player1);
+
+        scheduler.Schedule(TimeSpan.FromTicks(100), () => game.GuessObserver.OnNext('e'));
+        scheduler.Schedule(TimeSpan.FromTicks(200), () => game.GuessObserver.OnNext('l'));
+        scheduler.Schedule(TimeSpan.FromTicks(150), () =>
+            {
+                game.StateObservable.Subscribe(player2);
+                game.StateObservable.Subscribe(player3);
+            });
+
+        var expected = new[]
+        {
+            OnNext<HangmanState>(150, hangmanState => hangmanState.RemainingGuesses == 9 && hangmanState.MaskedWord == "_e___"),
+            OnNext<HangmanState>(200, hangmanState => hangmanState.RemainingGuesses == 9 && hangmanState.MaskedWord == "_ell_"),
+        };
+
+        // Act
+        // +--e--l->
+        // +a-b--c->
+        // ...+b-c->
+        // ...+b-c->
+        scheduler.Start();
+
+        // Assert
+        // hint: http://reactivex.io/documentation/subject.html have you noticed that Subject are both IObservable, and IObserver?
+        // The only problem now it's converting from IObserver<T1> to IObservable<T2> where T1 != T2. We have to manually trigger.
+        // And finding the suitable Subject.
+        ReactiveAssert.AreElementsEqual(expected, player2.Messages);
+        ReactiveAssert.AreElementsEqual(expected, player3.Messages);
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Player_joins_after_other_players_quit()
+    {
+        // Arrange
+        TestScheduler scheduler = new TestScheduler();
+        var player2 = scheduler.CreateObserver<HangmanState>();
+        var game = new Hangman("a");
+
+        var player1 = game.StateObservable;
+        var subscription = Ready(player1);
+
+        scheduler.Schedule(TimeSpan.FromTicks(100), () => game.GuessObserver.OnNext('a'));
+        scheduler.Schedule(TimeSpan.FromTicks(300), () =>
+            {
+                game.StateObservable.Subscribe(player2);
+            });
+        scheduler.Schedule(TimeSpan.FromTicks(200), () => subscription.Dispose());
+
+        var expected = new[]
+        {
+            OnCompleted<HangmanState>(300)
+        };
+
+        // Act
+        // +--a-|
+        // +a-|
+        // .....+|
+        scheduler.Start();
+
+        // Assert
+        ReactiveAssert.AreElementsEqual(expected, player2.Messages);
     }
 }
