@@ -32,7 +32,7 @@ public class HangmanTests: ReactiveTest
     public void Initial_state_have_9_failures_allowed()
     {
         // Arrange
-        Hangman hangman = new Hangman("foo");
+        var hangman = new Hangman("foo");
         int actual = 9;
 
         // Act
