@@ -33,8 +33,8 @@ public class GameFailedException : Exception
 
 public class HangmanGame
 {
-    public IObservable<HangmanState> StateObservable { get; }
-    public IObserver<char> GuessObserver { get; }
+    public IObservable<HangmanState> StateObservable { get => throw new NotImplementedException("You need to implement this function."); }
+    public IObserver<char> GuessObserver { get => throw new NotImplementedException("You need to implement this function."); }
   
     public HangmanGame(string word)
     {

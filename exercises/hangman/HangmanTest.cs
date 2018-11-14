@@ -11,8 +11,8 @@ public class HangmanTests: ReactiveTest
     public void Initial_state_masks_the_word()
     {
         // Arrange
-        Hangman hangman = new Hangman("foo");
-        string actual = "";
+        var hangman = new Hangman("foo");
+        var actual = "";
 
         // Act
         // to learn more about observers check out http://reactivex.io/documentation/observable.html
@@ -33,7 +33,7 @@ public class HangmanTests: ReactiveTest
     {
         // Arrange
         var hangman = new Hangman("foo");
-        int actual = 9;
+        var actual = 9;
 
         // Act
         // +a->
@@ -47,13 +47,13 @@ public class HangmanTests: ReactiveTest
     public void Initial_state_have_no_guessed_chars()
     {
         // Arrange
-        Hangman hangman = new Hangman("foo");
+        var hangman = new Hangman("foo");
         // for detecting initialization it's not empty
-        ImmutableHashSet<char> actual = new HashSet<char> {'x'}.ToImmutableHashSet();
+        var actual = new HashSet<char> {'x'}.ToImmutableHashSet();
 
         // Act
         // +a->
-        hangman.StateObservable.Subscribe( x => actual = x.GuessedChars);
+        hangman.StateObservable.Subscribe(x => actual = x.GuessedChars);
 
         // Assert
         Assert.Equal(new HashSet<char>().ToImmutableHashSet(), actual);
@@ -63,8 +63,8 @@ public class HangmanTests: ReactiveTest
     public void Guess_changes_state()
     {
         // Arrange
-        Hangman hangman = new Hangman("foo");
-        HangmanState actual= null;
+        var hangman = new Hangman("foo");
+        HangmanState actual = null;
         hangman.StateObservable.Subscribe(x => actual = x);
         var initial = actual;
 
@@ -81,8 +81,8 @@ public class HangmanTests: ReactiveTest
     public void Wrong_guess_decrements_remaining_guesses()
     {
         // Arrange
-        Hangman hangman = new Hangman("foo");
-        HangmanState actual= null;
+        var hangman = new Hangman("foo");
+        HangmanState actual = null;
         hangman.StateObservable.Subscribe(x => actual = x);
         var initial = actual;
 
@@ -99,7 +99,7 @@ public class HangmanTests: ReactiveTest
     public void After_10_failures_the_game_is_over()
     {
         // Arrange
-        TestScheduler scheduler = new TestScheduler();
+        var scheduler = new TestScheduler();
         IObservable<HangmanState> Create()
         {
             var game = new Hangman("foo");
@@ -139,7 +139,7 @@ public class HangmanTests: ReactiveTest
     public void Feeding_a_correct_letter_removes_underscores()
     {
         // Arrange
-        TestScheduler scheduler = new TestScheduler();
+        var scheduler = new TestScheduler();
         IObservable<HangmanState> Create()
         {
             var game = new Hangman("foobar");
@@ -168,7 +168,7 @@ public class HangmanTests: ReactiveTest
     public void Feeding_a_correct_letter_twice_counts_as_a_failure()
     {
         // Arrange
-        TestScheduler scheduler = new TestScheduler();
+        var scheduler = new TestScheduler();
         IObservable<HangmanState> Create()
         {
             var game = new Hangman("foobar");
@@ -197,7 +197,7 @@ public class HangmanTests: ReactiveTest
     public void Getting_all_the_letters_right_makes_for_a_win()
     {
         // Arrange
-        TestScheduler scheduler = new TestScheduler();
+        var scheduler = new TestScheduler();
         IObservable<HangmanState> Create()
         {
             var game = new Hangman("hello");
@@ -233,7 +233,7 @@ public class HangmanTests: ReactiveTest
     public void Second_player_sees_the_same_game_already_started()
     {
         // Arrange
-        TestScheduler scheduler = new TestScheduler();
+        var scheduler = new TestScheduler();
         var player2 = scheduler.CreateObserver<HangmanState>();
         var game = new Hangman("hello");
 
@@ -270,7 +270,7 @@ public class HangmanTests: ReactiveTest
     public void Multiple_player_sees_the_same_game_already_started()
     {
         // Arrange
-        TestScheduler scheduler = new TestScheduler();
+        var scheduler = new TestScheduler();
         var player2 = scheduler.CreateObserver<HangmanState>();
         var player3 = scheduler.CreateObserver<HangmanState>();
         var game = new Hangman("hello");
@@ -311,7 +311,7 @@ public class HangmanTests: ReactiveTest
     public void Player_joins_after_other_players_quit()
     {
         // Arrange
-        TestScheduler scheduler = new TestScheduler();
+        var scheduler = new TestScheduler();
         var player2 = scheduler.CreateObserver<HangmanState>();
         var game = new Hangman("a");
 
