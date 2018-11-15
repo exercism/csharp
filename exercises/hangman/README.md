@@ -18,8 +18,13 @@ be described in the language/track specific files of the exercise.
 [frp]: https://en.wikipedia.org/wiki/Functional_reactive_programming
 
 ## Hints
-This exercise requires you to work with events. For more information, see [this page]
-(https://docs.microsoft.com/en-us/dotnet/articles/csharp/programming-guide/events/) .
+This exercise requires you to work with Reactive extension. For more information, see 
+[this page](http://reactivex.io/intro.html) .
+
+In reactive programming it's easier to communicate intentions in marble diagrams. Tests are augmented
+with marble diagram information. Text format is parsable by
+[this tool](https://bitbucket.org/achary/rx-marbles/src/master/docs/syntax.md?fileviewer=file-view-default)
+.
 
 
 ## Running the tests

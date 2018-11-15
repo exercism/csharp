@@ -1,33 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Linq;
+using System.Reactive;
+using System.Reactive.Subjects;
 
 public class HangmanState
 {
-    public HangmanStatus Status { get; set; }
-    public int RemainingGuesses { get; set; }
-    public string MaskedWord { get; set; }
-    public HashSet<char> Guesses { get; set; }
+    public string MaskedWord { get; }
+    public ImmutableHashSet<char> GuessedChars { get; }
+    public int RemainingGuesses { get; }
+
+    public HangmanState(string maskedWord, ImmutableHashSet<char> guessedChars, int remainingGuesses)
+    {
+        MaskedWord = maskedWord;
+        GuessedChars = guessedChars;
+        RemainingGuesses = remainingGuesses;
+    }
 }
 
-public enum HangmanStatus
+public class TooManyGuessesException : Exception
 {
-    Busy,
-    Win,
-    Lose
 }
 
 public class HangmanGame
 {
+    public IObservable<HangmanState> StateObservable { get => throw new NotImplementedException("You need to implement this function."); }
+    public IObserver<char> GuessObserver { get => throw new NotImplementedException("You need to implement this function."); }
+  
     public HangmanGame(string word)
-    {
-    }
-
-    public void Start()
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
-
-    public void Guess(char c)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
