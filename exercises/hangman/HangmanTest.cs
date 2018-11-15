@@ -22,7 +22,7 @@ public class HangmanTests: ReactiveTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Initial_state_have_9_failures_allowed()
+    public void Initial_state_has_9_remaining_guesses()
     {
         var hangman = new Hangman("foo");
         var actual = 9;
@@ -34,7 +34,7 @@ public class HangmanTests: ReactiveTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Initial_state_have_no_guessed_chars()
+    public void Initial_state_has_no_guessed_chars()
     {
         var hangman = new Hangman("foo");
         var actual = new HashSet<char> {'x'}.ToImmutableHashSet();
@@ -76,7 +76,7 @@ public class HangmanTests: ReactiveTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void After_10_failures_the_game_is_over()
+    public void After_10_incorrect_guesses_the_game_is_over()
     {
         var scheduler = new TestScheduler();
         IObservable<HangmanState> Create()
@@ -113,7 +113,7 @@ public class HangmanTests: ReactiveTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Feeding_a_correct_letter_removes_underscores()
+    public void Correctly_guessing_a_letter_unmasks_it()
     {
         var scheduler = new TestScheduler();
         IObservable<HangmanState> Create()
@@ -139,7 +139,7 @@ public class HangmanTests: ReactiveTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Feeding_a_correct_letter_twice_counts_as_a_failure()
+    public void Guessing_a_correct_letter_twice_counts_as_a_failure()
     {
         var scheduler = new TestScheduler();
         IObservable<HangmanState> Create()
@@ -232,7 +232,7 @@ public class HangmanTests: ReactiveTest
 
     // Expert mode on>
     [Fact(Skip = "Remove to run test")]
-    public void Multiple_player_sees_the_same_game_already_started()
+    public void Multiple_players_see_the_same_game_already_started()
     {
         var scheduler = new TestScheduler();
         var player2 = scheduler.CreateObserver<HangmanState>();
