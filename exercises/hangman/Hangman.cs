@@ -5,11 +5,6 @@ using System.Linq;
 using System.Reactive;
 using System.Reactive.Subjects;
 
-/// <summary>
-/// Returned state is <see href="https://blog.ndepend.com/c-sharp-immutable-types-understanding-attraction/">immutable</see>,
-/// to help the students implement the right solution, escaping the trap of <see cref="RemainingGuesses">RemainingGuesses</see> be the same on
-/// all observed elements.
-/// </summary>
 public class HangmanState
 {
     public string MaskedWord { get; }
@@ -24,10 +19,7 @@ public class HangmanState
     }
 }
 
-/// <summary>
-/// Notifies the observers, that the game is lost, because of too many guesses.
-/// </summary>
-public class GameFailedException : Exception
+public class TooManyGuessesException : Exception
 {
 }
 
@@ -38,8 +30,6 @@ public class HangmanGame
   
     public HangmanGame(string word)
     {
-        // You need to implement the initialization of StateObservable and GuessObserver.
-        // Tests are validated against these properties.
         throw new NotImplementedException("You need to implement this function.");
     }
 }
