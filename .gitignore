@@ -19,7 +19,8 @@
 [Xx]86/
 [Bb]uild/
 bld/
-[Bb]in/
+bin/configlet
+bin/configlet.exe
 [Oo]bj/
 
 # Visual Studio 2015 cache/options directory
