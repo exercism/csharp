@@ -4,44 +4,38 @@ using System.Linq;
 
 public class SaddlePoints
 {
-    private readonly int[,] values;
-    private readonly int[] maxRows;
-    private readonly int[] minCols;
-
-    public SaddlePoints(int[,] values)
+    public static IEnumerable<(int, int)> Calculate(int[,] matrix)
     {
-        this.values = values;
-        this.maxRows = Rows().Select(r => r.Max()).ToArray();
-        this.minCols = Columns().Select(r => r.Min()).ToArray();
+        var rowCount = matrix.GetLength(0);
+        var columnCount = matrix.GetLength(1);
+        var maxRows = Rows(matrix, rowCount, columnCount).Select(r => r.Max()).ToArray();
+        var minCols = Columns(matrix, columnCount, rowCount).Select(r => r.Min()).ToArray();
+        return Coordinates(rowCount, columnCount).Where(x => IsSaddlePoint(x, maxRows, minCols, matrix))
+            .ToArray();
     }
 
-    public IEnumerable<(int, int)> Calculate()
+    private static IEnumerable<(int, int)> Coordinates(int rowCount, int columnCount)
     {
-        return Coordinates().Where(IsSaddlePoint).ToArray();
+        return Enumerable.Range(0, rowCount)
+            .SelectMany(x => Enumerable.Range(0, columnCount).Select(y => (x, y)));
     }
 
-    private bool IsSaddlePoint((int, int) coordinate)
+    private static IEnumerable<IEnumerable<int>> Columns(int[,] matrix, int columnCount, int rowCount)
     {
-        return maxRows[coordinate.Item1] == values[coordinate.Item1, coordinate.Item2] &&
-                minCols[coordinate.Item2] == values[coordinate.Item1, coordinate.Item2];
+        return Enumerable.Range(0, columnCount)
+            .Select(y => Enumerable.Range(0, rowCount).Select(x => matrix[x, y]));
     }
 
-    private IEnumerable<(int, int)> Coordinates()
+    private static IEnumerable<IEnumerable<int>> Rows(int[,] matrix, int rowCount, int columnCount)
     {
-        return Enumerable.Range(0, RowCount).SelectMany(x => Enumerable.Range(0, ColumnCount).Select(y => (x, y)));
+        return Enumerable.Range(0, rowCount)
+            .Select(x => Enumerable.Range(0, columnCount).Select(y => matrix[x, y]));
     }
 
-    private IEnumerable<IEnumerable<int>> Rows()
+    private static bool IsSaddlePoint((int, int) coordinate, int [] maxRows, int [] minCols, int[,] matrix)
     {
-        return Enumerable.Range(0, RowCount).Select(x => Enumerable.Range(0, ColumnCount).Select(y => values[x, y]));
+        return maxRows[coordinate.Item1] == matrix[coordinate.Item1, coordinate.Item2] &&
+               minCols[coordinate.Item2] == matrix[coordinate.Item1, coordinate.Item2];
     }
 
-    private IEnumerable<IEnumerable<int>> Columns()
-    {
-        return Enumerable.Range(0, ColumnCount).Select(y => Enumerable.Range(0, RowCount).Select(x => values[x, y]));
-    }
-
-    private int ColumnCount => values.GetLength(1);
-
-    private int RowCount => values.GetLength(0);
 }
