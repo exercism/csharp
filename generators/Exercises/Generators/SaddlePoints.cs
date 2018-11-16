@@ -10,11 +10,10 @@ namespace Exercism.CSharp.Exercises.Generators
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
+            testMethod.TestedMethodType = TestedMethodType.StaticMethod;
             testMethod.TestedMethod = "Calculate";
-            testMethod.ConstructorInputParameters = new[] { "matrix" };
+            testMethod.InputParameters = new[] {"matrix"};
 
-            testMethod.UseVariablesForConstructorParameters = true;
             testMethod.UseVariablesForInput = true;
             testMethod.UseVariableForTested = true;
             testMethod.UseVariableForExpected = true;
