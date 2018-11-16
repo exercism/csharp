@@ -10,9 +10,7 @@ namespace Exercism.CSharp.Exercises.Generators
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            testMethod.TestedMethodType = TestedMethodType.StaticMethod;
             testMethod.TestedMethod = "Calculate";
-            testMethod.InputParameters = new[] {"matrix"};
 
             testMethod.UseVariablesForInput = true;
             testMethod.UseVariableForTested = true;
