@@ -14,8 +14,7 @@ public class SaddlePointsTest
              { 5, 3, 2 },
              { 6, 6, 7 }
         };
-        var sut = new SaddlePoints(matrix);
-        var actual = sut.Calculate();
+        var actual = SaddlePoints.Calculate(matrix);
         var expected = new[] { (1, 0) };
         Assert.Equal(expected, actual);
     }
@@ -24,8 +23,7 @@ public class SaddlePointsTest
     public void Can_identify_that_empty_matrix_has_no_saddle_points()
     {
         var matrix = new int[,] { };
-        var sut = new SaddlePoints(matrix);
-        var actual = sut.Calculate();
+        var actual = SaddlePoints.Calculate(matrix);
         Assert.Empty(actual);
     }
 
@@ -38,8 +36,7 @@ public class SaddlePointsTest
              { 3, 1, 2 },
              { 2, 3, 1 }
         };
-        var sut = new SaddlePoints(matrix);
-        var actual = sut.Calculate();
+        var actual = SaddlePoints.Calculate(matrix);
         Assert.Empty(actual);
     }
 
@@ -52,8 +49,7 @@ public class SaddlePointsTest
              { 3, 5, 5 },
              { 1, 5, 4 }
         };
-        var sut = new SaddlePoints(matrix);
-        var actual = sut.Calculate();
+        var actual = SaddlePoints.Calculate(matrix);
         var expected = new[] { (0, 1), (1, 1), (2, 1) };
         Assert.Equal(expected, actual);
     }
@@ -67,8 +63,7 @@ public class SaddlePointsTest
              { 5, 5, 5 },
              { 7, 5, 6 }
         };
-        var sut = new SaddlePoints(matrix);
-        var actual = sut.Calculate();
+        var actual = SaddlePoints.Calculate(matrix);
         var expected = new[] { (1, 0), (1, 1), (1, 2) };
         Assert.Equal(expected, actual);
     }
@@ -82,8 +77,7 @@ public class SaddlePointsTest
              { 6, 7, 6 },
              { 3, 2, 5 }
         };
-        var sut = new SaddlePoints(matrix);
-        var actual = sut.Calculate();
+        var actual = SaddlePoints.Calculate(matrix);
         var expected = new[] { (2, 2) };
         Assert.Equal(expected, actual);
     }
@@ -96,8 +90,7 @@ public class SaddlePointsTest
              { 3, 1, 3 },
              { 3, 2, 4 }
         };
-        var sut = new SaddlePoints(matrix);
-        var actual = sut.Calculate();
+        var actual = SaddlePoints.Calculate(matrix);
         var expected = new[] { (0, 0), (0, 2) };
         Assert.Equal(expected, actual);
     }
@@ -112,8 +105,7 @@ public class SaddlePointsTest
              { 4 },
              { 1 }
         };
-        var sut = new SaddlePoints(matrix);
-        var actual = sut.Calculate();
+        var actual = SaddlePoints.Calculate(matrix);
         var expected = new[] { (1, 0), (3, 0) };
         Assert.Equal(expected, actual);
     }
@@ -125,8 +117,7 @@ public class SaddlePointsTest
         {
              { 2, 5, 3, 5 }
         };
-        var sut = new SaddlePoints(matrix);
-        var actual = sut.Calculate();
+        var actual = SaddlePoints.Calculate(matrix);
         var expected = new[] { (0, 1), (0, 3) };
         Assert.Equal(expected, actual);
     }

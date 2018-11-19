@@ -2,13 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-public class SaddlePoints
+public static class SaddlePoints
 {
-    public SaddlePoints(int[,] values)
-    {
-    }
-
-    public IEnumerable<(int, int)> Calculate()
+    public static IEnumerable<(int, int)> Calculate(int[,] matrix)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
