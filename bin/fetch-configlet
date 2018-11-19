@@ -8,8 +8,6 @@ case $(uname) in
         echo "mac";;
     (Linux*)
         echo "linux";;
-    (Windows*)
-        echo "windows";;
     (*)
         echo "linux";;
 esac)
