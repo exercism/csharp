@@ -33,6 +33,11 @@ This exercise requires you to write an extension method. For more information, s
 
 To run the tests, run the command `dotnet test` from within the exercise directory.
 
+Initially, only the first test will be enabled. This is to encourage you to solve the exercise one step at a time.
+Once you get the first test passing, remove the `Skip` property from the next test and work on getting that test passing.
+Once none of the tests are skipped and they are all passing, you can submit your solution 
+using `exercism submit Accumulate.cs`
+
 ### Laziness test
 
 Since `accumulate` returns an `IEnumerable`, it's execution is deferred until `ToList()` it is called on it, which is tested with the `Accumulate_is_lazy` method

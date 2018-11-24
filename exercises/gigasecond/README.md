@@ -1,12 +1,18 @@
 # Gigasecond
 
-Calculate the moment when someone has lived for 10^9 seconds.
+Given a moment, determine the moment that would be after a gigasecond
+has passed.
 
 A gigasecond is 10^9 (1,000,000,000) seconds.
 
 ## Running the tests
 
 To run the tests, run the command `dotnet test` from within the exercise directory.
+
+Initially, only the first test will be enabled. This is to encourage you to solve the exercise one step at a time.
+Once you get the first test passing, remove the `Skip` property from the next test and work on getting that test passing.
+Once none of the tests are skipped and they are all passing, you can submit your solution 
+using `exercism submit Gigasecond.cs`
 
 ## Further information
 
