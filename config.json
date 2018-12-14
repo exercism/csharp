@@ -997,6 +997,14 @@
       "unlocked_by": "sum-of-multiples",
       "difficulty": 1,
       "topics": ["lists", "strings"]
+    },
+    {
+      "slug": "dnd-character",
+      "uuid": "eb93b46e-203b-43f0-ad5c-de8d5ccf2061",
+      "core": false,
+      "unlocked_by": "clock",
+      "difficulty": 3,
+      "topics": ["randomness"]
     }
   ]
 }
