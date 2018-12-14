@@ -1,4 +1,4 @@
-Microsoft Visual Studio Solution File, Format Version 12.00
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 15.0.26124.0
@@ -235,6 +235,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestApi", "rest-api\RestApi.csproj", "{DFF04F1E-2963-4A88-AF92-D14AD48617F2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Darts", "darts\Darts.csproj", "{202E2755-AB2F-4EA5-94D0-574487079CFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighScores", "high-scores\HighScores.csproj", "{B287CA86-D25C-40B0-98B9-855064F99EE3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -710,6 +712,10 @@ Global
 		{202E2755-AB2F-4EA5-94D0-574487079CFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{202E2755-AB2F-4EA5-94D0-574487079CFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{202E2755-AB2F-4EA5-94D0-574487079CFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B287CA86-D25C-40B0-98B9-855064F99EE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B287CA86-D25C-40B0-98B9-855064F99EE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B287CA86-D25C-40B0-98B9-855064F99EE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B287CA86-D25C-40B0-98B9-855064F99EE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -989,6 +989,14 @@
       "unlocked_by": "leap",
       "difficulty": 2,
       "topics": ["floating_point_numbers", "math"]
+    },
+    {
+      "slug": "high-scores",
+      "uuid": "f52d9be9-7044-4001-8678-dcae91a8d7f3",
+      "core": false,
+      "unlocked_by": "sum-of-multiples",
+      "difficulty": 1,
+      "topics": ["lists", "strings"]
     }
   ]
 }
