@@ -12,7 +12,7 @@ public class BankAccount
         throw new NotImplementedException("You need to implement this function.");
     }
 
-    public float Balance
+    public decimal Balance
     {
         get
         {
@@ -20,7 +20,7 @@ public class BankAccount
         }
     }
 
-    public void UpdateBalance(float change)
+    public void UpdateBalance(decimal change)
     {
         throw new NotImplementedException("You need to implement this function.");
     }
