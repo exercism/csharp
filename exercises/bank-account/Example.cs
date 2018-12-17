@@ -4,7 +4,7 @@ public class BankAccount
 {
     private readonly object _lock = new object();
 
-    private float balance;
+    private decimal balance;
     private bool isOpen;
 
     public void Open()
@@ -23,7 +23,7 @@ public class BankAccount
         }
     }
 
-    public float Balance
+    public decimal Balance
     {
         get
         {
@@ -39,7 +39,7 @@ public class BankAccount
         }
     }
 
-    public void UpdateBalance(float change)
+    public void UpdateBalance(decimal change)
     {
         lock(_lock)
         {
