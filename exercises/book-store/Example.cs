@@ -4,17 +4,17 @@ using System.Linq;
 
 public static class BookStore
 {
-    private const double BookPrice = 8.0;
+    private const decimal BookPrice = 8.0m;
 
-    public static double Total(int[] books)
+    public static decimal Total(int[] books)
     {
         if (books.Length == 0)
-            return 0.0;
+            return 0.0m;
 
         var bookGroups = BookGroupsWithCount(books);
 
         return Enumerable.Range(1, bookGroups.Length)
-            .Min(size => CalculateTotalCost(bookGroups, size, 0.0));
+            .Min(size => CalculateTotalCost(bookGroups, size, 0.0m));
     }
 
     private static int[] BookGroupsWithCount(int[] books)
@@ -24,7 +24,7 @@ public static class BookStore
             .OrderByDescending(book => book)
             .ToArray();
 
-    private static double CalculateTotalCost(int[] bookGroups, int numberOfBooksToRemove, double totalCost)
+    private static decimal CalculateTotalCost(int[] bookGroups, int numberOfBooksToRemove, decimal totalCost)
     {
         var numberOfBooks = Math.Min(numberOfBooksToRemove, bookGroups.Length);
         if (numberOfBooks == 0)
@@ -48,23 +48,23 @@ public static class BookStore
 
     private static int RemoveBook(int books) => books - 1;
 
-    private static double BooksPrice(int differentBooks)
+    private static decimal BooksPrice(int differentBooks)
         => ApplyDiscount(RegularPrice(differentBooks), DiscountPercentage(differentBooks));
 
-    private static double RegularPrice(int books) => books * BookPrice;
+    private static decimal RegularPrice(int books) => books * BookPrice;
 
-    private static double DiscountPercentage(int differentBooks)
+    private static decimal DiscountPercentage(int differentBooks)
     {
         switch (differentBooks)
         {
-            case 5: return 25.0;
-            case 4: return 20.0;
-            case 3: return 10.0;
-            case 2: return 5.0;
-            default: return 0.0;
+            case 5: return 25.0m;
+            case 4: return 20.0m;
+            case 3: return 10.0m;
+            case 2: return 5.0m;
+            default: return 0.0m;
         }
     }
 
-    private static double ApplyDiscount(double price, double discountPercentage)
-        => Math.Round(price * (100.0f - discountPercentage) / 100.0f, 2);
+    private static decimal ApplyDiscount(decimal price, decimal discountPercentage)
+        => Math.Round(price * (100.0m - discountPercentage) / 100.0m, 2);
 }

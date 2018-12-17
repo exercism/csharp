@@ -16,6 +16,7 @@ namespace Exercism.CSharp.Output.Rendering
             switch (val)
             {
                 case string str: return String(str);
+                case decimal dec: return Decimal(dec);
                 case double dbl: return Double(dbl);
                 case int i: return Int(i);
                 case uint ui: return Uint(ui);
