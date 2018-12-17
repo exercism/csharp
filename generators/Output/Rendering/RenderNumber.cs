@@ -5,6 +5,7 @@ namespace Exercism.CSharp.Output.Rendering
 {
     public partial class Render
     {
+        public string Decimal(decimal dec) => $"{dec.ToString(CultureInfo.InvariantCulture)}m";
         public string Double(double dbl) => dbl.ToString(CultureInfo.InvariantCulture);
 
         public string Float(float flt) => flt.ToString(CultureInfo.InvariantCulture);

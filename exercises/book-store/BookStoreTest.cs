@@ -9,21 +9,21 @@ public class BookStoreTest
     public void Only_a_single_book()
     {
         var basket = new[] { 1 };
-        Assert.Equal(8, BookStore.Total(basket));
+        Assert.Equal(8m, BookStore.Total(basket));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Two_of_the_same_book()
     {
         var basket = new[] { 2, 2 };
-        Assert.Equal(16, BookStore.Total(basket));
+        Assert.Equal(16m, BookStore.Total(basket));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Empty_basket()
     {
         var basket = Array.Empty<int>();
-        Assert.Equal(0, BookStore.Total(basket));
+        Assert.Equal(0m, BookStore.Total(basket));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -51,7 +51,7 @@ public class BookStoreTest
     public void Five_different_books()
     {
         var basket = new[] { 1, 2, 3, 4, 5 };
-        Assert.Equal(30, BookStore.Total(basket));
+        Assert.Equal(30m, BookStore.Total(basket));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -86,14 +86,14 @@ public class BookStoreTest
     public void Two_copies_of_each_book()
     {
         var basket = new[] { 1, 1, 2, 2, 3, 3, 4, 4, 5, 5 };
-        Assert.Equal(60, BookStore.Total(basket));
+        Assert.Equal(60m, BookStore.Total(basket));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Three_copies_of_first_book_and_2_each_of_remaining()
     {
         var basket = new[] { 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 1 };
-        Assert.Equal(68, BookStore.Total(basket));
+        Assert.Equal(68m, BookStore.Total(basket));
     }
 
     [Fact(Skip = "Remove to run test")]
