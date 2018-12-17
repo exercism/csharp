@@ -5,7 +5,7 @@ using System.Linq;
 
 public class LedgerEntry
 {
-   public LedgerEntry(DateTime date, string desc, float chg)
+   public LedgerEntry(DateTime date, string desc, decimal chg)
    {
        Date = date;
        Desc = desc;
@@ -14,14 +14,14 @@ public class LedgerEntry
 
    public DateTime Date { get; }
    public string Desc { get; }
-   public float Chg { get; }
+   public decimal Chg { get; }
 }
 
 public static class Ledger
 {
    public static LedgerEntry CreateEntry(string date, string desc, int chng)
    {
-       return new LedgerEntry(DateTime.Parse(date, CultureInfo.InvariantCulture), desc, chng / 100.0f);
+       return new LedgerEntry(DateTime.Parse(date, CultureInfo.InvariantCulture), desc, chng / 100.0m);
    }
 
    private static CultureInfo CreateCulture(string cur, string loc)
@@ -113,9 +113,9 @@ public static class Ledger
        return desc;
    }
 
-   private static string Change(IFormatProvider culture, float cgh)
+   private static string Change(IFormatProvider culture, decimal cgh)
    {
-       return cgh < 0.0 ? cgh.ToString("C", culture) : cgh.ToString("C", culture) + " ";
+       return cgh < 0.0m ? cgh.ToString("C", culture) : cgh.ToString("C", culture) + " ";
    }
 
    private static string PrintEntry(IFormatProvider culture, LedgerEntry entry)
