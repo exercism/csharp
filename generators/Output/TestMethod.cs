@@ -18,6 +18,7 @@ namespace Exercism.CSharp.Output
             Input = new Dictionary<string, dynamic>(canonicalDataCase.Input, StringComparer.OrdinalIgnoreCase);
             Expected = canonicalDataCase.Expected;
             Property = canonicalDataCase.Property;
+            Description = canonicalDataCase.Description;
             TestMethodName = canonicalDataCase.Description.ToTestMethodName();
             TestMethodNameWithPath = string.Join(" - ", canonicalDataCase.DescriptionPath).ToTestMethodName();
             TestedClass = canonicalData.Exercise.ToTestedClassName();
@@ -34,6 +35,7 @@ namespace Exercism.CSharp.Output
         public IDictionary<string, dynamic> Input { get; }
         public dynamic Expected { get; set; }
         public string Property { get; }
+        public string Description { get; }
         public bool Skip { get; set; }
 
         public bool UseVariablesForInput { get; set; }

@@ -238,6 +238,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Darts", "darts\Darts.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighScores", "high-scores\HighScores.csproj", "{B287CA86-D25C-40B0-98B9-855064F99EE3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DndCharacter", "dnd-character\DndCharacter.csproj", "{91499710-DC6A-4494-9661-9D374829E975}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -716,6 +718,10 @@ Global
 		{B287CA86-D25C-40B0-98B9-855064F99EE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B287CA86-D25C-40B0-98B9-855064F99EE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B287CA86-D25C-40B0-98B9-855064F99EE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91499710-DC6A-4494-9661-9D374829E975}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91499710-DC6A-4494-9661-9D374829E975}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91499710-DC6A-4494-9661-9D374829E975}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91499710-DC6A-4494-9661-9D374829E975}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
