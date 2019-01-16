@@ -8,7 +8,7 @@ public class SpaceAge
         Earth, Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune
     }
 
-    private readonly long seconds;
+    private readonly int seconds;
 
     private readonly Dictionary<Planet, double> earthYearToPlanetPeriod = new Dictionary<Planet, double>
         {
@@ -22,7 +22,7 @@ public class SpaceAge
             { Planet.Neptune, 164.79132 },
         };
 
-    public SpaceAge(long seconds)
+    public SpaceAge(int seconds)
     {
         this.seconds = seconds;
     }

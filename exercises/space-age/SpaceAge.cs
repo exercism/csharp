@@ -2,7 +2,7 @@ using System;
 
 public class SpaceAge
 {
-    public SpaceAge(long seconds)
+    public SpaceAge(int seconds)
     {
     }
 
