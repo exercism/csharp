@@ -54,13 +54,13 @@
       ]
     },
     {
-      "slug": "high-scores",
-      "uuid": "f52d9be9-7044-4001-8678-dcae91a8d7f3",
+      "slug": "series",
+      "uuid": "9ca46617-4995-45cc-a2dd-b8630eaa288b",
       "core": true,
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-        "lists",
+        "arrays",
         "strings"
       ]
     },
@@ -210,7 +210,7 @@
       "slug": "sum-of-multiples",
       "uuid": "d985d4a9-1a2b-4bb1-ad08-961b8d36ee2e",
       "core": false,
-      "unlocked_by": "high-scores",
+      "unlocked_by": "series",
       "difficulty": 1,
       "topics": [
         "arrays",
@@ -219,10 +219,21 @@
       ]
     },
     {
+      "slug": "high-scores",
+      "uuid": "f52d9be9-7044-4001-8678-dcae91a8d7f3",
+      "core": false,
+      "unlocked_by": "series",
+      "difficulty": 1,
+      "topics": [
+        "lists",
+        "strings"
+      ]
+    },
+    {
       "slug": "accumulate",
       "uuid": "3c0563dc-665a-45b4-9b29-f133e235efd0",
       "core": false,
-      "unlocked_by": "high-scores",
+      "unlocked_by": "series",
       "difficulty": 2,
       "topics": [
         "extension_methods",
@@ -279,7 +290,7 @@
       "slug": "difference-of-squares",
       "uuid": "5554c048-0de3-4a85-b043-7577f429cba4",
       "core": false,
-      "unlocked_by": "high-scores",
+      "unlocked_by": "series",
       "difficulty": 1,
       "topics": [
         "control_flow_loops",
@@ -389,7 +400,7 @@
       "slug": "protein-translation",
       "uuid": "75a2d5f0-5f5e-46a3-9dd2-3da415690e18",
       "core": false,
-      "unlocked_by": "high-scores",
+      "unlocked_by": "series",
       "difficulty": 3,
       "topics": [
         "lists",
@@ -487,7 +498,7 @@
       "slug": "secret-handshake",
       "uuid": "1ad236a9-7035-42e6-90ec-f6a4b94ad495",
       "core": false,
-      "unlocked_by": "high-scores",
+      "unlocked_by": "series",
       "difficulty": 3,
       "topics": [
         "arrays",
@@ -554,7 +565,7 @@
       "slug": "largest-series-product",
       "uuid": "4a6621bb-e55a-4ae2-89e3-3aa7e37a8656",
       "core": false,
-      "unlocked_by": "high-scores",
+      "unlocked_by": "series",
       "difficulty": 4,
       "topics": [
         "integers",
@@ -578,24 +589,12 @@
       "slug": "pythagorean-triplet",
       "uuid": "4d5a53df-3d6b-46cb-a964-71c676f3cd93",
       "core": false,
-      "unlocked_by": "high-scores",
+      "unlocked_by": "series",
       "difficulty": 4,
       "topics": [
         "integers",
         "math",
         "overloading"
-      ]
-    },
-    {
-      "slug": "series",
-      "uuid": "9ca46617-4995-45cc-a2dd-b8630eaa288b",
-      "core": false,
-      "unlocked_by": "high-scores",
-      "difficulty": 4,
-      "topics": [
-        "arrays",
-        "strings",
-        "transforming"
       ]
     },
     {
@@ -636,7 +635,7 @@
       "slug": "prime-factors",
       "uuid": "456ffe2c-e241-4373-8bea-d4d328f815e9",
       "core": false,
-      "unlocked_by": "high-scores",
+      "unlocked_by": "series",
       "difficulty": 4,
       "topics": [
         "integers",
@@ -657,7 +656,7 @@
       "slug": "all-your-base",
       "uuid": "de5e2eff-2b80-4996-a322-dc59ebe25edd",
       "core": false,
-      "unlocked_by": "high-scores",
+      "unlocked_by": "series",
       "difficulty": 4,
       "topics": [
         "integers",
@@ -669,7 +668,7 @@
       "slug": "pascals-triangle",
       "uuid": "d5d48857-5325-45d2-9969-95a0d7bba370",
       "core": false,
-      "unlocked_by": "high-scores",
+      "unlocked_by": "series",
       "difficulty": 4,
       "topics": [
         "arrays",
@@ -705,7 +704,7 @@
       "slug": "simple-cipher",
       "uuid": "54649fb0-6b14-44df-85af-ae1f7a62449d",
       "core": false,
-      "unlocked_by": "high-scores",
+      "unlocked_by": "series",
       "difficulty": 5,
       "topics": [
         "algorithms",
@@ -717,7 +716,7 @@
       "slug": "roman-numerals",
       "uuid": "d3702b93-7bb3-4e0a-8cd7-974ad93b0d3d",
       "core": false,
-      "unlocked_by": "high-scores",
+      "unlocked_by": "series",
       "difficulty": 5,
       "topics": [
         "control_flow_loops",
