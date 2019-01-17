@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.1.0 of the canonical data.
+// This file was auto-generated based on version 1.2.0 of the canonical data.
 
 using Xunit;
 
@@ -28,8 +28,8 @@ public class SpaceAgeTest
     [Fact(Skip = "Remove to run test")]
     public void Age_on_mars()
     {
-        var sut = new SpaceAge(2329871239);
-        Assert.Equal(39.25, sut.OnMars(), precision: 2);
+        var sut = new SpaceAge(2129871239);
+        Assert.Equal(35.88, sut.OnMars(), precision: 2);
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -42,21 +42,21 @@ public class SpaceAgeTest
     [Fact(Skip = "Remove to run test")]
     public void Age_on_saturn()
     {
-        var sut = new SpaceAge(3000000000);
-        Assert.Equal(3.23, sut.OnSaturn(), precision: 2);
+        var sut = new SpaceAge(2000000000);
+        Assert.Equal(2.15, sut.OnSaturn(), precision: 2);
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Age_on_uranus()
     {
-        var sut = new SpaceAge(3210123456);
-        Assert.Equal(1.21, sut.OnUranus(), precision: 2);
+        var sut = new SpaceAge(1210123456);
+        Assert.Equal(0.46, sut.OnUranus(), precision: 2);
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Age_on_neptune()
     {
-        var sut = new SpaceAge(8210123456);
-        Assert.Equal(1.58, sut.OnNeptune(), precision: 2);
+        var sut = new SpaceAge(1821023456);
+        Assert.Equal(0.35, sut.OnNeptune(), precision: 2);
     }
 }
