@@ -75,24 +75,24 @@
       ]
     },
     {
-      "slug": "raindrops",
-      "uuid": "29ae7f8e-a009-4175-9350-a8c684c89730",
+      "slug": "high-scores",
+      "uuid": "f52d9be9-7044-4001-8678-dcae91a8d7f3",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "lists",
+        "strings"
+      ]
+    },
+    {
+      "slug": "hamming",
+      "uuid": "05162ee0-38ac-40ad-a591-d70a74b6963a",
       "core": true,
       "unlocked_by": null,
       "difficulty": 2,
       "topics": [
         "filtering",
-        "strings"
-      ]
-    },
-    {
-      "slug": "bob",
-      "uuid": "da00f894-dbc8-485e-adba-a79d5ebee3ad",
-      "core": true,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-        "control_flow_if_else_statements",
         "strings"
       ]
     },
@@ -108,25 +108,26 @@
       ]
     },
     {
-      "slug": "allergies",
-      "uuid": "2ac228d8-7bf0-4946-8352-6541df02c0a2",
-      "core": true,
-      "unlocked_by": null,
-      "difficulty": 4,
-      "topics": [
-        "bitwise_operations",
-        "filtering"
-      ]
-    },
-    {
-      "slug": "binary-search",
-      "uuid": "f92ff94a-73e6-41cb-a376-835c2368b358",
+      "slug": "robot-name",
+      "uuid": "46b8aea8-1528-43cb-a754-495ec2790ce2",
       "core": true,
       "unlocked_by": null,
       "difficulty": 3,
       "topics": [
-        "arrays",
-        "searching"
+        "classes",
+        "randomness",
+        "strings"
+      ]
+    },
+    {
+      "slug": "allergies",
+      "uuid": "2ac228d8-7bf0-4946-8352-6541df02c0a2",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 3,
+      "topics": [
+        "bitwise_operations",
+        "filtering"
       ]
     },
     {
@@ -134,10 +135,22 @@
       "uuid": "ec1cc254-8e66-40d0-87bf-971d54c541c4",
       "core": true,
       "unlocked_by": null,
-      "difficulty": 2,
+      "difficulty": 3,
       "topics": [
         "lists",
         "sorting"
+      ]
+    },
+    {
+      "slug": "rotational-cipher",
+      "uuid": "8a0a291d-8330-4901-bdbe-f974e163158e",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 4,
+      "topics": [
+        "algorithms",
+        "strings",
+        "transforming"
       ]
     },
     {
@@ -145,55 +158,98 @@
       "uuid": "83e4cb1e-456f-4c74-ae82-6895f0bd73ae",
       "core": true,
       "unlocked_by": null,
-      "difficulty": 3,
+      "difficulty": 4,
       "topics": [
         "classes",
         "structural_equality"
       ]
     },
     {
-      "slug": "kindergarten-garden",
-      "uuid": "b7458404-2534-4ed8-8350-7060fa4b5786",
-      "core": true,
-      "unlocked_by": null,
-      "difficulty": 3,
-      "topics": [
-        "enumerations",
-        "parsing"
-      ]
-    },
-    {
-      "slug": "saddle-points",
-      "uuid": "cb755a7d-e01d-4758-92ab-9d2e6518a3eb",
+      "slug": "bob",
+      "uuid": "da00f894-dbc8-485e-adba-a79d5ebee3ad",
       "core": true,
       "unlocked_by": null,
       "difficulty": 4,
       "topics": [
-        "arrays",
-        "matrices",
-        "tuples"
+        "control_flow_if_else_statements",
+        "strings"
       ]
     },
     {
-      "slug": "markdown",
-      "uuid": "dee4abe1-c75f-4cb8-b5f3-5b5b77e1c7aa",
+      "slug": "circular-buffer",
+      "uuid": "657ac368-9b17-4f87-b815-decfe2bc0b5d",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 5,
+      "topics": [
+        "classes",
+        "queues"
+      ]
+    },
+    {
+      "slug": "bracket-push",
+      "uuid": "a2070019-e56d-4d48-994b-300411598707",
       "core": true,
       "unlocked_by": null,
       "difficulty": 5,
       "topics": [
         "parsing",
-        "refactoring",
-        "transforming"
+        "strings"
       ]
     },
     {
-      "slug": "book-store",
-      "uuid": "8288d3e0-75a4-4a18-94c7-2fab3228dc58",
+      "slug": "spiral-matrix",
+      "uuid": "bae1f3a4-b63d-4efd-921a-133b3d5e379c",
       "core": true,
       "unlocked_by": null,
       "difficulty": 5,
       "topics": [
-        "recursion"
+        "algorithms",
+        "matrices"
+      ]
+    },
+    {
+      "slug": "tournament",
+      "uuid": "d9359f25-dc94-496c-adc3-57fe541857fe",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 6,
+      "topics": [
+        "parsing",
+        "strings"
+      ]
+    },
+    {
+      "slug": "variable-length-quantity",
+      "uuid": "4c49ea84-8765-42b0-b4ab-5dead802eeee",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 7,
+      "topics": [
+        "algorithms",
+        "bitwise_operations"
+      ]
+    },
+    {
+      "slug": "dominoes",
+      "uuid": "0409f45f-b65e-4404-a9e7-2ef432d834b2",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 8,
+      "topics": [
+        "arrays",
+        "tuples"
+      ]
+    },
+    {
+      "slug": "forth",
+      "uuid": "a2ba6202-f6e0-46f4-95e4-5921656f2e1a",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 10,
+      "topics": [
+        "parsing",
+        "stacks"
       ]
     },
     {
@@ -216,17 +272,6 @@
         "arrays",
         "math",
         "transforming"
-      ]
-    },
-    {
-      "slug": "high-scores",
-      "uuid": "f52d9be9-7044-4001-8678-dcae91a8d7f3",
-      "core": false,
-      "unlocked_by": "series",
-      "difficulty": 1,
-      "topics": [
-        "lists",
-        "strings"
       ]
     },
     {
@@ -299,17 +344,6 @@
       ]
     },
     {
-      "slug": "hamming",
-      "uuid": "05162ee0-38ac-40ad-a591-d70a74b6963a",
-      "core": false,
-      "unlocked_by": "hello-world",
-      "difficulty": 2,
-      "topics": [
-        "filtering",
-        "strings"
-      ]
-    },
-    {
       "slug": "grains",
       "uuid": "372c71b6-6256-4fe2-bddc-55667e3861af",
       "core": false,
@@ -342,6 +376,28 @@
       ]
     },
     {
+      "slug": "raindrops",
+      "uuid": "29ae7f8e-a009-4175-9350-a8c684c89730",
+      "core": false,
+      "unlocked_by": "high-scores",
+      "difficulty": 2,
+      "topics": [
+        "filtering",
+        "strings"
+      ]
+    },
+    {
+      "slug": "binary-search",
+      "uuid": "f92ff94a-73e6-41cb-a376-835c2368b358",
+      "core": false,
+      "unlocked_by": "allergies",
+      "difficulty": 3,
+      "topics": [
+        "arrays",
+        "searching"
+      ]
+    },
+    {
       "slug": "phone-number",
       "uuid": "5675771e-1a46-40bd-8923-f6e09642cc0c",
       "core": false,
@@ -356,7 +412,7 @@
       "slug": "strain",
       "uuid": "fdb19da7-28df-429b-83e5-d024abe97870",
       "core": false,
-      "unlocked_by": "raindrops",
+      "unlocked_by": "high-scores",
       "difficulty": 3,
       "topics": [
         "filtering",
@@ -377,22 +433,10 @@
       "slug": "proverb",
       "uuid": "b0a978a6-9c3f-427e-8ada-0a3951ca14fd",
       "core": false,
-      "unlocked_by": "raindrops",
+      "unlocked_by": "high-scores",
       "difficulty": 3,
       "topics": [
         "algorithms",
-        "strings"
-      ]
-    },
-    {
-      "slug": "robot-name",
-      "uuid": "46b8aea8-1528-43cb-a754-495ec2790ce2",
-      "core": false,
-      "unlocked_by": "hello-world",
-      "difficulty": 3,
-      "topics": [
-        "classes",
-        "randomness",
         "strings"
       ]
     },
@@ -444,7 +488,7 @@
       "slug": "beer-song",
       "uuid": "4ae402a7-5345-429a-a6af-e95ec5b95e13",
       "core": false,
-      "unlocked_by": "raindrops",
+      "unlocked_by": "high-scores",
       "difficulty": 3,
       "topics": [
         "algorithms",
@@ -455,7 +499,7 @@
       "slug": "sieve",
       "uuid": "1897605a-afd4-49fe-b6ee-cd822f0d8acc",
       "core": false,
-      "unlocked_by": "raindrops",
+      "unlocked_by": "high-scores",
       "difficulty": 3,
       "topics": [
         "filtering",
@@ -506,6 +550,29 @@
       ]
     },
     {
+      "slug": "kindergarten-garden",
+      "uuid": "b7458404-2534-4ed8-8350-7060fa4b5786",
+      "core": false,
+      "unlocked_by": "allergies",
+      "difficulty": 3,
+      "topics": [
+        "enumerations",
+        "parsing"
+      ]
+    },
+    {
+      "slug": "saddle-points",
+      "uuid": "cb755a7d-e01d-4758-92ab-9d2e6518a3eb",
+      "core": false,
+      "unlocked_by": "circular-buffer",
+      "difficulty": 4,
+      "topics": [
+        "arrays",
+        "matrices",
+        "tuples"
+      ]
+    },
+    {
       "slug": "bank-account",
       "uuid": "96c641c8-4c3c-47ff-9e32-9722b5ca2c37",
       "core": false,
@@ -542,23 +609,11 @@
       "slug": "matrix",
       "uuid": "73509caa-9b3e-4d09-933f-364c1a7e5519",
       "core": false,
-      "unlocked_by": "kindergarten-garden",
+      "unlocked_by": "allergies",
       "difficulty": 4,
       "topics": [
         "matrices",
         "parsing"
-      ]
-    },
-    {
-      "slug": "rotational-cipher",
-      "uuid": "8a0a291d-8330-4901-bdbe-f974e163158e",
-      "core": false,
-      "unlocked_by": "bob",
-      "difficulty": 4,
-      "topics": [
-        "algorithms",
-        "strings",
-        "transforming"
       ]
     },
     {
@@ -578,7 +633,7 @@
       "slug": "house",
       "uuid": "97aa0e82-2fc3-49e2-ad27-faef2873b328",
       "core": false,
-      "unlocked_by": "raindrops",
+      "unlocked_by": "high-scores",
       "difficulty": 4,
       "topics": [
         "algorithms",
@@ -690,6 +745,28 @@
       ]
     },
     {
+      "slug": "markdown",
+      "uuid": "dee4abe1-c75f-4cb8-b5f3-5b5b77e1c7aa",
+      "core": false,
+      "unlocked_by": "spiral-matrix",
+      "difficulty": 5,
+      "topics": [
+        "parsing",
+        "refactoring",
+        "transforming"
+      ]
+    },
+    {
+      "slug": "book-store",
+      "uuid": "8288d3e0-75a4-4a18-94c7-2fab3228dc58",
+      "core": false,
+      "unlocked_by": "dominoes",
+      "difficulty": 5,
+      "topics": [
+        "recursion"
+      ]
+    },
+    {
       "slug": "list-ops",
       "uuid": "3b5b11b0-9476-4d9b-a4c5-c5c48d3d32a8",
       "core": false,
@@ -750,7 +827,7 @@
       "slug": "minesweeper",
       "uuid": "466f17d4-13d0-4d6e-8564-c8bdfede35d1",
       "core": false,
-      "unlocked_by": "kindergarten-garden",
+      "unlocked_by": "allergies",
       "difficulty": 5,
       "topics": [
         "parsing",
@@ -796,7 +873,7 @@
       "slug": "grep",
       "uuid": "a9909a03-ce2e-45d9-85f8-a77f44fb2466",
       "core": false,
-      "unlocked_by": "markdown",
+      "unlocked_by": "spiral-matrix",
       "difficulty": 5,
       "topics": [
         "files",
@@ -829,22 +906,11 @@
       "slug": "scale-generator",
       "uuid": "c7d5acc6-68a6-4cd8-a28b-359dceb1e56f",
       "core": false,
-      "unlocked_by": "kindergarten-garden",
+      "unlocked_by": "allergies",
       "difficulty": 5,
       "topics": [
         "algorithms",
         "parsing"
-      ]
-    },
-    {
-      "slug": "bracket-push",
-      "uuid": "a2070019-e56d-4d48-994b-300411598707",
-      "core": false,
-      "unlocked_by": "bob",
-      "difficulty": 5,
-      "topics": [
-        "parsing",
-        "strings"
       ]
     },
     {
@@ -886,7 +952,7 @@
       "slug": "custom-set",
       "uuid": "a6dff389-07ea-42cb-98ec-271ce7cfeda3",
       "core": false,
-      "unlocked_by": "book-store",
+      "unlocked_by": "dominoes",
       "difficulty": 5,
       "topics": [
         "sets"
@@ -908,7 +974,7 @@
       "slug": "ocr-numbers",
       "uuid": "2a5ddf5e-e677-4eef-b759-087d71e15986",
       "core": false,
-      "unlocked_by": "kindergarten-garden",
+      "unlocked_by": "allergies",
       "difficulty": 5,
       "topics": [
         "parsing",
@@ -916,21 +982,10 @@
       ]
     },
     {
-      "slug": "circular-buffer",
-      "uuid": "657ac368-9b17-4f87-b815-decfe2bc0b5d",
-      "core": false,
-      "unlocked_by": "markdown",
-      "difficulty": 5,
-      "topics": [
-        "classes",
-        "queues"
-      ]
-    },
-    {
       "slug": "luhn",
       "uuid": "20fe4853-0eee-4171-b3c1-8ef871b99d13",
       "core": false,
-      "unlocked_by": "markdown",
+      "unlocked_by": "spiral-matrix",
       "difficulty": 5,
       "topics": [
         "algorithms",
@@ -942,22 +997,11 @@
       "slug": "run-length-encoding",
       "uuid": "4ad0d49a-e10b-4f8b-b454-623b9396d559",
       "core": false,
-      "unlocked_by": "markdown",
+      "unlocked_by": "spiral-matrix",
       "difficulty": 5,
       "topics": [
         "algorithms",
         "transforming"
-      ]
-    },
-    {
-      "slug": "spiral-matrix",
-      "uuid": "bae1f3a4-b63d-4efd-921a-133b3d5e379c",
-      "core": false,
-      "unlocked_by": "kindergarten-garden",
-      "difficulty": 5,
-      "topics": [
-        "algorithms",
-        "matrices"
       ]
     },
     {
@@ -973,21 +1017,10 @@
       ]
     },
     {
-      "slug": "tournament",
-      "uuid": "d9359f25-dc94-496c-adc3-57fe541857fe",
-      "core": false,
-      "unlocked_by": "kindergarten-garden",
-      "difficulty": 6,
-      "topics": [
-        "parsing",
-        "strings"
-      ]
-    },
-    {
       "slug": "word-search",
       "uuid": "2b05d7dd-0f0b-4fa4-a2bf-9d7fa28a7543",
       "core": false,
-      "unlocked_by": "markdown",
+      "unlocked_by": "spiral-matrix",
       "difficulty": 6,
       "topics": [
         "searching",
@@ -998,7 +1031,7 @@
       "slug": "bowling",
       "uuid": "64eff1cb-990d-45bc-a9e7-8f574e114ece",
       "core": false,
-      "unlocked_by": "markdown",
+      "unlocked_by": "spiral-matrix",
       "difficulty": 6,
       "topics": [
         "algorithms",
@@ -1009,7 +1042,7 @@
       "slug": "transpose",
       "uuid": "2634c53c-ba4d-4729-b936-a7ec387f4789",
       "core": false,
-      "unlocked_by": "markdown",
+      "unlocked_by": "spiral-matrix",
       "difficulty": 6,
       "topics": [
         "strings",
@@ -1020,7 +1053,7 @@
       "slug": "nth-prime",
       "uuid": "60ef0713-70e2-4ee7-9207-86910e616ec1",
       "core": false,
-      "unlocked_by": "book-store",
+      "unlocked_by": "dominoes",
       "difficulty": 6,
       "topics": [
         "math"
@@ -1030,7 +1063,7 @@
       "slug": "pig-latin",
       "uuid": "63bdd2d4-b395-41ca-8c58-b3d94bf1e696",
       "core": false,
-      "unlocked_by": "book-store",
+      "unlocked_by": "dominoes",
       "difficulty": 6,
       "topics": [
         "strings",
@@ -1041,7 +1074,7 @@
       "slug": "rail-fence-cipher",
       "uuid": "e338fed5-f850-4922-88b2-7e9ec0eb7299",
       "core": false,
-      "unlocked_by": "book-store",
+      "unlocked_by": "dominoes",
       "difficulty": 6,
       "topics": [
         "algorithms",
@@ -1053,7 +1086,7 @@
       "slug": "change",
       "uuid": "44796c6c-39b3-41c7-8ea5-ffb9738423b8",
       "core": false,
-      "unlocked_by": "binary-search",
+      "unlocked_by": "allergies",
       "difficulty": 6,
       "topics": [
         "arrays",
@@ -1064,7 +1097,7 @@
       "slug": "palindrome-products",
       "uuid": "165b8599-726d-43dd-8511-1401525810de",
       "core": false,
-      "unlocked_by": "saddle-points",
+      "unlocked_by": "circular-buffer",
       "difficulty": 6,
       "topics": [
         "algorithms",
@@ -1088,7 +1121,7 @@
       "slug": "poker",
       "uuid": "d03a9508-336a-4425-8f47-f04317d1ba15",
       "core": false,
-      "unlocked_by": "kindergarten-garden",
+      "unlocked_by": "allergies",
       "difficulty": 7,
       "topics": [
         "games",
@@ -1100,7 +1133,7 @@
       "slug": "diffie-hellman",
       "uuid": "3bea029d-ccc2-48be-90f3-84bf2d5b825b",
       "core": false,
-      "unlocked_by": "book-store",
+      "unlocked_by": "dominoes",
       "difficulty": 7,
       "topics": [
         "algorithms",
@@ -1110,21 +1143,10 @@
       ]
     },
     {
-      "slug": "dominoes",
-      "uuid": "0409f45f-b65e-4404-a9e7-2ef432d834b2",
-      "core": false,
-      "unlocked_by": "binary-search",
-      "difficulty": 7,
-      "topics": [
-        "arrays",
-        "tuples"
-      ]
-    },
-    {
       "slug": "rectangles",
       "uuid": "817ccde1-0593-4091-85a5-616f4f8823f0",
       "core": false,
-      "unlocked_by": "kindergarten-garden",
+      "unlocked_by": "allergies",
       "difficulty": 7,
       "topics": [
         "parsing",
@@ -1135,7 +1157,7 @@
       "slug": "wordy",
       "uuid": "57ef1936-d187-4915-888b-374f09c794c7",
       "core": false,
-      "unlocked_by": "kindergarten-garden",
+      "unlocked_by": "allergies",
       "difficulty": 7,
       "topics": [
         "parsing",
@@ -1147,7 +1169,7 @@
       "slug": "zebra-puzzle",
       "uuid": "e167479e-e77d-4734-b8c0-a7cd686c74a3",
       "core": false,
-      "unlocked_by": "book-store",
+      "unlocked_by": "dominoes",
       "difficulty": 8,
       "topics": [
         "logic"
@@ -1157,7 +1179,7 @@
       "slug": "hangman",
       "uuid": "c9b12d50-09dc-4f43-9e7e-66b277432347",
       "core": false,
-      "unlocked_by": "saddle-points",
+      "unlocked_by": "circular-buffer",
       "difficulty": 8,
       "topics": [
         "events",
@@ -1168,7 +1190,7 @@
       "slug": "diamond",
       "uuid": "2f3faeb7-7cc3-42ed-9525-cd9c73922a8d",
       "core": false,
-      "unlocked_by": "saddle-points",
+      "unlocked_by": "circular-buffer",
       "difficulty": 8,
       "topics": [
         "algorithms",
@@ -1179,7 +1201,7 @@
       "slug": "two-bucket",
       "uuid": "b33c3b86-e04b-4529-bdf5-9d553ad59f87",
       "core": false,
-      "unlocked_by": "saddle-points",
+      "unlocked_by": "circular-buffer",
       "difficulty": 8,
       "topics": [
         "logic"
@@ -1189,7 +1211,7 @@
       "slug": "connect",
       "uuid": "ca56c362-c9f5-4403-9a2d-2e31e54b35e3",
       "core": false,
-      "unlocked_by": "kindergarten-garden",
+      "unlocked_by": "allergies",
       "difficulty": 8,
       "topics": [
         "parsing",
@@ -1200,7 +1222,7 @@
       "slug": "say",
       "uuid": "34518ea7-c202-443a-b28f-e873f3207f89",
       "core": false,
-      "unlocked_by": "kindergarten-garden",
+      "unlocked_by": "allergies",
       "difficulty": 8,
       "topics": [
         "strings",
@@ -1211,7 +1233,7 @@
       "slug": "react",
       "uuid": "3e86c66d-c66e-4e28-834d-09b33b2ee2d2",
       "core": false,
-      "unlocked_by": "saddle-points",
+      "unlocked_by": "circular-buffer",
       "difficulty": 9,
       "topics": [
         "classes",
@@ -1220,21 +1242,10 @@
       ]
     },
     {
-      "slug": "variable-length-quantity",
-      "uuid": "4c49ea84-8765-42b0-b4ab-5dead802eeee",
-      "core": false,
-      "unlocked_by": "allergies",
-      "difficulty": 9,
-      "topics": [
-        "algorithms",
-        "bitwise_operations"
-      ]
-    },
-    {
       "slug": "go-counting",
       "uuid": "1abbc58c-9a04-4b6f-afe1-85d3e4d202e1",
       "core": false,
-      "unlocked_by": "saddle-points",
+      "unlocked_by": "circular-buffer",
       "difficulty": 9,
       "topics": [
         "optional_values",
@@ -1246,7 +1257,7 @@
       "slug": "sgf-parsing",
       "uuid": "da255a02-8007-41e4-8a9e-7e2cfbe81be5",
       "core": false,
-      "unlocked_by": "kindergarten-garden",
+      "unlocked_by": "allergies",
       "difficulty": 9,
       "topics": [
         "parsing",
@@ -1257,7 +1268,7 @@
       "slug": "zipper",
       "uuid": "db77fbd1-29d9-40e6-a32e-9fb89acdc9fc",
       "core": false,
-      "unlocked_by": "markdown",
+      "unlocked_by": "spiral-matrix",
       "difficulty": 10,
       "topics": [
         "recursion",
@@ -1277,21 +1288,10 @@
       ]
     },
     {
-      "slug": "forth",
-      "uuid": "a2ba6202-f6e0-46f4-95e4-5921656f2e1a",
-      "core": false,
-      "unlocked_by": "markdown",
-      "difficulty": 10,
-      "topics": [
-        "parsing",
-        "stacks"
-      ]
-    },
-    {
       "slug": "pov",
       "uuid": "a5794706-58d2-48f7-8aab-78639d7bce77",
       "core": false,
-      "unlocked_by": "markdown",
+      "unlocked_by": "spiral-matrix",
       "difficulty": 10,
       "topics": [
         "graphs",
@@ -1303,7 +1303,7 @@
       "slug": "rest-api",
       "uuid": "4c89b6a8-0e89-46c9-5a7e-31bfe6a57007",
       "core": false,
-      "unlocked_by": "markdown",
+      "unlocked_by": "spiral-matrix",
       "difficulty": 6,
       "topics": [
         "json",
