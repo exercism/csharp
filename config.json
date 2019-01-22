@@ -444,7 +444,7 @@
       "slug": "protein-translation",
       "uuid": "75a2d5f0-5f5e-46a3-9dd2-3da415690e18",
       "core": false,
-      "unlocked_by": "series",
+      "unlocked_by": "hamming",
       "difficulty": 3,
       "topics": [
         "lists",
@@ -499,7 +499,7 @@
       "slug": "sieve",
       "uuid": "1897605a-afd4-49fe-b6ee-cd822f0d8acc",
       "core": false,
-      "unlocked_by": "high-scores",
+      "unlocked_by": "robot-name",
       "difficulty": 3,
       "topics": [
         "filtering",
@@ -542,7 +542,7 @@
       "slug": "secret-handshake",
       "uuid": "1ad236a9-7035-42e6-90ec-f6a4b94ad495",
       "core": false,
-      "unlocked_by": "series",
+      "unlocked_by": "hamming",
       "difficulty": 3,
       "topics": [
         "arrays",
@@ -667,7 +667,7 @@
       "slug": "anagram",
       "uuid": "790216d1-4fd9-4a9b-94f8-e1e07a18c2b7",
       "core": false,
-      "unlocked_by": "bob",
+      "unlocked_by": "robot-name",
       "difficulty": 4,
       "topics": [
         "filtering",
@@ -781,7 +781,7 @@
       "slug": "simple-cipher",
       "uuid": "54649fb0-6b14-44df-85af-ae1f7a62449d",
       "core": false,
-      "unlocked_by": "series",
+      "unlocked_by": "hamming",
       "difficulty": 5,
       "topics": [
         "algorithms",
@@ -793,7 +793,7 @@
       "slug": "roman-numerals",
       "uuid": "d3702b93-7bb3-4e0a-8cd7-974ad93b0d3d",
       "core": false,
-      "unlocked_by": "series",
+      "unlocked_by": "hamming",
       "difficulty": 5,
       "topics": [
         "control_flow_loops",
@@ -917,7 +917,7 @@
       "slug": "linked-list",
       "uuid": "49b557ad-0bf0-451b-9a12-6dd9eb0291a2",
       "core": false,
-      "unlocked_by": "clock",
+      "unlocked_by": "bracket-push",
       "difficulty": 5,
       "topics": [
         "classes",
@@ -940,7 +940,7 @@
       "slug": "ledger",
       "uuid": "c1cc752e-99a2-4da3-8d0c-82e08f1c6110",
       "core": false,
-      "unlocked_by": "allergies",
+      "unlocked_by": "rotational-cipher",
       "difficulty": 5,
       "topics": [
         "globalization",
@@ -962,7 +962,7 @@
       "slug": "dot-dsl",
       "uuid": "d128ec4b-190f-4726-b3e7-870be09531aa",
       "core": false,
-      "unlocked_by": "clock",
+      "unlocked_by": "bracket-push",
       "difficulty": 5,
       "topics": [
         "classes",
@@ -974,7 +974,7 @@
       "slug": "ocr-numbers",
       "uuid": "2a5ddf5e-e677-4eef-b759-087d71e15986",
       "core": false,
-      "unlocked_by": "allergies",
+      "unlocked_by": "rotational-cipher",
       "difficulty": 5,
       "topics": [
         "parsing",
@@ -997,7 +997,7 @@
       "slug": "run-length-encoding",
       "uuid": "4ad0d49a-e10b-4f8b-b454-623b9396d559",
       "core": false,
-      "unlocked_by": "spiral-matrix",
+      "unlocked_by": "variable-length-quantity",
       "difficulty": 5,
       "topics": [
         "algorithms",
@@ -1031,7 +1031,7 @@
       "slug": "bowling",
       "uuid": "64eff1cb-990d-45bc-a9e7-8f574e114ece",
       "core": false,
-      "unlocked_by": "spiral-matrix",
+      "unlocked_by": "tournament",
       "difficulty": 6,
       "topics": [
         "algorithms",
@@ -1042,7 +1042,7 @@
       "slug": "transpose",
       "uuid": "2634c53c-ba4d-4729-b936-a7ec387f4789",
       "core": false,
-      "unlocked_by": "spiral-matrix",
+      "unlocked_by": "variable-length-quantity",
       "difficulty": 6,
       "topics": [
         "strings",
@@ -1063,7 +1063,7 @@
       "slug": "pig-latin",
       "uuid": "63bdd2d4-b395-41ca-8c58-b3d94bf1e696",
       "core": false,
-      "unlocked_by": "dominoes",
+      "unlocked_by": "variable-length-quantity",
       "difficulty": 6,
       "topics": [
         "strings",
@@ -1121,7 +1121,7 @@
       "slug": "poker",
       "uuid": "d03a9508-336a-4425-8f47-f04317d1ba15",
       "core": false,
-      "unlocked_by": "allergies",
+      "unlocked_by": "tournament",
       "difficulty": 7,
       "topics": [
         "games",
@@ -1190,7 +1190,7 @@
       "slug": "diamond",
       "uuid": "2f3faeb7-7cc3-42ed-9525-cd9c73922a8d",
       "core": false,
-      "unlocked_by": "circular-buffer",
+      "unlocked_by": "bracket-push",
       "difficulty": 8,
       "topics": [
         "algorithms",
@@ -1222,7 +1222,7 @@
       "slug": "say",
       "uuid": "34518ea7-c202-443a-b28f-e873f3207f89",
       "core": false,
-      "unlocked_by": "allergies",
+      "unlocked_by": "variable-length-quantity",
       "difficulty": 8,
       "topics": [
         "strings",
@@ -1233,7 +1233,7 @@
       "slug": "react",
       "uuid": "3e86c66d-c66e-4e28-834d-09b33b2ee2d2",
       "core": false,
-      "unlocked_by": "circular-buffer",
+      "unlocked_by": "forth",
       "difficulty": 9,
       "topics": [
         "classes",
@@ -1268,7 +1268,7 @@
       "slug": "zipper",
       "uuid": "db77fbd1-29d9-40e6-a32e-9fb89acdc9fc",
       "core": false,
-      "unlocked_by": "spiral-matrix",
+      "unlocked_by": "forth",
       "difficulty": 10,
       "topics": [
         "recursion",
@@ -1291,7 +1291,7 @@
       "slug": "pov",
       "uuid": "a5794706-58d2-48f7-8aab-78639d7bce77",
       "core": false,
-      "unlocked_by": "spiral-matrix",
+      "unlocked_by": "forth",
       "difficulty": 10,
       "topics": [
         "graphs",
@@ -1303,7 +1303,7 @@
       "slug": "rest-api",
       "uuid": "4c89b6a8-0e89-46c9-5a7e-31bfe6a57007",
       "core": false,
-      "unlocked_by": "spiral-matrix",
+      "unlocked_by": "tournament",
       "difficulty": 6,
       "topics": [
         "json",
