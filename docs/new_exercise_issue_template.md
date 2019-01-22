@@ -2,7 +2,7 @@ There is a new exercise, [EXERCISE-NAME](https://github.com/exercism/problem-spe
 
 To implement the `EXERCISE-NAME` exercise, the following needs to be done:
 
-* Create a directory for the new exercise in the `exercises` directory (note: this has to match the exact exercise name).
+* Create a directory for the new exercise in the `exercises` directory (note: this has to exactly match `EXERCISE-NAME`).
 * Add a new entry to the [config.json](https://github.com/exercism/csharp/blob/master/config.json) file.
 * Create a generator to automatically convert the [canonical data](https://github.com/exercism/problem-specifications/blob/master/exercises/EXERCISE-NAME/canonical-data.json) to a test file. For more information on how to do this, check the [generators docs](https://github.com/exercism/csharp/blob/master/docs/GENERATORS.md).
 * Create a stub implementation file that contains the code necessary to compile (which are the methods called by the test file), but lacks an implementation. (see [this example](https://github.com/exercism/csharp/blob/master/exercises/two-fer/TwoFer.cs)).
