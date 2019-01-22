@@ -1,4 +1,4 @@
-There is a new exercise, **[exercise-name](https://github.com/exercism/problem-specifications/blob/master/exercises/exercise-name/description.md)**, which data can be found here: https://github.com/exercism/problem-specifications/tree/master/exercises/exercise-name
+There is a new exercise, [exercise-name](https://github.com/exercism/problem-specifications/blob/master/exercises/exercise-name/description.md), which data can be found here: https://github.com/exercism/problem-specifications/tree/master/exercises/exercise-name
 
 To implement the `exercise-name` exercise, the following needs to be done:
 
