@@ -45,7 +45,7 @@ public class RobotNameTest
         var names = new HashSet<string>();
         for (int i = 0; i < 10_000; i++) {
             var robot = new Robot();
-            Assert.DoesNotContain(names, name => name == robot.Name);
+            Assert.DoesNotContain(robot.Name, names);
             names.Add(robot.Name);
         }
     }
