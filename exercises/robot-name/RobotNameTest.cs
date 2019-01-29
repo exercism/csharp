@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Xunit;
 
 public class RobotNameTest
@@ -29,5 +30,23 @@ public class RobotNameTest
         var originalName = robot.Name;
         robot.Reset();
         Assert.NotEqual(originalName, robot.Name);
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void After_reset_the_name_is_valid()
+    {
+        robot.Reset();
+        Assert.Matches(@"^[A-Z]{2}\d{3}$", robot.Name);
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Robot_names_are_unique()
+    {
+        var names = new HashSet<string>();
+        for (int i = 0; i < 10_000; i++) {
+            var robot = new Robot();
+            Assert.DoesNotContain(robot.Name, names);
+            names.Add(robot.Name);
+        }
     }
 }

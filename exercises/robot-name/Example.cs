@@ -1,8 +1,10 @@
 using System;
+using System.Collections.Generic;
 
 public class Robot
 {
     private static readonly Random Random = new Random();
+    private static readonly HashSet<string> names = new HashSet<string>();
 
     public string Name { get; private set; }
 
@@ -13,7 +15,14 @@ public class Robot
 
     private static string GenerateName()
     {
-        return GetRandomCharacter() + GetRandomCharacter() + Random.Next(1000).ToString("000");
+        string name;
+        do
+        {
+            name = GetRandomCharacter() + GetRandomCharacter() + Random.Next(1000).ToString("000");
+        } while (names.Contains(name));
+
+        names.Add(name);
+        return name;
     }
 
     private static string GetRandomCharacter()
