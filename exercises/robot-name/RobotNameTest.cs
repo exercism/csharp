@@ -33,18 +33,20 @@ public class RobotNameTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void After_reset_the_name_is_valid() {
+    public void After_reset_the_name_is_valid()
+    {
         robot.Reset();
         Assert.Matches(@"^[A-Z]{2}\d{3}$", robot.Name);
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Robot_names_are_unique() {
+    public void Robot_names_are_unique()
+    {
         var names = new HashSet<string>();
         for (int i = 0; i < 10_000; i++) {
-            Assert.False(names.Contains(robot.Name), $"Name {robot.Name} was already used ({i})");
+            var robot = new Robot();
+            Assert.DoesNotContain(names, name => name == robot.Name);
             names.Add(robot.Name);
-            robot.Reset();
         }
     }
 }
