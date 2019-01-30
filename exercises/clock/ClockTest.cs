@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 2.3.0 of the canonical data.
+// This file was auto-generated based on version 2.4.0 of the canonical data.
 
 using Xunit;
 
@@ -121,6 +121,13 @@ public class ClockTest
     {
         var sut = new Clock(1, -4820);
         Assert.Equal("16:40", sut.ToString());
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Negative_sixty_minutes_is_previous_hour()
+    {
+        var sut = new Clock(2, -60);
+        Assert.Equal("01:00", sut.ToString());
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -359,5 +366,13 @@ public class ClockTest
     {
         var sut = new Clock(0, 0);
         Assert.Equal(new Clock(24, 0), sut);
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Clocks_are_immutable()
+    {
+        var sut = new Clock(0, 0);
+        var sutPlus1 = sut.Add(1);
+        Assert.NotEqual(sutPlus1, sut);
     }
 }

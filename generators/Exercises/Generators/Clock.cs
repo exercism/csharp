@@ -18,6 +18,17 @@ namespace Exercism.CSharp.Exercises.Generators
                 UpdateTestMethodForConsistencyProperty(testMethod);
         }
 
+        protected override void UpdateTestClass(TestClass testClass)
+        {
+            testClass.AdditionalMethods.Add(@"[Fact(Skip = ""Remove to run test"")]
+public void Clocks_are_immutable()
+{
+    var sut = new Clock(0, 0);
+    var sutPlus1 = sut.Add(1);
+    Assert.NotEqual(sutPlus1, sut);
+}");
+        }
+
         private static void UpdateTestMethodForCreateProperty(TestMethod testMethod)
         {
             testMethod.TestedMethod = "ToString";
@@ -39,7 +50,7 @@ namespace Exercism.CSharp.Exercises.Generators
         {
             var expected = Render.Object(testMethod.Input["clock1"]);
 
-            return testMethod.Expected 
+            return testMethod.Expected
                 ? Render.AssertEqual(expected, "sut")
                 : Render.AssertNotEqual(expected, "sut");
         }
@@ -49,7 +60,7 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.Assert = RenderConsistencyToAssert(testMethod);
         }
 
-        private string RenderConsistencyToAssert(TestMethod testMethod) 
+        private string RenderConsistencyToAssert(TestMethod testMethod)
             => Render.AssertEqual(Render.Object(testMethod.Expected), $"sut.{testMethod.TestedMethod}({testMethod.Input["value"]}).ToString()");
     }
 }
