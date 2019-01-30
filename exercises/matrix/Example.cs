@@ -14,8 +14,8 @@ public class Matrix
     public int Rows => _rows.Length;
     public int Cols => _cols.Length;
 
-    public int[] Row(int row) => _rows[row];
-    public int[] Column(int col) => _cols[col];
+    public int[] Row(int row) => _rows[row - 1];
+    public int[] Column(int col) => _cols[col - 1];
 
     private static int[][] ParseRows(string input)
     {

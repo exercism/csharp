@@ -11,6 +11,6 @@ public static class Acronym
 
     private static IEnumerable<string> Words(string phrase)
     {
-        return Regex.Matches(phrase, "[A-Z]+[a-z]*|[a-z]+").Cast<Match>().Select(m => m.Value);
+        return Regex.Matches(phrase, "[A-Z]+[a-z']*|[a-z']+").Cast<Match>().Select(m => m.Value);
     }
 }

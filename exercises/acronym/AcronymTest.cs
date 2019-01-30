@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.5.0 of the canonical data.
+// This file was auto-generated based on version 1.7.0 of the canonical data.
 
 using Xunit;
 
@@ -44,5 +44,17 @@ public class AcronymTest
     public void Consecutive_delimiters()
     {
         Assert.Equal("SIMUFTA", Acronym.Abbreviate("Something - I made up from thin air"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Apostrophes()
+    {
+        Assert.Equal("HC", Acronym.Abbreviate("Halley's Comet"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Underscore_emphasis()
+    {
+        Assert.Equal("TRNT", Acronym.Abbreviate("The Road _Not_ Taken"));
     }
 }

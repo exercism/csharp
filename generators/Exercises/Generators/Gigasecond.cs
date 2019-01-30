@@ -9,7 +9,7 @@ namespace Exercism.CSharp.Exercises.Generators
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            testMethod.Input["birthdate"] = DateTime.Parse(testMethod.Input["birthdate"].ToString());
+            testMethod.Input["moment"] = DateTime.Parse(testMethod.Input["moment"].ToString());
         }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
