@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.3.0 of the canonical data.
+// This file was auto-generated based on version 1.5.0 of the canonical data.
 
 using System;
 using Xunit;
@@ -15,7 +15,7 @@ public class SaddlePointsTest
              { 6, 6, 7 }
         };
         var actual = SaddlePoints.Calculate(matrix);
-        var expected = new[] { (1, 0) };
+        var expected = new[] { (2, 1) };
         Assert.Equal(expected, actual);
     }
 
@@ -50,7 +50,7 @@ public class SaddlePointsTest
              { 1, 5, 4 }
         };
         var actual = SaddlePoints.Calculate(matrix);
-        var expected = new[] { (0, 1), (1, 1), (2, 1) };
+        var expected = new[] { (1, 2), (2, 2), (3, 2) };
         Assert.Equal(expected, actual);
     }
 
@@ -64,7 +64,7 @@ public class SaddlePointsTest
              { 7, 5, 6 }
         };
         var actual = SaddlePoints.Calculate(matrix);
-        var expected = new[] { (1, 0), (1, 1), (1, 2) };
+        var expected = new[] { (2, 1), (2, 2), (2, 3) };
         Assert.Equal(expected, actual);
     }
 
@@ -78,7 +78,7 @@ public class SaddlePointsTest
              { 3, 2, 5 }
         };
         var actual = SaddlePoints.Calculate(matrix);
-        var expected = new[] { (2, 2) };
+        var expected = new[] { (3, 3) };
         Assert.Equal(expected, actual);
     }
 
@@ -91,7 +91,7 @@ public class SaddlePointsTest
              { 3, 2, 4 }
         };
         var actual = SaddlePoints.Calculate(matrix);
-        var expected = new[] { (0, 0), (0, 2) };
+        var expected = new[] { (1, 1), (1, 3) };
         Assert.Equal(expected, actual);
     }
 
@@ -106,7 +106,7 @@ public class SaddlePointsTest
              { 1 }
         };
         var actual = SaddlePoints.Calculate(matrix);
-        var expected = new[] { (1, 0), (3, 0) };
+        var expected = new[] { (2, 1), (4, 1) };
         Assert.Equal(expected, actual);
     }
 
@@ -118,7 +118,7 @@ public class SaddlePointsTest
              { 2, 5, 3, 5 }
         };
         var actual = SaddlePoints.Calculate(matrix);
-        var expected = new[] { (0, 1), (0, 3) };
+        var expected = new[] { (1, 2), (1, 4) };
         Assert.Equal(expected, actual);
     }
 }

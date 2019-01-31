@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.2.0 of the canonical data.
+// This file was auto-generated based on version 1.4.0 of the canonical data.
 
 using Xunit;
 
@@ -47,9 +47,21 @@ public class LuhnTest
     }
 
     [Fact(Skip = "Remove to run test")]
+    public void Valid_number_with_an_even_number_of_digits()
+    {
+        Assert.True(Luhn.IsValid("095 245 88"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
     public void Valid_strings_with_a_non_digit_included_become_invalid()
     {
         Assert.False(Luhn.IsValid("055a 444 285"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Valid_strings_with_a_non_digit_added_at_the_end_become_invalid()
+    {
+        Assert.False(Luhn.IsValid("059a"));
     }
 
     [Fact(Skip = "Remove to run test")]

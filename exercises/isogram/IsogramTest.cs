@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.6.0 of the canonical data.
+// This file was auto-generated based on version 1.7.0 of the canonical data.
 
 using Xunit;
 
@@ -50,6 +50,12 @@ public class IsogramTest
     public void Hypothetical_isogrammic_word_with_hyphen()
     {
         Assert.True(Isogram.IsIsogram("thumbscrew-japingly"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Hypothetical_word_with_duplicated_character_following_hyphen()
+    {
+        Assert.False(Isogram.IsIsogram("thumbscrew-jappingly"));
     }
 
     [Fact(Skip = "Remove to run test")]

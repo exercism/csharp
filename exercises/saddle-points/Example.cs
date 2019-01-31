@@ -10,7 +10,9 @@ public class SaddlePoints
         var columnCount = matrix.GetLength(1);
         var maxRows = Rows(matrix, rowCount, columnCount).Select(r => r.Max()).ToArray();
         var minCols = Columns(matrix, columnCount, rowCount).Select(r => r.Min()).ToArray();
-        return Coordinates(rowCount, columnCount).Where(x => IsSaddlePoint(x, maxRows, minCols, matrix))
+        return Coordinates(rowCount, columnCount)
+            .Where(x => IsSaddlePoint(x, maxRows, minCols, matrix))
+            .Select(pair => (pair.Item1 + 1, pair.Item2 + 1))
             .ToArray();
     }
 
