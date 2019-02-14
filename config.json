@@ -54,14 +54,13 @@
       ]
     },
     {
-      "slug": "series",
-      "uuid": "9ca46617-4995-45cc-a2dd-b8630eaa288b",
+      "slug": "resistor-color",
+      "uuid": "5314dbee-4a0d-4fd6-a98a-36a746ee0d5c",
       "core": true,
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-        "arrays",
-        "strings"
+        "arrays"
       ]
     },
     {
@@ -266,7 +265,7 @@
       "slug": "sum-of-multiples",
       "uuid": "d985d4a9-1a2b-4bb1-ad08-961b8d36ee2e",
       "core": false,
-      "unlocked_by": "series",
+      "unlocked_by": "resistor-color",
       "difficulty": 1,
       "topics": [
         "arrays",
@@ -275,10 +274,21 @@
       ]
     },
     {
+      "slug": "series",
+      "uuid": "9ca46617-4995-45cc-a2dd-b8630eaa288b",
+      "core": false,
+      "unlocked_by": "resistor-color",
+      "difficulty": 1,
+      "topics": [
+        "arrays",
+        "strings"
+      ]
+    },
+    {
       "slug": "accumulate",
       "uuid": "3c0563dc-665a-45b4-9b29-f133e235efd0",
       "core": false,
-      "unlocked_by": "series",
+      "unlocked_by": "resistor-color",
       "difficulty": 2,
       "topics": [
         "extension_methods",
@@ -335,7 +345,7 @@
       "slug": "difference-of-squares",
       "uuid": "5554c048-0de3-4a85-b043-7577f429cba4",
       "core": false,
-      "unlocked_by": "series",
+      "unlocked_by": "resistor-color",
       "difficulty": 1,
       "topics": [
         "control_flow_loops",
@@ -620,7 +630,7 @@
       "slug": "largest-series-product",
       "uuid": "4a6621bb-e55a-4ae2-89e3-3aa7e37a8656",
       "core": false,
-      "unlocked_by": "series",
+      "unlocked_by": "resistor-color",
       "difficulty": 4,
       "topics": [
         "integers",
@@ -644,7 +654,7 @@
       "slug": "pythagorean-triplet",
       "uuid": "4d5a53df-3d6b-46cb-a964-71c676f3cd93",
       "core": false,
-      "unlocked_by": "series",
+      "unlocked_by": "resistor-color",
       "difficulty": 4,
       "topics": [
         "integers",
@@ -690,7 +700,7 @@
       "slug": "prime-factors",
       "uuid": "456ffe2c-e241-4373-8bea-d4d328f815e9",
       "core": false,
-      "unlocked_by": "series",
+      "unlocked_by": "resistor-color",
       "difficulty": 4,
       "topics": [
         "integers",
@@ -711,7 +721,7 @@
       "slug": "all-your-base",
       "uuid": "de5e2eff-2b80-4996-a322-dc59ebe25edd",
       "core": false,
-      "unlocked_by": "series",
+      "unlocked_by": "resistor-color",
       "difficulty": 4,
       "topics": [
         "integers",
@@ -723,7 +733,7 @@
       "slug": "pascals-triangle",
       "uuid": "d5d48857-5325-45d2-9969-95a0d7bba370",
       "core": false,
-      "unlocked_by": "series",
+      "unlocked_by": "resistor-color",
       "difficulty": 4,
       "topics": [
         "arrays",
