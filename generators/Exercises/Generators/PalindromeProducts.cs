@@ -10,7 +10,7 @@ namespace Exercism.CSharp.Exercises.Generators
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            if (testMethod.ExpectedIsError)
+            if (ShouldThrowException(testMethod))
             {
                 testMethod.ExceptionThrown = typeof(ArgumentException);
             }
@@ -22,6 +22,9 @@ namespace Exercism.CSharp.Exercises.Generators
                 testMethod.Assert = RenderAssert();
             }
         }
+
+        private static bool ShouldThrowException(TestMethod testMethod) =>
+            testMethod.ExpectedIsError || testMethod.Expected["value"] is null;
 
         private string RenderAssert()
         {
