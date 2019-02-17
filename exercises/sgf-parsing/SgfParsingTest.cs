@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.0.0 of the canonical data.
+// This file was auto-generated based on version 1.2.0 of the canonical data.
 
 using System;
 using System.Collections.Generic;
@@ -31,7 +31,7 @@ public class SgfParsingTest
     public void Node_without_properties()
     {
         var encoded = "(;)";
-        var expected = new SgfTree(new Dictionary<string, string[]>());
+        var expected = new SgfTree(new Dictionary<string, string[]>() );
         Assert.Equal(expected, SgfParser.ParseTree(encoded));
     }
 
@@ -40,6 +40,14 @@ public class SgfParsingTest
     {
         var encoded = "(;A[B])";
         var expected = new SgfTree(new Dictionary<string, string[]> { ["A"] = new[] { "B" } } );
+        Assert.Equal(expected, SgfParser.ParseTree(encoded));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Multiple_properties()
+    {
+        var encoded = "(;A[b]C[d])";
+        var expected = new SgfTree(new Dictionary<string, string[]> { ["A"] = new[] { "b" }, ["C"] = new[] { "d" } } );
         Assert.Equal(expected, SgfParser.ParseTree(encoded));
     }
 

@@ -18,7 +18,7 @@ public class SgfTree : IEquatable<SgfTree>
     {
         var otherData = other.Data;
 
-        foreach (var d in this.Data)
+        foreach (var d in Data)
             if (!d.Value.SequenceEqual(otherData.Where(od => od.Key == d.Key)?.FirstOrDefault().Value))
                 return false;
 
@@ -32,30 +32,44 @@ public class SgfTree : IEquatable<SgfTree>
 
 public static class SgfParser
 {
-    private static char Unescape(char c) => c == 'n' ? '\n' : c == 'r' || c == 't' ? ' ' : c == ']' ? ']'  : c;
     private static string ToString(IEnumerable<char> chars) => new string(chars.ToArray());
+    private static string ToString(char c) => c.ToString();
 
+    private static char Unescape(char c) => c == 'n' ? '\n' : c == 'r' || c == 't' ? ' ' : c == ']' ? ']'  : c;
+    
     private static readonly Parser<char> NormalChar = Parse.Char(c => c != '\\' && c != ']', "Normal char");
-    private static readonly Parser<char> EscapedChar = Parse.Char('\\').Then(_ => Parse.AnyChar.Token().Select(Unescape));
+    private static readonly Parser<char> EscapedChar = Parse.Char('\\').Then(_ => Parse.AnyChar.Select(Unescape));
     private static readonly Parser<string> CValueType = EscapedChar.Or(NormalChar).Many().Select(ToString);
-    private static readonly Parser<string> PropValue = CValueType.Contained(Parse.Char('['), Parse.Char(']'));
-    private static readonly Parser<string> PropIdent = Parse.Char(char.IsUpper, "Upper case character").Select(c => c.ToString());
-    private static readonly Parser<IDictionary<string, string[]>> Property = PropIdent.Then(ident => PropValue.AtLeastOnce().Select(values => PropertyToData(ident, values)));
 
+    private static Parser<string> Value() =>
+        CValueType.Contained(Parse.Char('['), Parse.Char(']'));
 
-    private static readonly Parser<IDictionary<string, string[]>> Node = Parse.Char(';').Then(_ => Property.Optional().Select(o => o.GetOrDefault() ?? new Dictionary<string, string[]>()));
+    private static Parser<KeyValuePair<string, string[]>> Property() =>
+        from key in Parse.Upper.Select(ToString)
+        from values in Value().AtLeastOnce().Select(values => values.ToArray())
+        select new KeyValuePair<string, string[]>(key, values);
 
-    private static Parser<SgfTree> GameTree() =>
-        Parse.Char('(').Then(c =>
-            Node.AtLeastOnce().Then(nodes =>
-                GameTree().Many().Then(trees => Parse.Char(')')
-                    .Select(___ => NodesToTree(nodes, trees)))));
+    private static Parser<Dictionary<string, string[]>> Properties() =>
+        from properties in Property().Many().Select(properties => properties.ToArray())
+        select new Dictionary<string, string[]>(properties);
+
+    private static Parser<Dictionary<string, string[]>> Node() =>
+        from _ in Parse.Char(';')
+        from properties in Properties()
+        select properties;
+    
+    private static Parser<SgfTree> Tree() =>
+        from open in Parse.Char('(')
+        from nodes in Node().Many()
+        from children in Tree().Many()
+        from close in Parse.Char(')')
+        select NodesToTree(nodes, children);
 
     public static SgfTree ParseTree(string input)
     {
         try
         {
-            return GameTree().Parse(input);
+            return Tree().Parse(input);
         }
         catch (Exception e)
         {
@@ -79,10 +93,4 @@ public static class SgfParser
 
         return new SgfTree(properties.First(), NodesToTree(properties.Skip(1), trees));
     }
-
-    private static IDictionary<string, string[]> PropertyToData(string key, IEnumerable<string> values) =>
-        new Dictionary<string, string[]>
-        {
-            [key] = values.ToArray()
-        };
 }
