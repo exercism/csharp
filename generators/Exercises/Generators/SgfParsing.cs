@@ -20,7 +20,7 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.TestedMethod = "ParseTree";
             testMethod.UseVariablesForInput = true;
             testMethod.UseVariableForExpected = true;
-            testMethod.Input["encoded"] = testMethod.Input.FirstOrDefault().Value.Replace("\\","\\\\");
+            testMethod.Input["encoded"] = testMethod.Input.FirstOrDefault().Value.Replace("\\", "\\\\");
         }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
@@ -41,16 +41,13 @@ namespace Exercism.CSharp.Exercises.Generators
             {
                 var children = string.Empty;
 
-                if(tree["children"] is JArray)
-                    children = string.Join(",", ((JArray)tree["children"]).Select(RenderTree));
-
-                if (tree["children"] is object[])
+                if (tree["children"] is JArray)
+                    children = string.Join(", ", ((JArray)tree["children"]).Select(RenderTree));
+                else if (tree["children"] is object[])
                     children = string.Join(", ", ((object[])tree["children"]).Select(RenderTree));
 
                 if (!string.IsNullOrEmpty(children))
-                    children = "," + children;
-
-                return new UnescapedValue($"new SgfTree({label} {children})");
+                    return new UnescapedValue($"new SgfTree({label}, {children})");
             }
 
             return new UnescapedValue($"new SgfTree({label})");
