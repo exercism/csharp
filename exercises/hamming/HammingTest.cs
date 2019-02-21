@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 2.2.0 of the canonical data.
+// This file was auto-generated based on version 2.3.0 of the canonical data.
 
 using System;
 using Xunit;
@@ -45,5 +45,17 @@ public class HammingTest
     public void Disallow_second_strand_longer()
     {
         Assert.Throws<ArgumentException>(() => Hamming.Distance("ATA", "AGTG"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Disallow_left_empty_strand()
+    {
+        Assert.Throws<ArgumentException>(() => Hamming.Distance("", "G"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Disallow_right_empty_strand()
+    {
+        Assert.Throws<ArgumentException>(() => Hamming.Distance("G", ""));
     }
 }
