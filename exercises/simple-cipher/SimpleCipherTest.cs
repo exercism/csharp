@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.2.0 of the canonical data.
+// This file was auto-generated based on version 2.0.0 of the canonical data.
 
 using System;
 using Xunit;
@@ -76,9 +76,16 @@ public class SimpleCipherTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Substitution_cipher_can_handle_messages_longer_than_the_key()
+    public void Substitution_cipher_can_encode_messages_longer_than_the_key()
     {
         var sut = new SimpleCipher("abc");
         Assert.Equal("iboaqcnecbfcr", sut.Encode("iamapandabear"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Substitution_cipher_can_decode_messages_longer_than_the_key()
+    {
+        var sut = new SimpleCipher("abc");
+        Assert.Equal("iamapandabear", sut.Decode("iboaqcnecbfcr"));
     }
 }
