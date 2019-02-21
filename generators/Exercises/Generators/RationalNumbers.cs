@@ -28,17 +28,12 @@ namespace Exercism.CSharp.Exercises.Generators
                 case "exprational":
                     return Render.AssertEqual(RenderRationalNumber(testMethod.Expected), $"{RenderRationalNumber(testMethod.Input["r"])}.{testMethod.TestedMethod}({testMethod.Input["n"]})");
                 case "expreal":
-                    return Render.AssertEqualWithin(Render.Object(testMethod.Expected), $"{testMethod.Input["x"]}.{testMethod.TestedMethod}({RenderRationalNumber(testMethod.Input["r"])})", Precision(testMethod.Expected));
+                    return Render.AssertEqualWithin(Render.Object(testMethod.Expected), $"{testMethod.Input["x"]}.{testMethod.TestedMethod}({RenderRationalNumber(testMethod.Input["r"])})", 7);
                 default:
                     throw new ArgumentOutOfRangeException();
             }
         }
 
         private static string RenderRationalNumber(dynamic input) => $"new RationalNumber({input[0]}, {input[1]})";
-
-        private static int Precision(object rawValue)
-            => rawValue.ToString().Split(new[] { '.' }).Length <= 1
-                    ? 0
-                    : rawValue.ToString().Split(new[] { '.' })[1].Length;
     }
 }
