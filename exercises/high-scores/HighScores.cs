@@ -24,12 +24,7 @@ public class HighScores
         throw new NotImplementedException();
     }
 
-    public List<int> PersonalTop()
-    {
-        throw new NotImplementedException();
-    }
-
-    public string Report()
+    public List<int> PersonalTopThree()
     {
         throw new NotImplementedException();
     }
