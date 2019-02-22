@@ -291,7 +291,7 @@ public class BowlingTest
         Assert.Throws<ArgumentException>(() => sut.Roll(2));
     }
 
-    public void DoRoll(IEnumerable<int> rolls, BowlingGame sut)
+    private void DoRoll(IEnumerable<int> rolls, BowlingGame sut)
     {
         foreach (var roll in rolls)
         {

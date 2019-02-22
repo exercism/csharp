@@ -78,7 +78,7 @@ namespace Exercism.CSharp.Exercises.Generators
         private static void AddDoRollMethod(TestClass testClass)
         {
             testClass.AdditionalMethods.Add(@"
-public void DoRoll(IEnumerable<int> rolls, BowlingGame sut)
+private void DoRoll(IEnumerable<int> rolls, BowlingGame sut)
 {
     foreach (var roll in rolls)
     {
