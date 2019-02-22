@@ -16,7 +16,4 @@ public static class Triangle
     {
         throw new NotImplementedException("You need to implement this function.");
     }
-    
 }
-
-public class TriangleException : Exception { }

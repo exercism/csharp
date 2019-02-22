@@ -11,7 +11,6 @@ public enum TriangleKind
 
 public static class Triangle
 {
-    
     public static bool IsScalene(double side1, double side2, double side3)
     {
         return Kind(side1, side2, side3) == TriangleKind.Scalene;
@@ -66,5 +65,3 @@ public static class Triangle
         return sides.Distinct().Count();
     }
 }
-
-public class TriangleException : Exception { }
