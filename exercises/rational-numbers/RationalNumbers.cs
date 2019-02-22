@@ -15,19 +15,9 @@ public struct RationalNumber
     {
     }
 
-    public RationalNumber Add(RationalNumber r)
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
-
     public static RationalNumber operator +(RationalNumber r1, RationalNumber r2)
     {
         throw new NotImplementedException("You need to implement this operator.");
-    }
-
-    public RationalNumber Sub(RationalNumber r)
-    {
-        throw new NotImplementedException("You need to implement this function.");
     }
 
     public static RationalNumber operator -(RationalNumber r1, RationalNumber r2)
@@ -35,19 +25,9 @@ public struct RationalNumber
         throw new NotImplementedException("You need to implement this operator.");
     }
 
-    public RationalNumber Mul(RationalNumber r)
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
-
     public static RationalNumber operator *(RationalNumber r1, RationalNumber r2)
     {
         throw new NotImplementedException("You need to implement this operator.");
-    }
-
-    public RationalNumber Div(RationalNumber r)
-    {
-        throw new NotImplementedException("You need to implement this function.");
     }
 
     public static RationalNumber operator /(RationalNumber r1, RationalNumber r2)
