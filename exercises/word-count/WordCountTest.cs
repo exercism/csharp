@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.2.0 of the canonical data.
+// This file was auto-generated based on version 1.3.0 of the canonical data.
 
 using System.Collections.Generic;
 using Xunit;
@@ -149,6 +149,19 @@ public class WordCountTest
         {
             ["multiple"] = 1,
             ["whitespaces"] = 1
+        };
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Alternating_word_separators_not_detected_as_a_word()
+    {
+        var actual = WordCount.CountWords(",\n,one,\n ,two \n 'three'");
+        var expected = new Dictionary<string, int>
+        {
+            ["one"] = 1,
+            ["two"] = 1,
+            ["three"] = 1
         };
         Assert.Equal(expected, actual);
     }

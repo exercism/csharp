@@ -169,7 +169,7 @@ public class RationalNumbersTest
     [Fact(Skip = "Remove to run test")]
     public void Raise_a_real_number_to_a_positive_rational_number()
     {
-        Assert.Equal(16, 8.Expreal(new RationalNumber(4, 3)), precision: 0);
+        Assert.Equal(16, 8.Expreal(new RationalNumber(4, 3)), precision: 7);
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -181,7 +181,7 @@ public class RationalNumbersTest
     [Fact(Skip = "Remove to run test")]
     public void Raise_a_real_number_to_a_zero_rational_number()
     {
-        Assert.Equal(1, 2.Expreal(new RationalNumber(0, 1)), precision: 0);
+        Assert.Equal(1, 2.Expreal(new RationalNumber(0, 1)), precision: 7);
     }
 
     [Fact(Skip = "Remove to run test")]
