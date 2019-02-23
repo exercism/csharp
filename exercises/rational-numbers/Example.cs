@@ -22,45 +22,25 @@ public struct RationalNumber
     public int Numerator { get; }
     public int Denominator { get; }
 
-    public RationalNumber Add(RationalNumber r)
-    {
-        return ReducedRationalNumber(this.Numerator * r.Denominator + this.Denominator * r.Numerator, this.Denominator * r.Denominator);
-    }
-
     public static RationalNumber operator+ (RationalNumber r1, RationalNumber r2)
     {
-        return r1.Add(r2);
-    }
-
-    public RationalNumber Sub(RationalNumber r)
-    {
-        return ReducedRationalNumber(this.Numerator * r.Denominator - this.Denominator * r.Numerator, this.Denominator * r.Denominator);
+        return ReducedRationalNumber(r1.Numerator * r2.Denominator + r1.Denominator * r2.Numerator, r1.Denominator * r2.Denominator);
     }
 
     public static RationalNumber operator -(RationalNumber r1, RationalNumber r2)
     {
-        return r1.Sub(r2);
-    }
-
-    public RationalNumber Mul(RationalNumber r)
-    {
-        if (this.Numerator == 0) return new RationalNumber(0, 1);
-        return ReducedRationalNumber(this.Numerator * r.Numerator, this.Denominator * r.Denominator);
+        return ReducedRationalNumber(r1.Numerator * r2.Denominator - r1.Denominator * r2.Numerator, r1.Denominator * r2.Denominator);
     }
 
     public static RationalNumber operator *(RationalNumber r1, RationalNumber r2)
     {
-        return r1.Mul(r2);
-    }
-
-    public RationalNumber Div(RationalNumber r)
-    {
-        return ReducedRationalNumber(this.Numerator * r.Denominator, this.Denominator * r.Numerator);
+        if (r1.Numerator == 0) return new RationalNumber(0, 1);
+        return ReducedRationalNumber(r1.Numerator * r2.Numerator, r1.Denominator * r2.Denominator);
     }
 
     public static RationalNumber operator /(RationalNumber r1, RationalNumber r2)
     {
-        return r1.Div(r2);
+        return ReducedRationalNumber(r1.Numerator * r2.Denominator, r1.Denominator * r2.Numerator);
     }
 
     public RationalNumber Abs()
