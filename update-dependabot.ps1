@@ -13,6 +13,11 @@ foreach ($path in $paths)
 	$relativePath = $relativePath.Replace(".\", "/")
 	$relativePath = $relativePath.Replace("\", "/")
 	
+	if ($relativePath.StartsWith("/build"))
+	{
+		continue
+	}
+	
 	[void]$output.AppendLine("    - package_manager: `"dotnet:nuget`"")
 	[void]$output.AppendLine("      directory: `"" + $relativePath + "`"")
 	[void]$output.AppendLine("      update_schedule: `"live`"")
