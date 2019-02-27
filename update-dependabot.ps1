@@ -13,7 +13,7 @@ foreach ($path in $paths)
 	$relativePath = $relativePath.Replace(".\", "/")
 	$relativePath = $relativePath.Replace("\", "/")
 	
-	if ($relativePath.StartsWith("/build"))
+	if ($relativePath.StartsWith("/build/"))
 	{
 		continue
 	}
