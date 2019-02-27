@@ -21,6 +21,10 @@ foreach ($path in $paths)
 	[void]$output.AppendLine("    - package_manager: `"dotnet:nuget`"")
 	[void]$output.AppendLine("      directory: `"" + $relativePath + "`"")
 	[void]$output.AppendLine("      update_schedule: `"live`"")
+	[void]$output.AppendLine("      automerged_updates:")
+	[void]$output.AppendLine("        - match:")
+	[void]$output.AppendLine("            dependency_type: `"all`"")
+	[void]$output.AppendLine("            update_type: `"semver:minor`"")
 	[void]$output.AppendLine("")
 }
 
