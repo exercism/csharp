@@ -29,9 +29,9 @@ This image is a great example of the Caesar Cipher:
 
 For example:
 
-Giving "iamapandabear" as input to the encode method returns the cipher "ldpdsdqgdehdu". Obscure enough to keep our message secret in transit.
+Giving "iamapandabear" as input to the encode function returns the cipher "ldpdsdqgdehdu". Obscure enough to keep our message secret in transit.
 
-When "ldpdsdqgdehdu" is put into the decode method it would return
+When "ldpdsdqgdehdu" is put into the decode function it would return
 the original "iamapandabear" letting your friend read your original
 message.
 
@@ -96,6 +96,3 @@ you're having trouble, please visit the exercism.io [C# language page](http://ex
 
 Substitution Cipher at Wikipedia [http://en.wikipedia.org/wiki/Substitution_cipher](http://en.wikipedia.org/wiki/Substitution_cipher)
 
-## Submitting Incomplete Solutions
-
-It's possible to submit an incomplete solution so you can see how others have completed the exercise.

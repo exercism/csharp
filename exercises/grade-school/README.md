@@ -52,5 +52,3 @@ you're having trouble, please visit the exercism.io [C# language page](http://ex
 
 A pairing session with Phil Battos at gSchool [http://gschool.it](http://gschool.it)
 
-## Submitting Incomplete Solutions
-It's possible to submit an incomplete solution so you can see how others have completed the exercise.

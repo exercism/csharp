@@ -80,5 +80,3 @@ you're having trouble, please visit the exercism.io [C# language page](http://ex
 
 A variation on JavaRanch CattleDrive, exercise 4a [http://www.javaranch.com/say.jsp](http://www.javaranch.com/say.jsp)
 
-## Submitting Incomplete Solutions
-It's possible to submit an incomplete solution so you can see how others have completed the exercise.
