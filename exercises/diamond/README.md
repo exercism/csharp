@@ -82,5 +82,3 @@ you're having trouble, please visit the exercism.io [C# language page](http://ex
 
 Seb Rose [http://claysnow.co.uk/recycling-tests-in-tdd/](http://claysnow.co.uk/recycling-tests-in-tdd/)
 
-## Submitting Incomplete Solutions
-It's possible to submit an incomplete solution so you can see how others have completed the exercise.

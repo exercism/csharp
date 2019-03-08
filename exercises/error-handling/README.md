@@ -23,5 +23,3 @@ using `exercism submit ErrorHandling.cs`
 For more detailed information about the C# track, including how to get help if
 you're having trouble, please visit the exercism.io [C# language page](http://exercism.io/languages/csharp/resources).
 
-## Submitting Incomplete Solutions
-It's possible to submit an incomplete solution so you can see how others have completed the exercise.

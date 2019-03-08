@@ -29,5 +29,3 @@ you're having trouble, please visit the exercism.io [C# language page](http://ex
 
 This is a classic toy problem, but we were reminded of it by seeing it in the Go Tour.
 
-## Submitting Incomplete Solutions
-It's possible to submit an incomplete solution so you can see how others have completed the exercise.

@@ -31,5 +31,3 @@ you're having trouble, please visit the exercism.io [C# language page](http://ex
 
 A variation on Problem 8 at Project Euler [http://projecteuler.net/problem=8](http://projecteuler.net/problem=8)
 
-## Submitting Incomplete Solutions
-It's possible to submit an incomplete solution so you can see how others have completed the exercise.
