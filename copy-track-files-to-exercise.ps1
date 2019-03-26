@@ -1,0 +1,1 @@
+Get-Childitem –Path exercises -Directory | ForEach-Object { Copy-Item .editorconfig -Destination $_.FullName }
