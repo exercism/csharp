@@ -12,7 +12,7 @@ root = true
 [*]
 indent_style = space
 
-[*.cs]
+[SgfParsing.cs]
 indent_size = 4
 
 ###############################

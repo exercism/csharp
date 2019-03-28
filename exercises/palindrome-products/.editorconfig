@@ -12,7 +12,7 @@ root = true
 [*]
 indent_style = space
 
-[*.cs]
+[PalindromeProducts.cs]
 indent_size = 4
 
 ###############################

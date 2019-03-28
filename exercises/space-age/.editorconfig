@@ -12,7 +12,7 @@ root = true
 [*]
 indent_style = space
 
-[*.cs]
+[SpaceAge.cs]
 indent_size = 4
 
 ###############################
