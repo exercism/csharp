@@ -12,7 +12,7 @@ root = true
 [*]
 indent_style = space
 
-[*.cs]
+[FlattenArray.cs]
 indent_size = 4
 
 ###############################

@@ -12,7 +12,7 @@ root = true
 [*]
 indent_style = space
 
-[*.cs]
+[SecretHandshake.cs]
 indent_size = 4
 
 ###############################
