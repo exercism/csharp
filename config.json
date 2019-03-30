@@ -551,7 +551,7 @@
       "slug": "secret-handshake",
       "uuid": "1ad236a9-7035-42e6-90ec-f6a4b94ad495",
       "core": false,
-      "unlocked_by": "hamming",
+      "unlocked_by": "allergies",
       "difficulty": 3,
       "topics": [
         "arrays",
