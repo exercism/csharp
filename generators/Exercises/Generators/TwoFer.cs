@@ -7,7 +7,7 @@ namespace Exercism.CSharp.Exercises.Generators
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
-            testMethod.TestedMethod = "Name";
+            testMethod.TestedMethod = "Speak";
             
             if (testMethod.Input["name"] is null)
                 testMethod.InputParameters = Array.Empty<string>();
