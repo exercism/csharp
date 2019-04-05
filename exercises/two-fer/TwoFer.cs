@@ -1,8 +1,6 @@
-﻿using System;
-
-public static class TwoFer
+﻿public static class TwoFer
 {
-    public static string Name(string input = null)
+    public static string Speak()
     {
         throw new NotImplementedException("You need to implement this function.");
     }
