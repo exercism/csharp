@@ -1,22 +1,20 @@
+dist: xenial
 language: csharp
-dist: trusty
-dotnet: 2.0.0
 mono: none
+dotnet: 2.2.203
+addons:
+  apt:
+    packages:
+    - powershell
 env:
   global:
     - DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
     - DOTNET_CLI_TELEMETRY_OPTOUT: 1
-addons:
-  apt:
-    sources:
-    - sourceline: 'deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod trusty main'
-      key_url: 'https://packages.microsoft.com/keys/microsoft.asc'
-    packages:
-    - dotnet-dev-1.0.4
+before_install:
+  - export PATH=$HOME/.dotnet/tools:$PATH
 script:
-  - ./bin/fetch-configlet
-  - ./bin/configlet lint .
-  - ./build.sh
+  - pwsh ./build.ps1
 cache:
   directories:
   - $HOME/.nuget/packages
+  - $HOME/.dotnet/tools
