@@ -1,0 +1,3 @@
+[submodule "problem-specifications"]
+	path = problem-specifications
+	url = https://github.com/exercism/problem-specifications.git
