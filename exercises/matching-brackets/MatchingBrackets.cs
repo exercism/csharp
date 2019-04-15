@@ -1,6 +1,6 @@
 using System;
 
-public static class BracketPush
+public static class MatchingBrackets
 {
     public static bool IsPaired(string input)
     {

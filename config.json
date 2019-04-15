@@ -185,7 +185,7 @@
       ]
     },
     {
-      "slug": "bracket-push",
+      "slug": "matching-brackets",
       "uuid": "a2070019-e56d-4d48-994b-300411598707",
       "core": true,
       "unlocked_by": null,
@@ -926,7 +926,7 @@
       "slug": "linked-list",
       "uuid": "49b557ad-0bf0-451b-9a12-6dd9eb0291a2",
       "core": false,
-      "unlocked_by": "bracket-push",
+      "unlocked_by": "matching-brackets",
       "difficulty": 5,
       "topics": [
         "classes",
@@ -971,7 +971,7 @@
       "slug": "dot-dsl",
       "uuid": "d128ec4b-190f-4726-b3e7-870be09531aa",
       "core": false,
-      "unlocked_by": "bracket-push",
+      "unlocked_by": "matching-brackets",
       "difficulty": 5,
       "topics": [
         "classes",
@@ -1199,7 +1199,7 @@
       "slug": "diamond",
       "uuid": "2f3faeb7-7cc3-42ed-9525-cd9c73922a8d",
       "core": false,
-      "unlocked_by": "bracket-push",
+      "unlocked_by": "matching-brackets",
       "difficulty": 8,
       "topics": [
         "algorithms",
