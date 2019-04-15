@@ -30,7 +30,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStore", "book-store\Boo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bowling", "bowling\Bowling.csproj", "{CE0CA302-A594-422D-A215-E78F2F3AF0CE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BracketPush", "bracket-push\BracketPush.csproj", "{A9584773-6FD0-42CB-B94E-A61125C5C1E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MatchingBrackets", "matching-brackets\MatchingBrackets.csproj", "{A9584773-6FD0-42CB-B94E-A61125C5C1E7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Change", "change\Change.csproj", "{31595C04-4C0E-4A72-90A1-054EE5C47BFC}"
 EndProject
