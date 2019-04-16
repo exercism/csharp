@@ -39,7 +39,7 @@
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-        "control_flow_if_else_statements",
+        "conditionals",
         "integers"
       ]
     },
@@ -170,7 +170,7 @@
       "difficulty": 4,
       "topics": [
         "classes",
-        "structural_equality"
+        "equality"
       ]
     },
     {
@@ -180,7 +180,7 @@
       "unlocked_by": null,
       "difficulty": 4,
       "topics": [
-        "control_flow_if_else_statements",
+        "conditionals",
         "strings"
       ]
     },
@@ -303,8 +303,8 @@
       "difficulty": 2,
       "topics": [
         "algorithms",
-        "control_flow_conditionals",
-        "control_flow_loops",
+        "conditionals",
+        "loops",
         "integers",
         "math"
       ]
@@ -347,7 +347,7 @@
       "unlocked_by": "resistor-color",
       "difficulty": 1,
       "topics": [
-        "control_flow_loops",
+        "loops",
         "integers",
         "math"
       ]
@@ -736,7 +736,7 @@
       "difficulty": 4,
       "topics": [
         "arrays",
-        "control_flow_loops",
+        "loops",
         "math"
       ]
     },
@@ -805,7 +805,7 @@
       "unlocked_by": "hamming",
       "difficulty": 5,
       "topics": [
-        "control_flow_loops",
+        "loops",
         "transforming"
       ]
     },
@@ -827,7 +827,6 @@
       "unlocked_by": "grade-school",
       "difficulty": 5,
       "topics": [
-        "overloading",
         "searching",
         "trees"
       ]
@@ -851,7 +850,7 @@
       "difficulty": 5,
       "topics": [
         "dictionaries",
-        "parallellism",
+        "parallelism",
         "transforming"
       ]
     },
@@ -1044,7 +1043,7 @@
       "difficulty": 6,
       "topics": [
         "algorithms",
-        "control_flow_loops"
+        "loops"
       ]
     },
     {
