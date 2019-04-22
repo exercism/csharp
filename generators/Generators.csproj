@@ -9,7 +9,7 @@
     <PackageReference Include="DotLiquid" Version="2.0.298" />
     <PackageReference Include="Humanizer" Version="2.6.2" />
     <PackageReference Include="LibGit2Sharp.Portable" Version="0.24.10" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
     <PackageReference Include="serilog" Version="2.8.0" />
     <PackageReference Include="serilog.sinks.literate" Version="3.0.0" />
   </ItemGroup>
