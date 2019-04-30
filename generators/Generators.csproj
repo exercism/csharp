@@ -5,7 +5,7 @@
     <RootNamespace>Exercism.CSharp</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="CommandLineParser" Version="2.4.3" />
+    <PackageReference Include="CommandLineParser" Version="2.5.0" />
     <PackageReference Include="DotLiquid" Version="2.0.298" />
     <PackageReference Include="Humanizer" Version="2.6.2" />
     <PackageReference Include="LibGit2Sharp.Portable" Version="0.24.10" />
