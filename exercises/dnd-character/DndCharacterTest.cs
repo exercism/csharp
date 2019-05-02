@@ -140,4 +140,36 @@ public class DndCharacterTest
             Assert.Equal(sut.Charisma, sut.Charisma);
         }
     }
+    
+    [Fact(Skip = "Remove to run test")]
+    public void Random_ability_is_distributed_correctly()
+    {
+        var idealDistribution = new Dictionary<int, int>() {
+            [3] = 1,            [4] = 4,
+            [5] = 10,           [6] = 21,
+            [7] = 38,           [8] = 62,
+            [9] = 91,           [10] = 122,
+            [11] = 148,         [12] = 167,
+            [13] = 172,         [14] = 160,
+            [15] = 131,         [16] = 94,
+            [17] = 54,          [18] = 21
+        };
+        var distribution = new Dictionary<int, int>();
+        int times = 100;
+        for (var i = 3; i <= 18; i++)
+            distribution[i] = 0;
+        for (var i = 0; i < times * 6*6*6*6; i++)
+        {
+            var a = DndCharacter.Ability();
+            distribution[a] += 1;
+        }
+        int min(int ideal) {
+            return (int)(ideal * (times * 0.8));
+        }
+        int max(int ideal) {
+            return (int)(ideal * (times * 1.2));
+        }
+        foreach (var k in idealDistribution.Keys)
+            Assert.InRange(distribution[k], min(idealDistribution[k]), max(idealDistribution[k]));
+    }
 }
