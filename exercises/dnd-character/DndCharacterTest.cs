@@ -156,12 +156,13 @@ public class DndCharacterTest
         };
         var actualDistribution = new Dictionary<int, int>();
         int times = 100;
+        const int POSSIBLE_COMBINATIONS_COUNT = 6*6*6*6; // 4d6
         for (var i = 3; i <= 18; i++)
-            distribution[i] = 0;
-        for (var i = 0; i < times * 6*6*6*6; i++)
+            actualDistribution[i] = 0;
+        for (var i = 0; i < times * POSSIBLE_COMBINATIONS_COUNT; i++)
         {
             var ability = DndCharacter.Ability();
-            distribution[a]++;
+            actualDistribution[ability]++;
         }
         int min(int ideal) {
             return (int)(ideal * (times * 0.8));
@@ -170,6 +171,6 @@ public class DndCharacterTest
             return (int)(ideal * (times * 1.2));
         }
         foreach (var k in idealDistribution.Keys)
-            Assert.InRange(distribution[k], min(idealDistribution[k]), max(idealDistribution[k]));
+            Assert.InRange(actualDistribution[k], min(idealDistribution[k]), max(idealDistribution[k]));
     }
 }
