@@ -161,7 +161,7 @@ public class DndCharacterTest
         for (var i = 0; i < times * 6*6*6*6; i++)
         {
             var a = DndCharacter.Ability();
-            distribution[a] += 1;
+            distribution[a]++;
         }
         int min(int ideal) {
             return (int)(ideal * (times * 0.8));
