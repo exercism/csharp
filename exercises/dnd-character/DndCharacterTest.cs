@@ -144,18 +144,18 @@ public class DndCharacterTest
     [Fact(Skip = "Remove to run test")]
     public void Random_ability_is_distributed_correctly()
     {
-        var idealDistribution = new Dictionary<int, int>() {
-            [3] = 1,            [4] = 4,
-            [5] = 10,           [6] = 21,
-            [7] = 38,           [8] = 62,
-            [9] = 91,           [10] = 122,
-            [11] = 148,         [12] = 167,
-            [13] = 172,         [14] = 160,
-            [15] = 131,         [16] = 94,
-            [17] = 54,          [18] = 21
+        var expectedDistribution = new Dictionary<int, int>() {
+            [3] = 1,        [4] = 4,
+            [5] = 10,       [6] = 21,
+            [7] = 38,       [8] = 62,
+            [9] = 91,       [10] = 122,
+            [11] = 148,     [12] = 167,
+            [13] = 172,     [14] = 160,
+            [15] = 131,     [16] = 94,
+            [17] = 54,      [18] = 21
         };
         var actualDistribution = new Dictionary<int, int>();
-        int times = 100;
+        var times = 100;
         const int POSSIBLE_COMBINATIONS_COUNT = 6*6*6*6; // 4d6
         for (var i = 3; i <= 18; i++)
             actualDistribution[i] = 0;
@@ -164,13 +164,9 @@ public class DndCharacterTest
             var ability = DndCharacter.Ability();
             actualDistribution[ability]++;
         }
-        int min(int ideal) {
-            return (int)(ideal * (times * 0.8));
-        }
-        int max(int ideal) {
-            return (int)(ideal * (times * 1.2));
-        }
+        int min(int ideal) => (int)(ideal * (times * 0.8));
+        int max(int ideal) => (int)(ideal * (times * 1.2));
         foreach (var k in idealDistribution.Keys)
-            Assert.InRange(actualDistribution[k], min(idealDistribution[k]), max(idealDistribution[k]));
+            Assert.InRange(actualDistribution[k], min(expectedDistribution[k]), max(expectedDistribution[k]));
     }
 }
