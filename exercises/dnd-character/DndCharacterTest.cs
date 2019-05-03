@@ -154,7 +154,7 @@ public class DndCharacterTest
             [15] = 131,         [16] = 94,
             [17] = 54,          [18] = 21
         };
-        var distribution = new Dictionary<int, int>();
+        var actualDistribution = new Dictionary<int, int>();
         int times = 100;
         for (var i = 3; i <= 18; i++)
             distribution[i] = 0;
