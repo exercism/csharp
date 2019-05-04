@@ -21,6 +21,11 @@ namespace Exercism.CSharp.Exercises.Generators
                 UpdateTestMethodForStrengthProperty(testMethod);
         }
 
+        protected override void UpdateTestClass(TestClass testClass)
+        {
+            AddTestMethodForDistribution(testClass);
+        }
+
         private void UpdateTestMethodForAbilityProperty(TestMethod testMethod)
             => testMethod.Assert = RenderAssertForAbilityProperty(testMethod);
 
@@ -75,7 +80,40 @@ namespace Exercism.CSharp.Exercises.Generators
             return assert.ToString();
         }
 
+        private static void AddTestMethodForDistribution(TestClass testClass)
+        {
+            testClass.AdditionalMethods.Add(@"
+[Fact(Skip = ""Remove to run test"")]
+public void Random_ability_is_distributed_correctly()
+{
+    var expectedDistribution = new Dictionary<int, int>() {
+        [3] = 1,        [4] = 4,
+        [5] = 10,       [6] = 21,
+        [7] = 38,       [8] = 62,
+        [9] = 91,       [10] = 122,
+        [11] = 148,     [12] = 167,
+        [13] = 172,     [14] = 160,
+        [15] = 131,     [16] = 94,
+        [17] = 54,      [18] = 21
+    };
+    var actualDistribution = new Dictionary<int, int>();
+    var times = 100;
+    const int PossibleCombinationsCount = 6*6*6*6; // 4d6
+    for (var i = 3; i <= 18; i++)
+        actualDistribution[i] = 0;
+    for (var i = 0; i < times * PossibleCombinationsCount; i++)
+    {
+        var ability = DndCharacter.Ability();
+        actualDistribution[ability]++;
+    }
+    int min(int expected) => (int)(expected * (times * 0.8));
+    int max(int expected) => (int)(expected * (times * 1.2));
+    foreach (var k in idealDistribution.Keys)
+        Assert.InRange(actualDistribution[k], min(expectedDistribution[k]), max(expectedDistribution[k]));
+}");
+        }
         protected override void UpdateNamespaces(ISet<string> namespaces)
             => namespaces.Add(typeof(System.Linq.Enumerable).Namespace);
+
     }
 }

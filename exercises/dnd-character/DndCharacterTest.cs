@@ -140,7 +140,7 @@ public class DndCharacterTest
             Assert.Equal(sut.Charisma, sut.Charisma);
         }
     }
-    
+
     [Fact(Skip = "Remove to run test")]
     public void Random_ability_is_distributed_correctly()
     {
