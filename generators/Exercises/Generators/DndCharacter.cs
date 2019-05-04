@@ -112,8 +112,8 @@ public void Random_ability_is_distributed_correctly()
         Assert.InRange(actualDistribution[k], min(expectedDistribution[k]), max(expectedDistribution[k]));
 }");
         }
+
         protected override void UpdateNamespaces(ISet<string> namespaces)
             => namespaces.Add(typeof(System.Linq.Enumerable).Namespace);
-
     }
 }
