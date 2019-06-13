@@ -1,11 +1,11 @@
-// This file was auto-generated based on version 3.1.0 of the canonical data.
+// This file was auto-generated based on version 3.2.0 of the canonical data.
 
 using Xunit;
 
 public class RobotSimulatorTest
 {
     [Fact]
-    public void A_robot_is_created_with_a_position_and_a_direction_robots_are_created_with_a_position_and_direction()
+    public void Create_robot_at_origin_facing_north()
     {
         var sut = new RobotSimulator(Direction.North, 0, 0);
         Assert.Equal(Direction.North, sut.Direction);
@@ -14,7 +14,7 @@ public class RobotSimulatorTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void A_robot_is_created_with_a_position_and_a_direction_negative_positions_are_allowed()
+    public void Create_robot_at_negative_position_facing_south()
     {
         var sut = new RobotSimulator(Direction.South, -1, -1);
         Assert.Equal(Direction.South, sut.Direction);
@@ -23,7 +23,7 @@ public class RobotSimulatorTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Rotates_the_robots_direction_90_degrees_clockwise_changes_the_direction_from_north_to_east()
+    public void Rotating_clockwise_changes_north_to_east()
     {
         var sut = new RobotSimulator(Direction.North, 0, 0);
         sut.Move("R");
@@ -33,7 +33,7 @@ public class RobotSimulatorTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Rotates_the_robots_direction_90_degrees_clockwise_changes_the_direction_from_east_to_south()
+    public void Rotating_clockwise_changes_east_to_south()
     {
         var sut = new RobotSimulator(Direction.East, 0, 0);
         sut.Move("R");
@@ -43,7 +43,7 @@ public class RobotSimulatorTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Rotates_the_robots_direction_90_degrees_clockwise_changes_the_direction_from_south_to_west()
+    public void Rotating_clockwise_changes_south_to_west()
     {
         var sut = new RobotSimulator(Direction.South, 0, 0);
         sut.Move("R");
@@ -53,7 +53,7 @@ public class RobotSimulatorTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Rotates_the_robots_direction_90_degrees_clockwise_changes_the_direction_from_west_to_north()
+    public void Rotating_clockwise_changes_west_to_north()
     {
         var sut = new RobotSimulator(Direction.West, 0, 0);
         sut.Move("R");
@@ -63,7 +63,7 @@ public class RobotSimulatorTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Rotates_the_robots_direction_90_degrees_counter_clockwise_changes_the_direction_from_north_to_west()
+    public void Rotating_counter_clockwise_changes_north_to_west()
     {
         var sut = new RobotSimulator(Direction.North, 0, 0);
         sut.Move("L");
@@ -73,7 +73,7 @@ public class RobotSimulatorTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Rotates_the_robots_direction_90_degrees_counter_clockwise_changes_the_direction_from_west_to_south()
+    public void Rotating_counter_clockwise_changes_west_to_south()
     {
         var sut = new RobotSimulator(Direction.West, 0, 0);
         sut.Move("L");
@@ -83,7 +83,7 @@ public class RobotSimulatorTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Rotates_the_robots_direction_90_degrees_counter_clockwise_changes_the_direction_from_south_to_east()
+    public void Rotating_counter_clockwise_changes_south_to_east()
     {
         var sut = new RobotSimulator(Direction.South, 0, 0);
         sut.Move("L");
@@ -93,7 +93,7 @@ public class RobotSimulatorTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Rotates_the_robots_direction_90_degrees_counter_clockwise_changes_the_direction_from_east_to_north()
+    public void Rotating_counter_clockwise_changes_east_to_north()
     {
         var sut = new RobotSimulator(Direction.East, 0, 0);
         sut.Move("L");
@@ -103,7 +103,7 @@ public class RobotSimulatorTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Moves_the_robot_forward_1_space_in_the_direction_it_is_pointing_increases_the_y_coordinate_one_when_facing_north()
+    public void Moving_forward_one_facing_north_increments_y()
     {
         var sut = new RobotSimulator(Direction.North, 0, 0);
         sut.Move("A");
@@ -113,7 +113,7 @@ public class RobotSimulatorTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Moves_the_robot_forward_1_space_in_the_direction_it_is_pointing_decreases_the_y_coordinate_by_one_when_facing_south()
+    public void Moving_forward_one_facing_south_decrements_y()
     {
         var sut = new RobotSimulator(Direction.South, 0, 0);
         sut.Move("A");
@@ -123,7 +123,7 @@ public class RobotSimulatorTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Moves_the_robot_forward_1_space_in_the_direction_it_is_pointing_increases_the_x_coordinate_by_one_when_facing_east()
+    public void Moving_forward_one_facing_east_increments_x()
     {
         var sut = new RobotSimulator(Direction.East, 0, 0);
         sut.Move("A");
@@ -133,7 +133,7 @@ public class RobotSimulatorTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Moves_the_robot_forward_1_space_in_the_direction_it_is_pointing_decreases_the_x_coordinate_by_one_when_facing_west()
+    public void Moving_forward_one_facing_west_decrements_x()
     {
         var sut = new RobotSimulator(Direction.West, 0, 0);
         sut.Move("A");
@@ -143,7 +143,7 @@ public class RobotSimulatorTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Where_r_turn_right_l_turn_left_and_a_advance_the_robot_can_follow_a_series_of_instructions_and_end_up_with_the_correct_position_and_direction_instructions_to_move_east_and_north_from_readme()
+    public void Follow_series_of_instructions_moving_east_and_north_from_readme()
     {
         var sut = new RobotSimulator(Direction.North, 7, 3);
         sut.Move("RAALAL");
@@ -153,7 +153,7 @@ public class RobotSimulatorTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Where_r_turn_right_l_turn_left_and_a_advance_the_robot_can_follow_a_series_of_instructions_and_end_up_with_the_correct_position_and_direction_instructions_to_move_west_and_north()
+    public void Follow_series_of_instructions_moving_west_and_north()
     {
         var sut = new RobotSimulator(Direction.North, 0, 0);
         sut.Move("LAAARALA");
@@ -163,7 +163,7 @@ public class RobotSimulatorTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Where_r_turn_right_l_turn_left_and_a_advance_the_robot_can_follow_a_series_of_instructions_and_end_up_with_the_correct_position_and_direction_instructions_to_move_west_and_south()
+    public void Follow_series_of_instructions_moving_west_and_south()
     {
         var sut = new RobotSimulator(Direction.East, 2, -7);
         sut.Move("RRAAAAALA");
@@ -173,7 +173,7 @@ public class RobotSimulatorTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Where_r_turn_right_l_turn_left_and_a_advance_the_robot_can_follow_a_series_of_instructions_and_end_up_with_the_correct_position_and_direction_instructions_to_move_east_and_north()
+    public void Follow_series_of_instructions_moving_east_and_north()
     {
         var sut = new RobotSimulator(Direction.South, 8, 4);
         sut.Move("LAAARRRALLLL");
