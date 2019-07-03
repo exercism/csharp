@@ -101,7 +101,7 @@ public static class Markdown
         else
         {
             inListAfter = false;
-            return "</ul>" + ParseText(markdown, list);
+            return "</ul>" + ParseText(markdown, false);
         }
     }
 

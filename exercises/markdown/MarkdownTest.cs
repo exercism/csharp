@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.3.0 of the canonical data.
+// This file was auto-generated based on version 1.4.0 of the canonical data.
 
 using Xunit;
 
@@ -104,6 +104,18 @@ public class MarkdownTest
     {
         var markdown = "This is a paragraph with # and * in the text";
         var expected = "<p>This is a paragraph with # and * in the text</p>";
+        Assert.Equal(expected, Markdown.Parse(markdown));
+    }
+
+    [Fact]
+    public void Unordered_lists_close_properly_with_preceding_and_following_lines()
+    {
+        var markdown = 
+            "# Start a list\n" +
+            "* Item 1\n" +
+            "* Item 2\n" +
+            "End a list";
+        var expected = "<h1>Start a list</h1><ul><li>Item 1</li><li>Item 2</li></ul><p>End a list</p>";
         Assert.Equal(expected, Markdown.Parse(markdown));
     }
 }
