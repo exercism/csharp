@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.4.0 of the canonical data.
+// This file was auto-generated based on version 1.6.1 of the canonical data.
 
 using Xunit;
 
@@ -53,9 +53,9 @@ public class LuhnTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Valid_strings_with_a_non_digit_included_become_invalid()
+    public void Valid_number_with_an_odd_number_of_spaces()
     {
-        Assert.False(Luhn.IsValid("055a 444 285"));
+        Assert.True(Luhn.IsValid("234 567 891 234"));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -73,7 +73,7 @@ public class LuhnTest
     [Fact(Skip = "Remove to run test")]
     public void Valid_strings_with_symbols_included_become_invalid()
     {
-        Assert.False(Luhn.IsValid("055£ 444$ 285"));
+        Assert.False(Luhn.IsValid("055# 444$ 285"));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -95,7 +95,13 @@ public class LuhnTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Strings_with_non_digits_is_invalid()
+    public void Using_ascii_value_for_non_doubled_non_digit_isnt_allowed()
+    {
+        Assert.False(Luhn.IsValid("055b 444 285"));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Using_ascii_value_for_doubled_non_digit_isnt_allowed()
     {
         Assert.False(Luhn.IsValid(":9"));
     }

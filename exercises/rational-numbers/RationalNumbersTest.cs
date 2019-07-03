@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.0.0 of the canonical data.
+// This file was auto-generated based on version 1.1.0 of the canonical data.
 
 using Xunit;
 
@@ -119,9 +119,21 @@ public class RationalNumbersTest
     }
 
     [Fact(Skip = "Remove to run test")]
+    public void Absolute_value_of_a_positive_rational_number_with_negative_numerator_and_denominator()
+    {
+        Assert.Equal(new RationalNumber(1, 2), new RationalNumber(-1, -2).Abs());
+    }
+
+    [Fact(Skip = "Remove to run test")]
     public void Absolute_value_of_a_negative_rational_number()
     {
         Assert.Equal(new RationalNumber(1, 2), new RationalNumber(-1, 2).Abs());
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Absolute_value_of_a_negative_rational_number_with_negative_denominator()
+    {
+        Assert.Equal(new RationalNumber(1, 2), new RationalNumber(1, -2).Abs());
     }
 
     [Fact(Skip = "Remove to run test")]

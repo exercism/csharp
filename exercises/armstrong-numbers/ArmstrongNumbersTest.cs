@@ -1,10 +1,16 @@
-// This file was auto-generated based on version 1.0.0 of the canonical data.
+// This file was auto-generated based on version 1.1.0 of the canonical data.
 
 using Xunit;
 
 public class ArmstrongNumbersTest
 {
     [Fact]
+    public void Zero_is_an_armstrong_number()
+    {
+        Assert.True(ArmstrongNumbers.IsArmstrongNumber(0));
+    }
+
+    [Fact(Skip = "Remove to run test")]
     public void Single_digit_numbers_are_armstrong_numbers()
     {
         Assert.True(ArmstrongNumbers.IsArmstrongNumber(5));
