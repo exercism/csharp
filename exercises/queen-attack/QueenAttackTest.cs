@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 2.2.0 of the canonical data.
+// This file was auto-generated based on version 2.3.0 of the canonical data.
 
 using System;
 using Xunit;
@@ -86,8 +86,8 @@ public class QueenAttackTest
     [Fact(Skip = "Remove to run test")]
     public void Can_attack_on_fourth_diagonal()
     {
-        var whiteQueen = QueenAttack.Create(2,2);
-        var blackQueen = QueenAttack.Create(5,5);
+        var whiteQueen = QueenAttack.Create(1,7);
+        var blackQueen = QueenAttack.Create(0,6);
         Assert.True(QueenAttack.CanAttack(whiteQueen, blackQueen));
     }
 }

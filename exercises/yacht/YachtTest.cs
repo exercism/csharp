@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.1.0 of the canonical data.
+// This file was auto-generated based on version 1.2.0 of the canonical data.
 
 using Xunit;
 
@@ -152,6 +152,12 @@ public class YachtTest
     public void Big_straight_as_little_straight()
     {
         Assert.Equal(0, YachtGame.Score(new[] { 6, 5, 4, 3, 2 }, YachtCategory.LittleStraight));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void No_pairs_but_not_a_big_straight()
+    {
+        Assert.Equal(0, YachtGame.Score(new[] { 6, 5, 4, 3, 1 }, YachtCategory.BigStraight));
     }
 
     [Fact(Skip = "Remove to run test")]
