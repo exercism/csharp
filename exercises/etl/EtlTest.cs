@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.0.0 of the canonical data.
+// This file was auto-generated based on version 2.0.0 of the canonical data.
 
 using System.Collections.Generic;
 using Xunit;
@@ -6,7 +6,7 @@ using Xunit;
 public class EtlTest
 {
     [Fact]
-    public void A_single_letter()
+    public void Single_letter()
     {
         var input = new Dictionary<int, string[]>
         {
