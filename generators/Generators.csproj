@@ -16,4 +16,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Output\Rendering\Templates\*.liquid" />
   </ItemGroup>
+  <PropertyGroup>
+    <RunWorkingDirectory>$(MSBuildProjectDirectory)</RunWorkingDirectory>
+  </PropertyGroup>
 </Project>
