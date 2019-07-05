@@ -12,7 +12,7 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.UseVariablesForInput = true;
             testMethod.UseVariableForExpected = true;
             
-            var input = ConvertInput(testMethod.Input);
+            var input = ConvertInput(testMethod.Input["legacy"]);
             testMethod.Input.Clear();
             testMethod.Input["input"] = input;
             testMethod.Expected = ConvertExpected(testMethod.Expected);
