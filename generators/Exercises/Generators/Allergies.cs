@@ -11,9 +11,11 @@ namespace Exercism.CSharp.Exercises.Generators
         {
             testMethod.ConstructorInputParameters = new[] { "score" };
             testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
-            
+
             if (testMethod.Property == "allergicTo")
             {
+                testMethod.TestMethodName = testMethod.TestMethodNameWithPath;
+                testMethod.TestedMethod = "IsAllergicTo";
                 testMethod.Input["item"] = RenderAllergen(testMethod.Input["item"]);
             }
             else
