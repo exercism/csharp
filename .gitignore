@@ -255,6 +255,7 @@ packages/
 
 .vscode/
 .idea/
+.ionide/
 
 *.un~
 
