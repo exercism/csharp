@@ -1,5 +1,6 @@
 // This file was auto-generated based on version 1.1.0 of the canonical data.
 
+using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
@@ -144,7 +145,8 @@ public class DndCharacterTest
     [Fact(Skip = "Remove to run test")]
     public void Random_ability_is_distributed_correctly()
     {
-        var expectedDistribution = new Dictionary<int, int>() {
+        var expectedDistribution = new Dictionary<int, int>
+        {
             [3] = 1,        [4] = 4,
             [5] = 10,       [6] = 21,
             [7] = 38,       [8] = 62,
@@ -155,18 +157,18 @@ public class DndCharacterTest
             [17] = 54,      [18] = 21
         };
         var actualDistribution = new Dictionary<int, int>();
-        var times = 100;
-        const int PossibleCombinationsCount = 6*6*6*6; // 4d6
+        const int times = 100;
+        const int possibleCombinationsCount = 6*6*6*6; // 4d6
         for (var i = 3; i <= 18; i++)
             actualDistribution[i] = 0;
-        for (var i = 0; i < times * PossibleCombinationsCount; i++)
+        for (var i = 0; i < times * possibleCombinationsCount; i++)
         {
             var ability = DndCharacter.Ability();
             actualDistribution[ability]++;
         }
         int min(int expected) => (int)(expected * (times * 0.8));
         int max(int expected) => (int)(expected * (times * 1.2));
-        foreach (var k in idealDistribution.Keys)
+        foreach (var k in expectedDistribution.Keys)
             Assert.InRange(actualDistribution[k], min(expectedDistribution[k]), max(expectedDistribution[k]));
     }
 }
