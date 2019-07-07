@@ -6,3 +6,5 @@ git submodule update --remote
 
 .\bin\fetch-configlet
 .\bin\configlet generate . -p problem-specifications $args
+
+exit $LastExitCode
