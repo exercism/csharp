@@ -50,10 +50,10 @@ public class DiffieHellmanTest
         var g = new BigInteger(5);
         var alicePrivateKey = DiffieHellman.PrivateKey(p);
         var bobPrivateKey = DiffieHellman.PrivateKey(p);
-        var alicePublicKey = DiffieHellman.PublicKey(p,G,AlicePrivateKey);
-        var bobPublicKey = DiffieHellman.PublicKey(p,G,BobPrivateKey);
-        var secretA = DiffieHellman.Secret(p,BobPublicKey,AlicePrivateKey);
-        var secretB = DiffieHellman.Secret(p,AlicePublicKey,BobPrivateKey);
+        var alicePublicKey = DiffieHellman.PublicKey(p, g, alicePrivateKey);
+        var bobPublicKey = DiffieHellman.PublicKey(p, g, bobPrivateKey);
+        var secretA = DiffieHellman.Secret(p, bobPublicKey, alicePrivateKey);
+        var secretB = DiffieHellman.Secret(p, alicePublicKey, bobPrivateKey);
         Assert.Equal(secretA, secretB);
     }
 }
