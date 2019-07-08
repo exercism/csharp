@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using System.Text;
+using Exercism.CSharp.Helpers;
 using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
 using Humanizer;
@@ -96,7 +97,7 @@ namespace Exercism.CSharp.Exercises.Generators
                 case long l:
                     return new BigInteger(l);
                 case string str:
-                    return new UnescapedValue($"{testMethod.TestedClass}.{str.Pascalize()}");
+                    return new UnescapedValue($"{testMethod.TestedClass}.{char.ToUpper(str[0]) + str.Substring(1)}");
                 default:
                     return input;
             }

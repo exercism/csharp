@@ -8,3 +8,5 @@ Get-Childitem –Path "exercises" -Directory | ForEach-Object {
 
     Set-Content -Path $ExerciseEditorConfigPath $ExerciseEditorConfigSettings
 }
+
+exit $LastExitCode
