@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.1.0 of the canonical data.
+// This file was auto-generated based on version 1.2.0 of the canonical data.
 
 using System;
 using Xunit;
@@ -131,5 +131,19 @@ public class CircularBufferTest
         Assert.Equal(3, buffer.Read());
         Assert.Equal(4, buffer.Read());
         Assert.Equal(5, buffer.Read());
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Initial_clear_does_not_affect_wrapping_around()
+    {
+        var buffer = new CircularBuffer<int>(capacity: 2);
+        buffer.Clear();
+        buffer.Write(1);
+        buffer.Write(2);
+        buffer.Overwrite(3);
+        buffer.Overwrite(4);
+        Assert.Equal(3, buffer.Read());
+        Assert.Equal(4, buffer.Read());
+        Assert.Throws<InvalidOperationException>(() => buffer.Read());
     }
 }
