@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.4.1 of the canonical data.
+// This file was auto-generated based on version 1.5.0 of the canonical data.
 
 using Xunit;
 
@@ -44,6 +44,15 @@ public class AnagramTest
         var candidates = new[] { "gallery", "ballerina", "regally", "clergy", "largely", "leading" };
         var sut = new Anagram("allergy");
         var expected = new[] { "gallery", "regally", "largely" };
+        Assert.Equal(expected, sut.FindAnagrams(candidates));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Detects_multiple_anagrams_with_different_case()
+    {
+        var candidates = new[] { "Eons", "ONES" };
+        var sut = new Anagram("nose");
+        var expected = new[] { "Eons", "ONES" };
         Assert.Equal(expected, sut.FindAnagrams(candidates));
     }
 
@@ -104,5 +113,14 @@ public class AnagramTest
         var candidates = new[] { "BANANA", "Banana", "banana" };
         var sut = new Anagram("BANANA");
         Assert.Empty(sut.FindAnagrams(candidates));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Words_other_than_themselves_can_be_anagrams()
+    {
+        var candidates = new[] { "Listen", "Silent", "LISTEN" };
+        var sut = new Anagram("LISTEN");
+        var expected = new[] { "Silent" };
+        Assert.Equal(expected, sut.FindAnagrams(candidates));
     }
 }
