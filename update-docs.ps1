@@ -1,10 +1,28 @@
-# Usage: .\update-docs.ps1. This will regenerate the docs for all exercises.
-# Usage: .\update-docs.ps1 -o <exercise>. This will regenerate the docs for the specified exercise.
+<#
+.SYNOPSIS
+    Regenerate the docs.
+.DESCRIPTION
+    Regenerate the docs for all exercises based on the latest canonical data.
+.PARAMETER Exercise
+    The slug of the exercise to regenerate the docs for (optional).
+.EXAMPLE
+    The example below will regenerate all docs
+    PS C:\> ./update-docs.ps1
+.EXAMPLE
+    The example below will regenerate the tests for the "acronym" exercise
+    PS C:\> ./update-docs.ps1 acronym
+#>
 
-git submodule init
-git submodule update --remote
+param (
+    [Parameter(Position = 0, Mandatory = $false)]
+    [string]$Exercise
+)
 
-.\bin\fetch-configlet
-.\bin\configlet generate . -p problem-specifications $args
+./update-canonical-data.ps1
+
+./bin/fetch-configlet
+
+$args = if ($Exercise) { @("-o", $Exercise) } else { @() }
+./bin/configlet generate . -p problem-specifications $args
 
 exit $LastExitCode
