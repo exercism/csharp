@@ -59,10 +59,10 @@ namespace Exercism.CSharp.Exercises
             if (!File.Exists(filePath))
                 return false;
 
-            var firsLine = File.ReadLines(filePath).First();
+            var firstLine = File.ReadLines(filePath).First();
 
-            if (firsLine.StartsWith("//")) {
-                var testversion = Regex.Match(firsLine, @"[\d\.]{5}").Value;
+            if (firstLine.StartsWith("//")) {
+                var testversion = Regex.Match(firstLine, @"[\d\.]{5}").Value;
                 var canonicalDataParser = new CanonicalDataParser(_canonicalDataFile);
                 var canonicalDataVersion = canonicalDataParser.Parse(exerciseName).Version;
                 return testversion != canonicalDataVersion;
