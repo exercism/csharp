@@ -1,8 +1,9 @@
+#addin nuget:?package=Cake.FileHelpers&version=3.2.0
+
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-var target = Argument("target", "Default");
 var exercise = Argument<string>("exercise", null);
 
 var exercisesSourceDir = "./exercises";
@@ -13,11 +14,8 @@ var parallelOptions = new ParallelOptions
     MaxDegreeOfParallelism = System.Environment.ProcessorCount
 };
 
-Task("FetchConfiglet")
-    .Does(() => StartProcess("./bin/fetch-configlet"));
-
 Task("ConfigletLint")
-    .IsDependentOn("FetchConfiglet")
+    .Does(() => StartProcess("./bin/fetch-configlet"));
     .Does(() => StartProcess("./bin/configlet", "lint ."));
 
 Task("BuildGenerators")
@@ -33,25 +31,11 @@ Task("CopyExercises")
 
 Task("EnableAllTests")
     .IsDependentOn("CopyExercises")
-    .Does(() => {
-        var skipRegex = new Regex(@"Skip\s*=\s*""Remove to run test""", RegexOptions.Compiled);
-        var testFiles = GetFiles(exercisesBuildDir + "/*/*Test.cs");
-
-        foreach (var testFile in testFiles) {
-            var contents = System.IO.File.ReadAllText(testFile.FullPath);
-
-            if (skipRegex.IsMatch(contents)) {
-                var updatedContents = skipRegex.Replace(contents, "");
-                System.IO.File.WriteAllText(testFile.FullPath, updatedContents);
-            }
-        }
-    });
+    .Does(() => ReplaceTextInFiles($"{buildDir}/*/*Test.fs", "Skip = \"Remove to run test\"", ""));
 
 Task("TestRefactoringProjects")
     .IsDependentOn("EnableAllTests")
     .Does(() => {
-        // These projects have a working default implementation, and have
-        // all the tests enabled. These should pass without any changes.
         var refactoringProjects = 
               GetFiles(exercisesBuildDir + "/*/TreeBuilding.csproj")
             + GetFiles(exercisesBuildDir + "/*/Ledger.csproj")
@@ -87,15 +71,10 @@ Task("TestUsingExampleImplementation")
         } 
     });
 
-Task("Default")
-    .IsDependentOn("BuildGenerators")
-    .IsDependentOn("TestUsingExampleImplementation")
-    .Does(() => { });
-
-Task("CI")
+Task("Build")
     .IsDependentOn("ConfigletLint")
     .IsDependentOn("BuildGenerators")
     .IsDependentOn("TestUsingExampleImplementation")
     .Does(() => { });
 
-RunTarget(target);
+RunTarget("Build");
