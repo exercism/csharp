@@ -56,6 +56,9 @@ namespace Exercism.CSharp.Exercises
 
         private bool IsOutdated(string exerciseName) {
             var filePath = FilePathHelper.TestClassFilePath(exerciseName, exerciseName.ToTestClassName());
+            if (!File.Exists(filePath))
+                return false;
+
             var firsLine = File.ReadLines(filePath).First();
 
             if (firsLine.StartsWith("//")) {
