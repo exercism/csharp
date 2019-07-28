@@ -18,13 +18,12 @@ param (
     [string]$Exercise
 )
 
-$editorConfigSettings = Get-Content -Path ".editorconfig"
-$filter = if ($Exercise) { $($Exercise) } else { @("*") }
+$defaultEditorConfigSettings = Get-Content -Path ".editorconfig"
+$filter = if ($Exercise) { $($Exercise) } else { @() }
 
-Get-Childitem –Path "exercises" -Filter $filter -Directory | ForEach-Object { 
-
+Get-Childitem –Path "exercises" -Filter $filter -Directory | ForEach-Object {
     $exerciseName = (Get-Culture).TextInfo.ToTitleCase($_.Name).Replace("-", "")
-    $editorConfigSettings = $editorConfigSettings.Replace( "[*.cs]", "[$exerciseName.cs]")
+    $editorConfigSettings = $defaultEditorConfigSettings.Replace( "[*.cs]", "[${exerciseName}.cs]")
     $exerciseEditorConfigPath = Join-Path $_.FullName ".editorconfig"
 
     Set-Content -Path $exerciseEditorConfigPath $editorConfigSettings
