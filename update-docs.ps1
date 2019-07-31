@@ -4,12 +4,12 @@
 .DESCRIPTION
     Regenerate the docs for all exercises based on the latest canonical data.
 .PARAMETER Exercise
-    The slug of the exercise to regenerate the docs for (optional).
+    The slug of the exercise to regenerate the doc for (optional).
 .EXAMPLE
     The example below will regenerate all docs
     PS C:\> ./update-docs.ps1
 .EXAMPLE
-    The example below will regenerate the tests for the "acronym" exercise
+    The example below will regenerate the doc for the "acronym" exercise
     PS C:\> ./update-docs.ps1 acronym
 #>
 
