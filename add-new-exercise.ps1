@@ -22,7 +22,7 @@
 .EXAMPLE
     The example below will add the "acronym" exercise as a core exercise, with
     two topics, a specified difficulty and being unlocked by "two-fer"
-    PS C:\> ./add-new-exercise.ps1 acronym -Core -Topics strings -Difficulty 3 -UnlockedBy two-fer
+    PS C:\> ./add-new-exercise.ps1 acronym -Core -Topics strings,optional -Difficulty 3 -UnlockedBy two-fer
 #>
 
 param (
