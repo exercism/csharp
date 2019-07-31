@@ -33,15 +33,20 @@ param (
     [Parameter()]$UnlockedBy
 )
 
+# Import shared functionality
+. ./shared.ps1
+
 $exerciseName = (Get-Culture).TextInfo.ToTitleCase($Exercise).Replace("-", "")
 $exercisesDir = Resolve-Path "exercises"
 $exerciseDir = Join-Path $exercisesDir $Exercise
 
 function Add-Project {
+    Write-Output "Adding project"
+
     $csProj = "$exerciseDir/$exerciseName.csproj"
 
-    dotnet new xunit -lang "C#" -o $exerciseDir -n $exerciseName
-    dotnet sln "$exercisesDir/Exercises.sln" add $csProj
+    Run-Command "dotnet new xunit -lang ""C#"" -o $exerciseDir -n $exerciseName"
+    Run-Command "dotnet sln ""$exercisesDir/Exercises.sln"" add $csProj"
     
     Remove-Item -Path "$exerciseDir/UnitTest1.cs"
     
@@ -61,6 +66,8 @@ function Add-Project {
 }
 
 function Add-Generator {
+    Write-Output "Adding generator"
+
     $generatorsDir = Resolve-Path "generators"
     $generatorsExercisesDir = Join-Path $generatorsDir "Exercises"
     $generatorsExerciseGeneratorsDir = Join-Path $generatorsExercisesDir "Generators"
@@ -70,12 +77,24 @@ function Add-Generator {
     Set-Content -Path $generator -Value $generatorClass
 }
 
-function Copy-Track-Files { ./copy-track-files.ps1 $Exercise }
+function Copy-Track-Files {
+    Write-Output "Copying track files"
+    ./copy-track-files.ps1 $Exercise
+}
 
-function Update-Docs { ./update-docs.ps1 $Exercise }
-function Update-Tests { ./generate-tests.ps1 $Exercise }
+function Update-Readme {
+    Write-Output "Updating README"
+    ./update-docs.ps1 $Exercise
+}
+
+function Update-Tests { 
+    Write-Output "Updating test suite"
+    ./generate-tests.ps1 $Exercise
+}
 
 function Update-Config-Json {
+    Write-Output "Updating config.json"
+
     $configJson = Resolve-Path "config.json"
 
     $config = Get-Content $configJson | ConvertFrom-JSON
@@ -89,12 +108,15 @@ function Update-Config-Json {
     }
     
     ConvertTo-Json -InputObject $config -Depth 10 | Set-Content -Path $configJson
+
+    Run-Command "./bin/fetch-configlet"
+    Run-Command "./bin/configlet fmt ."
 }
 
 Add-Project
 Add-Generator
 Copy-Track-Files
-Update-Docs
+Update-Readme
 Update-Tests
 Update-Config-Json
 

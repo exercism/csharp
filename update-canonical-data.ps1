@@ -8,7 +8,10 @@
     PS C:\> ./update-canonical-data.ps1
 #>
 
-git submodule init
-git submodule update --remote
+# Import shared functionality
+. ./shared.ps1
+
+Run-Command "git submodule init"
+Run-Command "git submodule update --remote"
 
 exit $LastExitCode

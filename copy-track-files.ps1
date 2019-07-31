@@ -18,15 +18,28 @@ param (
     [string]$Exercise
 )
 
-$defaultEditorConfigSettings = Get-Content -Path ".editorconfig"
-$filter = if ($Exercise) { $($Exercise) } else { @() }
+# Import shared functionality
+. ./shared.ps1
 
-Get-Childitem –Path "exercises" -Filter $filter -Directory | ForEach-Object {
-    $exerciseName = (Get-Culture).TextInfo.ToTitleCase($_.Name).Replace("-", "")
+$defaultEditorConfigSettings = Get-Content -Path ".editorconfig"
+
+function Copy-Track-Files-For-Exercise ($ExerciseDirectory) {
+    $exerciseName = (Get-Culture).TextInfo.ToTitleCase($ExerciseDirectory.Name).Replace("-", "")
     $editorConfigSettings = $defaultEditorConfigSettings.Replace( "[*.cs]", "[${exerciseName}.cs]")
-    $exerciseEditorConfigPath = Join-Path $_.FullName ".editorconfig"
+    $exerciseEditorConfigPath = Join-Path $ExerciseDirectory.FullName ".editorconfig"
 
     Set-Content -Path $exerciseEditorConfigPath $editorConfigSettings
 }
+
+function Copy-Track-Files {
+    Write-Output "Copying track files"
+
+    $filter = if ($Exercise) { $($Exercise) } else { @() }
+    Get-Childitem –Path "exercises" -Filter $filter -Directory | ForEach-Object {
+        Copy-Track-Files-For-Exercise -ExerciseDirectory $_
+    }
+}
+
+Copy-Track-Files
 
 exit $LastExitCode

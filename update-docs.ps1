@@ -18,11 +18,22 @@ param (
     [string]$Exercise
 )
 
-./update-canonical-data.ps1
+# Import shared functionality
+. ./shared.ps1
 
-./bin/fetch-configlet
+function Update-Canonical-Data {
+    Write-Output "Updating canonical data"
+    Run-Command "./update-canonical-data.ps1" 
+}
 
-$args = if ($Exercise) { @("-o", $Exercise) } else { @() }
-./bin/configlet generate . -p problem-specifications $args
+function Update-Docs {
+    Write-Output "Updating docs"
+    $args = if ($Exercise) { @("-o", $Exercise) } else { @() }
+    Run-Command "./bin/fetch-configlet"
+    Run-Command "./bin/configlet generate . -p problem-specifications $args"
+}
+
+Update-Canonical-Data
+Update-Docs
 
 exit $LastExitCode

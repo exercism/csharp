@@ -18,7 +18,20 @@ param (
     [string]$Exercise
 )
 
-./update-canonical-data.ps1
 
-$args = if ($Exercise) { @("--exercise", $Exercise) } else { @() }
-dotnet run --project ./generators $args
+# Import shared functionality
+. ./shared.ps1
+
+function Update-Canonical-Data {
+    Write-Output "Updating canonical data"
+    Run-Command "./update-canonical-data.ps1" 
+}
+
+function Update-Tests {
+    Write-Output "Updating tests"
+    $args = if ($Exercise) { @("--exercise", $Exercise) } else { @() }
+    Run-Command "dotnet run --project ./generators $args"
+}
+
+Update-Canonical-Data
+Update-Tests
