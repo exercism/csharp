@@ -33,24 +33,6 @@ param (
     [Parameter()]$UnlockedBy
 )
 
-class Exercise {
-    [string]$slug
-    [guid]$uuid
-    [bool]$core
-    $unlocked_by
-    [int]$difficulty
-    [string[]]$topics
-
-    Exercise ([string]$Exercise, [string[]]$Topics, [bool]$Core, [int]$Difficulty, $UnlockedBy) {
-        $this.uuid = [Guid]::NewGuid()
-        $this.slug = $Exercise
-        $this.topics = $Topics
-        $this.core = $Core
-        $this.difficulty = $Difficulty
-        $this.unlocked_by = $UnlockedBy
-    }
-}
-
 $exerciseName = (Get-Culture).TextInfo.ToTitleCase($Exercise).Replace("-", "")
 $exercisesDir = Resolve-Path "exercises"
 $exerciseDir = Join-Path $exercisesDir $Exercise
@@ -97,7 +79,14 @@ function Update-Config-Json {
     $configJson = Resolve-Path "config.json"
 
     $config = Get-Content $configJson | ConvertFrom-JSON
-    $config.exercises += [Exercise]::new($Exercise, $Topics, $Core.IsPresent, $Difficulty, $UnlockedBy)
+    $config.exercises += [pscustomobject]@{
+        slug        = $Exercise;
+        uuid        = [Guid]::NewGuid();
+        core        = $Core.IsPresent;
+        unlocked_by = $UnlockedBy;
+        difficulty  = $Difficulty;
+        topics      = $Topics;
+    }
     
     ConvertTo-Json -InputObject $config -Depth 10 | Set-Content -Path $configJson
 }
