@@ -52,47 +52,61 @@ class Exercise {
 }
 
 $exerciseName = (Get-Culture).TextInfo.ToTitleCase($Exercise).Replace("-", "")
-$configJson = Resolve-Path "config.json"
-
-$config = Get-Content $configJson | ConvertFrom-JSON
-$config.exercises += [Exercise]::new($Exercise, $Topics, $Core.IsPresent, $Difficulty, $UnlockedBy)
-
-ConvertTo-Json -InputObject $config -Depth 10 | Set-Content -Path $configJson
-
 $exercisesDir = Resolve-Path "exercises"
 $exerciseDir = Join-Path $exercisesDir $Exercise
-$csProj = "$exerciseDir/$exerciseName.csproj"
 
-dotnet new xunit -lang "C#" -o $exerciseDir -n $exerciseName
-dotnet sln "$exercisesDir/Exercises.sln" add $csProj
+function Add-Project {
+    $csProj = "$exerciseDir/$exerciseName.csproj"
 
-Remove-Item -Path "$exerciseDir/UnitTest1.cs"
+    dotnet new xunit -lang "C#" -o $exerciseDir -n $exerciseName
+    dotnet sln "$exercisesDir/Exercises.sln" add $csProj
+    
+    Remove-Item -Path "$exerciseDir/UnitTest1.cs"
+    
+    New-Item -ItemType File -Path "$exerciseDir/$exerciseName.cs"
+    New-Item -ItemType File -Path "$exerciseDir/Example.cs"
+    
+    [xml]$proj = Get-Content $csProj
+    $compilePropertyGroup = $proj.CreateElement("PropertyGroup");
+    $compileElement = $proj.CreateElement("Compile");
+    $removeAttribute = $proj.CreateAttribute("Remove");
+    $removeAttribute.Value = "Example.cs";
+    $compileElement.Attributes.Append($removeAttribute);
+    $compilePropertyGroup.AppendChild($compileElement);
+    $propertyGroup = $proj.Project.PropertyGroup
+    $propertyGroup.ParentNode.InsertAfter($compilePropertyGroup, $propertyGroup)
+    $proj.Save($csProj)
+}
 
-New-Item -ItemType File -Path "$exerciseDir/$exerciseName.cs"
-New-Item -ItemType File -Path "$exerciseDir/Example.cs"
+function Add-Generator {
+    $generatorsDir = Resolve-Path "generators"
+    $generatorsExercisesDir = Join-Path $generatorsDir "Exercises"
+    $generatorsExerciseGeneratorsDir = Join-Path $generatorsExercisesDir "Generators"
+    $generator = Join-Path $generatorsExerciseGeneratorsDir "$exerciseName.cs"
+    $generatorClass = "namespace Exercism.CSharp.Exercises.Generators`n{`n    public class $exerciseName : GeneratorExercise`n    {`n    }`n}"
+    
+    Set-Content -Path $generator -Value $generatorClass
+}
 
-[xml]$proj = Get-Content $csProj
-$compilePropertyGroup = $proj.CreateElement("PropertyGroup");
-$compileElement = $proj.CreateElement("Compile");
-$removeAttribute = $proj.CreateAttribute("Remove");
-$removeAttribute.Value = "Example.cs";
-$compileElement.Attributes.Append($removeAttribute);
-$compilePropertyGroup.AppendChild($compileElement);
-$propertyGroup = $proj.Project.PropertyGroup
-$propertyGroup.ParentNode.InsertAfter($compilePropertyGroup, $propertyGroup)
-$proj.Save($csProj)
+function Copy-Track-Files { ./copy-track-files.ps1 $Exercise }
 
-./update-docs.ps1 $Exercise
-./copy-track-files.ps1 $Exercise
+function Update-Docs { ./update-docs.ps1 $Exercise }
+function Update-Tests { ./generate-tests.ps1 $Exercise }
 
-$generatorsDir = Resolve-Path "generators"
-$generatorsExercisesDir = Join-Path $generatorsDir "Exercises"
-$generatorsExerciseGeneratorsDir = Join-Path $generatorsExercisesDir "Generators"
-$generator = Join-Path $generatorsExerciseGeneratorsDir "$exerciseName.cs"
-$generatorClass = "namespace Exercism.CSharp.Exercises.Generators`n{`n    public class $exerciseName : GeneratorExercise`n    {`n    }`n}"
+function Update-Config-Json {
+    $configJson = Resolve-Path "config.json"
 
-Set-Content -Path $generator -Value $generatorClass
+    $config = Get-Content $configJson | ConvertFrom-JSON
+    $config.exercises += [Exercise]::new($Exercise, $Topics, $Core.IsPresent, $Difficulty, $UnlockedBy)
+    
+    ConvertTo-Json -InputObject $config -Depth 10 | Set-Content -Path $configJson
+}
 
-./generate-tests.ps1 $Exercise
+Add-Project
+Add-Generator
+Copy-Track-Files
+Update-Docs
+Update-Tests
+Update-Config-Json
 
 exit $LastExitCode
