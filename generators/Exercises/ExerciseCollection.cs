@@ -56,10 +56,13 @@ namespace Exercism.CSharp.Exercises
 
         private bool IsOutdated(string exerciseName) {
             var filePath = FilePathHelper.TestClassFilePath(exerciseName, exerciseName.ToTestClassName());
-            var firsLine = File.ReadLines(filePath).First();
+            if (!File.Exists(filePath))
+                return false;
 
-            if (firsLine.StartsWith("//")) {
-                var testversion = Regex.Match(firsLine, @"[\d\.]{5}").Value;
+            var firstLine = File.ReadLines(filePath).First();
+
+            if (firstLine.StartsWith("//")) {
+                var testversion = Regex.Match(firstLine, @"[\d\.]{5}").Value;
                 var canonicalDataParser = new CanonicalDataParser(_canonicalDataFile);
                 var canonicalDataVersion = canonicalDataParser.Parse(exerciseName).Version;
                 return testversion != canonicalDataVersion;
