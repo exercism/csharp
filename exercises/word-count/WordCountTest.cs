@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.3.0 of the canonical data.
+// This file was auto-generated based on version 1.4.0 of the canonical data.
 
 using System.Collections.Generic;
 using Xunit;
@@ -137,6 +137,24 @@ public class WordCountTest
             ["between"] = 1,
             ["large"] = 2,
             ["and"] = 1
+        };
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Substrings_from_the_beginning()
+    {
+        var actual = WordCount.CountWords("Joe can't tell between app, apple and a.");
+        var expected = new Dictionary<string, int>
+        {
+            ["joe"] = 1,
+            ["can't"] = 1,
+            ["tell"] = 1,
+            ["between"] = 1,
+            ["app"] = 1,
+            ["apple"] = 1,
+            ["and"] = 1,
+            ["a"] = 1
         };
         Assert.Equal(expected, actual);
     }
