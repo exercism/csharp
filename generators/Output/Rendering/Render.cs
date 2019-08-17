@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Numerics;
 using System.Text.RegularExpressions;
 
@@ -21,6 +20,7 @@ namespace Exercism.CSharp.Output.Rendering
                 case int i: return Int(i);
                 case uint ui: return Uint(ui);
                 case float flt: return Float(flt);
+                case long lng: return Long(lng);
                 case ulong ulng: return Ulong(ulng);
                 case char c: return Char(c);
                 case DateTime dateTime: return DateTime(dateTime);

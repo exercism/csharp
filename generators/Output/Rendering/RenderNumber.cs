@@ -13,6 +13,8 @@ namespace Exercism.CSharp.Output.Rendering
 
         public string Int(int i) => i.ToString(CultureInfo.InvariantCulture);
 
+        public string Long(long lng) => $"{lng}L";
+
         public string Ulong(ulong ulng) => $"{ulng}UL";
 
         public string Uint(uint ui) => string.Format("0x{0:X}u", ui);
