@@ -12,6 +12,8 @@ namespace Exercism.CSharp.Output.Rendering
         public string Float(float flt) => flt.ToString(CultureInfo.InvariantCulture);
 
         public string Int(int i) => i.ToString(CultureInfo.InvariantCulture);
+        
+        public string Long(long lng) => $"{lng}L";
 
         public string Ulong(ulong ulng) => $"{ulng}UL";
 

@@ -94,8 +94,8 @@ namespace Exercism.CSharp.Exercises.Generators
         {
             switch (input)
             {
-                case long l:
-                    return new BigInteger(l);
+                case int i:
+                    return new BigInteger(i);
                 case string str:
                     return new UnescapedValue($"{testMethod.TestedClass}.{char.ToUpper(str[0]) + str.Substring(1)}");
                 default:

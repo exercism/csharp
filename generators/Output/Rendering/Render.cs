@@ -22,6 +22,7 @@ namespace Exercism.CSharp.Output.Rendering
                 case uint ui: return Uint(ui);
                 case float flt: return Float(flt);
                 case ulong ulng: return Ulong(ulng);
+                case long l: return Long(l);
                 case char c: return Char(c);
                 case DateTime dateTime: return DateTime(dateTime);
                 case Regex regex: return Regex(regex);

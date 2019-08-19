@@ -45,16 +45,12 @@ namespace Exercism.CSharp.Input
 
         private static dynamic ConvertJObject(JObject jObject)
         {
-            var properties = jObject.ToObject<IDictionary<string, dynamic>>();
+            var properties = new Dictionary<string, dynamic>(jObject.Count, StringComparer.OrdinalIgnoreCase);
 
-            for (var i = 0; i < properties.Count; i++)
-            {
-                var key = properties.Keys.ElementAt(i);
-                var value = properties[key];
-                properties[key] = value is JToken jToken ? ConvertJToken(jToken) : value;
-            }
+            foreach (var (key, value) in jObject)
+                properties[key] = ConvertJToken(value);
 
-            return new Dictionary<string, dynamic>(properties, StringComparer.OrdinalIgnoreCase);
+            return properties;
         }
 
         private static dynamic ConvertJArray(JArray jArray)
