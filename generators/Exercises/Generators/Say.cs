@@ -8,8 +8,9 @@ namespace Exercism.CSharp.Exercises.Generators
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
             testMethod.TestedMethod = "InEnglish";
+            testMethod.Input["number"] = (long)testMethod.Input["number"]; 
 
-            if (!(testMethod.Expected is string))
+            if (testMethod.ExpectedIsError)
                 testMethod.ExceptionThrown = typeof(ArgumentOutOfRangeException);
         }
     }
