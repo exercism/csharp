@@ -13,36 +13,36 @@ public class PrimeFactorsTest
     [Fact(Skip = "Remove to run test")]
     public void Prime_number()
     {
-        Assert.Equal(new[] { 2 }, PrimeFactors.Factors(2L));
+        Assert.Equal(new[] { 2L }, PrimeFactors.Factors(2L));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Square_of_a_prime()
     {
-        Assert.Equal(new[] { 3, 3 }, PrimeFactors.Factors(9L));
+        Assert.Equal(new[] { 3L, 3L }, PrimeFactors.Factors(9L));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Cube_of_a_prime()
     {
-        Assert.Equal(new[] { 2, 2, 2 }, PrimeFactors.Factors(8L));
+        Assert.Equal(new[] { 2L, 2L, 2L }, PrimeFactors.Factors(8L));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Product_of_primes_and_non_primes()
     {
-        Assert.Equal(new[] { 2, 2, 3 }, PrimeFactors.Factors(12L));
+        Assert.Equal(new[] { 2L, 2L, 3L }, PrimeFactors.Factors(12L));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Product_of_primes()
     {
-        Assert.Equal(new[] { 5, 17, 23, 461 }, PrimeFactors.Factors(901255L));
+        Assert.Equal(new[] { 5L, 17L, 23L, 461L }, PrimeFactors.Factors(901255L));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Factors_include_a_large_prime()
     {
-        Assert.Equal(new[] { 11, 9539, 894119 }, PrimeFactors.Factors(93819012551L));
+        Assert.Equal(new[] { 11L, 9539L, 894119L }, PrimeFactors.Factors(93819012551L));
     }
 }
