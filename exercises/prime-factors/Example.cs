@@ -2,9 +2,9 @@ using System.Collections.Generic;
 
 public class PrimeFactors
 {
-    public static int[] Factors(long number)
+    public static long[] Factors(long number)
     {
-        var primes = new List<int>();
+        var primes = new List<long>();
         int divisor = 2;
         while (number > 1)
         {
