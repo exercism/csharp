@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.1.0 of the canonical data.
+// This file was auto-generated based on version 1.3.0 of the canonical data.
 
 using Xunit;
 
@@ -26,10 +26,10 @@ public class MatrixTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Can_extract_row_from_non_square_matrix()
+    public void Can_extract_row_from_non_square_matrix_with_no_corresponding_column()
     {
         var sut = new Matrix("1 2 3\n4 5 6\n7 8 9\n8 7 6");
-        Assert.Equal(new[] { 7, 8, 9 }, sut.Row(3));
+        Assert.Equal(new[] { 8, 7, 6 }, sut.Row(4));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -47,10 +47,10 @@ public class MatrixTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Can_extract_column_from_non_square_matrix()
+    public void Can_extract_column_from_non_square_matrix_with_no_corresponding_row()
     {
-        var sut = new Matrix("1 2 3\n4 5 6\n7 8 9\n8 7 6");
-        Assert.Equal(new[] { 3, 6, 9, 6 }, sut.Column(3));
+        var sut = new Matrix("1 2 3 4\n5 6 7 8\n9 8 7 6");
+        Assert.Equal(new[] { 4, 8, 6 }, sut.Column(4));
     }
 
     [Fact(Skip = "Remove to run test")]
