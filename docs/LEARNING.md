@@ -7,11 +7,11 @@
 
 ### Videos
 
+* [C# 101](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVxKLQCHpiUWun7vlJJvUiN) The concepts and syntax of the C# programming language with live coding demos.
+* [.NET Core 101](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oWoazjhXQzBKMrFuArxpW80) Ins and outs of "What is .NET" and how to publish your very first application.
 * [Programming in C# Jump Start](https://channel9.msdn.com/Series/Programming-in-C-Jump-Start) is a nice step-by-step introduction to programming in C#.
 * [C# Fundamentals for Absolute Beginners](https://mva.microsoft.com/en-US/training-courses/c-fundamentals-for-absolute-beginners-16169?l=Lvld4EQIC_2706218949) is a great way to get to know C#.
 * [PluralSight](https://www.pluralsight.com/) has several [great](https://www.pluralsight.com/courses/csharp-6-from-scratch) [introduction](https://www.pluralsight.com/courses/c-sharp-fundamentals-with-visual-studio-2015) [courses](http://www.pluralsight.com/courses/csharp-best-practices-improving-basics). The downside: PluralSight is a paid service, but you can request a [free trial](https://www.pluralsight.com/pricing).
-* [C# 101](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVxKLQCHpiUWun7vlJJvUiN) The concepts and syntax of the C# programming language with live coding demos.
-* [.NET Core 101](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oWoazjhXQzBKMrFuArxpW80) Ins and outs of "What is .NET" and how to publish your very first application.
 
 ### Books
 * [C# 6.0 in a Nutshell](https://www.amazon.com/C-6-0-Nutshell-Definitive-Reference/dp/1491927062/)
