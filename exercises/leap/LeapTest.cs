@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.5.1 of the canonical data.
+// This file was auto-generated based on version 1.6.0 of the canonical data.
 
 using Xunit;
 
@@ -23,15 +23,33 @@ public class LeapTest
     }
 
     [Fact(Skip = "Remove to run test")]
+    public void Year_divisible_by_4_and_5_is_still_a_leap_year()
+    {
+        Assert.True(Leap.IsLeapYear(1960));
+    }
+
+    [Fact(Skip = "Remove to run test")]
     public void Year_divisible_by_100_not_divisible_by_400_in_common_year()
     {
         Assert.False(Leap.IsLeapYear(2100));
     }
 
     [Fact(Skip = "Remove to run test")]
+    public void Year_divisible_by_100_but_not_by_3_is_still_not_a_leap_year()
+    {
+        Assert.False(Leap.IsLeapYear(1900));
+    }
+
+    [Fact(Skip = "Remove to run test")]
     public void Year_divisible_by_400_in_leap_year()
     {
         Assert.True(Leap.IsLeapYear(2000));
+    }
+
+    [Fact(Skip = "Remove to run test")]
+    public void Year_divisible_by_400_but_not_by_125_is_still_a_leap_year()
+    {
+        Assert.True(Leap.IsLeapYear(2400));
     }
 
     [Fact(Skip = "Remove to run test")]
