@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 2.4.0 of the canonical data.
+// This file was auto-generated based on version 2.4.1 of the canonical data.
 
 using System;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ public class ListOpsTest
     }
 
     [Fact(Skip = "Remove to run test")]
-    public void Append_entries_to_a_list_and_return_the_new_list_empty_list_to_list()
+    public void Append_entries_to_a_list_and_return_the_new_list_list_to_empty_list()
     {
         var list1 = new List<int>();
         var list2 = new List<int> { 1, 2, 3, 4 };
