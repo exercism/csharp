@@ -1,0 +1,38 @@
+{
+  "solution_files": ["Enums.cs"],
+  "test_file": "EnumsTest.cs",
+  "tests": [
+    {
+      "name": "ParseError",
+      "cmd": "LogLine.ParseLogLevel(\"[ERROR]: Disk full\")"
+    },
+    {
+      "name": "ParseWarning",
+      "cmd": "LogLine.ParseLogLevel(\"[WARNING]: Timezone not set\")"
+    },
+    {
+      "name": "ParseInfo",
+      "cmd": "LogLine.ParseLogLevel(\"[INFO]: Timezone changed\")"
+    },
+    {
+      "name": "ParseUnknown",
+      "cmd": "LogLine.ParseLogLevel(\"[FATAL]: Crash!\")"
+    },
+    {
+      "name": "OutputForShortLogForError",
+      "cmd": "LogLine.OutputForShortLog(LogLevel.Error, \"Stack overflow\")"
+    },
+    {
+      "name": "OutputForShortLogForWarning",
+      "cmd": "LogLine.OutputForShortLog(LogLevel.Warning, \"Unsafe password\")"
+    },
+    {
+      "name": "OutputForShortLogForInfo",
+      "cmd": "LogLine.OutputForShortLog(LogLevel.Info, \"File moved\")"
+    },
+    {
+      "name": "OutputForShortLogForUnknown",
+      "cmd": "LogLine.OutputForShortLog(LogLevel.Unknown, \"Something unknown happened\")"
+    }
+  ]
+}
