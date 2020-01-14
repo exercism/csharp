@@ -1,0 +1,94 @@
+{
+  "solution_files": ["BitwiseOperations.cs"],
+  "test_file": "BitwiseOperationsTest.cs",
+  "tests": [
+    {
+      "name": "DefaultForGuest",
+      "cmd": "Permissions.Default(AccountType.Guest)"
+    },
+    {
+      "name": "DefaultForUser",
+      "cmd": "Permissions.Default(AccountType.User)"
+    },
+    {
+      "name": "DefaultForModerator",
+      "cmd": "Permissions.Default(AccountType.Moderator)"
+    },
+    {
+      "name": "DefaultForUnknown",
+      "cmd": "Permissions.Default((AccountType)123)"
+    },
+    {
+      "name": "GrantReadToNone",
+      "cmd": "Permissions.Grant(Permission.None, Permission.Read)"
+    },
+    {
+      "name": "GrantReadToRead",
+      "cmd": "Permissions.Grant(Permission.Read, Permission.Read)"
+    },
+    {
+      "name": "GrantAllToNone",
+      "cmd": "Permissions.Grant(Permission.None, Permission.All)"
+    },
+    {
+      "name": "GrantDeleteToReadAndWrite",
+      "cmd": "Permissions.Grant(Permission.Read | Permission.Write, Permission.Delete)"
+    },
+    {
+      "name": "GrantReadAndWriteToNone",
+      "cmd": "Permissions.Grant(Permission.None, Permission.Read | Permission.Write)"
+    },
+    {
+      "name": "RevokeNoneFromRead",
+      "cmd": "Permissions.Revoke(Permission.Read, Permission.None)"
+    },
+    {
+      "name": "RevokeWriteFromWrite",
+      "cmd": "Permissions.Revoke(Permission.Write, Permission.Write)"
+    },
+    {
+      "name": "RevokeDeleteFromAll",
+      "cmd": "Permissions.Revoke(Permission.All, Permission.Delete)"
+    },
+    {
+      "name": "RevokeReadAndWriteFromWriteAndDelete",
+      "cmd": "Permissions.Revoke(Permission.Write | Permission.Delete, Permission.Read | Permission.Write)"
+    },
+    {
+      "name": "RevokeAllFromReadAndWrite",
+      "cmd": "Permissions.Revoke(Permission.Read | Permission.Write, Permission.All)"
+    },
+    {
+      "name": "CheckNoneForRead",
+      "cmd": "Permissions.Check(Permission.None, Permission.Read)"
+    },
+    {
+      "name": "CheckWriteForWrite",
+      "cmd": "Permissions.Check(Permission.Write, Permission.Write)"
+    },
+    {
+      "name": "CheckAllForWrite",
+      "cmd": "Permissions.Check(Permission.All, Permission.Write)"
+    },
+    {
+      "name": "CheckReadAndWriteForRead",
+      "cmd": "Permissions.Check(Permission.Read | Permission.Write, Permission.Read)"
+    },
+    {
+      "name": "CheckAllForReadAndWrite",
+      "cmd": "Permissions.Check(Permission.Read | Permission.Write, Permission.Read | Permission.Write)"
+    },
+    {
+      "name": "CheckReadAndWriteForReadAndWrite",
+      "cmd": "Permissions.Check(Permission.Read | Permission.Write, Permission.Read | Permission.Write)"
+    },
+    {
+      "name": "CheckReadAndWriteForReadAndDelete",
+      "cmd": "Permissions.Check(Permission.Read | Permission.Write, Permission.Read | Permission.Delete)"
+    },
+    {
+      "name": "CheckReadAndWriteAndDeleteForAll",
+      "cmd": "Permissions.Check(Permission.Read | Permission.Write | Permission.Delete, Permission.All)"
+    }
+  ]
+}

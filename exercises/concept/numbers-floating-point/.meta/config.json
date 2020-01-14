@@ -1,0 +1,102 @@
+{
+  "solution_files": ["NumbersFloatingPoint.cs"],
+  "test_file": "NumbersFloatingPointTest.cs",
+  "tests": [
+    {
+      "name": "MinimalFirstAnnualPercentageYield",
+      "cmd": "SavingsAccount.AnnualPercentageYield(0m)"
+    },
+    {
+      "name": "TinyFirstAnnualPercentageYield",
+      "cmd": "SavingsAccount.AnnualPercentageYield(0.000001m)"
+    },
+    {
+      "name": "MaximumFirstAnnualPercentageYield",
+      "cmd": "SavingsAccount.AnnualPercentageYield(999.9999m)"
+    },
+    {
+      "name": "MinimalSecondAnnualPercentageYield",
+      "cmd": "SavingsAccount.AnnualPercentageYield(1_000.0m)"
+    },
+    {
+      "name": "TinySecondAnnualPercentageYield",
+      "cmd": "SavingsAccount.AnnualPercentageYield(1_000.0001m)"
+    },
+    {
+      "name": "MaximumSecondAnnualPercentageYield",
+      "cmd": "SavingsAccount.AnnualPercentageYield(4_999.9990m)"
+    },
+    {
+      "name": "MinimalThirdAnnualPercentageYield",
+      "cmd": "SavingsAccount.AnnualPercentageYield(5_000.0000m)"
+    },
+    {
+      "name": "TinyThirdAnnualPercentageYield",
+      "cmd": "SavingsAccount.AnnualPercentageYield(5_000.0001m)"
+    },
+    {
+      "name": "LargeThirdAnnualPercentageYield",
+      "cmd": "SavingsAccount.AnnualPercentageYield(5_639_998.742909m)"
+    },
+    {
+      "name": "MinimalNegativeAnnualPercentageYield",
+      "cmd": "SavingsAccount.AnnualPercentageYield(-0.000001m)"
+    },
+    {
+      "name": "SmallNegativeAnnualPercentageYield",
+      "cmd": "SavingsAccount.AnnualPercentageYield(-0.123m)"
+    },
+    {
+      "name": "RegularNegativeAnnualPercentageYield",
+      "cmd": "SavingsAccount.AnnualPercentageYield(-300.0m)"
+    },
+    {
+      "name": "LargeNegativeAnnualPercentageYield",
+      "cmd": "SavingsAccount.AnnualPercentageYield(-152964.231m)"
+    },
+    {
+      "name": "AnnualBalanceUpdateForEmptyStartBalance",
+      "cmd": "SavingsAccount.AnnualBalanceUpdate(0.0m)"
+    },
+    {
+      "name": "AnnualBalanceUpdateForSmallPositiveStartBalance",
+      "cmd": "SavingsAccount.AnnualBalanceUpdate(0.000001m)"
+    },
+    {
+      "name": "AnnualBalanceUpdateForAveragePositiveStartBalance",
+      "cmd": "SavingsAccount.AnnualBalanceUpdate(1_000.0m)"
+    },
+    {
+      "name": "AnnualBalanceUpdateForLargePositiveStartBalance",
+      "cmd": "SavingsAccount.AnnualBalanceUpdate(1_000.0001m)"
+    },
+    {
+      "name": "AnnualBalanceUpdateForHugePositiveStartBalance",
+      "cmd": "SavingsAccount.AnnualBalanceUpdate(898124017.826243404425m)"
+    },
+    {
+      "name": "AnnualBalanceUpdateForSmallNegativeStartBalance",
+      "cmd": "SavingsAccount.AnnualBalanceUpdate(-0.123m)"
+    },
+    {
+      "name": "AnnualBalanceUpdateForLargeNegativeStartBalance",
+      "cmd": "SavingsAccount.AnnualBalanceUpdate(-152964.231m)"
+    },
+    {
+      "name": "YearsBeforeDesiredBalanceForSmallStartBalance",
+      "cmd": "SavingsAccount.YearsBeforeDesiredBalance(100.0m, 125.80m)"
+    },
+    {
+      "name": "YearsBeforeDesiredBalanceForAverageStartBalance",
+      "cmd": "SavingsAccount.YearsBeforeDesiredBalance(1_000.0m, 1_100.0m)"
+    },
+    {
+      "name": "YearsBeforeDesiredBalanceForLargeStartBalance",
+      "cmd": "SavingsAccount.YearsBeforeDesiredBalance(8_080.80m, 9_090.90m)"
+    },
+    {
+      "name": "YearsBeforeDesiredBalanceForLargeDifferentBetweenStartAndTargetBalance",
+      "cmd": "SavingsAccount.YearsBeforeDesiredBalance(2_345.67m, 12_345.6789m)"
+    }
+  ]
+}

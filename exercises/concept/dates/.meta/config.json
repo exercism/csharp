@@ -1,0 +1,102 @@
+{
+  "solution_files": ["Dates.cs"],
+  "test_file": "DatesTest.cs",
+  "tests": [
+    {
+      "name": "ScheduleDateUsingOnlyNumbers",
+      "cmd": "Appointment.Schedule(\"7/25/2019 13:45:00\")"
+    },
+    {
+      "name": "ScheduleDateWithTextualMonth",
+      "cmd": "Appointment.Schedule(\"June 3, 2019 11:30:00\")"
+    },
+    {
+      "name": "ScheduleDateWithTextualMonthAndWeekday",
+      "cmd": "Appointment.Schedule(\"Thursday, December 5, 2019 09:00:00\")"
+    },
+    {
+      "name": "HasPassedWithAppointmentOneYearAgo",
+      "cmd": "Appointment.HasPassed(DateTime.Now.AddYears(-1).AddHours(2))"
+    },
+    {
+      "name": "HasPassedWithAppointmentMonthsAgo",
+      "cmd": "Appointment.HasPassed(DateTime.Now.AddMonths(-8))"
+    },
+    {
+      "name": "HasPassedWithAppointmentDaysAgo",
+      "cmd": "Appointment.HasPassed(DateTime.Now.AddDays(-23))"
+    },
+    {
+      "name": "HasPassedWithAppointmentHoursAgo",
+      "cmd": "Appointment.HasPassed(DateTime.Now.AddHours(-12))"
+    },
+    {
+      "name": "HasPassedWithAppointmentMinutesAgo",
+      "cmd": "Appointment.HasPassed(DateTime.Now.AddMinutes(-55))"
+    },
+    {
+      "name": "HasPassedWithAppointmentOneMinuteAgo",
+      "cmd": "Appointment.HasPassed(DateTime.Now.AddMinutes(-1))"
+    },
+    {
+      "name": "HasPassedWithAppointmentInOneMinute",
+      "cmd": "Appointment.HasPassed(DateTime.Now.AddMinutes(1))"
+    },
+    {
+      "name": "HasPassedWithAppointmentInMinutes",
+      "cmd": "Appointment.HasPassed(DateTime.Now.AddMinutes(5))"
+    },
+    {
+      "name": "HasPassedWithAppointmentInDays",
+      "cmd": "Appointment.HasPassed(DateTime.Now.AddDays(19))"
+    },
+    {
+      "name": "HasPassedWithAppointmentInMonths",
+      "cmd": "Appointment.HasPassed(DateTime.Now.AddMonths(10))"
+    },
+    {
+      "name": "HasPassedWithAppointmentInYears",
+      "cmd": "Appointment.HasPassed(DateTime.Now.AddYears(2).AddMonths(3).AddDays(6))"
+    },
+    {
+      "name": "IsAfternoonAppointmentForEarlyMorningAppointment",
+      "cmd": "Appointment.IsAfternoonAppointment(new DateTime(2019, 6, 17, 8, 15, 0))"
+    },
+    {
+      "name": "IsAfternoonAppointmentForLateMorningAppointment",
+      "cmd": "Appointment.IsAfternoonAppointment(new DateTime(2019, 2, 23, 11, 59, 59))"
+    },
+    {
+      "name": "IsAfternoonAppointmentForNoonAppointment",
+      "cmd": "Appointment.IsAfternoonAppointment(new DateTime(2019, 8, 9, 12, 0, 0))"
+    },
+    {
+      "name": "IsAfternoonAppointmentForEarlyAfternoonAppointment",
+      "cmd": "Appointment.IsAfternoonAppointment(new DateTime(2019, 8, 9, 12, 0, 1))"
+    },
+    {
+      "name": "IsAfternoonAppointmentForLateAfternoonAppointment",
+      "cmd": "Appointment.IsAfternoonAppointment(new DateTime(2019, 9, 1, 17, 59, 59))"
+    },
+    {
+      "name": "IsAfternoonAppointmentForEarlyEveningAppointment",
+      "cmd": "Appointment.IsAfternoonAppointment(new DateTime(2019, 9, 1, 18, 0, 0))"
+    },
+    {
+      "name": "IsAfternoonAppointmentForLateEveningAppointment",
+      "cmd": "Appointment.IsAfternoonAppointment(new DateTime(2019, 9, 1, 23, 59, 59))"
+    },
+    {
+      "name": "DescriptionOnFridayAfternoon",
+      "cmd": "Appointment.Description(new DateTime(2019, 03, 29, 15, 0, 0))"
+    },
+    {
+      "name": "DescriptionOnThursdayAfternoon",
+      "cmd": "Appointment.Description(new DateTime(2019, 07, 25, 13, 45, 0))"
+    },
+    {
+      "name": "DescriptionOnWednesdayMorning",
+      "cmd": "Appointment.Description(new DateTime(2020, 9, 9, 9, 9, 9))"
+    }
+  ]
+}
