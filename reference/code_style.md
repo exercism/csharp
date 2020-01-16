@@ -45,5 +45,5 @@ The [dotnet format global tool][github.com_dotnet-format-editorconfig-options] c
 [github.com_dotnet-format-editorconfig-options]: https://github.com/dotnet/format/wiki/Supported-.editorconfig-options
 [github.com_dotnet-format-how-to]: https://github.com/dotnet/format/blob/master/README.md#how-to-install
 [docs.microsoft.com_editorconfig-language-keywords]: https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-language-conventions?view=vs-2019#language-keywords
-[github.com_corefx-coding-style]: https://github.com/dotnet/corefx/blob/master/Documentation/coding-guidelines/coding-style.md
+[github.com_corefx-coding-style]: https://github.com/dotnet/runtime/blob/master/docs/coding-guidelines/coding-style.md
 [jetbrains.com_built-in-type-naming]: https://www.jetbrains.com/help/resharper/Built_In_Type_Naming.html
