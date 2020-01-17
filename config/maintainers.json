@@ -80,6 +80,16 @@
       "link_url": "null",
       "avatar_url": "https://s.gravatar.com/avatar/e5021d7393c10095cc2baf9a63ba40b4",
       "bio": "Aspiring polyglot who spent far too many years confined to C# to let it go to waste."
+    },
+    {
+      "github_username": "shaynuhcon",
+      "alumnus": false,
+      "show_on_website": true,
+      "name": "Shayna Conner",
+      "link_text": "null",
+      "link_url": "null",
+      "avatar_url": "https://raw.githubusercontent.com/shaynuhcon/Avatars/master/p1.png",
+      "bio": "Professional C# / .NET developer just out here sharing some knowledge."
     }
   ]
 }
