@@ -9,7 +9,7 @@ public static class AssemblyLine
         ProductionRatePerHourForDefaultSpeed * speed;
 
     public static int WorkingItemsPerMinute(int speed) =>
-        (int)ProductionRatePerHour(speed) / 60;
+        (int)(ProductionRatePerHour(speed) / 60);
 
     private static double SuccessRate(int speed)
     {
