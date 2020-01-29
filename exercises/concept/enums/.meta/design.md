@@ -12,10 +12,6 @@ TODO
 
 TODO
 
-## Resources to refer to
-
-TODO
-
 ## Concepts
 
 TODO
