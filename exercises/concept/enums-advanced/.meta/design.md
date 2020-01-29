@@ -19,20 +19,6 @@ After completing this exercise, the student should:
 
 As this is an advanced exercise, there are no enum-related things that we should explicitly _not_ teach.
 
-## Resources to refer to
-
-Here are some suggestions for resources to use in the exercise's documentation file(s):
-
-### Hints
-
-- [`switch` statement][docs.microsoft.com-switch-keyword]
-- [Bitwise and shift operators][docs.microsoft.com-bitwise-and-shift-operators]
-
-### After
-
-- [Working with enums as bit flags][docs.microsoft.com-enumeration-types-as-bit-flags].
-- [Enum flags and bitwise operators][alanzucconi.com-enum-flags-and-bitwise-operators]
-
 ## Concepts
 
 The Concepts this exercise unlocks are:
