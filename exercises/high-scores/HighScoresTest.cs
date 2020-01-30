@@ -60,4 +60,14 @@ public class HighScoresTest
         var sut = new HighScores(new List<int> { 40 });
         Assert.Equal(new List<int> { 40 }, sut.PersonalTopThree());
     }
+    
+    [Fact(Skip = "Remove to run test")]
+    public void Lastest_score_messed_up_after_calling_personal_best()
+    {
+        var sut = new HighScores(new List<int> { 20, 10, 30, 3, 2, 1 });
+        var latest = 1;
+        Assert.Equal(latest, sut.Latest());
+        sut.PersonalBest();
+        Assert.Equal(latest, sut.Latest());
+    }
 }
