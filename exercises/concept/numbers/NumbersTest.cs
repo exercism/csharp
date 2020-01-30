@@ -35,7 +35,7 @@ public class AssemblyLineTest
         Assert.Equal(16, AssemblyLine.WorkingItemsPerMinute(5));
 
     [Fact]
-    public void WorkingItemsPerMinuteForSpeedFour() =>
+    public void WorkingItemsPerMinuteForSpeedEight() =>
         Assert.Equal(26, AssemblyLine.WorkingItemsPerMinute(8));
 
     [Fact]
