@@ -1,4 +1,4 @@
-// This file was auto-generated based on version 1.4.0 of the canonical data.
+// This file was auto-generated based on version 1.6.0 of the canonical data.
 
 using Xunit;
 
@@ -43,19 +43,19 @@ public class BobTest
     [Fact(Skip = "Remove to run test")]
     public void Talking_forcefully()
     {
-        Assert.Equal("Whatever.", Bob.Response("Let's go make out behind the gym!"));
+        Assert.Equal("Whatever.", Bob.Response("Hi there!"));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Using_acronyms_in_regular_speech()
     {
-        Assert.Equal("Whatever.", Bob.Response("It's OK if you don't want to go to the DMV."));
+        Assert.Equal("Whatever.", Bob.Response("It's OK if you don't want to go work for NASA."));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Forceful_question()
     {
-        Assert.Equal("Calm down, I know what I'm doing!", Bob.Response("WHAT THE HELL WERE YOU THINKING?"));
+        Assert.Equal("Calm down, I know what I'm doing!", Bob.Response("WHAT'S GOING ON?"));
     }
 
     [Fact(Skip = "Remove to run test")]
@@ -85,7 +85,7 @@ public class BobTest
     [Fact(Skip = "Remove to run test")]
     public void Shouting_with_no_exclamation_mark()
     {
-        Assert.Equal("Whoa, chill out!", Bob.Response("I HATE THE DMV"));
+        Assert.Equal("Whoa, chill out!", Bob.Response("I HATE THE DENTIST"));
     }
 
     [Fact(Skip = "Remove to run test")]
