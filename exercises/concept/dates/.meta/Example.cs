@@ -12,5 +12,5 @@ public static class Appointment
         appointmentDate.Hour >= 12 && appointmentDate.Hour < 18;
 
     public static string Description(DateTime appointmentDate) =>
-        $"You have an appointment on {appointmentDate:dddd d MMMM yyyy} at {appointmentDate:HH:mm}.";
+        $"You have an appointment on {appointmentDate}.";
 }

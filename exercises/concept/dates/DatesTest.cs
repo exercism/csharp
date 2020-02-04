@@ -94,15 +94,15 @@ public class AppointmentTest
 
     [Fact]
     public void DescriptionOnFridayAfternoon() =>
-        Assert.Equal("You have an appointment on Friday 29 March 2019 at 15:00.", Appointment.Description(new DateTime(2019, 03, 29, 15, 0, 0)));
+        Assert.Equal("You have an appointment on 3/29/2019 3:00:00 PM.", Appointment.Description(new DateTime(2019, 03, 29, 15, 0, 0)));
 
     [Fact]
     public void DescriptionOnThursdayAfternoon() =>
-        Assert.Equal("You have an appointment on Thursday 25 July 2019 at 13:45.", Appointment.Description(new DateTime(2019, 07, 25, 13, 45, 0)));
+        Assert.Equal("You have an appointment on 7/25/2019 1:45:00 PM.", Appointment.Description(new DateTime(2019, 07, 25, 13, 45, 0)));
 
     [Fact]
     public void DescriptionOnWednesdayMorning() =>
-        Assert.Equal("You have an appointment on Wednesday 9 September 2020 at 09:09.", Appointment.Description(new DateTime(2020, 9, 9, 9, 9, 9)));
+        Assert.Equal("You have an appointment on 9/9/2020 9:09:09 AM.", Appointment.Description(new DateTime(2020, 9, 9, 9, 9, 9)));
 
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
     private class UseCultureAttribute : BeforeAfterTestAttribute
