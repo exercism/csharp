@@ -2,28 +2,48 @@
 
 ## Goal
 
-TODO
+The goal of this exercise is to teach the student the basics of the Concept of Dates through [C#][docs.microsoft.com-datetime].
 
 ## Things to teach
 
-TODO
+After completing this exercise, the student should:
+
+- Know of the existence of the `DateTime` type.
+- Know of the individual, date-related properties.
+- Know how to access the current date.
+- Know how to compare dates.
+- Know how to convert a `string` to a `DateTime` and vice versa.
 
 ## Things not to teach
 
-TODO
+- Using standard or custom format strings.
+- Everything related to timezones.
+- Exact parsing using format strings.
+- The `DateTimeOffset` type.
+- The `TimeSpan` type.
 
 ## Concepts
 
-TODO
+The Concepts this exercise unlocks are:
+
+- `dates-basic`: know of the existence of the `DateTime` type; know of the individual, date-related properties; know how to access the current date; know how to compare dates; know how to convert a `string` to a `DateTime` and vice versa.
+- `time-basic`: know of the existence of the `DateTime` type; know of the individual, time-related properties.
 
 ## Prequisites
 
-TODO
+This exercise's prerequisites Concepts are:
+
+- `numbers-basic`: know how to work with numbers.
+- `strings-basic`: know how to work with strings.
 
 ## Representer
 
-TODO
+This exercise does not require any specific representation logic to be added to the [representer][representer].
 
 ## Analyzer
 
-TODO
+This exercise does not require any specific logic to be added to the [analyzer][analyzer].
+
+[analyzer]: https://github.com/exercism/csharp-analyzer
+[representer]: https://github.com/exercism/csharp-representer
+[docs.microsoft.com-datetime]: https://docs.microsoft.com/en-us/dotnet/api/system.datetime?view=netcore-3.1
