@@ -11,11 +11,11 @@ public enum LogLevel
 public static class LogLine
 {
     public static LogLevel ParseLogLevel(string logLine) =>
-        Enum.TryParse<LogLevel>(GetLogLevel(logLine), ignoreCase: true, out var logLevel) ? logLevel : LogLevel.Unknown;
-
-    private static string GetLogLevel(string logLine) =>
-        logLine[1..(logLine.IndexOf(']'))];
+        Enum.TryParse<LogLevel>(GetLogLevel(logLine), true, out LogLevel logLevel) ? logLevel : LogLevel.Unknown;
 
     public static string OutputForShortLog(LogLevel logLevel, string message) =>
-        $"{logLevel:D}:{message}";
+        $"{(int)logLevel}:{message}";
+
+    private static string GetLogLevel(string logLine) =>
+        logLine.Substring(1, logLine.IndexOf(']') - 1);
 }
