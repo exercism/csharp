@@ -2,28 +2,39 @@
 
 ## Goal
 
-TODO
+The goal of this exercise is to teach the student the basics of the Concept of Strings in [C#][docs.microsoft.com-string].
 
 ## Things to teach
 
-TODO
+- Know of the existence of the `string` type.
+- Know how to create a string.
+- Know of some basic string methods (like finding the index of a character at a position, or returning a part the string).
+- Know how to do basic string formatting.
 
 ## Things not to teach
 
-TODO
+- Using standard or custom format strings.
+- Memory and performance characteristics.
+- Strings can be enumerated.
 
 ## Concepts
 
-TODO
+The Concepts this exercise unlocks are:
+
+- `strings-basic`: know of the existence of the `string` type; know of some basic functions (like looking up a character at a position, or slicing the string); know how to do basic string formatting.
 
 ## Prequisites
 
-TODO
+There are no prerequisites.
 
 ## Representer
 
-TODO
+This exercise does not require any specific representation logic to be added to the [representer][representer].
 
 ## Analyzer
 
-TODO
+This exercise does not require any specific logic to be added to the [analyzer][analyzer].
+
+[analyzer]: https://github.com/exercism/csharp-analyzer
+[representer]: https://github.com/exercism/csharp-representer
+[docs.microsoft.com-string]: https://docs.microsoft.com/en-us/dotnet/api/system.string?view=netcore-3.1
