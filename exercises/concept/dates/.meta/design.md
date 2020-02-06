@@ -33,8 +33,8 @@ The Concepts this exercise unlocks are:
 
 This exercise's prerequisites Concepts are:
 
-- `numbers-basic`: know how to work with numbers.
-- `strings-basic`: know how to work with strings.
+- `numbers-basic`: comparing the hour against specific number values.
+- `strings-basic`: dates are parsed from and converted to strings.
 
 ## Representer
 
