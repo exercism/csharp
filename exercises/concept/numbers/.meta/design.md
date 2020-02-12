@@ -11,6 +11,8 @@ After completing this exercise, the student should:
 - Know of the existence of the two most commonly used number types, `int` and `double`.
 - Understand that an `int` represents whole numbers, and a `double` represents floating-point numbers.
 - Know of basic operators such as multiplication and comparison.
+- Know how to convert from one numeric type to another; know what implicit and explicit conversions are.
+- Know how to conditionally execute code using an `if` statement.
 
 ## Things not to teach
 
