@@ -90,6 +90,16 @@
       "link_url": "null",
       "avatar_url": "https://raw.githubusercontent.com/shaynuhcon/Avatars/master/p1.png",
       "bio": "Professional C# / .NET developer just out here sharing some knowledge."
-    }
+    },
+    {
+      "github_username": "mikedamay",
+      "alumnus": false,
+      "show_on_website": false,
+      "name": "Mike May",
+      "link_text": "null",
+      "link_url": "null",
+      "avatar_url": null,
+      "bio": "Veteran coder with aspirations in language research"
+    }  
   ]
 }
