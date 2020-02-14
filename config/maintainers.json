@@ -8,7 +8,7 @@
       "name": "Erik Schierboom",
       "link_text": "My blog",
       "link_url": "http://www.erikschierboom.com/",
-      "avatar_url": "https://nl.gravatar.com/userimage/27030165/64dc5009cee6a1177883121d464d7743.jpg",
+      "avatar_url": "https://nl.gravatar.com/userimage/27030165/76c834a4087478d5f9ff6ff8c6c1429e.jpg",
       "bio": "I am a developer with a passion for learning new languages. C# is a well-designed and expressive language that I love programming in."
     },
     {
@@ -110,6 +110,16 @@
       "link_url": "https://longroadtoprogrammingmastery.wordpress.com/",
       "avatar_url": null,
       "bio": "Aspiring software craftsman | C# | JavaScript | Angular"
-    }  
+    },  
+    {
+      "github_username": "neiesc",
+      "alumnus": false,
+      "show_on_website": false,
+      "name": "Edinei Cavalcanti",
+      "link_text": "null",
+      "link_url": "null",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/251643?s=460&v=4",
+      "bio": "#developer #dotnet #nodejs #python"
+    }
   ]
 }
