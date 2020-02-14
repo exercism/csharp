@@ -100,6 +100,16 @@
       "link_url": "null",
       "avatar_url": null,
       "bio": "Veteran coder with aspirations in language research"
-    }  
+    },
+	{
+      "github_username": "alexpud",
+      "alumnus": false,
+      "show_on_website": false,
+      "name": "Alexandre Maciel",
+      "link_text": "null",
+      "link_url": "null",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/6517180?s=460&v=4",
+      "bio": "Aspiring developer with a passion for challenges"
+    } 
   ]
 }
