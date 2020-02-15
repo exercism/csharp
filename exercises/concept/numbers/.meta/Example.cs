@@ -13,15 +13,12 @@ public static class AssemblyLine
 
     private static double SuccessRate(int speed)
     {
-        if (speed == 0)
-            return 0.0;
-
         if (speed >= 9)
             return 0.77;
 
-        if (speed < 5)
-            return 1.0;
+        if (speed >= 5)
+            return 0.9;
 
-        return 0.9;
+        return 1;
     }
 }
