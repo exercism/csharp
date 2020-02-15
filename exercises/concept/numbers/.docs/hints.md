@@ -14,7 +14,7 @@
 
 ### 2. Calculate the number of working items produced per second
 
-- Whereas an `int` can be automatically converted to a `double`, the reverse does not hold. The reason for this is that the range of numbers an `int` can represent is smaller than a `double`. To force this conversion, one can either use one of the [`Convert` class' methods][docs-microsoft.com-convert] or [cast to an int][tutorial-dotnetperls.com-cast-int].
+- Whereas an `int` can be automatically converted to a `double`, the reverse does not hold. The reason for this is that an `int` has less precision than a `double` so rounding has to be applied, also the range of numbers an `int` can represent is smaller than a `double`. To force this conversion, one can either use one of the [`Convert` class' methods][docs-microsoft.com-convert] or [cast to an int][tutorial-dotnetperls.com-cast-int].
 
 [docs-microsoft.com-convert]: https://docs.microsoft.com/en-us/dotnet/api/system.convert?view=netcore-3.0#examples
 [tutorial-dotnetperls.com-cast-int]: https://www.dotnetperls.com/cast-int
