@@ -15,16 +15,16 @@
 - new keyword: used to instantiate a class
 - lists: a `List<T>` temporarily holds the results before converting them to an array (Add and ToArray methods)
 - for loop: iterate through the strands
-- integers: `int` type used as a counter in the loop 
+- integers: `int` type used as a counter in the loop
 - math operations: <, *, and ++
 - strings: substring and comparison
 - exceptions: throw an exception in the event of invalid input
 
-## Using a switch for mapping the proteins
+## Approach: switch
 
 - switch cases: to convert the string to a protein name (including default case)
 
-## Using a dictionary for mapping the proteins
+## Approach: dictionary
 
 - dictionaries: `Dictionary<K, V>` is used to store a mapping
 - immutable data structures: `ReadonlyDictionary<K, V>` should be used for the mapping which never changes
