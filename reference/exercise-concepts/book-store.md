@@ -26,8 +26,10 @@
 - math standard library: use of `Math.Round` and `Math.Min`
 - mapping, selecting, ordering enumerables: using multiple Linq methods to manipulate enumerables (`Concat`, `GroupBy`, `Min`, `OrderByDescending`, `Select`, `Take`, `ToArray`, `Where`)
 
-## Switch for discount percentage
+## Approach: switch
+
 - switch: used to map the discount percentage based on the number of unique books
 
-## Dictionary for discount percentages
+## Approach: dictionary
+
 - dictionaries: `Dictionary<int, decimal>` for mapping the discount percentage based on the number of unique books

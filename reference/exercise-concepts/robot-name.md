@@ -3,6 +3,7 @@
 [Example implementation](https://github.com/exercism/csharp/blob/master/exercises/robot-name/Example.cs)
 
 ## General
+
 - functions: used as the main entry point to this exercise
 - constructors: initalizing values when object is created
 - conditionals using if: conditionally execute logic using an `if` statement
@@ -18,4 +19,3 @@
 - namespaces: knowing where to find the `HashSet` class
 - do while loop: loop to find valid names
 - regex: test suite uses regex to test valid names
-
