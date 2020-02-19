@@ -11,7 +11,7 @@
 - exceptions: throw an exception in the event of invalid/null input
 - scoping: use `{` and `}` to denote scoping
 - classes: the tested method is defined in a class
-- objects: creating an object to keep track of the rolls
+- objects: creating an object to keep list of colors
 - visibility: making tested method and tested class `public`
 - imports: import types through `using` statements
 - namespaces: knowing where to find the `Array` class
