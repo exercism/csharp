@@ -4,7 +4,7 @@
 
 The goal of this exercise is to teach the student the basics of the Concept of enums through [C#][docs.microsoft.com-enum].
 
-## Things to teach
+## Learning objectives
 
 After completing this exercise, the student should:
 
@@ -14,7 +14,7 @@ After completing this exercise, the student should:
 - Know how to get an enum's numeric value.
 - Know how to convert a `string` to an `enum` and vice versa.
 
-## Things not to teach
+## Out of scope
 
 - Flag enums.
 - That an enum's underlying type can be changed.

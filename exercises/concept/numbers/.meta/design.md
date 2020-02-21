@@ -4,9 +4,7 @@
 
 The goal of this exercise is to teach the student how the Concept of Numbers is implemented in [C#][docs.microsoft.com-numbers]. It will introduce this concept through the two most common numeric types in C#: `int` (whole number) and `double` (floating-point number).
 
-## Things to teach
-
-After completing this exercise, the student should:
+## Learning objectives
 
 - Know of the existence of the two most commonly used number types, `int` and `double`.
 - Understand that an `int` represents whole numbers, and a `double` represents floating-point numbers.
@@ -14,7 +12,7 @@ After completing this exercise, the student should:
 - Know how to convert from one numeric type to another; know what implicit and explicit conversions are.
 - Know how to conditionally execute code using an `if` statement.
 
-## Things not to teach
+## Out of scope
 
 - Any other numeric types besides `int` and `double` (so no `float`, `byte`, etc.).
 - Parsing a `string` to an `int` or `double`.
