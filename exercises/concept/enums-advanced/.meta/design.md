@@ -4,9 +4,7 @@
 
 The goal of this exercise is to teach the student advanced aspects of the Concept of Enums in [C#][docs.microsoft.com-bitwise-and-shift-operators]. We'll do this in the form of working with [flag][docs.microsoft.com-flagsattribute] enums, which are enums whose values are interpreted as bitwise flags that can be manipulated through bitwise operations.
 
-## Things to teach
-
-After completing this exercise, the student should:
+## Learning objectives
 
 - Know what a flags enumeration is.
 - Know how to define a flags enumeration.
@@ -15,7 +13,7 @@ After completing this exercise, the student should:
 - Know how to unset a flag on an enum value.
 - Know that an enum's underlying type can be changed.
 
-## Things not to teach
+## Out of scope
 
 As this is an advanced exercise, there are no enum-related things that we should explicitly _not_ teach.
 

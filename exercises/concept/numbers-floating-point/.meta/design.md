@@ -4,15 +4,13 @@
 
 The goal of this exercise is to teach the student how the Concept of floating-point numbers is implemented in [C#][docs.microsoft.com-floating-point-numeric-types]. It will show the available floating-point types and discuss their differences.
 
-## Things to teach
-
-After completing this exercise, the student should:
+## Learning objectives
 
 - Know of the existence of the three floating point types: `double`, `float` and `decimal`.
 - Know when to use which type.
 - Know how to write a `while` loop.
 
-## Things not to teach
+## Out of scope
 
 - Parsing floating-point types from strings.
 - Converting floating-point types to strings.

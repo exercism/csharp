@@ -4,9 +4,7 @@
 
 The goal of this exercise is to teach the student the basics of the Concept of Dates through [C#][docs.microsoft.com-datetime].
 
-## Things to teach
-
-After completing this exercise, the student should:
+## Learning objectives
 
 - Know of the existence of the `DateTime` type.
 - Know of the individual, date-related properties.
@@ -14,7 +12,7 @@ After completing this exercise, the student should:
 - Know how to compare dates.
 - Know how to convert a `string` to a `DateTime` and vice versa.
 
-## Things not to teach
+## Out of scope
 
 - Using standard or custom format strings.
 - Everything related to timezones.
