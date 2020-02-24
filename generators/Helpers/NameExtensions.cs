@@ -24,7 +24,7 @@ namespace Exercism.CSharp.Helpers
 
         public static string ToExerciseName(this string input) => input.Kebaberize();
 
-        public static string ToTestClassName(this string input) => $"{input.Dehumanize()}Test";
+        public static string ToTestClassName(this string input) => $"{input.Dehumanize()}Tests";
 
         public static string ToTestedClassName(this string input) => input.Dehumanize();
 
