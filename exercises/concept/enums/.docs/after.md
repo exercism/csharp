@@ -1,5 +1,3 @@
-# After
-
 Whenever you have a fixed set of constant values, an `enum` can be used. Using an enum gives one a type-safe way of interacting with constant values.
 
 Another benefit of enums are that they are very declarative. Compare the following two pieces of code:

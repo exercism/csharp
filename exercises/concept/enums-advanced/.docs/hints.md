@@ -1,5 +1,3 @@
-# Hints
-
 ### 1. Get default permissions for an account type
 
 - To handle each account type, one could use an `if` statement, but the [`switch` statement][docs.microsoft.com-switch-keyword] is a great alternative.

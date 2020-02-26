@@ -1,5 +1,3 @@
-# Instructions
-
 In this exercise you'll be working with savings accounts. Each year, the balance of each savings account is updated based on the [annual percentage yield][wikipedia-annual_percentage_yield] (APY). The APY value depends on the amount of money in the account (its balance):
 
 - -3.213% for a negative balance.

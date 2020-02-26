@@ -1,5 +1,3 @@
-# Hints
-
 ### General
 
 - [docs.microsoft.com numbers tutorial][tutorial-docs.microsoft-numbers]
