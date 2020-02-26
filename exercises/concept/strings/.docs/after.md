@@ -1,5 +1,3 @@
-# After
-
 The key thing to remember about C# strings is that they are immutable objects representing text as a sequence of Unicode characters (letters, digits, punctuation, etc.).
 
 Manipulating a string can be done by calling one of its [methods][methods] or [properties][properties]. As string values can never change after having been defined, all string manipulation methods will return a new string.

@@ -1,5 +1,3 @@
-# Hints
-
 ### General
 
 - [Tutorial on dates and time by csharp.net][csharp.net-dates-working-with-dates-time]

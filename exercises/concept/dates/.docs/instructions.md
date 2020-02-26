@@ -1,5 +1,3 @@
-# Instructions
-
 In this exercise you'll be working on an appointment scheduler for a beauty salon in New York.
 
 You have four tasks, which will all involve appointment dates. The dates and times will use one of the following four formats:

@@ -1,5 +1,3 @@
-# Hints
-
 ### General
 
 - The [csharp.net strings tutorial][tutorial-csharp.net-strings] has a nice introduction C# `string`'s.

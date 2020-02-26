@@ -1,5 +1,3 @@
-# After
-
 There are three floating-point types in C#: `float`, `double` and `decimal`. The most commonly used type is `double`, whereas `decimal` is normally used when working with monetary data.
 
 Each floating-point type has its own [precision, approximate range and size][docs-microsoft.com-characteristics-of-the-floating-point-types].

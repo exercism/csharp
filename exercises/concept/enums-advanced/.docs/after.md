@@ -1,5 +1,3 @@
-# After
-
 To allow an enum value to represent multiple values (usually referred to as _flags_), one can annotate the enum with the `[Flags]` attribute. By assigning the values of the enum such that each values has exactly one bit set to `1`, bitwise operators can be used to set or unset flags.
 
 The [working with enums as bit flags tutorial][docs.microsoft.com-enumeration-types-as-bit-flags] goes into more detail how to work with flag enums. Another great resource is the [enum flags and bitwise operators page][alanzucconi.com-enum-flags-and-bitwise-operators].
