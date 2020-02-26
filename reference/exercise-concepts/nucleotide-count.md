@@ -46,4 +46,4 @@
 
 ## Notes
 
-- Having the exercise return an `IDictionary<char, int>` means that the users will have to know about interfaces too. This was not the goal of the exercise (teaching about dictionaries is), so it's interesting to see that this was missed. Good thing to keep in mind when developing Concept Exercises.
+- Having the exercise return an `IDictionary<char, int>` means that the students will have to know about interfaces too. This was not the goal of the exercise (teaching about dictionaries is), so it's interesting to see that this was missed. Good thing to keep in mind when developing Concept Exercises.
