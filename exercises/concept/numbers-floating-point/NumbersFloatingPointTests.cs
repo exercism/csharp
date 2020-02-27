@@ -1,6 +1,6 @@
 using Xunit;
 
-public class SavingsAccountTest
+public class SavingsAccountTests
 {
     [Fact]
     public void MinimalFirstAnnualPercentageYield() =>

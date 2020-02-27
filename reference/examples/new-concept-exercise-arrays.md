@@ -92,7 +92,7 @@ languages
                 |   └── Example.cs
                 ├── Arrays.csproj
                 ├── Arrays.cs
-                └── ArraysTest.cs
+                └── ArraysTests.cs
 </pre>
 
 ## Step 1: add .docs/introduction.md
@@ -143,7 +143,7 @@ An entry should be added to the track's `config.json` file for the new concept e
 These files are specific to the C# track:
 
 - `Arrays.csproj`: the C# project file.
-- `ArraysTest.cs`: the test suite.
+- `ArraysTests.cs`: the test suite.
 - `Arrays.cs`. the stub implementation file, which is the starting point for students to work on the exercise.
 - `.meta/Example.cs`: an example implementation that passes all the tests.
 

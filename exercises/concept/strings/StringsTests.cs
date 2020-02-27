@@ -1,6 +1,6 @@
 using Xunit;
 
-public class LogLineTest
+public class LogLineTests
 {
     [Fact]
     public void ErrorMessage() =>
