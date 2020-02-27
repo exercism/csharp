@@ -1,6 +1,6 @@
 using Xunit;
 
-public class PermissionsTest
+public class PermissionsTests
 {
     [Fact]
     public void DefaultForGuest() =>

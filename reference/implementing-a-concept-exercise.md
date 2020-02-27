@@ -26,7 +26,7 @@ languages
                 |   └── Example.cs
                 ├── &lt;NAME&gt;.cs
                 ├── &lt;NAME&gt;.csproj
-                └── &lt;NAME&gt;Test.cs
+                └── &lt;NAME&gt;Tests.cs
 </pre>
 
 ## Step 1: adding track-specific files
@@ -35,7 +35,7 @@ These files are specific to the C# track:
 
 - `<NAME>.cs`. the stub implementation file, which is the starting point for students to work on the exercise.
 - `<NAME>.csproj`: the C# project file.
-- `<NAME>Test.cs`: the test suite.
+- `<NAME>Tests.cs`: the test suite.
 - `.meta/Example.cs`: an example implementation that passes all the tests.
 
 ## Step 2: adding common files

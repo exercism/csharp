@@ -1,12 +1,12 @@
 using Xunit;
+using Xunit.Sdk;
 using System;
 using System.Globalization;
 using System.Reflection;
 using System.Threading;
-using Xunit.Sdk;
 
 [UseCulture("en-US")]
-public class AppointmentTest
+public class AppointmentTests
 {
     [Fact]
     public void ScheduleDateUsingOnlyNumbers() =>

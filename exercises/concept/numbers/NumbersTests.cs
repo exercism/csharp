@@ -1,6 +1,6 @@
 using Xunit;
 
-public class AssemblyLineTest
+public class AssemblyLineTests
 {
     [Fact]
     public void ProductionRatePerHourForSpeedZero() =>
