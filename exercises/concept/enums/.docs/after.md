@@ -1,4 +1,6 @@
-Whenever you have a fixed set of constant values, an `enum` can be used. Using an enum gives one a type-safe way of interacting with constant values.
+You can use an enum whenever you have a fixed set of constant values. Using an enum gives one a type-safe way of interacting with constant values. Defining an enum is done through the `enum` keyword. An enum member is referred to by prepending it with the enum name and a dot (e.g. `Status.Active`).
+
+Each enum member has an associated integer value associated with it. If no value is explicitly defined for an enum member, its value is automatically assigned to `1` plus + the previous member's value. If the first member does not have an explicit value, its value is set to `0`.
 
 Another benefit of enums are that they are very declarative. Compare the following two pieces of code:
 
