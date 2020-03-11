@@ -77,8 +77,7 @@ function Test-Using-Example-Implementation {
     Run-Command "dotnet test $testTarget"
 }
 
-# Currently, configlet isn't stable and fails intermittently, so this check is removed until the root issue is fixed 
-# Configlet-Lint
+Configlet-Lint
 Clean
 Copy-Exercises
 Enable-All-Tests
