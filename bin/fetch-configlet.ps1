@@ -1,17 +1,11 @@
-Function RedirectLocationHeader([string]$url) {
-    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-
-    $latest = "https://github.com/exercism/configlet/releases/latest"
-    $request = [System.Net.WebRequest]::Create($latest)
-    $request.AllowAutoRedirect = $false
-    $response = $request.GetResponse()
-
-    $response.GetResponseHeader("Location")
+Function DownloadUrl ([string] $FileName, $Headers) {
+    $latestUrl = "https://api.github.com/repos/exercism/configlet/releases/latest"
+    $json = Invoke-RestMethod -Headers $Headers -Uri $latestUrl
+    $json.assets | Where-Object { $_.browser_download_url -match $FileName } | Select-Object -ExpandProperty browser_download_url
 }
 
-Function LatestVersion {
-    $location = RedirectLocationHeader("https://github.com/exercism/configlet/releases/latest")
-    $location.Substring($location.LastIndexOf("/") + 1)
+Function Headers {
+    If ($GITHUB_TOKEN) { $headers = @{ Authorization = "Bearer ${GITHUB_TOKEN}" } } Else { $headers = @{ } }
 }
 
 Function Arch {
@@ -19,12 +13,12 @@ Function Arch {
 }
 
 $arch = Arch
-$version = LatestVersion
+$headers = Headers
 $fileName = "configlet-windows-$arch.zip"
-$url = "https://github.com/exercism/configlet/releases/download/$version/$filename"
 $outputDirectory = "bin"
 $outputFile = Join-Path -Path $outputDirectory -ChildPath $fileName
+$zipUrl = DownloadUrl -FileName $fileName -Headers $headers
 
-Invoke-WebRequest -Uri $url -OutFile $outputFile
+Invoke-WebRequest -Headers $headers -Uri $zipUrl -OutFile $outputFile
 Expand-Archive $outputFile -DestinationPath $outputDirectory -Force
 Remove-Item -Path $outputFile

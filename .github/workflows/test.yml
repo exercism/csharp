@@ -11,3 +11,5 @@ jobs:
         with:
           dotnet-version: "3.0.100"
       - run: pwsh ./test.ps1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
