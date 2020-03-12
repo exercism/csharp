@@ -51,7 +51,7 @@ function Copy-Exercises {
 
 function Enable-All-Tests {
     Write-Output "Enabling all tests"
-    Get-ChildItem -Path $buildDir -Include "*Test.cs" -Recurse | ForEach-Object {
+    Get-ChildItem -Path $buildDir -Include "*Tests.cs" -Recurse | ForEach-Object {
         (Get-Content $_.FullName) -replace "Skip = ""Remove to run test""", "" | Set-Content $_.FullName
     }
 }
