@@ -12,34 +12,34 @@ You have three tasks, each of which will take a log line and ask you to do somet
 
 ### 1. Get message from a log line
 
-Implement a method to return a log line's message:
+Implement the `LogLine.Message` method to return a log line's message:
 
 ```csharp
-Strings.Message("[ERROR]: Invalid operation")
+LogLine.Message("[ERROR]: Invalid operation")
 // Returns: "Invalid operation"
 ```
 
 Any leading or trailing white space should be removed:
 
 ```csharp
-Strings.Message("[WARNING]:  Disk almost full\r\n")
+LogLine.Message("[WARNING]:  Disk almost full\r\n")
 // Returns: "Disk almost full"
 ```
 
 ### 2. Get log level from a log line
 
-Implement a method to return a log line's log level, which should be returned in lowercase:
+Implement the `LogLine.LogLevel` method to return a log line's log level, which should be returned in lowercase:
 
 ```csharp
-Strings.LogLevel("[ERROR]: Invalid operation")
+LogLine.LogLevel("[ERROR]: Invalid operation")
 // Returns: "error"
 ```
 
 ### 3. Reformat a log line
 
-Implement a method that reformats the log line, putting the message first and the log level after it in parentheses:
+Implement the `LogLine.Reformat` method that reformats the log line, putting the message first and the log level after it in parentheses:
 
 ```csharp
-Strings.Reformat("[INFO]: Operation completed")
+LogLine.Reformat("[INFO]: Operation completed")
 // Returns: "Operation completed (info)"
 ```
