@@ -22,7 +22,7 @@ Next, implement the `LogLine.ParseLogLevel` method to parse the log level of a l
 
 ```csharp
 LogLine.ParseLogLevel("[INFO]: File deleted")
-// Returns: LogLevel.Info
+// => LogLevel.Info
 ```
 
 ### 2. Support unknown log level
@@ -31,7 +31,7 @@ Unfortunately, occasionally some log lines have an unknown log level. To gracefu
 
 ```csharp
 LogLine.ParseLogLevel("[FATAL]: Invalid operation")
-// Returns: LogLevel.Unknown
+// => LogLevel.Unknown
 ```
 
 ### 3. Convert log line to short format
@@ -49,5 +49,5 @@ Implement the `LogLine.OutputForShortLog` method that can output the shortened l
 
 ```csharp
 LogLine.OutputForShortLog(LogLevel.Error, "Stack overflow")
-// Returns: "4:Stack overflow"
+// => "4:Stack overflow"
 ```

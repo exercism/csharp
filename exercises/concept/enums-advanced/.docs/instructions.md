@@ -22,7 +22,7 @@ Then implement the `Permissions.Default` method to return the default permission
 
 ```csharp
 Permissions.Default(AccountType.Guest)
-// Returns: Permission.Read
+// => Permission.Read
 ```
 
 ### 2. Grant a permission
@@ -31,7 +31,7 @@ Implement the `Permissions.Grant` method that grants (adds) a permission:
 
 ```csharp
 Permissions.Grant(current: Permission.None, grant: Permission.Read)
-// Returns: Permission.Read
+// => Permission.Read
 ```
 
 ### 3. Revoke a permission
@@ -40,7 +40,7 @@ Implement the `Permissions.Revoke` method that revokes (removes) a permission:
 
 ```csharp
 Permissions.Revoke(current: Permission.Read, grant: Permission.Read)
-// Returns: Permission.None
+// => Permission.None
 ```
 
 ### 4. Check for a permission
@@ -49,5 +49,5 @@ Implement the `Permissions.Check` method that takes the current account's permis
 
 ```csharp
 Permissions.Check(current: Permission.Write, check: Permission.Read)
-// Returns: false
+// => false
 ```
