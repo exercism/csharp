@@ -15,7 +15,7 @@ Implement the `Appointment.Schedule` method to parse a textual representation of
 
 ```csharp
 Appointment.Schedule("7/25/2019 13:45:00")
-// Returns: new DateTime(2019, 7, 25, 13, 45, 0)
+// => new DateTime(2019, 7, 25, 13, 45, 0)
 ```
 
 ### 2. Check if an appointment has already passed
@@ -24,7 +24,7 @@ Implement the `Appointment.HasPassed` method that takes an appointment date and 
 
 ```csharp
 Appointment.HasPassed(new DateTime(1999, 12, 31, 9, 0, 0))
-// Returns: true
+// => true
 ```
 
 ### 3. Check if appointment is in the afternoon
@@ -33,7 +33,7 @@ Implement the `Appointment.IsAfternoonAppointment` method that takes an appointm
 
 ```csharp
 Appointment.IsAfternoonAppointment(new DateTime(2019, 03, 29, 15, 0, 0))
-// Returns: true
+// => true
 ```
 
 ### 4. Describe the time and date of the appointment
@@ -42,5 +42,5 @@ Implement the `Appointment.Description` method that takes an appointment date an
 
 ```csharp
 Appointment.Description(new DateTime(2019, 03, 29, 15, 0, 0))
-// Returns: "You have an appointment on Friday 29 March 2019 at 15:00."
+// => "You have an appointment on Friday 29 March 2019 at 15:00."
 ```

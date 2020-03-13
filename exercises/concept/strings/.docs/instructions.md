@@ -16,14 +16,14 @@ Implement the `LogLine.Message` method to return a log line's message:
 
 ```csharp
 LogLine.Message("[ERROR]: Invalid operation")
-// Returns: "Invalid operation"
+// => "Invalid operation"
 ```
 
 Any leading or trailing white space should be removed:
 
 ```csharp
 LogLine.Message("[WARNING]:  Disk almost full\r\n")
-// Returns: "Disk almost full"
+// => "Disk almost full"
 ```
 
 ### 2. Get log level from a log line
@@ -32,7 +32,7 @@ Implement the `LogLine.LogLevel` method to return a log line's log level, which 
 
 ```csharp
 LogLine.LogLevel("[ERROR]: Invalid operation")
-// Returns: "error"
+// => "error"
 ```
 
 ### 3. Reformat a log line
@@ -41,5 +41,5 @@ Implement the `LogLine.Reformat` method that reformats the log line, putting the
 
 ```csharp
 LogLine.Reformat("[INFO]: Operation completed")
-// Returns: "Operation completed (info)"
+// => "Operation completed (info)"
 ```

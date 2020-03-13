@@ -14,7 +14,7 @@ Implement the `AssemblyLine.ProductionRatePerHour` method to calculate the assem
 
 ```csharp
 AssemblyLine.ProductionRatePerHour(speed: 6)
-// Returns: 1193.4
+// => 1193.4
 ```
 
 Note that the value returned is a `double`.
@@ -25,7 +25,7 @@ Implement the `AssemblyLine.WorkingItemsPerMinute` method to calculate how many 
 
 ```csharp
 AssemblyLine.WorkingItemsPerMinute(speed: 6)
-// Returns: 19
+// => 19
 ```
 
 Note that the value returned is an `int`.
