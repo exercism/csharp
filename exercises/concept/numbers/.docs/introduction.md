@@ -5,11 +5,11 @@ There are two different types of numbers in C#:
 
 The two most common numeric types in C# are `int` and `double`. An `int` is a 32-bit integer and a `double` is a 64-bit floating-point number.
 
-## Converting between number types
-
 C# has two types of numeric conversions:
 
 1. Implicit conversions: no data will be lost and no additional syntax is required.
 2. Explicit conversions: data could be lost and additional syntax in the form of a _cast_ is required.
 
 As an `int` has less precision than a `double`, converting from an `int` to a `double` is safe and is thus an implicit conversion. However, converting from a `double` to an `int` could mean losing data, so that requires an explicit conversion.
+
+In this exercise you must conditionally execute logic. The most common way to do this in C# is by using an `if/else` statement.
