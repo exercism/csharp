@@ -32,12 +32,12 @@ public class CollatzConjectureTests
     [Fact(Skip = "Remove to run test")]
     public void Zero_is_an_error()
     {
-        Assert.Throws<ArgumentException>(() => CollatzConjecture.Steps(0));
+        Assert.Throws<ArgumentOutOfRangeException>(() => CollatzConjecture.Steps(0));
     }
 
     [Fact(Skip = "Remove to run test")]
     public void Negative_value_is_an_error()
     {
-        Assert.Throws<ArgumentException>(() => CollatzConjecture.Steps(-15));
+        Assert.Throws<ArgumentOutOfRangeException>(() => CollatzConjecture.Steps(-15));
     }
 }
