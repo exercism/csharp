@@ -8,7 +8,7 @@ namespace Exercism.CSharp.Exercises.Generators
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
             if (testMethod.Input["number"] <= 0)
-                testMethod.ExceptionThrown = typeof(ArgumentException);
+                testMethod.ExceptionThrown = typeof(ArgumentOutOfRangeException);
         }
     }
 }
