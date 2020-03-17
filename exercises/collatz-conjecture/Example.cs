@@ -6,7 +6,7 @@ public static class CollatzConjecture
     {
         if(number <= 0)
         {
-            throw new ArgumentException("Only positive numbers are allowed");
+            throw new ArgumentOutOfRangeException("Only positive numbers are allowed");
         }
 
         int stepCount = 0;
