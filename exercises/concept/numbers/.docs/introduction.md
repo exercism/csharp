@@ -5,6 +5,8 @@ There are two different types of numbers in C#:
 
 The two most common numeric types in C# are `int` and `double`. An `int` is a 32-bit integer and a `double` is a 64-bit floating-point number.
 
+Arithmetic is done using the standard arithmetic operators. Numbers can be compared using the standard numeric comparison operators.
+
 C# has two types of numeric conversions:
 
 1. Implicit conversions: no data will be lost and no additional syntax is required.
