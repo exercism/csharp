@@ -2,9 +2,9 @@ using System;
 
 public static class SavingsAccount
 {
-    public static float AnnualPercentageYield(decimal balance)
+    public static float InterestRate(decimal balance)
     {
-        throw new NotImplementedException("Please implement the SavingsAccount.AnnualPercentageYield method");
+        throw new NotImplementedException("Please implement the SavingsAccount.InterestRate method");
     }
 
     public static decimal AnnualBalanceUpdate(decimal balance)

@@ -3,56 +3,56 @@ using Xunit;
 public class SavingsAccountTests
 {
     [Fact]
-    public void MinimalFirstAnnualPercentageYield() =>
-        Assert.Equal(0.5f, SavingsAccount.AnnualPercentageYield(0m));
+    public void MinimalFirstInterestRate() =>
+        Assert.Equal(0.5f, SavingsAccount.InterestRate(0m));
 
     [Fact]
-    public void TinyFirstAnnualPercentageYield() =>
-        Assert.Equal(0.5f, SavingsAccount.AnnualPercentageYield(0.000001m));
+    public void TinyFirstInterestRate() =>
+        Assert.Equal(0.5f, SavingsAccount.InterestRate(0.000001m));
 
     [Fact]
-    public void MaximumFirstAnnualPercentageYield() =>
-        Assert.Equal(0.5f, SavingsAccount.AnnualPercentageYield(999.9999m));
+    public void MaximumFirstInterestRate() =>
+        Assert.Equal(0.5f, SavingsAccount.InterestRate(999.9999m));
 
     [Fact]
-    public void MinimalSecondAnnualPercentageYield() =>
-        Assert.Equal(1.621f, SavingsAccount.AnnualPercentageYield(1_000.0m));
+    public void MinimalSecondInterestRate() =>
+        Assert.Equal(1.621f, SavingsAccount.InterestRate(1_000.0m));
 
     [Fact]
-    public void TinySecondAnnualPercentageYield() =>
-        Assert.Equal(1.621f, SavingsAccount.AnnualPercentageYield(1_000.0001m));
+    public void TinySecondInterestRate() =>
+        Assert.Equal(1.621f, SavingsAccount.InterestRate(1_000.0001m));
 
     [Fact]
-    public void MaximumSecondAnnualPercentageYield() =>
-        Assert.Equal(1.621f, SavingsAccount.AnnualPercentageYield(4_999.9990m));
+    public void MaximumSecondInterestRate() =>
+        Assert.Equal(1.621f, SavingsAccount.InterestRate(4_999.9990m));
 
     [Fact]
-    public void MinimalThirdAnnualPercentageYield() =>
-        Assert.Equal(2.475f, SavingsAccount.AnnualPercentageYield(5_000.0000m));
+    public void MinimalThirdInterestRate() =>
+        Assert.Equal(2.475f, SavingsAccount.InterestRate(5_000.0000m));
 
     [Fact]
-    public void TinyThirdAnnualPercentageYield() =>
-        Assert.Equal(2.475f, SavingsAccount.AnnualPercentageYield(5_000.0001m));
+    public void TinyThirdInterestRate() =>
+        Assert.Equal(2.475f, SavingsAccount.InterestRate(5_000.0001m));
 
     [Fact]
-    public void LargeThirdAnnualPercentageYield() =>
-        Assert.Equal(2.475f, SavingsAccount.AnnualPercentageYield(5_639_998.742909m));
+    public void LargeThirdInterestRate() =>
+        Assert.Equal(2.475f, SavingsAccount.InterestRate(5_639_998.742909m));
 
     [Fact]
-    public void MinimalNegativeAnnualPercentageYield() =>
-        Assert.Equal(-3.213f, SavingsAccount.AnnualPercentageYield(-0.000001m));
+    public void MinimalNegativeInterestRate() =>
+        Assert.Equal(-3.213f, SavingsAccount.InterestRate(-0.000001m));
 
     [Fact]
-    public void SmallNegativeAnnualPercentageYield() =>
-        Assert.Equal(-3.213f, SavingsAccount.AnnualPercentageYield(-0.123m));
+    public void SmallNegativeInterestRate() =>
+        Assert.Equal(-3.213f, SavingsAccount.InterestRate(-0.123m));
 
     [Fact]
-    public void RegularNegativeAnnualPercentageYield() =>
-        Assert.Equal(-3.213f, SavingsAccount.AnnualPercentageYield(-300.0m));
+    public void RegularNegativeInterestRate() =>
+        Assert.Equal(-3.213f, SavingsAccount.InterestRate(-300.0m));
 
     [Fact]
-    public void LargeNegativeAnnualPercentageYield() =>
-        Assert.Equal(-3.213f, SavingsAccount.AnnualPercentageYield(-152964.231m));
+    public void LargeNegativeInterestRate() =>
+        Assert.Equal(-3.213f, SavingsAccount.InterestRate(-152964.231m));
 
     [Fact]
     public void AnnualBalanceUpdateForEmptyStartBalance() =>

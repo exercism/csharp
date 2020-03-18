@@ -1,18 +1,18 @@
-In this exercise you'll be working with savings accounts. Each year, the balance of each savings account is updated based on the [annual percentage yield][wikipedia-annual_percentage_yield] (APY). The APY value depends on the amount of money in the account (its balance):
+In this exercise you'll be working with savings accounts. Each year, the balance of your savings account is updated based on its interest rate. The interest rate your bank gives you depends on the amount of money in your account (its balance):
 
 - -3.213% for a negative balance.
-- 0.5% for a positive balance less than `1000`.
-- 1.621% for a positive balance greater or equal than `1000` and less than `5000`.
-- 2.475% for a positive balance greater or equal than `5000`.
+- 0.5% for a positive balance less than `1000` dollars.
+- 1.621% for a positive balance greater or equal than `1000` dollars and less than `5000` dollars.
+- 2.475% for a positive balance greater or equal than `5000` dollars.
 
-You have three tasks, each of which will deal with balances and their APYs.
+You have three tasks, each of which will deal your balance and its interest rate.
 
-### 1. Calculate the annual percentage yield
+### 1. Calculate the interest rate
 
-Implement the `SavingsAccount.AnnualPercentageYield` method to calculate the APY based on the specified balance:
+Implement the `SavingsAccount.InterestRate` method to calculate the interest rate based on the specified balance:
 
 ```csharp
-SavingsAccount.AnnualPercentageYield(balance: 200.75m)
+SavingsAccount.InterestRate(balance: 200.75m)
 // 0.5f
 ```
 
@@ -20,7 +20,7 @@ Note that the value returned is a `float`.
 
 ### 2. Calculate the annual balance update
 
-Implement the `SavingsAccount.AnnualBalanceUpdate` method to calculate the annual balance update, taking into account the APY:
+Implement the `SavingsAccount.AnnualBalanceUpdate` method to calculate the annual balance update, taking into account the interest rate:
 
 ```csharp
 SavingsAccount.AnnualBalanceUpdate(balance: 200.75m)
@@ -39,5 +39,3 @@ SavingsAccount.YearsBeforeDesiredBalance(balance: 200.75m, targetBalance: 214.88
 ```
 
 Note that the value returned is an `int`.
-
-[wikipedia-annual_percentage_yield]: https://en.wikipedia.org/wiki/Annual_percentage_yield

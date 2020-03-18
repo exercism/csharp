@@ -2,7 +2,7 @@ using System;
 
 public static class SavingsAccount
 {
-    public static float AnnualPercentageYield(decimal balance)
+    public static float InterestRate(decimal balance)
     {
         if (balance < 0.0m)
             return -3.213f;
@@ -18,7 +18,7 @@ public static class SavingsAccount
 
     private static decimal AnnualYield(decimal balance)
     {
-        var multiplier = (decimal)AnnualPercentageYield(balance) / 100;
+        var multiplier = (decimal)InterestRate(balance) / 100;
         return Math.Abs(balance) * multiplier;
     }
 
