@@ -2,7 +2,7 @@
 
 - [Floating-point numeric types introduction][docs.microsoft.com-floating_point_numeric_types].
 
-### 1. Calculate the annual percentage yield
+### 1. Calculate the interest rate
 
 - By default, any floating-point number defined in C# code is treated as a `double`. To use a different floating-point type (like `float` or `decimal`), one must add the appropriate [suffix][docs.microsoft.com-real_literals] to the number.
 

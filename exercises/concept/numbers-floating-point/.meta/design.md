@@ -7,7 +7,7 @@ The goal of this exercise is to teach the student how the Concept of floating-po
 ## Learning objectives
 
 - Know of the existence of the three floating point types: `double`, `float` and `decimal`.
-- Know when to use which type.
+- Know when to use which floating point type.
 - Know how to write a `while` loop.
 
 ## Out of scope
@@ -20,7 +20,7 @@ The goal of this exercise is to teach the student how the Concept of floating-po
 
 The Concepts this exercise unlocks are:
 
-- `numbers-floating-point`: know of the existing of the three floating point types: `double`, `float` and `decimal`. know when to use which type.
+- `numbers-floating-point`: know of the existing of the three floating point types: `double`, `float` and `decimal`. know when to use which floating point type.
 - `loops-while`: know how to write a `while` loop.
 
 ## Prequisites
