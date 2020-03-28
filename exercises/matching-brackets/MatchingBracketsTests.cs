@@ -59,6 +59,13 @@ public class MatchingBracketsTests
         var value = "{[]}";
         Assert.True(MatchingBrackets.IsPaired(value));
     }
+    
+    [Fact(Skip = "Remove to run test")]
+    public void Partially_paired_internal_brackets()
+    {
+        var value = "{[)}";
+        Assert.False(MatchingBrackets.IsPaired(value));
+    }
 
     [Fact(Skip = "Remove to run test")]
     public void Several_paired_brackets()
