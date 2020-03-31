@@ -6,87 +6,87 @@ public class PermissionsTests
     public void DefaultForGuest() =>
         Assert.Equal(Permission.Read, Permissions.Default(AccountType.Guest));
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void DefaultForUser() =>
         Assert.Equal(Permission.Read | Permission.Write, Permissions.Default(AccountType.User));
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void DefaultForModerator() =>
         Assert.Equal(Permission.Read | Permission.Write | Permission.Delete, Permissions.Default(AccountType.Moderator));
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void DefaultForUnknown() =>
         Assert.Equal(Permission.None, Permissions.Default((AccountType)123));
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void GrantReadToNone() =>
         Assert.Equal(Permission.Read, Permissions.Grant(Permission.None, Permission.Read));
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void GrantReadToRead() =>
         Assert.Equal(Permission.Read, Permissions.Grant(Permission.Read, Permission.Read));
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void GrantAllToNone() =>
         Assert.Equal(Permission.All, Permissions.Grant(Permission.None, Permission.All));
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void GrantDeleteToReadAndWrite() =>
         Assert.Equal(Permission.All, Permissions.Grant(Permission.Read | Permission.Write, Permission.Delete));
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void GrantReadAndWriteToNone() =>
         Assert.Equal(Permission.Read | Permission.Write, Permissions.Grant(Permission.None, Permission.Read | Permission.Write));
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void RevokeNoneFromRead() =>
         Assert.Equal(Permission.Read, Permissions.Revoke(Permission.Read, Permission.None));
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void RevokeWriteFromWrite() =>
         Assert.Equal(Permission.None, Permissions.Revoke(Permission.Write, Permission.Write));
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void RevokeDeleteFromAll() =>
         Assert.Equal(Permission.Read | Permission.Write, Permissions.Revoke(Permission.All, Permission.Delete));
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void RevokeReadAndWriteFromWriteAndDelete() =>
         Assert.Equal(Permission.Delete, Permissions.Revoke(Permission.Write | Permission.Delete, Permission.Read | Permission.Write));
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void RevokeAllFromReadAndWrite() =>
         Assert.Equal(Permission.None, Permissions.Revoke(Permission.Read | Permission.Write, Permission.All));
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void CheckNoneForRead() =>
         Assert.False(Permissions.Check(Permission.None, Permission.Read));
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void CheckWriteForWrite() =>
         Assert.True(Permissions.Check(Permission.Write, Permission.Write));
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void CheckAllForWrite() =>
         Assert.True(Permissions.Check(Permission.All, Permission.Write));
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void CheckReadAndWriteForRead() =>
         Assert.True(Permissions.Check(Permission.Read | Permission.Write, Permission.Read));
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void CheckAllForReadAndWrite() =>
         Assert.True(Permissions.Check(Permission.Read | Permission.Write, Permission.Read | Permission.Write));
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void CheckReadAndWriteForReadAndWrite() =>
         Assert.True(Permissions.Check(Permission.Read | Permission.Write, Permission.Read | Permission.Write));
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void CheckReadAndWriteForReadAndDelete() =>
         Assert.False(Permissions.Check(Permission.Read | Permission.Write, Permission.Read | Permission.Delete));
 
-    [Fact]
+    [Fact(Skip = "Remove to run test")]
     public void CheckReadAndWriteAndDeleteForAll() =>
         Assert.True(Permissions.Check(Permission.Read | Permission.Write | Permission.Delete, Permission.All));
 }
