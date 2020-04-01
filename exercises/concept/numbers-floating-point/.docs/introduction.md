@@ -10,4 +10,13 @@ C# has three floating-point types:
 
 As can be seen, each type can store a different number of digits. This means that trying to store PI in a `float` will only store the first 6 to 9 digits (with the last digit being rounded).
 
-In this exercise you may also want to use a loop. There are several ways to write loops in C#, but the `while` loop is most appropriate here.
+In this exercise you may also want to use a loop. There are several ways to write loops in C#, but the `while` loop is most appropriate here:
+
+```csharp
+int x = 23;
+
+while (x > 10)
+{
+    // Execute logic if x > 10
+}
+```
