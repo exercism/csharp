@@ -21,4 +21,9 @@ public static class Appointment
     {
         throw new NotImplementedException("Please implement the Appointment.Description method");
     }
+
+    public static DateTime AnniversaryDate()
+    {
+        throw new NotImplementedException("Please implement the Appointment.AnniversaryDate method");
+    }
 }

@@ -104,6 +104,10 @@ public class AppointmentTests
     public void DescriptionOnWednesdayMorning() =>
         Assert.Equal("You have an appointment on 9/9/2020 9:09:09 AM.", Appointment.Description(new DateTime(2020, 9, 9, 9, 9, 9)));
 
+    [Fact]
+    public void AnniversaryDate() =>
+        Assert.Equal(new DateTime(DateTime.Now.Year, 9, 15), Appointment.AnniversaryDate());
+
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
     private class UseCultureAttribute : BeforeAfterTestAttribute
     {
