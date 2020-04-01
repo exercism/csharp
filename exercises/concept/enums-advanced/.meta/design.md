@@ -30,6 +30,7 @@ This exercise's prerequisites Concepts are:
 - `enums-basic`: know how to define the `enum`.
 - `attributes-basic`: know how to annotate the enum with the `[Flags]` attribute.
 - `bitwise-operations`: know how to use bitwise operations to work with the flag enum values.
+- `numbers-integers`: know of other integer types than `int` and know about binary integer literals
 
 ## Representer
 
