@@ -14,4 +14,21 @@ C# has two types of numeric conversions:
 
 As an `int` has less precision than a `double`, converting from an `int` to a `double` is safe and is thus an implicit conversion. However, converting from a `double` to an `int` could mean losing data, so that requires an explicit conversion.
 
-In this exercise you must conditionally execute logic. The most common way to do this in C# is by using an `if/else` statement.
+In this exercise you must conditionally execute logic. The most common way to do this in C# is by using an `if/else` statement:
+
+```csharp
+int x = 6;
+
+if (x <= 5)
+{
+    // Execute logic if x <= 5
+}
+else if (x > 7)
+{
+    // Execute logic if x > 7
+}
+else
+{
+    // Execute logic in all other cases
+}
+```
