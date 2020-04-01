@@ -6,7 +6,6 @@ The goal of this exercise is to introduce the student to C# properties and to te
 
 Properties are covered early in the C# track as their purpose and power can be shown with few dependencies (classes, access modifiers and fields of simple types).
 
-
 ## Learning objectives
 
 - Know what properties are and how they relate to fields and methods.
@@ -15,7 +14,6 @@ Properties are covered early in the C# track as their purpose and power can be s
 - Know what calculated properties are.
 - Know how to use property accessors to customize visibility.
 - Know how to define the different types of properties.
-
 
 ## Out of scope
 
@@ -32,20 +30,19 @@ Note that students may choose to implement expression-bodied members.
 
 This Concepts Exercise's concepts are:
 
-- `properties-basic`:  know what properties are and how they relate to fields and methods; know what backing-field properties are; know what auto-implemented properties are; know what calculated properties are; know how to use property accessors to customize visibility; know how to define the different types of properties.
+- `properties`: know what properties are and how they relate to fields and methods; know what backing-field properties are; know what auto-implemented properties are; know what calculated properties are; know how to use property accessors to customize visibility; know how to define the different types of properties.
 
 ## Prequisites
 
-- `integers-basic`: using the `int` type and using mathematical operators.
-- `numbers-floating-point`: using the `decimal` type.
-- `classes-basic`: defining classes and working with members.
-- `enums-basic`: working with enums.
-- `exceptions-basic`: throwing an exception.
-- `type-conversion-numbers`: converting to an `int`
+- `numbers`: using the `int` type and using mathematical operators and number conversions.
+- `floating-point-numbers`: using the `decimal` type.
+- `classes`: defining classes and working with members.
+- `enums`: working with enums.
+- `exceptions`: throwing an exception.
 
 Note that the values in the instructions' examples and tests
 are selected specifically to avoid any question of rounding when converting
-between float and int.  Rounding and truncation will produce the 
+between float and int. Rounding and truncation will produce the
 same result.
 
 Prerequisite Exercises - TBA
@@ -71,44 +68,44 @@ TBC
 ## Analyzer
 
 It is difficult to get the student to exercise all different aspects of
-properties through tests alone.  We need comments to address the following
+properties through tests alone. We need comments to address the following
 practices:
 
 1. If `WeighingMachine.Units` is not auto-implemented
-then the following comment should be made: "The appropriate form
-for a property such as `WeighingMachine.Units` which has no validation or other processing required is
-that for an auto-implemented property".  - Approved with comment.
+   then the following comment should be made: "The appropriate form
+   for a property such as `WeighingMachine.Units` which has no validation or other processing required is
+   that for an auto-implemented property". - Approved with comment.
 
 2. If `WeighingMachine.DisplayWeight` has a non-private set accessor
-then the following comment should be made: "It is not approprirate
-for a property such as `WeighingMachine.DisplayWeight` which simply returns a value
-to have a set accessor.  That should be removed.".  - Approved with comment.
+   then the following comment should be made: "It is not approprirate
+   for a property such as `WeighingMachine.DisplayWeight` which simply returns a value
+   to have a set accessor. That should be removed.". - Approved with comment.
 
 3. If `WeighingMachine.USDisplayWeight` has a non-private set accessor
-then the following comment should be made: "It is not approprirate
-for a property such as `USWeighingMachine.DisplayWeight` which simply returns a value
-to have a set accessor.  That should be removed.".  - Approved with comment.
+   then the following comment should be made: "It is not approprirate
+   for a property such as `USWeighingMachine.DisplayWeight` which simply returns a value
+   to have a set accessor. That should be removed.". - Approved with comment.
 
 4. If `USDisplayWeight.Pounds` has a non-private set accessor
-then the following comment should be made: "It is not approprirate
-for a property such as `USDisplayWeight.Pounds` which simply returns a value
-to have a set accessor.  That should be removed.".  - Approved with comment.
+   then the following comment should be made: "It is not approprirate
+   for a property such as `USDisplayWeight.Pounds` which simply returns a value
+   to have a set accessor. That should be removed.". - Approved with comment.
 
 5. If `USDisplayWeight.Ounces` has a non-private set accessor
-then the following comment should be made:  "It is not approprirate
-for a property such as `USDisplayWeight.Ounces` which simply returns a value
-to have a set accessor.  That should be removed.".  - Approved with comment.
+   then the following comment should be made: "It is not approprirate
+   for a property such as `USDisplayWeight.Ounces` which simply returns a value
+   to have a set accessor. That should be removed.". - Approved with comment.
 
 6. If `WeighingMachine.TareAdjustement` is not an auto-implemented property
-then the following commen should be made: "A succinct way of implementing
-`WeighingMachine.TareAdjustment` is as an auto-implemented property with a
-`private` get accessor". - Approved with comment.
+   then the following commen should be made: "A succinct way of implementing
+   `WeighingMachine.TareAdjustment` is as an auto-implemented property with a
+   `private` get accessor". - Approved with comment.
 
 7. If `WeighingMachine.TareAdjustment` is an auto-implemented property
-but the get accessor is non-private then the following comment should be made:
-"A non-private set accessor is not appropriate for `WeighingMachine.TareAdjustment`
-as the instructions stipulate that the value must not be available outside the
-class". - Disapproved.
+   but the get accessor is non-private then the following comment should be made:
+   "A non-private set accessor is not appropriate for `WeighingMachine.TareAdjustment`
+   as the instructions stipulate that the value must not be available outside the
+   class". - Disapproved.
 
 ## Implementing
 
