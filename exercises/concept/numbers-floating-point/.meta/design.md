@@ -20,16 +20,15 @@ The goal of this exercise is to teach the student how the Concept of floating-po
 
 The Concepts this exercise unlocks are:
 
-- `numbers-floating-point`: know of the existing of the three floating point types: `double`, `float` and `decimal`. know when to use which floating point type.
-- `loops-while`: know how to write a `while` loop.
+- `floating-point-numbers`: know of the existing of the three floating point types: `double`, `float` and `decimal`. know when to use which floating point type.
+- `while-loops`: know how to write a `while` loop.
 
 ## Prequisites
 
 This exercise's prerequisites Concepts are:
 
-- `numbers-basic`: define numbers and apply arithmetic and boolean logic to them.
-- `type-conversion-numbers`: convert from one floating-point type to another.
-- `conditionals-if`: conditionally execute code based on value of floating-point numbers.
+- `numbers`: define numbers and apply arithmetic and boolean logic to them.
+- `conditionals`: conditionally execute code based on value of floating-point numbers.
 
 ## Representer
 

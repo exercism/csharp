@@ -22,13 +22,14 @@ The goal of this exercise is to teach the student how the Concept of Numbers is 
 
 The Concepts this exercise unlocks are:
 
-- `numbers-basic`: know of the existence of the two most commonly used number types, `int` and `double`; understand that the former represents whole numbers, and the latter floating-point numbers; now of basic operators such as multiplication and comparison.
-- `type-conversion-numbers`: know how to convert from one numeric type to another; know what implicit and explicit conversions are.
-- `conditionals-if`: know how to conditionally execute code using an `if` statement.
+- `numbers`: know of the existence of the two most commonly used number types, `int` and `double`; understand that the former represents whole numbers, and the latter floating-point numbers; now of basic operators such as multiplication and comparison; know how to convert from one numeric type to another; know what implicit and explicit conversions are.
+- `conditionals`: know how to conditionally execute code using an `if` statement.
 
 ## Prequisites
 
-There are no prerequisites.
+This exercise's prerequisites Concepts are:
+
+- `basics`: know how to define methods.
 
 ## Representer
 

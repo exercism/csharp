@@ -12,6 +12,7 @@ The goal of this exercise is to teach the student advanced aspects of the Concep
 - Know how to set a flag on an enum value.
 - Know how to unset a flag on an enum value.
 - Know that an enum's underlying type can be changed.
+- Know how to use bitwise operators to manipulate bits.
 
 ## Out of scope
 
@@ -21,16 +22,16 @@ As this is an advanced exercise, there are no enum-related things that we should
 
 The Concepts this exercise unlocks are:
 
-- `enums-advanced`: know how to define a "flags" enum; know how to add, remove or check for flags; know how to change the underlying type of an enum.
+- `flag-enums`: know how to define a "flags" enum; know how to add, remove or check for flags; know how to change the underlying type of an enum.
+- `bit-manipulation`: know how to use bitwise operators to manipulate bits.
 
 ## Prequisites
 
 This exercise's prerequisites Concepts are:
 
-- `enums-basic`: know how to define the `enum`.
-- `attributes-basic`: know how to annotate the enum with the `[Flags]` attribute.
-- `bitwise-operations`: know how to use bitwise operations to work with the flag enum values.
-- `numbers-integers`: know of other integer types than `int` and know about binary integer literals
+- `enums`: know how to define the `enum`.
+- `attributes`: know how to annotate the enum with the `[Flags]` attribute.
+- `integers`: know of other integer types than `int` and know about binary integer literals.
 
 ## Representer
 
