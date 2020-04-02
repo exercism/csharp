@@ -16,7 +16,7 @@ public class WordCountTests
         Assert.Equal(expected, actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Count_one_of_each_word()
     {
         var actual = WordCount.CountWords("one of each");
@@ -29,7 +29,7 @@ public class WordCountTests
         Assert.Equal(expected, actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Multiple_occurrences_of_a_word()
     {
         var actual = WordCount.CountWords("one fish two fish red fish blue fish");
@@ -44,7 +44,7 @@ public class WordCountTests
         Assert.Equal(expected, actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Handles_cramped_lists()
     {
         var actual = WordCount.CountWords("one,two,three");
@@ -57,7 +57,7 @@ public class WordCountTests
         Assert.Equal(expected, actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Handles_expanded_lists()
     {
         var actual = WordCount.CountWords("one,\ntwo,\nthree");
@@ -70,7 +70,7 @@ public class WordCountTests
         Assert.Equal(expected, actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Ignore_punctuation()
     {
         var actual = WordCount.CountWords("car: carpet as java: javascript!!&@$%^&");
@@ -85,7 +85,7 @@ public class WordCountTests
         Assert.Equal(expected, actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Include_numbers()
     {
         var actual = WordCount.CountWords("testing, 1, 2 testing");
@@ -98,7 +98,7 @@ public class WordCountTests
         Assert.Equal(expected, actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Normalize_case()
     {
         var actual = WordCount.CountWords("go Go GO Stop stop");
@@ -110,7 +110,7 @@ public class WordCountTests
         Assert.Equal(expected, actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void With_apostrophes()
     {
         var actual = WordCount.CountWords("First: don't laugh. Then: don't cry.");
@@ -125,7 +125,7 @@ public class WordCountTests
         Assert.Equal(expected, actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void With_quotations()
     {
         var actual = WordCount.CountWords("Joe can't tell between 'large' and large.");
@@ -141,7 +141,7 @@ public class WordCountTests
         Assert.Equal(expected, actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Substrings_from_the_beginning()
     {
         var actual = WordCount.CountWords("Joe can't tell between app, apple and a.");
@@ -159,7 +159,7 @@ public class WordCountTests
         Assert.Equal(expected, actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Multiple_spaces_not_detected_as_a_word()
     {
         var actual = WordCount.CountWords(" multiple   whitespaces");
@@ -171,7 +171,7 @@ public class WordCountTests
         Assert.Equal(expected, actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Alternating_word_separators_not_detected_as_a_word()
     {
         var actual = WordCount.CountWords(",\n,one,\n ,two \n 'three'");

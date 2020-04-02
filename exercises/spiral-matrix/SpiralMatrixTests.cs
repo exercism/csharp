@@ -10,7 +10,7 @@ public class SpiralMatrixTests
         Assert.Empty(SpiralMatrix.GetMatrix(0));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Trivial_spiral()
     {
         var expected = new[,]
@@ -20,7 +20,7 @@ public class SpiralMatrixTests
         Assert.Equal(expected, SpiralMatrix.GetMatrix(1));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Spiral_of_size_2()
     {
         var expected = new[,]
@@ -31,7 +31,7 @@ public class SpiralMatrixTests
         Assert.Equal(expected, SpiralMatrix.GetMatrix(2));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Spiral_of_size_3()
     {
         var expected = new[,]
@@ -43,7 +43,7 @@ public class SpiralMatrixTests
         Assert.Equal(expected, SpiralMatrix.GetMatrix(3));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Spiral_of_size_4()
     {
         var expected = new[,]
@@ -56,7 +56,7 @@ public class SpiralMatrixTests
         Assert.Equal(expected, SpiralMatrix.GetMatrix(4));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Spiral_of_size_5()
     {
         var expected = new[,]

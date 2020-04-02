@@ -13,7 +13,7 @@ public class MinesweeperTests
         Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void No_columns()
     {
         var minefield = new[]
@@ -27,7 +27,7 @@ public class MinesweeperTests
         Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void No_mines()
     {
         var minefield = new[]
@@ -45,7 +45,7 @@ public class MinesweeperTests
         Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Minefield_with_only_mines()
     {
         var minefield = new[]
@@ -63,7 +63,7 @@ public class MinesweeperTests
         Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Mine_surrounded_by_spaces()
     {
         var minefield = new[]
@@ -81,7 +81,7 @@ public class MinesweeperTests
         Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Space_surrounded_by_mines()
     {
         var minefield = new[]
@@ -99,7 +99,7 @@ public class MinesweeperTests
         Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Horizontal_line()
     {
         var minefield = new[]
@@ -113,7 +113,7 @@ public class MinesweeperTests
         Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Horizontal_line_mines_at_edges()
     {
         var minefield = new[]
@@ -127,7 +127,7 @@ public class MinesweeperTests
         Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Vertical_line()
     {
         var minefield = new[]
@@ -149,7 +149,7 @@ public class MinesweeperTests
         Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Vertical_line_mines_at_edges()
     {
         var minefield = new[]
@@ -171,7 +171,7 @@ public class MinesweeperTests
         Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Cross()
     {
         var minefield = new[]
@@ -193,7 +193,7 @@ public class MinesweeperTests
         Assert.Equal(expected, Minesweeper.Annotate(minefield));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Large_minefield()
     {
         var minefield = new[]

@@ -14,7 +14,7 @@ public class PythagoreanTripletTests
         }, PythagoreanTriplet.TripletsWithSum(12));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Triplets_whose_sum_is_108()
     {
         Assert.Equal(new[]
@@ -23,7 +23,7 @@ public class PythagoreanTripletTests
         }, PythagoreanTriplet.TripletsWithSum(108));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Triplets_whose_sum_is_1000()
     {
         Assert.Equal(new[]
@@ -32,13 +32,13 @@ public class PythagoreanTripletTests
         }, PythagoreanTriplet.TripletsWithSum(1000));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void No_matching_triplets_for_1001()
     {
         Assert.Equal(Array.Empty<(int, int, int)>(), PythagoreanTriplet.TripletsWithSum(1001));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Returns_all_matching_triplets()
     {
         Assert.Equal(new[]
@@ -48,7 +48,7 @@ public class PythagoreanTripletTests
         }, PythagoreanTriplet.TripletsWithSum(90));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Several_matching_triplets()
     {
         Assert.Equal(new[]
@@ -64,7 +64,7 @@ public class PythagoreanTripletTests
         }, PythagoreanTriplet.TripletsWithSum(840));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Triplets_for_large_number()
     {
         Assert.Equal(new[]

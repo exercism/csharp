@@ -14,7 +14,7 @@ public class ChangeTests
         Assert.Equal(expected, Change.FindFewestCoins(coins, target));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Multiple_coin_change()
     {
         var coins = new[] { 1, 5, 10, 25, 100 };
@@ -23,7 +23,7 @@ public class ChangeTests
         Assert.Equal(expected, Change.FindFewestCoins(coins, target));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Change_with_lilliputian_coins()
     {
         var coins = new[] { 1, 4, 15, 20, 50 };
@@ -32,7 +32,7 @@ public class ChangeTests
         Assert.Equal(expected, Change.FindFewestCoins(coins, target));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Change_with_lower_elbonia_coins()
     {
         var coins = new[] { 1, 5, 10, 21, 25 };
@@ -41,7 +41,7 @@ public class ChangeTests
         Assert.Equal(expected, Change.FindFewestCoins(coins, target));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Large_target_values()
     {
         var coins = new[] { 1, 2, 5, 10, 20, 50, 100 };
@@ -50,7 +50,7 @@ public class ChangeTests
         Assert.Equal(expected, Change.FindFewestCoins(coins, target));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Possible_change_without_unit_coins_available()
     {
         var coins = new[] { 2, 5, 10, 20, 50 };
@@ -59,7 +59,7 @@ public class ChangeTests
         Assert.Equal(expected, Change.FindFewestCoins(coins, target));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Another_possible_change_without_unit_coins_available()
     {
         var coins = new[] { 4, 5 };
@@ -68,7 +68,7 @@ public class ChangeTests
         Assert.Equal(expected, Change.FindFewestCoins(coins, target));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void No_coins_make_0_change()
     {
         var coins = new[] { 1, 5, 10, 21, 25 };
@@ -76,7 +76,7 @@ public class ChangeTests
         Assert.Empty(Change.FindFewestCoins(coins, target));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Error_testing_for_change_smaller_than_the_smallest_of_coins()
     {
         var coins = new[] { 5, 10 };
@@ -84,7 +84,7 @@ public class ChangeTests
         Assert.Throws<ArgumentException>(() => Change.FindFewestCoins(coins, target));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Error_if_no_combination_can_add_up_to_target()
     {
         var coins = new[] { 5, 10 };
@@ -92,7 +92,7 @@ public class ChangeTests
         Assert.Throws<ArgumentException>(() => Change.FindFewestCoins(coins, target));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Cannot_find_negative_change_values()
     {
         var coins = new[] { 1, 2, 5 };

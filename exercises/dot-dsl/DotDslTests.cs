@@ -15,7 +15,7 @@ public class DotDslTests
         Assert.Empty(g.Attrs);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Graph_with_one_node()
     {
         var g = new Graph
@@ -28,7 +28,7 @@ public class DotDslTests
         Assert.Empty(g.Attrs);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Graph_with_one_node_with_keywords()
     {
         var g = new Graph
@@ -41,7 +41,7 @@ public class DotDslTests
         Assert.Empty(g.Attrs);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Graph_with_one_edge()
     {
         var g = new Graph
@@ -54,7 +54,7 @@ public class DotDslTests
         Assert.Empty(g.Attrs);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Graph_with_one_attribute()
     {
         var g = new Graph
@@ -67,7 +67,7 @@ public class DotDslTests
         Assert.Equal(new[] { new Attr("foo", "1") }, g.Attrs);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Graph_with_attributes()
     {
         var g = new Graph

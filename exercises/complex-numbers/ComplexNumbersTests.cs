@@ -12,42 +12,42 @@ public class ComplexNumbersTests
         Assert.Equal(1, sut.Real());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Real_part_of_a_purely_imaginary_number()
     {
         var sut = new ComplexNumber(0, 1);
         Assert.Equal(0, sut.Real());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Real_part_of_a_number_with_real_and_imaginary_part()
     {
         var sut = new ComplexNumber(1, 2);
         Assert.Equal(1, sut.Real());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Imaginary_part_of_a_purely_real_number()
     {
         var sut = new ComplexNumber(1, 0);
         Assert.Equal(0, sut.Imaginary());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Imaginary_part_of_a_purely_imaginary_number()
     {
         var sut = new ComplexNumber(0, 1);
         Assert.Equal(1, sut.Imaginary());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Imaginary_part_of_a_number_with_real_and_imaginary_part()
     {
         var sut = new ComplexNumber(1, 2);
         Assert.Equal(2, sut.Imaginary());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Imaginary_unit()
     {
         var sut = new ComplexNumber(0, 1);
@@ -56,7 +56,7 @@ public class ComplexNumbersTests
         Assert.Equal(expected.Imaginary(), sut.Mul(new ComplexNumber(0, 1)).Imaginary(), precision: 7);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Add_purely_real_numbers()
     {
         var sut = new ComplexNumber(1, 0);
@@ -65,7 +65,7 @@ public class ComplexNumbersTests
         Assert.Equal(expected.Imaginary(), sut.Add(new ComplexNumber(2, 0)).Imaginary(), precision: 7);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Add_purely_imaginary_numbers()
     {
         var sut = new ComplexNumber(0, 1);
@@ -74,7 +74,7 @@ public class ComplexNumbersTests
         Assert.Equal(expected.Imaginary(), sut.Add(new ComplexNumber(0, 2)).Imaginary(), precision: 7);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Add_numbers_with_real_and_imaginary_part()
     {
         var sut = new ComplexNumber(1, 2);
@@ -83,7 +83,7 @@ public class ComplexNumbersTests
         Assert.Equal(expected.Imaginary(), sut.Add(new ComplexNumber(3, 4)).Imaginary(), precision: 7);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Subtract_purely_real_numbers()
     {
         var sut = new ComplexNumber(1, 0);
@@ -92,7 +92,7 @@ public class ComplexNumbersTests
         Assert.Equal(expected.Imaginary(), sut.Sub(new ComplexNumber(2, 0)).Imaginary(), precision: 7);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Subtract_purely_imaginary_numbers()
     {
         var sut = new ComplexNumber(0, 1);
@@ -101,7 +101,7 @@ public class ComplexNumbersTests
         Assert.Equal(expected.Imaginary(), sut.Sub(new ComplexNumber(0, 2)).Imaginary(), precision: 7);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Subtract_numbers_with_real_and_imaginary_part()
     {
         var sut = new ComplexNumber(1, 2);
@@ -110,7 +110,7 @@ public class ComplexNumbersTests
         Assert.Equal(expected.Imaginary(), sut.Sub(new ComplexNumber(3, 4)).Imaginary(), precision: 7);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Multiply_purely_real_numbers()
     {
         var sut = new ComplexNumber(1, 0);
@@ -119,7 +119,7 @@ public class ComplexNumbersTests
         Assert.Equal(expected.Imaginary(), sut.Mul(new ComplexNumber(2, 0)).Imaginary(), precision: 7);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Multiply_purely_imaginary_numbers()
     {
         var sut = new ComplexNumber(0, 1);
@@ -128,7 +128,7 @@ public class ComplexNumbersTests
         Assert.Equal(expected.Imaginary(), sut.Mul(new ComplexNumber(0, 2)).Imaginary(), precision: 7);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Multiply_numbers_with_real_and_imaginary_part()
     {
         var sut = new ComplexNumber(1, 2);
@@ -137,7 +137,7 @@ public class ComplexNumbersTests
         Assert.Equal(expected.Imaginary(), sut.Mul(new ComplexNumber(3, 4)).Imaginary(), precision: 7);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Divide_purely_real_numbers()
     {
         var sut = new ComplexNumber(1, 0);
@@ -146,7 +146,7 @@ public class ComplexNumbersTests
         Assert.Equal(expected.Imaginary(), sut.Div(new ComplexNumber(2, 0)).Imaginary(), precision: 7);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Divide_purely_imaginary_numbers()
     {
         var sut = new ComplexNumber(0, 1);
@@ -155,7 +155,7 @@ public class ComplexNumbersTests
         Assert.Equal(expected.Imaginary(), sut.Div(new ComplexNumber(0, 2)).Imaginary(), precision: 7);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Divide_numbers_with_real_and_imaginary_part()
     {
         var sut = new ComplexNumber(1, 2);
@@ -164,42 +164,42 @@ public class ComplexNumbersTests
         Assert.Equal(expected.Imaginary(), sut.Div(new ComplexNumber(3, 4)).Imaginary(), precision: 7);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Absolute_value_of_a_positive_purely_real_number()
     {
         var sut = new ComplexNumber(5, 0);
         Assert.Equal(5, sut.Abs());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Absolute_value_of_a_negative_purely_real_number()
     {
         var sut = new ComplexNumber(-5, 0);
         Assert.Equal(5, sut.Abs());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Absolute_value_of_a_purely_imaginary_number_with_positive_imaginary_part()
     {
         var sut = new ComplexNumber(0, 5);
         Assert.Equal(5, sut.Abs());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Absolute_value_of_a_purely_imaginary_number_with_negative_imaginary_part()
     {
         var sut = new ComplexNumber(0, -5);
         Assert.Equal(5, sut.Abs());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Absolute_value_of_a_number_with_real_and_imaginary_part()
     {
         var sut = new ComplexNumber(3, 4);
         Assert.Equal(5, sut.Abs());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Conjugate_a_purely_real_number()
     {
         var sut = new ComplexNumber(5, 0);
@@ -208,7 +208,7 @@ public class ComplexNumbersTests
         Assert.Equal(expected.Imaginary(), sut.Conjugate().Imaginary(), precision: 7);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Conjugate_a_purely_imaginary_number()
     {
         var sut = new ComplexNumber(0, 5);
@@ -217,7 +217,7 @@ public class ComplexNumbersTests
         Assert.Equal(expected.Imaginary(), sut.Conjugate().Imaginary(), precision: 7);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Conjugate_a_number_with_real_and_imaginary_part()
     {
         var sut = new ComplexNumber(1, 1);
@@ -226,7 +226,7 @@ public class ComplexNumbersTests
         Assert.Equal(expected.Imaginary(), sut.Conjugate().Imaginary(), precision: 7);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Eulers_identity_formula()
     {
         var sut = new ComplexNumber(0, Math.PI);
@@ -235,7 +235,7 @@ public class ComplexNumbersTests
         Assert.Equal(expected.Imaginary(), sut.Exp().Imaginary(), precision: 7);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Exponential_of_0()
     {
         var sut = new ComplexNumber(0, 0);
@@ -244,7 +244,7 @@ public class ComplexNumbersTests
         Assert.Equal(expected.Imaginary(), sut.Exp().Imaginary(), precision: 7);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Exponential_of_a_purely_real_number()
     {
         var sut = new ComplexNumber(1, 0);
@@ -253,7 +253,7 @@ public class ComplexNumbersTests
         Assert.Equal(expected.Imaginary(), sut.Exp().Imaginary(), precision: 7);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Exponential_of_a_number_with_real_and_imaginary_part()
     {
         var sut = new ComplexNumber(Math.Log(2.0), Math.PI);

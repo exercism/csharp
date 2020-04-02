@@ -12,97 +12,97 @@ public class DndCharacterTests
         Assert.Equal(-4, DndCharacter.Modifier(3));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Ability_modifier_for_score_4_is_minus_3()
     {
         Assert.Equal(-3, DndCharacter.Modifier(4));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Ability_modifier_for_score_5_is_minus_3()
     {
         Assert.Equal(-3, DndCharacter.Modifier(5));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Ability_modifier_for_score_6_is_minus_2()
     {
         Assert.Equal(-2, DndCharacter.Modifier(6));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Ability_modifier_for_score_7_is_minus_2()
     {
         Assert.Equal(-2, DndCharacter.Modifier(7));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Ability_modifier_for_score_8_is_minus_1()
     {
         Assert.Equal(-1, DndCharacter.Modifier(8));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Ability_modifier_for_score_9_is_minus_1()
     {
         Assert.Equal(-1, DndCharacter.Modifier(9));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Ability_modifier_for_score_10_is_0()
     {
         Assert.Equal(0, DndCharacter.Modifier(10));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Ability_modifier_for_score_11_is_0()
     {
         Assert.Equal(0, DndCharacter.Modifier(11));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Ability_modifier_for_score_12_is_1()
     {
         Assert.Equal(1, DndCharacter.Modifier(12));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Ability_modifier_for_score_13_is_1()
     {
         Assert.Equal(1, DndCharacter.Modifier(13));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Ability_modifier_for_score_14_is_2()
     {
         Assert.Equal(2, DndCharacter.Modifier(14));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Ability_modifier_for_score_15_is_2()
     {
         Assert.Equal(2, DndCharacter.Modifier(15));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Ability_modifier_for_score_16_is_3()
     {
         Assert.Equal(3, DndCharacter.Modifier(16));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Ability_modifier_for_score_17_is_3()
     {
         Assert.Equal(3, DndCharacter.Modifier(17));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Ability_modifier_for_score_18_is_4()
     {
         Assert.Equal(4, DndCharacter.Modifier(18));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Random_ability_is_within_range()
     {
         for (var i = 0; i < 10; i++)
@@ -111,7 +111,7 @@ public class DndCharacterTests
         }
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Random_character_is_valid()
     {
         for (var i = 0; i < 10; i++)
@@ -127,7 +127,7 @@ public class DndCharacterTests
         }
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Each_ability_is_only_calculated_once()
     {
         for (var i = 0; i < 10; i++)
@@ -142,7 +142,7 @@ public class DndCharacterTests
         }
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Random_ability_is_distributed_correctly()
     {
         var expectedDistribution = new Dictionary<int, int>

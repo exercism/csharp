@@ -83,7 +83,7 @@ namespace Exercism.CSharp.Exercises.Generators
         private static void AddTestMethodForDistribution(TestClass testClass)
         {
             testClass.AdditionalMethods.Add(@"
-[Fact(Skip = ""Remove to run test"")]
+[Fact(Skip = ""Remove this Skip property to run this test"")]
 public void Random_ability_is_distributed_correctly()
 {
     var expectedDistribution = new Dictionary<int, int>

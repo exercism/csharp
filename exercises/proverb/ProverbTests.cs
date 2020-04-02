@@ -13,7 +13,7 @@ public class ProverbTests
         Assert.Equal(expected, Proverb.Recite(strings));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void One_piece()
     {
         var strings = new[]
@@ -27,7 +27,7 @@ public class ProverbTests
         Assert.Equal(expected, Proverb.Recite(strings));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Two_pieces()
     {
         var strings = new[]
@@ -43,7 +43,7 @@ public class ProverbTests
         Assert.Equal(expected, Proverb.Recite(strings));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Three_pieces()
     {
         var strings = new[]
@@ -61,7 +61,7 @@ public class ProverbTests
         Assert.Equal(expected, Proverb.Recite(strings));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Full_proverb()
     {
         var strings = new[]
@@ -87,7 +87,7 @@ public class ProverbTests
         Assert.Equal(expected, Proverb.Recite(strings));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Four_pieces_modernized()
     {
         var strings = new[]

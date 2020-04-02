@@ -14,7 +14,7 @@ public class ZipperTests
         Assert.Equal(expected, actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Left_right_and_value()
     {
         var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
@@ -24,7 +24,7 @@ public class ZipperTests
         Assert.Equal(expected, actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Dead_end()
     {
         var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
@@ -33,7 +33,7 @@ public class ZipperTests
         Assert.Null(actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Tree_from_deep_focus()
     {
         var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
@@ -43,7 +43,7 @@ public class ZipperTests
         Assert.Equal(expected, actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Traversing_up_from_top()
     {
         var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
@@ -52,7 +52,7 @@ public class ZipperTests
         Assert.Null(actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Left_right_and_up()
     {
         var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
@@ -62,7 +62,7 @@ public class ZipperTests
         Assert.Equal(expected, actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Set_value()
     {
         var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
@@ -72,7 +72,7 @@ public class ZipperTests
         Assert.Equal(expected, actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Set_value_after_traversing_up()
     {
         var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
@@ -82,7 +82,7 @@ public class ZipperTests
         Assert.Equal(expected, actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Set_left_with_leaf()
     {
         var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
@@ -92,7 +92,7 @@ public class ZipperTests
         Assert.Equal(expected, actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Set_right_with_null()
     {
         var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
@@ -102,7 +102,7 @@ public class ZipperTests
         Assert.Equal(expected, actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Set_right_with_subtree()
     {
         var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
@@ -112,7 +112,7 @@ public class ZipperTests
         Assert.Equal(expected, actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Set_value_on_deep_focus()
     {
         var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
@@ -122,7 +122,7 @@ public class ZipperTests
         Assert.Equal(expected, actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Different_paths_to_same_zipper()
     {
         var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
