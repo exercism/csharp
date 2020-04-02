@@ -55,8 +55,8 @@ This exercise does not require any specific representation logic to be added to 
 
 This exercise could benefit from the following rules added to the the [analyzer][analyzer]:
 
-- Verify that the `RemainingMinutesInOven` method calls the `ExpectedMinutesInOven` method.
-- Verify that the `TotalTimeInMinutes` method calls the `PreparationTimeInMinutes` method.
+- Verify that the `RemainingMinutesInOven()` method calls the `ExpectedMinutesInOven()` method.
+- Verify that the `TotalTimeInMinutes()` method calls the `PreparationTimeInMinutes()` method.
 
 [analyzer]: https://github.com/exercism/csharp-analyzer
 [representer]: https://github.com/exercism/csharp-representer
