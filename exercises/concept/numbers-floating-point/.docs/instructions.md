@@ -9,7 +9,7 @@ You have three tasks, each of which will deal your balance and its interest rate
 
 ### 1. Calculate the interest rate
 
-Implement the `SavingsAccount.InterestRate` method to calculate the interest rate based on the specified balance:
+Implement the `SavingsAccount.InterestRate()` method to calculate the interest rate based on the specified balance:
 
 ```csharp
 SavingsAccount.InterestRate(balance: 200.75m)
@@ -20,7 +20,7 @@ Note that the value returned is a `float`.
 
 ### 2. Calculate the annual balance update
 
-Implement the `SavingsAccount.AnnualBalanceUpdate` method to calculate the annual balance update, taking into account the interest rate:
+Implement the `SavingsAccount.AnnualBalanceUpdate()` method to calculate the annual balance update, taking into account the interest rate:
 
 ```csharp
 SavingsAccount.AnnualBalanceUpdate(balance: 200.75m)
@@ -31,7 +31,7 @@ Note that the value returned is a `decimal`.
 
 ### 3. Calculate the years before reaching the desired balance
 
-Implement the `SavingsAccount.YearsBeforeDesiredBalance` method to calculate the minimum number of years required to reach the desired balance:
+Implement the `SavingsAccount.YearsBeforeDesiredBalance()` method to calculate the minimum number of years required to reach the desired balance:
 
 ```csharp
 SavingsAccount.YearsBeforeDesiredBalance(balance: 200.75m, targetBalance: 214.88m)

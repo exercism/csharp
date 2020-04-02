@@ -10,7 +10,7 @@ You have two tasks.
 
 ### 1. Calculate the production rate per hour
 
-Implement the `AssemblyLine.ProductionRatePerHour` method to calculate the assembly line's production rate per hour, taking into account its success rate:
+Implement the `AssemblyLine.ProductionRatePerHour()` method to calculate the assembly line's production rate per hour, taking into account its success rate:
 
 ```csharp
 AssemblyLine.ProductionRatePerHour(speed: 6)
@@ -21,7 +21,7 @@ Note that the value returned is a `double`.
 
 ### 2. Calculate the number of working items produced per minute
 
-Implement the `AssemblyLine.WorkingItemsPerMinute` method to calculate how many working cars are produced per minute:
+Implement the `AssemblyLine.WorkingItemsPerMinute()` method to calculate how many working cars are produced per minute:
 
 ```csharp
 AssemblyLine.WorkingItemsPerMinute(speed: 6)
