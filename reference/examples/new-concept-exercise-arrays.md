@@ -175,7 +175,7 @@ When implementing this exericse, it can be very useful to look at [already imple
 [reference-example]: https://github.com/exercism/v3/blob/master/reference/types/string.md#implementations
 [analyzer]: https://github.com/exercism/csharp-analyzer
 [representer]: https://github.com/exercism/csharp-representer
-[exercise-example]: https://github.com/exercism/v3/tree/master/languages/csharp/exercises/concept/numbers-floating-point
+[exercise-example]: https://github.com/exercism/v3/tree/master/languages/csharp/exercises/concept/floating-point-numbers
 [design-example]: https://github.com/exercism/v3/blob/master/languages/csharp/exercises/concept/numbers/.meta/design.md
 [config.json-example]: https://github.com/exercism/v3/blob/master/languages/csharp/exercises/concept/numbers/.meta/config.json
 [concept-exercises]: https://github.com/exercism/v3/blob/master/docs/concept-exercises.md
