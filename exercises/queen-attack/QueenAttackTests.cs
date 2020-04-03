@@ -11,31 +11,31 @@ public class QueenAttackTests
         var actual = QueenAttack.Create(2, 2);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Queen_must_have_positive_row()
     {
         Assert.Throws<ArgumentOutOfRangeException>(() => QueenAttack.Create(-2, 2));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Queen_must_have_row_on_board()
     {
         Assert.Throws<ArgumentOutOfRangeException>(() => QueenAttack.Create(8, 4));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Queen_must_have_positive_column()
     {
         Assert.Throws<ArgumentOutOfRangeException>(() => QueenAttack.Create(2, -2));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Queen_must_have_column_on_board()
     {
         Assert.Throws<ArgumentOutOfRangeException>(() => QueenAttack.Create(4, 8));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Can_not_attack()
     {
         var whiteQueen = QueenAttack.Create(2,4);
@@ -43,7 +43,7 @@ public class QueenAttackTests
         Assert.False(QueenAttack.CanAttack(whiteQueen, blackQueen));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Can_attack_on_same_row()
     {
         var whiteQueen = QueenAttack.Create(2,4);
@@ -51,7 +51,7 @@ public class QueenAttackTests
         Assert.True(QueenAttack.CanAttack(whiteQueen, blackQueen));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Can_attack_on_same_column()
     {
         var whiteQueen = QueenAttack.Create(4,5);
@@ -59,7 +59,7 @@ public class QueenAttackTests
         Assert.True(QueenAttack.CanAttack(whiteQueen, blackQueen));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Can_attack_on_first_diagonal()
     {
         var whiteQueen = QueenAttack.Create(2,2);
@@ -67,7 +67,7 @@ public class QueenAttackTests
         Assert.True(QueenAttack.CanAttack(whiteQueen, blackQueen));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Can_attack_on_second_diagonal()
     {
         var whiteQueen = QueenAttack.Create(2,2);
@@ -75,7 +75,7 @@ public class QueenAttackTests
         Assert.True(QueenAttack.CanAttack(whiteQueen, blackQueen));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Can_attack_on_third_diagonal()
     {
         var whiteQueen = QueenAttack.Create(2,2);
@@ -83,7 +83,7 @@ public class QueenAttackTests
         Assert.True(QueenAttack.CanAttack(whiteQueen, blackQueen));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Can_attack_on_fourth_diagonal()
     {
         var whiteQueen = QueenAttack.Create(1,7);

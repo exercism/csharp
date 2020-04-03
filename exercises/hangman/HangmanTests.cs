@@ -21,7 +21,7 @@ public class HangmanTests : ReactiveTest
         Assert.Equal("___", actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Initial_state_has_9_remaining_guesses()
     {
         var hangman = new Hangman("foo");
@@ -33,7 +33,7 @@ public class HangmanTests : ReactiveTest
         Assert.Equal(9, actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Initial_state_has_no_guessed_chars()
     {
         var hangman = new Hangman("foo");
@@ -45,7 +45,7 @@ public class HangmanTests : ReactiveTest
         Assert.Equal(new HashSet<char>().ToImmutableHashSet(), actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Guess_changes_state()
     {
         var hangman = new Hangman("foo");
@@ -60,7 +60,7 @@ public class HangmanTests : ReactiveTest
         Assert.NotEqual(initial, actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Wrong_guess_decrements_remaining_guesses()
     {
         var hangman = new Hangman("foo");
@@ -75,7 +75,7 @@ public class HangmanTests : ReactiveTest
         Assert.Equal(initial.RemainingGuesses - 1, actual.RemainingGuesses);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void After_10_incorrect_guesses_the_game_is_over()
     {
         var scheduler = new TestScheduler();
@@ -112,7 +112,7 @@ public class HangmanTests : ReactiveTest
         ReactiveAssert.AreElementsEqual(expected, testableObserver.Messages);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Correctly_guessing_a_letter_unmasks_it()
     {
         var scheduler = new TestScheduler();
@@ -138,7 +138,7 @@ public class HangmanTests : ReactiveTest
         ReactiveAssert.AreElementsEqual(expected, testableObserver.Messages);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Guessing_a_correct_letter_twice_counts_as_a_failure()
     {
         var scheduler = new TestScheduler();
@@ -164,7 +164,7 @@ public class HangmanTests : ReactiveTest
         ReactiveAssert.AreElementsEqual(expected, testableObserver.Messages);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Getting_all_the_letters_right_makes_for_a_win()
     {
         var scheduler = new TestScheduler();
@@ -197,7 +197,7 @@ public class HangmanTests : ReactiveTest
     }
 
     // Advanced mode on>
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Second_player_sees_the_same_game_already_started()
     {
         var scheduler = new TestScheduler();
@@ -231,7 +231,7 @@ public class HangmanTests : ReactiveTest
     }
 
     // Expert mode on>
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Multiple_players_see_the_same_game_already_started()
     {
         var scheduler = new TestScheduler();
@@ -266,7 +266,7 @@ public class HangmanTests : ReactiveTest
         ReactiveAssert.AreElementsEqual(expected, player3.Messages);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Player_joins_after_other_players_quit()
     {
         var scheduler = new TestScheduler();

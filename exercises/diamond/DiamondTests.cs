@@ -21,7 +21,7 @@ public class DiamondTests
         Assert.NotEmpty(actual);
     }
 
-    [DiamondProperty(Skip = "Remove to run test")]
+    [DiamondProperty(Skip = "Remove this Skip property to run this test")]
     public void First_row_contains_a(char letter)
     {
         var actual = Diamond.Make(letter);
@@ -31,7 +31,7 @@ public class DiamondTests
         Assert.Equal("A", firstRowCharacters);
     }
 
-    [DiamondProperty(Skip = "Remove to run test")]
+    [DiamondProperty(Skip = "Remove this Skip property to run this test")]
     public void All_rows_must_have_symmetric_contour(char letter)
     {
         var actual = Diamond.Make(letter);
@@ -43,7 +43,7 @@ public class DiamondTests
         });
     }
 
-    [DiamondProperty(Skip = "Remove to run test")]
+    [DiamondProperty(Skip = "Remove this Skip property to run this test")]
     public void Top_of_figure_has_letters_in_correct_order(char letter)
     {
         var actual = Diamond.Make(letter);
@@ -55,7 +55,7 @@ public class DiamondTests
         Assert.Equal(firstNonSpaceLetters, expected);
     }
 
-    [DiamondProperty(Skip = "Remove to run test")]
+    [DiamondProperty(Skip = "Remove this Skip property to run this test")]
     public void Figure_is_symmetric_around_the_horizontal_axis(char letter)
     {
         var actual = Diamond.Make(letter);
@@ -67,7 +67,7 @@ public class DiamondTests
         Assert.Equal(bottom, top);
     }
 
-    [DiamondProperty(Skip = "Remove to run test")]
+    [DiamondProperty(Skip = "Remove this Skip property to run this test")]
     public void Diamond_has_square_shape(char letter)
     {
         var actual = Diamond.Make(letter);
@@ -81,7 +81,7 @@ public class DiamondTests
         });
     }
 
-    [DiamondProperty(Skip = "Remove to run test")]
+    [DiamondProperty(Skip = "Remove this Skip property to run this test")]
     public void All_rows_except_top_and_bottom_have_two_identical_letters(char letter)
     {
         var actual = Diamond.Make(letter);
@@ -96,7 +96,7 @@ public class DiamondTests
         });
     }
 
-    [DiamondProperty(Skip = "Remove to run test")]
+    [DiamondProperty(Skip = "Remove this Skip property to run this test")]
     public void Bottom_left_corner_spaces_are_triangle(char letter)
     {
         var actual = Diamond.Make(letter);

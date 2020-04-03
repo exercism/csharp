@@ -12,7 +12,7 @@ public class DequeTests
         Assert.Equal(10, deque.Pop());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Push_and_shift_are_first_in_first_out_order()
     {
         var deque = new Deque<int>();
@@ -22,7 +22,7 @@ public class DequeTests
         Assert.Equal(20, deque.Shift());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Unshift_and_shift_are_last_in_first_out_order()
     {
         var deque = new Deque<int>();
@@ -32,7 +32,7 @@ public class DequeTests
         Assert.Equal(10, deque.Shift());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Unshift_and_pop_are_last_in_last_out_order()
     {
         var deque = new Deque<int>();
@@ -42,7 +42,7 @@ public class DequeTests
         Assert.Equal(20, deque.Pop());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Push_and_pop_can_handle_multiple_values()
     {
         var deque = new Deque<int>();
@@ -54,7 +54,7 @@ public class DequeTests
         Assert.Equal(10, deque.Pop());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Unshift_and_shift_can_handle_multiple_values()
     {
         var deque = new Deque<int>();
@@ -66,7 +66,7 @@ public class DequeTests
         Assert.Equal(10, deque.Shift());
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void All_methods_of_manipulating_the_deque_can_be_used_together()
     {
         var deque = new Deque<int>();

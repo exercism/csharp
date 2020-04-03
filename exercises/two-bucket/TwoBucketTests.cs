@@ -14,7 +14,7 @@ public class TwoBucketTests
         Assert.Equal(Bucket.One, actual.GoalBucket);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Measure_using_bucket_one_of_size_3_and_bucket_two_of_size_5_start_with_bucket_two()
     {
         var sut = new TwoBucket(3, 5, Bucket.Two);
@@ -24,7 +24,7 @@ public class TwoBucketTests
         Assert.Equal(Bucket.Two, actual.GoalBucket);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Measure_using_bucket_one_of_size_7_and_bucket_two_of_size_11_start_with_bucket_one()
     {
         var sut = new TwoBucket(7, 11, Bucket.One);
@@ -34,7 +34,7 @@ public class TwoBucketTests
         Assert.Equal(Bucket.One, actual.GoalBucket);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Measure_using_bucket_one_of_size_7_and_bucket_two_of_size_11_start_with_bucket_two()
     {
         var sut = new TwoBucket(7, 11, Bucket.Two);
@@ -44,7 +44,7 @@ public class TwoBucketTests
         Assert.Equal(Bucket.Two, actual.GoalBucket);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Measure_one_step_using_bucket_one_of_size_1_and_bucket_two_of_size_3_start_with_bucket_two()
     {
         var sut = new TwoBucket(1, 3, Bucket.Two);
@@ -54,7 +54,7 @@ public class TwoBucketTests
         Assert.Equal(Bucket.Two, actual.GoalBucket);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Measure_using_bucket_one_of_size_2_and_bucket_two_of_size_3_start_with_bucket_one_and_end_with_bucket_two()
     {
         var sut = new TwoBucket(2, 3, Bucket.One);

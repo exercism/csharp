@@ -15,7 +15,7 @@ public class RestApiTests
         Assert.Equal(expected, actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Add_user()
     {
         var url = "/add";
@@ -27,7 +27,7 @@ public class RestApiTests
         Assert.Equal(expected, actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Get_single_user()
     {
         var url = "/users";
@@ -39,7 +39,7 @@ public class RestApiTests
         Assert.Equal(expected, actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Both_users_have_0_balance()
     {
         var url = "/iou";
@@ -51,7 +51,7 @@ public class RestApiTests
         Assert.Equal(expected, actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Borrower_has_negative_balance()
     {
         var url = "/iou";
@@ -63,7 +63,7 @@ public class RestApiTests
         Assert.Equal(expected, actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Lender_has_negative_balance()
     {
         var url = "/iou";
@@ -75,7 +75,7 @@ public class RestApiTests
         Assert.Equal(expected, actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Lender_owes_borrower()
     {
         var url = "/iou";
@@ -87,7 +87,7 @@ public class RestApiTests
         Assert.Equal(expected, actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Lender_owes_borrower_less_than_new_loan()
     {
         var url = "/iou";
@@ -99,7 +99,7 @@ public class RestApiTests
         Assert.Equal(expected, actual);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Lender_owes_borrower_same_as_new_loan()
     {
         var url = "/iou";

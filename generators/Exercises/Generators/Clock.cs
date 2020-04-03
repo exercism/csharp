@@ -20,7 +20,7 @@ namespace Exercism.CSharp.Exercises.Generators
 
         protected override void UpdateTestClass(TestClass testClass)
         {
-            testClass.AdditionalMethods.Add(@"[Fact(Skip = ""Remove to run test"")]
+            testClass.AdditionalMethods.Add(@"[Fact(Skip = ""Remove this Skip property to run this test"")]
 public void Clocks_are_immutable()
 {
     var sut = new Clock(0, 0);
