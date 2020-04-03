@@ -11,14 +11,14 @@ public class WeighingMachineTests
         Assert.Equal(60m, wm.InputWeight, precision: 3);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Negative_weight_is_invalid()
     {
         var wm = new WeighingMachine();
         Assert.Throws<ArgumentException>(() => wm.InputWeight = -10);
     }
     
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Get_US_display_weight()
     {
         var wm = new WeighingMachine();
@@ -26,7 +26,7 @@ public class WeighingMachineTests
         Assert.Equal((132, 4), (wm.USDisplayWeight.Pounds, wm.USDisplayWeight.Ounces));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Input_pounds_and_get_US_display_weight()
     {
         var wm = new WeighingMachine();
@@ -35,7 +35,7 @@ public class WeighingMachineTests
         Assert.Equal((175, 8), (wm.USDisplayWeight.Pounds, wm.USDisplayWeight.Ounces));
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Apply_tare_adjustment_and_get_display_weight()
     {
         var wm = new WeighingMachine();
@@ -44,7 +44,7 @@ public class WeighingMachineTests
         Assert.Equal(90, wm.DisplayWeight);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Apply_negative_tare_adjustment()
     {
         var wm = new WeighingMachine();
@@ -53,7 +53,7 @@ public class WeighingMachineTests
         Assert.Equal(110, wm.DisplayWeight);
     }
 
-    [Fact(Skip = "Remove to run test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Apply_large_tare_adjustment_to_allow_negative_display_weight()
     {
         var wm = new WeighingMachine();
