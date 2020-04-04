@@ -32,3 +32,5 @@ else
     // Execute logic in all other cases
 }
 ```
+
+The condition of an `if` statement must be of type `bool`. C# has no concept of _truthy_ values.
