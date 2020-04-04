@@ -4,11 +4,24 @@ Each floating-point type has its own [precision, approximate range and size][doc
 
 Some conversions between floating point types are [automatic (implicit)][docs-microsoft.com-implicit-numeric-conversion], but others are [manual (explicit)][docs-microsoft.com-explicit-numeric-conversion].
 
+```csharp
+decimal account = 125m * (decimal)1.2f;
+```
+
 Always be careful when checking the values of floating-point types for equality, as values that can appear to represent the same value could actually be different. See [this article][docs.microsoft.com_precision-in-comparisons] for more information.
 
 You can find a short introduction to floating-point numbers at [0.30000000000000004.com][0.30000000000000004.com]. The [Float Toy page][evanw.github.io-float-toy] has a nice, graphical explanation how a floating-point numbers' bits are converted to an actual floating-point value.
 
-To repeatedly execute logic, one can use loops. One of the most common loop types in C# is the `while` loop, which keeps on looping until a boolean condition evaluates to `true`.
+To repeatedly execute logic, one can use loops. One of the most common loop types in C# is the `while` loop, which keeps on looping until a boolean condition evaluates to `false`.
+
+```csharp
+int x = 23;
+
+while (x > 10)
+{
+    // Execute logic if x > 10
+}
+```
 
 [docs-microsoft.com-explicit-numeric-conversion]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/numeric-conversions#explicit-numeric-conversions
 [docs-microsoft.com-implicit-numeric-conversion]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/numeric-conversions#implicit-numeric-conversions
