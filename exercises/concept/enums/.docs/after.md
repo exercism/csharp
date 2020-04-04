@@ -2,15 +2,20 @@ You can use an enum whenever you have a fixed set of constant values. Using an e
 
 Each enum member has an associated integer value associated with it. If no value is explicitly defined for an enum member, its value is automatically assigned to `1` plus + the previous member's value. If the first member does not have an explicit value, its value is set to `0`.
 
-Another benefit of enums are that they are very declarative. Compare the following two pieces of code:
+```csharp
+public enum Season
+{
+    Spring,     // Value is 0
+    Summer = 2, // Value is 2
+    Autumn,     // Value is 3
+    Winter = 7  // Value is 7
+}
+```
+
+Enums are very declarative. Compare the following two method calls:
 
 ```csharp
 Users.WithStatus(1)
-```
-
-vs
-
-```csharp
 Users.WithStatus(Status.Active)
 ```
 
