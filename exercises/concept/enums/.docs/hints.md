@@ -13,9 +13,11 @@
 
 ### 3. Convert log line to short format
 
+- One can [assign specific values to enum members][docs.microsoft.com_creating-an-enumeration-type].
 - Converting an enum to a number can be done through [casting][docs.microsoft.com_enumeration-types-casting] or by using a [format string][docs.microsoft.com_system.enum.tostring].
 
 [docs.microsoft.com-enumeration-types]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/enumeration-types
 [docs.microsoft.com_system.enum-methods]: https://docs.microsoft.com/en-us/dotnet/api/system.enum?view=netcore-3.0#methods
 [docs.microsoft.com_system.enum.tostring]: https://docs.microsoft.com/en-us/dotnet/api/system.enum.tostring?view=netcore-3.0
 [docs.microsoft.com_enumeration-types-casting]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/enumeration-types#code-try-1
+[docs.microsoft.com_creating-an-enumeration-type]: https://docs.microsoft.com/en-us/dotnet/api/system.enum?view=netcore-3.0#creating-an-enumeration-type
