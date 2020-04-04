@@ -6,7 +6,7 @@ A flags enum can be defined as follows (using binary integer notation):
 [Flags]
 public enum PhoneFeatures
 {
-    Call = 0b00000001
+    Call = 0b00000001,
     Text = 0b00000010
 }
 ```
@@ -35,7 +35,7 @@ By default, the `int` type is used for enum member values. One can use a differe
 [Flags]
 public enum PhoneFeatures : byte
 {
-    Call = 0b00000001
+    Call = 0b00000001,
     Text = 0b00000010
 }
 ```
