@@ -13,9 +13,4 @@ public static class LogLine
     {
         throw new NotImplementedException("Please implement the LogLine.OutputForShortLog method");
     }
-
-    private static string GetLogLevel(string logLine)
-    {
-        return logLine.Substring(1, logLine.IndexOf(']') - 1);
-    }
 }

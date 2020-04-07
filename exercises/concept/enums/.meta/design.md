@@ -12,26 +12,28 @@ After completing this exercise, the student should:
 - Know how to define enum members.
 - Know how to assign values to enum members.
 - Know how to get an enum's numeric value.
-- Know how to convert a `string` to an `enum` and vice versa.
+- Know how to use a `switch` statement to handle multiple conditions.
 
 ## Out of scope
 
 - Flag enums.
 - That an enum's underlying type can be changed.
 - Memory and performance characteristics.
+- Parse `string` into an `enum`.
 
 ## Concepts
 
 The Concepts this exercise unlocks are:
 
-- `enums`: know of the existence of the `enum` keyword; know how to define enum members; know how to assign values to enum members; know how to get an enum's numeric value; know how to convert a `string` to an `enum` and vice versa.
+- `enums`: know of the existence of the `enum` keyword; know how to define enum members; know how to assign values to enum members; know how to get an enum's numeric value; know how to convert an `enum` to a `string`.
+- `constant-switch`: know how to use a `switch` statement using constant values.
 
 ## Prequisites
 
 This exercise's prerequisites Concepts are:
 
 - `strings`: log lines are `string` values.
-- `conditionals`: used to conditionally execute code.
+- `conditionals`: know how to execute conditional logic.
 
 ## Representer
 
