@@ -12,7 +12,7 @@ After completing this exercise, the student should:
 - Know how to define enum members.
 - Know how to assign values to enum members.
 - Know how to get an enum's numeric value.
-- Know how to use a `switch` statement to handle multiple conditions.
+- Know how to use the `switch` statement to do constant pattern matching.
 
 ## Out of scope
 
@@ -26,7 +26,7 @@ After completing this exercise, the student should:
 The Concepts this exercise unlocks are:
 
 - `enums`: know of the existence of the `enum` keyword; know how to define enum members; know how to assign values to enum members; know how to get an enum's numeric value; know how to convert an `enum` to a `string`.
-- `constant-switch`: know how to use a `switch` statement using constant values.
+- `pattern-matching-constants`: know how to use the `switch` statement to do constant pattern matching.
 
 ## Prequisites
 
