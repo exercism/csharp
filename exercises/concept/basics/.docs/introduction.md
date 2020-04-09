@@ -42,6 +42,8 @@ Invoking a method is done by specifying its class- and method name and passing a
 var sum = Calculator.Add(1, 2);
 ```
 
+Scope in C# is defined between the `{` and `}` characters.
+
 C# supports two types of comments. Single line comments are preceded by `//` and multiline comments are inserted between `/*` and `*/`.
 
 [object-oriented-programming]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/object-oriented-programming

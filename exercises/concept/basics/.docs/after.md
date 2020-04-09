@@ -49,6 +49,8 @@ public static class Calculator
 }
 ```
 
+Scope in C# is defined between the `{` and `}` characters.
+
 C# supports two types of [comments][comments]. Single line comments are preceded by `//` and multiline comments are inserted between `/*` and `*/`.
 
 Integer values are defined as one or more (consecutive) digits and support the [default mathematical operators][operators].
