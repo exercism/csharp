@@ -1,8 +1,9 @@
 {
-  "contributors": [
+  "authors": [
     {
       "github_username": "ErikSchierboom",
       "exercism_username": "ErikSchierboom"
     }
-  ]
+  ],
+  "forked_from": ["fsharp/basics"]
 }
