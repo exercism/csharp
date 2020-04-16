@@ -16,7 +16,7 @@
 - lists: a `List<T>` temporarily holds the results before converting them to an array (Add and ToArray methods)
 - for loop: iterate through the strands
 - integers: `int` type used as a counter in the loop
-- math operations: <, *, and ++
+- math operations: <, \*, and ++
 - strings: substring and comparison
 - exceptions: throw an exception in the event of invalid input
 
