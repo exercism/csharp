@@ -20,7 +20,11 @@ public class AssemblyLineTests
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void ProductionRatePerHourForSpeedNine() =>
-        Assert.Equal(1531.53, AssemblyLine.ProductionRatePerHour(9));
+        Assert.Equal(1591.2, AssemblyLine.ProductionRatePerHour(9));
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void ProductionRatePerHourForSpeedTen() =>
+        Assert.Equal(1701.7, AssemblyLine.ProductionRatePerHour(10));
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void WorkingItemsPerMinuteForSpeedZero() =>
@@ -37,6 +41,10 @@ public class AssemblyLineTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void WorkingItemsPerMinuteForSpeedEight() =>
         Assert.Equal(26, AssemblyLine.WorkingItemsPerMinute(8));
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void WorkingItemsPerMinuteForSpeedNine() =>
+        Assert.Equal(26, AssemblyLine.WorkingItemsPerMinute(9));
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void WorkingItemsPerMinuteForSpeedTen() =>

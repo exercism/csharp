@@ -5,7 +5,7 @@ There are two different types of numbers in C#:
 
 The two most common numeric types in C# are `int` and `double`. An `int` is a 32-bit integer and a `double` is a 64-bit floating-point number.
 
-Arithmetic is done using the standard arithmetic operators. Numbers can be compared using the standard numeric comparison operators.
+Arithmetic is done using the standard arithmetic operators. Numbers can be compared using the standard numeric comparison operators and the equality (`==`) and inequality (`!=`) operators.
 
 C# has two types of numeric conversions:
 
@@ -19,13 +19,13 @@ In this exercise you must conditionally execute logic. The most common way to do
 ```csharp
 int x = 6;
 
-if (x <= 5)
+if (x == 5)
 {
-    // Execute logic if x <= 5
+    // Execute logic if x equals 5
 }
 else if (x > 7)
 {
-    // Execute logic if x > 7
+    // Execute logic if x greater than 7
 }
 else
 {
