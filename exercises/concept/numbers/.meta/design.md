@@ -8,7 +8,7 @@ The goal of this exercise is to teach the student how the Concept of Numbers is 
 
 - Know of the existence of the two most commonly used number types, `int` and `double`.
 - Understand that an `int` represents whole numbers, and a `double` represents floating-point numbers.
-- Know of basic operators such as multiplication and comparison.
+- Know of basic operators such as multiplication, comparison and equality.
 - Know how to convert from one numeric type to another; know what implicit and explicit conversions are.
 - Know how to conditionally execute code using an `if` statement.
 
@@ -22,7 +22,7 @@ The goal of this exercise is to teach the student how the Concept of Numbers is 
 
 The Concepts this exercise unlocks are:
 
-- `numbers`: know of the existence of the two most commonly used number types, `int` and `double`; understand that the former represents whole numbers, and the latter floating-point numbers; now of basic operators such as multiplication and comparison; know how to convert from one numeric type to another; know what implicit and explicit conversions are.
+- `numbers`: know of the existence of the two most commonly used number types, `int` and `double`; understand that the former represents whole numbers, and the latter floating-point numbers; know of basic operators such as multiplication, comparison and equality; know how to convert from one numeric type to another; know what implicit and explicit conversions are.
 - `conditionals`: know how to conditionally execute code using an `if` statement.
 
 ## Prequisites

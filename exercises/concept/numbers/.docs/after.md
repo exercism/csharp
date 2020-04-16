@@ -7,13 +7,16 @@ int i = 123;
 double d = 54.29;
 ```
 
-Arithmetic is done using the standard [arithmetic operators][arithmetic-operators] (`+`, `-`, `*`, etc.). Numbers can be compared using the standard [comparison operators][comparison-operators] (`<`, `>=`, etc.).
+Arithmetic is done using the standard [arithmetic operators][arithmetic-operators] (`+`, `-`, `*`, etc.). Numbers can be compared using the standard [comparison operators][comparison-operators] (`<`, `>=`, etc.) and the [equality-][equality-operators] operator (`==`) and [inequality][equality-operators] operator (`!=`).
 
 ```csharp
 5 * 6;
 // => 30
 
 1.2 > 0.8
+// => true
+
+2 != 4
 // => true
 ```
 
@@ -40,13 +43,13 @@ An `if` statement can be used to conditionally execute code. The condition of an
 ```csharp
 int x = 6;
 
-if (x <= 5)
+if (x == 5)
 {
-    // Execute logic if x <= 5
+    // Execute logic if x equals 5
 }
 else if (x > 7)
 {
-    // Execute logic if x > 7
+    // Execute logic if x greater than 7
 }
 else
 {
