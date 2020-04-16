@@ -3,7 +3,7 @@
 - [Properties][docs.microsoft.com-properties]
 - [Using Properties][docs.microsoft.com-using-properties]
 
-### 1. Allow the weight to be set on the weighing machine 
+### 1. Allow the weight to be set on the weighing machine
 
 A property with a private [backing field][docs.microsoft.com-properties-with-backing-fields] is appropriate here.
 
@@ -22,7 +22,6 @@ A property can return a reference to an object.
 ### 5. Allow a tare adjustment to be applied to the weighing machine
 
 Accessors can have [different access levels][docs.microsoft.com-properties-and-restricted-access] to each other.
-
 
 [docs.microsoft.com-properties]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties
 [docs.microsoft.com-using-properties]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/using-properties
