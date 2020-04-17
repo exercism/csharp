@@ -67,6 +67,13 @@ Some exercises could benefit from having an custom representation as generated b
 
 Skip this step if you're not sure what to do.
 
+## Step 5: format code
+
+To format the exercise's code, follow these steps:
+
+- Open a command prompt in the `language/csharp` directory.
+- Run `./format.ps1 <SLUG>`. This script will format the code using the [`dotnet format` tool][dotnet-format].
+
 ## Inspiration
 
 When implementing an exercise, it can be very useful to look at already implemented C# exercises like the [strings][concept-exercise-strings], [datetimes][concept-exercise-datetimes] or [floating-point numbers][concept-exercise-numbers-floating-point] exercises. You can also check the exercise's [general concepts documents][reference] to see if other languages have already implemented an exercise for that concept.
@@ -87,3 +94,4 @@ If you have any questions regarding implementing the exercise, please post them 
 [concept-exercise-datetimes]: ../exercises/concept/datetimes
 [concept-exercise-numbers-floating-point]: ../exercises/concept/floating-point-numbers
 [reference]: ../../../reference
+[dotnet-format]: https://github.com/dotnet/format
