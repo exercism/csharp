@@ -1,5 +1,3 @@
-using System;
-
 public enum LogLevel
 {
     Trace = 0,
@@ -13,26 +11,29 @@ public enum LogLevel
 
 public static class LogLine
 {
-    public static LogLevel ParseLogLevel(string logLine) {
-		
-		switch (logLine.Substring(1, 3)) {
-			case "TRC":
-				return LogLevel.Trace;
-			case "DBG":
-				return LogLevel.Debug;
-			case "INF":
-				return LogLevel.Info;
-			case "WRN":
-				return LogLevel.Warning;
-			case "ERR":
-				return LogLevel.Error;
-			case "FTL":
-				return LogLevel.Fatal;
-			default:
-				return LogLevel.Unknown;
-		}
-	}
+    public static LogLevel ParseLogLevel(string logLine)
+    {
+        switch (logLine.Substring(1, 3))
+        {
+            case "TRC":
+                return LogLevel.Trace;
+            case "DBG":
+                return LogLevel.Debug;
+            case "INF":
+                return LogLevel.Info;
+            case "WRN":
+                return LogLevel.Warning;
+            case "ERR":
+                return LogLevel.Error;
+            case "FTL":
+                return LogLevel.Fatal;
+            default:
+                return LogLevel.Unknown;
+        }
+    }
 
-    public static string OutputForShortLog(LogLevel logLevel, string message) =>
-        $"{(int)logLevel}:{message}";
+    public static string OutputForShortLog(LogLevel logLevel, string message)
+    {
+        return $"{(int)logLevel}:{message}";
+    }
 }

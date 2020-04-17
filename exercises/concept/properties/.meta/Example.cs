@@ -5,15 +5,20 @@ public enum Units
     Pounds,
     Kilograms
 }
+
 public class WeighingMachine
 {
     private const decimal POUNDS_PER_KILOGRAM = 2.20462m;
     private decimal inputWeight;
 
     public Units Units { get; set; } = Units.Kilograms;
+
     public decimal InputWeight
     {
-        get { return inputWeight; }
+        get
+        {
+            return inputWeight;
+        }
         set
         {
             if (value < 0)
@@ -27,7 +32,10 @@ public class WeighingMachine
 
     public decimal DisplayWeight
     {
-        get { return ApplyTareAdjustment(inputWeight); }
+        get
+        {
+            return ApplyTareAdjustment(inputWeight);
+        }
     }
     public USWeight USDisplayWeight
     {
