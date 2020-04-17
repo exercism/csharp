@@ -17,7 +17,7 @@ public class WeighingMachineTests
         var wm = new WeighingMachine();
         Assert.Throws<ArgumentException>(() => wm.InputWeight = -10);
     }
-    
+
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Get_US_display_weight()
     {
