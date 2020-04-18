@@ -35,6 +35,12 @@ Invoking a method is done by specifying its class- and method name and passing a
 var sum = Calculator.Add(1, 2);
 ```
 
+Arguments can optionally specify the corresponding parameter's name:
+
+```csharp
+var sum = Calculator.Add(x: 1, y: 2);
+```
+
 If the method to be called is defined in the same class as the method that calls it, the class name can be omitted.
 
 If a method does not use any class _state_ (which is the case in this exercise), the method can be made _static_ using the `static` modifier. Similarly, if a class only has static methods, it too can be made static using the `static` modifier.
