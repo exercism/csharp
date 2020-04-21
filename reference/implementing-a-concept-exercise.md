@@ -6,7 +6,7 @@ This document describes how to implement a concept exercise for the C# track.
 
 - [The features of v3][docs-features-of-v3].
 - [Rationale for v3][docs-rationale-for-v3].
-- [What are concept exercise and how they are structured?][docs-concept-exercises]
+- [What are concept exercises and how are they structured?][docs-concept-exercises]
 
 Please also watch the following video:
 
