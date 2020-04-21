@@ -1,6 +1,6 @@
 ### General
 
-- The [csharp.net strings tutorial][tutorial-csharp.net-strings] has a nice introduction C# `string`'s.
+- The [csharp.net strings tutorial][tutorial-csharp.net-strings] has a nice introduction to C# `string`s.
 - The `string` class has many useful [built-in methods][docs-string-methods].
 
 ### 1. Get message from a log line
