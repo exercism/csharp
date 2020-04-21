@@ -10,7 +10,7 @@ The document should answer the question
 The material should be capable of being communicated to an enquiring
 student as and when required.
 
-Where material is covered under "What not to teach" in _design.md_
+Where material is covered under "Out of scope" in _design.md_
 for a particular exercise it should not be repeated here
 unless it is felt that the topic otherwise has insufficient prominence.
 
