@@ -69,10 +69,17 @@ Skip this step if you're not sure what to do.
 
 ## Step 5: format code
 
-To format the exercise's code, follow these steps:
+All C# code should be formatted using the [`dotnet format` tool][dotnet-format]. There are two ways to format your C# code:
 
-- Open a command prompt in the `language/csharp` directory.
-- Run `./format.ps1 <SLUG>`. This script will format the code using the [`dotnet format` tool][dotnet-format].
+#### 1. Using a GitHub comment
+
+If you add a comment to a GitHub PR that contains the text `/dotnet-format`, a GitHub workflow will format all C# documents in the PR using `dotnet format`. Any formatting changes made by `dotnet format` will automatically be committed to the PR's branch. This also works for forks that have [enabled maintainers to edit the fork's PR][allowing-fork-pr-changes] (which is the default).
+
+#### 2. Using a script
+
+Open a command prompt in the `language/csharp` directory and then run:
+
+- `./format.ps1 <SLUG>`, where `<SLUG>` is the exercise's directory name.
 
 ## Inspiration
 
@@ -95,3 +102,4 @@ If you have any questions regarding implementing the exercise, please post them 
 [concept-exercise-numbers-floating-point]: ../exercises/concept/floating-point-numbers
 [reference]: ../../../reference
 [dotnet-format]: https://github.com/dotnet/format
+[allowing-fork-pr-changes]: https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/allowing-changes-to-a-pull-request-branch-created-from-a-fork
