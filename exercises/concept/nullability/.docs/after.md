@@ -1,58 +1,100 @@
-Sometimes we need to make it so that variables have no particular
-value, i.e. they are empty. In C#, this corresponds to the [literal
-`null`][null-keyword].
+In C#, the [`null` literal][null-keyword] is used to denote the absence of a value. A _nullable_ type is a type that allows for `null` values.
 
-In this exercise, we saw the definition of [nullable
-types][nullable-types-tutorial], and how the compiler and runtime of
-C# help us dealing with `null` values.
-
-At compilation time, [the operator `?`][nullable-reference-types] will
-declare a variable as being _nullable_. The compiler will then try to
-help us avoiding calling methods on possibly `null` variables, by
-raising warnings. You can use [the operator
-`!`][null-forgiving-operator] to avoid warnings in places we are sure
-a nullable variable is not null, but the compiler cannot detect
-it.
-
-We can also use [the operators `??` and
-`??=`][null-coalescing-operator] to provide a default value for a
-nullable variable and [the operator `?.`][null-conditional-operator]
-to chain accesses to methods, properties or attributes of potentially
-`null` objects on an expression that evaluates to `null` instead of
-throwing a `NullReferenceException`.
+Prior to C# 8.0, reference types were always nullable and value types were not. A [value type can be made nullable][nullable-value-types] though by appending it with a question mark (`?`).
 
 ```csharp
-string? userName = null;                  // declares `userName` as a nullable string
-Console.WriteLine(userName?.Length);      // prints: "null", since `userName` is `null`
-Console.WriteLine(userName ?? "default"); // prints: "default", since `userName` is `null`
+string nullableReferenceType = "hello";
+nullableReferenceType = null; // Valid as type is nullable
 
-userName ??= "unknownUser";               // sets `userName` to "unknownUser" since its
-                                          // value was null
-Console.WriteLine(userName!.Length);      // prints "11" and avoids a compiler warning
+int nonNullableValueType = 5;
+nonNullableValueType = null; // Compile error as type is not nullable
+
+int? nullableValueType = 5; // Define nullable value type
+nullableValueType = null;   // Valid as type is nullable
 ```
 
-At run time, calling any method or property on a
-`null` value throws a `NullReferenceException` exception.
-That is why it is important to always check if a nullable variable
-is `null` before calling methods on its value.
+Accessing a member of a variable which value is `null` will compile fine, but result in a `NullReferenceException` being thrown at runtime:
 
-# Important changes in C# 8.0
+```csharp
+string sentence = "What a nice day!";
 
-Sometimes, we need to make sure that some variables are never
-`null`. This simplifies code because it won't need to handle
-`NullReferenceException`s or provide extra provisions for `null`
-values.
+// Throws NullReferenceException at runtime
+sentence.Length;
+```
 
-Before C# 8.0, reference types were nullable by default. For example,
-a variable of type `string` may contain a `null` value, even it is not
-declared as `string?`.
+To counter this common type of mistake, C# 8 allows one to [opt-into a feature][nullable-csharp-8] that makes [reference types non-nullable by default][nullable-reference-types]:
 
-For more information, refer to [this
-][nullable-csharp-8] and [this][nullable-reference-types-tutorial] documents.
+```csharp
+string nonNullableReferenceType = "book";
+nonNullableReferenceType = null; // Compile warning (no error!)
 
+string? nullableReferenceType = "movie";
+nullableReferenceType = null; // Valid as type is nullable
+```
+
+To [safely work with nullable values][nullable-types-tutorial], one should check if they are `null` before working with them:
+
+```csharp
+string NormalizedName(string? name)
+{
+    if (name == null)
+    {
+        return "UNKNOWN";
+    }
+    else
+    {
+        // Value is not null at this point, so no compile warning
+        // and no runtime NullReferenceException being thrown
+        return name.ToUpper();
+    }
+}
+
+NormalizedName(null); // => "UNKNOWN"
+NormalizedName("Elisabeth"); // => "ELISABETH"
+```
+
+The [`??` operator][null-coalescing-operator] allows one to return a default value when the value is `null`:
+
+```csharp
+string? name1 = "John";
+name1 ?? "Paul"; // => "John"
+
+string? name2 = null;
+name2 ?? "George"; // => "George"
+```
+
+The [`?.` operator][null-conditional-operator] allows one to call members safely on a possibly `null` value:
+
+```csharp
+string? fruit = "apple";
+fruit?.Length; // => 5
+
+string? vegetable = null;
+vegetable?.Length; // => null
+```
+
+If the compiler thinks a value could be `null` but you are certain it won't be, the [`!.` operator][null-forgiving-operator] can be used to suppress the warning. Only use this operator as a last resort though.
+
+```csharp
+void PrintName(string? name)
+{
+    // Assume that the IsValid() method only return true
+    // when its argument is not null
+    if (IsValid(name))
+    {
+        // No compile warning
+        Console.WriteLine(name!.Length);
+    }
+}
+```
+
+If you'd like to learn more about working with nullable reference, check out [this tutorial][nullable-reference-types-tutorial].
+
+[nullable-csharp-8]: https://docs.microsoft.com/en-us/dotnet/csharp/nullable-references
 [null-keyword]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null
 [nullable-types-tutorial]: https://csharp.net-tutorials.com/data-types/nullable-types/
 [nullable-reference-types]: https://docs.microsoft.com/en-us/dotnet/csharp/nullable-references
+[nullable-value-types]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/nullable-value-types
 [nullable-csharp-8]: https://docs.microsoft.com/en-us/dotnet/csharp/nullable-references
 [null-forgiving-operator]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/null-forgiving
 [null-coalescing-operator]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/null-coalescing-operator
