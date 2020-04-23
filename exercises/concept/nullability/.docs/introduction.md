@@ -1,6 +1,6 @@
-In C#, the `null` literal is used to denote the absence of a value.  A
-*nullable* type is a type that allows `null` values. By default
-reference types are nullable and value types are non nullable.  The
+In C#, the `null` literal is used to denote the absence of a value. A
+_nullable_ type is a type that allows `null` values. By default
+reference types are nullable and value types are non nullable. The
 `?` suffix to a variable's type makes it nullable if it is not. From
 C# 8.0 on, one can [make reference types non nullable by
 default][nullable-csharp-8], just like value types.
@@ -16,7 +16,7 @@ int nonNullable = 5;
 ```
 
 A common mistake is to access a member (e.g. a method or property) on a nullable
-variable whose value is `null`.  This will cause the C# runtime
+variable whose value is `null`. This will cause the C# runtime
 to raise a `NullReferenceException`.
 
 The C# compiler can help us avoiding such errors. If we try to
@@ -59,7 +59,7 @@ Console.WriteLine(userName ?? "default");
 
 // This code is equivalent to:
 string userNameValue;
-if (userName == null) 
+if (userName == null)
 {
     userNameValue = "default";
 }
@@ -74,9 +74,9 @@ Console.WriteLine(userNameValue);
 // prints: `null` if `userName` is `null`
 Console.WriteLine(userName?.Length);
 
-// This code is equivalent to 
+// This code is equivalent to
 int userNameLength;
-if (userName == null) 
+if (userName == null)
 {
     userNameLength = 0;
 }
