@@ -1,5 +1,5 @@
 Sometimes we need to make it so that variables have no particular
-value, i.e. they are empty.  In C#, this corresponds to the [literal
+value, i.e. they are empty. In C#, this corresponds to the [literal
 `null`][null-keyword].
 
 In this exercise, we saw the definition of [nullable
@@ -7,7 +7,7 @@ types][nullable-types-tutorial], and how the compiler and runtime of
 C# help us dealing with `null` values.
 
 At compilation time, [the operator `?`][nullable-reference-types] will
-declare a variable as being *nullable*. The compiler will then try to
+declare a variable as being _nullable_. The compiler will then try to
 help us avoiding calling methods on possibly `null` variables, by
 raising warnings. You can use [the operator
 `!`][null-forgiving-operator] to avoid warnings in places we are sure
@@ -25,7 +25,7 @@ throwing a `NullReferenceException`.
 string? userName = null;                  // declares `userName` as a nullable string
 Console.WriteLine(userName?.Length);      // prints: "null", since `userName` is `null`
 Console.WriteLine(userName ?? "default"); // prints: "default", since `userName` is `null`
-    
+
 userName ??= "unknownUser";               // sets `userName` to "unknownUser" since its
                                           // value was null
 Console.WriteLine(userName!.Length);      // prints "11" and avoids a compiler warning

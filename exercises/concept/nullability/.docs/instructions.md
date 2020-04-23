@@ -16,7 +16,7 @@ Badge.Label(734, "Ernest Johnny Payne", "Strategic Communication");
 ### 2. Handle the optional parts of a badge label
 
 The ID and department name are optional. If someone does not have an
-ID, do not print this part of the label.  If someone has no
+ID, do not print this part of the label. If someone has no
 department, just print `GUEST` as their department name.
 
 ### 3. Generate the actual text to be print on the badge
@@ -28,10 +28,10 @@ prefix may be added on the beginning of each line:
 ```csharp
 Badge.PrintLabel(" > ", "[734] - Ernest Johnny Payne - STRATEGIC COMMUNICATION", 30);
 // => " > [734] - Ernest Johnny Payne - \n> STRATEGIC COMMUNICATION"
-// 
+//
 // => Printed label:
 //
-// > [734] - Ernest Johnny Payne - 
+// > [734] - Ernest Johnny Payne -
 // > STRATEGIC COMMUNICATION
 
 ```
