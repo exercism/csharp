@@ -1,37 +1,37 @@
-In this exercise you'll be writing code to helping printing name
-badges for factory employees.
+In this exercise you'll be writing code to print name badges for factory employees.
 
-Employees have an ID, name and department name. Badge labels are
-formatted as follows: `"[id] - [name] - [DEPARTMENT]"`
+### 1. Print a badge for an employee
 
-### 1. Generate an employee's badge label
-
-Implement the `Badge.Label()` method to return an employee's badge label:
+Employees have an ID, name and department name. Employee badge labels are formatted as follows: `"[id] - [name] - [DEPARTMENT]"`. Implement the `Badge.Print()` method to return an employee's badge label:
 
 ```csharp
-Badge.Label(734, "Ernest Johnny Payne", "Strategic Communication");
+Badge.Print(734, "Ernest Johnny Payne", "Strategic Communication");
 // => "[734] - Ernest Johnny Payne - STRATEGIC COMMUNICATION"
 ```
 
-### 2. Handle the optional parts of a badge label
+Note that the department should be uppercased on the label.
 
-The ID and department name are optional. If someone does not have an
-ID, do not print this part of the label. If someone has no
-department, just print `GUEST` as their department name.
+### 2. Print a badge for a new employee
 
-### 3. Generate the actual text to be print on the badge
-
-Implement the `Badge.PrintLabel()` method to return an employee's
-badge label that can fit on a badge with a given width. An optional
-prefix may be added on the beginning of each line:
+Due to a quirk in the computer system, new employees occasionally don't yet have an ID when they start working at the factory. As badges are required, they will receive a temporary badge without the ID prefix. Modify the `Badge.Print()` method to support new employees that don't yet have an ID:
 
 ```csharp
-Badge.PrintLabel(" > ", "[734] - Ernest Johnny Payne - STRATEGIC COMMUNICATION", 30);
-// => " > [734] - Ernest Johnny Payne - \n> STRATEGIC COMMUNICATION"
-//
-// => Printed label:
-//
-// > [734] - Ernest Johnny Payne -
-// > STRATEGIC COMMUNICATION
+Badge.Print(id: null, "Jane Johnson", "Procurement");
+// => "Jane Johnson - PROCUREMENT"
+```
 
+### 3. Print a badge for the owner
+
+Even the factory's owner has to wear a badge at all times. However, an owner does not have a department. In this case, the label should print `"OWNER"` instead of the department name. Modify the `Badge.Print()` method to print a label for the owner:
+
+```csharp
+Badge.Print(254, "Charlotte Hale", department: null);
+// => "[254] - Charlotte Hale - OWNER"
+```
+
+Note that it is possible for the owner to also be a new employee:
+
+```csharp
+Badge.Print(id: null, "Charlotte Hale", department: null);
+// => "Charlotte Hale - OWNER"
 ```
