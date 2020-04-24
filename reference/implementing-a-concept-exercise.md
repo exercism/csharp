@@ -46,7 +46,7 @@ languages
 
 The code files are track-specific and should be designed to help the student learn the exercise's concepts. The following C# code files must be added (not necessarily in this order):
 
-### Add`<NAME>.cs` file
+### Add `<NAME>.cs` file
 
 **Purpose:** Provide a stub implementation.
 
@@ -55,7 +55,7 @@ The code files are track-specific and should be designed to help the student lea
 
 For more information, please read [this in-depth description][stub-file], [watch this video][video-stub-file] and check [this example stub file][example-stub-file].
 
-### Add`<NAME>Tests.cs` file
+### Add `<NAME>Tests.cs` file
 
 **Purpose:** The test suite to verify a solution's correctness.
 
@@ -65,13 +65,13 @@ For more information, please read [this in-depth description][stub-file], [watch
 
 For more information, please read [this in-depth description][tests-file], [watch this video][video-tests-file] and check [this example tests file][example-tests-file].
 
-### Add`<NAME>.csproj` file
+### Add `<NAME>.csproj` file
 
 **Purpose:** The project file required to build the project and run the tests.
 
 For more information, check [this example project file][example-project-file].
 
-### Add`.meta/Example.cs` file
+### Add `.meta/Example.cs` file
 
 **Purpose:** The idiomatic example implementation that passes all the tests.
 
