@@ -1,4 +1,4 @@
-public class Lasagna
+class Lasagna
 {
     public int ExpectedMinutesInOven()
     {

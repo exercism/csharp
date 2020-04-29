@@ -15,12 +15,10 @@ count = 2;     // Update to new value
 // count = false;
 ```
 
-C# is an object-oriented language and requires all functions to be defined in a _class_, which are defined using the [`class` keyword][classes]. It is common to specify an _access modifier_, which influences what other classes can use the class. The most common access modifier is `public`, which means that other classes can use this class.
-
-A function within a class is referred to as a _method_. Each [method][methods] can have zero or more parameters. All parameters must be explicitly typed, there is no type inference for parameters. Similarly, the return type must also be made explicit. Like classes, an access modifier can be specified for methods. Values are returned from functions using the [`return` keyword][return].
+C# is an object-oriented language and requires all functions to be defined in a _class_, which are defined using the [`class` keyword][classes]. A function within a class is referred to as a _method_. Each [method][methods] can have zero or more parameters. All parameters must be explicitly typed, there is no type inference for parameters. Similarly, the return type must also be made explicit. Values are returned from functions using the [`return` keyword][return]. To allow a method to be called by code in other files, the `public` access modifier must be added.
 
 ```csharp
-public class Calculator
+class Calculator
 {
     public int Add(int x, int y)
     {
@@ -46,7 +44,7 @@ If the method to be called is defined in the same class as the method that calls
 If a method does not use any class _state_ (which is the case in this exercise), the method can be made _static_ using the `static` modifier. Similarly, if a class only has static methods, it too can be made static using the `static` modifier.
 
 ```csharp
-public static class Calculator
+static class Calculator
 {
     public static int Multiply(int x, int y)
     {
