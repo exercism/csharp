@@ -1,4 +1,4 @@
-public class Lasagna
+class Lasagna
 {
     // TODO: define the 'ExpectedMinutesInOven' method
 
