@@ -1,4 +1,4 @@
-public static class LogLine
+static class LogLine
 {
     public static string Message(string logLine)
     {

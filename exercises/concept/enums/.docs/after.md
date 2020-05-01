@@ -3,7 +3,7 @@ You can use an enum whenever you have a fixed set of constant values. Using an e
 Each enum member has an associated integer value associated with it. If no value is explicitly defined for an enum member, its value is automatically assigned to `1` plus + the previous member's value. If the first member does not have an explicit value, its value is set to `0`.
 
 ```csharp
-public enum Season
+enum Season
 {
     Spring,     // Value is 0
     Summer = 2, // Value is 2
@@ -26,7 +26,7 @@ You should always consider using an enum whenever you want to model something as
 Note that while one _can_ cast integer values to an enum, doing so can lead to unexpected results when the integer value doesn't map to any enum value:
 
 ```csharp
-public enum Status
+enum Status
 {
     Inactive = 0,
     Active = 1

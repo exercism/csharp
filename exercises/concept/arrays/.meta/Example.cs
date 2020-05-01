@@ -1,6 +1,6 @@
 using System;
 
-public class BirdCount
+class BirdCount
 {
     private int[] birdsPerDay;
 

@@ -1,6 +1,6 @@
 using System;
 
-public static class Appointment
+static class Appointment
 {
     public static DateTime Schedule(string appointmentDateDescription)
     {

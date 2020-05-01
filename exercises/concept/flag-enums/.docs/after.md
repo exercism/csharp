@@ -2,7 +2,7 @@ To allow a single enum instance to represent multiple values (usually referred t
 
 ```csharp
 [Flags]
-public enum PhoneFeatures
+enum PhoneFeatures
 {
     Call = 1,
     Text = 2
@@ -13,14 +13,14 @@ Besides using regular integers to set the flag enum members' values, one can als
 
 ```csharp
 [Flags]
-public enum PhoneFeaturesBinary
+enum PhoneFeaturesBinary
 {
     Call = 0b00000001,
     Text = 0b00000010
 }
 
 [Flags]
-public enum PhoneFeaturesBitwiseShift
+enum PhoneFeaturesBitwiseShift
 {
     Call = 1 << 0,
     Text = 1 << 1
@@ -31,7 +31,7 @@ An enum member's value can refer to other enum members values:
 
 ```csharp
 [Flags]
-public enum PhoneFeatures
+enum PhoneFeatures
 {
     Call = 0b00000001,
     Text = 0b00000010,
@@ -71,7 +71,7 @@ By default, the `int` type is used for enum member values. One can use a differe
 
 ```csharp
 [Flags]
-public enum PhoneFeatures : byte
+enum PhoneFeatures : byte
 {
     Call = 0b00000001,
     Text = 0b00000010

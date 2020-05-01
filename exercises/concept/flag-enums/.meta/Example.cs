@@ -1,6 +1,6 @@
 using System;
 
-public enum AccountType
+enum AccountType
 {
     Guest,
     User,
@@ -8,7 +8,7 @@ public enum AccountType
 }
 
 [Flags]
-public enum Permission
+enum Permission
 {
     None = 0b_0000_0000,
     Read = 0b_0000_0001,
@@ -17,7 +17,7 @@ public enum Permission
     All = Read | Write | Delete
 }
 
-public static class Permissions
+static class Permissions
 {
     public static Permission Default(AccountType accountType)
     {

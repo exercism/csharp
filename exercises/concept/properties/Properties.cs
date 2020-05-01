@@ -1,12 +1,12 @@
 using System;
 
-public enum Units
+enum Units
 {
     Pounds,
     Kilograms
 }
 
-public class WeighingMachine
+class WeighingMachine
 {
     // TODO: define the 'InputWeight' property
 
@@ -19,7 +19,7 @@ public class WeighingMachine
     // TODO: define the 'Units' property
 }
 
-public struct USWeight
+struct USWeight
 {
     public USWeight(decimal weightInPounds)
     {
