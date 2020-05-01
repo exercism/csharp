@@ -24,7 +24,7 @@ Define a `LogLevel` enum that has six elements corresponding to the above log le
 - `Error`
 - `Fatal`
 
-Next, implement the `LogLine.ParseLogLevel()` method to parse the log level of a log line:
+Next, implement the (_static_) `LogLine.ParseLogLevel()` method to parse the log level of a log line:
 
 ```csharp
 LogLine.ParseLogLevel("[INF]: File deleted")
@@ -54,7 +54,7 @@ The encoded log level is simple mapping of a log level to a number:
 - `Fatal` - `7`
 - `Unknown` - `42`
 
-Implement the `LogLine.OutputForShortLog()` method that can output the shortened log line format:
+Implement the (_static_) `LogLine.OutputForShortLog()` method that can output the shortened log line format:
 
 ```csharp
 LogLine.OutputForShortLog(LogLevel.Error, "Stack overflow")
