@@ -1,6 +1,6 @@
 using System;
 
-public static class AssemblyLine
+static class AssemblyLine
 {
     public static double ProductionRatePerHour(int speed)
     {

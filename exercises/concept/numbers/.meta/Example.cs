@@ -1,4 +1,4 @@
-public static class AssemblyLine
+static class AssemblyLine
 {
     private const int ProductionRatePerHourForDefaultSpeed = 221;
 

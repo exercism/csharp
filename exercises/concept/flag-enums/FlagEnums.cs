@@ -4,7 +4,7 @@ using System;
 
 // TODO: define 'Permission' enum
 
-public static class Permissions
+static class Permissions
 {
     public static Permission Default(AccountType accountType)
     {

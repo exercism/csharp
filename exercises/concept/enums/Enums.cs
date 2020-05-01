@@ -2,7 +2,7 @@ using System;
 
 // TODO: define 'LogLevel' enum
 
-public static class LogLine
+static class LogLine
 {
     public static LogLevel ParseLogLevel(string logLine)
     {

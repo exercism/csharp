@@ -1,6 +1,6 @@
 using System;
 
-public static class Badge
+static class Badge
 {
     public static string Print(int? id, string name, string? department)
     {

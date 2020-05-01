@@ -59,7 +59,7 @@ the set accessor may be ommitted completely. This is maybe because
 the value of the property is set in the class's constructor.
 
 ```csharp
-public class MyClass
+class MyClass
 {
   public MyClass( int importantValue)
   {
