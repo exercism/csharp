@@ -4,11 +4,11 @@ public static class AssemblyLine
 {
     public static double ProductionRatePerHour(int speed)
     {
-        throw new NotImplementedException("Please implement the AssemblyLine.ProductionRatePerHour method");
+        throw new NotImplementedException("Please implement the (static) AssemblyLine.ProductionRatePerHour() method");
     }
 
     public static int WorkingItemsPerMinute(int speed)
     {
-        throw new NotImplementedException("Please implement the AssemblyLine.WorkingItemsPerMinute method");
+        throw new NotImplementedException("Please implement the (static) AssemblyLine.WorkingItemsPerMinute() method");
     }
 }

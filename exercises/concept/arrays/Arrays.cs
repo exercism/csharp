@@ -11,26 +11,26 @@ public class BirdCount
 
     public static int[] LastWeek()
     {
-        throw new NotImplementedException("Please implement the BirdCount.LastWeek method");
+        throw new NotImplementedException("Please implement the (static) BirdCount.LastWeek() method");
     }
 
     public int Yesterday()
     {
-        throw new NotImplementedException("Please implement the BirdCount.Yesterday method");
+        throw new NotImplementedException("Please implement the BirdCount.Yesterday() method");
     }
 
     public int Total()
     {
-        throw new NotImplementedException("Please implement the BirdCount.Total method");
+        throw new NotImplementedException("Please implement the BirdCount.Total() method");
     }
 
     public int BusyDays()
     {
-        throw new NotImplementedException("Please implement the BirdCount.BusyDays method");
+        throw new NotImplementedException("Please implement the BirdCount.BusyDays() method");
     }
 
     public bool HasDayWithoutBirds()
     {
-        throw new NotImplementedException("Please implement the BirdCount.HasDayWithoutBirds method");
+        throw new NotImplementedException("Please implement the BirdCount.HasDayWithoutBirds() method");
     }
 }
