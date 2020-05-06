@@ -1,8 +1,8 @@
 using System;
 
-// TODO: define 'AccountType' enum
+// TODO: define the 'AccountType' enum
 
-// TODO: define 'Permission' enum
+// TODO: define the 'Permission' enum
 
 static class Permissions
 {

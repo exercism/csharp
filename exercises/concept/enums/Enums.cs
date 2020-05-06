@@ -1,6 +1,6 @@
 using System;
 
-// TODO: define 'LogLevel' enum
+// TODO: define the 'LogLevel' enum
 
 static class LogLine
 {
