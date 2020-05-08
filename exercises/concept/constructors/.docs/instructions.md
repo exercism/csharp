@@ -64,6 +64,7 @@ var car = RemoteControlCar.Nitro();
 car.Drive();
 car.DistanceDriven();
 // => 50
+
 ### 6. Check if a remote control car can finish a race
 
 To finish a race, a car has to be able to drive the race's distance. This means not draining its battery before having crossed the finish line. Implement the `Race.CarCanFinish()` method that takes a `RemoteControlCar` instance as its parameter and returns `true` if the car can finish the race; otherwise, return `false`:
