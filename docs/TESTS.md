@@ -6,6 +6,12 @@ To run the tests, execute the following command:
 dotnet test
 ```
 
+To run the tests automatically as each source file is changed, execute the following command:
+
+```bash
+dotnet watch test
+```
+
 ## Solving the exercise
 
 Solving an exercise means making all its tests pass. By default, only one test (the first one) is executed when you run the tests. This is intentional, as it allows you to focus on just making that one test pass. Once it passes, you can enable the next test by removing `Skip = "Remove this Skip property to run this test"` from the test's `[Fact]` or `[Theory]` attribute. When all tests have been enabled and your implementation makes them all pass, you'll have solved the exercise!
