@@ -3,7 +3,7 @@ using Xunit;
 public class RemoteControlCarTests
 {
     [Fact]
-    public void NewRemoteControlCarHasNotDrivenAnyDistance()
+    public void New_remote_control_car_has_not_driven_any_distance()
     {
         int speed = 10;
         int batteryDrain = 2;
@@ -13,7 +13,7 @@ public class RemoteControlCarTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void DriveIncreasesDistanceDrivenWithSpeed()
+    public void Drive_increases_distance_driven_with_speed()
     {
         int speed = 5;
         int batteryDrain = 1;
@@ -25,7 +25,7 @@ public class RemoteControlCarTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void DriveDoesNotIncreaseDistanceDrivenWhenBatteryDrained()
+    public void Drive_does_not_increase_distance_driven_when_battery_drained()
     {
         int speed = 9;
         int batteryDrain = 50;
@@ -42,7 +42,7 @@ public class RemoteControlCarTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void NewRemoteControlCarBatteryIsNotDrained()
+    public void New_remote_control_car_battery_is_not_drained()
     {
         int speed = 15;
         int batteryDrain = 3;
@@ -52,7 +52,7 @@ public class RemoteControlCarTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void DriveToAlmostDrainBattery()
+    public void Drive_to_almost_drain_battery()
     {
         int speed = 2;
         int batteryDrain = 1;
@@ -68,7 +68,7 @@ public class RemoteControlCarTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void DriveUntilBatteryIsDrained()
+    public void Drive_until_battery_is_drained()
     {
         int speed = 2;
         int batteryDrain = 1;
@@ -84,21 +84,21 @@ public class RemoteControlCarTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void TopOfTheLineCarHasNotDrivenAnyDistance()
+    public void Top_of_the_line_car_has_not_driven_any_distance()
     {
         var car = RemoteControlCar.TopOfTheLine();
         Assert.Equal(0, car.DistanceDriven());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void TopOfTheLineCarHasBatteryNotDrained()
+    public void Top_of_the_line_car_has_battery_not_drained()
     {
         var car = RemoteControlCar.TopOfTheLine();
         Assert.False(car.BatteryDrained());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void TopOfTheLineCarHasCorrectSpeed()
+    public void Top_of_the_line_car_has_correct_speed()
     {
         var car = RemoteControlCar.TopOfTheLine();
         car.Drive();
@@ -106,7 +106,7 @@ public class RemoteControlCarTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void TopOfTheLineHasCorrectBatteryDrain()
+    public void Top_of_the_line_has_correct_battery_drain()
     {
         var car = RemoteControlCar.TopOfTheLine();
 
@@ -128,7 +128,7 @@ public class RemoteControlCarTests
 public class RaceTrackTests
 {
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void CarCanFinishWithCarThatCanEasilyFinish()
+    public void Car_can_finish_with_car_that_can_easily_finish()
     {
         int speed = 10;
         int batteryDrain = 2;
@@ -141,7 +141,7 @@ public class RaceTrackTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void CarCanFinishWithCarThatCanJustFinish()
+    public void Car_can_finish_with_car_that_can_just_finish()
     {
         int speed = 2;
         int batteryDrain = 10;
@@ -154,7 +154,7 @@ public class RaceTrackTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void CarCanFinishWithCarThatJustCannotFinish()
+    public void Car_can_finish_with_car_that_just_cannot_finish()
     {
         int speed = 3;
         int batteryDrain = 20;
@@ -167,7 +167,7 @@ public class RaceTrackTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void CarCanFinishWithCarThatCannotFinish()
+    public void Car_can_finish_with_car_that_cannot_finish()
     {
         int speed = 1;
         int batteryDrain = 20;
