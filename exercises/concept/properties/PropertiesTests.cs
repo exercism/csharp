@@ -19,7 +19,7 @@ public class WeighingMachineTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Get_US_display_weight()
+    public void Get_us_display_weight()
     {
         var wm = new WeighingMachine();
         wm.InputWeight = 60m;
@@ -27,7 +27,7 @@ public class WeighingMachineTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Input_pounds_and_get_US_display_weight()
+    public void Input_pounds_and_get_us_display_weight()
     {
         var wm = new WeighingMachine();
         wm.Units = Units.Pounds;

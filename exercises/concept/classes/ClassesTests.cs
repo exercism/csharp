@@ -3,14 +3,14 @@ using Xunit;
 public class RemoteControlCarTests
 {
     [Fact]
-    public void BuyNewCarReturnsInstance()
+    public void Buy_new_car_returns_instance()
     {
         var car = RemoteControlCar.Buy();
         Assert.NotNull(car);
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void BuyNewCarReturnsNewCarEachTime()
+    public void Buy_new_car_returns_new_car_each_time()
     {
         var car1 = RemoteControlCar.Buy();
         var car2 = RemoteControlCar.Buy();
@@ -18,21 +18,21 @@ public class RemoteControlCarTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void NewCarDistanceDisplay()
+    public void New_car_distance_display()
     {
         var car = new RemoteControlCar();
         Assert.Equal("Driven 0 meters", car.DistanceDisplay());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void NewCarBatteryDisplay()
+    public void New_car_battery_display()
     {
         var car = new RemoteControlCar();
         Assert.Equal("Battery at 100%", car.BatteryDisplay());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void DistanceDisplayAfterDrivingOnce()
+    public void Distance_display_after_driving_once()
     {
         var car = new RemoteControlCar();
         car.Drive();
@@ -40,7 +40,7 @@ public class RemoteControlCarTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void DistanceDisplayAfterDrivingMultipleTimes()
+    public void Distance_display_after_driving_multiple_times()
     {
         var car = new RemoteControlCar();
 
@@ -53,7 +53,7 @@ public class RemoteControlCarTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void BatteryDisplayAfterDrivingOnce()
+    public void Battery_display_after_driving_once()
     {
         var car = new RemoteControlCar();
         car.Drive();
@@ -61,7 +61,7 @@ public class RemoteControlCarTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void BatteryDisplayAfterDrivingMultipleTimes()
+    public void Battery_display_after_driving_multiple_times()
     {
         var car = new RemoteControlCar();
 
@@ -74,7 +74,7 @@ public class RemoteControlCarTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void BatteryDisplayWhenBatteryEmpty()
+    public void Battery_display_when_battery_empty()
     {
         var car = new RemoteControlCar();
 
@@ -91,7 +91,7 @@ public class RemoteControlCarTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void DistanceDisplayWhenBatteryEmpty()
+    public void Distance_display_when_battery_empty()
     {
         var car = new RemoteControlCar();
 

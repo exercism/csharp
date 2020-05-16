@@ -62,6 +62,7 @@ For more information, please read [this in-depth description][stub-file], [watch
 - [xUnit][xunit] is used as the test framework.
 - Only use `Fact` tests; don't use `Theory` tests.
 - All but the first test should be skipped by default (check [this example][skip-fact]).
+- Test methods should be named using `snake_case`, with the first character uppercased (check [this example][test-name]).
 
 For more information, please read [this in-depth description][tests-file], [watch this video][video-tests-file] and check [this example tests file][example-tests-file].
 
@@ -142,6 +143,7 @@ If you have any questions regarding implementing the exercise, please post them 
 [example-example-file]: ../exercises/concept/strings/.meta/Example.cs
 [example-project-file]: ../exercises/concept/strings/Strings.csproj
 [skip-fact]: ../exercises/concept/strings/StringsTests.cs#L11
+[test-name]: ../exercises/concept/strings/StringsTests.cs#L24
 [xunit]: https://xunit.net/
 [not-implemented-static]: ../exercises/concept/arrays/Arrays.cs#L12
 [not-implemented]: ../exercises/concept/arrays/Arrays.cs#L17
