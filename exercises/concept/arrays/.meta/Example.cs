@@ -9,6 +9,26 @@ class BirdCount
         this.birdsPerDay = birdsPerDay;
     }
 
+    public static int[] LastWeek()
+    {
+        return new int[] { 0, 2, 5, 3, 7, 8, 4 };
+    }
+
+    public int Today()
+    {
+        return birdsPerDay[6];
+    }
+
+    public void IncrementTodaysCount()
+    {
+        birdsPerDay[6]++;
+    }
+
+    public bool HasDayWithoutBirds()
+    {
+        return Array.IndexOf(birdsPerDay, 0) != -1;
+    }
+
     public int Total()
     {
         var total = 0;
@@ -34,20 +54,5 @@ class BirdCount
         }
 
         return days;
-    }
-
-    public int Yesterday()
-    {
-        return birdsPerDay[5];
-    }
-
-    public bool HasDayWithoutBirds()
-    {
-        return Array.IndexOf(birdsPerDay, 0) != -1;
-    }
-
-    public static int[] LastWeek()
-    {
-        return new int[] { 0, 2, 5, 3, 7, 8, 4 };
     }
 }
