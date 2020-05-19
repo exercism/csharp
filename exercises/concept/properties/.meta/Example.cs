@@ -9,6 +9,7 @@ enum Units
 class WeighingMachine
 {
     private const decimal POUNDS_PER_KILOGRAM = 2.20462m;
+
     private decimal inputWeight;
 
     public Units Units { get; set; } = Units.Kilograms;
@@ -37,6 +38,7 @@ class WeighingMachine
             return ApplyTareAdjustment(inputWeight);
         }
     }
+
     public USWeight USDisplayWeight
     {
         get
@@ -44,9 +46,23 @@ class WeighingMachine
             return new USWeight(WeightInPounds(DisplayWeight));
         }
     }
+
     public decimal TareAdjustment { set; private get; }
-    private decimal ApplyTareAdjustment(decimal weight) => weight - TareAdjustment;
-    private decimal WeightInPounds(decimal weight) => Units == Units.Kilograms ? weight * POUNDS_PER_KILOGRAM : weight;
+
+    private decimal ApplyTareAdjustment(decimal weight)
+    {
+        return weight - TareAdjustment;
+    }
+
+    private decimal WeightInPounds(decimal weight)
+    {
+        if (Units == Units.Kilograms)
+        {
+            return weight * POUNDS_PER_KILOGRAM;
+        }
+
+        return weight;
+    }
 }
 
 class USWeight
