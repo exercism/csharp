@@ -14,7 +14,7 @@ Sometimes individual permissions are modified, for example giving a guest accoun
 
 You have four tasks.
 
-### 1. Get default permissions for an account type
+## 1. Get default permissions for an account type
 
 First, define an `AccountType` enum to represent the three account types. Next, define a `Permission` enum to represent the three permission types and two extra ones: one for having no permissions at all, and for having all permissions.
 
@@ -25,7 +25,7 @@ Permissions.Default(AccountType.Guest)
 // => Permission.Read
 ```
 
-### 2. Grant a permission
+## 2. Grant a permission
 
 Implement the (_static_) `Permissions.Grant()` method that grants (adds) a permission:
 
@@ -34,7 +34,7 @@ Permissions.Grant(current: Permission.None, grant: Permission.Read)
 // => Permission.Read
 ```
 
-### 3. Revoke a permission
+## 3. Revoke a permission
 
 Implement the (_static_) `Permissions.Revoke()` method that revokes (removes) a permission:
 
@@ -43,7 +43,7 @@ Permissions.Revoke(current: Permission.Read, grant: Permission.Read)
 // => Permission.None
 ```
 
-### 4. Check for a permission
+## 4. Check for a permission
 
 Implement the (_static_) `Permissions.Check()` method that takes the current account's permissions and checks if the account is authorized for a given permission:
 

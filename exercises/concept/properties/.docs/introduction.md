@@ -18,7 +18,7 @@ accessor and vice versa. A property doesn't have to have both accessors, it can 
 
 The basic syntax to express properties can take two forms:
 
-###### Field/Expression Backed Properties:
+#### Field/Expression Backed Properties:
 
 ```csharp
 private int myField;
@@ -29,7 +29,7 @@ public int MyProperty
 }
 ```
 
-###### Auto-implemented Properties
+#### Auto-implemented Properties
 
 ```
 public int MyProperty { get; private set; } = 42;

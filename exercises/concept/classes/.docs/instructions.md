@@ -11,7 +11,7 @@ If the battery is at 0%, you can't drive the car anymore and the battery display
 
 You have six tasks, each of which will work with remote controlled car instances.
 
-### 1. Buy a brand-new remote controlled car
+## 1. Buy a brand-new remote controlled car
 
 Implement the (_static_) `RemoteControlCar.Buy()` method to return a brand-new remote controlled car instance:
 
@@ -19,7 +19,7 @@ Implement the (_static_) `RemoteControlCar.Buy()` method to return a brand-new r
 RemoteControlCar car = RemoteControlCar.Buy();
 ```
 
-### 2. Display the distance driven
+## 2. Display the distance driven
 
 Implement the `RemoteControlCar.DistanceDisplay()` method to return the distance as displayed on the LED display:
 
@@ -29,7 +29,7 @@ car.DistanceDisplay();
 // => "Driven 0 meters"
 ```
 
-### 3. Display the battery percentage
+## 3. Display the battery percentage
 
 Implement the `RemoteControlCar.BatteryDisplay()` method to return the distance as displayed on the LED display:
 
@@ -39,7 +39,7 @@ car.BatteryDisplay();
 // => "Battery at 100%"
 ```
 
-### 4. Update the number of meters driven when driving
+## 4. Update the number of meters driven when driving
 
 Implement the `RemoteControlCar.Drive()` method that updates the number of meters driven:
 
@@ -51,7 +51,7 @@ car.DistanceDisplay();
 // => "Driven 40 meters"
 ```
 
-### 5. Update the battery percentage when driving
+## 5. Update the battery percentage when driving
 
 Update the `RemoteControlCar.Drive()` method to update the battery percentage:
 
@@ -63,7 +63,7 @@ car.BatteryDisplay();
 // => "Battery at 98%"
 ```
 
-### 6. Prevent driving when the battery is drained
+## 6. Prevent driving when the battery is drained
 
 Update the `RemoteControlCar.Drive()` method to not increase the distance driven nor decrease the battery percentage when the battery is drained (at 0%):
 

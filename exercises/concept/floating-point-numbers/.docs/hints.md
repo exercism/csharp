@@ -1,16 +1,16 @@
-### General
+## General
 
 - [Floating-point numeric types introduction][docs.microsoft.com-floating_point_numeric_types].
 
-### 1. Calculate the interest rate
+## 1. Calculate the interest rate
 
 - By default, any floating-point number defined in C# code is treated as a `double`. To use a different floating-point type (like `float` or `decimal`), one must add the appropriate [suffix][docs.microsoft.com-real_literals] to the number.
 
-### 2. Calculate the annual balance update
+## 2. Calculate the annual balance update
 
 - When calculating the annual yield, it might be useful to temporarily convert a negative balance to a positive one. One could use arithmetic here, or one of the methods in the [`Math` class][docs-microsoft.com-system.math].
 
-### 3. Calculate the years before reaching the desired balance
+## 3. Calculate the years before reaching the desired balance
 
 - To calculate the years, one can keep looping until the desired balance is reached. C# has several [looping constructs][docs.microsoft.com-loops].
 - There is a special [operator][increment-operator] to increment values by 1.

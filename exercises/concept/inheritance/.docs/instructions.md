@@ -16,7 +16,7 @@ In general, characters are never vulnerable. However, Wizards _are_ vulnerable i
 
 You have six tasks that work with Warriors and Wizard characters.
 
-### 1. Describe a character
+## 1. Describe a character
 
 Override the `ToString()` method on the `Character` class to return a description of the character, formatted as `"Character is a <CHARACTER_TYPE>"`.
 
@@ -26,7 +26,7 @@ warrior.ToString();
 // => "Character is a Warrior"
 ```
 
-### 2. Make characters not vulnerable by default
+## 2. Make characters not vulnerable by default
 
 Ensure that the `Character.Vulnerable()` method always returns `false`.
 
@@ -36,7 +36,7 @@ warrior.Vulnerable();
 // => false
 ```
 
-### 3. Allow Wizards to prepare a spell
+## 3. Allow Wizards to prepare a spell
 
 Implement the `Wizard.PrepareSpell()` method to allow a Wizard to prepare a spell in advance.
 
@@ -45,7 +45,7 @@ var wizard = new Wizard();
 wizard.PrepareSpell();
 ```
 
-### 4. Make Wizards vulnerable when not having prepared a spell
+## 4. Make Wizards vulnerable when not having prepared a spell
 
 Ensure that the `Vulnerable()` method returns `true` if the wizard did not prepare a spell; otherwise, return `false`.
 
@@ -55,7 +55,7 @@ wizard.Vulnerable();
 // => true
 ```
 
-### 5. Calculate the damage points for a Wizard
+## 5. Calculate the damage points for a Wizard
 
 Implement the `Wizard.DamagePoints()` method to return the damage points dealt: 12 damage points when a spell has been prepared, 3 damage points when not.
 
@@ -68,7 +68,7 @@ wizard.DamagePoints(warrior);
 // => 12
 ```
 
-### 6. Calculate the damage points for a Warrior
+## 6. Calculate the damage points for a Warrior
 
 Implement the `Warrior.DamagePoints()` method to return the damage points dealt: 10 damage points when the target is vulnerable, 6 damage points when not.
 

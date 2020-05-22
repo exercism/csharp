@@ -13,7 +13,7 @@ You have four tasks: to implement the logic for determining if the above actions
 
 ## Tasks
 
-### 1. Check if a fast attack can be made
+## 1. Check if a fast attack can be made
 
 Implement the (_static_) `QuestLogic.CanFastAttack()` method that takes a boolean value that indicates if the knight is awake. This method returns `true` if a fast attack can be made based on the state of the knight. Otherwise, returns `false`:
 
@@ -23,7 +23,7 @@ QuestLogic.CanFastAttack(knightIsAwake);
 // => false
 ```
 
-### 2. Check if the group can be spied upon
+## 2. Check if the group can be spied upon
 
 Implement the (_static_) `QuestLogic.CanSpy()` method that takes three boolean values, indicating if the knight, archer and the prisoner, respectively, are awake. The method returns `true` if the group can be spied upon, based on the state of the three characters. Otherwise, returns `false`:
 
@@ -35,7 +35,7 @@ QuestLogic.CanSpy(knightIsAwake, archerIsAwake, prisonerIsAwake);
 // => true
 ```
 
-### 3. Check if the prisoner can be signalled
+## 3. Check if the prisoner can be signalled
 
 Implement the (_static_) `QuestLogic.CanSignalPrisoner()` method that takes two boolean values, indicating if the archer and the prisoner, respectively, are awake. The method returns `true` if the prisoner can be signalled, based on the state of the two characters. Otherwise, returns `false`:
 
@@ -46,7 +46,7 @@ QuestLogic.CanSignalPrisoner(archerIsAwake, prisonerIsAwake);
 // => true
 ```
 
-### 4. Check if the prisoner can be freed
+## 4. Check if the prisoner can be freed
 
 Implement the (_static_) `QuestLogic.CanFreePrisoner()` method that takes four boolean values. The first three parameters indicate if the knight, archer and the prisoner, respectively, are awake. The last parameter indicates if Annalyn's pet dog is present. The method returns `true` if the prisoner can be freed based on the state of the three characters and Annalyn's pet dog presence. Otherwise, it returns `false`:
 

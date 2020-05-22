@@ -1,14 +1,14 @@
-### 1. Print a badge for an employee
+## 1. Print a badge for an employee
 
 - [String interpolation][string-interpolation] can be used to concisely format the badge.
 - There is a [built-in method to convert a string to uppercase][toupper].
 
-### 2. Print a badge for a new employee
+## 2. Print a badge for a new employee
 
 - You should check if the ID is `null` before using it.
 - [This tutorial goes into detail how to work with nullable value types][nullable-types-tutorial].
 
-### 3. Print a badge for the owner
+## 3. Print a badge for the owner
 
 - You should check if the department is `null` before using it.
 - [This tutorial goes into detail how to work with nullable reference types][nullable-reference-types-tutorial].
