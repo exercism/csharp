@@ -1,26 +1,26 @@
-### General
+## General
 
 - [Tutorial on dates and time by csharp.net][csharp.net-datetimes-working-with-datetimes-time]
 
-### 1. Parse appointment date
+## 1. Parse appointment date
 
 - The `DateTime` class has several methods to [parse][docs.microsoft.com_parsing-date] a `string` to a `DateTime`.
 
-### 2. Check if an appointment has already passed
+## 2. Check if an appointment has already passed
 
 - `DateTime` objects can be compared using the default [comparison operators][docs.microsoft.com_datetime-operators].
 - There is a [property][docs.microsoft.com_datetime-properties] to retrieve the current date and time.
 
-### 3. Check if appointment is in the afternoon
+## 3. Check if appointment is in the afternoon
 
 - Accessing the time portion of a `DateTime` object can de done through one of its [properties][docs.microsoft.com_datetime-properties].
 
-### 4. Describe the time and date of the appointment
+## 4. Describe the time and date of the appointment
 
 - The tests are running as if running on a machine in the United States, which means that when converting a `DateTime` to a `string` will return dates and time in US format.
 - When converting a `DateTime` instance to a `string`, you can use either a [standard format string][docs.microsoft.com_standard-date-and-time-format-strings] or a [custom format string][docs.microsoft.com_custom-date-and-time-format-strings].
 
-### 5. Return the anniversary date
+## 5. Return the anniversary date
 
 - Use one of the various `DateTime` [constructors][constructors] to create a new `DateTime` instance.
 - You can use one of the current date time's [properties][docs.microsoft.com_datetime-properties] to get the current year.

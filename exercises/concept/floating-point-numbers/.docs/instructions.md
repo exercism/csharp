@@ -7,7 +7,7 @@ In this exercise you'll be working with savings accounts. Each year, the balance
 
 You have three tasks, each of which will deal your balance and its interest rate.
 
-### 1. Calculate the interest rate
+## 1. Calculate the interest rate
 
 Implement the (_static_) `SavingsAccount.InterestRate()` method to calculate the interest rate based on the specified balance:
 
@@ -18,7 +18,7 @@ SavingsAccount.InterestRate(balance: 200.75m)
 
 Note that the value returned is a `float`.
 
-### 2. Calculate the annual balance update
+## 2. Calculate the annual balance update
 
 Implement the (_static_) `SavingsAccount.AnnualBalanceUpdate()` method to calculate the annual balance update, taking into account the interest rate:
 
@@ -29,7 +29,7 @@ SavingsAccount.AnnualBalanceUpdate(balance: 200.75m)
 
 Note that the value returned is a `decimal`.
 
-### 3. Calculate the years before reaching the desired balance
+## 3. Calculate the years before reaching the desired balance
 
 Implement the (_static_) `SavingsAccount.YearsBeforeDesiredBalance()` method to calculate the minimum number of years required to reach the desired balance:
 

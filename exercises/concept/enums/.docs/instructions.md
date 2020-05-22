@@ -13,7 +13,7 @@ These are the different log levels:
 
 You have three tasks.
 
-### 1. Parse log level
+## 1. Parse log level
 
 Define a `LogLevel` enum that has six elements corresponding to the above log levels.
 
@@ -31,7 +31,7 @@ LogLine.ParseLogLevel("[INF]: File deleted")
 // => LogLevel.Info
 ```
 
-### 2. Support unknown log level
+## 2. Support unknown log level
 
 Unfortunately, occasionally some log lines have an unknown log level. To gracefully handle these log lines, add an `Unknown` element to the `LogLevel` enum which should be returned when parsing an unknown log level:
 
@@ -40,7 +40,7 @@ LogLine.ParseLogLevel("[XYZ]: Overly specific, out of context message")
 // => LogLevel.Unknown
 ```
 
-### 3. Convert log line to short format
+## 3. Convert log line to short format
 
 The log level of a log line is quite verbose. To reduce the disk space needed to store the log lines, a short format is developed: `"[<ENCODED_LEVEL>]:<MESSAGE>"`.
 
