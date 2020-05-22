@@ -62,7 +62,8 @@ For more information, please read [this in-depth description][stub-file], [watch
 - [xUnit][xunit] is used as the test framework.
 - Only use `Fact` tests; don't use `Theory` tests.
 - All but the first test should be skipped by default (check [this example][skip-fact]).
-- Test methods should be named using `snake_case`, with the first character uppercased (check [this example][test-name]).
+- Test methods must be named using `snake_case`, with the first character uppercased (check [this example][test-name]).
+- Test methods must have a single assertion.
 
 For more information, please read [this in-depth description][tests-file], [watch this video][video-tests-file] and check [this example tests file][example-tests-file].
 
