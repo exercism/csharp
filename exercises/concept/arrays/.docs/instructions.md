@@ -45,15 +45,15 @@ birdCount.HasDayWithoutBirds();
 // => true
 ```
 
-## 5. Calculate the total number of visiting birds
+## 5. Calculate the number of visiting birds for the first number of days
 
-Implement the `BirdCount.Total()` method to return the total number of birds that have visited your garden:
+Implement the `BirdCount.CountForFirstDays()` method that returns the number of birds that have visited your garden from the start of the week, but limit the count to the specified number of days from the start of the week.
 
 ```csharp
 int[] birdsPerDay = { 2, 5, 0, 7, 4, 1 };
 var birdCount = new BirdCount(birdsPerDay);
-birdCount.Total();
-// => 19
+birdCount.CountForFirstDays(4);
+// => 14
 ```
 
 ## 6. Calculate the number of busy days

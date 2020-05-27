@@ -1,11 +1,10 @@
-Data structures that can hold zero or more elements are known as _collections_. An **array** is a collection that has a fixed size and whose elements must all be of the same type. Elements can be assigned to an array or retrieved from it using an index. C# arrays are zero-based, meaning that the first element's index is always zero:
+Data structures that can hold zero or more elements are known as _collections_. An **array** is a collection that has a fixed size/length and whose elements must all be of the same type. Elements can be assigned to an array or retrieved from it using an index. C# arrays are zero-based, meaning that the first element's index is always zero:
 
 ```csharp
 // Declare array with explicit size (size is 2)
 int[] twoInts = new int[2];
 
-// Assign first and second element by index
-twoInts[0] = 7;
+// Assign second element by index
 twoInts[1] = 8;
 
 // Retrieve the second element by index
@@ -26,7 +25,7 @@ int[] threeIntsV3 = { 4, 9, 7 };
 
 Arrays can be manipulated by either calling an array instance's [methods][array-methods] or [properties][array-properties], or by using the static methods defined in the [`Array` class][array-class].
 
-An array is also a _collection_, which means that you can iterate over all its values using a [`foreach` loop][foreach-statement]:
+An array is also a _collection_, which means that you can iterate over _all_ its values using a [`foreach` loop][foreach-statement]:
 
 ```csharp
 char[] vowels = new [] { 'a', 'e', 'i', 'o', 'u' };
@@ -58,6 +57,7 @@ However, generally a `foreach` loop is preferrable over a `for` loop for the fol
 
 - A `foreach` loop is guaranteed to iterate over _all_ values. With a `for` loop, it is easy to miss elements, for example due to an off-by-one error.
 - A `foreach` loop is more _declarative_, your code is communicating _what_ you want it to do, instead of a `for` loop that communicates _how_ you want to do it.
+- A `foreach` loop is foolproof, whereas with `for` loops it is easy to have an off-by-one error.
 - A `foreach` loop works on all collection types, including those that don't support using an indexer to access elements.
 
 To guarantee that a `foreach` loop will iterate over _all_ values, the compiler will not allow updating of a collection within a `foreach` loop:
@@ -71,6 +71,14 @@ foreach (char vowel in vowels)
     // vowel = 'Y';
 }
 ```
+
+A `for` loop does have some advantages over a `foreach` loop:
+
+- You can start or stop at the index you want.
+- You can use any (boolean) termination condition you want.
+- You can skip elements by customizing the incrementing of the loop variable.
+- You can process collections from back to front by counting down.
+- You can use `for` loops in scenarios that don't involve collections.
 
 [implicitly-typed-arrays]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/arrays/implicitly-typed-arrays
 [array-foreach]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/arrays/using-foreach-with-arrays
