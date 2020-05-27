@@ -59,19 +59,19 @@ public class BirdCountTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Total_for_disappointing_week()
+    public void Count_for_first_two_days_of_disappointing_week()
     {
         var counts = new int[] { 0, 0, 1, 0, 0, 1, 0 };
         var birdCount = new BirdCount(counts);
-        Assert.Equal(2, birdCount.Total());
+        Assert.Equal(1, birdCount.CountForFirstDays(3));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Total_for_busy_week()
+    public void Count_for_first_six_days_of_busy_week()
     {
         var counts = new int[] { 5, 9, 12, 6, 8, 8, 17 };
         var birdCount = new BirdCount(counts);
-        Assert.Equal(65, birdCount.Total());
+        Assert.Equal(48, birdCount.CountForFirstDays(6));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
@@ -88,21 +88,5 @@ public class BirdCountTests
         var counts = new int[] { 4, 9, 5, 7, 8, 8, 2 };
         var birdCount = new BirdCount(counts);
         Assert.Equal(5, birdCount.BusyDays());
-    }
-
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Has_day_without_birds_with_day_without_birds()
-    {
-        var counts = new int[] { 5, 5, 4, 0, 7, 6, 7 };
-        var birdCount = new BirdCount(counts);
-        Assert.True(birdCount.HasDayWithoutBirds());
-    }
-
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Has_day_without_birds_with_no_day_without_birds()
-    {
-        var counts = new int[] { 4, 5, 9, 10, 9, 4, 3 };
-        var birdCount = new BirdCount(counts);
-        Assert.False(birdCount.HasDayWithoutBirds());
     }
 }
