@@ -1,5 +1,3 @@
-# Design
-
 ## Goal
 
 The goal of this exercise is to introduce the student to C# properties and to teach the student how the concept of properties is implemented in [C#][docs.microsoft.com-properties]. We'll teach the student about properties by having the student work with classes that expose contrasting forms of properties. The students will learn to work with properties with backing fields and auto-implemented properties.
