@@ -1,5 +1,3 @@
-# Design
-
 ## Goal
 
 The goal of this exercise is to teach the student how the Concept of floating-point numbers is implemented in [C#][docs.microsoft.com-floating-point-numeric-types]. It will show the available floating-point types and discuss their differences.
