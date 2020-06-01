@@ -26,8 +26,6 @@ Note that students may choose to implement expression-bodied members.
 
 ## Concepts
 
-This Concepts Exercise's concepts are:
-
 - `properties`: know what properties are and how they relate to fields and methods; know what backing-field properties are; know what auto-implemented properties are; know what calculated properties are; know how to use property accessors to customize visibility; know how to define the different types of properties.
 
 ## Prequisites

@@ -21,27 +21,13 @@ The goal of this exercise is to introduce the student to the concept of [Nullabi
 
 ## Concepts
 
-This Concepts Exercise's Concepts are:
-
 - `nullability`: know of the existence of the `null` literal; know what a `NullReferenceException` is and when it is thrown; know how to compare a value to `null`; know the difference between value and reference types regarding nullability; know how to define nullable reference and value types; know about the null-related operators; know about basic null checking by the compiler.
 
 ## Prerequisites
-
-This Concept Exercise's prerequisites Concepts are:
 
 - `strings`: strings will be compared to `null` and basic methods from strings will be called.
 - `basics`: integers will be compared to `null`, arithmetic operations will be performed on integers, variables will be introduced and updated.
 - `conditionals`: using a conditional statement.
 - `memory-allocation`: reference and value types will be used in their nullable and non-nullable variants.
 
-## Representer
-
-This exercise does not require any specific representation logic to be added to the [representer][representer].
-
-## Analyzer
-
-This exercise does not require any specific logic to be added to the [analyzer][analyzer].
-
-[analyzer]: https://github.com/exercism/csharp-analyzer
-[representer]: https://github.com/exercism/csharp-representer
 [null-keyword]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null
