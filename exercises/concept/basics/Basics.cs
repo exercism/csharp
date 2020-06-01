@@ -6,5 +6,5 @@ class Lasagna
 
     // TODO: define the 'PreparationTimeInMinutes()' method
 
-    // TODO: define the 'TotalTimeInMinutes()' method
+    // TODO: define the 'ElapsedTimeInMinutes()' method
 }

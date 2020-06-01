@@ -27,14 +27,14 @@ public class LasagnaTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Total_time_in_minutes_for_one_layer()
+    public void Elapsed_time_in_minutes_for_one_layer()
     {
-        Assert.Equal(32, new Lasagna().TotalTimeInMinutes(1, 30));
+        Assert.Equal(32, new Lasagna().ElapsedTimeInMinutes(1, 30));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Total_time_in_minutes_for_multiple_layers()
+    public void Elapsed_time_in_minutes_for_multiple_layers()
     {
-        Assert.Equal(16, new Lasagna().TotalTimeInMinutes(4, 8));
+        Assert.Equal(16, new Lasagna().ElapsedTimeInMinutes(4, 8));
     }
 }

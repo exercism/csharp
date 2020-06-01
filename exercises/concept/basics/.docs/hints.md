@@ -21,7 +21,7 @@
 - The method's parameter is an [integer][integers].
 - You can use the [mathematical operator for multiplicaton][operators] to multiply values.
 
-## 4. Calculate the total working time in minutes
+## 4. Calculate the elapsed time in minutes
 
 - You need to define a [method][methods] with two parameters.
 - You have to [explicitly return an integer][return] from a method.
