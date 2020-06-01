@@ -57,7 +57,7 @@ features.HasFlag(PhoneFeatures.Call); // => false
 features.HasFlag(PhoneFeatures.Text); // => true
 ```
 
-The bitwise operators can also be used as [compound assignments][compound-operators], which are a shorthand notation where `x = op y` can be written as `x op= y`:
+The bitwise operators can also be used as [compound assignments][compound-assignment], which are a shorthand notation where `x = op y` can be written as `x op= y`:
 
 ```csharp
 var features = PhoneFeatures.Call;
@@ -85,4 +85,4 @@ enum PhoneFeatures : byte
 [bitwise-complement-operator]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/bitwise-and-shift-operators#bitwise-complement-operator-
 [binary-literals]: https://riptutorial.com/csharp/example/6327/binary-literals
 [has-flag]: https://docs.microsoft.com/en-us/dotnet/api/system.enum.hasflag?view=netcore-3.1
-[compound-operators]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/bitwise-and-shift-operators#compound-assignment
+[compound-assignment]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/bitwise-and-shift-operators#compound-assignment
