@@ -1,7 +1,3 @@
-## Goal
-
-The goal of this exercise is to teach the student the basics of the Concept of Dates through [C#][docs.microsoft.com-datetime].
-
 ## Learning objectives
 
 - Know of the existence of the `DateTime` type.

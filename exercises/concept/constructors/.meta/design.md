@@ -1,7 +1,3 @@
-## Goal
-
-The goal of this exercise is to teach the student the Concept of Constructors in C#.
-
 ## Learning objectives
 
 - Know what constructors are

@@ -1,7 +1,3 @@
-## Goal
-
-The goal of this exercise is to teach the student the basics of the Concept of Booleans in C#.
-
 ## Learning objectives
 
 - Know of the existence of the `bool` type and its two values.

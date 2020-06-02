@@ -1,7 +1,3 @@
-## Goal
-
-The goal of this exercise is to teach the student the basics of the Concept of Strings in [C#][docs.microsoft.com-string].
-
 ## Learning objectives
 
 - Know of the existence of the `string` type.

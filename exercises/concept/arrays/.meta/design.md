@@ -1,7 +1,3 @@
-## Goal
-
-The goal of this exercise is to teach the student the basics of the Concept of Arrays in C#.
-
 Of the many available C# collection types, we chose to use the `array` collection type as the first collection type students will be taught for the following reasons:
 
 - Arrays don't require the student to know about generics.

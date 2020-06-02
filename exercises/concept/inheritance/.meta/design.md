@@ -1,7 +1,3 @@
-## Goal
-
-The goal of this exercise is to teach the student the Concept of Inheritance in C#.
-
 ## Learning objectives
 
 - Know what inheritance is.

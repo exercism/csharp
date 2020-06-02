@@ -1,7 +1,3 @@
-## Goal
-
-The goal of this exercise is to teach the student the basics of the Concept of enums through [C#][docs.microsoft.com-enum].
-
 ## Learning objectives
 
 After completing this exercise, the student should:
