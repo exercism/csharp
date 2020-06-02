@@ -1,7 +1,3 @@
-## Goal
-
-The goal of this exercise is to teach the student how the Concept of Numbers is implemented in [C#][docs.microsoft.com-numbers]. It will introduce this concept through the two most common numeric types in C#: `int` (whole number) and `double` (floating-point number).
-
 ## Learning objectives
 
 - Know of the existence of the two most commonly used number types, `int` and `double`.

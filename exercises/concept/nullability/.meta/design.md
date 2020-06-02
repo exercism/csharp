@@ -1,7 +1,3 @@
-## Goal
-
-The goal of this exercise is to introduce the student to the concept of [Nullability in C#][null-keyword].
-
 ## Learning objectives
 
 - Know of the existence of the `null` literal.
