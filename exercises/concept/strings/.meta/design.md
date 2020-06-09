@@ -20,5 +20,3 @@
 This exercise's prerequisites Concepts are:
 
 - `basics`: know how to define methods.
-
-[docs.microsoft.com-string]: https://docs.microsoft.com/en-us/dotnet/api/system.string?view=netcore-3.1
