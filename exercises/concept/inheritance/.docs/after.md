@@ -1,4 +1,4 @@
-In C#, a _class_ hierarchy can be defined using _inheritance_, which allows a derived class (`Car`) to inherit the behavior and data of its parent class (`Vehicle`). If no parent is specified, the class inherits from the `object` class. To prevent a class being inherited, add the [`sealed` modifier][sealed-classes].
+In C#, a _class_ hierarchy can be defined using _inheritance_, which allows a derived class (`Car`) to inherit the behavior and data of its parent class (`Vehicle`). If no parent is specified, the class inherits from the `object` class.
 
 Parent classes can provide functionality to derived classes in three ways:
 
@@ -61,6 +61,9 @@ class Car : Vehicle
 }
 ```
 
+To prevent a class being inherited, add the [`sealed` modifier][sealed-classes].
+Some practitioners try to avoid inheriting from concrete classes (as discussed in [this SO question][pro-sealed]) and the _sealed_ modifier supports this approach. On the other hand many C# developers consider them a hindrance to maintenance as discussed in some of the comments on [this question][anti-sealed]. The advice is to use the sealed modifier sparingly until you have gained confidence in their use for your requirements.
+
 [abstract-keyword]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/abstract
 [virtual-keyword]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/virtual
 [override-keyword]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/override
@@ -71,3 +74,5 @@ class Car : Vehicle
 [constructors]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/using-constructors
 [abstract-classes]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/abstract-and-sealed-classes-and-class-members#abstract-classes-and-class-members
 [sealed-classes]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/abstract-and-sealed-classes-and-class-members#sealed-classes-and-class-members
+[pro-sealed]: https://stackoverflow.com/questions/16724946/why-derive-from-a-concrete-class-is-a-poor-design
+[anti-sealed]: https://stackoverflow.com/questions/7777611/when-and-why-would-you-seal-a-class
