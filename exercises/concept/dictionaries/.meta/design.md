@@ -28,6 +28,7 @@
 - `generic-types`: know how generic types work.
 - `strings`: know how to discover string length
 - `indexers`: usage and behavior of indexer properties
+- `object-initializers`: how object initializers are used with collections.
 
 [how-to-implement-a-concept-exercise]: https://github.com/exercism/v3/blob/master/docs/maintainers/generic-how-to-implement-a-concept-exercise.md
 [implemented-exercises]: https://github.com/exercism/v3/tree/master/languages/csharp/exercises/concept/README.md#implemented-exercises
