@@ -22,3 +22,15 @@
 - `basics`: know how to define methods and variables.
 - `strings`: obtaining sub-strings from a string
 - `conditionals`: combining conditions.
+
+## Representer
+
+See [this issue][representer-issue]: handle tuple field names correctly in the [representer][representer].
+
+## Analyzer
+
+See [this representer issue][representer-issue]: handle tuple field names correctly in the [analyzer][analyzer].
+
+[analyzer]: https://github.com/exercism/csharp-analyzer
+[representer]: https://github.com/exercism/csharp-representer
+[representer-issue]: https://github.com/exercism/csharp-representer/issues/3
