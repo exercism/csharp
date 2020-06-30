@@ -35,5 +35,3 @@ This exercise's prerequisites Concepts are:
 - `classes`: know how to work with fields.
 - `booleans`: know what a `bool` is.
 - `basics`: know how to work with `integers` and how to assign and update variables.
-
-[docs.microsoft.com-string]: https://docs.microsoft.com/en-us/dotnet/api/system.string?view=netcore-3.1
