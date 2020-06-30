@@ -22,5 +22,3 @@
 This exercise's prerequisites Concepts are:
 
 - `basics`: know how to define methods.
-
-[docs.microsoft.com-numbers]: https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/intro-to-csharp/numbers-in-csharp-local
