@@ -69,7 +69,7 @@ Obviously there is no equivalence between a `byte` at 8 bits and the 16 bit `cha
 
 Using `StringBuilder` is seen as hugely preferable to building up strings with multiple repeated concatenations with
 a `+` or `+=` operator. Obviously simple one off concatenations are preferable
-to instantiating a `StringBuilder` for clarity as well as performance.
+to instantiating a `StringBuilder` for clarity as well as performance. [This][skeet-stringbuilder] is what [Jon Skeet][so-jon-skeet] has to say about performance.
 
 [chars-docs]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/char
 [chars-tutorial]: https://csharp.net-tutorials.com/data-types/the-char-type/
@@ -87,3 +87,5 @@ to instantiating a `StringBuilder` for clarity as well as performance.
 [is-digit]: https://docs.microsoft.com/en-us/dotnet/api/system.char.isdigit?view=netcore-3.1
 [get-next-text-element]: https://docs.microsoft.com/en-us/dotnet/api/system.globalization.stringinfo.getnexttextelement?view=netcore-3.1
 [compare-to]: https://docs.microsoft.com/en-us/dotnet/api/system.char.compareto?view=netcore-3.1
+[skeet-stringbuilder]: https://jonskeet.uk/csharp/stringbuilder.html
+[so-jon-skeet]: https://stackoverflow.com/users/22656/jon-skeet
