@@ -11,7 +11,7 @@
 
 ## Concepts
 
-- `switch-statements`
+- `switch-statements`: Know how to use switch statements
 
 ## Prerequisites
 

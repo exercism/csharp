@@ -10,7 +10,7 @@
 
 ## Concepts
 
-- `resource-cleanup` with `IDisposable` in C# and .NET.
+- `resource-cleanup`: Know how to clean up resources with `IDisposable` in C# and .NET. Understand the difference between managedd and unmanaged resources and the role of `IDisposable`.
 
 ## Prerequisites
 
