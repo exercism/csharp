@@ -67,7 +67,7 @@ If a bad format is entered then a `DateTime` with a value of 1/1/1 should be ret
 
 ```csharp
 Appointment.NormalizeDateTime("25/11/2019 13:45:00", Location.London);
-// => {2020, 3, 30, 13, 45, 0}
+// => {2019, 11, 25, 13, 45, 0}
 Appointment.NormalizeDateTime("25/11/2019 13:45:00", Location.NewYork);
 // => {1, 1, 1, 0, 0, 0}
 ```
