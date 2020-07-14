@@ -1,32 +1,32 @@
 ## Learning objectives
 
-- Know what a variable is.
-- Know how to define a variable.
-- Know how to update a variable.
-- Know how to use type inference for variables.
-- Know how to define a method.
-- Know how to return a value from a method.
-- Know how to call a method.
-- Know that methods must be defined in classes.
-- Know about the `public` access modifier.
-- Know about the `static` modifier.
-- Know how to define an integer.
-- Know how to use mathematical operators on integers.
-- Know how to define single- and multiline comments.
+- Know what a variable is
+- Know how to define a variable
+- Know how to update a variable
+- Know how to use type inference for variables
+- Know how to define a method
+- Know how to return a value from a method
+- Know how to call a method
+- Know that methods must be defined in classes
+- Know about the `public` access modifier
+- Know about the `static` modifier (only in `after.md`)
+- Know how to define an integer
+- Know how to use mathematical operators on integers
+- Know how to define single- and multiline comments
 
 ## Out of scope
 
-- Naming rules for identifiers.
-- Generic values.
-- Memory and performance characteristics.
-- Method overloads.
-- Nested methods.
-- Lambda's.
-- Named parameters.
-- Optional parameters.
-- Classes.
-- Organizing methods in namespaces.
-- Visibility.
+- Naming rules for identifiers
+- Generic values
+- Memory and performance characteristics
+- Method overloads
+- Nested methods
+- Lambda's
+- Named parameters
+- Optional parameters
+- Classes
+- Organizing methods in namespaces
+- Visibility
 
 ## Concepts
 
