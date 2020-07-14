@@ -8,7 +8,7 @@
 
 ## 2. Write to the database and return an indication to the caller of whether the write operation was successful
 
-- Use of [`try/catch`][try-catch] is necessary in this case.
+- Use of [`exceptions`][try-catch] is necessary in this case.
 
 [using-statement]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-statement
 [try-catch]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/try-catch
