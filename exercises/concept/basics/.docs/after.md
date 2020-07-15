@@ -15,7 +15,18 @@ count = 2;     // Update to new value
 // count = false;
 ```
 
-C# is an object-oriented language and requires all functions to be defined in a _class_, which are defined using the [`class` keyword][classes]. A function within a class is referred to as a _method_. Each [method][methods] can have zero or more parameters. All parameters must be explicitly typed, there is no type inference for parameters. Similarly, the return type must also be made explicit. Values are returned from functions using the [`return` keyword][return]. To allow a method to be called by code in other files, the `public` access modifier must be added.
+C# is an object-oriented language and requires all functions to be defined in a _class_, which are defined using the [`class` keyword][classes]. Objects (or _instances_) are created by using the `new` keyword.
+
+```csharp
+class Calculator
+{
+    // ...
+}
+
+var calculator = new Calculator();
+```
+
+A function within a class is referred to as a _method_. Each [method][methods] can have zero or more parameters. All parameters must be explicitly typed, there is no type inference for parameters. Similarly, the return type must also be made explicit. Values are returned from methods using the [`return` keyword][return]. To allow a method to be called by code in other files, the `public` access modifier must be added.
 
 ```csharp
 class Calculator
@@ -27,21 +38,19 @@ class Calculator
 }
 ```
 
-Invoking a method is done by specifying its class- and method name and passing arguments for each of the method's parameters.
+Methods are invoked using dot (`.`) syntax on an instance, specifying the method name to call and passing arguments for each of the method's parameters. Arguments can optionally specify the corresponding parameter's name.
 
 ```csharp
-var sum = Calculator.Add(1, 2);
-```
-
-Arguments can optionally specify the corresponding parameter's name:
-
-```csharp
-var sum = Calculator.Add(x: 1, y: 2);
+var calculator = new Calculator();
+var sum_v1 = calculator.Add(1, 2);
+var sum_v2 = calculator.Add(x: 1, y: 2);
 ```
 
 If the method to be called is defined in the same class as the method that calls it, the class name can be omitted.
 
-If a method does not use any class _state_ (which is the case in this exercise), the method can be made _static_ using the `static` modifier. Similarly, if a class only has static methods, it too can be made static using the `static` modifier.
+If a method does not use any object _state_, the method can be made _static_ using the `static` modifier. Static methods are also invoked using dot (`.`) syntax, but are invoked on the class itself instead of an instance of the class.
+
+If a class only has static methods, it too can be made static using the `static` modifier. This expresses the intention of the class.
 
 ```csharp
 static class Calculator
@@ -51,6 +60,8 @@ static class Calculator
         return x * y;
     }
 }
+
+Calculator.Multiply(2, 4); // => 8
 ```
 
 Scope in C# is defined between the `{` and `}` characters.
