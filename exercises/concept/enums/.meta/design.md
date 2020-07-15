@@ -20,7 +20,7 @@ After completing this exercise, the student should:
 - `enums`: know of the existence of the `enum` keyword; know how to define enum members; know how to assign values to enum members; know how to get an enum's numeric value; know how to convert an `enum` to a `string`.
 - `pattern-matching-constants`: know how to use the `switch` statement to do constant pattern matching.
 
-## Prequisites
+## Prerequisites
 
 This exercise's prerequisites Concepts are:
 

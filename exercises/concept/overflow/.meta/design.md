@@ -12,7 +12,7 @@
 
 - `overflows`: explain integral number overflows; explain floating-point number overflows; know how to use `checked` and `unchecked` to deal with overflows.
 
-## Prequisites
+## Prerequisites
 
 - `integral-numbers`: know about the integral number types.
 - `floating-point-numbers`: know about the floating-point number types.

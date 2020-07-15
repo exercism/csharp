@@ -24,7 +24,7 @@ Note that students may choose to implement expression-bodied members.
 
 - `properties`: know what properties are and how they relate to fields and methods; know what backing-field properties are; know what auto-implemented properties are; know what calculated properties are; know how to use property accessors to customize visibility; know how to define the different types of properties.
 
-## Prequisites
+## Prerequisites
 
 - `numbers`: using the `int` type and using mathematical operators and number conversions.
 - `floating-point-numbers`: using the `decimal` type.

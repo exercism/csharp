@@ -15,7 +15,7 @@
 
 - `constructors`: know what constructors are; know how to define parameterless constructors; know how to define parameterized constructors; know how to use constructor overloading; know how to define private constructors.
 
-## Prequisites
+## Prerequisites
 
 - `classes`: know how to work with classes.
 - `numbers`: know how compare numbers.
