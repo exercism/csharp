@@ -16,7 +16,7 @@
 - `optional-parameters`: know how to define optional parameters
 - `named-arguments`: know how to use named arguments
 
-## Prequisites
+## Prerequisites
 
 - `classes`: know how to define methods on classes
 - `constructors`: know how to define constructors on classes

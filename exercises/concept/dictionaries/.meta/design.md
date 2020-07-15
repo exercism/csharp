@@ -22,7 +22,7 @@
 
 - `dictionaries`: know of the existence of the `Dictionary<TKey, TElement>` type; know how to define a dictionary; know how to add and updated elements in a dictionary; know how to access elements in a dictionary by key; know how to iterate over elements in a dictionary; know some basic dictionary functions.
 
-## Prequisites
+## Prerequisites
 
 - `foreach-loops`: know how to use a `foreach-loop` to iterate over a collection.
 - `generic-types`: know how generic types work.

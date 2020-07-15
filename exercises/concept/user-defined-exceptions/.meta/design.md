@@ -15,7 +15,7 @@ This Concepts Exercise's Concepts are:
 - `user-defined-exceptions`: know how to define a user-defined exception.
 - `exception-filtering`: know how to use exception filtering.
 
-## Prequisites
+## Prerequisites
 
 This Concept Exercise's prerequisites Concepts are:
 

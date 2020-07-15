@@ -21,7 +21,7 @@ This Concepts Exercise's Concepts are:
 
 - `structs`: know what structs are; know how to define a `struct`; know how to add members to structs; know the differences between structs and classes.
 
-## Prequisites
+## Prerequisites
 
 - `inheritance`: know that all types are derived from `object`.
 - `classes`: know how to define and work with classes.
