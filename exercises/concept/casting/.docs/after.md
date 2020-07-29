@@ -17,7 +17,7 @@ int myInt = 1729;
 long myLong = myInt;
 ```
 
-There is no implicit conversion of a numeric (or string) expression to `bool`.
+There is no implicit conversion of a numeric (or string) expression to `bool`. The Base Class Library (BCL) provides `Convert.ToBoolean()` for this purpose.
 
 An expression of type `char` can be implicitly cast to `int`. The cast in the opposite direction must be explicit. Not all values of `int` are valid utf 16 chars.
 
