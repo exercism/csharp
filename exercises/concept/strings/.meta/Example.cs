@@ -7,7 +7,7 @@ static class LogLine
 
     public static string LogLevel(string logLine)
     {
-        return logLine.Substring(1, logLine.IndexOf("]")).ToLower();
+        return logLine.Substring(1, (logLine.IndexOf("]") - 1).ToLower();
     }
 
     public static string Reformat(string logLine)
