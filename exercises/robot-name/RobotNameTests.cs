@@ -46,6 +46,7 @@ public class RobotNameTests
         for (int i = 0; i < 10_000; i++) {
             var robot = new Robot();
             Assert.True(names.Add(robot.Name));
+            Assert.Matches(@"^[A-Z]{2}\d{3}$", robot.Name);
         }
     }
 }
