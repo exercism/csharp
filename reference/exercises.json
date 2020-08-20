@@ -1,0 +1,2173 @@
+{
+  "documentation": [
+    "This file is the original source of the concept report in csharp/reference/README.md.",
+    "",
+    "You can:",
+    "    Add new exercises, concepts and original concepts",
+    "    Add or modify track neutral concepts",
+    "    Change CompletionStatus on an existing exercise",
+    "    Add or modify document link if the CompletionStatus is NewExerciseIssueRaised",
+    "You must:",
+    "    Have a non-blank document link if and only if the CompletionStatus is NewExerciseIssueRaised"
+  ],
+  "exercises": [
+    {
+      "slug": "classes",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "classes",
+          "track-neutral-concept": "reference/concepts/classes.md",
+          "original-concepts": [
+            {
+              "name": "- [Classes][classes]",
+              "line-number": 11
+            }
+          ]
+        },
+        {
+          "name": "encapsulation",
+          "track-neutral-concept": "reference/concepts/encapsulation.md",
+          "original-concepts": [
+            {
+              "name": "- [Encapsulation][encapsulation]",
+              "line-number": 13
+            }
+          ]
+        },
+        {
+          "name": "fields",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Fields",
+              "line-number": 14
+            }
+          ]
+        },
+        {
+          "name": "objects",
+          "track-neutral-concept": "reference/concepts/objects.md",
+          "original-concepts": [
+            {
+              "name": "- [Objects][objects]",
+              "line-number": 32
+            }
+          ]
+        },
+        {
+          "name": "state",
+          "track-neutral-concept": "reference/concepts/state.md",
+          "original-concepts": [
+            {
+              "name": "- [State][state]",
+              "line-number": 36
+            }
+          ]
+        },
+        {
+          "name": "visibility",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Visibility (\u0060public\u0060; \u0060private\u0060; etc.)",
+              "line-number": 123
+            }
+          ]
+        },
+        {
+          "name": "default-value",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Default values (a \u0060bool\u0060 being \u0060false\u0060 by default; etc.)",
+              "line-number": 133
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "inheritance",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "inheritance",
+          "track-neutral-concept": "reference/concepts/inheritance.md",
+          "original-concepts": [
+            {
+              "name": " [Inheritance][inheritance]",
+              "line-number": 16
+            }
+          ]
+        },
+        {
+          "name": "polymorphism",
+          "track-neutral-concept": "reference/concepts/polymorphism.md",
+          "original-concepts": [
+            {
+              "name": "- [Polymorphism][polymorphism]",
+              "line-number": 34
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "basics",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "basics",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": " basics (including methods)",
+              "line-number": 20
+            }
+          ]
+        },
+        {
+          "name": "return-values",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Return values",
+              "line-number": 30
+            }
+          ]
+        },
+        {
+          "name": "mutation",
+          "track-neutral-concept": "reference/concepts/mutation.md",
+          "original-concepts": [
+            {
+              "name": "- [Mutation][mutation]",
+              "line-number": 31
+            }
+          ]
+        },
+        {
+          "name": "functions",
+          "track-neutral-concept": "reference/types/function.md",
+          "original-concepts": [
+            {
+              "name": "- [Functions][functions]",
+              "line-number": 46
+            }
+          ]
+        },
+        {
+          "name": "type-inference",
+          "track-neutral-concept": "reference/concepts/type_inference.md",
+          "original-concepts": [
+            {
+              "name": "- [Type inference][type_inference]",
+              "line-number": 61
+            }
+          ]
+        },
+        {
+          "name": "comments",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Comments",
+              "line-number": 78
+            }
+          ]
+        },
+        {
+          "name": "scoping",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Scoping",
+              "line-number": 120
+            }
+          ]
+        },
+        {
+          "name": "variables",
+          "track-neutral-concept": "reference/concepts/variables.md",
+          "original-concepts": [
+            {
+              "name": "- [Variables][variables]",
+              "line-number": 131
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "constructors",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "constructors",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Constructors",
+              "line-number": 21
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "method-overloading",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "method-overloading",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Method overloading",
+              "line-number": 28
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "properties",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "properties",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Properties",
+              "line-number": 35
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "nullability",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "nullability",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Null",
+              "line-number": 102
+            }
+          ]
+        },
+        {
+          "name": "null-coalescing",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Null-coalescing operator",
+              "line-number": 103
+            }
+          ]
+        },
+        {
+          "name": "null-conditional",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Null-conditional operator",
+              "line-number": 104
+            }
+          ]
+        },
+        {
+          "name": "null-forgiving",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Null-forgiving operator",
+              "line-number": 105
+            }
+          ]
+        },
+        {
+          "name": "nullable-values",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Nullable values",
+              "line-number": 106
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "numbers",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "numbers",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Numbers",
+              "line-number": 107
+            }
+          ]
+        },
+        {
+          "name": "conditionals",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Conditionals",
+              "line-number": 85
+            }
+          ]
+        },
+        {
+          "name": "math-operators",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Math operators",
+              "line-number": 110
+            }
+          ]
+        },
+        {
+          "name": "assignment",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Assignment",
+              "line-number": 132
+            }
+          ]
+        },
+        {
+          "name": "numbers",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Numbers",
+              "line-number": 161
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "booleans",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "booleans",
+          "track-neutral-concept": "reference/types/boolean.md",
+          "original-concepts": [
+            {
+              "name": "- [Booleans][bool]",
+              "line-number": 138
+            }
+          ]
+        },
+        {
+          "name": "booleans",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Boolean logic",
+              "line-number": 86
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "chars",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "chars",
+          "track-neutral-concept": "reference/types/char.md",
+          "original-concepts": [
+            {
+              "name": "- [Characters][char]",
+              "line-number": 139
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "arrays",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "arrays",
+          "track-neutral-concept": "reference/types/array.md",
+          "original-concepts": [
+            {
+              "name": "  - [Arrays][array]",
+              "line-number": 141
+            }
+          ]
+        },
+        {
+          "name": "for-loops",
+          "track-neutral-concept": "reference/concepts/enumeration.md",
+          "original-concepts": [
+            {
+              "name": "  - [Enumeration: for loop][enumeration]",
+              "line-number": 98
+            }
+          ]
+        },
+        {
+          "name": "foreach-loops",
+          "track-neutral-concept": "reference/concepts/enumeration.md",
+          "original-concepts": [
+            {
+              "name": "  - [Enumeration: foreach loop][enumeration]",
+              "line-number": 99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "dictionaries",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "dictionaries",
+          "track-neutral-concept": "reference/types/map.md",
+          "original-concepts": [
+            {
+              "name": "  - [Dictionaries][map]",
+              "line-number": 143
+            }
+          ]
+        },
+        {
+          "name": "base-class-library",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "Base Class Library",
+              "line-number": 174
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "datetimes",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "datetimes",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Dates",
+              "line-number": 151
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "enums",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "enums",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Enums",
+              "line-number": 155
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "floating-point-numbers",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "floating-point-numbers",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Floating point numbers",
+              "line-number": 162
+            }
+          ]
+        },
+        {
+          "name": "conditionals-while",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Conditionals: while",
+              "line-number": 89
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "strings",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "strings",
+          "track-neutral-concept": "reference/types/string.md",
+          "original-concepts": [
+            {
+              "name": "- [Strings][string]",
+              "line-number": 167
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "flag-enums",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "flag-enums",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Flag Enums",
+              "line-number": 156
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "user-defined-exceptions",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "user-defined-exceptions",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- User Defined Exceptions",
+              "line-number": 59
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "equality",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "equality",
+          "track-neutral-concept": "reference/concepts/sameness.md",
+          "original-concepts": [
+            {
+              "name": "  - [Equality][equality] (\u0060Equals\u0060; \u0060GetHashCode\u0060)",
+              "line-number": 80
+            }
+          ]
+        },
+        {
+          "name": "marker-interfaces",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Marker interfaces",
+              "line-number": 19
+            }
+          ]
+        },
+        {
+          "name": "sets",
+          "track-neutral-concept": "reference/types/set.md",
+          "original-concepts": [
+            {
+              "name": "  - [Sets][set]",
+              "line-number": 149
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "tuples",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "tuples",
+          "track-neutral-concept": "reference/types/tuple.md",
+          "original-concepts": [
+            {
+              "name": "- [Tuples][tuple]",
+              "line-number": 170
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "randomness",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "randomness",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Randomness",
+              "line-number": 111
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "parameters",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "parameters",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Method arguments / parameters",
+              "line-number": 24
+            }
+          ]
+        },
+        {
+          "name": "named-arguments",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "    - Named arguments",
+              "line-number": 25
+            }
+          ]
+        },
+        {
+          "name": "out-parameters",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "    - Out parameters",
+              "line-number": 26
+            }
+          ]
+        },
+        {
+          "name": "optional-arguments",
+          "track-neutral-concept": "reference/concepts/default_arguments.md",
+          "original-concepts": [
+            {
+              "name": "    - [Optional arguments][optional_arguments]",
+              "line-number": 27
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "switch-statements",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "switch-statements",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Conditionals: switch",
+              "line-number": 88
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "object-initializers",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "object-initializers",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Object initializers",
+              "line-number": 33
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "resource-cleanup",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "resource-cleanup",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Resource cleanup (\u0060IDisposable\u0060)",
+              "line-number": 115
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "time",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "time",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Time",
+              "line-number": 169
+            }
+          ]
+        },
+        {
+          "name": "cross-platform",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "cross-platform",
+              "line-number": 176
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "interfaces",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "interfaces",
+          "track-neutral-concept": "reference/concepts/interfaces.md",
+          "original-concepts": [
+            {
+              "name": "- [Interfaces][interfaces]",
+              "line-number": 17
+            }
+          ]
+        },
+        {
+          "name": "explicit-interfaces",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Explicit Interface Implementation",
+              "line-number": 18
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "integral-numbers",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "integral-numbers",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Signed integers",
+              "line-number": 163
+            }
+          ]
+        },
+        {
+          "name": "unsigned-integers",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Unsigned integers",
+              "line-number": 164
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "constants",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "constants",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Constants/readonly",
+              "line-number": 92
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "exceptions",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "exceptions",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Exceptions",
+              "line-number": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "lists",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "lists",
+          "track-neutral-concept": "reference/types/list.md",
+          "original-concepts": [
+            {
+              "name": "  - [Lists][list]",
+              "line-number": 146
+            }
+          ]
+        },
+        {
+          "name": "collections",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Collections",
+              "line-number": 67
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "structs",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "structs",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Structs",
+              "line-number": 38
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "expression-bodied-members",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "expression-bodied-members",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Expression-bodied members",
+              "line-number": 44
+            }
+          ]
+        },
+        {
+          "name": "conditionals-ternary",
+          "track-neutral-concept": "reference/concepts/conditionals.md",
+          "original-concepts": [
+            {
+              "name": "  - [Conditionals: ternary][conditionals]",
+              "line-number": 91
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "namespaces",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "namespaces",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Namespaces",
+              "line-number": 122
+            }
+          ]
+        },
+        {
+          "name": "imports",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Imports (usings)",
+              "line-number": 121
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "string-formatting",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "string-formatting",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- String formatting",
+              "line-number": 126
+            }
+          ]
+        },
+        {
+          "name": "formatting-types",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Formatting types",
+              "line-number": 127
+            }
+          ]
+        },
+        {
+          "name": "interpolation",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Interpolation",
+              "line-number": 128
+            }
+          ]
+        },
+        {
+          "name": "string-builder",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - StringBuilder",
+              "line-number": 129
+            }
+          ]
+        },
+        {
+          "name": "verbatim-strings",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "verbatim strings",
+              "line-number": 172
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "regular-expressions",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "regular-expressions",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Regular Expressions",
+              "line-number": 113
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "resource-lifetime",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "resource-lifetime",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Resource lifetime",
+              "line-number": 116
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "overflow",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "overflow",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Arithmetic overflow",
+              "line-number": 108
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "nested-types",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "nested-types",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Nested types",
+              "line-number": 160
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "casting",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "casting",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Explicit (casts)",
+              "line-number": 95
+            }
+          ]
+        },
+        {
+          "name": "implicit-casting",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Implicit",
+              "line-number": 96
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "operator-overloading",
+      "level": "introductory",
+      "completion-status": "complete",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "operator-overloading",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- operator overloading",
+              "line-number": 29
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "delegates",
+      "level": "essential",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "delegates",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Delegates",
+              "line-number": 153
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "attributes-advanced",
+      "level": "essential",
+      "completion-status": "newExerciseIssueRaised",
+      "document-link": "https://github.com/exercism/v3/issues/1176",
+      "concepts": [
+        {
+          "name": "attributes-advanced",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Attributes",
+              "line-number": 66
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "reflection",
+      "level": "essential",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "reflection",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Reflection",
+              "line-number": 112
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "events",
+      "level": "essential",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "events",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Events",
+              "line-number": 157
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "streams",
+      "level": "essential",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "streams",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Streams",
+              "line-number": 166
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "indexers",
+      "level": "essential",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "indexers",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Indexers",
+              "line-number": 15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "recursion",
+      "level": "essential",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "recursion",
+          "track-neutral-concept": "reference/concepts/recursion.md",
+          "original-concepts": [
+            {
+              "name": "- [Recursion][recursion]",
+              "line-number": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "pattern-matching-types",
+      "level": "essential",
+      "completion-status": "newExerciseIssueRaised",
+      "document-link": "https://github.com/exercism/v3/issues/546",
+      "concepts": [
+        {
+          "name": "pattern-matching-types",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Pattern Matching Types",
+              "line-number": 57
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "pattern-matching-tuples",
+      "level": "essential",
+      "completion-status": "newExerciseIssueRaised",
+      "document-link": "https://github.com/exercism/v3/issues/964",
+      "concepts": [
+        {
+          "name": "pattern-matching-tuples",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Pattern Matching Tuples",
+              "line-number": 58
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "tasks",
+      "level": "essential",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "tasks",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Tasks",
+              "line-number": 168
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "async",
+      "level": "essential",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "async",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Asynchronous programming",
+              "line-number": 65
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "thread-safety",
+      "level": "essential",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "thread-safety",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "thread safety",
+              "line-number": 173
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "generics-advanced",
+      "level": "essential",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "generics-advanced",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "    - Generics Constraints",
+              "line-number": 76
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "covariance",
+      "level": "essential",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "covariance",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "    - Covariance/Contravariance",
+              "line-number": 77
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "contravariance",
+      "level": "essential",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "contravariance",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Concurrent collections",
+              "line-number": 83
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "locks",
+      "level": "essential",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "locks",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Locks",
+              "line-number": 84
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "serialization",
+      "level": "essential",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "serialization",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Serialization",
+              "line-number": 124
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "extension-methods",
+      "level": "essential",
+      "completion-status": "newExerciseIssueRaised",
+      "document-link": "https://github.com/exercism/v3/issues/1070",
+      "concepts": [
+        {
+          "name": "extension-methods",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Extension methods",
+              "line-number": 23
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "statics",
+      "level": "essential",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "statics",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Statics",
+              "line-number": 37
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "lambdas",
+      "level": "essential",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "lambdas",
+          "track-neutral-concept": "reference/concepts/anonymous_functions.md",
+          "original-concepts": [
+            {
+              "name": "  - [Anonymous functions][anonymous_functions]",
+              "line-number": 47
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "higher-order-functions",
+      "level": "essential",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "higher-order-functions",
+          "track-neutral-concept": "reference/concepts/higher_order_functions.md",
+          "original-concepts": [
+            {
+              "name": "  - [Higher-order functions][higher_order_functions]",
+              "line-number": 48
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "linq",
+      "level": "essential",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "linq",
+          "track-neutral-concept": "reference/concepts/pipelines.md",
+          "original-concepts": [
+            {
+              "name": "- [LINQ][linq]",
+              "line-number": 51
+            }
+          ]
+        },
+        {
+          "name": "collections-combining",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Collections: combining",
+              "line-number": 68
+            }
+          ]
+        },
+        {
+          "name": "collections-filtering",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Collections: filtering",
+              "line-number": 69
+            }
+          ]
+        },
+        {
+          "name": "collections-mapping",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Collections: mapping",
+              "line-number": 70
+            }
+          ]
+        },
+        {
+          "name": "collections-ordering",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Collections: ordering",
+              "line-number": 71
+            }
+          ]
+        },
+        {
+          "name": "collections-reducing",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Collections: reducing",
+              "line-number": 72
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "anonymous-types",
+      "level": "essential",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "anonymous-types",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Anonymous types",
+              "line-number": 137
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "enumerables",
+      "level": "essential",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "enumerables",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Enumerables",
+              "line-number": 144
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "linq-advanced",
+      "level": "essential",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "linq-advanced",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Advanced (GroupBy; Join; Zip; Cast; GroupJoin; AsEnumerable)",
+              "line-number": 52
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "linq-query-syntax",
+      "level": "essential",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "linq-query-syntax",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Query Syntax",
+              "line-number": 54
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "linq-select-many",
+      "level": "essential",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "linq-select-many",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - SelectMany",
+              "line-number": 55
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "yield",
+      "level": "essential",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "yield",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Iterators (yield)",
+              "line-number": 73
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "immutable-collections",
+      "level": "advanced",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "immutable-collections",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Immutable collections",
+              "line-number": 145
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "by-ref",
+      "level": "advanced",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "by-ref",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Resource passing (by reference/by value)",
+              "line-number": 117
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "memory-allocation",
+      "level": "advanced",
+      "completion-status": "newExerciseIssueRaised",
+      "document-link": "https://github.com/exercism/v3/issues/1018",
+      "concepts": [
+        {
+          "name": "memory-allocation",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - [Resource allocation][memory_allocation]",
+              "line-number": 118
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "queues",
+      "level": "advanced",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "queues",
+          "track-neutral-concept": "reference/types/deque.md",
+          "original-concepts": [
+            {
+              "name": "  - [Queues][queue]",
+              "line-number": 147
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "ranges",
+      "level": "advanced",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "ranges",
+          "track-neutral-concept": "reference/types/range.md",
+          "original-concepts": [
+            {
+              "name": "  - [Ranges][range]",
+              "line-number": 148
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "time-zones",
+      "level": "advanced",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "time-zones",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Time zones",
+              "line-number": 152
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "resource-pooling",
+      "level": "advanced",
+      "completion-status": "newExerciseIssueRaised",
+      "document-link": "https://github.com/exercism/v3/issues/1146",
+      "concepts": [
+        {
+          "name": "resource-pooling",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Resource Pooling",
+              "line-number": 119
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "dynamic",
+      "level": "advanced",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "dynamic",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- dynamic",
+              "line-number": 154
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "local-functions",
+      "level": "advanced",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "local-functions",
+          "track-neutral-concept": "reference/concepts/nested_functions.md",
+          "original-concepts": [
+            {
+              "name": "  - [Local functions][local_functions]",
+              "line-number": 49
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "boxing",
+      "level": "advanced",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "boxing",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Boxing/unboxing",
+              "line-number": 94
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "slicing",
+      "level": "advanced",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "slicing",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Slicing",
+              "line-number": 125
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "unsafe-code",
+      "level": "advanced",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "unsafe-code",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Unsafe code",
+              "line-number": 130
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "lazy\u003CT\u003E",
+      "level": "advanced",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "lazy\u003CT\u003E",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Lazy\u0026lt;T\u0026gt;",
+              "line-number": 159
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "pointers",
+      "level": "advanced",
+      "completion-status": "newExerciseIssueRaised",
+      "document-link": "https://github.com/exercism/v3/issues/1147",
+      "concepts": [
+        {
+          "name": "pointsers",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Pointers",
+              "line-number": 165
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "multi-dimensional-array",
+      "level": "advanced",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "multi-dimensional-array",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - multi-dimensional array (incl Array.CreateInstance",
+              "line-number": 142
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "immutability",
+      "level": "advanced",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "immutability",
+          "track-neutral-concept": "reference/concepts/immutability.md",
+          "original-concepts": [
+            {
+              "name": " - [Immutability][immutability] - public readonly structs",
+              "line-number": 50
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "stacks",
+      "level": "advanced",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "stacks",
+          "track-neutral-concept": "reference/types/stack.md",
+          "original-concepts": [
+            {
+              "name": "  - [Stacks][stack]",
+              "line-number": 150
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "destructors",
+      "level": "advanced",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "destructors",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Destructors",
+              "line-number": 22
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "aysnc-iterators",
+      "level": "advanced",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "aysnc-iterators",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "    - Async iterators",
+              "line-number": 74
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "ref-local",
+      "level": "advanced",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "ref-local",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "ref local; ref return",
+              "line-number": 171
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "dispose-pattern",
+      "level": "advanced",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "dispose-pattern",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "Dispose Pattern",
+              "line-number": 175
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "unallocated-concepts",
+      "level": "none",
+      "completion-status": "none",
+      "document-link": "",
+      "concepts": [
+        {
+          "name": "bitwise-manipulation",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Bitwise manipulation",
+              "line-number": 109
+            }
+          ]
+        },
+        {
+          "name": "generics-introduction",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Generics Introduction",
+              "line-number": 75
+            }
+          ]
+        },
+        {
+          "name": "conditionals-if",
+          "track-neutral-concept": "reference/concepts/conditionals.md",
+          "original-concepts": [
+            {
+              "name": "  - [Conditionals: if][conditionals]",
+              "line-number": 90
+            }
+          ]
+        },
+        {
+          "name": "conditionals-do-while",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Conditionals: do-while",
+              "line-number": 87
+            }
+          ]
+        },
+        {
+          "name": "ordering",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Ordering",
+              "line-number": 81
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
