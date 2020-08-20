@@ -1,0 +1,279 @@
+{
+  "Errors": [
+    {
+      "Severity": "error",
+      "Message": "nested-types: invalid format: - \u0060nested-types\u0060",
+      "Source": "design"
+    },
+    {
+      "Severity": "error",
+      "Message": "regular-expressions: invalid format: - \u0060regular-expressions\u0060 as they are handled in C# and .NET.",
+      "Source": "design"
+    },
+    {
+      "Severity": "error",
+      "Message": "resource-lifetime: invalid format: - \u0060resource-lifetime\u0060 as it is handled in C#.",
+      "Source": "design"
+    },
+    {
+      "Severity": "error",
+      "Message": "Failed to find concept StringBuilder, from the chars design.md, in exercises.json file",
+      "Source": "merge"
+    },
+    {
+      "Severity": "error",
+      "Message": "Failed to find concept accessibility, from the namespaces design.md, in exercises.json file",
+      "Source": "merge"
+    },
+    {
+      "Severity": "error",
+      "Message": "Failed to find concept readonly-collections, from the constants design.md, in exercises.json file",
+      "Source": "merge"
+    },
+    {
+      "Severity": "error",
+      "Message": "Failed to find concept defensive-copying, from the constants design.md, in exercises.json file",
+      "Source": "merge"
+    },
+    {
+      "Severity": "error",
+      "Message": "Failed to find concept pattern-matching-constants, from the enums design.md, in exercises.json file",
+      "Source": "merge"
+    },
+    {
+      "Severity": "error",
+      "Message": "Failed to find concept while-loops, from the floating-point-numbers design.md, in exercises.json file",
+      "Source": "merge"
+    },
+    {
+      "Severity": "error",
+      "Message": "Failed to find concept exception-filtering, from the user-defined-exceptions design.md, in exercises.json file",
+      "Source": "merge"
+    },
+    {
+      "Severity": "error",
+      "Message": "Failed to find concept bit-manipulation, from the flag-enums design.md, in exercises.json file",
+      "Source": "merge"
+    },
+    {
+      "Severity": "error",
+      "Message": "Failed to find concept generic-types, from the lists design.md, in exercises.json file",
+      "Source": "merge"
+    },
+    {
+      "Severity": "error",
+      "Message": "Failed to find concept datetime, from the datetimes design.md, in exercises.json file",
+      "Source": "merge"
+    },
+    {
+      "Severity": "error",
+      "Message": "Failed to find concept throw-expressions, from the expression-bodied-members design.md, in exercises.json file",
+      "Source": "merge"
+    },
+    {
+      "Severity": "error",
+      "Message": "Failed to find concept switch-expressions, from the expression-bodied-members design.md, in exercises.json file",
+      "Source": "merge"
+    },
+    {
+      "Severity": "error",
+      "Message": "Failed to find concept optional-parameters, from the method-overloading design.md, in exercises.json file",
+      "Source": "merge"
+    },
+    {
+      "Severity": "error",
+      "Message": "Failed to find concept timezone, from the time design.md, in exercises.json file",
+      "Source": "merge"
+    },
+    {
+      "Severity": "error",
+      "Message": "Failed to find concept overflows, from the overflow design.md, in exercises.json file",
+      "Source": "merge"
+    },
+    {
+      "Severity": "error",
+      "Message": "The encapsulation concept has no learning objectives on the exercise report - update the design.md for the classes exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The fields concept has no learning objectives on the exercise report - update the design.md for the classes exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The objects concept has no learning objectives on the exercise report - update the design.md for the classes exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The state concept has no learning objectives on the exercise report - update the design.md for the classes exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The visibility concept has no learning objectives on the exercise report - update the design.md for the classes exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The default-value concept has no learning objectives on the exercise report - update the design.md for the classes exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The polymorphism concept has no learning objectives on the exercise report - update the design.md for the inheritance exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The return-values concept has no learning objectives on the exercise report - update the design.md for the basics exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The mutation concept has no learning objectives on the exercise report - update the design.md for the basics exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The functions concept has no learning objectives on the exercise report - update the design.md for the basics exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The comments concept has no learning objectives on the exercise report - update the design.md for the basics exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The scoping concept has no learning objectives on the exercise report - update the design.md for the basics exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The variables concept has no learning objectives on the exercise report - update the design.md for the basics exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The null-coalescing concept has no learning objectives on the exercise report - update the design.md for the nullability exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The null-conditional concept has no learning objectives on the exercise report - update the design.md for the nullability exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The null-forgiving concept has no learning objectives on the exercise report - update the design.md for the nullability exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The nullable-values concept has no learning objectives on the exercise report - update the design.md for the nullability exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The math-operators concept has no learning objectives on the exercise report - update the design.md for the numbers exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The assignment concept has no learning objectives on the exercise report - update the design.md for the numbers exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The base-class-library concept has no learning objectives on the exercise report - update the design.md for the dictionaries exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The datetimes concept has no learning objectives on the exercise report - update the design.md for the datetimes exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The conditionals-while concept has no learning objectives on the exercise report - update the design.md for the floating-point-numbers exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The marker-interfaces concept has no learning objectives on the exercise report - update the design.md for the equality exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The out-parameters concept has no learning objectives on the exercise report - update the design.md for the parameters exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The optional-arguments concept has no learning objectives on the exercise report - update the design.md for the parameters exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The explicit-interfaces concept has no learning objectives on the exercise report - update the design.md for the interfaces exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The unsigned-integers concept has no learning objectives on the exercise report - update the design.md for the integral-numbers exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The collections concept has no learning objectives on the exercise report - update the design.md for the lists exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The imports concept has no learning objectives on the exercise report - update the design.md for the namespaces exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The formatting-types concept has no learning objectives on the exercise report - update the design.md for the string-formatting exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The interpolation concept has no learning objectives on the exercise report - update the design.md for the string-formatting exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The string-builder concept has no learning objectives on the exercise report - update the design.md for the string-formatting exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The regular-expressions concept has no learning objectives on the exercise report - update the design.md for the regular-expressions exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The resource-lifetime concept has no learning objectives on the exercise report - update the design.md for the resource-lifetime exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The overflow concept has no learning objectives on the exercise report - update the design.md for the overflow exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The nested-types concept has no learning objectives on the exercise report - update the design.md for the nested-types exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
+      "Message": "The implicit-casting concept has no learning objectives on the exercise report - update the design.md for the casting exercise",
+      "Source": "missingLearningObjective"
+    }
+  ]
+}

@@ -19,7 +19,7 @@
 
 This Concepts Exercise's Concepts are:
 
-- `structs`: know what structs are; know how to define a `struct`; know how to add members to structs; know the differences between structs and classes.
+- `structs`: know xx what structs are; know how to define a `struct`; know how to add members to structs; know the differences between structs and classes.
 
 ## Prerequisites
 

@@ -31,6 +31,7 @@
 ## Concepts
 
 - `basics`: know what a variable is; know how to define a variable; know how to update a variable; know how to use type inference for variables; know how to define a method; know how to return a value from a method; know how to call a method; know that methods must be defined in classes; know about the `public` access modifier; know about the `static` modifier; know how to define an integer; know how to use mathematical operators on integers; know how to define single- and multiline comments.
+- `type-inference`: know how to use the keyword, `var`; know when it is appropriate to use type-inference
 
 ## Prerequisites
 
