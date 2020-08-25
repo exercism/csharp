@@ -334,9 +334,13 @@
           ]
         },
         {
-          "name": "conditionals",
-          "track-neutral-concept": "",
+          "name": "if-statements",
+          "track-neutral-concept": "reference/concepts/conditionals.md",
           "original-concepts": [
+            {
+              "name": "  - [Conditionals: if][conditionals]",
+              "line-number": 90
+            },
             {
               "name": "- Conditionals",
               "line-number": 85
@@ -575,6 +579,16 @@
       "completion-status": "complete",
       "document-link": "",
       "concepts": [
+        {
+          "name": "bit-manipulation",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Bitwise manipulation",
+              "line-number": 109
+            }
+          ]
+        },
         {
           "name": "flag-enums",
           "track-neutral-concept": "",
@@ -834,6 +848,16 @@
               "line-number": 18
             }
           ]
+        },
+        {
+          "name": "ordering",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Ordering",
+              "line-number": 81
+            }
+          ]
         }
       ]
     },
@@ -924,6 +948,16 @@
             {
               "name": "- Collections",
               "line-number": 67
+            }
+          ]
+        },
+        {
+          "name": "generic-types",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "- Generics Introduction",
+              "line-number": 75
             }
           ]
         }
@@ -2118,52 +2152,12 @@
       "document-link": "",
       "concepts": [
         {
-          "name": "bitwise-manipulation",
-          "track-neutral-concept": "",
-          "original-concepts": [
-            {
-              "name": "  - Bitwise manipulation",
-              "line-number": 109
-            }
-          ]
-        },
-        {
-          "name": "generics-introduction",
-          "track-neutral-concept": "",
-          "original-concepts": [
-            {
-              "name": "- Generics Introduction",
-              "line-number": 75
-            }
-          ]
-        },
-        {
-          "name": "conditionals-if",
-          "track-neutral-concept": "reference/concepts/conditionals.md",
-          "original-concepts": [
-            {
-              "name": "  - [Conditionals: if][conditionals]",
-              "line-number": 90
-            }
-          ]
-        },
-        {
           "name": "conditionals-do-while",
           "track-neutral-concept": "",
           "original-concepts": [
             {
               "name": "  - Conditionals: do-while",
               "line-number": 87
-            }
-          ]
-        },
-        {
-          "name": "ordering",
-          "track-neutral-concept": "",
-          "original-concepts": [
-            {
-              "name": "  - Ordering",
-              "line-number": 81
             }
           ]
         }
