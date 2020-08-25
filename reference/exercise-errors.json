@@ -52,16 +52,6 @@
     },
     {
       "Severity": "error",
-      "Message": "Failed to find concept bit-manipulation, from the flag-enums design.md, in exercises.json file",
-      "Source": "merge"
-    },
-    {
-      "Severity": "error",
-      "Message": "Failed to find concept generic-types, from the lists design.md, in exercises.json file",
-      "Source": "merge"
-    },
-    {
-      "Severity": "error",
       "Message": "Failed to find concept datetime, from the datetimes design.md, in exercises.json file",
       "Source": "merge"
     },
