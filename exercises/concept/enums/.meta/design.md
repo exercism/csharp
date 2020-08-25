@@ -25,6 +25,6 @@ After completing this exercise, the student should:
 This exercise's prerequisites Concepts are:
 
 - `strings`: log lines are `string` values.
-- `conditionals`: know how to execute conditional logic.
+- `switch-statements`:
 
 [docs.microsoft.com-enum]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/enum

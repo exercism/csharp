@@ -20,7 +20,7 @@ This Concepts Exercise's Concepts are:
 
 This Concept Exercise's prerequisites Concepts are:
 
-- `conditionals`: `if`, `else`
+- `if-statements`: `if`, `else`
 - `numbers`
 - `strings`
 - `constructors`: the exercise provides a gentle intuitive introduction to simple parameters

@@ -23,7 +23,7 @@
 
 - `strings`: strings will be compared to `null` and basic methods from strings will be called.
 - `basics`: integers will be compared to `null`, arithmetic operations will be performed on integers, variables will be introduced and updated.
-- `conditionals`: using a conditional statement.
+- `if-statements`: using a conditional statement.
 - `memory-allocation`: reference and value types will be used in their nullable and non-nullable variants.
 
 [null-keyword]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null

@@ -21,7 +21,6 @@
 
 - `basics`: know how to define methods and variables.
 - `strings`: obtaining sub-strings from a string
-- `conditionals`: combining conditions.
 
 ## Representer
 
