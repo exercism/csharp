@@ -552,6 +552,16 @@
               "line-number": 89
             }
           ]
+        },
+        {
+          "name": "do-while-loops",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Conditionals: do-while",
+              "line-number": 87
+            }
+          ]
         }
       ]
     },
@@ -2150,18 +2160,7 @@
       "level": "none",
       "completion-status": "none",
       "document-link": "",
-      "concepts": [
-        {
-          "name": "conditionals-do-while",
-          "track-neutral-concept": "",
-          "original-concepts": [
-            {
-              "name": "  - Conditionals: do-while",
-              "line-number": 87
-            }
-          ]
-        }
-      ]
+      "concepts": []
     }
   ]
 }

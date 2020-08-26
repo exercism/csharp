@@ -20,8 +20,24 @@ int x = 23;
 while (x > 10)
 {
     // Execute logic if x > 10
+    x = x - 1;
 }
 ```
+
+A closely related construct is the `do` loop:
+
+```csharp
+int x = 0;
+
+do
+{
+    x = GetX();
+    // do something with x
+}
+while (x != 0);
+```
+
+This is used less frequently than a `while` loop but in some cases results in more natural looking code.
 
 [docs-microsoft.com-explicit-numeric-conversion]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/numeric-conversions#explicit-numeric-conversions
 [docs-microsoft.com-implicit-numeric-conversion]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/numeric-conversions#implicit-numeric-conversions
