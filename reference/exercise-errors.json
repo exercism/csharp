@@ -2,6 +2,11 @@
   "Errors": [
     {
       "Severity": "error",
+      "Message": "concepts: missing for unallocated-concepts\n",
+      "Source": "exercise"
+    },
+    {
+      "Severity": "error",
       "Message": "nested-types: invalid format: - \u0060nested-types\u0060",
       "Source": "design"
     },
