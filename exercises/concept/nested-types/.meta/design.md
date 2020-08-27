@@ -9,7 +9,7 @@
 
 ## Concepts
 
-- `nested-types`
+- `nested-types`: know syntax for nested classes; know when to use nested classes; familiarity with other nested types such as structs and enums
 
 ## Prerequisites
 

@@ -6,7 +6,7 @@
 
 ## Concepts
 
-- `resource-lifetime` as it is handled in C#.
+- `resource-lifetime`: Know how to control a resource's lifetime with the `using` statement in C#
 
 ## Prerequisites
 
