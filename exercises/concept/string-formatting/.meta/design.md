@@ -14,7 +14,7 @@
 
 ## Concepts
 
-- `string-formatting`: know how to use the `ToString()` method to convert any object to a `string`; know how to use string interpolation on values of any type; know how to use default format strings to convert to standard output formats; know how to use custom format strings to convert to custom output formats; know that `string.Format` underlies string interpolation; know of the `StringBuilder` type and when to use it; know that string interpolation can interpolate any expression.
+- `string-formatting`: know how to use the `ToString()` method to convert any object to a `string`; know how to use string interpolation on values of any type; know how to use default format strings to convert to standard output formats; know how to use custom format strings to convert to custom output formats; know that `string.Format` underlies string interpolation; know that string interpolation can interpolate any expression.
 - `verbatim-strings`: the syntax of verbatim strings.
 
 ## Prerequisites
@@ -24,3 +24,4 @@
 - `const-readonly`
 - `time`: for use of `CultureInfo`.
 - `varargs`: for the common overload of `public static string Format (string format, params object[] args);`
+- `string-builder`: know of the `StringBuilder` type and when to use it
