@@ -12,66 +12,6 @@
     },
     {
       "Severity": "error",
-      "Message": "Failed to find concept accessibility, from the namespaces design.md, in exercises.json file",
-      "Source": "merge"
-    },
-    {
-      "Severity": "error",
-      "Message": "Failed to find concept readonly-collections, from the constants design.md, in exercises.json file",
-      "Source": "merge"
-    },
-    {
-      "Severity": "error",
-      "Message": "Failed to find concept defensive-copying, from the constants design.md, in exercises.json file",
-      "Source": "merge"
-    },
-    {
-      "Severity": "error",
-      "Message": "Failed to find concept pattern-matching-constants, from the enums design.md, in exercises.json file",
-      "Source": "merge"
-    },
-    {
-      "Severity": "error",
-      "Message": "Failed to find concept while-loops, from the floating-point-numbers design.md, in exercises.json file",
-      "Source": "merge"
-    },
-    {
-      "Severity": "error",
-      "Message": "Failed to find concept exception-filtering, from the user-defined-exceptions design.md, in exercises.json file",
-      "Source": "merge"
-    },
-    {
-      "Severity": "error",
-      "Message": "Failed to find concept datetime, from the datetimes design.md, in exercises.json file",
-      "Source": "merge"
-    },
-    {
-      "Severity": "error",
-      "Message": "Failed to find concept throw-expressions, from the expression-bodied-members design.md, in exercises.json file",
-      "Source": "merge"
-    },
-    {
-      "Severity": "error",
-      "Message": "Failed to find concept switch-expressions, from the expression-bodied-members design.md, in exercises.json file",
-      "Source": "merge"
-    },
-    {
-      "Severity": "error",
-      "Message": "Failed to find concept optional-parameters, from the method-overloading design.md, in exercises.json file",
-      "Source": "merge"
-    },
-    {
-      "Severity": "error",
-      "Message": "Failed to find concept timezone, from the time design.md, in exercises.json file",
-      "Source": "merge"
-    },
-    {
-      "Severity": "error",
-      "Message": "Failed to find concept overflows, from the overflow design.md, in exercises.json file",
-      "Source": "merge"
-    },
-    {
-      "Severity": "error",
       "Message": "The encapsulation concept has no learning objectives on the exercise report - update the design.md for the classes exercise",
       "Source": "missingLearningObjective"
     },
@@ -167,17 +107,12 @@
     },
     {
       "Severity": "error",
+      "Message": "The string-builder concept has no learning objectives on the exercise report - update the design.md for the chars exercise",
+      "Source": "missingLearningObjective"
+    },
+    {
+      "Severity": "error",
       "Message": "The base-class-library concept has no learning objectives on the exercise report - update the design.md for the dictionaries exercise",
-      "Source": "missingLearningObjective"
-    },
-    {
-      "Severity": "error",
-      "Message": "The datetimes concept has no learning objectives on the exercise report - update the design.md for the datetimes exercise",
-      "Source": "missingLearningObjective"
-    },
-    {
-      "Severity": "error",
-      "Message": "The conditionals-while concept has no learning objectives on the exercise report - update the design.md for the floating-point-numbers exercise",
       "Source": "missingLearningObjective"
     },
     {
@@ -223,16 +158,6 @@
     {
       "Severity": "error",
       "Message": "The interpolation concept has no learning objectives on the exercise report - update the design.md for the string-formatting exercise",
-      "Source": "missingLearningObjective"
-    },
-    {
-      "Severity": "error",
-      "Message": "The string-builder concept has no learning objectives on the exercise report - update the design.md for the string-formatting exercise",
-      "Source": "missingLearningObjective"
-    },
-    {
-      "Severity": "error",
-      "Message": "The overflow concept has no learning objectives on the exercise report - update the design.md for the overflow exercise",
       "Source": "missingLearningObjective"
     },
     {
