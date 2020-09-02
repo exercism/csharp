@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-public static class DialingCodes_example
+public static class DialingCodes
 {
     public static Dictionary<int, string> GetEmptyDictionary()
     {
