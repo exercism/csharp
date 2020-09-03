@@ -15,6 +15,7 @@
 ## Concepts
 
 - `inheritance`: know what inheritance is; know how to inherit from a class; know that all types inherit from `object`; know what abstract and sealed classes are; know what abstract and virtual methods are; know how to override methods; know about the `protected` visibility modifier.
+- `polymorphism`: know the syntax rules of virtual methods; understand the power of polymorphism
 
 ## Prerequisites
 

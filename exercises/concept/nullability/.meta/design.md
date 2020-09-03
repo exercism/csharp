@@ -18,6 +18,10 @@
 ## Concepts
 
 - `nullability`: know of the existence of the `null` literal; know what a `NullReferenceException` is and when it is thrown; know how to compare a value to `null`; know the difference between value and reference types regarding nullability; know how to define nullable reference and value types; know about the null-related operators; know about basic null checking by the compiler.
+- `null-coalescing`: know the syntax and behavior of the null-coalescing operator (??)
+- `null-conditional`: know the syntax and behavior of the null-conditional operator (?.)
+- `null-forgiving`: know the syntax and behvior of the null-forgiving operator (!.); know to use the operator with discretion
+- `nullable-values`: know wbout nullable primitives; know about nullable structs
 
 ## Prerequisites
 

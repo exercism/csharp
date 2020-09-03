@@ -12,6 +12,7 @@
 
 - `interfaces`: know what interfaces are; know how to use interfaces; know how to define an interface; know how to implement an interface; know how to explicitly implement an interface.
 - `ordering` : know how to implement the `IComparable<T>` interface and what its effect is on the behaviour of collections.
+- `explicit-interfaces`: know how an explicit interface is declared; know how use an explicit interface; know why explicit interfaces are useful
 
 ## Prerequisites
 

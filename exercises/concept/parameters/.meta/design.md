@@ -15,6 +15,8 @@
 This Concepts Exercise's Concepts are:
 
 - `parameters`: know the difference between value and reference type parameters; know how to pass value types by reference using the `ref` and `out` modifiers.
+- `out-parameters`: know the syntax of `out` parameters; know the role of `out` parameters
+- `optional-arguments`: know the syntax and behavior or optional arguments
 
 ## Prerequisites
 

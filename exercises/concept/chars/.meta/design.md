@@ -20,7 +20,7 @@
 ## Concepts
 
 - `chars`: know of the existence of the `char` type; know that a `char` represents; know how to define a `char`; know how to access a `char` in a string by index; know of some basic `char` methods (like converting to uppercase).
-- `StringBuilder`: know how to use this.
+- `string-builder`: know how to use a StringBuilder; know that it is more performant than simple concatenation
 
 ## Prerequisites
 
