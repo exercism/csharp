@@ -1119,16 +1119,6 @@
           ]
         },
         {
-          "name": "formatting-types",
-          "track-neutral-concept": "",
-          "original-concepts": [
-            {
-              "name": "  - Formatting types",
-              "line-number": 127
-            }
-          ]
-        },
-        {
           "name": "interpolation",
           "track-neutral-concept": "",
           "original-concepts": [
@@ -2205,7 +2195,18 @@
       "level": "none",
       "completion-status": "none",
       "document-link": "",
-      "concepts": []
+      "concepts": [
+        {
+          "name": "formatting-types",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "  - Formatting types",
+              "line-number": 127
+            }
+          ]
+        }
+      ]
     }
   ]
 }

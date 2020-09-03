@@ -14,6 +14,7 @@
 
 - `integral-numbers`: know of the difference between signed and unsigned integral types; know of the existence of the integral types: `sbyte`, `byte`, `short`, `ushort`, `int`, `uint`, `long` and `ulong`; know when to use which integral type.
 - `casting`: Understand casting of integral numeric types.
+- `unsigned-integers`: know the characteristics of unsigned integers
 
 ## Prerequisites
 

@@ -14,6 +14,7 @@
 ## Concepts
 
 - `casting`: know what explicit and implicit casts are; know how to do an explicit cast; know how to use `is` and `as` to convert between types.
+- `implicit-casting`: know about implicit type conversion
 
 ## Prerequisites
 
