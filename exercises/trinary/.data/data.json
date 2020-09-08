@@ -1,0 +1,110 @@
+{
+  "exercise": "trinary",
+  "version": "1.1.0",
+  "cases": [
+    {
+      "description": "returns the decimal representation of the input trinary value",
+      "cases": [
+        {
+          "uuid": "6e4976ae-3e40-4659-b5f7-bab47e6861b8",
+          "description": "trinary 1 is decimal 1",
+          "property": "toDecimal",
+          "input": {
+            "trinary": 1
+          },
+          "expected": 1
+        },
+        {
+          "uuid": "d474ebad-561f-4c08-891b-5bdfc441dcdd",
+          "description": "trinary 2 is decimal 2",
+          "property": "toDecimal",
+          "input": {
+            "trinary": 2
+          },
+          "expected": 2
+        },
+        {
+          "uuid": "83edeb9f-ee32-4ad3-88ce-9880d968ec83",
+          "description": "trinary 10 is decimal 3",
+          "property": "toDecimal",
+          "input": {
+            "trinary": 10
+          },
+          "expected": 3
+        },
+        {
+          "uuid": "1f56f744-d672-48b7-becd-4bc10bb75683",
+          "description": "trinary 11 is decimal 4",
+          "property": "toDecimal",
+          "input": {
+            "trinary": 11
+          },
+          "expected": 4
+        },
+        {
+          "uuid": "32b5df36-5271-4c23-9711-ebb4cf8d1c68",
+          "description": "trinary 100 is decimal 9",
+          "property": "toDecimal",
+          "input": {
+            "trinary": 100
+          },
+          "expected": 9
+        },
+        {
+          "uuid": "2cf41e55-0d10-489a-a7ec-f4a1af04f738",
+          "description": "trinary 112 is decimal 14",
+          "property": "toDecimal",
+          "input": {
+            "trinary": 112
+          },
+          "expected": 14
+        },
+        {
+          "uuid": "bfc0962e-cc6a-4976-8a35-f04cda3997ea",
+          "description": "trinary 222 is decimal 26",
+          "property": "toDecimal",
+          "input": {
+            "trinary": 222
+          },
+          "expected": 26
+        },
+        {
+          "uuid": "e78810d7-afd3-4941-bf4d-043a1edde4b8",
+          "description": "trinary 1122000120 is decimal 32091",
+          "property": "toDecimal",
+          "input": {
+            "trinary": 1122000120
+          },
+          "expected": 32091
+        },
+        {
+          "uuid": "64781fa7-96ed-41e9-83e4-a4b37a6397d3",
+          "description": "invalid trinary digits returns 0",
+          "property": "toDecimal",
+          "input": {
+            "trinary": "1234"
+          },
+          "expected": 0
+        },
+        {
+          "uuid": "7f583811-1887-44a8-a971-5f6596c631d2",
+          "description": "invalid word as input returns 0",
+          "property": "toDecimal",
+          "input": {
+            "trinary": "carrot"
+          },
+          "expected": 0
+        },
+        {
+          "uuid": "77bf7824-74f8-4876-87ab-0091d73d7c70",
+          "description": "invalid numbers with letters as input returns 0",
+          "property": "toDecimal",
+          "input": {
+            "trinary": "0a1b2c"
+          },
+          "expected": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+[canonical-tests]
+
+# Test case: Can encode
+"d2f35312-638f-45f2-a285-5dd93e69a6ad" = true
+
+# Test case: Can decode
+"b596631a-9d59-4ae3-8f00-2545d417b9a8" = true
+
+# Test case: Is reversible. I.e., if you apply decode in a encoded result, you must see the same plaintext encode parameter as a result of the decode method
+"ecd8da20-aba4-4a8f-9b75-f1b437e5648e" = true
+
+# Test case: Key is made only of lowercase letters
+"163b1601-7216-4308-8add-917a33dcfd5f" = true
+
+# Test case: Can encode
+"adf57292-a780-4068-9e8a-95927606d1e2" = true
+
+# Test case: Can decode
+"59d0cb98-2b08-445d-b560-84b0e17b45f2" = true
+
+# Test case: Is reversible. I.e., if you apply decode in a encoded result, you must see the same plaintext encode parameter as a result of the decode method
+"6c57bc46-5531-47c6-8c47-2e451fae10ab" = true
+
+# Test case: Can double shift encode
+"38bd33ae-7c4a-472a-b343-9daf16c27c3f" = true
+
+# Test case: Can wrap on encode
+"847527e6-3c19-47d1-801b-05e34f2b3920" = true
+
+# Test case: Can wrap on decode
+"0ab111e4-d494-4684-9fb7-75eed765ee1b" = true
+
+# Test case: Can encode messages longer than the key
+"04ede1bd-0d9e-4130-97cd-1eb553c3261b" = true
+
+# Test case: Can decode messages longer than the key
+"557aa9aa-857c-4aee-bc25-67685ec5a287" = true

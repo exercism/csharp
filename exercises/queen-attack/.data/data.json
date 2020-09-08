@@ -1,0 +1,243 @@
+{
+  "exercise": "queen-attack",
+  "version": "2.3.0",
+  "comments": [
+    "Testing invalid positions will vary by language. The expected",
+    "value of 'error' is there to indicate some sort of failure should",
+    "occur, while a 0 means no failure.",
+    "Some languages implement tests beyond this set, such as checking",
+    "for two pieces being placed on the same position, representing",
+    "the board graphically, or using standard chess notation. Those",
+    "tests can be offered as extra credit"
+  ],
+  "cases": [
+    {
+      "description": "Test creation of Queens with valid and invalid positions",
+      "cases": [
+        {
+          "uuid": "a06a1eb5-d532-4f39-ae8d-003d61bf8ae2",
+          "description": "queen with a valid position",
+          "property": "create",
+          "input": {
+            "queen": {
+              "position": {
+                "row": 2,
+                "column": 2
+              }
+            }
+          },
+          "expected": 0
+        },
+        {
+          "uuid": "773c79c8-4ec2-41f1-bbe2-a39b54fa3ea0",
+          "description": "queen must have positive row",
+          "property": "create",
+          "input": {
+            "queen": {
+              "position": {
+                "row": -2,
+                "column": 2
+              }
+            }
+          },
+          "expected": {
+            "error": "row not positive"
+          }
+        },
+        {
+          "uuid": "ff3451b6-0e26-4cc7-b8aa-4c137e15080d",
+          "description": "queen must have row on board",
+          "property": "create",
+          "input": {
+            "queen": {
+              "position": {
+                "row": 8,
+                "column": 4
+              }
+            }
+          },
+          "expected": {
+            "error": "row not on board"
+          }
+        },
+        {
+          "uuid": "942bc7cb-3c0b-4e17-9e47-3e11cd7245dc",
+          "description": "queen must have positive column",
+          "property": "create",
+          "input": {
+            "queen": {
+              "position": {
+                "row": 2,
+                "column": -2
+              }
+            }
+          },
+          "expected": {
+            "error": "column not positive"
+          }
+        },
+        {
+          "uuid": "9c16d1e4-8967-4e9c-b924-aed1e9abb622",
+          "description": "queen must have column on board",
+          "property": "create",
+          "input": {
+            "queen": {
+              "position": {
+                "row": 4,
+                "column": 8
+              }
+            }
+          },
+          "expected": {
+            "error": "column not on board"
+          }
+        }
+      ]
+    },
+    {
+      "description": "Test the ability of one queen to attack another",
+      "cases": [
+        {
+          "uuid": "0a8ff029-2f63-417c-87bb-a51debd5901a",
+          "description": "can not attack",
+          "property": "canAttack",
+          "input": {
+            "white_queen": {
+              "position": {
+                "row": 2,
+                "column": 4
+              }
+            },
+            "black_queen": {
+              "position": {
+                "row": 6,
+                "column": 6
+              }
+            }
+          },
+          "expected": false
+        },
+        {
+          "uuid": "0fc9b837-2222-4f60-8713-5252a8d9595c",
+          "description": "can attack on same row",
+          "property": "canAttack",
+          "input": {
+            "white_queen": {
+              "position": {
+                "row": 2,
+                "column": 4
+              }
+            },
+            "black_queen": {
+              "position": {
+                "row": 2,
+                "column": 6
+              }
+            }
+          },
+          "expected": true
+        },
+        {
+          "uuid": "e9d3723a-8e9a-4aed-bb41-a4b1514ae1bf",
+          "description": "can attack on same column",
+          "property": "canAttack",
+          "input": {
+            "white_queen": {
+              "position": {
+                "row": 4,
+                "column": 5
+              }
+            },
+            "black_queen": {
+              "position": {
+                "row": 2,
+                "column": 5
+              }
+            }
+          },
+          "expected": true
+        },
+        {
+          "uuid": "fec4ccb5-fe25-4911-83e5-f290ca005804",
+          "description": "can attack on first diagonal",
+          "property": "canAttack",
+          "input": {
+            "white_queen": {
+              "position": {
+                "row": 2,
+                "column": 2
+              }
+            },
+            "black_queen": {
+              "position": {
+                "row": 0,
+                "column": 4
+              }
+            }
+          },
+          "expected": true
+        },
+        {
+          "uuid": "cabcfbd7-22a4-4451-8734-e73800fcec2f",
+          "description": "can attack on second diagonal",
+          "property": "canAttack",
+          "input": {
+            "white_queen": {
+              "position": {
+                "row": 2,
+                "column": 2
+              }
+            },
+            "black_queen": {
+              "position": {
+                "row": 3,
+                "column": 1
+              }
+            }
+          },
+          "expected": true
+        },
+        {
+          "uuid": "6570e85e-e11c-427a-9351-c3ab5f8cd3ea",
+          "description": "can attack on third diagonal",
+          "property": "canAttack",
+          "input": {
+            "white_queen": {
+              "position": {
+                "row": 2,
+                "column": 2
+              }
+            },
+            "black_queen": {
+              "position": {
+                "row": 1,
+                "column": 1
+              }
+            }
+          },
+          "expected": true
+        },
+        {
+          "uuid": "8b434bd9-a349-4d5b-929a-db323d9a5dfb",
+          "description": "can attack on fourth diagonal",
+          "property": "canAttack",
+          "input": {
+            "white_queen": {
+              "position": {
+                "row": 1,
+                "column": 7
+              }
+            },
+            "black_queen": {
+              "position": {
+                "row": 0,
+                "column": 6
+              }
+            }
+          },
+          "expected": true
+        }
+      ]
+    }
+  ]
+}

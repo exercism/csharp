@@ -1,0 +1,46 @@
+[canonical-tests]
+
+# Test case: Only a single book
+"991e903d-141c-4850-92ae-8ad8c0334514" = true
+
+# Test case: Two of the same book
+"2ade30d6-b72a-46dd-ab87-612a1d28a955" = true
+
+# Test case: Empty basket
+"828a8aa3-07d9-4d15-9b4e-a7262b950602" = true
+
+# Test case: Two different books
+"cffe6743-dd1b-480a-9b17-b15c7f2f6426" = true
+
+# Test case: Three different books
+"06acc551-667a-42ac-ba40-9bfcd55d59e6" = true
+
+# Test case: Four different books
+"639f7e0b-34c4-4737-8633-782dd4ea154a" = true
+
+# Test case: Five different books
+"a3a638d9-33cb-4e7d-8b4f-b39ce99afa40" = true
+
+# Test case: Two groups of four is cheaper than group of five plus group of three
+"493afc0d-670e-49fd-ae72-82338b4e7ee1" = true
+
+# Test case: Two groups of four is cheaper than groups of five and three
+"dd84e0fa-5e4b-4f38-a5c0-1aa96c447610" = true
+
+# Test case: Group of four plus group of two is cheaper than two groups of three
+"dec966dc-c49c-4cae-9305-0cfc94bf4d33" = true
+
+# Test case: Two each of first 4 books and 1 copy each of rest
+"b240fb7e-f82c-4401-834f-b0aa864b3cfb" = true
+
+# Test case: Two copies of each book
+"55de177e-1cf0-404a-9656-21b0b0b53965" = true
+
+# Test case: Three copies of first book and 2 each of remaining
+"6a3e8e41-1e98-4ac1-8e3e-0dc4549099bf" = true
+
+# Test case: Three each of first 2 books and 2 each of remaining books
+"d32367b6-2cfd-482b-bd92-9d30ac198eb0" = true
+
+# Test case: Four groups of four are cheaper than two groups each of five and three
+"5532b80c-14d4-4d28-8f4e-17213976056c" = true

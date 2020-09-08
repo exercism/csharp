@@ -1,0 +1,222 @@
+{
+  "exercise": "scale-generator",
+  "version": "2.0.0",
+  "cases": [
+    {
+      "comments": [
+        "These tests have no interval.",
+        "The chromatic scale is considered the default scale"
+      ],
+      "description": "Chromatic scales",
+      "cases": [
+        {
+          "uuid": "4cf83633-4f21-4963-b2e3-384dea2680a3",
+          "description": "Chromatic scale with sharps",
+          "property": "chromatic",
+          "input": {
+            "tonic": "C"
+          },
+          "expected": [
+            "C",
+            "C#",
+            "D",
+            "D#",
+            "E",
+            "F",
+            "F#",
+            "G",
+            "G#",
+            "A",
+            "A#",
+            "B"
+          ]
+        },
+        {
+          "uuid": "344ce4de-88c7-4b73-8f2c-a0ab3850d767",
+          "description": "Chromatic scale with flats",
+          "property": "chromatic",
+          "input": {
+            "tonic": "F"
+          },
+          "expected": [
+            "F",
+            "Gb",
+            "G",
+            "Ab",
+            "A",
+            "Bb",
+            "B",
+            "C",
+            "Db",
+            "D",
+            "Eb",
+            "E"
+          ]
+        }
+      ]
+    },
+    {
+      "comments": [
+        "These tests all have intervals and are explorations of different",
+        "traversals of the scale."
+      ],
+      "description": "Scales with specified intervals",
+      "cases": [
+        {
+          "uuid": "85b355d7-59e4-4cb6-bc55-7f29715be17a",
+          "description": "Simple major scale",
+          "comments": ["The simplest major scale, with no sharps or flats."],
+          "property": "interval",
+          "input": {
+            "tonic": "C",
+            "intervals": "MMmMMMm"
+          },
+          "expected": ["C", "D", "E", "F", "G", "A", "B"]
+        },
+        {
+          "uuid": "2ce46129-30f0-49e8-bb05-443894b62c14",
+          "description": "Major scale with sharps",
+          "property": "interval",
+          "input": {
+            "tonic": "G",
+            "intervals": "MMmMMMm"
+          },
+          "expected": ["G", "A", "B", "C", "D", "E", "F#"]
+        },
+        {
+          "uuid": "a4c4b0a3-f869-4435-867f-01617debeec1",
+          "description": "Major scale with flats",
+          "property": "interval",
+          "input": {
+            "tonic": "F",
+            "intervals": "MMmMMMm"
+          },
+          "expected": ["F", "G", "A", "Bb", "C", "D", "E"]
+        },
+        {
+          "uuid": "63413974-f2b2-44d2-9d6a-9dd125a15219",
+          "description": "Minor scale with sharps",
+          "property": "interval",
+          "input": {
+            "tonic": "f#",
+            "intervals": "MmMMmMM"
+          },
+          "expected": ["F#", "G#", "A", "B", "C#", "D", "E"]
+        },
+        {
+          "uuid": "3c42e2c7-6fe2-4302-851a-adad957746e5",
+          "description": "Minor scale with flats",
+          "property": "interval",
+          "input": {
+            "tonic": "bb",
+            "intervals": "MmMMmMM"
+          },
+          "expected": ["Bb", "C", "Db", "Eb", "F", "Gb", "Ab"]
+        },
+        {
+          "uuid": "682182b3-7514-4ea3-9da8-774fcc618932",
+          "description": "Dorian mode",
+          "property": "interval",
+          "input": {
+            "tonic": "d",
+            "intervals": "MmMMMmM"
+          },
+          "expected": ["D", "E", "F", "G", "A", "B", "C"]
+        },
+        {
+          "uuid": "369ca35d-e8e3-4811-925f-c428fa38e354",
+          "description": "Mixolydian mode",
+          "property": "interval",
+          "input": {
+            "tonic": "Eb",
+            "intervals": "MMmMMmM"
+          },
+          "expected": ["Eb", "F", "G", "Ab", "Bb", "C", "Db"]
+        },
+        {
+          "uuid": "22720811-5a48-424c-bfd3-e7b4d3b84c22",
+          "description": "Lydian mode",
+          "property": "interval",
+          "input": {
+            "tonic": "a",
+            "intervals": "MMMmMMm"
+          },
+          "expected": ["A", "B", "C#", "D#", "E", "F#", "G#"]
+        },
+        {
+          "uuid": "9f2785dd-b3a2-4cf5-848e-7e12e6fcdc91",
+          "description": "Phrygian mode",
+          "property": "interval",
+          "input": {
+            "tonic": "e",
+            "intervals": "mMMMmMM"
+          },
+          "expected": ["E", "F", "G", "A", "B", "C", "D"]
+        },
+        {
+          "uuid": "28f6913c-dcda-4bec-ab9f-0e6a79bab4f8",
+          "description": "Locrian mode",
+          "property": "interval",
+          "input": {
+            "tonic": "g",
+            "intervals": "mMMmMMM"
+          },
+          "expected": ["G", "Ab", "Bb", "C", "Db", "Eb", "F"]
+        },
+        {
+          "uuid": "24d82cf7-7705-4a31-97f8-f298903288bd",
+          "comments": [
+            "Note that this case introduces the accidental interval (A)"
+          ],
+          "description": "Harmonic minor",
+          "property": "interval",
+          "input": {
+            "tonic": "d",
+            "intervals": "MmMMmAm"
+          },
+          "expected": ["D", "E", "F", "G", "A", "Bb", "Db"]
+        },
+        {
+          "uuid": "69a6c8fc-708d-4ec8-b5d4-2f48d36f96d6",
+          "description": "Octatonic",
+          "property": "interval",
+          "input": {
+            "tonic": "C",
+            "intervals": "MmMmMmMm"
+          },
+          "expected": ["C", "D", "D#", "F", "F#", "G#", "A", "B"]
+        },
+        {
+          "uuid": "31ba3b6c-49ee-4464-a200-dc6ab0683720",
+          "description": "Hexatonic",
+          "property": "interval",
+          "input": {
+            "tonic": "Db",
+            "intervals": "MMMMMM"
+          },
+          "expected": ["Db", "Eb", "F", "G", "A", "B"]
+        },
+        {
+          "uuid": "c461abe8-3fec-4c6a-8bf5-60e265844728",
+          "description": "Pentatonic",
+          "property": "interval",
+          "input": {
+            "tonic": "A",
+            "intervals": "MMAMA"
+          },
+          "expected": ["A", "B", "C#", "E", "F#"]
+        },
+        {
+          "uuid": "614831bc-67a2-4a5b-b604-ed8dea24708b",
+          "description": "Enigmatic",
+          "property": "interval",
+          "input": {
+            "tonic": "G",
+            "intervals": "mAMMMmm"
+          },
+          "expected": ["G", "G#", "B", "C#", "D#", "F", "F#"]
+        }
+      ]
+    }
+  ]
+}

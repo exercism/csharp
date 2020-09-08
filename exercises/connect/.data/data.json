@@ -1,0 +1,151 @@
+{
+  "exercise": "connect",
+  "version": "1.1.0",
+  "cases": [
+    {
+      "uuid": "7b1ec6e6-8ec7-4aa1-a748-b8b72e0772dc",
+      "description": "an empty board has no winner",
+      "property": "winner",
+      "input": {
+        "board": [
+          ". . . . .",
+          " . . . . .",
+          "  . . . . .",
+          "   . . . . .",
+          "    . . . . ."
+        ]
+      },
+      "expected": ""
+    },
+    {
+      "uuid": "05696d05-f52e-4da2-ba04-0b4bc3b7e31c",
+      "description": "X can win on a 1x1 board",
+      "property": "winner",
+      "input": {
+        "board": [
+          "X"
+        ]
+      },
+      "expected": "X"
+    },
+    {
+      "uuid": "9f3f5d0e-03ae-4d0f-b941-a192e099f01d",
+      "description": "O can win on a 1x1 board",
+      "property": "winner",
+      "input": {
+        "board": [
+          "O"
+        ]
+      },
+      "expected": "O"
+    },
+    {
+      "uuid": "75c06929-90b3-488a-9a20-7f37890fdc4a",
+      "description": "only edges does not make a winner",
+      "property": "winner",
+      "input": {
+        "board": [
+          "O O O X",
+          " X . . X",
+          "  X . . X",
+          "   X O O O"
+        ]
+      },
+      "expected": ""
+    },
+    {
+      "uuid": "a1ec9455-976b-4b81-a6b1-fddb14f1c16e",
+      "description": "illegal diagonal does not make a winner",
+      "property": "winner",
+      "input": {
+        "board": [
+          "X O . .",
+          " O X X X",
+          "  O X O .",
+          "   . O X .",
+          "    X X O O"
+        ]
+      },
+      "expected": ""
+    },
+    {
+      "uuid": "d90ba7b3-af63-4756-8e7c-2aa4e94308c4",
+      "description": "nobody wins crossing adjacent angles",
+      "property": "winner",
+      "input": {
+        "board": [
+          "X . . .",
+          " . X O .",
+          "  O . X O",
+          "   . O . X",
+          "    . . O ."
+        ]
+      },
+      "expected": ""
+    },
+    {
+      "uuid": "39bb1fba-8c88-47ea-bba8-9addbcdee596",
+      "description": "X wins crossing from left to right",
+      "property": "winner",
+      "input": {
+        "board": [
+          ". O . .",
+          " O X X X",
+          "  O X O .",
+          "   X X O X",
+          "    . O X ."
+        ]
+      },
+      "expected": "X"
+    },
+    {
+      "uuid": "c95dad59-0168-4b89-b9bc-85c85029a48b",
+      "description": "O wins crossing from top to bottom",
+      "property": "winner",
+      "input": {
+        "board": [
+          ". O . .",
+          " O X X X",
+          "  O O O .",
+          "   X X O X",
+          "    . O X ."
+        ]
+      },
+      "expected": "O"
+    },
+    {
+      "uuid": "21dff602-9f75-4d79-995b-2632ea654a3a",
+      "description": "X wins using a convoluted path",
+      "property": "winner",
+      "input": {
+        "board": [
+          ". X X . .",
+          " X . X . X",
+          "  . X . X .",
+          "   . X X . .",
+          "    O O O O O"
+        ]
+      },
+      "expected": "X"
+    },
+    {
+      "uuid": "0b37d07c-4bd9-4a17-9a1f-2c355df2e0df",
+      "description": "X wins using a spiral path",
+      "property": "winner",
+      "input": {
+        "board": [
+          "O X X X X X X X X",
+          " O X O O O O O O O",
+          "  O X O X X X X X O",
+          "   O X O X O O O X O",
+          "    O X O X X X O X O",
+          "     O X O O O X O X O",
+          "      O X X X X X O X O",
+          "       O O O O O O O X O",
+          "        X X X X X X X X O"
+        ]
+      },
+      "expected": "X"
+    }
+  ]
+}

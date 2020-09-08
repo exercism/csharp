@@ -1,0 +1,64 @@
+{
+  "exercise": "collatz-conjecture",
+  "version": "1.2.1",
+  "cases": [
+    {
+      "uuid": "e1a26954-9147-477f-9eae-8e0394a2db79",
+      "description": "zero steps for one",
+      "property": "steps",
+      "input": {
+        "number": 1
+      },
+      "expected": 0
+    },
+    {
+      "uuid": "2a9be629-af61-4482-98c6-01bc0c8771aa",
+      "description": "divide if even",
+      "property": "steps",
+      "input": {
+        "number": 16
+      },
+      "expected": 4
+    },
+    {
+      "uuid": "b231a630-fd74-4278-adb8-fa028ea8abf9",
+      "description": "even and odd steps",
+      "property": "steps",
+      "input": {
+        "number": 12
+      },
+      "expected": 9
+    },
+    {
+      "uuid": "23f251e8-9642-4bbb-9570-4ef6917ae813",
+      "description": "large number of even and odd steps",
+      "property": "steps",
+      "input": {
+        "number": 1000000
+      },
+      "expected": 152
+    },
+    {
+      "uuid": "65c5776e-fdfe-481b-86d8-687166b81187",
+      "description": "zero is an error",
+      "property": "steps",
+      "input": {
+        "number": 0
+      },
+      "expected": {
+        "error": "Only positive numbers are allowed"
+      }
+    },
+    {
+      "uuid": "44b41f85-c74d-40b0-bfc4-595235dc4e8d",
+      "description": "negative value is an error",
+      "property": "steps",
+      "input": {
+        "number": -15
+      },
+      "expected": {
+        "error": "Only positive numbers are allowed"
+      }
+    }
+  ]
+}

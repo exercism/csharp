@@ -1,0 +1,141 @@
+{
+  "exercise": "binary",
+  "version": "1.1.0",
+  "cases": [
+    {
+      "uuid": "ce24ef6c-d32b-4dff-958b-54718f0013e0",
+      "description": "binary 0 is decimal 0",
+      "property": "decimal",
+      "input": {
+        "binary": "0"
+      },
+      "expected": 0
+    },
+    {
+      "uuid": "cdfcfed4-4e65-4937-badc-2f01ac0b69ab",
+      "description": "binary 1 is decimal 1",
+      "property": "decimal",
+      "input": {
+        "binary": "1"
+      },
+      "expected": 1
+    },
+    {
+      "uuid": "b2c635d2-116a-41c2-acd0-189537068ab3",
+      "description": "binary 10 is decimal 2",
+      "property": "decimal",
+      "input": {
+        "binary": "10"
+      },
+      "expected": 2
+    },
+    {
+      "uuid": "19dd830b-764e-466b-88b4-60584974c167",
+      "description": "binary 11 is decimal 3",
+      "property": "decimal",
+      "input": {
+        "binary": "11"
+      },
+      "expected": 3
+    },
+    {
+      "uuid": "6af51279-9166-49a8-acf2-4f6150cea794",
+      "description": "binary 100 is decimal 4",
+      "property": "decimal",
+      "input": {
+        "binary": "100"
+      },
+      "expected": 4
+    },
+    {
+      "uuid": "889c832e-8d4c-40af-b2c0-373b5813c199",
+      "description": "binary 1001 is decimal 9",
+      "property": "decimal",
+      "input": {
+        "binary": "1001"
+      },
+      "expected": 9
+    },
+    {
+      "uuid": "d9084048-ad40-4a3f-b983-683dd4c37dfb",
+      "description": "binary 11010 is decimal 26",
+      "property": "decimal",
+      "input": {
+        "binary": "11010"
+      },
+      "expected": 26
+    },
+    {
+      "uuid": "e945863a-37ea-4f69-8881-ebed9f16631c",
+      "description": "binary 10001101000 is decimal 1128",
+      "property": "decimal",
+      "input": {
+        "binary": "10001101000"
+      },
+      "expected": 1128
+    },
+    {
+      "uuid": "080a39ac-41f9-4f84-820d-c44e68d8e795",
+      "description": "binary ignores leading zeros",
+      "property": "decimal",
+      "input": {
+        "binary": "000011111"
+      },
+      "expected": 31
+    },
+    {
+      "uuid": "bbc50bb9-d01a-41ac-b8bc-ddadc599fe20",
+      "description": "2 is not a valid binary digit",
+      "property": "decimal",
+      "input": {
+        "binary": "2"
+      },
+      "expected": null
+    },
+    {
+      "uuid": "90f936a6-4c68-4470-ad0b-a0ddda0c7360",
+      "description": "a number containing a non-binary digit is invalid",
+      "property": "decimal",
+      "input": {
+        "binary": "01201"
+      },
+      "expected": null
+    },
+    {
+      "uuid": "b3b9194a-0db9-483b-a2b1-019209f44820",
+      "description": "a number with trailing non-binary characters is invalid",
+      "property": "decimal",
+      "input": {
+        "binary": "10nope"
+      },
+      "expected": null
+    },
+    {
+      "uuid": "f6f73d66-bee0-4b5c-9abb-e7cb97a332e1",
+      "description": "a number with leading non-binary characters is invalid",
+      "property": "decimal",
+      "input": {
+        "binary": "nope10"
+      },
+      "expected": null
+    },
+    {
+      "uuid": "c1c1b99a-4734-4fcc-94ec-04daff328a6d",
+      "description": "a number with internal non-binary characters is invalid",
+      "property": "decimal",
+      "input": {
+        "binary": "10nope10"
+      },
+      "expected": null
+    },
+    {
+      "uuid": "84d69c98-ad21-4b90-af38-8da2314a6a1e",
+      "description": "a number and a word whitespace separated is invalid",
+      "property": "decimal",
+      "input": {
+        "binary": "001 nope"
+      },
+      "expected": null
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+[canonical-tests]
+
+# Test case: Chromatic scale with sharps
+"4cf83633-4f21-4963-b2e3-384dea2680a3" = true
+
+# Test case: Chromatic scale with flats
+"344ce4de-88c7-4b73-8f2c-a0ab3850d767" = true
+
+# Test case: Simple major scale
+"85b355d7-59e4-4cb6-bc55-7f29715be17a" = true
+
+# Test case: Major scale with sharps
+"2ce46129-30f0-49e8-bb05-443894b62c14" = true
+
+# Test case: Major scale with flats
+"a4c4b0a3-f869-4435-867f-01617debeec1" = true
+
+# Test case: Minor scale with sharps
+"63413974-f2b2-44d2-9d6a-9dd125a15219" = true
+
+# Test case: Minor scale with flats
+"3c42e2c7-6fe2-4302-851a-adad957746e5" = true
+
+# Test case: Dorian mode
+"682182b3-7514-4ea3-9da8-774fcc618932" = true
+
+# Test case: Mixolydian mode
+"369ca35d-e8e3-4811-925f-c428fa38e354" = true
+
+# Test case: Lydian mode
+"22720811-5a48-424c-bfd3-e7b4d3b84c22" = true
+
+# Test case: Phrygian mode
+"9f2785dd-b3a2-4cf5-848e-7e12e6fcdc91" = true
+
+# Test case: Locrian mode
+"28f6913c-dcda-4bec-ab9f-0e6a79bab4f8" = true
+
+# Test case: Harmonic minor
+"24d82cf7-7705-4a31-97f8-f298903288bd" = true
+
+# Test case: Octatonic
+"69a6c8fc-708d-4ec8-b5d4-2f48d36f96d6" = true
+
+# Test case: Hexatonic
+"31ba3b6c-49ee-4464-a200-dc6ab0683720" = true
+
+# Test case: Pentatonic
+"c461abe8-3fec-4c6a-8bf5-60e265844728" = true
+
+# Test case: Enigmatic
+"614831bc-67a2-4a5b-b604-ed8dea24708b" = true

@@ -1,0 +1,70 @@
+[canonical-tests]
+
+# Test case: just a number
+"18a8481a-98e6-45a7-891f-3d3221b087bd" = true
+
+# Test case: addition
+"70bfee00-efe9-4def-b8c7-dfa80e5c3cda" = true
+
+# Test case: more addition
+"559354e7-e7c5-42f9-b569-38b35f229e6f" = true
+
+# Test case: addition with negative numbers
+"f18111bc-e08b-4c77-b737-a49169bc0cb3" = true
+
+# Test case: large addition
+"186d3a3f-258d-411b-bafa-45f6707427f1" = true
+
+# Test case: subtraction
+"c1f366a2-a201-4268-9748-da99aab9ac23" = true
+
+# Test case: multiplication
+"78498737-6890-4ccf-b1a4-d874c234f7ce" = true
+
+# Test case: division
+"c62d8dd4-b313-4a9e-b2e0-bc923c4f5860" = true
+
+# Test case: multiple additions
+"85c6d142-4077-46bd-aa15-6f45928e7b7a" = true
+
+# Test case: addition and subtraction
+"bbd0cc7c-0c70-40a1-a10a-3d425d4057df" = true
+
+# Test case: multiple subtraction
+"33cc0efb-4a8e-4b14-bea1-b37ef89fbeaa" = true
+
+# Test case: subtraction then addition
+"4415b1fd-848a-4dd9-81ad-1301b089f430" = true
+
+# Test case: multiple multiplication
+"a7739e04-3649-4b1d-a520-d4148af60e34" = true
+
+# Test case: addition and multiplication
+"9195dfc3-57bc-443e-bc5a-55291f85e2a0" = true
+
+# Test case: multiple division
+"90182fb1-b5e0-4dea-85a3-90e96fad921e" = true
+
+# Test case: unknown operation
+"839f59ef-e6f9-49e2-86ad-46851a05c4e3" = true
+
+# Test case: Non math question
+"41eb893d-89a4-41fb-9e1d-ae933ad04174" = true
+
+# Test case: reject problem missing an operand
+"bdb40acd-95ba-48c0-9acd-da31457ef352" = true
+
+# Test case: reject problem with no operands or operators
+"842e543e-3192-43b6-a87b-ffb80639d6e3" = true
+
+# Test case: reject two operations in a row
+"20d5dc63-2a7b-4ccd-b037-f56ffc5009c9" = true
+
+# Test case: reject two numbers in a row
+"b8929e6b-df73-48cf-92ad-29b34eaaf075" = true
+
+# Test case: reject postfix notation
+"bf5ea9b4-35c3-470e-b3e5-9e77013ed594" = true
+
+# Test case: reject prefix notation
+"7cff1c09-1b24-4e3a-88ff-73d4aeb73a18" = true

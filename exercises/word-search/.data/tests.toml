@@ -1,0 +1,61 @@
+[canonical-tests]
+
+# Test case: Should accept an initial game grid and a target search word
+"5a1087e8-6d1b-4d7d-be67-ebec6175f0f8" = true
+
+# Test case: Should locate one word written left to right
+"22c2f228-efdb-492c-adfe-93e247adc763" = true
+
+# Test case: Should locate the same word written left to right in a different position
+"1f4b6bf0-5e0d-4e0a-beda-b2cf27ada239" = true
+
+# Test case: Should locate a different left to right word
+"b296f288-0693-4958-be1d-481a2eeb617c" = true
+
+# Test case: Should locate that different left to right word in a different position
+"6c1207c2-981a-4c3a-9bdf-7d55d31b0819" = true
+
+# Test case: Should locate a left to right word in two line grid
+"87213f86-ef9a-441a-b1b2-4940eb962478" = true
+
+# Test case: Should locate a left to right word in three line grid
+"f5d1c2dd-cbba-4d02-9fbe-bb9e177629ce" = true
+
+# Test case: Should locate a left to right word in ten line grid
+"8ae76b52-40f9-4d7a-84f3-30aa09b19c3e" = true
+
+# Test case: Should locate that left to right word in a different position in a ten line grid
+"b4facc0d-1455-4bf3-8ecf-c8e13346fd30" = true
+
+# Test case: Should locate a different left to right word in a ten line grid
+"9c72e2e3-b800-44a4-8207-399f2c5c3596" = true
+
+# Test case: Should locate multiple words
+"5f4957ab-f765-449c-8033-032b8219fbde" = true
+
+# Test case: Should locate a single word written right to left
+"f4471fc5-a0ed-4557-965e-3e3c279490e6" = true
+
+# Test case: Should locate multiple words written in different horizontal directions
+"9bbede37-8738-42a1-9955-6930f18c4602" = true
+
+# Test case: Should locate words written top to bottom
+"645029e3-24eb-4b4e-9e9b-3bf5ea7c67e4" = true
+
+# Test case: Should locate words written bottom to top
+"b0a3fa76-e41c-4967-8691-d3e368ffdc0d" = true
+
+# Test case: Should locate words written top left to bottom right
+"752403d2-9574-4cf4-8232-b473e7869f6a" = true
+
+# Test case: Should locate words written bottom right to top left
+"680d6870-ad2a-4285-bc82-dc3b24237e66" = true
+
+# Test case: Should locate words written bottom left to top right
+"072a3b72-1b0f-46e3-a445-a618eee51dcb" = true
+
+# Test case: Should locate words written top right to bottom left
+"8356ffef-f621-4b1d-8b39-167056cd85a0" = true
+
+# Test case: Should fail to locate a word that is not in the puzzle
+"ec5603db-936d-4d27-ad7b-f5346f9b096a" = true

@@ -1,0 +1,77 @@
+{
+  "exercise": "diffie-hellman",
+  "version": "1.0.0",
+  "comments": [
+    "Optional tests to consider:",
+    "* Validation of parameters:",
+    "  Validate that `p`, `g` are valid.",
+    "  Validate that keys given as inputs are valid.",
+    "  Resources that show what happens if parameters are not validated:",
+    "  http://cryptopals.com/sets/5/challenges/34",
+    "  http://cryptopals.com/sets/5/challenges/35",
+    "* Large numbers:",
+    "  Although the calculations fundamentally do not require large numbers,",
+    "  this is a reasonable real-world use for them",
+    "  and it may be instructive to have an exercise on their use.",
+    "  Consult tracks with this exercise (such as the Go track) for possible inputs to use."
+  ],
+  "cases": [
+    {
+      "uuid": "d6651421-1b49-47f2-b8e9-6645e758022a",
+      "description": "private key is in range 1 .. p",
+      "property": "privateKeyIsInRange",
+      "input": {},
+      "expected": {
+        "greaterThan": 1,
+        "lessThan": "p"
+      }
+    },
+    {
+      "uuid": "282230d2-f8dc-4782-aca5-20c6c44c58d3",
+      "description": "private key is random",
+      "property": "privateKeyIsRandom",
+      "input": {},
+      "expected": {
+        "random": true
+      }
+    },
+    {
+      "uuid": "c59c65ad-dc08-468c-b0d9-6c683b113877",
+      "description": "can calculate public key using private key",
+      "property": "publicKey",
+      "input": {
+        "p": 23,
+        "g": 5,
+        "privateKey": 6
+      },
+      "expected": 8
+    },
+    {
+      "uuid": "fc35da9f-eb1a-4707-bd25-6db4100c075c",
+      "description": "can calculate secret using other party's public key",
+      "property": "secret",
+      "input": {
+        "p": 23,
+        "theirPublicKey": 19,
+        "myPrivateKey": 6
+      },
+      "expected": 2
+    },
+    {
+      "uuid": "509f1972-ccb6-402a-8ea7-2410510dfb26",
+      "description": "key exchange",
+      "property": "keyExchange",
+      "input": {
+        "p": 23,
+        "g": 5,
+        "alicePrivateKey": "privateKey(p)",
+        "bobPrivateKey": "privateKey(p)",
+        "alicePublicKey": "publicKey(p, g, alicePrivateKey)",
+        "bobPublicKey": "publicKey(p, g, bobPrivateKey)",
+        "secretA": "secret(p, bobPublicKey, alicePrivateKey)",
+        "secretB": "secret(p, alicePublicKey, bobPrivateKey)"
+      },
+      "expected": "secretA == secretB"
+    }
+  ]
+}

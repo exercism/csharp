@@ -1,0 +1,456 @@
+{
+  "exercise": "circular-buffer",
+  "version": "1.2.0",
+  "comments": [
+    "In general, these circular buffers are expected to be stateful,",
+    "and each language will operate on them differently.",
+    "Tests tend to perform a series of operations, some of which expect a certain result.",
+    "As such, this common test suite can only say in abstract terms what should be done.",
+    "",
+    "Tests will contain a number of operations. The operation will be specified in the `operation` key.",
+    "Based on the operation, other keys may be present.",
+    "read: Reading from the buffer should succeed if and only if `should_succeed` is true.",
+    "  If it should succeed, it should produce the item at `expected`. ",
+    "  If it should fail, `expected` will not be present. ",
+    "write: Writing the item located at `item` should succeed if and only if `should_succeed` is true.",
+    "overwrite: Write the item located at `item` into the buffer, replacing the oldest item if necessary.",
+    "clear: Clear the buffer.",
+    "",
+    "Failure of either `read` or `write` may be indicated in a manner appropriate for your language:",
+    "Raising an exception, returning (int, error), returning Option<int>, etc.",
+    "",
+    "Finally, note that all values are integers.",
+    "If your language contains generics, you may consider allowing buffers to contain other types.",
+    "Tests for that are not included here.",
+    ""
+  ],
+  "cases": [
+    {
+      "uuid": "4ea9f36b-6c91-496b-88ec-5733a50350fa",
+      "description": "reading empty buffer should fail",
+      "property": "run",
+      "input": {
+        "capacity": 1,
+        "operations": [
+          {
+            "operation": "read",
+            "should_succeed": false
+          }
+        ]
+      },
+      "expected": {}
+    },
+    {
+      "uuid": "0b3375c4-4e57-49c1-8e2b-2497a455d32c",
+      "description": "can read an item just written",
+      "property": "run",
+      "input": {
+        "capacity": 1,
+        "operations": [
+          {
+            "operation": "write",
+            "item": 1,
+            "should_succeed": true
+          },
+          {
+            "operation": "read",
+            "should_succeed": true,
+            "expected": 1
+          }
+        ]
+      },
+      "expected": {}
+    },
+    {
+      "uuid": "4b7536c3-031e-45f4-adb8-bb5be120898e",
+      "description": "each item may only be read once",
+      "property": "run",
+      "input": {
+        "capacity": 1,
+        "operations": [
+          {
+            "operation": "write",
+            "item": 1,
+            "should_succeed": true
+          },
+          {
+            "operation": "read",
+            "should_succeed": true,
+            "expected": 1
+          },
+          {
+            "operation": "read",
+            "should_succeed": false
+          }
+        ]
+      },
+      "expected": {}
+    },
+    {
+      "uuid": "f3aabb06-45d1-45c4-b1e7-b926fcfe239e",
+      "description": "items are read in the order they are written",
+      "property": "run",
+      "input": {
+        "capacity": 2,
+        "operations": [
+          {
+            "operation": "write",
+            "item": 1,
+            "should_succeed": true
+          },
+          {
+            "operation": "write",
+            "item": 2,
+            "should_succeed": true
+          },
+          {
+            "operation": "read",
+            "should_succeed": true,
+            "expected": 1
+          },
+          {
+            "operation": "read",
+            "should_succeed": true,
+            "expected": 2
+          }
+        ]
+      },
+      "expected": {}
+    },
+    {
+      "uuid": "49f367eb-ebc7-4f82-ab9f-a4962fc8416b",
+      "description": "full buffer can't be written to",
+      "property": "run",
+      "input": {
+        "capacity": 1,
+        "operations": [
+          {
+            "operation": "write",
+            "item": 1,
+            "should_succeed": true
+          },
+          {
+            "operation": "write",
+            "item": 2,
+            "should_succeed": false
+          }
+        ]
+      },
+      "expected": {}
+    },
+    {
+      "uuid": "508697dc-624b-44e5-8399-c6acae3bc87c",
+      "description": "a read frees up capacity for another write",
+      "property": "run",
+      "input": {
+        "capacity": 1,
+        "operations": [
+          {
+            "operation": "write",
+            "item": 1,
+            "should_succeed": true
+          },
+          {
+            "operation": "read",
+            "should_succeed": true,
+            "expected": 1
+          },
+          {
+            "operation": "write",
+            "item": 2,
+            "should_succeed": true
+          },
+          {
+            "operation": "read",
+            "should_succeed": true,
+            "expected": 2
+          }
+        ]
+      },
+      "expected": {}
+    },
+    {
+      "uuid": "58e2530f-2525-4383-a350-24d3d66ac875",
+      "description": "read position is maintained even across multiple writes",
+      "property": "run",
+      "input": {
+        "capacity": 3,
+        "operations": [
+          {
+            "operation": "write",
+            "item": 1,
+            "should_succeed": true
+          },
+          {
+            "operation": "write",
+            "item": 2,
+            "should_succeed": true
+          },
+          {
+            "operation": "read",
+            "should_succeed": true,
+            "expected": 1
+          },
+          {
+            "operation": "write",
+            "item": 3,
+            "should_succeed": true
+          },
+          {
+            "operation": "read",
+            "should_succeed": true,
+            "expected": 2
+          },
+          {
+            "operation": "read",
+            "should_succeed": true,
+            "expected": 3
+          }
+        ]
+      },
+      "expected": {}
+    },
+    {
+      "uuid": "1ec525a9-9330-46b5-83dd-7110a6d152b7",
+      "description": "items cleared out of buffer can't be read",
+      "property": "run",
+      "input": {
+        "capacity": 1,
+        "operations": [
+          {
+            "operation": "write",
+            "item": 1,
+            "should_succeed": true
+          },
+          {
+            "operation": "clear"
+          },
+          {
+            "operation": "read",
+            "should_succeed": false
+          }
+        ]
+      },
+      "expected": {}
+    },
+    {
+      "uuid": "47ce3e72-366b-4134-819c-70a9761898fb",
+      "description": "clear frees up capacity for another write",
+      "property": "run",
+      "input": {
+        "capacity": 1,
+        "operations": [
+          {
+            "operation": "write",
+            "item": 1,
+            "should_succeed": true
+          },
+          {
+            "operation": "clear"
+          },
+          {
+            "operation": "write",
+            "item": 2,
+            "should_succeed": true
+          },
+          {
+            "operation": "read",
+            "should_succeed": true,
+            "expected": 2
+          }
+        ]
+      },
+      "expected": {}
+    },
+    {
+      "uuid": "ba002371-04ef-44dd-a505-7ee45ee9f193",
+      "description": "clear does nothing on empty buffer",
+      "property": "run",
+      "input": {
+        "capacity": 1,
+        "operations": [
+          {
+            "operation": "clear"
+          },
+          {
+            "operation": "write",
+            "item": 1,
+            "should_succeed": true
+          },
+          {
+            "operation": "read",
+            "should_succeed": true,
+            "expected": 1
+          }
+        ]
+      },
+      "expected": {}
+    },
+    {
+      "uuid": "ad62446a-3fd8-47b6-99bf-6e0e154b1571",
+      "description": "overwrite acts like write on non-full buffer",
+      "property": "run",
+      "input": {
+        "capacity": 2,
+        "operations": [
+          {
+            "operation": "write",
+            "item": 1,
+            "should_succeed": true
+          },
+          {
+            "operation": "overwrite",
+            "item": 2
+          },
+          {
+            "operation": "read",
+            "should_succeed": true,
+            "expected": 1
+          },
+          {
+            "operation": "read",
+            "should_succeed": true,
+            "expected": 2
+          }
+        ]
+      },
+      "expected": {}
+    },
+    {
+      "uuid": "c1d042b2-318a-497c-aff8-61a67a464e4a",
+      "description": "overwrite replaces the oldest item on full buffer",
+      "property": "run",
+      "input": {
+        "capacity": 2,
+        "operations": [
+          {
+            "operation": "write",
+            "item": 1,
+            "should_succeed": true
+          },
+          {
+            "operation": "write",
+            "item": 2,
+            "should_succeed": true
+          },
+          {
+            "operation": "overwrite",
+            "item": 3
+          },
+          {
+            "operation": "read",
+            "should_succeed": true,
+            "expected": 2
+          },
+          {
+            "operation": "read",
+            "should_succeed": true,
+            "expected": 3
+          }
+        ]
+      },
+      "expected": {}
+    },
+    {
+      "uuid": "f52fb74e-4d48-4bcd-8798-fa855f3805fe",
+      "description": "overwrite replaces the oldest item remaining in buffer following a read",
+      "property": "run",
+      "input": {
+        "capacity": 3,
+        "operations": [
+          {
+            "operation": "write",
+            "item": 1,
+            "should_succeed": true
+          },
+          {
+            "operation": "write",
+            "item": 2,
+            "should_succeed": true
+          },
+          {
+            "operation": "write",
+            "item": 3,
+            "should_succeed": true
+          },
+          {
+            "operation": "read",
+            "should_succeed": true,
+            "expected": 1
+          },
+          {
+            "operation": "write",
+            "item": 4,
+            "should_succeed": true
+          },
+          {
+            "operation": "overwrite",
+            "item": 5
+          },
+          {
+            "operation": "read",
+            "should_succeed": true,
+            "expected": 3
+          },
+          {
+            "operation": "read",
+            "should_succeed": true,
+            "expected": 4
+          },
+          {
+            "operation": "read",
+            "should_succeed": true,
+            "expected": 5
+          }
+        ]
+      },
+      "expected": {}
+    },
+    {
+      "uuid": "e717a496-7d44-41a5-9846-ee7c67607378",
+      "description": "initial clear does not affect wrapping around",
+      "property": "run",
+      "input": {
+        "capacity": 2,
+        "operations": [
+          {
+            "operation": "clear"
+          },
+          {
+            "operation": "write",
+            "item": 1,
+            "should_succeed": true
+          },
+          {
+            "operation": "write",
+            "item": 2,
+            "should_succeed": true
+          },
+          {
+            "operation": "overwrite",
+            "item": 3
+          },
+          {
+            "operation": "overwrite",
+            "item": 4
+          },
+          {
+            "operation": "read",
+            "should_succeed": true,
+            "expected": 3
+          },
+          {
+            "operation": "read",
+            "should_succeed": true,
+            "expected": 4
+          },
+          {
+            "operation": "read",
+            "should_succeed": false
+          }
+        ]
+      },
+      "expected": {}
+    }
+  ]
+}

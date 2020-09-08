@@ -1,0 +1,237 @@
+{
+  "exercise": "food-chain",
+  "version": "2.1.0",
+  "comments": [
+    "JSON doesn't allow for multi-line strings, so all verses are presented ",
+    "here as arrays of strings. It's up to the test generator to join the ",
+    "lines together with line breaks.",
+    "Some languages test for the verse() method, which takes a start verse ",
+    "and optional end verse, but other languages have only tested for the full poem.",
+    "For those languages in the latter category, you may wish to only ",
+    "implement the full song test and leave the rest alone, ignoring the start ",
+    "and end verse fields."
+  ],
+  "cases": [
+    {
+      "description": "Return specified verse or series of verses",
+      "cases": [
+        {
+          "uuid": "bb21608f-213e-4111-94fe-cbd0d6a253c9",
+          "description": "fly",
+          "property": "recite",
+          "input": {
+            "startVerse": 1,
+            "endVerse": 1
+          },
+          "expected": [
+            "I know an old lady who swallowed a fly.",
+            "I don't know why she swallowed the fly. Perhaps she'll die."
+          ]
+        },
+        {
+          "uuid": "da0002f1-e1ed-4b16-9e29-3e4a647b6bec",
+          "description": "spider",
+          "property": "recite",
+          "input": {
+            "startVerse": 2,
+            "endVerse": 2
+          },
+          "expected": [
+            "I know an old lady who swallowed a spider.",
+            "It wriggled and jiggled and tickled inside her.",
+            "She swallowed the spider to catch the fly.",
+            "I don't know why she swallowed the fly. Perhaps she'll die."
+          ]
+        },
+        {
+          "uuid": "33d2e253-624a-4986-93a1-621f03fa9ee4",
+          "description": "bird",
+          "property": "recite",
+          "input": {
+            "startVerse": 3,
+            "endVerse": 3
+          },
+          "expected": [
+            "I know an old lady who swallowed a bird.",
+            "How absurd to swallow a bird!",
+            "She swallowed the bird to catch the spider that wriggled and jiggled and tickled inside her.",
+            "She swallowed the spider to catch the fly.",
+            "I don't know why she swallowed the fly. Perhaps she'll die."
+          ]
+        },
+        {
+          "uuid": "1a64b0b1-63f9-4042-b842-a659ae80afdc",
+          "description": "cat",
+          "property": "recite",
+          "input": {
+            "startVerse": 4,
+            "endVerse": 4
+          },
+          "expected": [
+            "I know an old lady who swallowed a cat.",
+            "Imagine that, to swallow a cat!",
+            "She swallowed the cat to catch the bird.",
+            "She swallowed the bird to catch the spider that wriggled and jiggled and tickled inside her.",
+            "She swallowed the spider to catch the fly.",
+            "I don't know why she swallowed the fly. Perhaps she'll die."
+          ]
+        },
+        {
+          "uuid": "c78adb59-5997-4b14-80c8-5caea592f481",
+          "description": "dog",
+          "property": "recite",
+          "input": {
+            "startVerse": 5,
+            "endVerse": 5
+          },
+          "expected": [
+            "I know an old lady who swallowed a dog.",
+            "What a hog, to swallow a dog!",
+            "She swallowed the dog to catch the cat.",
+            "She swallowed the cat to catch the bird.",
+            "She swallowed the bird to catch the spider that wriggled and jiggled and tickled inside her.",
+            "She swallowed the spider to catch the fly.",
+            "I don't know why she swallowed the fly. Perhaps she'll die."
+          ]
+        },
+        {
+          "uuid": "b6d328cc-0939-4e47-a5df-149108c883d5",
+          "description": "goat",
+          "property": "recite",
+          "input": {
+            "startVerse": 6,
+            "endVerse": 6
+          },
+          "expected": [
+            "I know an old lady who swallowed a goat.",
+            "Just opened her throat and swallowed a goat!",
+            "She swallowed the goat to catch the dog.",
+            "She swallowed the dog to catch the cat.",
+            "She swallowed the cat to catch the bird.",
+            "She swallowed the bird to catch the spider that wriggled and jiggled and tickled inside her.",
+            "She swallowed the spider to catch the fly.",
+            "I don't know why she swallowed the fly. Perhaps she'll die."
+          ]
+        },
+        {
+          "uuid": "f108a775-a87e-41d3-a05a-722fd11d15b4",
+          "description": "cow",
+          "property": "recite",
+          "input": {
+            "startVerse": 7,
+            "endVerse": 7
+          },
+          "expected": [
+            "I know an old lady who swallowed a cow.",
+            "I don't know how she swallowed a cow!",
+            "She swallowed the cow to catch the goat.",
+            "She swallowed the goat to catch the dog.",
+            "She swallowed the dog to catch the cat.",
+            "She swallowed the cat to catch the bird.",
+            "She swallowed the bird to catch the spider that wriggled and jiggled and tickled inside her.",
+            "She swallowed the spider to catch the fly.",
+            "I don't know why she swallowed the fly. Perhaps she'll die."
+          ]
+        },
+        {
+          "uuid": "52107b6d-9675-49a4-9324-aeceea052f10",
+          "description": "horse",
+          "property": "recite",
+          "input": {
+            "startVerse": 8,
+            "endVerse": 8
+          },
+          "expected": [
+            "I know an old lady who swallowed a horse.",
+            "She's dead, of course!"
+          ]
+        },
+        {
+          "uuid": "0a711aad-493a-4410-9ebb-30610a23c7fa",
+          "description": "multiple verses",
+          "property": "recite",
+          "input": {
+            "startVerse": 1,
+            "endVerse": 3
+          },
+          "expected": [
+            "I know an old lady who swallowed a fly.",
+            "I don't know why she swallowed the fly. Perhaps she'll die.",
+            "",
+            "I know an old lady who swallowed a spider.",
+            "It wriggled and jiggled and tickled inside her.",
+            "She swallowed the spider to catch the fly.",
+            "I don't know why she swallowed the fly. Perhaps she'll die.",
+            "",
+            "I know an old lady who swallowed a bird.",
+            "How absurd to swallow a bird!",
+            "She swallowed the bird to catch the spider that wriggled and jiggled and tickled inside her.",
+            "She swallowed the spider to catch the fly.",
+            "I don't know why she swallowed the fly. Perhaps she'll die."
+          ]
+        },
+        {
+          "uuid": "538ac06a-6fdb-4a13-ae64-651c9f381833",
+          "description": "full song",
+          "property": "recite",
+          "input": {
+            "startVerse": 1,
+            "endVerse": 8
+          },
+          "expected": [
+            "I know an old lady who swallowed a fly.",
+            "I don't know why she swallowed the fly. Perhaps she'll die.",
+            "",
+            "I know an old lady who swallowed a spider.",
+            "It wriggled and jiggled and tickled inside her.",
+            "She swallowed the spider to catch the fly.",
+            "I don't know why she swallowed the fly. Perhaps she'll die.",
+            "",
+            "I know an old lady who swallowed a bird.",
+            "How absurd to swallow a bird!",
+            "She swallowed the bird to catch the spider that wriggled and jiggled and tickled inside her.",
+            "She swallowed the spider to catch the fly.",
+            "I don't know why she swallowed the fly. Perhaps she'll die.",
+            "",
+            "I know an old lady who swallowed a cat.",
+            "Imagine that, to swallow a cat!",
+            "She swallowed the cat to catch the bird.",
+            "She swallowed the bird to catch the spider that wriggled and jiggled and tickled inside her.",
+            "She swallowed the spider to catch the fly.",
+            "I don't know why she swallowed the fly. Perhaps she'll die.",
+            "",
+            "I know an old lady who swallowed a dog.",
+            "What a hog, to swallow a dog!",
+            "She swallowed the dog to catch the cat.",
+            "She swallowed the cat to catch the bird.",
+            "She swallowed the bird to catch the spider that wriggled and jiggled and tickled inside her.",
+            "She swallowed the spider to catch the fly.",
+            "I don't know why she swallowed the fly. Perhaps she'll die.",
+            "",
+            "I know an old lady who swallowed a goat.",
+            "Just opened her throat and swallowed a goat!",
+            "She swallowed the goat to catch the dog.",
+            "She swallowed the dog to catch the cat.",
+            "She swallowed the cat to catch the bird.",
+            "She swallowed the bird to catch the spider that wriggled and jiggled and tickled inside her.",
+            "She swallowed the spider to catch the fly.",
+            "I don't know why she swallowed the fly. Perhaps she'll die.",
+            "",
+            "I know an old lady who swallowed a cow.",
+            "I don't know how she swallowed a cow!",
+            "She swallowed the cow to catch the goat.",
+            "She swallowed the goat to catch the dog.",
+            "She swallowed the dog to catch the cat.",
+            "She swallowed the cat to catch the bird.",
+            "She swallowed the bird to catch the spider that wriggled and jiggled and tickled inside her.",
+            "She swallowed the spider to catch the fly.",
+            "I don't know why she swallowed the fly. Perhaps she'll die.",
+            "",
+            "I know an old lady who swallowed a horse.",
+            "She's dead, of course!"
+          ]
+        }
+      ]
+    }
+  ]
+}

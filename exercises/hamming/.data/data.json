@@ -1,0 +1,113 @@
+{
+  "exercise": "hamming",
+  "version": "2.3.0",
+  "comments": [
+    "Language implementations vary on the issue of unequal length strands.",
+    "A language may elect to simplify this task by only presenting equal",
+    "length test cases.  For languages handling unequal length strands as",
+    "error condition, unequal length test cases are included here and are",
+    "indicated with an error object.  Language idioms of errors or exceptions",
+    "should be followed.  Alternative interpretations such as ignoring excess",
+    "length at the end are not represented here."
+  ],
+  "cases": [
+    {
+      "uuid": "6cdfcf8b-1285-4f65-8d7a-58e4b9fd4a4b",
+      "description": "empty strands",
+      "property": "distance",
+      "input": {
+        "strand1": "",
+        "strand2": ""
+      },
+      "expected": 0
+    },
+    {
+      "uuid": "9f45a68c-5960-4f85-a667-081fb1782c95",
+      "description": "single letter identical strands",
+      "property": "distance",
+      "input": {
+        "strand1": "A",
+        "strand2": "A"
+      },
+      "expected": 0
+    },
+    {
+      "uuid": "910a2c10-82ad-4ad9-b58f-1416339e0a66",
+      "description": "single letter different strands",
+      "property": "distance",
+      "input": {
+        "strand1": "G",
+        "strand2": "T"
+      },
+      "expected": 1
+    },
+    {
+      "uuid": "b3ef076f-bb7e-4be2-a1bf-f92ace29bbe8",
+      "description": "long identical strands",
+      "property": "distance",
+      "input": {
+        "strand1": "GGACTGAAATCTG",
+        "strand2": "GGACTGAAATCTG"
+      },
+      "expected": 0
+    },
+    {
+      "uuid": "ed8b8d64-1ce6-4f85-970a-285d17d61b0b",
+      "description": "long different strands",
+      "property": "distance",
+      "input": {
+        "strand1": "GGACGGATTCTG",
+        "strand2": "AGGACGGATTCT"
+      },
+      "expected": 9
+    },
+    {
+      "uuid": "9051014d-7728-4217-b083-3b2e57a7aa7f",
+      "description": "disallow first strand longer",
+      "property": "distance",
+      "input": {
+        "strand1": "AATG",
+        "strand2": "AAA"
+      },
+      "expected": {
+        "error": "left and right strands must be of equal length"
+      }
+    },
+    {
+      "uuid": "11be2d7d-02d2-48c7-8d1f-763352cc7ff5",
+      "description": "disallow second strand longer",
+      "property": "distance",
+      "input": {
+        "strand1": "ATA",
+        "strand2": "AGTG"
+      },
+      "expected": {
+        "error": "left and right strands must be of equal length"
+      }
+    },
+    {
+      "uuid": "1bedf71a-a1ee-4b68-ae72-6fa3c385d1ed",
+      "description": "disallow left empty strand",
+      "property": "distance",
+      "input": {
+        "strand1": "",
+        "strand2": "G"
+      },
+      "expected": {
+        "error": "left strand must not be empty"
+      }
+    },
+    {
+      "uuid": "b94d5093-937b-41ac-9c9c-1b37247d28b0",
+      "description": "disallow right empty strand",
+      "property": "distance",
+      "input": {
+        "strand1": "G",
+        "strand2": ""
+      },
+      "expected": {
+        "error": "right strand must not be empty"
+      }
+    }
+  ]
+}

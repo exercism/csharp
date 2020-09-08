@@ -1,0 +1,43 @@
+[canonical-tests]
+
+# Test case: no matches
+"8320e6e9-18d6-4e7d-8bf2-fcb1a3b41f14" = true
+
+# Test case: detects two anagrams
+"c172185c-63f2-4ac8-9599-4c5c602e47b2" = true
+
+# Test case: does not detect anagram subsets
+"c33971ab-8da8-45ab-a80e-120e881af4e0" = true
+
+# Test case: detects anagram
+"9b7c8916-a489-4bae-83e3-e0b06114beb5" = true
+
+# Test case: detects three anagrams
+"77195d89-4cda-429d-bd11-db5f7d1447d1" = true
+
+# Test case: detects multiple anagrams with different case
+"0243cdd2-1889-430f-871e-c869c75e9880" = true
+
+# Test case: does not detect non-anagrams with identical checksum
+"c9a6e613-1b25-4e4c-8e8f-5e09a1a234d5" = true
+
+# Test case: detects anagrams case-insensitively
+"926e52fc-7bbf-4a0e-8870-2ec5ac183e79" = true
+
+# Test case: detects anagrams using case-insensitive subject
+"6f6ef842-2ab0-4a88-b7c2-9d1f4a2a5e92" = true
+
+# Test case: detects anagrams using case-insensitive possible matches
+"7605a764-41c2-4c4f-8130-9eb4a3a237bb" = true
+
+# Test case: does not detect an anagram if the original word is repeated
+"39ca8c2e-0598-4a83-98ac-a64e886476a5" = true
+
+# Test case: anagrams must use all letters exactly once
+"047aaf86-689a-41ef-abdf-b74b26ba56e7" = true
+
+# Test case: words are not anagrams of themselves (case-insensitive)
+"37b0db3c-530f-4a67-b967-1350df87bf33" = true
+
+# Test case: words other than themselves can be anagrams
+"ab9e558f-2174-4438-bf37-017d2302617b" = true

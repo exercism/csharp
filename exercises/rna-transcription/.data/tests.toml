@@ -1,0 +1,19 @@
+[canonical-tests]
+
+# Test case: Empty RNA sequence
+"96029e72-cda8-493a-8600-4c4fe4b5ecd3" = true
+
+# Test case: RNA complement of cytosine is guanine
+"064b369c-3be1-4cba-94b6-525828820793" = true
+
+# Test case: RNA complement of guanine is cytosine
+"9ced7b67-b069-45ee-9aa4-f745665584e5" = true
+
+# Test case: RNA complement of thymine is adenine
+"d4e351d6-56b6-4f1e-a4b8-f7828892a765" = true
+
+# Test case: RNA complement of adenine is uracil
+"07f29c14-ba30-4449-9b18-bd633e9b3059" = true
+
+# Test case: RNA complement
+"a7d1fb63-25df-4d2c-ac33-5d83c3171cab" = true

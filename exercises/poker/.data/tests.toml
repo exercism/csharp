@@ -1,0 +1,85 @@
+[canonical-tests]
+
+# Test case: single hand always wins
+"5e804c06-c166-4ba6-8bdb-e41df0e2f746" = true
+
+# Test case: highest card out of all hands wins
+"a58b7cc7-87c0-41d1-b04e-6433edb5ef48" = true
+
+# Test case: a tie has multiple winners
+"ac0f0f07-df78-47f5-86c0-0f2833c5c93f" = true
+
+# Test case: multiple hands with the same high cards, tie compares next highest ranked, down to last card
+"064f8eb4-3827-4561-a818-7e2d20a5b3e6" = true
+
+# Test case: one pair beats high card
+"21db3368-7803-4780-8dad-a28c5b79511d" = true
+
+# Test case: highest pair wins
+"05965c00-e641-482c-aad4-9ea7f0d86c56" = true
+
+# Test case: two pairs beats one pair
+"e77709b1-0f1d-4ca6-8113-f93e53347c96" = true
+
+# Test case: both hands have two pairs, highest ranked pair wins
+"4009ad6c-2097-41f1-b80f-c54fca5f70df" = true
+
+# Test case: both hands have two pairs, with the same highest ranked pair, tie goes to low pair
+"e790b662-b614-45a9-999c-f24f7209420e" = true
+
+# Test case: both hands have two identically ranked pairs, tie goes to remaining card (kicker)
+"685c180f-5964-4798-ad10-88b54d927b9b" = true
+
+# Test case: three of a kind beats two pair
+"7c95926b-08ca-4df0-8a17-a2ccca93055f" = true
+
+# Test case: both hands have three of a kind, tie goes to highest ranked triplet
+"9fc0214c-feaf-4345-9b15-c7f29bf4f1df" = true
+
+# Test case: with multiple decks, two players can have same three of a kind, ties go to highest remaining cards
+"a6c3190d-ae8d-4a09-80f5-fa36af18a552" = true
+
+# Test case: a straight beats three of a kind
+"7b2a4f7e-c2ee-4b8c-85c9-e3dbd492103c" = true
+
+# Test case: aces can end a straight (10 J Q K A)
+"8cb93161-9b64-42cc-930d-88bfa3ed057f" = true
+
+# Test case: aces can start a straight (A 2 3 4 5)
+"7659fd1c-83ae-4904-a6cc-c21f3f6690c0" = true
+
+# Test case: both hands with a straight, tie goes to highest ranked card
+"65a0294b-de01-4493-a508-29132eb3e853" = true
+
+# Test case: even though an ace is usually high, a 5-high straight is the lowest-scoring straight
+"1346b2a0-f348-44b7-bec7-abb26647718c" = true
+
+# Test case: flush beats a straight
+"fbefad08-75ba-44b9-b84d-3a3e7efcfded" = true
+
+# Test case: both hands have a flush, tie goes to high card, down to the last one if necessary
+"340be166-d071-4f55-bbff-eef461188679" = true
+
+# Test case: full house beats a flush
+"4f187525-c041-4bdf-a348-09baff17a00c" = true
+
+# Test case: both hands have a full house, tie goes to highest-ranked triplet
+"d61de89b-e65b-4f21-9195-ac8154284e00" = true
+
+# Test case: with multiple decks, both hands have a full house with the same triplet, tie goes to the pair
+"41cc9578-3438-4dfa-a1f2-3f4470c7a981" = true
+
+# Test case: four of a kind beats a full house
+"66306099-2b50-48f8-a6cd-3414ab499554" = true
+
+# Test case: both hands have four of a kind, tie goes to high quad
+"58295ea9-2069-44bd-8bb8-2fe7a408008d" = true
+
+# Test case: with multiple decks, both hands with identical four of a kind, tie determined by kicker
+"77285ef2-4b56-4278-b3e4-60d80c1789b5" = true
+
+# Test case: straight flush beats four of a kind
+"8a951890-f712-4139-b41f-88c3ba4035c9" = true
+
+# Test case: both hands have straight flush, tie goes to highest-ranked card
+"86ce217d-10a4-4519-8d5a-4e378a81aec2" = true

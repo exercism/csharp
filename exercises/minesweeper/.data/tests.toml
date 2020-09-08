@@ -1,0 +1,37 @@
+[canonical-tests]
+
+# Test case: no rows
+"22b4e9cd-167c-438b-8334-022e9011d682" = true
+
+# Test case: no columns
+"b56ce1d3-ed08-4665-b488-f1868070d00e" = true
+
+# Test case: no mines
+"1f28388a-6f4a-492c-8d93-7ef26a31018b" = true
+
+# Test case: minefield with only mines
+"e9ecb0d7-8c42-4fe2-9987-951966d13709" = true
+
+# Test case: mine surrounded by spaces
+"89b05f80-0dbd-4648-9e36-72ac8b31c971" = true
+
+# Test case: space surrounded by mines
+"a2f96d85-aea9-44ed-8c30-0e4be44d8deb" = true
+
+# Test case: horizontal line
+"806e156c-6e51-49fb-9b20-ace9b7ab5920" = true
+
+# Test case: horizontal line, mines at edges
+"02021e80-43b6-470b-9b11-835d9beafb7e" = true
+
+# Test case: vertical line
+"202a4947-6dc3-4ad1-8a7d-86fd7172b4ba" = true
+
+# Test case: vertical line, mines at edges
+"299578af-99e3-4c08-b26f-0616e4ddda3f" = true
+
+# Test case: cross
+"3128f566-9e9e-443f-ba63-2ba50ddda1d3" = true
+
+# Test case: large minefield
+"ccb6504c-6e26-4db4-b378-024b9a96337d" = true

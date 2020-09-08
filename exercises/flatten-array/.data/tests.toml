@@ -1,0 +1,19 @@
+[canonical-tests]
+
+# Test case: no nesting
+"a8e329ea-2139-43bc-8aa3-01e1b2424a4d" = true
+
+# Test case: flattens array with just integers present
+"9c0f1904-4966-4e1d-be4a-09338ec0af01" = true
+
+# Test case: 5 level nesting
+"fe6bab89-8d0a-4317-84c0-ba06c8602809" = true
+
+# Test case: 6 level nesting
+"913be088-838c-4608-a41e-4ef27f14334d" = true
+
+# Test case: 6 level nest list with null values
+"055038b7-f78d-4a55-9bbb-32461483c27f" = true
+
+# Test case: all values in nested list are null
+"983d5c73-1809-406a-92d2-efb9b3201dba" = true

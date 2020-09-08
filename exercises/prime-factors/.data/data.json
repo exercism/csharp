@@ -1,0 +1,74 @@
+{
+  "exercise": "prime-factors",
+  "version": "1.1.0",
+  "cases": [
+    {
+      "description": "returns prime factors for the given input number",
+      "cases": [
+        {
+          "uuid": "bba2c46e-d4d9-4864-b0e1-423749c67e76",
+          "description": "no factors",
+          "property": "factors",
+          "input": {
+            "value": 1
+          },
+          "expected": []
+        },
+        {
+          "uuid": "f8f16c11-2db9-4b68-bd85-a841de7d74ee",
+          "description": "prime number",
+          "property": "factors",
+          "input": {
+            "value": 2
+          },
+          "expected": [2]
+        },
+        {
+          "uuid": "4e92d3e1-4001-4052-9711-93aead1bd57a",
+          "description": "square of a prime",
+          "property": "factors",
+          "input": {
+            "value": 9
+          },
+          "expected": [3, 3]
+        },
+        {
+          "uuid": "9827980d-68fa-4862-89d4-dd467f39cd29",
+          "description": "cube of a prime",
+          "property": "factors",
+          "input": {
+            "value": 8
+          },
+          "expected": [2, 2, 2]
+        },
+        {
+          "uuid": "e4b00754-d0f2-4df7-85ac-fe6e9d06a964",
+          "description": "product of primes and non-primes",
+          "property": "factors",
+          "input": {
+            "value": 12
+          },
+          "expected": [2, 2, 3]
+        },
+        {
+          "uuid": "393f5ed3-a80c-450c-bf9e-80c906111182",
+          "description": "product of primes",
+          "property": "factors",
+          "input": {
+            "value": 901255
+          },
+          "expected": [5, 17, 23, 461]
+        },
+        {
+          "uuid": "b63fab24-9d3b-4018-b6a6-f578ec1044d3",
+          "description": "factors include a large prime",
+          "property": "factors",
+          "input": {
+            "value": 93819012551
+          },
+          "expected": [11, 9539, 894119]
+        }
+      ]
+    }
+  ]
+}

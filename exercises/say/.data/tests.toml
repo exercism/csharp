@@ -1,0 +1,46 @@
+[canonical-tests]
+
+# Test case: zero
+"14ba5c2e-adfc-48f1-894c-47c23d826daa" = true
+
+# Test case: one
+"0510cad8-4bc0-4752-b4c6-e92495b23b1d" = true
+
+# Test case: fourteen
+"77631c5e-1509-4cc4-848f-83df2b4773cc" = true
+
+# Test case: twenty
+"e5a40ce6-3dab-4e70-8c95-10c22c025183" = true
+
+# Test case: twenty-two
+"86998462-2c10-468a-b2c3-95669df26131" = true
+
+# Test case: one hundred
+"e629e645-ac74-48e2-99ed-8144d7fd8254" = true
+
+# Test case: one hundred twenty-three
+"7aea2775-b5c5-44fc-ad25-e67fc61c3bb1" = true
+
+# Test case: one thousand
+"4b2b0b58-90ad-4a5b-acd4-15bc9a1c47d0" = true
+
+# Test case: one thousand two hundred thirty-four
+"8a547b35-fd89-4abb-b032-fc89bf56669a" = true
+
+# Test case: one million
+"9f161c1f-e4ea-4ebd-b77e-1fcb387cb33a" = true
+
+# Test case: one million two thousand three hundred forty-five
+"f06b79e6-f404-4335-98d4-932042a0847e" = true
+
+# Test case: one billion
+"ca003617-c474-4ccd-9b88-08cdcba093fb" = true
+
+# Test case: a big number
+"f29c9ca9-88a9-4116-829c-d91f8a26c9de" = true
+
+# Test case: numbers below zero are out of range
+"07db2952-f870-49e2-856a-ae7b32825c84" = true
+
+# Test case: numbers above 999,999,999,999 are out of range
+"72ea600c-96b1-4400-9d73-402c6e819e44" = true

@@ -1,0 +1,87 @@
+{
+  "exercise": "pythagorean-triplet",
+  "version": "1.0.0",
+  "cases": [
+    {
+      "uuid": "df9f0f79-4ecb-42b8-8451-964c70565b46",
+      "description": "triplets whose sum is 12",
+      "property": "tripletsWithSum",
+      "input": {
+        "n": 12
+      },
+      "expected": [[3, 4, 5]]
+    },
+    {
+      "uuid": "f18ca7b9-ba4c-4440-a976-c421269b181a",
+      "description": "triplets whose sum is 108",
+      "property": "tripletsWithSum",
+      "input": {
+        "n": 108
+      },
+      "expected": [[27, 36, 45]]
+    },
+    {
+      "uuid": "040cd395-24ce-49a8-b6fd-b2d54b7199b9",
+      "description": "triplets whose sum is 1000",
+      "property": "tripletsWithSum",
+      "input": {
+        "n": 1000
+      },
+      "expected": [[200, 375, 425]]
+    },
+    {
+      "uuid": "08fc0990-10c1-463b-b408-6feac4bcde5c",
+      "description": "no matching triplets for 1001",
+      "property": "tripletsWithSum",
+      "input": {
+        "n": 1001
+      },
+      "expected": []
+    },
+    {
+      "uuid": "eac73a54-6770-4fd5-a81e-406ee7bddbe0",
+      "description": "returns all matching triplets",
+      "property": "tripletsWithSum",
+      "input": {
+        "n": 90
+      },
+      "expected": [
+        [9, 40, 41],
+        [15, 36, 39]
+      ]
+    },
+    {
+      "uuid": "0755d16f-26c7-4ed7-9f4a-89c6dd9a1037",
+      "description": "several matching triplets",
+      "property": "tripletsWithSum",
+      "input": {
+        "n": 840
+      },
+      "expected": [
+        [40, 399, 401],
+        [56, 390, 394],
+        [105, 360, 375],
+        [120, 350, 370],
+        [140, 336, 364],
+        [168, 315, 357],
+        [210, 280, 350],
+        [240, 252, 348]
+      ]
+    },
+    {
+      "uuid": "df834855-eb83-4731-8d58-b4ac4599b963",
+      "description": "triplets for large number",
+      "property": "tripletsWithSum",
+      "input": {
+        "n": 30000
+      },
+      "expected": [
+        [1200, 14375, 14425],
+        [1875, 14000, 14125],
+        [5000, 12000, 13000],
+        [6000, 11250, 12750],
+        [7500, 10000, 12500]
+      ]
+    }
+  ]
+}

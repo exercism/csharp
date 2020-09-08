@@ -1,0 +1,16 @@
+[canonical-tests]
+
+# Test case: empty strand
+"24ed0a7f-118a-4537-92c3-cf221fe420a1" = true
+
+# Test case: can count one nucleotide in single-character input
+"54eaf987-6b67-4891-bc36-cc11f86d25bc" = true
+
+# Test case: strand with repeated nucleotide
+"92b4a9c4-0ad7-42c2-ab76-b0e5d182feba" = true
+
+# Test case: strand with multiple nucleotides
+"449e18d0-0e92-48eb-9969-e4c0f93108de" = true
+
+# Test case: strand with invalid nucleotides
+"20e8b401-6ac7-4f02-9d89-28284e8c6eef" = true

@@ -1,0 +1,173 @@
+{
+  "exercise": "book-store",
+  "version": "1.4.0",
+  "cases": [
+    {
+      "description": "Return the total basket price after applying the best discount.",
+      "comments": [
+        "Calculate lowest price for a shopping basket containing books only from ",
+        "a single series.  There is no discount advantage for having more than ",
+        "one copy of any single book in a grouping.",
+        "implementors should use proper fixed-point or currency data types of the ",
+        "corresponding language and not float.",
+        "All 'expected' amounts are in cents."
+      ],
+      "cases": [
+        {
+          "uuid": "991e903d-141c-4850-92ae-8ad8c0334514",
+          "property": "total",
+          "description": "Only a single book",
+          "comments": ["Suggested grouping, [[1]]."],
+          "input": {
+            "basket": [1]
+          },
+          "expected": 800
+        },
+        {
+          "uuid": "2ade30d6-b72a-46dd-ab87-612a1d28a955",
+          "property": "total",
+          "description": "Two of the same book",
+          "comments": ["Suggested grouping, [[2],[2]]."],
+          "input": {
+            "basket": [2, 2]
+          },
+          "expected": 1600
+        },
+        {
+          "uuid": "828a8aa3-07d9-4d15-9b4e-a7262b950602",
+          "property": "total",
+          "description": "Empty basket",
+          "comments": ["Suggested grouping, []."],
+          "input": {
+            "basket": []
+          },
+          "expected": 0
+        },
+        {
+          "uuid": "cffe6743-dd1b-480a-9b17-b15c7f2f6426",
+          "property": "total",
+          "description": "Two different books",
+          "comments": ["Suggested grouping, [[1,2]]."],
+          "input": {
+            "basket": [1, 2]
+          },
+          "expected": 1520
+        },
+        {
+          "uuid": "06acc551-667a-42ac-ba40-9bfcd55d59e6",
+          "property": "total",
+          "description": "Three different books",
+          "comments": ["Suggested grouping, [[1,2,3]]."],
+          "input": {
+            "basket": [1, 2, 3]
+          },
+          "expected": 2160
+        },
+        {
+          "uuid": "639f7e0b-34c4-4737-8633-782dd4ea154a",
+          "property": "total",
+          "description": "Four different books",
+          "comments": ["Suggested grouping, [[1,2,3,4]]."],
+          "input": {
+            "basket": [1, 2, 3, 4]
+          },
+          "expected": 2560
+        },
+        {
+          "uuid": "a3a638d9-33cb-4e7d-8b4f-b39ce99afa40",
+          "property": "total",
+          "description": "Five different books",
+          "comments": ["Suggested grouping, [[1,2,3,4,5]]."],
+          "input": {
+            "basket": [1, 2, 3, 4, 5]
+          },
+          "expected": 3000
+        },
+        {
+          "uuid": "493afc0d-670e-49fd-ae72-82338b4e7ee1",
+          "property": "total",
+          "description": "Two groups of four is cheaper than group of five plus group of three",
+          "comments": ["Suggested grouping, [[1,2,3,4],[1,2,3,5]]."],
+          "input": {
+            "basket": [1, 1, 2, 2, 3, 3, 4, 5]
+          },
+          "expected": 5120
+        },
+        {
+          "uuid": "dd84e0fa-5e4b-4f38-a5c0-1aa96c447610",
+          "property": "total",
+          "description": "Two groups of four is cheaper than groups of five and three",
+          "comments": [
+            "Suggested grouping, [[1,2,4,5],[1,3,4,5]]. This differs from the other 'two groups of four' test in that it will fail for solutions that add books to groups in the order in which they appear in the list."
+          ],
+          "input": {
+            "basket": [1, 1, 2, 3, 4, 4, 5, 5]
+          },
+          "expected": 5120
+        },
+        {
+          "uuid": "dec966dc-c49c-4cae-9305-0cfc94bf4d33",
+          "property": "total",
+          "description": "Group of four plus group of two is cheaper than two groups of three",
+          "comments": ["Suggested grouping, [[1,2,3,4],[1,2]]."],
+          "input": {
+            "basket": [1, 1, 2, 2, 3, 4]
+          },
+          "expected": 4080
+        },
+        {
+          "uuid": "b240fb7e-f82c-4401-834f-b0aa864b3cfb",
+          "property": "total",
+          "description": "Two each of first 4 books and 1 copy each of rest",
+          "comments": ["Suggested grouping, [[1,2,3,4,5],[1,2,3,4]]."],
+          "input": {
+            "basket": [1, 1, 2, 2, 3, 3, 4, 4, 5]
+          },
+          "expected": 5560
+        },
+        {
+          "uuid": "55de177e-1cf0-404a-9656-21b0b0b53965",
+          "property": "total",
+          "description": "Two copies of each book",
+          "comments": ["Suggested grouping, [[1,2,3,4,5],[1,2,3,4,5]]."],
+          "input": {
+            "basket": [1, 1, 2, 2, 3, 3, 4, 4, 5, 5]
+          },
+          "expected": 6000
+        },
+        {
+          "uuid": "6a3e8e41-1e98-4ac1-8e3e-0dc4549099bf",
+          "property": "total",
+          "description": "Three copies of first book and 2 each of remaining",
+          "comments": ["Suggested grouping, [[1,2,3,4,5],[1,2,3,4,5],[1]]."],
+          "input": {
+            "basket": [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 1]
+          },
+          "expected": 6800
+        },
+        {
+          "uuid": "d32367b6-2cfd-482b-bd92-9d30ac198eb0",
+          "property": "total",
+          "description": "Three each of first 2 books and 2 each of remaining books",
+          "comments": ["Suggested grouping, [[1,2,3,4,5],[1,2,3,4,5],[1,2]]."],
+          "input": {
+            "basket": [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 1, 2]
+          },
+          "expected": 7520
+        },
+        {
+          "uuid": "5532b80c-14d4-4d28-8f4e-17213976056c",
+          "property": "total",
+          "description": "Four groups of four are cheaper than two groups each of five and three",
+          "comments": [
+            "Suggested grouping, [[1,2,3,4],[1,2,3,5],[1,2,3,4],[1,2,3,5]]."
+          ],
+          "input": {
+            "basket": [1, 1, 2, 2, 3, 3, 4, 5, 1, 1, 2, 2, 3, 3, 4, 5]
+          },
+          "expected": 10240
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+[canonical-tests]
+
+# Test case: sets with no elements are empty
+"a87b0a41-f85d-458f-9043-3c0150693790" = true
+
+# Test case: sets with elements are not empty
+"44faf71d-c45d-4371-a4b4-393bbcecf3b5" = true
+
+# Test case: nothing is contained in an empty set
+"0e5af92f-9ffc-42ee-8ce4-d922252b9954" = true
+
+# Test case: when the element is in the set
+"0cbbdda3-8560-4e94-90a6-1b8349ee44b2" = true
+
+# Test case: when the element is not in the set
+"e5c9cf25-d3e9-4a07-9d2d-1dd03027a0bc" = true
+
+# Test case: empty set is a subset of another empty set
+"ab711c97-93dd-4901-858d-1697345d935f" = true
+
+# Test case: empty set is a subset of non-empty set
+"590f0406-173c-4c2d-b3ee-9985da1fb444" = true
+
+# Test case: non-empty set is not a subset of empty set
+"b89352c7-1a5f-49c0-9707-b5664a4ef8fd" = true
+
+# Test case: set is a subset of set with exact same elements
+"18fe9c38-1ff5-4c11-a161-0f4b290c5c00" = true
+
+# Test case: set is a subset of larger set with same elements
+"969855aa-4d40-4d9c-878b-ba0a438b348f" = true
+
+# Test case: set is not a subset of set that does not contain its elements
+"5b14b093-77c2-43a5-977f-c74d0cca9cf2" = true
+
+# Test case: the empty set is disjoint with itself
+"4b3d1aa6-18a3-4417-9f39-7cb102f9df26" = true
+
+# Test case: empty set is disjoint with non-empty set
+"b37fe24f-a9a7-4328-bf3c-0cb730c64cd2" = true
+
+# Test case: non-empty set is disjoint with empty set
+"3baaa429-2fc4-43b5-a054-5b30b377fee1" = true
+
+# Test case: sets are not disjoint if they share an element
+"7c9338a1-8f7d-497f-936e-75792dcd4fb4" = true
+
+# Test case: sets are disjoint if they share no elements
+"75b39582-f465-4d3e-86de-6fbbfe8cd9d2" = true
+
+# Test case: empty sets are equal
+"8e541e70-4f70-4799-b700-ddf8452aed0b" = true
+
+# Test case: empty set is not equal to non-empty set
+"df6d3b66-80ff-4f52-be0f-efe52cc6929a" = true
+
+# Test case: non-empty set is not equal to empty set
+"13b4d171-6b4c-4272-8874-614214186a52" = true
+
+# Test case: sets with the same elements are equal
+"7703d65e-ab54-4582-9195-3a46576dc86a" = true
+
+# Test case: sets with different elements are not equal
+"910def44-b205-4c29-92a3-141458419d28" = true
+
+# Test case: set is not equal to larger set with same elements
+"597446c7-7393-43cf-8918-72d8404ae662" = true
+
+# Test case: add to empty set
+"800f2b62-2101-4a34-8636-8b7ecfc602ca" = true
+
+# Test case: add to non-empty set
+"3464ad34-35b3-4fad-a600-d89fa5b4c772" = true
+
+# Test case: adding an existing element does not change the set
+"50ecd24d-6000-4fa5-84f7-74fcb92d42b3" = true
+
+# Test case: intersection of two empty sets is an empty set
+"d3907df5-89b7-4aec-9fd9-88f8b80eee8d" = true
+
+# Test case: intersection of an empty set and non-empty set is an empty set
+"4e537391-f0da-47e0-8d59-0019ea65e42b" = true
+
+# Test case: intersection of a non-empty set and an empty set is an empty set
+"9c94e4e4-1b0a-47fa-bbc2-18c5c5c79066" = true
+
+# Test case: intersection of two sets with no shared elements is an empty set
+"0ab25050-3fd7-4cbf-ba48-9c71d3b42c62" = true
+
+# Test case: intersection of two sets with shared elements is a set of the shared elements
+"5f5e8d93-07e8-4d48-82f5-baf023cae162" = true
+
+# Test case: difference of two empty sets is an empty set
+"aa5ae757-b3be-4f05-a72e-ca5b0312860d" = true
+
+# Test case: difference of empty set and non-empty set is an empty set
+"6c626d46-f49d-4a9f-9089-2a005ad3e94c" = true
+
+# Test case: difference of a non-empty set and an empty set is the non-empty set
+"4e8f30cd-ec14-4331-892a-992b2a209c90" = true
+
+# Test case: difference of two non-empty sets is a set of elements that are only in the first set
+"e668e962-4f9c-4f1b-8f35-b474410ed4c6" = true
+
+# Test case: union of empty sets is an empty set
+"37b94b9b-93be-4031-a548-d7b0afebab8f" = true
+
+# Test case: union of an empty set and non-empty set is the non-empty set
+"4c813380-8231-4626-b619-bef8f65f5c9d" = true
+
+# Test case: union of a non-empty set and empty set is the non-empty set
+"9e281d1e-aa6a-43dc-bead-98fd6f262201" = true
+
+# Test case: union of non-empty sets contains all unique elements
+"fd277a67-7c81-4a84-a06f-cd60521856c1" = true

@@ -1,0 +1,292 @@
+{
+  "exercise": "variable-length-quantity",
+  "version": "1.2.0",
+  "comments": [
+    "JSON doesn't allow hexadecimal literals.",
+    "All numbers are given as decimal literals instead.",
+    "An error should be expected for incomplete sequences.",
+    "It is highly recommended that your track's test generator display all numbers as hexadecimal literals."
+  ],
+  "cases": [
+    {
+      "description": "Encode a series of integers, producing a series of bytes.",
+      "cases": [
+        {
+          "uuid": "36b0c313-5b53-4205-9e1c-a13abdc7bec1",
+          "description": "zero",
+          "property": "encode",
+          "input": {
+            "integers": [0]
+          },
+          "expected": [0]
+        },
+        {
+          "uuid": "46ed96dd-9d01-4339-8ee3-9793af092060",
+          "description": "arbitrary single byte",
+          "property": "encode",
+          "input": {
+            "integers": [64]
+          },
+          "expected": [64]
+        },
+        {
+          "uuid": "e823758a-b8d5-4cb6-baa4-5e4721c646ed",
+          "description": "largest single byte",
+          "property": "encode",
+          "input": {
+            "integers": [127]
+          },
+          "expected": [127]
+        },
+        {
+          "uuid": "3ab205bb-2f82-4573-aec5-acbabcaa0b35",
+          "description": "smallest double byte",
+          "property": "encode",
+          "input": {
+            "integers": [128]
+          },
+          "expected": [129, 0]
+        },
+        {
+          "uuid": "eadde062-4d59-4b44-a3e6-98c2eac648b1",
+          "description": "arbitrary double byte",
+          "property": "encode",
+          "input": {
+            "integers": [8192]
+          },
+          "expected": [192, 0]
+        },
+        {
+          "uuid": "40f9aef0-d7e5-4904-ac35-03e046f24966",
+          "description": "largest double byte",
+          "property": "encode",
+          "input": {
+            "integers": [16383]
+          },
+          "expected": [255, 127]
+        },
+        {
+          "uuid": "ab9c2c25-5891-46b5-bfdb-fc130791332e",
+          "description": "smallest triple byte",
+          "property": "encode",
+          "input": {
+            "integers": [16384]
+          },
+          "expected": [129, 128, 0]
+        },
+        {
+          "uuid": "c120f450-552f-436a-bc9e-ce97fe59b8cb",
+          "description": "arbitrary triple byte",
+          "property": "encode",
+          "input": {
+            "integers": [1048576]
+          },
+          "expected": [192, 128, 0]
+        },
+        {
+          "uuid": "8794178c-3da3-4652-aad1-2d48d071c322",
+          "description": "largest triple byte",
+          "property": "encode",
+          "input": {
+            "integers": [2097151]
+          },
+          "expected": [255, 255, 127]
+        },
+        {
+          "uuid": "a910fbf7-bf86-4dce-825e-cf5a9862fb09",
+          "description": "smallest quadruple byte",
+          "property": "encode",
+          "input": {
+            "integers": [2097152]
+          },
+          "expected": [129, 128, 128, 0]
+        },
+        {
+          "uuid": "98c57754-0731-4f76-aac1-8f715a7e263b",
+          "description": "arbitrary quadruple byte",
+          "property": "encode",
+          "input": {
+            "integers": [134217728]
+          },
+          "expected": [192, 128, 128, 0]
+        },
+        {
+          "uuid": "92b44d3a-9eb4-474f-859c-295c8173e0fe",
+          "description": "largest quadruple byte",
+          "property": "encode",
+          "input": {
+            "integers": [268435455]
+          },
+          "expected": [255, 255, 255, 127]
+        },
+        {
+          "uuid": "e69b80fe-26f3-4345-8c45-6829780b2357",
+          "description": "smallest quintuple byte",
+          "property": "encode",
+          "input": {
+            "integers": [268435456]
+          },
+          "expected": [129, 128, 128, 128, 0]
+        },
+        {
+          "uuid": "e002104d-160e-49c6-88d3-65d82eaf5e1f",
+          "description": "arbitrary quintuple byte",
+          "property": "encode",
+          "input": {
+            "integers": [4278190080]
+          },
+          "expected": [143, 248, 128, 128, 0]
+        },
+        {
+          "uuid": "43ddcf89-875e-42ba-b40d-37d3d0b4aada",
+          "description": "maximum 32-bit integer input",
+          "property": "encode",
+          "input": {
+            "integers": [4294967295]
+          },
+          "expected": [143, 255, 255, 255, 127]
+        },
+        {
+          "uuid": "fa5dc3ae-089e-4f88-b7e2-cd7e07c61888",
+          "description": "two single-byte values",
+          "property": "encode",
+          "input": {
+            "integers": [64, 127]
+          },
+          "expected": [64, 127]
+        },
+        {
+          "uuid": "a7888a30-dcdf-4765-b538-85de81cbd6f8",
+          "description": "two multi-byte values",
+          "property": "encode",
+          "input": {
+            "integers": [16384, 1193046]
+          },
+          "expected": [129, 128, 0, 200, 232, 86]
+        },
+        {
+          "uuid": "101fc3d8-860a-4db4-b7dd-d0df20251754",
+          "description": "many multi-byte values",
+          "property": "encode",
+          "input": {
+            "integers": [8192, 1193046, 268435455, 0, 16383, 16384]
+          },
+          "expected": [
+            192,
+            0,
+            200,
+            232,
+            86,
+            255,
+            255,
+            255,
+            127,
+            0,
+            255,
+            127,
+            129,
+            128,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Decode a series of bytes, producing a series of integers.",
+      "cases": [
+        {
+          "uuid": "bc9487b3-97d4-4458-8237-3eef185d1e99",
+          "description": "one byte",
+          "property": "decode",
+          "input": {
+            "integers": [127]
+          },
+          "expected": [127]
+        },
+        {
+          "uuid": "5b68ac39-4d37-4902-85bf-d51558f27577",
+          "description": "two bytes",
+          "property": "decode",
+          "input": {
+            "integers": [192, 0]
+          },
+          "expected": [8192]
+        },
+        {
+          "uuid": "c98efc22-cc62-47a7-87c9-c3bc49b1d0ec",
+          "description": "three bytes",
+          "property": "decode",
+          "input": {
+            "integers": [255, 255, 127]
+          },
+          "expected": [2097151]
+        },
+        {
+          "uuid": "9b3ac698-28ff-41e6-8cf6-a3c6300f76e7",
+          "description": "four bytes",
+          "property": "decode",
+          "input": {
+            "integers": [129, 128, 128, 0]
+          },
+          "expected": [2097152]
+        },
+        {
+          "uuid": "eeff7ce9-ec8c-463a-9fe9-a95d34b53201",
+          "description": "maximum 32-bit integer",
+          "property": "decode",
+          "input": {
+            "integers": [143, 255, 255, 255, 127]
+          },
+          "expected": [4294967295]
+        },
+        {
+          "uuid": "c4c65104-b412-4e93-be36-6c0316c3ab1a",
+          "description": "incomplete sequence causes error",
+          "property": "decode",
+          "input": {
+            "integers": [255]
+          },
+          "expected": {
+            "error": "incomplete sequence"
+          }
+        },
+        {
+          "uuid": "63745d95-b3cb-420a-849b-5b76ae0206b5",
+          "description": "incomplete sequence causes error, even if value is zero",
+          "property": "decode",
+          "input": {
+            "integers": [128]
+          },
+          "expected": {
+            "error": "incomplete sequence"
+          }
+        },
+        {
+          "uuid": "c4811b34-cfc6-4d1a-adf2-205ee92b9b62",
+          "description": "multiple values",
+          "property": "decode",
+          "input": {
+            "integers": [
+              192,
+              0,
+              200,
+              232,
+              86,
+              255,
+              255,
+              255,
+              127,
+              0,
+              255,
+              127,
+              129,
+              128,
+              0
+            ]
+          },
+          "expected": [8192, 1193046, 268435455, 0, 16383, 16384]
+        }
+      ]
+    }
+  ]
+}

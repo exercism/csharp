@@ -1,0 +1,28 @@
+[canonical-tests]
+
+# Test case: no users
+"6e1731a9-3b1a-4627-a4d1-27a9350c8475" = true
+
+# Test case: add user
+"0dc0d4ad-3387-4c3b-90da-31bffe99cecb" = true
+
+# Test case: get single user
+"b8ff9395-ec46-4848-891c-c71e8008701a" = true
+
+# Test case: both users have 0 balance
+"6da459e4-ef70-4010-9049-fe224d8a33d8" = true
+
+# Test case: borrower has negative balance
+"a5d3e9a6-bc7e-41d5-b72b-cf2f83340c21" = true
+
+# Test case: lender has negative balance
+"28f275d4-fc0e-4649-bb77-14d17404f26e" = true
+
+# Test case: lender owes borrower
+"1922bbeb-af44-489d-b0fc-663fddfdd5cf" = true
+
+# Test case: lender owes borrower less than new loan
+"75dd59fd-f8bf-4508-afa8-9102e4253506" = true
+
+# Test case: lender owes borrower same as new loan
+"d2b379a3-d8d7-4904-a0c5-4e51016e48b1" = true

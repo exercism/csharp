@@ -1,0 +1,37 @@
+[canonical-tests]
+
+# Test case: finds the smallest palindrome from single digit factors
+"abb5e613-07e5-44af-82c9-0d6d6e62ff2b" = true
+
+# Test case: finds the largest palindrome from single digit factors
+"d42e4cc3-15b0-478c-b531-9e7745742d7f" = true
+
+# Test case: find the smallest palindrome from double digit factors
+"e4a69897-3ce6-4716-82d2-17dfe5bba2c0" = true
+
+# Test case: find the largest palindrome from double digit factors
+"6689400b-6aa8-4dc9-a564-927d95a639e7" = true
+
+# Test case: find smallest palindrome from triple digit factors
+"85426422-7125-4f77-bd5e-06a2a9d4a978" = true
+
+# Test case: find the largest palindrome from triple digit factors
+"5b47f90c-1e90-4493-9fd6-5a06da0d92d5" = true
+
+# Test case: find smallest palindrome from four digit factors
+"949f576e-6bc8-45f5-b1cc-566973da4894" = true
+
+# Test case: find the largest palindrome from four digit factors
+"5226965f-0094-4a9c-b0a8-cb41e9b4daee" = true
+
+# Test case: empty result for smallest if no palindrome in the range
+"e58e5b5e-4066-4c73-b9cc-2b8ce364dc8e" = true
+
+# Test case: empty result for largest if no palindrome in the range
+"690942d8-d2d2-4552-832e-a6beda41dc96" = true
+
+# Test case: error result for smallest if min is more than max
+"a052b6b3-5c91-4ee6-b51c-efd94b5d8d8c" = true
+
+# Test case: error result for largest if min is more than max
+"59d57d27-7faf-47a9-b3f0-b3cd3d8b5290" = true

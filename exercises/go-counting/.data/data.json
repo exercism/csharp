@@ -1,0 +1,274 @@
+{
+  "exercise": "go-counting",
+  "version": "1.0.0",
+  "comments": [
+    "Territory consists of [x, y] coordinate pairs."
+  ],
+  "cases": [
+    {
+      "uuid": "648955da-08b4-4848-99bc-7c58bea0813d",
+      "description": "Black corner territory on 5x5 board",
+      "property": "territory",
+      "input": {
+        "board": [
+          "  B  ",
+          " B B ",
+          "B W B",
+          " W W ",
+          "  W  "
+        ],
+        "x": 0,
+        "y": 1
+      },
+      "expected": {
+        "owner": "BLACK",
+        "territory": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "uuid": "23bbbb6c-985c-4e1b-91da-2d4014fcea1c",
+      "description": "White center territory on 5x5 board",
+      "property": "territory",
+      "input": {
+        "board": [
+          "  B  ",
+          " B B ",
+          "B W B",
+          " W W ",
+          "  W  "
+        ],
+        "x": 2,
+        "y": 3
+      },
+      "expected": {
+        "owner": "WHITE",
+        "territory": [
+          [
+            2,
+            3
+          ]
+        ]
+      }
+    },
+    {
+      "uuid": "dc6a5fb9-dbec-4ce3-af89-f9c57cd647d1",
+      "description": "Open corner territory on 5x5 board",
+      "property": "territory",
+      "input": {
+        "board": [
+          "  B  ",
+          " B B ",
+          "B W B",
+          " W W ",
+          "  W  "
+        ],
+        "x": 1,
+        "y": 4
+      },
+      "expected": {
+        "owner": "NONE",
+        "territory": [
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            1,
+            4
+          ]
+        ]
+      }
+    },
+    {
+      "uuid": "e7cf07d8-df0c-4ebe-9085-59ff48f5f560",
+      "description": "A stone and not a territory on 5x5 board",
+      "property": "territory",
+      "input": {
+        "board": [
+          "  B  ",
+          " B B ",
+          "B W B",
+          " W W ",
+          "  W  "
+        ],
+        "x": 1,
+        "y": 1
+      },
+      "expected": {
+        "owner": "NONE",
+        "territory": []
+      }
+    },
+    {
+      "uuid": "d2a36828-09b6-4862-b17b-fd142b350b2b",
+      "description": "Invalid because X is too low for 5x5 board",
+      "property": "territory",
+      "input": {
+        "board": [
+          "  B  ",
+          " B B ",
+          "B W B",
+          " W W ",
+          "  W  "
+        ],
+        "x": -1,
+        "y": 1
+      },
+      "expected": {
+        "error": "Invalid coordinate"
+      }
+    },
+    {
+      "uuid": "d33cb096-33af-4921-89e7-45494f5e6989",
+      "description": "Invalid because X is too high for 5x5 board",
+      "property": "territory",
+      "input": {
+        "board": [
+          "  B  ",
+          " B B ",
+          "B W B",
+          " W W ",
+          "  W  "
+        ],
+        "x": 5,
+        "y": 1
+      },
+      "expected": {
+        "error": "Invalid coordinate"
+      }
+    },
+    {
+      "uuid": "4c243cdb-7f67-4ac9-bb49-f87804cbed65",
+      "description": "Invalid because Y is too low for 5x5 board",
+      "property": "territory",
+      "input": {
+        "board": [
+          "  B  ",
+          " B B ",
+          "B W B",
+          " W W ",
+          "  W  "
+        ],
+        "x": 1,
+        "y": -1
+      },
+      "expected": {
+        "error": "Invalid coordinate"
+      }
+    },
+    {
+      "uuid": "bd303dff-9349-485f-8cf0-95bd937c3c68",
+      "description": "Invalid because Y is too high for 5x5 board",
+      "property": "territory",
+      "input": {
+        "board": [
+          "  B  ",
+          " B B ",
+          "B W B",
+          " W W ",
+          "  W  "
+        ],
+        "x": 1,
+        "y": 5
+      },
+      "expected": {
+        "error": "Invalid coordinate"
+      }
+    },
+    {
+      "uuid": "f2939e0a-abe8-4d8d-b54d-0bda324a54e7",
+      "description": "One territory is the whole board",
+      "property": "territories",
+      "input": {
+        "board": [
+          " "
+        ]
+      },
+      "expected": {
+        "territoryBlack": [],
+        "territoryWhite": [],
+        "territoryNone": [
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "uuid": "db5a4f4f-1cc6-4555-b53c-af5c2a1fe9fa",
+      "description": "Two territory rectangular board",
+      "property": "territories",
+      "input": {
+        "board": [
+          " BW ",
+          " BW "
+        ]
+      },
+      "expected": {
+        "territoryBlack": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "territoryWhite": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "territoryNone": []
+      }
+    },
+    {
+      "uuid": "3cfdc931-b57b-43ea-94fc-edd61d4b6878",
+      "description": "Two region rectangular board",
+      "property": "territories",
+      "input": {
+        "board": [
+          " B "
+        ]
+      },
+      "expected": {
+        "territoryBlack": [
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            0
+          ]
+        ],
+        "territoryWhite": [],
+        "territoryNone": []
+      }
+    }
+  ]
+}

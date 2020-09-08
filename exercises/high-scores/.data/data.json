@@ -1,0 +1,91 @@
+{
+  "exercise": "high-scores",
+  "version": "4.0.0",
+  "comments": [
+    "This is meant to be an easy exercise to practise: ",
+    "* arrays as simple lists",
+    "* instantiating a class",
+    "Consider adding a track specific recommendation in the track's hint.md.",
+    "Consider linking to a explanatory blogpost or beginner level tutorials for both topics.",
+    "See Ruby Track hint.md for an example."
+  ],
+  "cases": [
+    {
+      "uuid": "75a7f47f-1be2-489b-97ae-ec4ba6cd7b7f",
+      "description": "List of scores",
+      "property": "scores",
+      "input": {
+        "scores": [30, 50, 20, 70]
+      },
+      "expected": [30, 50, 20, 70]
+    },
+    {
+      "uuid": "9e2fd476-a0a5-4a69-ba9a-7bd31a93cb83",
+      "description": "Latest score",
+      "property": "latest",
+      "input": {
+        "scores": [100, 0, 90, 30]
+      },
+      "expected": 30
+    },
+    {
+      "uuid": "e8bd379a-4076-439b-812f-0a0fe9aec089",
+      "description": "Personal best",
+      "property": "personalBest",
+      "input": {
+        "scores": [40, 100, 70]
+      },
+      "expected": 100
+    },
+    {
+      "description": "Top 3 scores",
+      "cases": [
+        {
+          "uuid": "79167d91-c898-4640-a99d-1629940ef518",
+          "description": "Personal top three from a list of scores",
+          "property": "personalTopThree",
+          "input": {
+            "scores": [10, 30, 90, 30, 100, 20, 10, 0, 30, 40, 40, 70, 70]
+          },
+          "expected": [100, 90, 70]
+        },
+        {
+          "uuid": "60190693-1600-4a35-8a0b-228e167491b6",
+          "description": "Personal top highest to lowest",
+          "property": "personalTopThree",
+          "input": {
+            "scores": [20, 10, 30]
+          },
+          "expected": [30, 20, 10]
+        },
+        {
+          "uuid": "92fc2ff8-c55b-4a1e-a3e2-d24113f45d00",
+          "description": "Personal top when there is a tie",
+          "property": "personalTopThree",
+          "input": {
+            "scores": [40, 20, 40, 30]
+          },
+          "expected": [40, 40, 30]
+        },
+        {
+          "uuid": "fd49c292-1558-4da7-975e-979b32a3ae28",
+          "description": "Personal top when there are less than 3",
+          "property": "personalTopThree",
+          "input": {
+            "scores": [30, 70]
+          },
+          "expected": [70, 30]
+        },
+        {
+          "uuid": "a86dc31c-1d8f-4897-9408-ad3059f46716",
+          "description": "Personal top when there is only one",
+          "property": "personalTopThree",
+          "input": {
+            "scores": [40]
+          },
+          "expected": [40]
+        }
+      ]
+    }
+  ]
+}

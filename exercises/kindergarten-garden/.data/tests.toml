@@ -1,0 +1,28 @@
+[canonical-tests]
+
+# Test case: garden with single student
+"4ae473c8-3447-4aed-8808-ded3c206a6d2" = true
+
+# Test case: different garden with single student
+"e8b2397c-fee4-4e10-aec2-e22cfa1a7d09" = true
+
+# Test case: garden with two students
+"890d4f07-63a0-4a86-b6f3-38a223211077" = true
+
+# Test case: second student's garden
+"2e556ae6-65d6-4f9c-9757-c150a46ac24a" = true
+
+# Test case: third student's garden
+"d8c37b89-6b83-4253-a19d-383249494921" = true
+
+# Test case: first student's garden
+"dbb9c2c2-5c03-4b66-b3af-c5b7272ba1c3" = true
+
+# Test case: second student's garden
+"3f314091-1571-4f24-8ca5-24d7c64e7308" = true
+
+# Test case: second to last student's garden
+"1e698b99-383f-4a49-8778-abd0e7b9f816" = true
+
+# Test case: last student's garden
+"266bc282-472f-4543-b8ac-c7976e746a5f" = true

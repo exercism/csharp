@@ -1,0 +1,52 @@
+[canonical-tests]
+
+# Test case: paired square brackets
+"159ec6c2-15f9-472b-b48e-9dec9d63b7e8" = true
+
+# Test case: empty string
+"b876e062-0156-448e-aa92-91d6af37e9a9" = true
+
+# Test case: unpaired brackets
+"bbff9f96-fb58-4b9b-8e0c-8e297137f02f" = true
+
+# Test case: wrong ordered brackets
+"8ea3f501-d068-45c4-b3b5-da8fdc11c795" = true
+
+# Test case: wrong closing bracket
+"c9ce8f5d-c8dd-4961-844b-a84d35001e1f" = true
+
+# Test case: paired with whitespace
+"83374174-863b-4ed4-92f9-3754ab39ddeb" = true
+
+# Test case: partially paired brackets
+"48f16adb-3415-45dd-9c16-ea29b020a804" = true
+
+# Test case: simple nested brackets
+"758e5a15-bf3e-4088-ad16-2a2f547d2337" = true
+
+# Test case: several paired brackets
+"e7b4da24-db58-46e8-a58a-c16601262e04" = true
+
+# Test case: paired and nested brackets
+"d1517fcb-01e5-454d-986a-4ea599d49c0f" = true
+
+# Test case: unopened closing brackets
+"1c19caf5-1484-4d4b-a4d3-8b400c866281" = true
+
+# Test case: unpaired and nested brackets
+"da86a75e-031c-4122-9ff0-c54c5fce4305" = true
+
+# Test case: paired and wrong nested brackets
+"eeba69f6-3654-4ca7-ac8b-0f929bbf9ea8" = true
+
+# Test case: paired and incomplete brackets
+"8219a750-a335-454a-bb8e-76f4a8621a08" = true
+
+# Test case: too many closing brackets
+"9f8845b0-c746-4314-a1b0-07f50f5d0e0c" = true
+
+# Test case: math expression
+"36eae863-bd8a-4144-8dae-4cf0d115bd24" = true
+
+# Test case: complex latex expression
+"a296e719-b03c-40af-9071-e64373b0a478" = true

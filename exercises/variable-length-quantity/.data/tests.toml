@@ -1,0 +1,79 @@
+[canonical-tests]
+
+# Test case: zero
+"36b0c313-5b53-4205-9e1c-a13abdc7bec1" = true
+
+# Test case: arbitrary single byte
+"46ed96dd-9d01-4339-8ee3-9793af092060" = true
+
+# Test case: largest single byte
+"e823758a-b8d5-4cb6-baa4-5e4721c646ed" = true
+
+# Test case: smallest double byte
+"3ab205bb-2f82-4573-aec5-acbabcaa0b35" = true
+
+# Test case: arbitrary double byte
+"eadde062-4d59-4b44-a3e6-98c2eac648b1" = true
+
+# Test case: largest double byte
+"40f9aef0-d7e5-4904-ac35-03e046f24966" = true
+
+# Test case: smallest triple byte
+"ab9c2c25-5891-46b5-bfdb-fc130791332e" = true
+
+# Test case: arbitrary triple byte
+"c120f450-552f-436a-bc9e-ce97fe59b8cb" = true
+
+# Test case: largest triple byte
+"8794178c-3da3-4652-aad1-2d48d071c322" = true
+
+# Test case: smallest quadruple byte
+"a910fbf7-bf86-4dce-825e-cf5a9862fb09" = true
+
+# Test case: arbitrary quadruple byte
+"98c57754-0731-4f76-aac1-8f715a7e263b" = true
+
+# Test case: largest quadruple byte
+"92b44d3a-9eb4-474f-859c-295c8173e0fe" = true
+
+# Test case: smallest quintuple byte
+"e69b80fe-26f3-4345-8c45-6829780b2357" = true
+
+# Test case: arbitrary quintuple byte
+"e002104d-160e-49c6-88d3-65d82eaf5e1f" = true
+
+# Test case: maximum 32-bit integer input
+"43ddcf89-875e-42ba-b40d-37d3d0b4aada" = true
+
+# Test case: two single-byte values
+"fa5dc3ae-089e-4f88-b7e2-cd7e07c61888" = true
+
+# Test case: two multi-byte values
+"a7888a30-dcdf-4765-b538-85de81cbd6f8" = true
+
+# Test case: many multi-byte values
+"101fc3d8-860a-4db4-b7dd-d0df20251754" = true
+
+# Test case: one byte
+"bc9487b3-97d4-4458-8237-3eef185d1e99" = true
+
+# Test case: two bytes
+"5b68ac39-4d37-4902-85bf-d51558f27577" = true
+
+# Test case: three bytes
+"c98efc22-cc62-47a7-87c9-c3bc49b1d0ec" = true
+
+# Test case: four bytes
+"9b3ac698-28ff-41e6-8cf6-a3c6300f76e7" = true
+
+# Test case: maximum 32-bit integer
+"eeff7ce9-ec8c-463a-9fe9-a95d34b53201" = true
+
+# Test case: incomplete sequence causes error
+"c4c65104-b412-4e93-be36-6c0316c3ab1a" = true
+
+# Test case: incomplete sequence causes error, even if value is zero
+"63745d95-b3cb-420a-849b-5b76ae0206b5" = true
+
+# Test case: multiple values
+"c4811b34-cfc6-4d1a-adf2-205ee92b9b62" = true

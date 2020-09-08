@@ -1,0 +1,234 @@
+{
+  "exercise": "wordy",
+  "version": "1.5.0",
+  "comments": [
+    "The tests that expect an 'error' should be implemented to raise",
+    "an error, or indicate a failure. Implement this in a way that",
+    "makes sense for your language."
+  ],
+  "cases": [
+    {
+      "uuid": "18a8481a-98e6-45a7-891f-3d3221b087bd",
+      "description": "just a number",
+      "property": "answer",
+      "input": {
+        "question": "What is 5?"
+      },
+      "expected": 5
+    },
+    {
+      "uuid": "70bfee00-efe9-4def-b8c7-dfa80e5c3cda",
+      "description": "addition",
+      "property": "answer",
+      "input": {
+        "question": "What is 1 plus 1?"
+      },
+      "expected": 2
+    },
+    {
+      "uuid": "559354e7-e7c5-42f9-b569-38b35f229e6f",
+      "description": "more addition",
+      "property": "answer",
+      "input": {
+        "question": "What is 53 plus 2?"
+      },
+      "expected": 55
+    },
+    {
+      "uuid": "f18111bc-e08b-4c77-b737-a49169bc0cb3",
+      "description": "addition with negative numbers",
+      "property": "answer",
+      "input": {
+        "question": "What is -1 plus -10?"
+      },
+      "expected": -11
+    },
+    {
+      "uuid": "186d3a3f-258d-411b-bafa-45f6707427f1",
+      "description": "large addition",
+      "property": "answer",
+      "input": {
+        "question": "What is 123 plus 45678?"
+      },
+      "expected": 45801
+    },
+    {
+      "uuid": "c1f366a2-a201-4268-9748-da99aab9ac23",
+      "description": "subtraction",
+      "property": "answer",
+      "input": {
+        "question": "What is 4 minus -12?"
+      },
+      "expected": 16
+    },
+    {
+      "uuid": "78498737-6890-4ccf-b1a4-d874c234f7ce",
+      "description": "multiplication",
+      "property": "answer",
+      "input": {
+        "question": "What is -3 multiplied by 25?"
+      },
+      "expected": -75
+    },
+    {
+      "uuid": "c62d8dd4-b313-4a9e-b2e0-bc923c4f5860",
+      "description": "division",
+      "property": "answer",
+      "input": {
+        "question": "What is 33 divided by -3?"
+      },
+      "expected": -11
+    },
+    {
+      "uuid": "85c6d142-4077-46bd-aa15-6f45928e7b7a",
+      "description": "multiple additions",
+      "property": "answer",
+      "input": {
+        "question": "What is 1 plus 1 plus 1?"
+      },
+      "expected": 3
+    },
+    {
+      "uuid": "bbd0cc7c-0c70-40a1-a10a-3d425d4057df",
+      "description": "addition and subtraction",
+      "property": "answer",
+      "input": {
+        "question": "What is 1 plus 5 minus -2?"
+      },
+      "expected": 8
+    },
+    {
+      "uuid": "33cc0efb-4a8e-4b14-bea1-b37ef89fbeaa",
+      "description": "multiple subtraction",
+      "property": "answer",
+      "input": {
+        "question": "What is 20 minus 4 minus 13?"
+      },
+      "expected": 3
+    },
+    {
+      "uuid": "4415b1fd-848a-4dd9-81ad-1301b089f430",
+      "description": "subtraction then addition",
+      "property": "answer",
+      "input": {
+        "question": "What is 17 minus 6 plus 3?"
+      },
+      "expected": 14
+    },
+    {
+      "uuid": "a7739e04-3649-4b1d-a520-d4148af60e34",
+      "description": "multiple multiplication",
+      "property": "answer",
+      "input": {
+        "question": "What is 2 multiplied by -2 multiplied by 3?"
+      },
+      "expected": -12
+    },
+    {
+      "uuid": "9195dfc3-57bc-443e-bc5a-55291f85e2a0",
+      "description": "addition and multiplication",
+      "property": "answer",
+      "input": {
+        "question": "What is -3 plus 7 multiplied by -2?"
+      },
+      "expected": -8
+    },
+    {
+      "uuid": "90182fb1-b5e0-4dea-85a3-90e96fad921e",
+      "description": "multiple division",
+      "property": "answer",
+      "input": {
+        "question": "What is -12 divided by 2 divided by -3?"
+      },
+      "expected": 2
+    },
+    {
+      "uuid": "839f59ef-e6f9-49e2-86ad-46851a05c4e3",
+      "description": "unknown operation",
+      "property": "answer",
+      "input": {
+        "question": "What is 52 cubed?"
+      },
+      "expected": {
+        "error": "unknown operation"
+      }
+    },
+    {
+      "uuid": "41eb893d-89a4-41fb-9e1d-ae933ad04174",
+      "description": "Non math question",
+      "property": "answer",
+      "input": {
+        "question": "Who is the President of the United States?"
+      },
+      "expected": {
+        "error": "unknown operation"
+      }
+    },
+    {
+      "uuid": "bdb40acd-95ba-48c0-9acd-da31457ef352",
+      "description": "reject problem missing an operand",
+      "property": "answer",
+      "input": {
+        "question": "What is 1 plus?"
+      },
+      "expected": {
+        "error": "syntax error"
+      }
+    },
+    {
+      "uuid": "842e543e-3192-43b6-a87b-ffb80639d6e3",
+      "description": "reject problem with no operands or operators",
+      "property": "answer",
+      "input": {
+        "question": "What is?"
+      },
+      "expected": {
+        "error": "syntax error"
+      }
+    },
+    {
+      "uuid": "20d5dc63-2a7b-4ccd-b037-f56ffc5009c9",
+      "description": "reject two operations in a row",
+      "property": "answer",
+      "input": {
+        "question": "What is 1 plus plus 2?"
+      },
+      "expected": {
+        "error": "syntax error"
+      }
+    },
+    {
+      "uuid": "b8929e6b-df73-48cf-92ad-29b34eaaf075",
+      "description": "reject two numbers in a row",
+      "property": "answer",
+      "input": {
+        "question": "What is 1 plus 2 1?"
+      },
+      "expected": {
+        "error": "syntax error"
+      }
+    },
+    {
+      "uuid": "bf5ea9b4-35c3-470e-b3e5-9e77013ed594",
+      "description": "reject postfix notation",
+      "property": "answer",
+      "input": {
+        "question": "What is 1 2 plus?"
+      },
+      "expected": {
+        "error": "syntax error"
+      }
+    },
+    {
+      "uuid": "7cff1c09-1b24-4e3a-88ff-73d4aeb73a18",
+      "description": "reject prefix notation",
+      "property": "answer",
+      "input": {
+        "question": "What is plus 1 2?"
+      },
+      "expected": {
+        "error": "syntax error"
+      }
+    }
+  ]
+}

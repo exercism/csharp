@@ -1,0 +1,439 @@
+{
+  "exercise": "custom-set",
+  "version": "1.3.0",
+  "comments": [
+    "These tests cover the core components of a set data structure: checking",
+    "presence, adding, comparing and basic set operations. Other features",
+    "such as deleting elements, checking size, sorting are not tested, but",
+    "you can add them if they are interesting in your language",
+    "",
+    "Tests about mixed-type sets are not included because the ability",
+    "to implement that will vary by language. If your language supports it",
+    "and you want to implement mixed-type sets, feel free."
+  ],
+  "cases": [
+    {
+      "description": "Returns true if the set contains no elements",
+      "cases": [
+        {
+          "uuid": "a87b0a41-f85d-458f-9043-3c0150693790",
+          "description": "sets with no elements are empty",
+          "property": "empty",
+          "input": {
+            "set": []
+          },
+          "expected": true
+        },
+        {
+          "uuid": "44faf71d-c45d-4371-a4b4-393bbcecf3b5",
+          "description": "sets with elements are not empty",
+          "property": "empty",
+          "input": {
+            "set": [1]
+          },
+          "expected": false
+        }
+      ]
+    },
+    {
+      "description": "Sets can report if they contain an element",
+      "cases": [
+        {
+          "uuid": "0e5af92f-9ffc-42ee-8ce4-d922252b9954",
+          "description": "nothing is contained in an empty set",
+          "property": "contains",
+          "input": {
+            "set": [],
+            "element": 1
+          },
+          "expected": false
+        },
+        {
+          "uuid": "0cbbdda3-8560-4e94-90a6-1b8349ee44b2",
+          "description": "when the element is in the set",
+          "property": "contains",
+          "input": {
+            "set": [1, 2, 3],
+            "element": 1
+          },
+          "expected": true
+        },
+        {
+          "uuid": "e5c9cf25-d3e9-4a07-9d2d-1dd03027a0bc",
+          "description": "when the element is not in the set",
+          "property": "contains",
+          "input": {
+            "set": [1, 2, 3],
+            "element": 4
+          },
+          "expected": false
+        }
+      ]
+    },
+    {
+      "description": "A set is a subset if all of its elements are contained in the other set",
+      "cases": [
+        {
+          "uuid": "ab711c97-93dd-4901-858d-1697345d935f",
+          "description": "empty set is a subset of another empty set",
+          "property": "subset",
+          "input": {
+            "set1": [],
+            "set2": []
+          },
+          "expected": true
+        },
+        {
+          "uuid": "590f0406-173c-4c2d-b3ee-9985da1fb444",
+          "description": "empty set is a subset of non-empty set",
+          "property": "subset",
+          "input": {
+            "set1": [],
+            "set2": [1]
+          },
+          "expected": true
+        },
+        {
+          "uuid": "b89352c7-1a5f-49c0-9707-b5664a4ef8fd",
+          "description": "non-empty set is not a subset of empty set",
+          "property": "subset",
+          "input": {
+            "set1": [1],
+            "set2": []
+          },
+          "expected": false
+        },
+        {
+          "uuid": "18fe9c38-1ff5-4c11-a161-0f4b290c5c00",
+          "description": "set is a subset of set with exact same elements",
+          "property": "subset",
+          "input": {
+            "set1": [1, 2, 3],
+            "set2": [1, 2, 3]
+          },
+          "expected": true
+        },
+        {
+          "uuid": "969855aa-4d40-4d9c-878b-ba0a438b348f",
+          "description": "set is a subset of larger set with same elements",
+          "property": "subset",
+          "input": {
+            "set1": [1, 2, 3],
+            "set2": [4, 1, 2, 3]
+          },
+          "expected": true
+        },
+        {
+          "uuid": "5b14b093-77c2-43a5-977f-c74d0cca9cf2",
+          "description": "set is not a subset of set that does not contain its elements",
+          "property": "subset",
+          "input": {
+            "set1": [1, 2, 3],
+            "set2": [4, 1, 3]
+          },
+          "expected": false
+        }
+      ]
+    },
+    {
+      "description": "Sets are disjoint if they share no elements",
+      "cases": [
+        {
+          "uuid": "4b3d1aa6-18a3-4417-9f39-7cb102f9df26",
+          "description": "the empty set is disjoint with itself",
+          "property": "disjoint",
+          "input": {
+            "set1": [],
+            "set2": []
+          },
+          "expected": true
+        },
+        {
+          "uuid": "b37fe24f-a9a7-4328-bf3c-0cb730c64cd2",
+          "description": "empty set is disjoint with non-empty set",
+          "property": "disjoint",
+          "input": {
+            "set1": [],
+            "set2": [1]
+          },
+          "expected": true
+        },
+        {
+          "uuid": "3baaa429-2fc4-43b5-a054-5b30b377fee1",
+          "description": "non-empty set is disjoint with empty set",
+          "property": "disjoint",
+          "input": {
+            "set1": [1],
+            "set2": []
+          },
+          "expected": true
+        },
+        {
+          "uuid": "7c9338a1-8f7d-497f-936e-75792dcd4fb4",
+          "description": "sets are not disjoint if they share an element",
+          "property": "disjoint",
+          "input": {
+            "set1": [1, 2],
+            "set2": [2, 3]
+          },
+          "expected": false
+        },
+        {
+          "uuid": "75b39582-f465-4d3e-86de-6fbbfe8cd9d2",
+          "description": "sets are disjoint if they share no elements",
+          "property": "disjoint",
+          "input": {
+            "set1": [1, 2],
+            "set2": [3, 4]
+          },
+          "expected": true
+        }
+      ]
+    },
+    {
+      "description": "Sets with the same elements are equal",
+      "cases": [
+        {
+          "uuid": "8e541e70-4f70-4799-b700-ddf8452aed0b",
+          "description": "empty sets are equal",
+          "property": "equal",
+          "input": {
+            "set1": [],
+            "set2": []
+          },
+          "expected": true
+        },
+        {
+          "uuid": "df6d3b66-80ff-4f52-be0f-efe52cc6929a",
+          "description": "empty set is not equal to non-empty set",
+          "property": "equal",
+          "input": {
+            "set1": [],
+            "set2": [1, 2, 3]
+          },
+          "expected": false
+        },
+        {
+          "uuid": "13b4d171-6b4c-4272-8874-614214186a52",
+          "description": "non-empty set is not equal to empty set",
+          "property": "equal",
+          "input": {
+            "set1": [1, 2, 3],
+            "set2": []
+          },
+          "expected": false
+        },
+        {
+          "uuid": "7703d65e-ab54-4582-9195-3a46576dc86a",
+          "description": "sets with the same elements are equal",
+          "property": "equal",
+          "input": {
+            "set1": [1, 2],
+            "set2": [2, 1]
+          },
+          "expected": true
+        },
+        {
+          "uuid": "910def44-b205-4c29-92a3-141458419d28",
+          "description": "sets with different elements are not equal",
+          "property": "equal",
+          "input": {
+            "set1": [1, 2, 3],
+            "set2": [1, 2, 4]
+          },
+          "expected": false
+        },
+        {
+          "uuid": "597446c7-7393-43cf-8918-72d8404ae662",
+          "description": "set is not equal to larger set with same elements",
+          "property": "equal",
+          "input": {
+            "set1": [1, 2, 3],
+            "set2": [1, 2, 3, 4]
+          },
+          "expected": false
+        }
+      ]
+    },
+    {
+      "description": "Unique elements can be added to a set",
+      "cases": [
+        {
+          "uuid": "800f2b62-2101-4a34-8636-8b7ecfc602ca",
+          "description": "add to empty set",
+          "property": "add",
+          "input": {
+            "set": [],
+            "element": 3
+          },
+          "expected": [3]
+        },
+        {
+          "uuid": "3464ad34-35b3-4fad-a600-d89fa5b4c772",
+          "description": "add to non-empty set",
+          "property": "add",
+          "input": {
+            "set": [1, 2, 4],
+            "element": 3
+          },
+          "expected": [1, 2, 3, 4]
+        },
+        {
+          "uuid": "50ecd24d-6000-4fa5-84f7-74fcb92d42b3",
+          "description": "adding an existing element does not change the set",
+          "property": "add",
+          "input": {
+            "set": [1, 2, 3],
+            "element": 3
+          },
+          "expected": [1, 2, 3]
+        }
+      ]
+    },
+    {
+      "description": "Intersection returns a set of all shared elements",
+      "cases": [
+        {
+          "uuid": "d3907df5-89b7-4aec-9fd9-88f8b80eee8d",
+          "description": "intersection of two empty sets is an empty set",
+          "property": "intersection",
+          "input": {
+            "set1": [],
+            "set2": []
+          },
+          "expected": []
+        },
+        {
+          "uuid": "4e537391-f0da-47e0-8d59-0019ea65e42b",
+          "description": "intersection of an empty set and non-empty set is an empty set",
+          "property": "intersection",
+          "input": {
+            "set1": [],
+            "set2": [3, 2, 5]
+          },
+          "expected": []
+        },
+        {
+          "uuid": "9c94e4e4-1b0a-47fa-bbc2-18c5c5c79066",
+          "description": "intersection of a non-empty set and an empty set is an empty set",
+          "property": "intersection",
+          "input": {
+            "set1": [1, 2, 3, 4],
+            "set2": []
+          },
+          "expected": []
+        },
+        {
+          "uuid": "0ab25050-3fd7-4cbf-ba48-9c71d3b42c62",
+          "description": "intersection of two sets with no shared elements is an empty set",
+          "property": "intersection",
+          "input": {
+            "set1": [1, 2, 3],
+            "set2": [4, 5, 6]
+          },
+          "expected": []
+        },
+        {
+          "uuid": "5f5e8d93-07e8-4d48-82f5-baf023cae162",
+          "description": "intersection of two sets with shared elements is a set of the shared elements",
+          "property": "intersection",
+          "input": {
+            "set1": [1, 2, 3, 4],
+            "set2": [3, 2, 5]
+          },
+          "expected": [2, 3]
+        }
+      ]
+    },
+    {
+      "description": "Difference (or Complement) of a set is a set of all elements that are only in the first set",
+      "cases": [
+        {
+          "uuid": "aa5ae757-b3be-4f05-a72e-ca5b0312860d",
+          "description": "difference of two empty sets is an empty set",
+          "property": "difference",
+          "input": {
+            "set1": [],
+            "set2": []
+          },
+          "expected": []
+        },
+        {
+          "uuid": "6c626d46-f49d-4a9f-9089-2a005ad3e94c",
+          "description": "difference of empty set and non-empty set is an empty set",
+          "property": "difference",
+          "input": {
+            "set1": [],
+            "set2": [3, 2, 5]
+          },
+          "expected": []
+        },
+        {
+          "uuid": "4e8f30cd-ec14-4331-892a-992b2a209c90",
+          "description": "difference of a non-empty set and an empty set is the non-empty set",
+          "property": "difference",
+          "input": {
+            "set1": [1, 2, 3, 4],
+            "set2": []
+          },
+          "expected": [1, 2, 3, 4]
+        },
+        {
+          "uuid": "e668e962-4f9c-4f1b-8f35-b474410ed4c6",
+          "description": "difference of two non-empty sets is a set of elements that are only in the first set",
+          "property": "difference",
+          "input": {
+            "set1": [3, 2, 1],
+            "set2": [2, 4]
+          },
+          "expected": [1, 3]
+        }
+      ]
+    },
+    {
+      "description": "Union returns a set of all elements in either set",
+      "cases": [
+        {
+          "uuid": "37b94b9b-93be-4031-a548-d7b0afebab8f",
+          "description": "union of empty sets is an empty set",
+          "property": "union",
+          "input": {
+            "set1": [],
+            "set2": []
+          },
+          "expected": []
+        },
+        {
+          "uuid": "4c813380-8231-4626-b619-bef8f65f5c9d",
+          "description": "union of an empty set and non-empty set is the non-empty set",
+          "property": "union",
+          "input": {
+            "set1": [],
+            "set2": [2]
+          },
+          "expected": [2]
+        },
+        {
+          "uuid": "9e281d1e-aa6a-43dc-bead-98fd6f262201",
+          "description": "union of a non-empty set and empty set is the non-empty set",
+          "property": "union",
+          "input": {
+            "set1": [1, 3],
+            "set2": []
+          },
+          "expected": [1, 3]
+        },
+        {
+          "uuid": "fd277a67-7c81-4a84-a06f-cd60521856c1",
+          "description": "union of non-empty sets contains all unique elements",
+          "property": "union",
+          "input": {
+            "set1": [1, 3],
+            "set2": [2, 3]
+          },
+          "expected": [3, 2, 1]
+        }
+      ]
+    }
+  ]
+}

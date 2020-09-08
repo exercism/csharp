@@ -1,0 +1,46 @@
+[canonical-tests]
+
+# Test case: binary 0 is decimal 0
+"ce24ef6c-d32b-4dff-958b-54718f0013e0" = true
+
+# Test case: binary 1 is decimal 1
+"cdfcfed4-4e65-4937-badc-2f01ac0b69ab" = true
+
+# Test case: binary 10 is decimal 2
+"b2c635d2-116a-41c2-acd0-189537068ab3" = true
+
+# Test case: binary 11 is decimal 3
+"19dd830b-764e-466b-88b4-60584974c167" = true
+
+# Test case: binary 100 is decimal 4
+"6af51279-9166-49a8-acf2-4f6150cea794" = true
+
+# Test case: binary 1001 is decimal 9
+"889c832e-8d4c-40af-b2c0-373b5813c199" = true
+
+# Test case: binary 11010 is decimal 26
+"d9084048-ad40-4a3f-b983-683dd4c37dfb" = true
+
+# Test case: binary 10001101000 is decimal 1128
+"e945863a-37ea-4f69-8881-ebed9f16631c" = true
+
+# Test case: binary ignores leading zeros
+"080a39ac-41f9-4f84-820d-c44e68d8e795" = true
+
+# Test case: 2 is not a valid binary digit
+"bbc50bb9-d01a-41ac-b8bc-ddadc599fe20" = true
+
+# Test case: a number containing a non-binary digit is invalid
+"90f936a6-4c68-4470-ad0b-a0ddda0c7360" = true
+
+# Test case: a number with trailing non-binary characters is invalid
+"b3b9194a-0db9-483b-a2b1-019209f44820" = true
+
+# Test case: a number with leading non-binary characters is invalid
+"f6f73d66-bee0-4b5c-9abb-e7cb97a332e1" = true
+
+# Test case: a number with internal non-binary characters is invalid
+"c1c1b99a-4734-4fcc-94ec-04daff328a6d" = true
+
+# Test case: a number and a word whitespace separated is invalid
+"84d69c98-ad21-4b90-af38-8da2314a6a1e" = true

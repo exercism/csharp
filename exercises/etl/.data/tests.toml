@@ -1,0 +1,13 @@
+[canonical-tests]
+
+# Test case: single letter
+"74689d24-34f7-4061-9314-94e19de14837" = true
+
+# Test case: single score with multiple letters
+"9f206160-2f52-450b-8297-c5c7c8f3060a" = true
+
+# Test case: multiple scores with multiple letters
+"ddb32a49-3b7e-4ad5-b4a2-812dfc9e2522" = true
+
+# Test case: multiple scores with differing numbers of letters
+"82f75e40-fbcc-4227-be63-cae5189bec66" = true

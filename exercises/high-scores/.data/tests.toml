@@ -1,0 +1,25 @@
+[canonical-tests]
+
+# Test case: List of scores
+"75a7f47f-1be2-489b-97ae-ec4ba6cd7b7f" = true
+
+# Test case: Latest score
+"9e2fd476-a0a5-4a69-ba9a-7bd31a93cb83" = true
+
+# Test case: Personal best
+"e8bd379a-4076-439b-812f-0a0fe9aec089" = true
+
+# Test case: Personal top three from a list of scores
+"79167d91-c898-4640-a99d-1629940ef518" = true
+
+# Test case: Personal top highest to lowest
+"60190693-1600-4a35-8a0b-228e167491b6" = true
+
+# Test case: Personal top when there is a tie
+"92fc2ff8-c55b-4a1e-a3e2-d24113f45d00" = true
+
+# Test case: Personal top when there are less than 3
+"fd49c292-1558-4da7-975e-979b32a3ae28" = true
+
+# Test case: Personal top when there is only one
+"a86dc31c-1d8f-4897-9408-ad3059f46716" = true

@@ -1,0 +1,22 @@
+[canonical-tests]
+
+# Test case: no factors
+"bba2c46e-d4d9-4864-b0e1-423749c67e76" = true
+
+# Test case: prime number
+"f8f16c11-2db9-4b68-bd85-a841de7d74ee" = true
+
+# Test case: square of a prime
+"4e92d3e1-4001-4052-9711-93aead1bd57a" = true
+
+# Test case: cube of a prime
+"9827980d-68fa-4862-89d4-dd467f39cd29" = true
+
+# Test case: product of primes and non-primes
+"e4b00754-d0f2-4df7-85ac-fe6e9d06a964" = true
+
+# Test case: product of primes
+"393f5ed3-a80c-450c-bf9e-80c906111182" = true
+
+# Test case: factors include a large prime
+"b63fab24-9d3b-4018-b6a6-f578ec1044d3" = true

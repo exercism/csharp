@@ -1,0 +1,43 @@
+[canonical-tests]
+
+# Test case: encode yes
+"9ed185c2-55a4-43d0-a060-f85e3dc0cbd1" = true
+
+# Test case: encode no
+"f23db198-106d-4f95-b43c-b423f62ded98" = true
+
+# Test case: encode OMG
+"e06e7129-7a2c-4465-ab88-ae160d6624ce" = true
+
+# Test case: encode spaces
+"58f0461b-e89f-4cb8-ab4a-aef973602f88" = true
+
+# Test case: encode mindblowingly
+"5c44b5fb-8e6b-486a-aed3-f5796610a0b9" = true
+
+# Test case: encode numbers
+"876bc335-58b9-41b8-8680-983bf1e29436" = true
+
+# Test case: encode deep thought
+"3e0695ce-d69a-4636-b4d8-d4fd76e86e5d" = true
+
+# Test case: encode all the letters
+"4559368d-f7fe-461e-827d-48a23ee1c0cc" = true
+
+# Test case: decode exercism
+"00681da6-25a0-48be-81f7-3fd9aab2cab2" = true
+
+# Test case: decode a sentence
+"6802e635-b5d2-474e-ba17-cdeb1fb7bc9c" = true
+
+# Test case: decode numbers
+"3738709d-0321-4d16-98d3-778b4764a0fd" = true
+
+# Test case: decode all the letters
+"46926af5-a74c-43f7-b616-e612e0c67305" = true
+
+# Test case: decode with too many spaces
+"d994c6f8-87c1-4777-9a63-768396cf20a6" = true
+
+# Test case: decode with no spaces
+"5386503e-6c3f-42bd-be05-cecb2f5e0e3e" = true

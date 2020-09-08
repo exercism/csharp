@@ -1,0 +1,70 @@
+{
+  "exercise": "gigasecond",
+  "version": "2.0.0",
+  "comments": [
+    "The basic test is to add one gigasecond to a few ordinary dates.",
+    "Most test programs currently check only the date and ignore the time.",
+    "For languages with a native date-time type though, expected times",
+    "here show the correct seconds, ignoring leap seconds.",
+    "The date and time formats here are per",
+    "http://www.ecma-international.org/ecma-262/5.1/#sec-15.9.1.15.",
+    "",
+    "Finally, as a demonstration but not really a test,",
+    "some languages demonstrate the add function by inviting the",
+    "solver to include their birthdate in either the solution code",
+    "or test program.  The test program then shows or tests their",
+    "gigasecond anniversary."
+  ],
+  "cases": [
+    {
+      "description": "Add one gigasecond to the input.",
+      "cases": [
+        {
+          "uuid": "93beae38-39cc-48e4-a6f0-15f75cd195d0",
+          "description": "date only specification of time",
+          "property": "add",
+          "input": {
+            "moment": "2011-04-25"
+          },
+          "expected": "2043-01-01T01:46:40"
+        },
+        {
+          "uuid": "d2e33508-9efd-4e1e-869d-f4919cb0099b",
+          "description": "second test for date only specification of time",
+          "property": "add",
+          "input": {
+            "moment": "1977-06-13"
+          },
+          "expected": "2009-02-19T01:46:40"
+        },
+        {
+          "uuid": "3bf36a96-22ce-4288-b66c-8234bf9d9901",
+          "description": "third test for date only specification of time",
+          "property": "add",
+          "input": {
+            "moment": "1959-07-19"
+          },
+          "expected": "1991-03-27T01:46:40"
+        },
+        {
+          "uuid": "197d4929-251b-44a2-8549-ded4a9aec642",
+          "description": "full time specified",
+          "property": "add",
+          "input": {
+            "moment": "2015-01-24T22:00:00"
+          },
+          "expected": "2046-10-02T23:46:40"
+        },
+        {
+          "uuid": "3a0cf0b5-3fb1-4b75-a63f-249b0cfdf07a",
+          "description": "full time with day roll-over",
+          "property": "add",
+          "input": {
+            "moment": "2015-01-24T23:59:59"
+          },
+          "expected": "2046-10-03T01:46:39"
+        }
+      ]
+    }
+  ]
+}

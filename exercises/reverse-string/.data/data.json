@@ -1,0 +1,63 @@
+{
+  "exercise": "reverse-string",
+  "version": "1.2.0",
+  "comments": [
+    "If property based testing tools are available, a good property to test is reversing a string twice: reverse(reverse(string)) == string"
+  ],
+  "cases": [
+    {
+      "uuid": "886c59b0-0855-4778-aed3-62e9fc516ff4",
+      "description": "an empty string",
+      "property": "reverse",
+      "input": {
+        "value": ""
+      },
+      "expected": ""
+    },
+    {
+      "uuid": "4a068a0c-5449-493b-b817-8633fa489925",
+      "description": "a word",
+      "property": "reverse",
+      "input": {
+        "value": "robot"
+      },
+      "expected": "tobor"
+    },
+    {
+      "uuid": "326634f7-c2f0-4991-832a-bf70ad096200",
+      "description": "a capitalized word",
+      "property": "reverse",
+      "input": {
+        "value": "Ramen"
+      },
+      "expected": "nemaR"
+    },
+    {
+      "uuid": "a48e1c36-a5a6-45f6-a1fb-d95c4e7103c3",
+      "description": "a sentence with punctuation",
+      "property": "reverse",
+      "input": {
+        "value": "I'm hungry!"
+      },
+      "expected": "!yrgnuh m'I"
+    },
+    {
+      "uuid": "08ace213-3da2-414e-acb6-5a4edb0def6b",
+      "description": "a palindrome",
+      "property": "reverse",
+      "input": {
+        "value": "racecar"
+      },
+      "expected": "racecar"
+    },
+    {
+      "uuid": "d5a58e60-47a3-4258-9a16-88b6eae0c178",
+      "description": "an even-sized word",
+      "property": "reverse",
+      "input": {
+        "value": "drawer"
+      },
+      "expected": "reward"
+    }
+  ]
+}

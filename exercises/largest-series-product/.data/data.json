@@ -1,0 +1,193 @@
+{
+  "exercise": "largest-series-product",
+  "version": "1.2.0",
+  "comments": [
+    "Different languages may handle errors differently.",
+    "e.g. raise exceptions, return (int, error), return Option<int>, etc.",
+    "Some languages specifically test the string->digits conversion",
+    "and the 'slices of size N' operation.",
+    "These cases *deliberately* do not cover those two operations.",
+    "Those are implementation details.",
+    "Testing them constrains implementations,",
+    "and not all implementations use these operations.",
+    "e.g. The implementation which makes a single pass through the digits."
+  ],
+  "cases": [
+    {
+      "uuid": "85ce8637-94b3-4940-8852-19fb7f93acf2",
+      "description": "finds the largest product if span equals length",
+      "property": "largestProduct",
+      "input": {
+        "digits": "29",
+        "span": 2
+      },
+      "expected": 18
+    },
+    {
+      "uuid": "99c9abc2-3cbf-401c-a874-2985328c4460",
+      "description": "can find the largest product of 2 with numbers in order",
+      "property": "largestProduct",
+      "input": {
+        "digits": "0123456789",
+        "span": 2
+      },
+      "expected": 72
+    },
+    {
+      "uuid": "0a84c640-5656-4736-937c-a2d6bedee275",
+      "description": "can find the largest product of 2",
+      "property": "largestProduct",
+      "input": {
+        "digits": "576802143",
+        "span": 2
+      },
+      "expected": 48
+    },
+    {
+      "uuid": "98eb977a-2f54-45db-bbf1-2d1a98149165",
+      "description": "can find the largest product of 3 with numbers in order",
+      "property": "largestProduct",
+      "input": {
+        "digits": "0123456789",
+        "span": 3
+      },
+      "expected": 504
+    },
+    {
+      "uuid": "36f4bd19-7c81-430c-9287-31b0c1afb859",
+      "description": "can find the largest product of 3",
+      "property": "largestProduct",
+      "input": {
+        "digits": "1027839564",
+        "span": 3
+      },
+      "expected": 270
+    },
+    {
+      "uuid": "e49a5ec5-2fec-43be-adcd-a2c563d65387",
+      "description": "can find the largest product of 5 with numbers in order",
+      "property": "largestProduct",
+      "input": {
+        "digits": "0123456789",
+        "span": 5
+      },
+      "expected": 15120
+    },
+    {
+      "uuid": "fa70b358-8fb8-46f9-85c7-1925e23cdff0",
+      "description": "can get the largest product of a big number",
+      "property": "largestProduct",
+      "input": {
+        "digits": "73167176531330624919225119674426574742355349194934",
+        "span": 6
+      },
+      "expected": 23520
+    },
+    {
+      "uuid": "9d3bc064-b06d-45fc-90de-2ad4ad7704e9",
+      "description": "reports zero if the only digits are zero",
+      "property": "largestProduct",
+      "input": {
+        "digits": "0000",
+        "span": 2
+      },
+      "expected": 0
+    },
+    {
+      "uuid": "becf829d-5e79-433d-8519-58432d1b45ad",
+      "description": "reports zero if all spans include zero",
+      "property": "largestProduct",
+      "input": {
+        "digits": "99099",
+        "span": 3
+      },
+      "expected": 0
+    },
+    {
+      "uuid": "90af61f3-fdea-4744-a458-4b2f83aa91df",
+      "description": "rejects span longer than string length",
+      "property": "largestProduct",
+      "input": {
+        "digits": "123",
+        "span": 4
+      },
+      "expected": {
+        "error": "span must be smaller than string length"
+      }
+    },
+    {
+      "uuid": "44985b75-f9be-44cb-9828-f978ee1753a8",
+      "comments": [
+        "There may be some confusion about whether this should be 1 or error.",
+        "The reasoning for it being 1 is this:",
+        "There is one 0-character string contained in the empty string.",
+        "That's the empty string itself.",
+        "The empty product is 1 (the identity for multiplication).",
+        "Therefore LSP('', 0) is 1.",
+        "It's NOT the case that LSP('', 0) takes max of an empty list.",
+        "So there is no error.",
+        "Compare against LSP('123', 4):",
+        "There are zero 4-character strings in '123'.",
+        "So LSP('123', 4) really DOES take the max of an empty list.",
+        "So LSP('123', 4) errors and LSP('', 0) does NOT."
+      ],
+      "description": "reports 1 for empty string and empty product (0 span)",
+      "property": "largestProduct",
+      "input": {
+        "digits": "",
+        "span": 0
+      },
+      "expected": 1
+    },
+    {
+      "uuid": "e8471567-103d-4a75-a55e-0e4db27a0511",
+      "comments": [
+        "As above, there is one 0-character string in '123'.",
+        "So again no error. It's the empty product, 1."
+      ],
+      "description": "reports 1 for nonempty string and empty product (0 span)",
+      "property": "largestProduct",
+      "input": {
+        "digits": "123",
+        "span": 0
+      },
+      "expected": 1
+    },
+    {
+      "uuid": "6be09c99-9a24-417d-91bc-b426e2800548",
+      "description": "rejects empty string and nonzero span",
+      "property": "largestProduct",
+      "input": {
+        "digits": "",
+        "span": 1
+      },
+      "expected": {
+        "error": "span must be smaller than string length"
+      }
+    },
+    {
+      "uuid": "99e8ccf2-6aef-466a-b608-f3124b85fbd3",
+      "description": "rejects invalid character in digits",
+      "property": "largestProduct",
+      "input": {
+        "digits": "1234a5",
+        "span": 2
+      },
+      "expected": {
+        "error": "digits input must only contain digits"
+      }
+    },
+    {
+      "uuid": "d13b194a-14b6-4956-bd2c-501c6d43fbc3",
+      "description": "rejects negative span",
+      "property": "largestProduct",
+      "input": {
+        "digits": "12345",
+        "span": -1
+      },
+      "expected": {
+        "error": "span must be greater than zero"
+      }
+    }
+  ]
+}

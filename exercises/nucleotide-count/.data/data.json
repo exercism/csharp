@@ -1,0 +1,78 @@
+{
+  "exercise": "nucleotide-count",
+  "version": "1.3.0",
+  "cases": [
+    {
+      "description": "count all nucleotides in a strand",
+      "cases": [
+        {
+          "uuid": "24ed0a7f-118a-4537-92c3-cf221fe420a1",
+          "description": "empty strand",
+          "property": "nucleotideCounts",
+          "input": {
+            "strand": ""
+          },
+          "expected": {
+            "A": 0,
+            "C": 0,
+            "G": 0,
+            "T": 0
+          }
+        },
+        {
+          "uuid": "54eaf987-6b67-4891-bc36-cc11f86d25bc",
+          "description": "can count one nucleotide in single-character input",
+          "property": "nucleotideCounts",
+          "input": {
+            "strand": "G"
+          },
+          "expected": {
+            "A": 0,
+            "C": 0,
+            "G": 1,
+            "T": 0
+          }
+        },
+        {
+          "uuid": "92b4a9c4-0ad7-42c2-ab76-b0e5d182feba",
+          "description": "strand with repeated nucleotide",
+          "property": "nucleotideCounts",
+          "input": {
+            "strand": "GGGGGGG"
+          },
+          "expected": {
+            "A": 0,
+            "C": 0,
+            "G": 7,
+            "T": 0
+          }
+        },
+        {
+          "uuid": "449e18d0-0e92-48eb-9969-e4c0f93108de",
+          "description": "strand with multiple nucleotides",
+          "property": "nucleotideCounts",
+          "input": {
+            "strand": "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC"
+          },
+          "expected": {
+            "A": 20,
+            "C": 12,
+            "G": 17,
+            "T": 21
+          }
+        },
+        {
+          "uuid": "20e8b401-6ac7-4f02-9d89-28284e8c6eef",
+          "description": "strand with invalid nucleotides",
+          "property": "nucleotideCounts",
+          "input": {
+            "strand": "AGXXACT"
+          },
+          "expected": {
+            "error": "Invalid nucleotide in strand"
+          }
+        }
+      ]
+    }
+  ]
+}

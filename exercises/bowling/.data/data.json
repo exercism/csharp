@@ -1,0 +1,822 @@
+{
+  "exercise": "bowling",
+  "version": "1.2.0",
+  "comments": [
+    "Students should implement roll and score methods.",
+    "Roll should accept a single integer.",
+    "Score should return the game's final score, when possible",
+    "For brevity the tests display all the previous rolls in an array;",
+    "each element of the previousRolls array should be passed to the roll method",
+    "and each of those previous rolls is expected to succeed.",
+    "",
+    "Two properties are tested:",
+    "",
+    "`score`: All rolls succeed, and taking the score gives the expected result.",
+    "The expected result may be an integer score or an error.",
+    "",
+    "`roll`: All previousRolls succeed, and rolling the number of pins in `roll` produces the expected result.",
+    "Currently, all cases of this type result in errors.",
+    "",
+    "In all error cases you should expect an error as is idiomatic for your language",
+    "whether that be via exceptions, optional values, or otherwise."
+  ],
+  "cases": [
+    {
+      "uuid": "1abc7eb2-d6b0-4ddb-be64-96af77c38c77",
+      "description": "should be able to score a game with all zeros",
+      "property": "score",
+      "input": {
+        "previousRolls": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": 0
+    },
+    {
+      "uuid": "3e87b0e6-d362-40b7-866d-1ec966bec96e",
+      "description": "should be able to score a game with no strikes or spares",
+      "property": "score",
+      "input": {
+        "previousRolls": [
+          3,
+          6,
+          3,
+          6,
+          3,
+          6,
+          3,
+          6,
+          3,
+          6,
+          3,
+          6,
+          3,
+          6,
+          3,
+          6,
+          3,
+          6,
+          3,
+          6
+        ]
+      },
+      "expected": 90
+    },
+    {
+      "uuid": "272d2a04-bbcc-4b64-88c0-17680f79b3f0",
+      "description": "a spare followed by zeros is worth ten points",
+      "property": "score",
+      "input": {
+        "previousRolls": [
+          6,
+          4,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": 10
+    },
+    {
+      "uuid": "3b0cf5fc-1a6d-4e48-aeed-936951cc182a",
+      "description": "points scored in the roll after a spare are counted twice",
+      "property": "score",
+      "input": {
+        "previousRolls": [
+          6,
+          4,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": 16
+    },
+    {
+      "uuid": "c55f0e8b-a87c-4750-9324-6c49a99695ef",
+      "description": "consecutive spares each get a one roll bonus",
+      "property": "score",
+      "input": {
+        "previousRolls": [
+          5,
+          5,
+          3,
+          7,
+          4,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": 31
+    },
+    {
+      "uuid": "c947339c-2496-4890-b4f0-9c8502229be7",
+      "description": "a spare in the last frame gets a one roll bonus that is counted once",
+      "property": "score",
+      "input": {
+        "previousRolls": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          7,
+          3,
+          7
+        ]
+      },
+      "expected": 17
+    },
+    {
+      "uuid": "7db7ef6e-92c7-4560-bd61-6409fa19a71e",
+      "description": "a strike earns ten points in a frame with a single roll",
+      "property": "score",
+      "input": {
+        "previousRolls": [
+          10,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": 10
+    },
+    {
+      "uuid": "49cbbdea-625e-4c76-a782-a568b6561173",
+      "description": "points scored in the two rolls after a strike are counted twice as a bonus",
+      "property": "score",
+      "input": {
+        "previousRolls": [
+          10,
+          5,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": 26
+    },
+    {
+      "uuid": "a95e05e3-1cf6-4b64-b85f-d1c9d998bc7d",
+      "description": "consecutive strikes each get the two roll bonus",
+      "property": "score",
+      "input": {
+        "previousRolls": [10, 10, 10, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      },
+      "expected": 81
+    },
+    {
+      "uuid": "72fcc7b1-9d95-4ae5-807f-3bdf6b3e1ebc",
+      "description": "a strike in the last frame gets a two roll bonus that is counted once",
+      "property": "score",
+      "input": {
+        "previousRolls": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          10,
+          7,
+          1
+        ]
+      },
+      "expected": 18
+    },
+    {
+      "uuid": "6a57f1e4-e486-4e43-aa55-5c103f4e7647",
+      "description": "rolling a spare with the two roll bonus does not get a bonus roll",
+      "property": "score",
+      "input": {
+        "previousRolls": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          10,
+          7,
+          3
+        ]
+      },
+      "expected": 20
+    },
+    {
+      "uuid": "ca6e6e9c-5902-4da9-85dd-944458db972b",
+      "description": "strikes with the two roll bonus do not get bonus rolls",
+      "property": "score",
+      "input": {
+        "previousRolls": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          10,
+          10,
+          10
+        ]
+      },
+      "expected": 30
+    },
+    {
+      "uuid": "94ff6588-6b6e-4fe4-8038-1118cbcb1e16",
+      "description": "a strike with the one roll bonus after a spare in the last frame does not get a bonus",
+      "property": "score",
+      "input": {
+        "previousRolls": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          7,
+          3,
+          10
+        ]
+      },
+      "expected": 20
+    },
+    {
+      "uuid": "1fdb989e-51c5-4021-9309-df7073d942f5",
+      "description": "all strikes is a perfect game",
+      "property": "score",
+      "input": {
+        "previousRolls": [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+      },
+      "expected": 300
+    },
+    {
+      "uuid": "56aa2d2e-00d1-483f-999b-6b4961927155",
+      "description": "rolls cannot score negative points",
+      "property": "roll",
+      "input": {
+        "previousRolls": [],
+        "roll": -1
+      },
+      "expected": {
+        "error": "Negative roll is invalid"
+      }
+    },
+    {
+      "uuid": "408786b7-f541-44af-98b0-7bf8904e24c2",
+      "description": "a roll cannot score more than 10 points",
+      "property": "roll",
+      "input": {
+        "previousRolls": [],
+        "roll": 11
+      },
+      "expected": {
+        "error": "Pin count exceeds pins on the lane"
+      }
+    },
+    {
+      "uuid": "84202351-2484-4cc4-af4f-b089a537ef68",
+      "description": "two rolls in a frame cannot score more than 10 points",
+      "property": "roll",
+      "input": {
+        "previousRolls": [5],
+        "roll": 6
+      },
+      "expected": {
+        "error": "Pin count exceeds pins on the lane"
+      }
+    },
+    {
+      "uuid": "f4c5cc10-028f-436d-b934-9cc29aba0afe",
+      "description": "bonus roll after a strike in the last frame cannot score more than 10 points",
+      "property": "roll",
+      "input": {
+        "previousRolls": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          10
+        ],
+        "roll": 11
+      },
+      "expected": {
+        "error": "Pin count exceeds pins on the lane"
+      }
+    },
+    {
+      "uuid": "be683058-b2aa-4c4a-a830-a0660271de15",
+      "description": "two bonus rolls after a strike in the last frame cannot score more than 10 points",
+      "property": "roll",
+      "input": {
+        "previousRolls": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          10,
+          5
+        ],
+        "roll": 6
+      },
+      "expected": {
+        "error": "Pin count exceeds pins on the lane"
+      }
+    },
+    {
+      "uuid": "e1c1f43c-7737-4e0b-9ca5-d9f5a4cf20c9",
+      "description": "two bonus rolls after a strike in the last frame can score more than 10 points if one is a strike",
+      "property": "score",
+      "input": {
+        "previousRolls": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          10,
+          10,
+          6
+        ]
+      },
+      "expected": 26
+    },
+    {
+      "uuid": "8b8e1907-a497-4409-8e39-8fb6fc18fd0c",
+      "description": "the second bonus rolls after a strike in the last frame cannot be a strike if the first one is not a strike",
+      "property": "roll",
+      "input": {
+        "previousRolls": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          10,
+          6
+        ],
+        "roll": 10
+      },
+      "expected": {
+        "error": "Pin count exceeds pins on the lane"
+      }
+    },
+    {
+      "uuid": "986a46c4-2cb5-41a2-8f93-84cc8e114064",
+      "description": "second bonus roll after a strike in the last frame cannot score more than 10 points",
+      "property": "roll",
+      "input": {
+        "previousRolls": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          10,
+          10
+        ],
+        "roll": 11
+      },
+      "expected": {
+        "error": "Pin count exceeds pins on the lane"
+      }
+    },
+    {
+      "uuid": "31bec343-d787-4eb4-bedb-317b2ad8df7a",
+      "description": "an unstarted game cannot be scored",
+      "property": "score",
+      "input": {
+        "previousRolls": []
+      },
+      "expected": {
+        "error": "Score cannot be taken until the end of the game"
+      }
+    },
+    {
+      "uuid": "b8e51437-3eb3-4527-9647-10c5e006f2a4",
+      "description": "an incomplete game cannot be scored",
+      "property": "score",
+      "input": {
+        "previousRolls": [0, 0]
+      },
+      "expected": {
+        "error": "Score cannot be taken until the end of the game"
+      }
+    },
+    {
+      "uuid": "2bffa335-c461-407d-a32d-dac39c7b5dc4",
+      "description": "cannot roll if game already has ten frames",
+      "property": "roll",
+      "input": {
+        "previousRolls": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "roll": 0
+      },
+      "expected": {
+        "error": "Cannot roll after game is over"
+      }
+    },
+    {
+      "uuid": "2cf2fe20-d5da-4987-ae5b-9ba9d6b95511",
+      "description": "bonus rolls for a strike in the last frame must be rolled before score can be calculated",
+      "property": "score",
+      "input": {
+        "previousRolls": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          10
+        ]
+      },
+      "expected": {
+        "error": "Score cannot be taken until the end of the game"
+      }
+    },
+    {
+      "uuid": "e48aaf68-5789-43ce-9468-5877fd6e74d5",
+      "description": "both bonus rolls for a strike in the last frame must be rolled before score can be calculated",
+      "property": "score",
+      "input": {
+        "previousRolls": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          10,
+          10
+        ]
+      },
+      "expected": {
+        "error": "Score cannot be taken until the end of the game"
+      }
+    },
+    {
+      "uuid": "279c92eb-edd2-4a06-847f-1a6a0e5c902a",
+      "description": "bonus roll for a spare in the last frame must be rolled before score can be calculated",
+      "property": "score",
+      "input": {
+        "previousRolls": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          7,
+          3
+        ]
+      },
+      "expected": {
+        "error": "Score cannot be taken until the end of the game"
+      }
+    },
+    {
+      "uuid": "48e19f4d-051c-4725-ac65-95a5aa8a9b88",
+      "description": "cannot roll after bonus roll for spare",
+      "property": "roll",
+      "input": {
+        "previousRolls": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          7,
+          3,
+          2
+        ],
+        "roll": 2
+      },
+      "expected": {
+        "error": "Cannot roll after game is over"
+      }
+    },
+    {
+      "uuid": "405a0dac-2fd5-4ac5-a15f-2c125f23182c",
+      "description": "cannot roll after bonus rolls for strike",
+      "property": "roll",
+      "input": {
+        "previousRolls": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          10,
+          3,
+          2
+        ],
+        "roll": 2
+      },
+      "expected": {
+        "error": "Cannot roll after game is over"
+      }
+    }
+  ]
+}

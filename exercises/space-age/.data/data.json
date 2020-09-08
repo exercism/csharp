@@ -1,0 +1,86 @@
+{
+  "exercise": "space-age",
+  "version": "1.2.0",
+  "cases": [
+    {
+      "uuid": "31e47a4b-8abb-4d27-aad2-3993107e5d7d",
+      "description": "age on Earth",
+      "property": "age",
+      "input": {
+        "planet": "Earth",
+        "seconds": 1000000000
+      },
+      "expected": 31.69
+    },
+    {
+      "uuid": "c0201c21-b4ba-41ce-ae14-64d560d883a5",
+      "description": "age on Mercury",
+      "property": "age",
+      "input": {
+        "planet": "Mercury",
+        "seconds": 2134835688
+      },
+      "expected": 280.88
+    },
+    {
+      "uuid": "06d93d66-bd0a-4e8c-82b1-225cff52d39a",
+      "description": "age on Venus",
+      "property": "age",
+      "input": {
+        "planet": "Venus",
+        "seconds": 189839836
+      },
+      "expected": 9.78
+    },
+    {
+      "uuid": "bb187c9b-a10c-4b71-8355-a6766ef7737f",
+      "description": "age on Mars",
+      "property": "age",
+      "input": {
+        "planet": "Mars",
+        "seconds": 2129871239
+      },
+      "expected": 35.88
+    },
+    {
+      "uuid": "ac3d496c-842e-4454-8769-4dd69872c7db",
+      "description": "age on Jupiter",
+      "property": "age",
+      "input": {
+        "planet": "Jupiter",
+        "seconds": 901876382
+      },
+      "expected": 2.41
+    },
+    {
+      "uuid": "d6bdb3c6-2e36-444b-97c3-90030b0c83ec",
+      "description": "age on Saturn",
+      "property": "age",
+      "input": {
+        "planet": "Saturn",
+        "seconds": 2000000000
+      },
+      "expected": 2.15
+    },
+    {
+      "uuid": "a2cc4e0b-137a-4a8d-b3d9-eba60c9ee7f3",
+      "description": "age on Uranus",
+      "property": "age",
+      "input": {
+        "planet": "Uranus",
+        "seconds": 1210123456
+      },
+      "expected": 0.46
+    },
+    {
+      "uuid": "a05527b5-0720-4cef-886d-501bb96e8669",
+      "description": "age on Neptune",
+      "property": "age",
+      "input": {
+        "planet": "Neptune",
+        "seconds": 1821023456
+      },
+      "expected": 0.35
+    }
+  ]
+}

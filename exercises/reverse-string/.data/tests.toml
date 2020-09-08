@@ -1,0 +1,19 @@
+[canonical-tests]
+
+# Test case: an empty string
+"886c59b0-0855-4778-aed3-62e9fc516ff4" = true
+
+# Test case: a word
+"4a068a0c-5449-493b-b817-8633fa489925" = true
+
+# Test case: a capitalized word
+"326634f7-c2f0-4991-832a-bf70ad096200" = true
+
+# Test case: a sentence with punctuation
+"a48e1c36-a5a6-45f6-a1fb-d95c4e7103c3" = true
+
+# Test case: a palindrome
+"08ace213-3da2-414e-acb6-5a4edb0def6b" = true
+
+# Test case: an even-sized word
+"d5a58e60-47a3-4258-9a16-88b6eae0c178" = true

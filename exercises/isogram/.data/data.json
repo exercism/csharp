@@ -1,0 +1,132 @@
+{
+  "exercise": "isogram",
+  "comments": ["An isogram is a word or phrase without a repeating letter."],
+  "version": "1.7.0",
+  "cases": [
+    {
+      "description": "Check if the given string is an isogram",
+      "comments": [
+        "Output should be a boolean denoting if the string is a isogram or not."
+      ],
+      "cases": [
+        {
+          "uuid": "5d74d058-3fbf-4b85-b94a-7f227c047c3d",
+          "description": "empty string",
+          "property": "isIsogram",
+          "input": {
+            "phrase": ""
+          },
+          "expected": true
+        },
+        {
+          "uuid": "11b0b1cc-ac27-4255-b1fc-a421a0b9be3d",
+          "description": "isogram with only lower case characters",
+          "property": "isIsogram",
+          "input": {
+            "phrase": "isogram"
+          },
+          "expected": true
+        },
+        {
+          "uuid": "a7f6e215-a221-485f-bf5b-d7c7295f2ccf",
+          "description": "word with one duplicated character",
+          "property": "isIsogram",
+          "input": {
+            "phrase": "eleven"
+          },
+          "expected": false
+        },
+        {
+          "uuid": "589ccb44-d018-4c67-867c-a11cf915ce6c",
+          "description": "word with one duplicated character from the end of the alphabet",
+          "property": "isIsogram",
+          "input": {
+            "phrase": "zzyzx"
+          },
+          "expected": false
+        },
+        {
+          "uuid": "4c4e5373-6c64-477e-91bf-b26bc0322ecc",
+          "description": "longest reported english isogram",
+          "property": "isIsogram",
+          "input": {
+            "phrase": "subdermatoglyphic"
+          },
+          "expected": true
+        },
+        {
+          "uuid": "c976f212-b15c-45b3-bd5a-bd448fe5791a",
+          "description": "word with duplicated character in mixed case",
+          "property": "isIsogram",
+          "input": {
+            "phrase": "Alphabet"
+          },
+          "expected": false
+        },
+        {
+          "uuid": "9d7fa841-3560-499e-b684-5bd43ec28d66",
+          "description": "word with duplicated character in mixed case, lowercase first",
+          "property": "isIsogram",
+          "input": {
+            "phrase": "alphAbet"
+          },
+          "expected": false
+        },
+        {
+          "uuid": "5d44b06e-afe9-4efb-a1f8-aef66b38512b",
+          "description": "hypothetical isogrammic word with hyphen",
+          "property": "isIsogram",
+          "input": {
+            "phrase": "thumbscrew-japingly"
+          },
+          "expected": true
+        },
+        {
+          "uuid": "58c0081a-972c-42ea-8c0a-aff96081e6ad",
+          "description": "hypothetical word with duplicated character following hyphen",
+          "property": "isIsogram",
+          "input": {
+            "phrase": "thumbscrew-jappingly"
+          },
+          "expected": false
+        },
+        {
+          "uuid": "67a56a1e-0624-4d99-9e34-5f19f4f6ab55",
+          "description": "isogram with duplicated hyphen",
+          "property": "isIsogram",
+          "input": {
+            "phrase": "six-year-old"
+          },
+          "expected": true
+        },
+        {
+          "uuid": "ea233dd4-ad75-4d80-9a8d-f308337996b1",
+          "description": "made-up name that is an isogram",
+          "property": "isIsogram",
+          "input": {
+            "phrase": "Emily Jung Schwartzkopf"
+          },
+          "expected": true
+        },
+        {
+          "uuid": "cb149239-0d62-42e1-a367-1c50d60c509c",
+          "description": "duplicated character in the middle",
+          "property": "isIsogram",
+          "input": {
+            "phrase": "accentor"
+          },
+          "expected": false
+        },
+        {
+          "uuid": "a316a62f-2ee5-4cda-9983-ef649bb71898",
+          "description": "same first and last characters",
+          "property": "isIsogram",
+          "input": {
+            "phrase": "angola"
+          },
+          "expected": false
+        }
+      ]
+    }
+  ]
+}

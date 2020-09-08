@@ -1,0 +1,40 @@
+[canonical-tests]
+
+# Test case: parses normal text as a paragraph
+"88e17ad9-c623-4976-b2b7-a46993d05dfe" = true
+
+# Test case: parsing italics
+"525b59af-3127-41d0-8249-cf9aca1329b4" = true
+
+# Test case: parsing bold text
+"96e2818f-c6d2-4654-a469-0224a9702ed2" = true
+
+# Test case: mixed normal, italics and bold text
+"496d09a9-0796-4345-a3b7-38e573f8127a" = true
+
+# Test case: with h1 header level
+"c3e29633-c755-44b2-80a3-5c6893ca6790" = true
+
+# Test case: with h2 header level
+"a666ac94-d39f-41a5-84cb-d7ea7f67a2e8" = true
+
+# Test case: with h6 header level
+"aa46a55a-7599-4857-9566-f5ebcda673db" = true
+
+# Test case: unordered lists
+"3ae6d563-0144-4e51-8ebe-000dc54613a8" = true
+
+# Test case: With a little bit of everything
+"158c7ffc-abb1-466d-9dee-cf5601695952" = true
+
+# Test case: with markdown symbols in the header text that should not be interpreted
+"525e7b6b-5206-422f-832a-3a88075ec92f" = true
+
+# Test case: with markdown symbols in the list item text that should not be interpreted
+"9c1739fd-5e00-41af-9e79-fe90f84260db" = true
+
+# Test case: with markdown symbols in the paragraph text that should not be interpreted
+"65bbd180-b5c5-41a7-bc81-bcb581af2586" = true
+
+# Test case: unordered lists close properly with preceding and following lines
+"eb24984f-1e50-4ae3-ae6d-4be7da2b218f" = true

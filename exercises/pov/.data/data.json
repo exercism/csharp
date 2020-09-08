@@ -1,0 +1,558 @@
+{
+  "exercise": "pov",
+  "version": "1.3.0",
+  "cases": [
+    {
+      "description": "Reroot a tree so that its root is the specified node.",
+      "comments": [
+        "In this way, the tree is presented from the point of view of the specified node.",
+        "",
+        "If appropriate for your track, you may test that the input tree is not modified.",
+        "",
+        "Note that when rerooting upon a target node that has both parents and children,",
+        "it does not matter whether the former parent comes before or after the former children.",
+        "Please account for this when checking correctness of the resulting trees.",
+        "One suggested method is to only check two things:",
+        "1) The root of the returned tree is the root that was passed in to from_pov.",
+        "2) The sorted edge list of the returned tree is the same as the sorted edge list of the expected tree."
+      ],
+      "cases": [
+        {
+          "uuid": "478aa47d-d72b-4ae8-b1b5-83f1e2c1f3dc",
+          "description": "Results in the same tree if the input tree is a singleton",
+          "property": "fromPov",
+          "input": {
+            "tree": {
+              "label": "x"
+            },
+            "from": "x"
+          },
+          "expected": {
+            "label": "x"
+          }
+        },
+        {
+          "uuid": "b0fd8a78-0a4a-4ce4-96dd-28834dfe4ead",
+          "description": "Can reroot a tree with a parent and one sibling",
+          "property": "fromPov",
+          "input": {
+            "tree": {
+              "label": "parent",
+              "children": [
+                {
+                  "label": "x"
+                },
+                {
+                  "label": "sibling"
+                }
+              ]
+            },
+            "from": "x"
+          },
+          "expected": {
+            "label": "x",
+            "children": [
+              {
+                "label": "parent",
+                "children": [
+                  {
+                    "label": "sibling"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "uuid": "990543da-38ed-4028-9af8-6fdb83328a95",
+          "description": "Can reroot a tree with a parent and many siblings",
+          "property": "fromPov",
+          "input": {
+            "tree": {
+              "label": "parent",
+              "children": [
+                {
+                  "label": "a"
+                },
+                {
+                  "label": "x"
+                },
+                {
+                  "label": "b"
+                },
+                {
+                  "label": "c"
+                }
+              ]
+            },
+            "from": "x"
+          },
+          "expected": {
+            "label": "x",
+            "children": [
+              {
+                "label": "parent",
+                "children": [
+                  {
+                    "label": "a"
+                  },
+                  {
+                    "label": "b"
+                  },
+                  {
+                    "label": "c"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "uuid": "a0575b30-1353-4b32-84cc-6748b1434929",
+          "description": "Can reroot a tree with new root deeply nested in tree",
+          "property": "fromPov",
+          "input": {
+            "tree": {
+              "label": "level-0",
+              "children": [
+                {
+                  "label": "level-1",
+                  "children": [
+                    {
+                      "label": "level-2",
+                      "children": [
+                        {
+                          "label": "level-3",
+                          "children": [
+                            {
+                              "label": "x"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "from": "x"
+          },
+          "expected": {
+            "label": "x",
+            "children": [
+              {
+                "label": "level-3",
+                "children": [
+                  {
+                    "label": "level-2",
+                    "children": [
+                      {
+                        "label": "level-1",
+                        "children": [
+                          {
+                            "label": "level-0"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "uuid": "2c438575-d39f-47da-ac6b-55e263b88181",
+          "description": "Moves children of the new root to same level as former parent",
+          "property": "fromPov",
+          "input": {
+            "tree": {
+              "label": "parent",
+              "children": [
+                {
+                  "label": "x",
+                  "children": [
+                    {
+                      "label": "kid-0"
+                    },
+                    {
+                      "label": "kid-1"
+                    }
+                  ]
+                }
+              ]
+            },
+            "from": "x"
+          },
+          "expected": {
+            "label": "x",
+            "children": [
+              {
+                "label": "kid-0"
+              },
+              {
+                "label": "kid-1"
+              },
+              {
+                "label": "parent"
+              }
+            ]
+          }
+        },
+        {
+          "uuid": "5124075a-6196-46af-a020-27ee28e5f136",
+          "description": "Can reroot a complex tree with cousins",
+          "property": "fromPov",
+          "input": {
+            "tree": {
+              "label": "grandparent",
+              "children": [
+                {
+                  "label": "parent",
+                  "children": [
+                    {
+                      "label": "x",
+                      "children": [
+                        {
+                          "label": "kid-0"
+                        },
+                        {
+                          "label": "kid-1"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "sibling-0"
+                    },
+                    {
+                      "label": "sibling-1"
+                    }
+                  ]
+                },
+                {
+                  "label": "uncle",
+                  "children": [
+                    {
+                      "label": "cousin-0"
+                    },
+                    {
+                      "label": "cousin-1"
+                    }
+                  ]
+                }
+              ]
+            },
+            "from": "x"
+          },
+          "expected": {
+            "label": "x",
+            "children": [
+              {
+                "label": "kid-1"
+              },
+              {
+                "label": "kid-0"
+              },
+              {
+                "label": "parent",
+                "children": [
+                  {
+                    "label": "sibling-0"
+                  },
+                  {
+                    "label": "sibling-1"
+                  },
+                  {
+                    "label": "grandparent",
+                    "children": [
+                      {
+                        "label": "uncle",
+                        "children": [
+                          {
+                            "label": "cousin-0"
+                          },
+                          {
+                            "label": "cousin-1"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "uuid": "aab14f82-f0f9-4044-a478-a3a3b458b4ae",
+          "description": "Errors if target does not exist in a singleton tree",
+          "property": "fromPov",
+          "input": {
+            "tree": {
+              "label": "x"
+            },
+            "from": "nonexistent"
+          },
+          "expected": null
+        },
+        {
+          "uuid": "24a94872-badc-4561-a457-22d93501e7a5",
+          "description": "Errors if target does not exist in a large tree",
+          "property": "fromPov",
+          "input": {
+            "tree": {
+              "label": "parent",
+              "children": [
+                {
+                  "label": "x",
+                  "children": [
+                    {
+                      "label": "kid-0"
+                    },
+                    {
+                      "label": "kid-1"
+                    }
+                  ]
+                },
+                {
+                  "label": "sibling-0"
+                },
+                {
+                  "label": "sibling-1"
+                }
+              ]
+            },
+            "from": "nonexistent"
+          },
+          "expected": null
+        }
+      ]
+    },
+    {
+      "description": "Given two nodes, find the path between them",
+      "comments": [
+        "A typical implementation would first reroot the tree on one of the two nodes.",
+        "",
+        "If appropriate for your track, you may test that the input tree is not modified."
+      ],
+      "cases": [
+        {
+          "uuid": "67186de7-780d-41c2-8020-2b969062bf3f",
+          "description": "Can find path to parent",
+          "property": "pathTo",
+          "input": {
+            "from": "x",
+            "to": "parent",
+            "tree": {
+              "label": "parent",
+              "children": [
+                {
+                  "label": "x"
+                },
+                {
+                  "label": "sibling"
+                }
+              ]
+            }
+          },
+          "expected": ["x", "parent"]
+        },
+        {
+          "uuid": "117cc520-e19c-4b5c-950b-fb2d758d2031",
+          "description": "Can find path to sibling",
+          "property": "pathTo",
+          "input": {
+            "from": "x",
+            "to": "b",
+            "tree": {
+              "label": "parent",
+              "children": [
+                {
+                  "label": "a"
+                },
+                {
+                  "label": "x"
+                },
+                {
+                  "label": "b"
+                },
+                {
+                  "label": "c"
+                }
+              ]
+            }
+          },
+          "expected": ["x", "parent", "b"]
+        },
+        {
+          "uuid": "1454f307-1e63-4efc-a6a1-a0bb3335addd",
+          "description": "Can find path to cousin",
+          "property": "pathTo",
+          "input": {
+            "from": "x",
+            "to": "cousin-1",
+            "tree": {
+              "label": "grandparent",
+              "children": [
+                {
+                  "label": "parent",
+                  "children": [
+                    {
+                      "label": "x",
+                      "children": [
+                        {
+                          "label": "kid-0"
+                        },
+                        {
+                          "label": "kid-1"
+                        }
+                      ]
+                    },
+                    {
+                      "label": "sibling-0"
+                    },
+                    {
+                      "label": "sibling-1"
+                    }
+                  ]
+                },
+                {
+                  "label": "uncle",
+                  "children": [
+                    {
+                      "label": "cousin-0"
+                    },
+                    {
+                      "label": "cousin-1"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "expected": ["x", "parent", "grandparent", "uncle", "cousin-1"]
+        },
+        {
+          "uuid": "c3feb6b6-58c7-4ab5-8d24-47dfb632ae32",
+          "description": "Can find path not involving root",
+          "property": "pathTo",
+          "input": {
+            "from": "x",
+            "to": "sibling-1",
+            "tree": {
+              "label": "grandparent",
+              "children": [
+                {
+                  "label": "parent",
+                  "children": [
+                    {
+                      "label": "x"
+                    },
+                    {
+                      "label": "sibling-0"
+                    },
+                    {
+                      "label": "sibling-1"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "expected": ["x", "parent", "sibling-1"]
+        },
+        {
+          "uuid": "934cef6b-76db-42f8-828d-6fd1abd6d2bc",
+          "description": "Can find path from nodes other than x",
+          "property": "pathTo",
+          "input": {
+            "from": "a",
+            "to": "c",
+            "tree": {
+              "label": "parent",
+              "children": [
+                {
+                  "label": "a"
+                },
+                {
+                  "label": "x"
+                },
+                {
+                  "label": "b"
+                },
+                {
+                  "label": "c"
+                }
+              ]
+            }
+          },
+          "expected": ["a", "parent", "c"]
+        },
+        {
+          "uuid": "89aaa196-3067-4437-ac6c-e6365d4c9402",
+          "description": "Errors if destination does not exist",
+          "property": "pathTo",
+          "input": {
+            "from": "x",
+            "to": "nonexistent",
+            "tree": {
+              "label": "parent",
+              "children": [
+                {
+                  "label": "x",
+                  "children": [
+                    {
+                      "label": "kid-0"
+                    },
+                    {
+                      "label": "kid-1"
+                    }
+                  ]
+                },
+                {
+                  "label": "sibling-0"
+                },
+                {
+                  "label": "sibling-1"
+                }
+              ]
+            }
+          },
+          "expected": null
+        },
+        {
+          "uuid": "b15a2d90-2421-4ac2-9ce2-f8d2f4db5574",
+          "description": "Errors if source does not exist",
+          "property": "pathTo",
+          "input": {
+            "from": "nonexistent",
+            "to": "x",
+            "tree": {
+              "label": "parent",
+              "children": [
+                {
+                  "label": "x",
+                  "children": [
+                    {
+                      "label": "kid-0"
+                    },
+                    {
+                      "label": "kid-1"
+                    }
+                  ]
+                },
+                {
+                  "label": "sibling-0"
+                },
+                {
+                  "label": "sibling-1"
+                }
+              ]
+            }
+          },
+          "expected": null
+        }
+      ]
+    }
+  ]
+}

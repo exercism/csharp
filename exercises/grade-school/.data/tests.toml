@@ -1,0 +1,22 @@
+[canonical-tests]
+
+# Test case: Adding a student adds them to the sorted roster
+"b4d5ce42-54fc-45c1-8757-47651ea0fa77" = true
+
+# Test case: Adding more student adds them to the sorted roster
+"66dfc288-9375-4f47-abef-267e2bfead5d" = true
+
+# Test case: Adding students to different grades adds them to the same sorted roster
+"baf50433-20f2-4200-a174-1aa1a19a85a8" = true
+
+# Test case: Roster returns an empty list if there are no students enrolled
+"709d2f62-41a3-4915-a139-f3d56662024b" = true
+
+# Test case: Student names with grades are displayed in the same sorted roster
+"0435972e-1f4a-4d34-a18d-a081749c473d" = true
+
+# Test case: Grade returns the students in that grade in alphabetical order
+"afead1c8-66b8-4169-a24e-469b885bff3c" = true
+
+# Test case: Grade returns an empty list if there are no students in that grade
+"b1899a2a-5bc6-4b3e-811a-b81e283d90f3" = true

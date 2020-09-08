@@ -1,0 +1,19 @@
+[canonical-tests]
+
+# Test case: empty spiral
+"db8e8c1a-db57-48c4-afc9-d57fbdd0255d" = true
+
+# Test case: trivial spiral
+"5f25d887-4ff3-4784-b45f-6e9c09933ba4" = true
+
+# Test case: spiral of size 2
+"e69a4a01-de36-4b65-bca5-8b079f70681e" = true
+
+# Test case: spiral of size 3
+"98dc2103-3480-4f2c-b576-7e32d3d2b1c6" = true
+
+# Test case: spiral of size 4
+"61120e2d-5472-4767-8264-21ca2259d4f6" = true
+
+# Test case: spiral of size 5
+"9707b6d5-4a56-43ed-adde-89893286aded" = true

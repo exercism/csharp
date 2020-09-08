@@ -1,0 +1,235 @@
+{
+  "exercise": "affine-cipher",
+  "version": "2.0.0",
+  "comments": [
+    "The test are divided into two groups: ",
+    "* Encoding from English to affine cipher",
+    "* Decoding from affine cipher to all-lowercase-mashed-together English"
+  ],
+  "cases": [
+    {
+      "description": "encode",
+      "comments": ["Test encoding from English to ciphertext with keys"],
+      "cases": [
+        {
+          "uuid": "3fb29c3e-1f8f-4e9b-812a-6202e93cc40c",
+          "description": "encode yes",
+          "property": "encode",
+          "input": {
+            "phrase": "yes",
+            "key": {
+              "a": 5,
+              "b": 7
+            }
+          },
+          "expected": "xbt"
+        },
+        {
+          "uuid": "204ee4b3-b5ca-42c6-b279-c5edbc25279f",
+          "description": "encode no",
+          "property": "encode",
+          "input": {
+            "phrase": "no",
+            "key": {
+              "a": 15,
+              "b": 18
+            }
+          },
+          "expected": "fu"
+        },
+        {
+          "uuid": "09aac950-6014-49d3-abc3-530c32df9c30",
+          "description": "encode OMG",
+          "property": "encode",
+          "input": {
+            "phrase": "OMG",
+            "key": {
+              "a": 21,
+              "b": 3
+            }
+          },
+          "expected": "lvz"
+        },
+        {
+          "uuid": "111d78b8-f32a-49fe-8175-17028870488b",
+          "description": "encode O M G",
+          "property": "encode",
+          "input": {
+            "phrase": "O M G",
+            "key": {
+              "a": 25,
+              "b": 47
+            }
+          },
+          "expected": "hjp"
+        },
+        {
+          "uuid": "90a4a8b7-918e-44cb-886d-d7ca2625eaf9",
+          "description": "encode mindblowingly",
+          "property": "encode",
+          "input": {
+            "phrase": "mindblowingly",
+            "key": {
+              "a": 11,
+              "b": 15
+            }
+          },
+          "expected": "rzcwa gnxzc dgt"
+        },
+        {
+          "uuid": "22f5f3b3-798f-44b6-869f-cb87c1b46727",
+          "description": "encode numbers",
+          "property": "encode",
+          "input": {
+            "phrase": "Testing,1 2 3, testing.",
+            "key": {
+              "a": 3,
+              "b": 4
+            }
+          },
+          "expected": "jqgjc rw123 jqgjc rw"
+        },
+        {
+          "uuid": "e4ebf38a-d278-4809-824f-0d99d7b8d3fc",
+          "description": "encode deep thought",
+          "property": "encode",
+          "input": {
+            "phrase": "Truth is fiction.",
+            "key": {
+              "a": 5,
+              "b": 17
+            }
+          },
+          "expected": "iynia fdqfb ifje"
+        },
+        {
+          "uuid": "42718382-390f-42a1-a0cf-75701d3f5e4c",
+          "description": "encode all the letters",
+          "property": "encode",
+          "input": {
+            "phrase": "The quick brown fox jumps over the lazy dog.",
+            "key": {
+              "a": 17,
+              "b": 33
+            }
+          },
+          "expected": "swxtj npvyk lruol iejdc blaxk swxmh qzglf"
+        },
+        {
+          "uuid": "56a448e6-f258-4264-b94b-3b2b120aadca",
+          "description": "encode with a not coprime to m",
+          "property": "encode",
+          "input": {
+            "phrase": "This is a test.",
+            "key": {
+              "a": 6,
+              "b": 17
+            }
+          },
+          "expected": {
+            "error": "a and m must be coprime."
+          }
+        }
+      ]
+    },
+    {
+      "description": "decode",
+      "comments": ["Test decoding from ciphertext to English with keys"],
+      "cases": [
+        {
+          "uuid": "1023b784-699f-4275-8b7d-f43396c4b30b",
+          "description": "decode exercism",
+          "property": "decode",
+          "input": {
+            "phrase": "tytgn fjr",
+            "key": {
+              "a": 3,
+              "b": 7
+            }
+          },
+          "expected": "exercism"
+        },
+        {
+          "uuid": "41084b07-5015-42c4-a26d-3f76b78f9ca1",
+          "description": "decode a sentence",
+          "property": "decode",
+          "input": {
+            "phrase": "qdwju nqcro muwhn odqun oppmd aunwd o",
+            "key": {
+              "a": 19,
+              "b": 16
+            }
+          },
+          "expected": "anobstacleisoftenasteppingstone"
+        },
+        {
+          "uuid": "e90458cd-cc3f-436c-bc68-918bcee7773d",
+          "description": "decode numbers",
+          "property": "decode",
+          "input": {
+            "phrase": "odpoz ub123 odpoz ub",
+            "key": {
+              "a": 25,
+              "b": 7
+            }
+          },
+          "expected": "testing123testing"
+        },
+        {
+          "uuid": "ed3c678a-1be9-4bdf-ae87-6b1c036c7821",
+          "description": "decode all the letters",
+          "property": "decode",
+          "input": {
+            "phrase": "swxtj npvyk lruol iejdc blaxk swxmh qzglf",
+            "key": {
+              "a": 17,
+              "b": 33
+            }
+          },
+          "expected": "thequickbrownfoxjumpsoverthelazydog"
+        },
+        {
+          "uuid": "48db7a72-df7b-4ad8-854f-879d51ce9da6",
+          "description": "decode with no spaces in input",
+          "property": "decode",
+          "input": {
+            "phrase": "swxtjnpvyklruoliejdcblaxkswxmhqzglf",
+            "key": {
+              "a": 17,
+              "b": 33
+            }
+          },
+          "expected": "thequickbrownfoxjumpsoverthelazydog"
+        },
+        {
+          "uuid": "f533dac1-240a-41aa-bc52-f4b8fb6d45b0",
+          "description": "decode with too many spaces",
+          "property": "decode",
+          "input": {
+            "phrase": "vszzm    cly   yd cg    qdp",
+            "key": {
+              "a": 15,
+              "b": 16
+            }
+          },
+          "expected": "jollygreengiant"
+        },
+        {
+          "uuid": "96fdb704-52ee-4770-a15b-058c38870775",
+          "description": "decode with a not coprime to m",
+          "property": "decode",
+          "input": {
+            "phrase": "Test",
+            "key": {
+              "a": 13,
+              "b": 5
+            }
+          },
+          "expected": {
+            "error": "a and m must be coprime."
+          }
+        }
+      ]
+    }
+  ]
+}

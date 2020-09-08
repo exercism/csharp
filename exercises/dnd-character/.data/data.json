@@ -1,0 +1,201 @@
+{
+  "exercise": "dnd-character",
+  "version": "1.1.0",
+  "comments": [
+    "The random generator 'ability' can be property-tested.",
+    "The pure function 'modifier' can be tested totally.",
+    "The random generator 'character' should return some",
+    "kind of structure with six random abilities and a",
+    "hitpoint score. This structure can be property-tested",
+    "in the same way as 'ability' and 'modifier'.",
+    "",
+    "It may be fun to provide a 'name' property for characters",
+    "that may or may not be randomly generated but not tested.",
+    "",
+    "Many programming languages feature property-based test",
+    "frameworks. For a language-agnostic introduction to",
+    "property-based testing, see:",
+    "",
+    "https://hypothesis.works/articles/what-is-property-based-testing/"
+  ],
+  "cases": [
+    {
+      "description": "ability modifier",
+      "cases": [
+        {
+          "uuid": "5d6de04e-8208-4997-a4bc-406b41baa14c",
+          "description": "ability modifier for score 3 is -4",
+          "property": "modifier",
+          "input": {
+            "score": 3
+          },
+          "expected": -4
+        },
+        {
+          "uuid": "d1031b33-4849-4853-bc78-793b88978a20",
+          "description": "ability modifier for score 4 is -3",
+          "property": "modifier",
+          "input": {
+            "score": 4
+          },
+          "expected": -3
+        },
+        {
+          "uuid": "b3cf41ef-f3fa-47b7-80f5-7d9e47b40adb",
+          "description": "ability modifier for score 5 is -3",
+          "property": "modifier",
+          "input": {
+            "score": 5
+          },
+          "expected": -3
+        },
+        {
+          "uuid": "7d62ae22-072e-4eb3-8755-09b2b049b679",
+          "description": "ability modifier for score 6 is -2",
+          "property": "modifier",
+          "input": {
+            "score": 6
+          },
+          "expected": -2
+        },
+        {
+          "uuid": "f61fb99d-9f37-4e90-8bf3-a697ae777e0f",
+          "description": "ability modifier for score 7 is -2",
+          "property": "modifier",
+          "input": {
+            "score": 7
+          },
+          "expected": -2
+        },
+        {
+          "uuid": "946018e8-7a95-4fd2-9598-82d16f05ad0a",
+          "description": "ability modifier for score 8 is -1",
+          "property": "modifier",
+          "input": {
+            "score": 8
+          },
+          "expected": -1
+        },
+        {
+          "uuid": "3ebea6db-04d7-4cfb-85ab-4813fab4d2d8",
+          "description": "ability modifier for score 9 is -1",
+          "property": "modifier",
+          "input": {
+            "score": 9
+          },
+          "expected": -1
+        },
+        {
+          "uuid": "264fa9c7-49e3-408f-acf7-a8b2b5881768",
+          "description": "ability modifier for score 10 is 0",
+          "property": "modifier",
+          "input": {
+            "score": 10
+          },
+          "expected": 0
+        },
+        {
+          "uuid": "52d36e6d-f9a2-4eab-937e-452306a01ea4",
+          "description": "ability modifier for score 11 is 0",
+          "property": "modifier",
+          "input": {
+            "score": 11
+          },
+          "expected": 0
+        },
+        {
+          "uuid": "9cd3f482-bed1-4090-abdd-55f784d92b9b",
+          "description": "ability modifier for score 12 is +1",
+          "property": "modifier",
+          "input": {
+            "score": 12
+          },
+          "expected": 1
+        },
+        {
+          "uuid": "ad90f125-e4ea-4e70-919c-2c6d29ee6223",
+          "description": "ability modifier for score 13 is +1",
+          "property": "modifier",
+          "input": {
+            "score": 13
+          },
+          "expected": 1
+        },
+        {
+          "uuid": "566ce56a-62df-4122-86a3-a7c00ad5c628",
+          "description": "ability modifier for score 14 is +2",
+          "property": "modifier",
+          "input": {
+            "score": 14
+          },
+          "expected": 2
+        },
+        {
+          "uuid": "1a9615ee-f9c4-4726-90cc-3b2d3220748f",
+          "description": "ability modifier for score 15 is +2",
+          "property": "modifier",
+          "input": {
+            "score": 15
+          },
+          "expected": 2
+        },
+        {
+          "uuid": "6de08a36-046c-4b42-ac89-4f5d2d0390f1",
+          "description": "ability modifier for score 16 is +3",
+          "property": "modifier",
+          "input": {
+            "score": 16
+          },
+          "expected": 3
+        },
+        {
+          "uuid": "7c491292-38a6-4098-8449-5d0b1b8d0a94",
+          "description": "ability modifier for score 17 is +3",
+          "property": "modifier",
+          "input": {
+            "score": 17
+          },
+          "expected": 3
+        },
+        {
+          "uuid": "0aba0c94-39dd-4780-91c1-9ca700452f24",
+          "description": "ability modifier for score 18 is +4",
+          "property": "modifier",
+          "input": {
+            "score": 18
+          },
+          "expected": 4
+        }
+      ]
+    },
+    {
+      "uuid": "ebe89b9e-a65d-451d-a834-40f85a72c0df",
+      "description": "random ability is within range",
+      "property": "ability",
+      "input": {},
+      "expected": "score >= 3 && score <= 18"
+    },
+    {
+      "uuid": "b6eacdfe-b7e5-41ff-8d28-d4c2784778fd",
+      "description": "random character is valid",
+      "property": "character",
+      "input": {},
+      "expected": {
+        "strength": "strength >= 3 && strength <= 18",
+        "dexterity": "dexterity >= 3 && dexterity <= 18",
+        "constitution": "constitution >= 3 && constitution <= 18",
+        "intelligence": "intelligence >= 3 && intelligence <= 18",
+        "wisdom": "wisdom >= 3 && wisdom <= 18",
+        "charisma": "charisma >= 3 && charisma <= 18",
+        "hitpoints": "hitpoints == 10 + modifier(constitution)"
+      }
+    },
+    {
+      "uuid": "91a68924-aa84-423b-ba29-113454cc781e",
+      "description": "each ability is only calculated once",
+      "property": "strength",
+      "input": {},
+      "expected": "strength == strength"
+    }
+  ]
+}

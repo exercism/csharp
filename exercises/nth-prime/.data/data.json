@@ -1,0 +1,53 @@
+{
+  "exercise": "nth-prime",
+  "version": "2.1.0",
+  "cases": [
+    {
+      "uuid": "be60827a-7a11-411d-9877-c1f40e23014c",
+      "description": "first prime",
+      "property": "prime",
+      "input": {
+        "number": 1
+      },
+      "expected": 2
+    },
+    {
+      "uuid": "74f6b508-20c1-4450-9021-f04e88287cc9",
+      "description": "second prime",
+      "property": "prime",
+      "input": {
+        "number": 2
+      },
+      "expected": 3
+    },
+    {
+      "uuid": "cd9aece8-5959-4f0a-9bfd-6fbb54389063",
+      "description": "sixth prime",
+      "property": "prime",
+      "input": {
+        "number": 6
+      },
+      "expected": 13
+    },
+    {
+      "uuid": "f4fffa95-ecd3-44c6-84b5-259a681c7bb7",
+      "description": "big prime",
+      "property": "prime",
+      "input": {
+        "number": 10001
+      },
+      "expected": 104743
+    },
+    {
+      "uuid": "801cb70d-e8ed-41a8-ad63-cbfbde343add",
+      "description": "there is no zeroth prime",
+      "property": "prime",
+      "input": {
+        "number": 0
+      },
+      "expected": {
+        "error": "there is no zeroth prime"
+      }
+    }
+  ]
+}

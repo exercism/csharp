@@ -1,0 +1,214 @@
+{
+  "exercise": "minesweeper",
+  "version": "1.1.0",
+  "comments": [
+    " The expected outputs are represented as arrays of strings to   ",
+    " improve readability in this JSON file.                         ",
+    " Your track may choose whether to present the input as a single ",
+    " string (concatenating all the lines) or as the list.           "
+  ],
+  "cases": [
+    {
+      "uuid": "22b4e9cd-167c-438b-8334-022e9011d682",
+      "description": "no rows",
+      "property": "annotate",
+      "input": {
+        "minefield": []
+      },
+      "expected": []
+    },
+    {
+      "uuid": "b56ce1d3-ed08-4665-b488-f1868070d00e",
+      "description": "no columns",
+      "property": "annotate",
+      "input": {
+        "minefield": [
+          ""
+        ]
+      },
+      "expected": [
+        ""
+      ]
+    },
+    {
+      "uuid": "1f28388a-6f4a-492c-8d93-7ef26a31018b",
+      "description": "no mines",
+      "property": "annotate",
+      "input": {
+        "minefield": [
+          "   ",
+          "   ",
+          "   "
+        ]
+      },
+      "expected": [
+        "   ",
+        "   ",
+        "   "
+      ]
+    },
+    {
+      "uuid": "e9ecb0d7-8c42-4fe2-9987-951966d13709",
+      "description": "minefield with only mines",
+      "property": "annotate",
+      "input": {
+        "minefield": [
+          "***",
+          "***",
+          "***"
+        ]
+      },
+      "expected": [
+        "***",
+        "***",
+        "***"
+      ]
+    },
+    {
+      "uuid": "89b05f80-0dbd-4648-9e36-72ac8b31c971",
+      "description": "mine surrounded by spaces",
+      "property": "annotate",
+      "input": {
+        "minefield": [
+          "   ",
+          " * ",
+          "   "
+        ]
+      },
+      "expected": [
+        "111",
+        "1*1",
+        "111"
+      ]
+    },
+    {
+      "uuid": "a2f96d85-aea9-44ed-8c30-0e4be44d8deb",
+      "description": "space surrounded by mines",
+      "property": "annotate",
+      "input": {
+        "minefield": [
+          "***",
+          "* *",
+          "***"
+        ]
+      },
+      "expected": [
+        "***",
+        "*8*",
+        "***"
+      ]
+    },
+    {
+      "uuid": "806e156c-6e51-49fb-9b20-ace9b7ab5920",
+      "description": "horizontal line",
+      "property": "annotate",
+      "input": {
+        "minefield": [
+          " * * "
+        ]
+      },
+      "expected": [
+        "1*2*1"
+      ]
+    },
+    {
+      "uuid": "02021e80-43b6-470b-9b11-835d9beafb7e",
+      "description": "horizontal line, mines at edges",
+      "property": "annotate",
+      "input": {
+        "minefield": [
+          "*   *"
+        ]
+      },
+      "expected": [
+        "*1 1*"
+      ]
+    },
+    {
+      "uuid": "202a4947-6dc3-4ad1-8a7d-86fd7172b4ba",
+      "description": "vertical line",
+      "property": "annotate",
+      "input": {
+        "minefield": [
+          " ",
+          "*",
+          " ",
+          "*",
+          " "
+        ]
+      },
+      "expected": [
+        "1",
+        "*",
+        "2",
+        "*",
+        "1"
+      ]
+    },
+    {
+      "uuid": "299578af-99e3-4c08-b26f-0616e4ddda3f",
+      "description": "vertical line, mines at edges",
+      "property": "annotate",
+      "input": {
+        "minefield": [
+          "*",
+          " ",
+          " ",
+          " ",
+          "*"
+        ]
+      },
+      "expected": [
+        "*",
+        "1",
+        " ",
+        "1",
+        "*"
+      ]
+    },
+    {
+      "uuid": "3128f566-9e9e-443f-ba63-2ba50ddda1d3",
+      "description": "cross",
+      "property": "annotate",
+      "input": {
+        "minefield": [
+          "  *  ",
+          "  *  ",
+          "*****",
+          "  *  ",
+          "  *  "
+        ]
+      },
+      "expected": [
+        " 2*2 ",
+        "25*52",
+        "*****",
+        "25*52",
+        " 2*2 "
+      ]
+    },
+    {
+      "uuid": "ccb6504c-6e26-4db4-b378-024b9a96337d",
+      "description": "large minefield",
+      "property": "annotate",
+      "input": {
+        "minefield": [
+          " *  * ",
+          "  *   ",
+          "    * ",
+          "   * *",
+          " *  * ",
+          "      "
+        ]
+      },
+      "expected": [
+        "1*22*1",
+        "12*322",
+        " 123*2",
+        "112*4*",
+        "1*22*2",
+        "111111"
+      ]
+    }
+  ]
+}

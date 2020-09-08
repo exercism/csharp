@@ -1,0 +1,168 @@
+{
+  "exercise": "raindrops",
+  "version": "1.1.0",
+  "cases": [
+    {
+      "uuid": "157b2fa3-ea10-4846-9fd3-a78e1c764474",
+      "description": "the sound for 1 is 1",
+      "property": "convert",
+      "input": {
+        "number": 1
+      },
+      "expected": "1"
+    },
+    {
+      "uuid": "29e2435b-7429-4d75-ab2a-f40bf3c5b10f",
+      "description": "the sound for 3 is Pling",
+      "property": "convert",
+      "input": {
+        "number": 3
+      },
+      "expected": "Pling"
+    },
+    {
+      "uuid": "da3d336c-dc8b-492c-be83-263ca9dc5cf7",
+      "description": "the sound for 5 is Plang",
+      "property": "convert",
+      "input": {
+        "number": 5
+      },
+      "expected": "Plang"
+    },
+    {
+      "uuid": "021dc82f-0da4-41a1-8b0e-984b02515396",
+      "description": "the sound for 7 is Plong",
+      "property": "convert",
+      "input": {
+        "number": 7
+      },
+      "expected": "Plong"
+    },
+    {
+      "uuid": "f05f6637-59ed-4ed1-8255-7edc751cde77",
+      "description": "the sound for 6 is Pling as it has a factor 3",
+      "property": "convert",
+      "input": {
+        "number": 6
+      },
+      "expected": "Pling"
+    },
+    {
+      "uuid": "41138d09-4133-4d60-990f-eb3100120ca8",
+      "description": "2 to the power 3 does not make a raindrop sound as 3 is the exponent not the base",
+      "property": "convert",
+      "input": {
+        "number": 8
+      },
+      "expected": "8"
+    },
+    {
+      "uuid": "d4ed2110-e509-4d25-abaf-1add16d7b778",
+      "description": "the sound for 9 is Pling as it has a factor 3",
+      "property": "convert",
+      "input": {
+        "number": 9
+      },
+      "expected": "Pling"
+    },
+    {
+      "uuid": "5155174d-a2a0-4e68-b2df-6ef49b24254f",
+      "description": "the sound for 10 is Plang as it has a factor 5",
+      "property": "convert",
+      "input": {
+        "number": 10
+      },
+      "expected": "Plang"
+    },
+    {
+      "uuid": "9253a77f-feac-4184-89cb-a28fea91f98c",
+      "description": "the sound for 14 is Plong as it has a factor of 7",
+      "property": "convert",
+      "input": {
+        "number": 14
+      },
+      "expected": "Plong"
+    },
+    {
+      "uuid": "7ce341eb-b14f-473b-b283-fe450f916c26",
+      "description": "the sound for 15 is PlingPlang as it has factors 3 and 5",
+      "property": "convert",
+      "input": {
+        "number": 15
+      },
+      "expected": "PlingPlang"
+    },
+    {
+      "uuid": "8f48f838-ab0d-4690-b539-da8ae7c011b7",
+      "description": "the sound for 21 is PlingPlong as it has factors 3 and 7",
+      "property": "convert",
+      "input": {
+        "number": 21
+      },
+      "expected": "PlingPlong"
+    },
+    {
+      "uuid": "164a3e5b-c2ee-4ba8-8230-b5afc08912f9",
+      "description": "the sound for 25 is Plang as it has a factor 5",
+      "property": "convert",
+      "input": {
+        "number": 25
+      },
+      "expected": "Plang"
+    },
+    {
+      "uuid": "19c37377-3d21-4457-989e-980a10f40965",
+      "description": "the sound for 27 is Pling as it has a factor 3",
+      "property": "convert",
+      "input": {
+        "number": 27
+      },
+      "expected": "Pling"
+    },
+    {
+      "uuid": "478c505c-0aba-47e1-830a-2e4f4039e0d6",
+      "description": "the sound for 35 is PlangPlong as it has factors 5 and 7",
+      "property": "convert",
+      "input": {
+        "number": 35
+      },
+      "expected": "PlangPlong"
+    },
+    {
+      "uuid": "957fac8b-2df2-4c0f-a461-fff2202e08e3",
+      "description": "the sound for 49 is Plong as it has a factor 7",
+      "property": "convert",
+      "input": {
+        "number": 49
+      },
+      "expected": "Plong"
+    },
+    {
+      "uuid": "5f715a33-16b6-4998-aa4a-536ae2d74445",
+      "description": "the sound for 52 is 52",
+      "property": "convert",
+      "input": {
+        "number": 52
+      },
+      "expected": "52"
+    },
+    {
+      "uuid": "5d8a1538-e7de-4e5a-818a-5ebb9d179de4",
+      "description": "the sound for 105 is PlingPlangPlong as it has factors 3, 5 and 7",
+      "property": "convert",
+      "input": {
+        "number": 105
+      },
+      "expected": "PlingPlangPlong"
+    },
+    {
+      "uuid": "4f1cc6de-1c97-4919-8f17-f6f953ca4400",
+      "description": "the sound for 3125 is Plang as it has a factor 5",
+      "property": "convert",
+      "input": {
+        "number": 3125
+      },
+      "expected": "Plang"
+    }
+  ]
+}

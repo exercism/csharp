@@ -1,0 +1,34 @@
+[canonical-tests]
+
+# Test case: single coin change
+"e6e02131-4354-4236-8a0a-ba5eac1f7bcc" = true
+
+# Test case: multiple coin change
+"8e1bb606-1fde-4563-aaa4-61e6b69709fd" = true
+
+# Test case: change with Lilliputian Coins
+"72cb591c-d8cb-4c80-a0de-21a3040a07e8" = true
+
+# Test case: change with Lower Elbonia Coins
+"dd9e18ef-2419-43d6-927a-ba8897a516e6" = true
+
+# Test case: large target values
+"f75c2764-795e-4814-9ac4-7c2b5bb5df20" = true
+
+# Test case: possible change without unit coins available
+"6be282b4-d4ab-4862-af42-debaeb410af0" = true
+
+# Test case: another possible change without unit coins available
+"62dadd54-45a8-45ea-8d5c-d71eba7cc3c1" = true
+
+# Test case: no coins make 0 change
+"b6c2a2bd-f349-486f-a68d-d82b7978d7fe" = true
+
+# Test case: error testing for change smaller than the smallest of coins
+"301f7217-ac5a-4a89-8dd1-503afbd482fa" = true
+
+# Test case: error if no combination can add up to target
+"4dad97fa-b65a-4771-b336-38f0ec7293c1" = true
+
+# Test case: cannot find negative change values
+"502d89d9-ef1d-4475-a761-bbb2ac5142d7" = true

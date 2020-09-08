@@ -1,0 +1,138 @@
+{
+  "exercise": "run-length-encoding",
+  "version": "1.1.0",
+  "cases": [
+    {
+      "description": "run-length encode a string",
+      "cases": [
+        {
+          "uuid": "45452b64-7793-4b1c-a596-4a54935ef53a",
+          "description": "empty string",
+          "property": "encode",
+          "input": {
+            "string": ""
+          },
+          "expected": ""
+        },
+        {
+          "uuid": "d49975db-6410-4d83-aac6-5b074f7d14f1",
+          "description": "single characters only are encoded without count",
+          "property": "encode",
+          "input": {
+            "string": "XYZ"
+          },
+          "expected": "XYZ"
+        },
+        {
+          "uuid": "61d1e981-b257-4444-8748-2114bd8fb1ee",
+          "description": "string with no single characters",
+          "property": "encode",
+          "input": {
+            "string": "AABBBCCCC"
+          },
+          "expected": "2A3B4C"
+        },
+        {
+          "uuid": "3a71a96d-3b92-49d4-b85d-720f279d8a7e",
+          "description": "single characters mixed with repeated characters",
+          "property": "encode",
+          "input": {
+            "string": "WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB"
+          },
+          "expected": "12WB12W3B24WB"
+        },
+        {
+          "uuid": "11c225d9-703f-4ef2-be6c-fd6c7585afae",
+          "description": "multiple whitespace mixed in string",
+          "property": "encode",
+          "input": {
+            "string": "  hsqq qww  "
+          },
+          "expected": "2 hs2q q2w2 "
+        },
+        {
+          "uuid": "b3ad5451-dd81-4392-b8fe-9609e78ef526",
+          "description": "lowercase characters",
+          "property": "encode",
+          "input": {
+            "string": "aabbbcccc"
+          },
+          "expected": "2a3b4c"
+        }
+      ]
+    },
+    {
+      "description": "run-length decode a string",
+      "cases": [
+        {
+          "uuid": "da38197d-7a3d-4622-b861-8ac7d53b6a52",
+          "description": "empty string",
+          "property": "decode",
+          "input": {
+            "string": ""
+          },
+          "expected": ""
+        },
+        {
+          "uuid": "27f7a3aa-484d-4a72-a7e8-2f1a614808ca",
+          "description": "single characters only",
+          "property": "decode",
+          "input": {
+            "string": "XYZ"
+          },
+          "expected": "XYZ"
+        },
+        {
+          "uuid": "4d6fb3ea-8483-4620-b67c-ca0313917aa8",
+          "description": "string with no single characters",
+          "property": "decode",
+          "input": {
+            "string": "2A3B4C"
+          },
+          "expected": "AABBBCCCC"
+        },
+        {
+          "uuid": "6aec9307-06df-429f-83b5-9b9b6c06aeac",
+          "description": "single characters with repeated characters",
+          "property": "decode",
+          "input": {
+            "string": "12WB12W3B24WB"
+          },
+          "expected": "WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB"
+        },
+        {
+          "uuid": "b0a23dce-7def-48de-ba86-da0e34c65ad6",
+          "description": "multiple whitespace mixed in string",
+          "property": "decode",
+          "input": {
+            "string": "2 hs2q q2w2 "
+          },
+          "expected": "  hsqq qww  "
+        },
+        {
+          "uuid": "022c3a10-1bf1-4cb8-9c7e-a97a134276ec",
+          "description": "lower case string",
+          "property": "decode",
+          "input": {
+            "string": "2a3b4c"
+          },
+          "expected": "aabbbcccc"
+        }
+      ]
+    },
+    {
+      "description": "encode and then decode",
+      "cases": [
+        {
+          "uuid": "ed510e32-4380-40c8-8628-da36c7f9f409",
+          "description": "encode followed by decode gives original string",
+          "property": "consistency",
+          "input": {
+            "string": "zzz ZZ  zZ"
+          },
+          "expected": "zzz ZZ  zZ"
+        }
+      ]
+    }
+  ]
+}

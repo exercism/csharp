@@ -1,0 +1,184 @@
+{
+  "exercise": "rectangles",
+  "version": "1.1.0",
+  "comments": [
+    "The inputs are represented as arrays of strings to improve readability in this JSON file.",
+    "Your track may choose whether to present the input as a single string (concatenating all the lines) or as the list."
+  ],
+  "cases": [
+    {
+      "uuid": "a94dc47e-9d5f-4041-8e15-adbd586f8f4d",
+      "description": "no rows",
+      "property": "rectangles",
+      "input": {
+        "strings": []
+      },
+      "expected": 0
+    },
+    {
+      "uuid": "f90a0e15-3bf1-4a19-85a9-51743820698a",
+      "description": "no columns",
+      "property": "rectangles",
+      "input": {
+        "strings": [
+          ""
+        ]
+      },
+      "expected": 0
+    },
+    {
+      "uuid": "ec504712-fd6e-4b3d-8e6c-4c5fb54e3f1f",
+      "description": "no rectangles",
+      "property": "rectangles",
+      "input": {
+        "strings": [
+          " "
+        ]
+      },
+      "expected": 0
+    },
+    {
+      "uuid": "27a01809-7597-47d6-8d90-7333aab4f1bb",
+      "description": "one rectangle",
+      "property": "rectangles",
+      "input": {
+        "strings": [
+          "+-+",
+          "| |",
+          "+-+"
+        ]
+      },
+      "expected": 1
+    },
+    {
+      "uuid": "f5d86269-4456-4ae5-aeaa-b7d72a87350c",
+      "description": "two rectangles without shared parts",
+      "property": "rectangles",
+      "input": {
+        "strings": [
+          "  +-+",
+          "  | |",
+          "+-+-+",
+          "| |  ",
+          "+-+  "
+        ]
+      },
+      "expected": 2
+    },
+    {
+      "uuid": "4c0bfbe9-3e90-4be6-9363-844a24c990a1",
+      "description": "five rectangles with shared parts",
+      "property": "rectangles",
+      "input": {
+        "strings": [
+          "  +-+",
+          "  | |",
+          "+-+-+",
+          "| | |",
+          "+-+-+"
+        ]
+      },
+      "expected": 5
+    },
+    {
+      "uuid": "58412b93-c2c0-495d-9049-5db9ccdada16",
+      "description": "rectangle of height 1 is counted",
+      "property": "rectangles",
+      "input": {
+        "strings": [
+          "+--+",
+          "+--+"
+        ]
+      },
+      "expected": 1
+    },
+    {
+      "uuid": "453fd421-9013-40a9-b9d4-baa026d36a2e",
+      "description": "rectangle of width 1 is counted",
+      "property": "rectangles",
+      "input": {
+        "strings": [
+          "++",
+          "||",
+          "++"
+        ]
+      },
+      "expected": 1
+    },
+    {
+      "uuid": "c5003a0c-d325-4dbc-8f67-b88bfc15feb0",
+      "description": "1x1 square is counted",
+      "property": "rectangles",
+      "input": {
+        "strings": [
+          "++",
+          "++"
+        ]
+      },
+      "expected": 1
+    },
+    {
+      "uuid": "9f249916-4174-4997-9851-dd7152628af5",
+      "description": "only complete rectangles are counted",
+      "property": "rectangles",
+      "input": {
+        "strings": [
+          "  +-+",
+          "    |",
+          "+-+-+",
+          "| | -",
+          "+-+-+"
+        ]
+      },
+      "expected": 1
+    },
+    {
+      "uuid": "8cd87934-1d07-42d6-ba00-5a041e6ab8cf",
+      "description": "rectangles can be of different sizes",
+      "property": "rectangles",
+      "input": {
+        "strings": [
+          "+------+----+",
+          "|      |    |",
+          "+---+--+    |",
+          "|   |       |",
+          "+---+-------+"
+        ]
+      },
+      "expected": 3
+    },
+    {
+      "uuid": "430c0054-ffb3-4e2e-bcb9-c3eda610921f",
+      "description": "corner is required for a rectangle to be complete",
+      "property": "rectangles",
+      "input": {
+        "strings": [
+          "+------+----+",
+          "|      |    |",
+          "+------+    |",
+          "|   |       |",
+          "+---+-------+"
+        ]
+      },
+      "expected": 2
+    },
+    {
+      "uuid": "06f8f360-2970-44c5-9792-dfe273fa04d7",
+      "description": "large input with many rectangles",
+      "property": "rectangles",
+      "input": {
+        "strings": [
+          "+---+--+----+",
+          "|   +--+----+",
+          "+---+--+    |",
+          "|   +--+----+",
+          "+---+--+--+-+",
+          "+---+--+--+-+",
+          "+------+  | |",
+          "          +-+"
+        ]
+      },
+      "expected": 60
+    }
+  ]
+}

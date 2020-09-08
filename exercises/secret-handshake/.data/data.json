@@ -1,0 +1,123 @@
+{
+  "exercise": "secret-handshake",
+  "version": "1.2.0",
+  "comments": [
+    " In a discussion in https://github.com/exercism/problem-specifications/pull/794 and    ",
+    " https://github.com/exercism/problem-specifications/issues/335 it has been decided to  ",
+    " only include numbers between 0 and 31 (00000 to 11111) in the canonical ",
+    " test data.                                                              ",
+    "                                                                         ",
+    " This is to allow for different implementations in different tracks and  ",
+    " not restrict solutions to bitwise or modulo-based algorithms.           ",
+    "                                                                         ",
+    " Tracks may include additional tests for numbers > 31 in their test      ",
+    " suites. In this case, 32 (100000) should yield the same result as 0,    ",
+    " 33 (100001) should yield the same result as 1, and so on.               "
+  ],
+  "cases": [
+    {
+      "description": "Create a handshake for a number",
+      "cases": [
+        {
+          "uuid": "d3e47123-b01c-4e2b-bece-23f9683fd11c",
+          "description": "wink for 1",
+          "property": "commands",
+          "input": {
+            "number": 1
+          },
+          "expected": ["wink"]
+        },
+        {
+          "uuid": "7cb559e7-b490-4bc3-b123-50127fefd8a0",
+          "description": "double blink for 10",
+          "property": "commands",
+          "input": {
+            "number": 2
+          },
+          "expected": ["double blink"]
+        },
+        {
+          "uuid": "c6bc820d-a5e5-4d28-a01d-2e63a0605529",
+          "description": "close your eyes for 100",
+          "property": "commands",
+          "input": {
+            "number": 4
+          },
+          "expected": ["close your eyes"]
+        },
+        {
+          "uuid": "5081170b-26b1-495e-bff4-11974fe44989",
+          "description": "jump for 1000",
+          "property": "commands",
+          "input": {
+            "number": 8
+          },
+          "expected": ["jump"]
+        },
+        {
+          "uuid": "29aaba41-2536-419d-a068-3ea1bfe0b56c",
+          "description": "combine two actions",
+          "property": "commands",
+          "input": {
+            "number": 3
+          },
+          "expected": ["wink", "double blink"]
+        },
+        {
+          "uuid": "2edd0e3c-43a2-462a-9517-5f619adad38a",
+          "description": "reverse two actions",
+          "property": "commands",
+          "input": {
+            "number": 19
+          },
+          "expected": ["double blink", "wink"]
+        },
+        {
+          "uuid": "04785f43-a66d-4262-93c7-022c21b58f4a",
+          "description": "reversing one action gives the same action",
+          "property": "commands",
+          "input": {
+            "number": 24
+          },
+          "expected": ["jump"]
+        },
+        {
+          "uuid": "be3df812-1476-4533-bdab-4aa18562f002",
+          "description": "reversing no actions still gives no actions",
+          "property": "commands",
+          "input": {
+            "number": 16
+          },
+          "expected": []
+        },
+        {
+          "uuid": "805f0948-f6b3-4fb6-9347-24da11e2a945",
+          "description": "all possible actions",
+          "property": "commands",
+          "input": {
+            "number": 15
+          },
+          "expected": ["wink", "double blink", "close your eyes", "jump"]
+        },
+        {
+          "uuid": "b8d469f0-e2d9-4dfc-b3fd-50b6a501347c",
+          "description": "reverse all possible actions",
+          "property": "commands",
+          "input": {
+            "number": 31
+          },
+          "expected": ["jump", "close your eyes", "double blink", "wink"]
+        },
+        {
+          "uuid": "b601f19b-1884-4db8-9201-72d278726f55",
+          "description": "do nothing for zero",
+          "property": "commands",
+          "input": {
+            "number": 0
+          },
+          "expected": []
+        }
+      ]
+    }
+  ]
+}

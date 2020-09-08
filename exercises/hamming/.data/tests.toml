@@ -1,0 +1,28 @@
+[canonical-tests]
+
+# Test case: empty strands
+"6cdfcf8b-1285-4f65-8d7a-58e4b9fd4a4b" = true
+
+# Test case: single letter identical strands
+"9f45a68c-5960-4f85-a667-081fb1782c95" = true
+
+# Test case: single letter different strands
+"910a2c10-82ad-4ad9-b58f-1416339e0a66" = true
+
+# Test case: long identical strands
+"b3ef076f-bb7e-4be2-a1bf-f92ace29bbe8" = true
+
+# Test case: long different strands
+"ed8b8d64-1ce6-4f85-970a-285d17d61b0b" = true
+
+# Test case: disallow first strand longer
+"9051014d-7728-4217-b083-3b2e57a7aa7f" = true
+
+# Test case: disallow second strand longer
+"11be2d7d-02d2-48c7-8d1f-763352cc7ff5" = true
+
+# Test case: disallow left empty strand
+"1bedf71a-a1ee-4b68-ae72-6fa3c385d1ed" = true
+
+# Test case: disallow right empty strand
+"b94d5093-937b-41ac-9c9c-1b37247d28b0" = true

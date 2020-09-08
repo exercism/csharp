@@ -1,0 +1,34 @@
+[canonical-tests]
+
+# Test case: empty string
+"931573ed-d835-457a-a98d-0d98aaeb15c4" = true
+
+# Test case: two characters in a row
+"89a246b4-41bc-4760-bc4e-4b72495c066e" = true
+
+# Test case: two characters in a column
+"c2c9ce71-f704-47b2-97f9-2ebe27ff2e27" = true
+
+# Test case: simple
+"29d2d009-1dc9-4afe-939a-093e30394e9c" = true
+
+# Test case: single line
+"02fb3aee-47e8-47da-b3ad-769ba32acd8c" = true
+
+# Test case: first line longer than second line
+"605d8a18-4a00-4b00-9f28-8b2a12b78eed" = true
+
+# Test case: second line longer than first line
+"8485bfd9-50e2-42ad-91d6-1527e207f21f" = true
+
+# Test case: mixed line length
+"521e377b-b526-45db-8d04-f750bdb26af3" = true
+
+# Test case: square
+"74909caa-0de7-4955-8f04-fc09b335ef03" = true
+
+# Test case: rectangle
+"68333fc6-8199-4832-aea8-4f9b0b42099a" = true
+
+# Test case: triangle
+"c1508ce7-b1cf-4024-a15c-bff817d809f9" = true

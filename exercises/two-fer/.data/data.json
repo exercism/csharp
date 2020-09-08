@@ -1,0 +1,33 @@
+{
+  "exercise": "two-fer",
+  "version": "1.2.0",
+  "cases": [
+    {
+      "uuid": "a87d9f10-5ab7-4a6f-8a20-59f72c4628be",
+      "description": "no name given",
+      "property": "twoFer",
+      "input": {
+        "name": null
+      },
+      "expected": "One for you, one for me."
+    },
+    {
+      "uuid": "7daa351a-8549-41e0-b740-b77d57d432ee",
+      "description": "a name given",
+      "property": "twoFer",
+      "input": {
+        "name": "Alice"
+      },
+      "expected": "One for Alice, one for me."
+    },
+    {
+      "uuid": "db593086-0018-4e46-acb2-00c96a6181f5",
+      "description": "another name given",
+      "property": "twoFer",
+      "input": {
+        "name": "Bob"
+      },
+      "expected": "One for Bob, one for me."
+    }
+  ]
+}

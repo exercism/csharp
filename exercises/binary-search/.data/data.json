@@ -1,0 +1,138 @@
+{
+  "exercise": "binary-search",
+  "version": "1.3.0",
+  "comments": [
+    "The error object is used to indicate that the value is not included in the array.",
+    "It should be replaced with the respective expression that is idiomatic",
+    "for the language that implements the tests.",
+    "Following https://github.com/exercism/problem-specifications/issues/234 the exercise",
+    "should NOT include checking whether the array is sorted as it defeats",
+    "the point of the binary search.",
+    "The exercise should utilize an array-like (i.e. constant-time indexed)",
+    "data structure and not a linked list. If something like an array is not",
+    "usually used in the language the problem should not be implemented.",
+    "See https://github.com/exercism/problem-specifications/issues/244 for details."
+  ],
+  "cases": [
+    {
+      "uuid": "f3961e23-fd09-4c04-bf0b-af43a3e9f243",
+      "description": "finds a value in an array with one element",
+      "property": "find",
+      "input": {
+        "array": [6],
+        "value": 6
+      },
+      "expected": 0
+    },
+    {
+      "uuid": "68c95473-e253-41db-9ec0-2ce9f327a15a",
+      "description": "finds a value in the middle of an array",
+      "property": "find",
+      "input": {
+        "array": [1, 3, 4, 6, 8, 9, 11],
+        "value": 6
+      },
+      "expected": 3
+    },
+    {
+      "uuid": "cbd4c866-c300-49c1-a564-5943c35f48b1",
+      "description": "finds a value at the beginning of an array",
+      "property": "find",
+      "input": {
+        "array": [1, 3, 4, 6, 8, 9, 11],
+        "value": 1
+      },
+      "expected": 0
+    },
+    {
+      "uuid": "fbfc4637-edb1-4e78-b839-f86ef11052ea",
+      "description": "finds a value at the end of an array",
+      "property": "find",
+      "input": {
+        "array": [1, 3, 4, 6, 8, 9, 11],
+        "value": 11
+      },
+      "expected": 6
+    },
+    {
+      "uuid": "2f594d3f-6f8c-4fd3-9e8b-bf20b735349e",
+      "description": "finds a value in an array of odd length",
+      "property": "find",
+      "input": {
+        "array": [1, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 634],
+        "value": 144
+      },
+      "expected": 9
+    },
+    {
+      "uuid": "e7023d03-e80f-4cce-99a6-49e9d2f0dbdd",
+      "description": "finds a value in an array of even length",
+      "property": "find",
+      "input": {
+        "array": [1, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377],
+        "value": 21
+      },
+      "expected": 5
+    },
+    {
+      "uuid": "d3321ccf-6129-434f-b368-ae6757932b4b",
+      "description": "identifies that a value is not included in the array",
+      "property": "find",
+      "input": {
+        "array": [1, 3, 4, 6, 8, 9, 11],
+        "value": 7
+      },
+      "expected": {
+        "error": "value not in array"
+      }
+    },
+    {
+      "uuid": "20a93144-745f-45ec-b1b0-88bc03048cd9",
+      "description": "a value smaller than the array's smallest value is not found",
+      "property": "find",
+      "input": {
+        "array": [1, 3, 4, 6, 8, 9, 11],
+        "value": 0
+      },
+      "expected": {
+        "error": "value not in array"
+      }
+    },
+    {
+      "uuid": "0441057e-f6f9-47c4-90c0-1e1e95a850b2",
+      "description": "a value larger than the array's largest value is not found",
+      "property": "find",
+      "input": {
+        "array": [1, 3, 4, 6, 8, 9, 11],
+        "value": 13
+      },
+      "expected": {
+        "error": "value not in array"
+      }
+    },
+    {
+      "uuid": "05a98214-abbd-47c4-89ee-7ece2cf62fed",
+      "description": "nothing is found in an empty array",
+      "property": "find",
+      "input": {
+        "array": [],
+        "value": 1
+      },
+      "expected": {
+        "error": "value not in array"
+      }
+    },
+    {
+      "uuid": "c0aa5796-3b27-4022-9d23-31cccdf4a714",
+      "description": "nothing is found when the left and right bounds cross",
+      "property": "find",
+      "input": {
+        "array": [1, 2],
+        "value": 0
+      },
+      "expected": {
+        "error": "value not in array"
+      }
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+[canonical-tests]
+
+# Test case: finds a value in an array with one element
+"f3961e23-fd09-4c04-bf0b-af43a3e9f243" = true
+
+# Test case: finds a value in the middle of an array
+"68c95473-e253-41db-9ec0-2ce9f327a15a" = true
+
+# Test case: finds a value at the beginning of an array
+"cbd4c866-c300-49c1-a564-5943c35f48b1" = true
+
+# Test case: finds a value at the end of an array
+"fbfc4637-edb1-4e78-b839-f86ef11052ea" = true
+
+# Test case: finds a value in an array of odd length
+"2f594d3f-6f8c-4fd3-9e8b-bf20b735349e" = true
+
+# Test case: finds a value in an array of even length
+"e7023d03-e80f-4cce-99a6-49e9d2f0dbdd" = true
+
+# Test case: identifies that a value is not included in the array
+"d3321ccf-6129-434f-b368-ae6757932b4b" = true
+
+# Test case: a value smaller than the array's smallest value is not found
+"20a93144-745f-45ec-b1b0-88bc03048cd9" = true
+
+# Test case: a value larger than the array's largest value is not found
+"0441057e-f6f9-47c4-90c0-1e1e95a850b2" = true
+
+# Test case: nothing is found in an empty array
+"05a98214-abbd-47c4-89ee-7ece2cf62fed" = true
+
+# Test case: nothing is found when the left and right bounds cross
+"c0aa5796-3b27-4022-9d23-31cccdf4a714" = true

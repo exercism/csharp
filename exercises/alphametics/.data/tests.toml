@@ -1,0 +1,31 @@
+[canonical-tests]
+
+# Test case: puzzle with three letters
+"ff3cb9fa-cc7d-4055-9bcc-ed7a32110bfe" = true
+
+# Test case: solution must have unique value for each letter
+"433938f9-5e60-45c8-9761-fe949f4372d8" = true
+
+# Test case: leading zero solution is invalid
+"d7e6e757-036e-4186-8d3f-e22509499ce7" = true
+
+# Test case: puzzle with two digits final carry
+"f7a1f3e1-aba4-4292-bf4e-4df46824b4af" = true
+
+# Test case: puzzle with four letters
+"8f213331-3b56-4dec-ac02-89525d809382" = true
+
+# Test case: puzzle with six letters
+"119e7944-d132-445e-b53e-93c1cc7b84c2" = true
+
+# Test case: puzzle with seven letters
+"2348db74-cec0-4865-91c1-25aa0e08cf9e" = true
+
+# Test case: puzzle with eight letters
+"acefedb5-cc97-442f-b2a0-240a510affcd" = true
+
+# Test case: puzzle with ten letters
+"0694777e-d99f-46a2-977d-5252587f8ce3" = true
+
+# Test case: puzzle with ten letters and 199 addends
+"c8ccb870-48e3-4fa1-a297-1fcad9be4757" = true

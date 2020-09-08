@@ -1,0 +1,16 @@
+[canonical-tests]
+
+# Test case: first prime
+"be60827a-7a11-411d-9877-c1f40e23014c" = true
+
+# Test case: second prime
+"74f6b508-20c1-4450-9021-f04e88287cc9" = true
+
+# Test case: sixth prime
+"cd9aece8-5959-4f0a-9bfd-6fbb54389063" = true
+
+# Test case: big prime
+"f4fffa95-ecd3-44c6-84b5-259a681c7bb7" = true
+
+# Test case: there is no zeroth prime
+"801cb70d-e8ed-41a8-ad63-cbfbde343add" = true

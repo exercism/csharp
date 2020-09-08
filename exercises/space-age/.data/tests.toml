@@ -1,0 +1,25 @@
+[canonical-tests]
+
+# Test case: age on Earth
+"31e47a4b-8abb-4d27-aad2-3993107e5d7d" = true
+
+# Test case: age on Mercury
+"c0201c21-b4ba-41ce-ae14-64d560d883a5" = true
+
+# Test case: age on Venus
+"06d93d66-bd0a-4e8c-82b1-225cff52d39a" = true
+
+# Test case: age on Mars
+"bb187c9b-a10c-4b71-8355-a6766ef7737f" = true
+
+# Test case: age on Jupiter
+"ac3d496c-842e-4454-8769-4dd69872c7db" = true
+
+# Test case: age on Saturn
+"d6bdb3c6-2e36-444b-97c3-90030b0c83ec" = true
+
+# Test case: age on Uranus
+"a2cc4e0b-137a-4a8d-b3d9-eba60c9ee7f3" = true
+
+# Test case: age on Neptune
+"a05527b5-0720-4cef-886d-501bb96e8669" = true

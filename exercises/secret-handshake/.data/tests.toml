@@ -1,0 +1,34 @@
+[canonical-tests]
+
+# Test case: wink for 1
+"d3e47123-b01c-4e2b-bece-23f9683fd11c" = true
+
+# Test case: double blink for 10
+"7cb559e7-b490-4bc3-b123-50127fefd8a0" = true
+
+# Test case: close your eyes for 100
+"c6bc820d-a5e5-4d28-a01d-2e63a0605529" = true
+
+# Test case: jump for 1000
+"5081170b-26b1-495e-bff4-11974fe44989" = true
+
+# Test case: combine two actions
+"29aaba41-2536-419d-a068-3ea1bfe0b56c" = true
+
+# Test case: reverse two actions
+"2edd0e3c-43a2-462a-9517-5f619adad38a" = true
+
+# Test case: reversing one action gives the same action
+"04785f43-a66d-4262-93c7-022c21b58f4a" = true
+
+# Test case: reversing no actions still gives no actions
+"be3df812-1476-4533-bdab-4aa18562f002" = true
+
+# Test case: all possible actions
+"805f0948-f6b3-4fb6-9347-24da11e2a945" = true
+
+# Test case: reverse all possible actions
+"b8d469f0-e2d9-4dfc-b3fd-50b6a501347c" = true
+
+# Test case: do nothing for zero
+"b601f19b-1884-4db8-9201-72d278726f55" = true

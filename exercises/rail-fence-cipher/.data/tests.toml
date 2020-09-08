@@ -1,0 +1,19 @@
+[canonical-tests]
+
+# Test case: encode with two rails
+"55f97296-e1cf-4572-bc6a-74248fd7ca4d" = true
+
+# Test case: encode with three rails
+"9086ae8f-7b7d-4410-9287-3abc508d6e75" = true
+
+# Test case: encode with ending in the middle
+"e396fe43-8939-430b-a487-e5659278c13e" = true
+
+# Test case: decode with three rails
+"627c8880-6060-4e44-b9e3-0dfa089e52e1" = true
+
+# Test case: decode with five rails
+"bff366ef-e533-4e7a-9f8a-a6d59bffded2" = true
+
+# Test case: decode with six rails
+"c51a1e8c-3df2-4ecc-b712-7e02d23ba4ca" = true

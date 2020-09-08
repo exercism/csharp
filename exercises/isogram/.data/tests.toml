@@ -1,0 +1,40 @@
+[canonical-tests]
+
+# Test case: empty string
+"5d74d058-3fbf-4b85-b94a-7f227c047c3d" = true
+
+# Test case: isogram with only lower case characters
+"11b0b1cc-ac27-4255-b1fc-a421a0b9be3d" = true
+
+# Test case: word with one duplicated character
+"a7f6e215-a221-485f-bf5b-d7c7295f2ccf" = true
+
+# Test case: word with one duplicated character from the end of the alphabet
+"589ccb44-d018-4c67-867c-a11cf915ce6c" = true
+
+# Test case: longest reported english isogram
+"4c4e5373-6c64-477e-91bf-b26bc0322ecc" = true
+
+# Test case: word with duplicated character in mixed case
+"c976f212-b15c-45b3-bd5a-bd448fe5791a" = true
+
+# Test case: word with duplicated character in mixed case, lowercase first
+"9d7fa841-3560-499e-b684-5bd43ec28d66" = true
+
+# Test case: hypothetical isogrammic word with hyphen
+"5d44b06e-afe9-4efb-a1f8-aef66b38512b" = true
+
+# Test case: hypothetical word with duplicated character following hyphen
+"58c0081a-972c-42ea-8c0a-aff96081e6ad" = true
+
+# Test case: isogram with duplicated hyphen
+"67a56a1e-0624-4d99-9e34-5f19f4f6ab55" = true
+
+# Test case: made-up name that is an isogram
+"ea233dd4-ad75-4d80-9a8d-f308337996b1" = true
+
+# Test case: duplicated character in the middle
+"cb149239-0d62-42e1-a367-1c50d60c509c" = true
+
+# Test case: same first and last characters
+"a316a62f-2ee5-4cda-9983-ef649bb71898" = true

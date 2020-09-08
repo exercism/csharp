@@ -1,0 +1,139 @@
+[canonical-tests]
+
+# Test case: numbers just get pushed onto the stack
+"640ccf94-088f-4870-80be-0b02b48b69dc" = true
+
+# Test case: can add two numbers
+"54545098-0088-4e10-be3e-d79716cd4d1f" = true
+
+# Test case: errors if there is nothing on the stack
+"45e0768e-b627-4100-b421-e6d0c31c4e61" = true
+
+# Test case: errors if there is only one value on the stack
+"5f60b19a-7da1-400d-a9af-0568fa2f4570" = true
+
+# Test case: can subtract two numbers
+"f91f83b5-816c-42c3-acb4-7c098a0f8216" = true
+
+# Test case: errors if there is nothing on the stack
+"572d3636-0e64-496f-9b5a-4b7e4129f358" = true
+
+# Test case: errors if there is only one value on the stack
+"6cc7c738-a543-41c2-9948-df7d140523fe" = true
+
+# Test case: can multiply two numbers
+"da766a49-154d-40cc-9ed2-f48a2de35ded" = true
+
+# Test case: errors if there is nothing on the stack
+"3148c25d-2c1a-49af-9404-c52bd57b8541" = true
+
+# Test case: errors if there is only one value on the stack
+"81e73cc9-a1ac-4705-ac28-c398b10c6db3" = true
+
+# Test case: can divide two numbers
+"37905d74-2ccf-4844-b5ce-9e1dcd25f8d2" = true
+
+# Test case: performs integer division
+"1f5ee728-a13d-4f3c-a46c-3d1181c1ba16" = true
+
+# Test case: errors if dividing by zero
+"3ef986be-60d2-459d-bc0b-00f1d8db40c4" = true
+
+# Test case: errors if there is nothing on the stack
+"9e8ed0a3-3cfc-4377-9756-ee4a98f3e06c" = true
+
+# Test case: errors if there is only one value on the stack
+"64eb1406-9178-4ae5-b501-31888f4a4db2" = true
+
+# Test case: addition and subtraction
+"aefbbd10-c67c-4465-9386-51d8f73a8bec" = true
+
+# Test case: multiplication and division
+"db6b3a63-28d0-4231-a06e-f395d5841c7b" = true
+
+# Test case: copies a value on the stack
+"81da4a7f-2caa-4ded-a94d-9808a8324109" = true
+
+# Test case: copies the top value on the stack
+"9b3b4433-fb24-4d8f-9c96-ee509c85ad29" = true
+
+# Test case: errors if there is nothing on the stack
+"6cb20956-d9f7-4508-8ab5-e6e9c7176278" = true
+
+# Test case: removes the top value on the stack if it is the only one
+"7d683f1e-5396-4563-9a28-5ce611949d76" = true
+
+# Test case: removes the top value on the stack if it is not the only one
+"70a9ef20-a05f-41aa-a933-307ab5c2c9fd" = true
+
+# Test case: errors if there is nothing on the stack
+"56e1615c-d660-4770-bc66-bd8709de2060" = true
+
+# Test case: swaps the top two values on the stack if they are the only ones
+"f38437d9-c1e9-4e21-8369-89f662369a05" = true
+
+# Test case: swaps the top two values on the stack if they are not the only ones
+"b4f5b62a-fcdf-4b4e-b8ae-f40dc42b6594" = true
+
+# Test case: errors if there is nothing on the stack
+"4949a718-901c-4107-9efc-64bc9363be1c" = true
+
+# Test case: errors if there is only one value on the stack
+"78bd08db-714a-4284-b9d7-b3cab589120c" = true
+
+# Test case: copies the second element if there are only two
+"ffefa5df-fe99-4457-b0cf-0bb3e0375855" = true
+
+# Test case: copies the second element if there are more than two
+"4d591de2-c4f7-4d7a-a41c-373d001d47de" = true
+
+# Test case: errors if there is nothing on the stack
+"6bcb7ff7-3442-4d03-ad92-5eaf8fb27ec1" = true
+
+# Test case: errors if there is only one value on the stack
+"6062766c-bf91-4e5b-a52e-e4fc027c1d30" = true
+
+# Test case: can consist of built-in words
+"5bc0f29f-f0a6-47c6-ae55-59184f4ee547" = true
+
+# Test case: execute in the right order
+"06c7b8f6-5d12-43e9-8659-b0dbedbf2651" = true
+
+# Test case: can override other user-defined words
+"b38962dd-74d5-4db6-bd06-acc4972be166" = true
+
+# Test case: can override built-in words
+"032c53ef-13c9-4e7e-9f5e-ec0cfd2e12b0" = true
+
+# Test case: can override built-in operators
+"ab95c02c-a3ce-4efd-9ea9-bf2b757a6fb0" = true
+
+# Test case: can use different words with the same name
+"ff43b753-86e2-46c6-b0e1-6c74d1bfa126" = true
+
+# Test case: can define word that uses word with the same name
+"b08bef67-cfaa-48e2-a7ed-515e268d8657" = true
+
+# Test case: cannot redefine numbers
+"e1219706-eac2-41fa-a703-23d4f75dbc65" = true
+
+# Test case: errors if executing a non-existent word
+"90ae33a6-5ce1-4bba-a0cd-c0f371c6cb21" = true
+
+# Test case: DUP is case-insensitive
+"20d0ba1a-03a3-4f4e-bf56-747bc49291ce" = true
+
+# Test case: DROP is case-insensitive
+"bf02ebb0-1a1f-4f8d-91c8-f4fddae6b900" = true
+
+# Test case: SWAP is case-insensitive
+"1b10a48b-f03e-4170-aa0d-09b52a232316" = true
+
+# Test case: OVER is case-insensitive
+"dbd71a96-33c6-4dba-89c4-ae274285ac6c" = true
+
+# Test case: user-defined words are case-insensitive
+"5f0907ab-26ab-4208-b259-63445b287f4c" = true
+
+# Test case: definitions are case-insensitive
+"73265d51-ad35-4cf4-af84-ea94cbbc1cc6" = true

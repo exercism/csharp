@@ -1,0 +1,421 @@
+{
+  "exercise": "rest-api",
+  "version": "1.1.1",
+  "comments": [
+    "The state of the API database before the request is represented",
+    "by the input->database object. Your track may determine how this",
+    "initial state is set.",
+    "The input->payload and expected objects should be marshalled as",
+    "strings in track implementation, as parsing and validating text",
+    "payloads is an integral part of implementing a REST API.",
+    "All arrays are ordered."
+  ],
+  "cases": [
+    {
+      "description": "user management",
+      "cases": [
+        {
+          "uuid": "6e1731a9-3b1a-4627-a4d1-27a9350c8475",
+          "description": "no users",
+          "property": "get",
+          "input": {
+            "database": {
+              "users": []
+            },
+            "url": "/users"
+          },
+          "expected": {
+            "users": []
+          }
+        },
+        {
+          "uuid": "0dc0d4ad-3387-4c3b-90da-31bffe99cecb",
+          "description": "add user",
+          "property": "post",
+          "input": {
+            "database": {
+              "users": []
+            },
+            "url": "/add",
+            "payload": {
+              "user": "Adam"
+            }
+          },
+          "expected": {
+            "name": "Adam",
+            "owes": {},
+            "owed_by": {},
+            "balance": 0.0
+          }
+        },
+        {
+          "uuid": "b8ff9395-ec46-4848-891c-c71e8008701a",
+          "description": "get single user",
+          "property": "get",
+          "input": {
+            "database": {
+              "users": [
+                {
+                  "name": "Adam",
+                  "owes": {},
+                  "owed_by": {},
+                  "balance": 0.0
+                },
+                {
+                  "name": "Bob",
+                  "owes": {},
+                  "owed_by": {},
+                  "balance": 0.0
+                }
+              ]
+            },
+            "url": "/users",
+            "payload": {
+              "users": ["Bob"]
+            }
+          },
+          "expected": {
+            "users": [
+              {
+                "name": "Bob",
+                "owes": {},
+                "owed_by": {},
+                "balance": 0.0
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "description": "iou",
+      "cases": [
+        {
+          "uuid": "6da459e4-ef70-4010-9049-fe224d8a33d8",
+          "description": "both users have 0 balance",
+          "property": "post",
+          "input": {
+            "database": {
+              "users": [
+                {
+                  "name": "Adam",
+                  "owes": {},
+                  "owed_by": {},
+                  "balance": 0.0
+                },
+                {
+                  "name": "Bob",
+                  "owes": {},
+                  "owed_by": {},
+                  "balance": 0.0
+                }
+              ]
+            },
+            "url": "/iou",
+            "payload": {
+              "lender": "Adam",
+              "borrower": "Bob",
+              "amount": 3.0
+            }
+          },
+          "expected": {
+            "users": [
+              {
+                "name": "Adam",
+                "owes": {},
+                "owed_by": {
+                  "Bob": 3.0
+                },
+                "balance": 3.0
+              },
+              {
+                "name": "Bob",
+                "owes": {
+                  "Adam": 3.0
+                },
+                "owed_by": {},
+                "balance": -3.0
+              }
+            ]
+          }
+        },
+        {
+          "uuid": "a5d3e9a6-bc7e-41d5-b72b-cf2f83340c21",
+          "description": "borrower has negative balance",
+          "property": "post",
+          "input": {
+            "database": {
+              "users": [
+                {
+                  "name": "Adam",
+                  "owes": {},
+                  "owed_by": {},
+                  "balance": 0.0
+                },
+                {
+                  "name": "Bob",
+                  "owes": {
+                    "Chuck": 3.0
+                  },
+                  "owed_by": {},
+                  "balance": -3.0
+                },
+                {
+                  "name": "Chuck",
+                  "owes": {},
+                  "owed_by": {
+                    "Bob": 3.0
+                  },
+                  "balance": 3.0
+                }
+              ]
+            },
+            "url": "/iou",
+            "payload": {
+              "lender": "Adam",
+              "borrower": "Bob",
+              "amount": 3.0
+            }
+          },
+          "expected": {
+            "users": [
+              {
+                "name": "Adam",
+                "owes": {},
+                "owed_by": {
+                  "Bob": 3.0
+                },
+                "balance": 3.0
+              },
+              {
+                "name": "Bob",
+                "owes": {
+                  "Adam": 3.0,
+                  "Chuck": 3.0
+                },
+                "owed_by": {},
+                "balance": -6.0
+              }
+            ]
+          }
+        },
+        {
+          "uuid": "28f275d4-fc0e-4649-bb77-14d17404f26e",
+          "description": "lender has negative balance",
+          "property": "post",
+          "input": {
+            "database": {
+              "users": [
+                {
+                  "name": "Adam",
+                  "owes": {},
+                  "owed_by": {},
+                  "balance": 0.0
+                },
+                {
+                  "name": "Bob",
+                  "owes": {
+                    "Chuck": 3.0
+                  },
+                  "owed_by": {},
+                  "balance": -3.0
+                },
+                {
+                  "name": "Chuck",
+                  "owes": {},
+                  "owed_by": {
+                    "Bob": 3.0
+                  },
+                  "balance": 3.0
+                }
+              ]
+            },
+            "url": "/iou",
+            "payload": {
+              "lender": "Bob",
+              "borrower": "Adam",
+              "amount": 3.0
+            }
+          },
+          "expected": {
+            "users": [
+              {
+                "name": "Adam",
+                "owes": {
+                  "Bob": 3.0
+                },
+                "owed_by": {},
+                "balance": -3.0
+              },
+              {
+                "name": "Bob",
+                "owes": {
+                  "Chuck": 3.0
+                },
+                "owed_by": {
+                  "Adam": 3.0
+                },
+                "balance": 0.0
+              }
+            ]
+          }
+        },
+        {
+          "uuid": "1922bbeb-af44-489d-b0fc-663fddfdd5cf",
+          "description": "lender owes borrower",
+          "property": "post",
+          "input": {
+            "database": {
+              "users": [
+                {
+                  "name": "Adam",
+                  "owes": {
+                    "Bob": 3.0
+                  },
+                  "owed_by": {},
+                  "balance": -3.0
+                },
+                {
+                  "name": "Bob",
+                  "owes": {},
+                  "owed_by": {
+                    "Adam": 3.0
+                  },
+                  "balance": 3.0
+                }
+              ]
+            },
+            "url": "/iou",
+            "payload": {
+              "lender": "Adam",
+              "borrower": "Bob",
+              "amount": 2.0
+            }
+          },
+          "expected": {
+            "users": [
+              {
+                "name": "Adam",
+                "owes": {
+                  "Bob": 1.0
+                },
+                "owed_by": {},
+                "balance": -1.0
+              },
+              {
+                "name": "Bob",
+                "owes": {},
+                "owed_by": {
+                  "Adam": 1.0
+                },
+                "balance": 1.0
+              }
+            ]
+          }
+        },
+        {
+          "uuid": "75dd59fd-f8bf-4508-afa8-9102e4253506",
+          "description": "lender owes borrower less than new loan",
+          "property": "post",
+          "input": {
+            "database": {
+              "users": [
+                {
+                  "name": "Adam",
+                  "owes": {
+                    "Bob": 3.0
+                  },
+                  "owed_by": {},
+                  "balance": -3.0
+                },
+                {
+                  "name": "Bob",
+                  "owes": {},
+                  "owed_by": {
+                    "Adam": 3.0
+                  },
+                  "balance": 3.0
+                }
+              ]
+            },
+            "url": "/iou",
+            "payload": {
+              "lender": "Adam",
+              "borrower": "Bob",
+              "amount": 4.0
+            }
+          },
+          "expected": {
+            "users": [
+              {
+                "name": "Adam",
+                "owes": {},
+                "owed_by": {
+                  "Bob": 1.0
+                },
+                "balance": 1.0
+              },
+              {
+                "name": "Bob",
+                "owes": {
+                  "Adam": 1.0
+                },
+                "owed_by": {},
+                "balance": -1.0
+              }
+            ]
+          }
+        },
+        {
+          "uuid": "d2b379a3-d8d7-4904-a0c5-4e51016e48b1",
+          "description": "lender owes borrower same as new loan",
+          "property": "post",
+          "input": {
+            "database": {
+              "users": [
+                {
+                  "name": "Adam",
+                  "owes": {
+                    "Bob": 3.0
+                  },
+                  "owed_by": {},
+                  "balance": -3.0
+                },
+                {
+                  "name": "Bob",
+                  "owes": {},
+                  "owed_by": {
+                    "Adam": 3.0
+                  },
+                  "balance": 3.0
+                }
+              ]
+            },
+            "url": "/iou",
+            "payload": {
+              "lender": "Adam",
+              "borrower": "Bob",
+              "amount": 3.0
+            }
+          },
+          "expected": {
+            "users": [
+              {
+                "name": "Adam",
+                "owes": {},
+                "owed_by": {},
+                "balance": 0.0
+              },
+              {
+                "name": "Bob",
+                "owes": {},
+                "owed_by": {},
+                "balance": 0.0
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

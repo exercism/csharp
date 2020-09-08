@@ -1,0 +1,141 @@
+{
+  "exercise": "simple-cipher",
+  "version": "2.0.0",
+  "comments": [
+    "Some of the strings used in this file are symbolic and do not represent their literal value. They are:",
+    "cipher.key - Represents the Cipher key",
+    "cipher.encode - Represents the output of the Cipher encode method",
+    "new - Represents the Cipher initialization",
+    "string.substring(start, length) - Represents a substring of 'string' that begins at index 'start' and is 'length' characters long"
+  ],
+  "cases": [
+    {
+      "description": "Random key cipher",
+      "cases": [
+        {
+          "uuid": "d2f35312-638f-45f2-a285-5dd93e69a6ad",
+          "description": "Can encode",
+          "property": "encode",
+          "input": {
+            "plaintext": "aaaaaaaaaa"
+          },
+          "expected": "cipher.key.substring(0, plaintext.length)"
+        },
+        {
+          "uuid": "b596631a-9d59-4ae3-8f00-2545d417b9a8",
+          "description": "Can decode",
+          "property": "decode",
+          "input": {
+            "ciphertext": "cipher.key.substring(0, expected.length)"
+          },
+          "expected": "aaaaaaaaaa"
+        },
+        {
+          "uuid": "ecd8da20-aba4-4a8f-9b75-f1b437e5648e",
+          "description": "Is reversible. I.e., if you apply decode in a encoded result, you must see the same plaintext encode parameter as a result of the decode method",
+          "property": "decode",
+          "input": {
+            "plaintext": "abcdefghij",
+            "ciphertext": "cipher.encode"
+          },
+          "expected": "abcdefghij"
+        },
+        {
+          "uuid": "163b1601-7216-4308-8add-917a33dcfd5f",
+          "description": "Key is made only of lowercase letters",
+          "property": "key",
+          "input": {},
+          "expected": {
+            "match": "^[a-z]+$"
+          }
+        }
+      ]
+    },
+    {
+      "description": "Substitution cipher",
+      "cases": [
+        {
+          "uuid": "adf57292-a780-4068-9e8a-95927606d1e2",
+          "description": "Can encode",
+          "property": "encode",
+          "input": {
+            "key": "abcdefghij",
+            "plaintext": "aaaaaaaaaa"
+          },
+          "expected": "abcdefghij"
+        },
+        {
+          "uuid": "59d0cb98-2b08-445d-b560-84b0e17b45f2",
+          "description": "Can decode",
+          "property": "decode",
+          "input": {
+            "key": "abcdefghij",
+            "ciphertext": "abcdefghij"
+          },
+          "expected": "aaaaaaaaaa"
+        },
+        {
+          "uuid": "6c57bc46-5531-47c6-8c47-2e451fae10ab",
+          "description": "Is reversible. I.e., if you apply decode in a encoded result, you must see the same plaintext encode parameter as a result of the decode method",
+          "property": "decode",
+          "input": {
+            "key": "abcdefghij",
+            "plaintext": "abcdefghij",
+            "ciphertext": "cipher.encode"
+          },
+          "expected": "abcdefghij"
+        },
+        {
+          "uuid": "38bd33ae-7c4a-472a-b343-9daf16c27c3f",
+          "description": "Can double shift encode",
+          "property": "encode",
+          "input": {
+            "key": "iamapandabear",
+            "plaintext": "iamapandabear"
+          },
+          "expected": "qayaeaagaciai"
+        },
+        {
+          "uuid": "847527e6-3c19-47d1-801b-05e34f2b3920",
+          "description": "Can wrap on encode",
+          "property": "encode",
+          "input": {
+            "key": "abcdefghij",
+            "plaintext": "zzzzzzzzzz"
+          },
+          "expected": "zabcdefghi"
+        },
+        {
+          "uuid": "0ab111e4-d494-4684-9fb7-75eed765ee1b",
+          "description": "Can wrap on decode",
+          "property": "decode",
+          "input": {
+            "key": "abcdefghij",
+            "ciphertext": "zabcdefghi"
+          },
+          "expected": "zzzzzzzzzz"
+        },
+        {
+          "uuid": "04ede1bd-0d9e-4130-97cd-1eb553c3261b",
+          "description": "Can encode messages longer than the key",
+          "property": "encode",
+          "input": {
+            "key": "abc",
+            "plaintext": "iamapandabear"
+          },
+          "expected": "iboaqcnecbfcr"
+        },
+        {
+          "uuid": "557aa9aa-857c-4aee-bc25-67685ec5a287",
+          "description": "Can decode messages longer than the key",
+          "property": "decode",
+          "input": {
+            "key": "abc",
+            "ciphertext": "iboaqcnecbfcr"
+          },
+          "expected": "iamapandabear"
+        }
+      ]
+    }
+  ]
+}

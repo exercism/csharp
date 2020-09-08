@@ -1,0 +1,111 @@
+{
+  "exercise": "kindergarten-garden",
+  "version": "1.1.1",
+  "cases": [
+    {
+      "description": "partial garden",
+      "cases": [
+        {
+          "uuid": "4ae473c8-3447-4aed-8808-ded3c206a6d2",
+          "description": "garden with single student",
+          "property": "plants",
+          "input": {
+            "diagram": "RC\nGG",
+            "student": "Alice"
+          },
+          "expected": ["radishes", "clover", "grass", "grass"]
+        },
+        {
+          "uuid": "e8b2397c-fee4-4e10-aec2-e22cfa1a7d09",
+          "description": "different garden with single student",
+          "property": "plants",
+          "input": {
+            "diagram": "VC\nRC",
+            "student": "Alice"
+          },
+          "expected": ["violets", "clover", "radishes", "clover"]
+        },
+        {
+          "uuid": "890d4f07-63a0-4a86-b6f3-38a223211077",
+          "description": "garden with two students",
+          "property": "plants",
+          "input": {
+            "diagram": "VVCG\nVVRC",
+            "student": "Bob"
+          },
+          "expected": ["clover", "grass", "radishes", "clover"]
+        },
+        {
+          "description": "multiple students for the same garden with three students",
+          "cases": [
+            {
+              "uuid": "2e556ae6-65d6-4f9c-9757-c150a46ac24a",
+              "description": "second student's garden",
+              "property": "plants",
+              "input": {
+                "diagram": "VVCCGG\nVVCCGG",
+                "student": "Bob"
+              },
+              "expected": ["clover", "clover", "clover", "clover"]
+            },
+            {
+              "uuid": "d8c37b89-6b83-4253-a19d-383249494921",
+              "description": "third student's garden",
+              "property": "plants",
+              "input": {
+                "diagram": "VVCCGG\nVVCCGG",
+                "student": "Charlie"
+              },
+              "expected": ["grass", "grass", "grass", "grass"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "full garden",
+      "cases": [
+        {
+          "uuid": "dbb9c2c2-5c03-4b66-b3af-c5b7272ba1c3",
+          "description": "first student's garden",
+          "property": "plants",
+          "input": {
+            "diagram": "VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV",
+            "student": "Alice"
+          },
+          "expected": ["violets", "radishes", "violets", "radishes"]
+        },
+        {
+          "uuid": "3f314091-1571-4f24-8ca5-24d7c64e7308",
+          "description": "second student's garden",
+          "property": "plants",
+          "input": {
+            "diagram": "VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV",
+            "student": "Bob"
+          },
+          "expected": ["clover", "grass", "clover", "clover"]
+        },
+        {
+          "uuid": "1e698b99-383f-4a49-8778-abd0e7b9f816",
+          "description": "second to last student's garden",
+          "property": "plants",
+          "input": {
+            "diagram": "VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV",
+            "student": "Kincaid"
+          },
+          "expected": ["grass", "clover", "clover", "grass"]
+        },
+        {
+          "uuid": "266bc282-472f-4543-b8ac-c7976e746a5f",
+          "description": "last student's garden",
+          "property": "plants",
+          "input": {
+            "diagram": "VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV",
+            "student": "Larry"
+          },
+          "expected": ["grass", "violets", "clover", "violets"]
+        }
+      ]
+    }
+  ]
+}

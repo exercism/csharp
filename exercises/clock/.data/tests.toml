@@ -1,0 +1,157 @@
+[canonical-tests]
+
+# Test case: on the hour
+"3f11730b-c19f-4353-af4c-69c3c35eb1e3" = true
+
+# Test case: past the hour
+"94cc54d7-7c06-4fbe-ae0c-d6247c551734" = true
+
+# Test case: midnight is zero hours
+"d078e0a3-788c-4c77-9bb1-cf7badcacf37" = true
+
+# Test case: hour rolls over
+"e4b1d21c-4a5a-41a3-b479-885270e761cc" = true
+
+# Test case: hour rolls over continuously
+"15565b02-7841-4806-9316-928db675018b" = true
+
+# Test case: sixty minutes is next hour
+"4cfd9402-1ce6-434a-9e16-8a5647b4ca46" = true
+
+# Test case: minutes roll over
+"6eaeefa1-9842-4cde-b4e6-5246a0411209" = true
+
+# Test case: minutes roll over continuously
+"152955a5-9b1e-4bc1-8531-acf7658f4007" = true
+
+# Test case: hour and minutes roll over
+"8e14d90c-fe36-4d0d-becb-d5e0975a0a53" = true
+
+# Test case: hour and minutes roll over continuously
+"b73134d3-cfc9-4af3-a913-c7cb66aec1c9" = true
+
+# Test case: hour and minutes roll over to exactly midnight
+"b53b4674-0051-4731-b4ad-0dc9a8e94b77" = true
+
+# Test case: negative hour
+"b71d3e3e-1ecc-4fcd-a461-317cc5f8ae3c" = true
+
+# Test case: negative hour rolls over
+"a36aa6ce-6f72-4ee7-8ace-5556a307372c" = true
+
+# Test case: negative hour rolls over continuously
+"f5ee1a18-bafe-43ea-a87b-699b81331f1b" = true
+
+# Test case: negative minutes
+"109e9ddb-b2c8-45b9-abda-d9641c3d98c6" = true
+
+# Test case: negative minutes roll over
+"f7010239-055c-45d5-99fa-9b8c4f2429af" = true
+
+# Test case: negative minutes roll over continuously
+"8cb7f9d2-868c-48d2-8b2e-fadc6047373c" = true
+
+# Test case: negative sixty minutes is previous hour
+"98108980-880d-4fd8-b411-464ca6dbcbea" = true
+
+# Test case: negative hour and minutes both roll over
+"fcc4854b-9fcd-4e48-a632-55b54f73852f" = true
+
+# Test case: negative hour and minutes both roll over continuously
+"fc0bf0a2-2907-4343-a005-cb415282ce68" = true
+
+# Test case: add minutes
+"6c0bb7be-3794-4e75-9a09-536b6fb9bcc6" = true
+
+# Test case: add no minutes
+"f72d8bae-188d-49d6-b828-193c2439a8d6" = true
+
+# Test case: add to next hour
+"81e00580-a952-4dc0-afd0-546fe797b495" = true
+
+# Test case: add more than one hour
+"b34d645d-7cd1-413f-a1dd-4efc37ecb71d" = true
+
+# Test case: add more than two hours with carry
+"b09e0344-a78a-400c-88b0-ca98cd4a4de0" = true
+
+# Test case: add across midnight
+"26313821-9685-4bdc-9859-b53a6a0b9019" = true
+
+# Test case: add more than one day (1500 min = 25 hrs)
+"bf8eea2e-db5a-4d0e-bda1-4512e543a5e5" = true
+
+# Test case: add more than two days
+"7c90112e-3dc5-458d-a208-bcbb02aaab4f" = true
+
+# Test case: subtract minutes
+"abec83ab-05d8-4991-891d-ec4e84b73f1b" = true
+
+# Test case: subtract to previous hour
+"2db06b72-12d2-4282-93c5-a262a98eb327" = true
+
+# Test case: subtract more than an hour
+"f9278f3c-a251-402a-b476-374b1470c597" = true
+
+# Test case: subtract across midnight
+"aff12c85-492d-4f1d-b796-b7257d8b3f55" = true
+
+# Test case: subtract more than two hours
+"a7dee339-8505-476b-9df8-fbb5052de2bf" = true
+
+# Test case: subtract more than two hours with borrow
+"cac8ad8e-d262-41f5-85dc-19c24994f23c" = true
+
+# Test case: subtract more than one day (1500 min = 25 hrs)
+"59b30ada-2af7-4183-983c-12ca4891b09b" = true
+
+# Test case: subtract more than two days
+"a434eb4f-4ae1-4117-bf89-d90858cfbd50" = true
+
+# Test case: clocks with same time
+"2fe07631-5eab-4f60-af37-6a4e8a017195" = true
+
+# Test case: clocks a minute apart
+"b8f3e272-f573-443c-876f-06c11acc9f7e" = true
+
+# Test case: clocks an hour apart
+"871174d2-70b1-4176-89fc-c4e378d0224f" = true
+
+# Test case: clocks with hour overflow
+"0e020b33-e051-4518-a7b7-b04ef8d9bf15" = true
+
+# Test case: clocks with hour overflow by several days
+"882d7c05-67f2-44d3-9543-b7c4556fd78a" = true
+
+# Test case: clocks with negative hour
+"6a363676-9f19-45cb-bbd5-7c45e9e96765" = true
+
+# Test case: clocks with negative hour that wraps
+"d40135cc-0aa9-43f4-851f-a878fe06ac13" = true
+
+# Test case: clocks with negative hour that wraps multiple times
+"9fa562ef-a7ed-4be4-9bfc-25cd0a1af7cc" = true
+
+# Test case: clocks with minute overflow
+"1c729629-2d9b-40bc-b369-c81915ce0db7" = true
+
+# Test case: clocks with minute overflow by several days
+"3698e0d6-85a9-40df-b408-cc40b43c3caa" = true
+
+# Test case: clocks with negative minute
+"f3a8b37d-6512-40fd-9212-f0e83aa8c5af" = true
+
+# Test case: clocks with negative minute that wraps
+"c2f9af0d-8028-42c2-b8d5-cca2e14a751b" = true
+
+# Test case: clocks with negative minute that wraps multiple times
+"ad68d72b-3059-4a35-af83-aad6ee614654" = true
+
+# Test case: clocks with negative hours and minutes
+"45d81ef1-d9fe-483b-b0c9-e7b461a65437" = true
+
+# Test case: clocks with negative hours and minutes that wrap
+"3a798c94-058e-43f7-a059-95bdb99f28d1" = true
+
+# Test case: full clock and zeroed clock
+"17a111d9-2e30-4247-a5d2-2deede1ea6b5" = true

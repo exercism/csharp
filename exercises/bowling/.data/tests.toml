@@ -1,0 +1,91 @@
+[canonical-tests]
+
+# Test case: should be able to score a game with all zeros
+"1abc7eb2-d6b0-4ddb-be64-96af77c38c77" = true
+
+# Test case: should be able to score a game with no strikes or spares
+"3e87b0e6-d362-40b7-866d-1ec966bec96e" = true
+
+# Test case: a spare followed by zeros is worth ten points
+"272d2a04-bbcc-4b64-88c0-17680f79b3f0" = true
+
+# Test case: points scored in the roll after a spare are counted twice
+"3b0cf5fc-1a6d-4e48-aeed-936951cc182a" = true
+
+# Test case: consecutive spares each get a one roll bonus
+"c55f0e8b-a87c-4750-9324-6c49a99695ef" = true
+
+# Test case: a spare in the last frame gets a one roll bonus that is counted once
+"c947339c-2496-4890-b4f0-9c8502229be7" = true
+
+# Test case: a strike earns ten points in a frame with a single roll
+"7db7ef6e-92c7-4560-bd61-6409fa19a71e" = true
+
+# Test case: points scored in the two rolls after a strike are counted twice as a bonus
+"49cbbdea-625e-4c76-a782-a568b6561173" = true
+
+# Test case: consecutive strikes each get the two roll bonus
+"a95e05e3-1cf6-4b64-b85f-d1c9d998bc7d" = true
+
+# Test case: a strike in the last frame gets a two roll bonus that is counted once
+"72fcc7b1-9d95-4ae5-807f-3bdf6b3e1ebc" = true
+
+# Test case: rolling a spare with the two roll bonus does not get a bonus roll
+"6a57f1e4-e486-4e43-aa55-5c103f4e7647" = true
+
+# Test case: strikes with the two roll bonus do not get bonus rolls
+"ca6e6e9c-5902-4da9-85dd-944458db972b" = true
+
+# Test case: a strike with the one roll bonus after a spare in the last frame does not get a bonus
+"94ff6588-6b6e-4fe4-8038-1118cbcb1e16" = true
+
+# Test case: all strikes is a perfect game
+"1fdb989e-51c5-4021-9309-df7073d942f5" = true
+
+# Test case: rolls cannot score negative points
+"56aa2d2e-00d1-483f-999b-6b4961927155" = true
+
+# Test case: a roll cannot score more than 10 points
+"408786b7-f541-44af-98b0-7bf8904e24c2" = true
+
+# Test case: two rolls in a frame cannot score more than 10 points
+"84202351-2484-4cc4-af4f-b089a537ef68" = true
+
+# Test case: bonus roll after a strike in the last frame cannot score more than 10 points
+"f4c5cc10-028f-436d-b934-9cc29aba0afe" = true
+
+# Test case: two bonus rolls after a strike in the last frame cannot score more than 10 points
+"be683058-b2aa-4c4a-a830-a0660271de15" = true
+
+# Test case: two bonus rolls after a strike in the last frame can score more than 10 points if one is a strike
+"e1c1f43c-7737-4e0b-9ca5-d9f5a4cf20c9" = true
+
+# Test case: the second bonus rolls after a strike in the last frame cannot be a strike if the first one is not a strike
+"8b8e1907-a497-4409-8e39-8fb6fc18fd0c" = true
+
+# Test case: second bonus roll after a strike in the last frame cannot score more than 10 points
+"986a46c4-2cb5-41a2-8f93-84cc8e114064" = true
+
+# Test case: an unstarted game cannot be scored
+"31bec343-d787-4eb4-bedb-317b2ad8df7a" = true
+
+# Test case: an incomplete game cannot be scored
+"b8e51437-3eb3-4527-9647-10c5e006f2a4" = true
+
+# Test case: cannot roll if game already has ten frames
+"2bffa335-c461-407d-a32d-dac39c7b5dc4" = true
+
+# Test case: bonus rolls for a strike in the last frame must be rolled before score can be calculated
+"2cf2fe20-d5da-4987-ae5b-9ba9d6b95511" = true
+
+# Test case: both bonus rolls for a strike in the last frame must be rolled before score can be calculated
+"e48aaf68-5789-43ce-9468-5877fd6e74d5" = true
+
+# Test case: bonus roll for a spare in the last frame must be rolled before score can be calculated
+"279c92eb-edd2-4a06-847f-1a6a0e5c902a" = true
+
+# Test case: cannot roll after bonus roll for spare
+"48e19f4d-051c-4725-ac65-95a5aa8a9b88" = true
+
+# Test case: cannot roll after bonus rolls for strike
+"405a0dac-2fd5-4ac5-a15f-2c125f23182c" = true

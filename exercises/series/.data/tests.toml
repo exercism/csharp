@@ -1,0 +1,31 @@
+[canonical-tests]
+
+# Test case: slices of one from one
+"86a8eba1-5401-46cd-b516-23a4b5e4b129" = true
+
+# Test case: slices of one from two
+"fef765b5-e52a-4ac5-a372-9bd189a0bcc1" = true
+
+# Test case: slices of two
+"9940a5fb-a762-4a4a-b8bc-5e3319afef72" = true
+
+# Test case: slices of two overlap
+"ca8ce8e4-5b64-4a3a-af14-c0588e8acc2b" = true
+
+# Test case: slices can include duplicates
+"abd78732-ac6d-4813-ad52-4859603694fa" = true
+
+# Test case: slices of a long series
+"4ad1ac16-1b94-47d3-bf18-de39d0b9954e" = true
+
+# Test case: slice length is too large
+"509330d5-7445-491e-9fc4-d1e1cfd2da4e" = true
+
+# Test case: slice length cannot be zero
+"0ddd719d-3791-4395-9597-47f05bab376b" = true
+
+# Test case: slice length cannot be negative
+"7feb2c51-c978-48e5-a907-3a2905bf7d27" = true
+
+# Test case: empty series is invalid
+"d1b59085-1c9e-4df9-8bc6-9641023cfa97" = true

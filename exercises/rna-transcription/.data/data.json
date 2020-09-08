@@ -1,0 +1,60 @@
+{
+  "exercise": "rna-transcription",
+  "version": "1.3.0",
+  "cases": [
+    {
+      "uuid": "96029e72-cda8-493a-8600-4c4fe4b5ecd3",
+      "description": "Empty RNA sequence",
+      "property": "toRna",
+      "input": {
+        "dna": ""
+      },
+      "expected": ""
+    },
+    {
+      "uuid": "064b369c-3be1-4cba-94b6-525828820793",
+      "description": "RNA complement of cytosine is guanine",
+      "property": "toRna",
+      "input": {
+        "dna": "C"
+      },
+      "expected": "G"
+    },
+    {
+      "uuid": "9ced7b67-b069-45ee-9aa4-f745665584e5",
+      "description": "RNA complement of guanine is cytosine",
+      "property": "toRna",
+      "input": {
+        "dna": "G"
+      },
+      "expected": "C"
+    },
+    {
+      "uuid": "d4e351d6-56b6-4f1e-a4b8-f7828892a765",
+      "description": "RNA complement of thymine is adenine",
+      "property": "toRna",
+      "input": {
+        "dna": "T"
+      },
+      "expected": "A"
+    },
+    {
+      "uuid": "07f29c14-ba30-4449-9b18-bd633e9b3059",
+      "description": "RNA complement of adenine is uracil",
+      "property": "toRna",
+      "input": {
+        "dna": "A"
+      },
+      "expected": "U"
+    },
+    {
+      "uuid": "a7d1fb63-25df-4d2c-ac33-5d83c3171cab",
+      "description": "RNA complement",
+      "property": "toRna",
+      "input": {
+        "dna": "ACGTGGTCTTAA"
+      },
+      "expected": "UGCACCAGAAUU"
+    }
+  ]
+}

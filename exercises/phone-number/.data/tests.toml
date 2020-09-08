@@ -1,0 +1,55 @@
+[canonical-tests]
+
+# Test case: cleans the number
+"b2a832a8-41bb-4900-b80e-5cd504ea8059" = true
+
+# Test case: cleans numbers with dots
+"21b3c104-9da5-47a1-8ccd-e95cc2ffab11" = true
+
+# Test case: cleans numbers with multiple spaces
+"dc81a836-50e5-446a-92bc-e75b588af2e7" = true
+
+# Test case: invalid when 9 digits
+"541609c2-e848-4147-959f-d4d9659e0c58" = true
+
+# Test case: invalid when 11 digits does not start with a 1
+"3dea0f44-f91e-4fa7-bc78-20ce895e5b0b" = true
+
+# Test case: valid when 11 digits and starting with 1
+"2643d9ea-89ba-4921-b4ff-2724908e3ddf" = true
+
+# Test case: valid when 11 digits and starting with 1 even with punctuation
+"45ed1784-bb5f-48e0-8aa4-7edf6711f027" = true
+
+# Test case: invalid when more than 11 digits
+"de6343d8-2f84-4d50-98e8-b32ba95c499c" = true
+
+# Test case: invalid with letters
+"554e5301-32d7-400e-8c40-f0fe58b258f1" = true
+
+# Test case: invalid with punctuations
+"7f43d824-f59d-4bb8-91ae-a9e8e8188289" = true
+
+# Test case: invalid if area code starts with 0
+"e37943b1-ad03-4dce-8012-8030fd8d63d4" = true
+
+# Test case: invalid if area code starts with 1
+"36de2b0b-1a04-4e2e-88f3-6f2c0740e52a" = true
+
+# Test case: invalid if exchange code starts with 0
+"8e4dfd67-d9e2-4c29-931a-54a33f5f7af9" = true
+
+# Test case: invalid if exchange code starts with 1
+"4f1ef5bb-5fd3-4f4c-8e15-2c96c49b3ab2" = true
+
+# Test case: invalid if area code starts with 0 on valid 11-digit number
+"9356f970-9f50-4fe2-bf82-3d48145d5b31" = true
+
+# Test case: invalid if area code starts with 1 on valid 11-digit number
+"569df8a1-a94e-4b27-851f-f740651ae854" = true
+
+# Test case: invalid if exchange code starts with 0 on valid 11-digit number
+"c63c8d92-6f33-4a95-be77-8ce907f3fb7a" = true
+
+# Test case: invalid if exchange code starts with 1 on valid 11-digit number
+"bc165bf5-dce3-4e60-b213-76cb51a32297" = true

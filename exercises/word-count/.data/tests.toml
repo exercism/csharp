@@ -1,0 +1,40 @@
+[canonical-tests]
+
+# Test case: count one word
+"532fa520-fbea-4b46-8d62-77ef2a4ef492" = true
+
+# Test case: count one of each word
+"0daca715-0c14-4ca7-bb78-a47d1284daa8" = true
+
+# Test case: multiple occurrences of a word
+"ca93ad74-94f2-48d7-b2dd-e8eb767936a1" = true
+
+# Test case: handles cramped lists
+"2f0f0616-a2eb-45de-9971-056cb3db5814" = true
+
+# Test case: handles expanded lists
+"06c1d14f-bb56-45aa-8952-61057d5d9726" = true
+
+# Test case: ignore punctuation
+"a879828b-bd63-48a2-ba55-6d168eabb686" = true
+
+# Test case: include numbers
+"088459ed-d691-4689-a529-d41ba3dd040c" = true
+
+# Test case: normalize case
+"c3a21d4e-2d51-4a50-8818-41bcf456656b" = true
+
+# Test case: with apostrophes
+"2b52a49a-beda-4934-901e-e186adf538af" = true
+
+# Test case: with quotations
+"54b6f915-ff57-41cc-8845-4255811f23bb" = true
+
+# Test case: substrings from the beginning
+"f023d4ac-c59e-4071-a263-4a5c708b55a4" = true
+
+# Test case: multiple spaces not detected as a word
+"1157b416-a888-4a73-94aa-cb8ed2ff3e20" = true
+
+# Test case: alternating word separators not detected as a word
+"fbcb0dc0-124b-481d-b7ce-cf33a315a719" = true

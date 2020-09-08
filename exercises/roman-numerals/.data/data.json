@@ -1,0 +1,177 @@
+{
+  "exercise": "roman-numerals",
+  "version": "1.2.0",
+  "cases": [
+    {
+      "uuid": "1a35ad95-3ea6-4246-8071-8a8cee9cc33c",
+      "description": "1 is a single I",
+      "property": "roman",
+      "input": {
+        "number": 1
+      },
+      "expected": "I"
+    },
+    {
+      "uuid": "4851d72d-ec58-45c7-a1b9-0a3f9c34eee7",
+      "description": "2 is two I's",
+      "property": "roman",
+      "input": {
+        "number": 2
+      },
+      "expected": "II"
+    },
+    {
+      "uuid": "10908e36-63aa-4052-9afa-5cd0322bd58d",
+      "description": "3 is three I's",
+      "property": "roman",
+      "input": {
+        "number": 3
+      },
+      "expected": "III"
+    },
+    {
+      "uuid": "6af3fd53-44a4-40cf-9d82-0ecf0aa0b7ec",
+      "description": "4, being 5 - 1, is IV",
+      "property": "roman",
+      "input": {
+        "number": 4
+      },
+      "expected": "IV"
+    },
+    {
+      "uuid": "b974d690-ab44-47ac-b09e-4a2eec5991e6",
+      "description": "5 is a single V",
+      "property": "roman",
+      "input": {
+        "number": 5
+      },
+      "expected": "V"
+    },
+    {
+      "uuid": "fe2e6e55-3397-4fc7-a97a-c257ce640d3d",
+      "description": "6, being 5 + 1, is VI",
+      "property": "roman",
+      "input": {
+        "number": 6
+      },
+      "expected": "VI"
+    },
+    {
+      "uuid": "85d3c240-1503-4104-b6d2-3912fc936059",
+      "description": "9, being 10 - 1, is IX",
+      "property": "roman",
+      "input": {
+        "number": 9
+      },
+      "expected": "IX"
+    },
+    {
+      "uuid": "92b2190f-4537-4806-93ca-1da79c7e0893",
+      "description": "20 is two X's",
+      "property": "roman",
+      "input": {
+        "number": 27
+      },
+      "expected": "XXVII"
+    },
+    {
+      "uuid": "c671d28f-f33d-4e70-bebe-9d35238a348c",
+      "description": "48 is not 50 - 2 but rather 40 + 8",
+      "property": "roman",
+      "input": {
+        "number": 48
+      },
+      "expected": "XLVIII"
+    },
+    {
+      "uuid": "3d0cf2a0-b324-40c4-a55c-9b1a0e25a0da",
+      "description": "49 is not 40 + 5 + 4 but rather 50 - 10 + 10 - 1",
+      "property": "roman",
+      "input": {
+        "number": 49
+      },
+      "expected": "XLIX"
+    },
+    {
+      "uuid": "80149a7f-748d-4c55-9b3f-ebff4b572fbb",
+      "description": "50 is a single L",
+      "property": "roman",
+      "input": {
+        "number": 59
+      },
+      "expected": "LIX"
+    },
+    {
+      "uuid": "2de556ae-7e1f-412f-a4a2-f416b9e3504f",
+      "description": "90, being 100 - 10, is XC",
+      "property": "roman",
+      "input": {
+        "number": 93
+      },
+      "expected": "XCIII"
+    },
+    {
+      "uuid": "9b45f8ea-00e0-4aa7-8a36-90b2c37fb7cf",
+      "description": "100 is a single C",
+      "property": "roman",
+      "input": {
+        "number": 141
+      },
+      "expected": "CXLI"
+    },
+    {
+      "uuid": "f8096d5f-8c52-46b2-bfdf-b5d6fcbfc859",
+      "description": "60, being 50 + 10, is LX",
+      "property": "roman",
+      "input": {
+        "number": 163
+      },
+      "expected": "CLXIII"
+    },
+    {
+      "uuid": "5f68a5fd-4b23-480d-80d3-f43eb535eff7",
+      "description": "400, being 500 - 100, is CD",
+      "property": "roman",
+      "input": {
+        "number": 402
+      },
+      "expected": "CDII"
+    },
+    {
+      "uuid": "f01a3aba-38a2-4264-a59f-b55d8d8a2214",
+      "description": "500 is a single D",
+      "property": "roman",
+      "input": {
+        "number": 575
+      },
+      "expected": "DLXXV"
+    },
+    {
+      "uuid": "9a4a57b6-2011-418f-a332-b55f317386aa",
+      "description": "900, being 1000 - 100, is CM",
+      "property": "roman",
+      "input": {
+        "number": 911
+      },
+      "expected": "CMXI"
+    },
+    {
+      "uuid": "7c3f0a08-42b0-44f5-bba1-7933bfcc6460",
+      "description": "1000 is a single M",
+      "property": "roman",
+      "input": {
+        "number": 1024
+      },
+      "expected": "MXXIV"
+    },
+    {
+      "uuid": "872a9aae-6ec4-4934-aef4-7a24543f46eb",
+      "description": "3000 is three M's",
+      "property": "roman",
+      "input": {
+        "number": 3000
+      },
+      "expected": "MMM"
+    }
+  ]
+}

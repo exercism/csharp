@@ -1,0 +1,94 @@
+[canonical-tests]
+
+# Test case: Real part of a purely real number
+"e8097c23-3ad7-4a1b-8356-ba2ee0f9d98c" = true
+
+# Test case: Real part of a purely imaginary number
+"e2275bbd-2df2-4bf1-b027-da11422e39d5" = true
+
+# Test case: Real part of a number with real and imaginary part
+"20bc499c-fad5-4fc7-aafa-4a95925c46e3" = true
+
+# Test case: Imaginary part of a purely real number
+"6f99f900-78d7-4877-a9c4-9080bb68f1b0" = true
+
+# Test case: Imaginary part of a purely imaginary number
+"eabd663e-c958-4e17-aadb-accbfecc7564" = true
+
+# Test case: Imaginary part of a number with real and imaginary part
+"42e0a6eb-839c-4f3a-bc1c-bbf80d3d56e1" = true
+
+# Test case: Imaginary unit
+"23c92ce1-6a5b-48f3-a498-1b049c099432" = true
+
+# Test case: Add purely real numbers
+"b2d5185d-97a1-4a33-8f42-c4daf332eaab" = true
+
+# Test case: Add purely imaginary numbers
+"d8c69bd7-52e2-47cd-bc09-59c0d2885f91" = true
+
+# Test case: Add numbers with real and imaginary part
+"59699b87-c577-4c72-a8dc-716c2b0861e8" = true
+
+# Test case: Subtract purely real numbers
+"aeeacf3a-bd50-4632-bfaa-0c23e1ce17d5" = true
+
+# Test case: Subtract purely imaginary numbers
+"1b9b71a6-664d-42e9-af31-7646823dfb9c" = true
+
+# Test case: Subtract numbers with real and imaginary part
+"be677940-59ee-499b-b975-0cb9e51bfa1e" = true
+
+# Test case: Multiply purely real numbers
+"2d201fc6-7822-4d2d-8b36-d0d5c90019b8" = true
+
+# Test case: Multiply purely imaginary numbers
+"ffd24042-09d0-4974-9656-b76b1c5b6b38" = true
+
+# Test case: Multiply numbers with real and imaginary part
+"de77d122-eb27-4bba-a4b1-f49f498c1571" = true
+
+# Test case: Divide purely real numbers
+"5ab7c131-07d9-40f1-b39a-c7d31202e8f5" = true
+
+# Test case: Divide purely imaginary numbers
+"58d2e6b6-3469-4dde-9683-d296238a8b32" = true
+
+# Test case: Divide numbers with real and imaginary part
+"0c464046-246c-42b7-a54e-c51f2023af61" = true
+
+# Test case: Absolute value of a positive purely real number
+"0c5039d7-50d4-49d8-9a83-9a3e8ab66e97" = true
+
+# Test case: Absolute value of a negative purely real number
+"15214040-473f-4d67-bd5e-1b6e413321df" = true
+
+# Test case: Absolute value of a purely imaginary number with positive imaginary part
+"b5455779-2bfe-4729-bccf-49fbaddf39bb" = true
+
+# Test case: Absolute value of a purely imaginary number with negative imaginary part
+"48139aae-5b92-4f35-bd61-e19b2f0718d0" = true
+
+# Test case: Absolute value of a number with real and imaginary part
+"71d7a9e2-8772-4483-b0a2-04cae33c4c2f" = true
+
+# Test case: Conjugate a purely real number
+"c53993ad-0ccb-4777-bd78-74098c3420ef" = true
+
+# Test case: Conjugate a purely imaginary number
+"4e5f380e-c9f9-4f48-a642-42b1830d20ca" = true
+
+# Test case: Conjugate a number with real and imaginary part
+"a3978c84-881c-4855-84ba-222555e9766a" = true
+
+# Test case: Euler's identity/formula
+"489b7e6c-1967-4a0b-8850-d8f1fcaa63ca" = true
+
+# Test case: Exponential of 0
+"86d744b2-e487-47cd-95a3-4b766c23cae1" = true
+
+# Test case: Exponential of a purely real number
+"b7126885-ce0f-43d8-90ca-dced9fa050ae" = true
+
+# Test case: Exponential of a number with real and imaginary part
+"e2a6ed70-b253-4041-baa7-ad33eabc9821" = true

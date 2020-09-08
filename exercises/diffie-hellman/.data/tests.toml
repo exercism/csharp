@@ -1,0 +1,16 @@
+[canonical-tests]
+
+# Test case: private key is in range 1 .. p
+"d6651421-1b49-47f2-b8e9-6645e758022a" = true
+
+# Test case: private key is random
+"282230d2-f8dc-4782-aca5-20c6c44c58d3" = true
+
+# Test case: can calculate public key using private key
+"c59c65ad-dc08-468c-b0d9-6c683b113877" = true
+
+# Test case: can calculate secret using other party's public key
+"fc35da9f-eb1a-4707-bd25-6db4100c075c" = true
+
+# Test case: key exchange
+"509f1972-ccb6-402a-8ea7-2410510dfb26" = true

@@ -1,0 +1,43 @@
+[canonical-tests]
+
+# Test case: input cells have a value
+"4a0cbbe7-e3bc-463d-9c4d-fc4d41d468c7" = true
+
+# Test case: an input cell's value can be set
+"77c8b81d-a1bb-42f5-a972-f4eb5331a9a5" = true
+
+# Test case: compute cells calculate initial value
+"a63231a4-135d-4be5-a44e-1438153d9aa0" = true
+
+# Test case: compute cells take inputs in the right order
+"0c22ca50-bb6e-485e-ab29-507cdfc444e5" = true
+
+# Test case: compute cells update value when dependencies are changed
+"45582845-ef9a-471b-98b2-01003e6c123b" = true
+
+# Test case: compute cells can depend on other compute cells
+"78037c39-7ac2-4b08-8999-eff87f7bc9b2" = true
+
+# Test case: compute cells fire callbacks
+"a9e21c7d-04f3-47f4-bb8d-79b3e02f3435" = true
+
+# Test case: callback cells only fire on change
+"94a33525-1b5b-4f55-bdcd-aa90abb897f6" = true
+
+# Test case: callbacks do not report already reported values
+"be11c311-1b2f-40c5-b1c3-c8d0ddd09b10" = true
+
+# Test case: callbacks can fire from multiple cells
+"9a2858f1-2b8e-4eb6-890d-5faa4af34a8e" = true
+
+# Test case: callbacks can be added and removed
+"acf1113a-9c8a-4968-bcfe-57e6f9e988b1" = true
+
+# Test case: removing a callback multiple times doesn't interfere with other callbacks
+"733bef0f-a032-4047-b22f-262b85bb7789" = true
+
+# Test case: callbacks should only be called once even if multiple dependencies change
+"b0fb371e-2ba8-4d0c-aead-9fb4557c322e" = true
+
+# Test case: callbacks should not be called if dependencies change but output value doesn't change
+"77576549-2ec9-43d7-ae84-c15fca74909f" = true

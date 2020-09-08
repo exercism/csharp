@@ -1,0 +1,139 @@
+{
+  "exercise": "darts",
+  "version": "2.2.0",
+  "comments": [
+    "Return the correct amount earned by a dart's landing position."
+  ],
+  "cases": [
+    {
+      "uuid": "fc8d65b1-05df-4488-8b21-90e0b16a82b9",
+      "property": "score",
+      "description": "Missed target",
+      "input": {
+        "x": -9,
+        "y": 9
+      },
+      "expected": 0
+    },
+    {
+      "uuid": "7d1e5637-f876-449c-906b-b75a542a2ea3",
+      "property": "score",
+      "description": "On the outer circle",
+      "input": {
+        "x": 0,
+        "y": 10
+      },
+      "expected": 1
+    },
+    {
+      "uuid": "82966dc3-86d0-4c37-93a8-17c5c6373523",
+      "property": "score",
+      "description": "On the middle circle",
+      "input": {
+        "x": -5,
+        "y": 0
+      },
+      "expected": 5
+    },
+    {
+      "uuid": "547275ea-90f5-441e-b2d1-437fd9e43aad",
+      "property": "score",
+      "description": "On the inner circle",
+      "input": {
+        "x": 0,
+        "y": -1
+      },
+      "expected": 10
+    },
+    {
+      "uuid": "abf02339-6282-48b0-946b-7aba590147c4",
+      "property": "score",
+      "description": "Exactly on centre",
+      "input": {
+        "x": 0,
+        "y": 0
+      },
+      "expected": 10
+    },
+    {
+      "uuid": "e196ead0-69ba-4ce5-af91-a1c6584ac0e3",
+      "property": "score",
+      "description": "Near the centre",
+      "input": {
+        "x": -0.1,
+        "y": -0.1
+      },
+      "expected": 10
+    },
+    {
+      "uuid": "b213bf91-5ff2-44f9-bbde-2afe8c8c15d7",
+      "property": "score",
+      "description": "Just within the inner circle",
+      "input": {
+        "x": 0.7,
+        "y": 0.7
+      },
+      "expected": 10
+    },
+    {
+      "uuid": "eb7b32a0-565f-48fc-a33e-de043f7ffeca",
+      "property": "score",
+      "description": "Just outside the inner circle",
+      "input": {
+        "x": 0.8,
+        "y": -0.8
+      },
+      "expected": 5
+    },
+    {
+      "uuid": "431041a4-f956-410b-8ff9-8208a679381f",
+      "property": "score",
+      "description": "Just within the middle circle",
+      "input": {
+        "x": -3.5,
+        "y": 3.5
+      },
+      "expected": 5
+    },
+    {
+      "uuid": "7803b876-41a4-4f39-b30d-d26a76611099",
+      "property": "score",
+      "description": "Just outside the middle circle",
+      "input": {
+        "x": -3.6,
+        "y": -3.6
+      },
+      "expected": 1
+    },
+    {
+      "uuid": "2b9f9e29-82e9-4237-8f5f-ffa2d92f7a46",
+      "property": "score",
+      "description": "Just within the outer circle",
+      "input": {
+        "x": -7.0,
+        "y": 7.0
+      },
+      "expected": 1
+    },
+    {
+      "uuid": "69359c45-fddc-42cc-8a12-954b276e2d49",
+      "property": "score",
+      "description": "Just outside the outer circle",
+      "input": {
+        "x": 7.1,
+        "y": -7.1
+      },
+      "expected": 0
+    },
+    {
+      "uuid": "67d52a56-2812-4ea2-a4f6-74c0d198cac2",
+      "property": "score",
+      "description": "Asymmetric position between the inner and middle circles",
+      "input": {
+        "x": 0.5,
+        "y": -4
+      },
+      "expected": 5
+    }
+  ]
+}

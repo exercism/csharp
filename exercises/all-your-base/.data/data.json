@@ -1,0 +1,266 @@
+{
+  "exercise": "all-your-base",
+  "version": "2.3.0",
+  "comments": [
+    "This canonical data makes the following choices:",
+    "1. Zero is always represented in outputs as [0] instead of [].",
+    "2. In no other instances are leading zeroes present in any outputs.",
+    "3. Leading zeroes are accepted in inputs.",
+    "4. An empty sequence of input digits is considered zero, rather than an error.",
+    "",
+    "Tracks that wish to make different decisions for these choices may translate appropriately.",
+    "",
+    "All your numeric-base are belong to [2..]. :)"
+  ],
+  "cases": [
+    {
+      "uuid": "bfe9eea5-ee3e-42ea-a0c4-d4c1517edab9",
+      "description": "single bit one to decimal",
+      "property": "rebase",
+      "input": {
+        "inputBase": 2,
+        "digits": [1],
+        "outputBase": 10
+      },
+      "expected": [1]
+    },
+    {
+      "uuid": "e2297d78-c9ba-4078-96bd-50b742e60c79",
+      "description": "binary to single decimal",
+      "property": "rebase",
+      "input": {
+        "inputBase": 2,
+        "digits": [1, 0, 1],
+        "outputBase": 10
+      },
+      "expected": [5]
+    },
+    {
+      "uuid": "088c5799-b6c8-45f5-a35c-405711b9e048",
+      "description": "single decimal to binary",
+      "property": "rebase",
+      "input": {
+        "inputBase": 10,
+        "digits": [5],
+        "outputBase": 2
+      },
+      "expected": [1, 0, 1]
+    },
+    {
+      "uuid": "b96691a8-8583-4060-a1bb-5a4e1252d1c7",
+      "description": "binary to multiple decimal",
+      "property": "rebase",
+      "input": {
+        "inputBase": 2,
+        "digits": [1, 0, 1, 0, 1, 0],
+        "outputBase": 10
+      },
+      "expected": [4, 2]
+    },
+    {
+      "uuid": "7e1d2081-6e52-48d7-93c2-6044acc291eb",
+      "description": "decimal to binary",
+      "property": "rebase",
+      "input": {
+        "inputBase": 10,
+        "digits": [4, 2],
+        "outputBase": 2
+      },
+      "expected": [1, 0, 1, 0, 1, 0]
+    },
+    {
+      "uuid": "383231db-0d3c-4ff9-b32d-47eb49194691",
+      "description": "trinary to hexadecimal",
+      "property": "rebase",
+      "input": {
+        "inputBase": 3,
+        "digits": [1, 1, 2, 0],
+        "outputBase": 16
+      },
+      "expected": [2, 10]
+    },
+    {
+      "uuid": "61a4838b-0f54-4792-91cf-8347b4dfb58a",
+      "description": "hexadecimal to trinary",
+      "property": "rebase",
+      "input": {
+        "inputBase": 16,
+        "digits": [2, 10],
+        "outputBase": 3
+      },
+      "expected": [1, 1, 2, 0]
+    },
+    {
+      "uuid": "988247c9-f487-4a52-bb48-5ad3375c4f2a",
+      "description": "15-bit integer",
+      "property": "rebase",
+      "input": {
+        "inputBase": 97,
+        "digits": [3, 46, 60],
+        "outputBase": 73
+      },
+      "expected": [6, 10, 45]
+    },
+    {
+      "uuid": "59f8ca82-0e74-4bb3-b769-69a8be444ff0",
+      "description": "empty list",
+      "property": "rebase",
+      "input": {
+        "inputBase": 2,
+        "digits": [],
+        "outputBase": 10
+      },
+      "expected": [0]
+    },
+    {
+      "uuid": "e4d5700f-e94d-4bf1-a59f-05665803ebd8",
+      "description": "single zero",
+      "property": "rebase",
+      "input": {
+        "inputBase": 10,
+        "digits": [0],
+        "outputBase": 2
+      },
+      "expected": [0]
+    },
+    {
+      "uuid": "80728719-c243-4931-b53c-3caa9549f555",
+      "description": "multiple zeros",
+      "property": "rebase",
+      "input": {
+        "inputBase": 10,
+        "digits": [0, 0, 0],
+        "outputBase": 2
+      },
+      "expected": [0]
+    },
+    {
+      "uuid": "dbb261d9-d2da-40de-9f7e-f6ffad3106a6",
+      "description": "leading zeros",
+      "property": "rebase",
+      "input": {
+        "inputBase": 7,
+        "digits": [0, 6, 0],
+        "outputBase": 10
+      },
+      "expected": [4, 2]
+    },
+    {
+      "uuid": "de680b24-128a-4fb4-b624-d42bc2b8ac9c",
+      "description": "input base is one",
+      "property": "rebase",
+      "input": {
+        "inputBase": 1,
+        "digits": [0],
+        "outputBase": 10
+      },
+      "expected": {
+        "error": "input base must be >= 2"
+      }
+    },
+    {
+      "uuid": "827a981e-d9ca-4ba3-8627-19980cb1d41d",
+      "description": "input base is zero",
+      "property": "rebase",
+      "input": {
+        "inputBase": 0,
+        "digits": [],
+        "outputBase": 10
+      },
+      "expected": {
+        "error": "input base must be >= 2"
+      }
+    },
+    {
+      "uuid": "8c73a7a1-f795-4433-8097-16ece99c9c25",
+      "description": "input base is negative",
+      "property": "rebase",
+      "input": {
+        "inputBase": -2,
+        "digits": [1],
+        "outputBase": 10
+      },
+      "expected": {
+        "error": "input base must be >= 2"
+      }
+    },
+    {
+      "uuid": "5e1662f1-8734-4c36-b2cd-27c0faad0280",
+      "description": "negative digit",
+      "property": "rebase",
+      "input": {
+        "inputBase": 2,
+        "digits": [1, -1, 1, 0, 1, 0],
+        "outputBase": 10
+      },
+      "expected": {
+        "error": "all digits must satisfy 0 <= d < input base"
+      }
+    },
+    {
+      "uuid": "7a3dec6a-511e-4737-8c19-616ea4a5edb1",
+      "description": "invalid positive digit",
+      "property": "rebase",
+      "input": {
+        "inputBase": 2,
+        "digits": [1, 2, 1, 0, 1, 0],
+        "outputBase": 10
+      },
+      "expected": {
+        "error": "all digits must satisfy 0 <= d < input base"
+      }
+    },
+    {
+      "uuid": "eb472e94-5be8-4bd0-bb93-5d372c61e868",
+      "description": "output base is one",
+      "property": "rebase",
+      "input": {
+        "inputBase": 2,
+        "digits": [1, 0, 1, 0, 1, 0],
+        "outputBase": 1
+      },
+      "expected": {
+        "error": "output base must be >= 2"
+      }
+    },
+    {
+      "uuid": "162dc252-b128-454e-8047-d4cf07630636",
+      "description": "output base is zero",
+      "property": "rebase",
+      "input": {
+        "inputBase": 10,
+        "digits": [7],
+        "outputBase": 0
+      },
+      "expected": {
+        "error": "output base must be >= 2"
+      }
+    },
+    {
+      "uuid": "82faa240-8b07-4442-ad94-2c4279911202",
+      "description": "output base is negative",
+      "property": "rebase",
+      "input": {
+        "inputBase": 2,
+        "digits": [1],
+        "outputBase": -7
+      },
+      "expected": {
+        "error": "output base must be >= 2"
+      }
+    },
+    {
+      "uuid": "74fc32a6-ab31-4416-ac53-571305800692",
+      "description": "both bases are negative",
+      "property": "rebase",
+      "input": {
+        "inputBase": -2,
+        "digits": [1],
+        "outputBase": -7
+      },
+      "expected": {
+        "error": "input base must be >= 2"
+      }
+    }
+  ]
+}

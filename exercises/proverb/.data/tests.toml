@@ -1,0 +1,19 @@
+[canonical-tests]
+
+# Test case: zero pieces
+"0b300aa6-8a22-4023-bfae-e655357b2092" = true
+
+# Test case: one piece
+"84eae98f-a438-4ddb-917c-bc8f81e27d82" = true
+
+# Test case: two pieces
+"a52eba9f-5f53-4a41-8d35-59afa8eb28e7" = true
+
+# Test case: three pieces
+"3a88df4c-7d18-4a3d-b277-a54b6f37a894" = true
+
+# Test case: full proverb
+"e1953a31-fb6a-4a67-a14e-ad3fe2cafb29" = true
+
+# Test case: four pieces modernized
+"72f13638-7038-41a6-a812-b4a5b50feeb1" = true

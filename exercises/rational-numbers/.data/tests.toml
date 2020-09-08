@@ -1,0 +1,115 @@
+[canonical-tests]
+
+# Test case: Add two positive rational numbers
+"279906f3-ef2e-42f3-8e01-762804c7482b" = true
+
+# Test case: Add a positive rational number and a negative rational number
+"de38552b-f1ef-4284-8373-7da9b08430e4" = true
+
+# Test case: Add two negative rational numbers
+"cd3ca665-90bd-4add-bd2b-e4d4f5a8ea7e" = true
+
+# Test case: Add a rational number to its additive inverse
+"701b152d-825b-4b07-a98e-e53ba7fa9b2e" = true
+
+# Test case: Subtract two positive rational numbers
+"5b885da8-d1af-4626-9373-198736193a2f" = true
+
+# Test case: Subtract a positive rational number and a negative rational number
+"b68d64f8-2c97-4bf6-8803-d0caed88dd56" = true
+
+# Test case: Subtract two negative rational numbers
+"e688aa03-4a80-4dd3-bfa4-9be060cad21e" = true
+
+# Test case: Subtract a rational number from itself
+"4f48b3c8-4231-4792-b321-c7e51cb97e95" = true
+
+# Test case: Multiply two positive rational numbers
+"16a29552-e86b-453f-a82c-282f068b2a77" = true
+
+# Test case: Multiply a negative rational number by a positive rational number
+"bd256ba9-773d-4570-882d-a72de10dedf0" = true
+
+# Test case: Multiply two negative rational numbers
+"a793d885-d2c5-48d0-a74f-ddae35ab1df0" = true
+
+# Test case: Multiply a rational number by its reciprocal
+"bd4dd3db-1c52-4671-821b-a44a7e51badd" = true
+
+# Test case: Multiply a rational number by 1
+"5615b550-ed53-49b9-9dfa-ab2451be187f" = true
+
+# Test case: Multiply a rational number by 0
+"5cd245ad-af73-4503-b0db-a7dbda0870b9" = true
+
+# Test case: Divide two positive rational numbers
+"3e290a62-69fd-41e9-a140-4a391d4c49dd" = true
+
+# Test case: Divide a positive rational number by a negative rational number
+"8c18737b-49dc-42d0-affd-d5ed8550a2b4" = true
+
+# Test case: Divide two negative rational numbers
+"beb1dbdc-bede-4709-a61e-0f7647b81274" = true
+
+# Test case: Divide a rational number by 1
+"bcdddd35-fa5b-4c89-92a0-8cd3ece64caa" = true
+
+# Test case: Absolute value of a positive rational number
+"ebf87332-df5d-460c-8276-3c59f726414e" = true
+
+# Test case: Absolute value of a positive rational number with negative numerator and denominator
+"86c42555-fba1-4a1f-a804-8ab03a3f22dc" = true
+
+# Test case: Absolute value of a negative rational number
+"6b53e303-1600-42d5-bcad-09d3a9448577" = true
+
+# Test case: Absolute value of a negative rational number with negative denominator
+"0bcc586c-80bf-44bd-8a20-5eff1b6117f4" = true
+
+# Test case: Absolute value of zero
+"8ef5554a-cad7-4e22-95d5-d7d8cef782ca" = true
+
+# Test case: Raise a positive rational number to a positive integer power
+"ddf197c5-32d9-44c2-b312-df57e197cd40" = true
+
+# Test case: Raise a negative rational number to a positive integer power
+"416af023-b2a3-4e37-b055-5443c4360ab2" = true
+
+# Test case: Raise zero to an integer power
+"b6428357-ecd4-45ca-b00d-c5309c272702" = true
+
+# Test case: Raise one to an integer power
+"1cb5f82f-d30f-4519-b81f-92aa19485c75" = true
+
+# Test case: Raise a positive rational number to the power of zero
+"5fdd61f9-bc12-44ca-b761-ba25c666638e" = true
+
+# Test case: Raise a negative rational number to the power of zero
+"28d3d3fd-c40a-4999-8d3a-73cff1b02ed2" = true
+
+# Test case: Raise a real number to a positive rational number
+"228b73c6-59eb-444e-be64-13990351c09e" = true
+
+# Test case: Raise a real number to a negative rational number
+"a9744b86-fc70-4d4f-a1ff-45a4687c83f0" = true
+
+# Test case: Raise a real number to a zero rational number
+"868068e3-2927-4120-900e-133cdae635ec" = true
+
+# Test case: Reduce a positive rational number to lowest terms
+"2a064936-09ec-44cd-a7e5-1b89558934bf" = true
+
+# Test case: Reduce a negative rational number to lowest terms
+"50e74bf7-3364-414f-af2e-14b25bca0ad9" = true
+
+# Test case: Reduce a rational number with a negative denominator to lowest terms
+"d8d7a78b-5f17-4269-9781-ef82f6188ebc" = true
+
+# Test case: Reduce zero to lowest terms
+"5239a15a-1058-49e9-b927-b4b63e77ba45" = true
+
+# Test case: Reduce an integer to lowest terms
+"d0199d3d-2ca4-46ed-a697-5848749a6ddb" = true
+
+# Test case: Reduce one to lowest terms
+"4cd65097-32f1-4d07-8da3-cbeedecddd94" = true

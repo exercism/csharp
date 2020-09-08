@@ -1,0 +1,46 @@
+[canonical-tests]
+
+# Test case: first day a partridge in a pear tree
+"e03d0e09-34ad-45ec-8db8-7d2d21ba6605" = true
+
+# Test case: second day two turtle doves
+"0289f070-6637-4c59-abf3-10590c7bcf1a" = true
+
+# Test case: third day three french hens
+"9646863e-96c9-431c-b4e4-2d186b570714" = true
+
+# Test case: fourth day four calling birds
+"9640b98a-89dd-4977-8d40-a99ef657aff2" = true
+
+# Test case: fifth day five gold rings
+"9ae14360-790f-4a16-93ec-01b83be716b7" = true
+
+# Test case: sixth day six geese-a-laying
+"7343969e-e2bc-4166-ae04-aa458e405eb9" = true
+
+# Test case: seventh day seven swans-a-swimming
+"d8035441-9a00-400d-908e-f6ee7bcbb8ce" = true
+
+# Test case: eighth day eight maids-a-milking
+"76a6e9d9-d6c6-4389-8aed-6fccd812af78" = true
+
+# Test case: ninth day nine ladies dancing
+"8a99cc90-4c40-4c98-bcfa-9a09e3945ca2" = true
+
+# Test case: tenth day ten lords-a-leaping
+"91d6a99d-fbb9-4454-afdf-5fca9258406c" = true
+
+# Test case: eleventh day eleven pipers piping
+"439746ab-693c-45d8-b08f-5353c6211f44" = true
+
+# Test case: twelfth day twelve drummers drumming
+"ef6eef2b-dae8-4a16-902e-907c5b52a390" = true
+
+# Test case: recites first three verses of the song
+"2191c31f-2dbc-4a85-8972-13be6908601f" = true
+
+# Test case: recites three verses from the middle of the song
+"689ecb25-02fd-4a07-b21a-dcb4af76e002" = true
+
+# Test case: recites the whole song
+"ec9f746a-88a7-445c-b81f-1f5385d76b92" = true

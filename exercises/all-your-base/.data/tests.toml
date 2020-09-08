@@ -1,0 +1,64 @@
+[canonical-tests]
+
+# Test case: single bit one to decimal
+"bfe9eea5-ee3e-42ea-a0c4-d4c1517edab9" = true
+
+# Test case: binary to single decimal
+"e2297d78-c9ba-4078-96bd-50b742e60c79" = true
+
+# Test case: single decimal to binary
+"088c5799-b6c8-45f5-a35c-405711b9e048" = true
+
+# Test case: binary to multiple decimal
+"b96691a8-8583-4060-a1bb-5a4e1252d1c7" = true
+
+# Test case: decimal to binary
+"7e1d2081-6e52-48d7-93c2-6044acc291eb" = true
+
+# Test case: trinary to hexadecimal
+"383231db-0d3c-4ff9-b32d-47eb49194691" = true
+
+# Test case: hexadecimal to trinary
+"61a4838b-0f54-4792-91cf-8347b4dfb58a" = true
+
+# Test case: 15-bit integer
+"988247c9-f487-4a52-bb48-5ad3375c4f2a" = true
+
+# Test case: empty list
+"59f8ca82-0e74-4bb3-b769-69a8be444ff0" = true
+
+# Test case: single zero
+"e4d5700f-e94d-4bf1-a59f-05665803ebd8" = true
+
+# Test case: multiple zeros
+"80728719-c243-4931-b53c-3caa9549f555" = true
+
+# Test case: leading zeros
+"dbb261d9-d2da-40de-9f7e-f6ffad3106a6" = true
+
+# Test case: input base is one
+"de680b24-128a-4fb4-b624-d42bc2b8ac9c" = true
+
+# Test case: input base is zero
+"827a981e-d9ca-4ba3-8627-19980cb1d41d" = true
+
+# Test case: input base is negative
+"8c73a7a1-f795-4433-8097-16ece99c9c25" = true
+
+# Test case: negative digit
+"5e1662f1-8734-4c36-b2cd-27c0faad0280" = true
+
+# Test case: invalid positive digit
+"7a3dec6a-511e-4737-8c19-616ea4a5edb1" = true
+
+# Test case: output base is one
+"eb472e94-5be8-4bd0-bb93-5d372c61e868" = true
+
+# Test case: output base is zero
+"162dc252-b128-454e-8047-d4cf07630636" = true
+
+# Test case: output base is negative
+"82faa240-8b07-4442-ad94-2c4279911202" = true
+
+# Test case: both bases are negative
+"74fc32a6-ab31-4416-ac53-571305800692" = true

@@ -1,0 +1,13 @@
+[canonical-tests]
+
+# Test case: Black
+"0df3e865-95f0-4477-9169-563be8650a87" = true
+
+# Test case: White
+"958a2b4d-5fbb-4b1b-8bde-eced08a56f66" = true
+
+# Test case: Orange
+"21dbd602-e1d8-47bc-97f3-3282a50d8096" = true
+
+# Test case: Colors
+"b7a0f0bc-719b-41e7-a073-82115f4e069e" = true

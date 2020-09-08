@@ -1,0 +1,40 @@
+[canonical-tests]
+
+# Test case: empty string
+"45452b64-7793-4b1c-a596-4a54935ef53a" = true
+
+# Test case: single characters only are encoded without count
+"d49975db-6410-4d83-aac6-5b074f7d14f1" = true
+
+# Test case: string with no single characters
+"61d1e981-b257-4444-8748-2114bd8fb1ee" = true
+
+# Test case: single characters mixed with repeated characters
+"3a71a96d-3b92-49d4-b85d-720f279d8a7e" = true
+
+# Test case: multiple whitespace mixed in string
+"11c225d9-703f-4ef2-be6c-fd6c7585afae" = true
+
+# Test case: lowercase characters
+"b3ad5451-dd81-4392-b8fe-9609e78ef526" = true
+
+# Test case: empty string
+"da38197d-7a3d-4622-b861-8ac7d53b6a52" = true
+
+# Test case: single characters only
+"27f7a3aa-484d-4a72-a7e8-2f1a614808ca" = true
+
+# Test case: string with no single characters
+"4d6fb3ea-8483-4620-b67c-ca0313917aa8" = true
+
+# Test case: single characters with repeated characters
+"6aec9307-06df-429f-83b5-9b9b6c06aeac" = true
+
+# Test case: multiple whitespace mixed in string
+"b0a23dce-7def-48de-ba86-da0e34c65ad6" = true
+
+# Test case: lower case string
+"022c3a10-1bf1-4cb8-9c7e-a97a134276ec" = true
+
+# Test case: encode followed by decode gives original string
+"ed510e32-4380-40c8-8628-da36c7f9f409" = true

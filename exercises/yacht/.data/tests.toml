@@ -1,0 +1,85 @@
+[canonical-tests]
+
+# Test case: Yacht
+"0c4b5b66-6bc9-498f-9eeb-a49901b5f348" = true
+
+# Test case: Not Yacht
+"ad829998-40ad-4dc5-8876-c262a1ab7f6f" = true
+
+# Test case: Ones
+"b151706c-1087-4a31-8a85-99dff883d33e" = true
+
+# Test case: Ones, out of order
+"01dc8d09-e011-4363-ac19-795d618ea411" = true
+
+# Test case: No ones
+"9f76bf5a-c176-4849-b6bb-04edab503342" = true
+
+# Test case: Twos
+"1a9b03e5-8084-40e5-a317-75d23341b5e6" = true
+
+# Test case: Fours
+"a717b344-b6a3-4401-96df-958febbe7229" = true
+
+# Test case: Yacht counted as threes
+"cf2d8e5a-5165-4626-9557-f8b63733b2fc" = true
+
+# Test case: Yacht of 3s counted as fives
+"b015794c-6cf4-42b5-bebe-9392dda82112" = true
+
+# Test case: Sixes
+"edc49eea-3500-4534-b94a-a71f18084cf3" = true
+
+# Test case: Full house two small, three big
+"a9823a7a-1239-4058-9725-eaaaa80cd158" = true
+
+# Test case: Full house three small, two big
+"56a936b7-ecd4-492c-b95e-9de8bbf84001" = true
+
+# Test case: Two pair is not a full house
+"954abc6d-fd26-4111-a576-f8b3be527c29" = true
+
+# Test case: Four of a kind is not a full house
+"e74cf467-4670-4be4-9ef1-7d4c215d802c" = true
+
+# Test case: Yacht is not a full house
+"92c0c8a8-7531-4d9d-93fe-1d3574caeb5d" = true
+
+# Test case: Four of a Kind
+"28da6e3b-83ae-4f31-9129-2db165e5ce93" = true
+
+# Test case: Yacht can be scored as Four of a Kind
+"527527d5-caa7-4fb7-b65e-2dbc08478521" = true
+
+# Test case: Full house is not Four of a Kind
+"3829a6d6-b57d-4e86-a03c-d31f47b3780a" = true
+
+# Test case: Little Straight
+"412cb80c-f0a0-459d-bbed-d750f4df8f33" = true
+
+# Test case: Little Straight as Big Straight
+"f9ccff01-b90e-47ac-acee-368a34731dde" = true
+
+# Test case: Four in order but not a little straight
+"c005a13b-e254-4c69-804d-6b1a311a58cf" = true
+
+# Test case: No pairs but not a little straight
+"74c31328-9def-41c6-a9b0-0d4f4b4b99f8" = true
+
+# Test case: Minimum is 1, maximum is 5, but not a little straight
+"b33fd416-9910-4298-8e66-54153506d540" = true
+
+# Test case: Big Straight
+"63c81e21-95de-4aab-a0bd-5af04e59eada" = true
+
+# Test case: Big Straight as little straight
+"461bb39a-4f2f-49b8-84d7-4780bc856d3b" = true
+
+# Test case: No pairs but not a big straight
+"32b61e45-8515-4316-8683-f1a5a405f168" = true
+
+# Test case: Choice
+"ee6bf410-8ad5-402c-9656-90120156be36" = true
+
+# Test case: Yacht as choice
+"ff1deb3e-496d-4c08-a428-7b0ed8e7625b" = true

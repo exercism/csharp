@@ -1,0 +1,234 @@
+{
+  "exercise": "pig-latin",
+  "version": "1.2.0",
+  "cases": [
+    {
+      "description": "ay is added to words that start with vowels",
+      "cases": [
+        {
+          "uuid": "9a52f5ff-cbe3-4079-b6d7-877044dac3b4",
+          "description": "word beginning with a",
+          "property": "translate",
+          "input": {
+            "phrase": "apple"
+          },
+          "expected": "appleay"
+        },
+        {
+          "uuid": "b7b88f4a-0f17-4c54-8ec8-dc7ebc34d202",
+          "description": "word beginning with e",
+          "property": "translate",
+          "input": {
+            "phrase": "ear"
+          },
+          "expected": "earay"
+        },
+        {
+          "uuid": "2f95cce8-68e9-4b29-9405-1d244afb5466",
+          "description": "word beginning with i",
+          "property": "translate",
+          "input": {
+            "phrase": "igloo"
+          },
+          "expected": "iglooay"
+        },
+        {
+          "uuid": "4106dbfa-72f2-44f0-ae4a-1cf5beaed60d",
+          "description": "word beginning with o",
+          "property": "translate",
+          "input": {
+            "phrase": "object"
+          },
+          "expected": "objectay"
+        },
+        {
+          "uuid": "bd01e493-d02f-45bf-b3f6-aa9072183eee",
+          "description": "word beginning with u",
+          "property": "translate",
+          "input": {
+            "phrase": "under"
+          },
+          "expected": "underay"
+        },
+        {
+          "uuid": "11b4d9d2-13d7-4b7a-97fe-471dc3d505a1",
+          "description": "word beginning with a vowel and followed by a qu",
+          "property": "translate",
+          "input": {
+            "phrase": "equal"
+          },
+          "expected": "equalay"
+        }
+      ]
+    },
+    {
+      "description": "first letter and ay are moved to the end of words that start with consonants",
+      "cases": [
+        {
+          "uuid": "39961a6f-1214-4293-bdd4-dab9f5479095",
+          "description": "word beginning with p",
+          "property": "translate",
+          "input": {
+            "phrase": "pig"
+          },
+          "expected": "igpay"
+        },
+        {
+          "uuid": "14092a6b-a47e-4cd1-bf9d-b08647007f78",
+          "description": "word beginning with k",
+          "property": "translate",
+          "input": {
+            "phrase": "koala"
+          },
+          "expected": "oalakay"
+        },
+        {
+          "uuid": "5e8caf48-7c27-4cb4-ae13-98e27d98e17f",
+          "description": "word beginning with x",
+          "property": "translate",
+          "input": {
+            "phrase": "xenon"
+          },
+          "expected": "enonxay"
+        },
+        {
+          "uuid": "984a4b82-7bf6-4264-a7c9-0054f7c807f1",
+          "description": "word beginning with q without a following u",
+          "property": "translate",
+          "input": {
+            "phrase": "qat"
+          },
+          "expected": "atqay"
+        }
+      ]
+    },
+    {
+      "description": "some letter clusters are treated like a single consonant",
+      "cases": [
+        {
+          "uuid": "71600c14-bbcf-44aa-8a96-8027c11ce295",
+          "description": "word beginning with ch",
+          "property": "translate",
+          "input": {
+            "phrase": "chair"
+          },
+          "expected": "airchay"
+        },
+        {
+          "uuid": "90ff9996-7025-4f30-bd3b-7fbcf082ba64",
+          "description": "word beginning with qu",
+          "property": "translate",
+          "input": {
+            "phrase": "queen"
+          },
+          "expected": "eenquay"
+        },
+        {
+          "uuid": "86dbe852-4b98-4924-992c-619889e2f884",
+          "description": "word beginning with qu and a preceding consonant",
+          "property": "translate",
+          "input": {
+            "phrase": "square"
+          },
+          "expected": "aresquay"
+        },
+        {
+          "uuid": "d9eef04d-4f9c-4b5f-9212-c9cc7ee5c895",
+          "description": "word beginning with th",
+          "property": "translate",
+          "input": {
+            "phrase": "therapy"
+          },
+          "expected": "erapythay"
+        },
+        {
+          "uuid": "ea15bdb9-203b-45bc-8c1d-6304b9bebe71",
+          "description": "word beginning with thr",
+          "property": "translate",
+          "input": {
+            "phrase": "thrush"
+          },
+          "expected": "ushthray"
+        },
+        {
+          "uuid": "6ed23761-77c8-4a54-929e-f1e692ad3738",
+          "description": "word beginning with sch",
+          "property": "translate",
+          "input": {
+            "phrase": "school"
+          },
+          "expected": "oolschay"
+        }
+      ]
+    },
+    {
+      "description": "some letter clusters are treated like a single vowel",
+      "cases": [
+        {
+          "uuid": "b156ab82-afcc-46ba-bd10-33a464e980b1",
+          "description": "word beginning with yt",
+          "property": "translate",
+          "input": {
+            "phrase": "yttria"
+          },
+          "expected": "yttriaay"
+        },
+        {
+          "uuid": "7aed7dad-71cb-4238-b1ac-8ea3657dae09",
+          "description": "word beginning with xr",
+          "property": "translate",
+          "input": {
+            "phrase": "xray"
+          },
+          "expected": "xrayay"
+        }
+      ]
+    },
+    {
+      "description": "position of y in a word determines if it is a consonant or a vowel",
+      "cases": [
+        {
+          "uuid": "2facb8da-f163-4356-9cfe-e90dd170bf4e",
+          "description": "y is treated like a consonant at the beginning of a word",
+          "property": "translate",
+          "input": {
+            "phrase": "yellow"
+          },
+          "expected": "ellowyay"
+        },
+        {
+          "uuid": "3aa84dac-dfc8-4776-a4c3-f1cc937e72bc",
+          "description": "y is treated like a vowel at the end of a consonant cluster",
+          "property": "translate",
+          "input": {
+            "phrase": "rhythm"
+          },
+          "expected": "ythmrhay"
+        },
+        {
+          "uuid": "c9831ccd-2564-42e5-ab1b-3fac83c04ad0",
+          "description": "y as second letter in two letter word",
+          "property": "translate",
+          "input": {
+            "phrase": "my"
+          },
+          "expected": "ymay"
+        }
+      ]
+    },
+    {
+      "description": "phrases are translated",
+      "cases": [
+        {
+          "uuid": "268ad284-388d-481d-94d0-2802901f2b72",
+          "description": "a whole phrase",
+          "property": "translate",
+          "input": {
+            "phrase": "quick fast run"
+          },
+          "expected": "ickquay astfay unray"
+        }
+      ]
+    }
+  ]
+}

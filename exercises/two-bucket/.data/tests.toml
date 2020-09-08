@@ -1,0 +1,19 @@
+[canonical-tests]
+
+# Test case: Measure using bucket one of size 3 and bucket two of size 5 - start with bucket one
+"86302e29-444c-48b3-8add-5565d1a5eafe" = true
+
+# Test case: Measure using bucket one of size 3 and bucket two of size 5 - start with bucket two
+"fb3f8713-a6de-4f12-acf0-1dd733171975" = true
+
+# Test case: Measure using bucket one of size 7 and bucket two of size 11 - start with bucket one
+"70f293e5-2462-4c40-9ccf-745c35d040a1" = true
+
+# Test case: Measure using bucket one of size 7 and bucket two of size 11 - start with bucket two
+"1b3c4a15-ec9d-4102-870a-a85f96781cfc" = true
+
+# Test case: Measure one step using bucket one of size 1 and bucket two of size 3 - start with bucket two
+"1bbd2643-3112-45c4-8995-d286dc1dc4ed" = true
+
+# Test case: Measure using bucket one of size 2 and bucket two of size 3 - start with bucket one and end with bucket two
+"c0ae37db-e96a-4c03-88d0-e382d00e202c" = true

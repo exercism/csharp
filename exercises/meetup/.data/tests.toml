@@ -1,0 +1,286 @@
+[canonical-tests]
+
+# Test case: monteenth of May 2013
+"2f22e864-535a-4158-88cc-0372771e18f8" = true
+
+# Test case: monteenth of August 2013
+"ed9ca9de-330e-42b6-b81f-657a95068179" = true
+
+# Test case: monteenth of September 2013
+"4533de1f-30ec-4c66-b08d-bc0820fb42ce" = true
+
+# Test case: tuesteenth of March 2013
+"0bce2ee4-3579-4a0c-9cf6-d882102fba1b" = true
+
+# Test case: tuesteenth of April 2013
+"056e457a-1010-48ae-80c6-7468d7d9041a" = true
+
+# Test case: tuesteenth of August 2013
+"f1250d8b-00ed-48a2-9036-8d823e8865be" = true
+
+# Test case: wednesteenth of January 2013
+"9ac3020a-2a8c-4caa-9714-561b794e0d39" = true
+
+# Test case: wednesteenth of February 2013
+"322212cb-718b-46c6-bc9a-ef4889e368a1" = true
+
+# Test case: wednesteenth of June 2013
+"808ac9d9-0057-4178-81f1-7f5ce181c26b" = true
+
+# Test case: thursteenth of May 2013
+"f307af8c-e9ae-4c42-b19c-ef1d0731c9e4" = true
+
+# Test case: thursteenth of June 2013
+"8c83a903-721b-4b7e-a858-6462222c3439" = true
+
+# Test case: thursteenth of September 2013
+"a02d23e9-b4df-4d9a-9548-442b54903107" = true
+
+# Test case: friteenth of April 2013
+"6a8efe6d-ec1a-40a3-a16f-720ae112cd85" = true
+
+# Test case: friteenth of August 2013
+"ac79f83e-69d1-4f52-a98b-20c11fd17114" = true
+
+# Test case: friteenth of September 2013
+"82afd4c8-a815-46cb-849e-48c6259b8e6a" = true
+
+# Test case: saturteenth of February 2013
+"e683f019-5eec-4c19-aa71-9a6524e6790b" = true
+
+# Test case: saturteenth of April 2013
+"be1c3bf2-eb00-4bc0-8d90-bfce08e2ca38" = true
+
+# Test case: saturteenth of October 2013
+"cd38d0d7-9161-43cd-a0bf-c46c29dd67ba" = true
+
+# Test case: sunteenth of May 2013
+"1e97ca06-fa3d-4dc3-971a-82e0986bf4e0" = true
+
+# Test case: sunteenth of June 2013
+"2ab7d7ce-b9d1-413e-9b80-1d77e832f227" = true
+
+# Test case: sunteenth of October 2013
+"539449ab-d0e8-40b3-8e44-87f41dee5d18" = true
+
+# Test case: first Monday of March 2013
+"9f4961c7-cab9-4ae6-b19d-61cf66e07dc2" = true
+
+# Test case: first Monday of April 2013
+"37945db8-6ef6-4a74-9118-c01b58157ae5" = true
+
+# Test case: first Tuesday of May 2013
+"d28001e1-a6ef-438e-9af2-58c3ac551d5c" = true
+
+# Test case: first Tuesday of June 2013
+"db922027-5837-4cdc-b2dd-4c7130bc0396" = true
+
+# Test case: first Wednesday of July 2013
+"20ba2599-e123-41bb-8bdf-fe946dad39b6" = true
+
+# Test case: first Wednesday of August 2013
+"1f7e9e01-3d7b-4347-a1b9-29cbccc89fda" = true
+
+# Test case: first Thursday of September 2013
+"105f5282-35ea-41f1-af57-c961ebe3a369" = true
+
+# Test case: first Thursday of October 2013
+"339df807-428c-47d4-a7ba-c4ee8559cc5b" = true
+
+# Test case: first Friday of November 2013
+"50859156-16eb-4349-ba09-0d1bdd7cdcaa" = true
+
+# Test case: first Friday of December 2013
+"034aa137-9a0d-4d23-b8f5-a25b6c52e112" = true
+
+# Test case: first Saturday of January 2013
+"a10d5bc0-9bae-44cb-b437-755413baa1e3" = true
+
+# Test case: first Saturday of February 2013
+"ff925b26-1f58-4c9b-855a-80dc4ff91e0d" = true
+
+# Test case: first Sunday of March 2013
+"ae1a9f71-7078-4c70-b94e-b109f701b887" = true
+
+# Test case: first Sunday of April 2013
+"22924f0f-7784-4595-ac33-6f44f3945d02" = true
+
+# Test case: second Monday of March 2013
+"ea74d27f-6ac4-4f8e-876b-1b8580f5fc3f" = true
+
+# Test case: second Monday of April 2013
+"6a36e108-9e3b-4fbe-8442-fbb4bd46d2e1" = true
+
+# Test case: second Tuesday of May 2013
+"c3212465-e8e7-4472-8487-785fb2e67346" = true
+
+# Test case: second Tuesday of June 2013
+"54c136db-af39-4ea3-9480-b661d4b82452" = true
+
+# Test case: second Wednesday of July 2013
+"35a06c69-f591-4bd9-9f33-49094a54c195" = true
+
+# Test case: second Wednesday of August 2013
+"56eb0626-a904-40d8-8158-980fcd7c6e98" = true
+
+# Test case: second Thursday of September 2013
+"2bb6bde1-d519-43c6-a4f9-b073c97080cd" = true
+
+# Test case: second Thursday of October 2013
+"cfc2159a-9c9c-47a8-8695-47ed85774973" = true
+
+# Test case: second Friday of November 2013
+"a5c0d88c-2f92-4d59-be79-30f9523992ed" = true
+
+# Test case: second Friday of December 2013
+"de663ee2-6e7d-4ff6-82de-88af5a04a796" = true
+
+# Test case: second Saturday of January 2013
+"bcc86006-daee-4185-8188-bf31a1608adc" = true
+
+# Test case: second Saturday of February 2013
+"aa40d0ad-1ed6-4ffd-b5d8-78dc4ccb5df0" = true
+
+# Test case: second Sunday of March 2013
+"ef0d8190-56a3-4074-abf1-e10eb75b0920" = true
+
+# Test case: second Sunday of April 2013
+"d88af615-6a4f-44c0-a014-818bbe9d2889" = true
+
+# Test case: third Monday of March 2013
+"65b8f34a-0adf-45d6-b10b-6785b5b55558" = true
+
+# Test case: third Monday of April 2013
+"05f5bc0b-0833-47cb-9e98-48703e25e6d2" = true
+
+# Test case: third Tuesday of May 2013
+"0a411cdf-81c7-49c5-bf27-15515f1fc54e" = true
+
+# Test case: third Tuesday of June 2013
+"2febd9e5-9d86-47be-b3f7-9e7152a7cabb" = true
+
+# Test case: third Wednesday of July 2013
+"e665e976-4b53-4228-a688-f017c856c2c2" = true
+
+# Test case: third Wednesday of August 2013
+"07acdd27-845f-490b-8621-4224d08b8954" = true
+
+# Test case: third Thursday of September 2013
+"0605ea05-a9c7-464e-a376-84866185ee83" = true
+
+# Test case: third Thursday of October 2013
+"3c4957d8-aa99-41f2-81f1-24ef92bcf2d9" = true
+
+# Test case: third Friday of November 2013
+"f166df72-8c4c-4c8c-8742-1e32a346d62d" = true
+
+# Test case: third Friday of December 2013
+"604990db-7a83-49c4-b010-0781619fbbf8" = true
+
+# Test case: third Saturday of January 2013
+"a5478f11-f21f-41d3-ac17-f7b87a1a5f44" = true
+
+# Test case: third Saturday of February 2013
+"39b0b853-59a4-4b9d-a9f5-4790f53d5336" = true
+
+# Test case: third Sunday of March 2013
+"88972954-8c4c-4000-b8df-9717b3cc7f2a" = true
+
+# Test case: third Sunday of April 2013
+"76fda123-e45c-4b82-8c39-2e8f56f0ebb5" = true
+
+# Test case: fourth Monday of March 2013
+"7effd9fb-3298-4ae2-84b9-193b02b02a2b" = true
+
+# Test case: fourth Monday of April 2013
+"6f5dcd2a-9e33-4be5-837f-b0b5e8454e4e" = true
+
+# Test case: fourth Tuesday of May 2013
+"94d5c801-5924-4ff8-9aa7-5bdcf5acf9d0" = true
+
+# Test case: fourth Tuesday of June 2013
+"4422ef66-790d-4f97-ac31-71dc72fd2ad8" = true
+
+# Test case: fourth Wednesday of July 2013
+"d6b61229-ce3d-415f-9ab3-175ff12e489c" = true
+
+# Test case: fourth Wednesday of August 2013
+"2098715b-3119-497a-8b11-930d5759493e" = true
+
+# Test case: fourth Thursday of September 2013
+"ba2fbeb3-de44-4a55-8a28-48a0c8083d4f" = true
+
+# Test case: fourth Thursday of October 2013
+"9ec94408-b254-4988-aa6c-1b3fbe5f358f" = true
+
+# Test case: fourth Friday of November 2013
+"eab1f7e8-a58d-4f0a-b63b-6dd3f72d55c2" = true
+
+# Test case: fourth Friday of December 2013
+"481d83db-6b02-43be-a32d-5b441fc07089" = true
+
+# Test case: fourth Saturday of January 2013
+"ff534a98-eaae-4ddf-a45c-61ac2b4bfb0e" = true
+
+# Test case: fourth Saturday of February 2013
+"01041b0c-751e-43bb-8242-6140edbf0952" = true
+
+# Test case: fourth Sunday of March 2013
+"c1401806-2dae-4b9f-b452-5e80e97e80d2" = true
+
+# Test case: fourth Sunday of April 2013
+"419d3748-6691-4bca-98b0-08ae85673465" = true
+
+# Test case: last Monday of March 2013
+"987cb483-e63c-47ed-8672-767df491ee4c" = true
+
+# Test case: last Monday of April 2013
+"7eb87b82-8a56-4f86-b48f-b8478afdb7da" = true
+
+# Test case: last Tuesday of May 2013
+"0c0b7da1-4829-495a-ac93-80c8b1c80ae5" = true
+
+# Test case: last Tuesday of June 2013
+"e18a05f4-25e8-4b64-87d1-15bf0667e160" = true
+
+# Test case: last Wednesday of July 2013
+"7184cfc1-afef-4efd-8c84-7c8153d66c07" = true
+
+# Test case: last Wednesday of August 2013
+"17810b9a-14e4-4e2e-b676-c2e75a546f34" = true
+
+# Test case: last Thursday of September 2013
+"ae5c33ab-a671-4261-b6b7-ed65651bc773" = true
+
+# Test case: last Thursday of October 2013
+"bc349f6e-e42c-4ae8-85af-7d408cd411bf" = true
+
+# Test case: last Friday of November 2013
+"d520d709-3b8b-40f3-9900-eb6d75153d17" = true
+
+# Test case: last Friday of December 2013
+"76d353a0-05e4-4f6f-a98b-3b5dd28c0f67" = true
+
+# Test case: last Saturday of January 2013
+"09992966-f6cd-4bd6-b19c-625ae1fd92f2" = true
+
+# Test case: last Saturday of February 2013
+"4f193713-5d47-4499-a546-6a765d21df2b" = true
+
+# Test case: last Sunday of March 2013
+"95b5c0ab-13d7-4253-b00a-ab0f82284c23" = true
+
+# Test case: last Sunday of April 2013
+"ba5b3b2f-7475-4982-9f14-feffaa2e7794" = true
+
+# Test case: last Wednesday of February 2012
+"2bcf10a6-6874-4866-8715-9aea342317e3" = true
+
+# Test case: last Wednesday of December 2014
+"039e22af-3b2b-4e1c-9521-5ee24bd09945" = true
+
+# Test case: last Sunday of February 2015
+"03d88419-ae50-4d63-870a-ae57c4c3912b" = true
+
+# Test case: first Friday of December 2012
+"1e442f64-59a0-469f-a911-74b90783c09c" = true

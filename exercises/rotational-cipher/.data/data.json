@@ -1,0 +1,112 @@
+{
+  "exercise": "rotational-cipher",
+  "version": "1.2.0",
+  "comments": ["The tests are a series of rotation tests: "],
+  "cases": [
+    {
+      "description": "Test rotation from English to ROTn",
+      "cases": [
+        {
+          "uuid": "421365e4-78d1-4ed5-8fb2-fb47289dd9e3",
+          "description": "rotate a by 0, same output as input",
+          "property": "rotate",
+          "input": {
+            "text": "a",
+            "shiftKey": 0
+          },
+          "expected": "a"
+        },
+        {
+          "uuid": "246e1cc6-ed4e-4eb5-a665-2ac1b93fc930",
+          "description": "rotate a by 1",
+          "property": "rotate",
+          "input": {
+            "text": "a",
+            "shiftKey": 1
+          },
+          "expected": "b"
+        },
+        {
+          "uuid": "7c48ce13-2b3e-4a3e-b6ee-868fcb26b018",
+          "description": "rotate a by 26, same output as input",
+          "property": "rotate",
+          "input": {
+            "text": "a",
+            "shiftKey": 26
+          },
+          "expected": "a"
+        },
+        {
+          "uuid": "9bd82bb1-d4ee-4bdb-934c-2872251416b7",
+          "description": "rotate m by 13",
+          "property": "rotate",
+          "input": {
+            "text": "m",
+            "shiftKey": 13
+          },
+          "expected": "z"
+        },
+        {
+          "uuid": "44ec935f-b232-4367-bc59-577d03879683",
+          "description": "rotate n by 13 with wrap around alphabet",
+          "property": "rotate",
+          "input": {
+            "text": "n",
+            "shiftKey": 13
+          },
+          "expected": "a"
+        },
+        {
+          "uuid": "7c9b4c3f-683f-4791-856d-4bf80a02b597",
+          "description": "rotate capital letters",
+          "property": "rotate",
+          "input": {
+            "text": "OMG",
+            "shiftKey": 5
+          },
+          "expected": "TRL"
+        },
+        {
+          "uuid": "d40edb3a-abcc-4348-aa1d-5e89689140c2",
+          "description": "rotate spaces",
+          "property": "rotate",
+          "input": {
+            "text": "O M G",
+            "shiftKey": 5
+          },
+          "expected": "T R L"
+        },
+        {
+          "uuid": "9b457d1d-39de-4c0b-9b4b-3145a1c54f91",
+          "description": "rotate numbers",
+          "property": "rotate",
+          "input": {
+            "text": "Testing 1 2 3 testing",
+            "shiftKey": 4
+          },
+          "expected": "Xiwxmrk 1 2 3 xiwxmrk"
+        },
+        {
+          "uuid": "218d7380-4658-428b-9658-b4a927f11d15",
+          "description": "rotate punctuation",
+          "property": "rotate",
+          "input": {
+            "text": "Let's eat, Grandma!",
+            "shiftKey": 21
+          },
+          "expected": "Gzo'n zvo, Bmviyhv!"
+        },
+        {
+          "uuid": "d0833ad0-377b-47cb-979c-393331be7ce5",
+          "description": "rotate all letters",
+          "property": "rotate",
+          "input": {
+            "text": "The quick brown fox jumps over the lazy dog.",
+            "shiftKey": 13
+          },
+          "expected": "Gur dhvpx oebja sbk whzcf bire gur ynml qbt."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+[canonical-tests]
+
+# Test case: Missed target
+"fc8d65b1-05df-4488-8b21-90e0b16a82b9" = true
+
+# Test case: On the outer circle
+"7d1e5637-f876-449c-906b-b75a542a2ea3" = true
+
+# Test case: On the middle circle
+"82966dc3-86d0-4c37-93a8-17c5c6373523" = true
+
+# Test case: On the inner circle
+"547275ea-90f5-441e-b2d1-437fd9e43aad" = true
+
+# Test case: Exactly on centre
+"abf02339-6282-48b0-946b-7aba590147c4" = true
+
+# Test case: Near the centre
+"e196ead0-69ba-4ce5-af91-a1c6584ac0e3" = true
+
+# Test case: Just within the inner circle
+"b213bf91-5ff2-44f9-bbde-2afe8c8c15d7" = true
+
+# Test case: Just outside the inner circle
+"eb7b32a0-565f-48fc-a33e-de043f7ffeca" = true
+
+# Test case: Just within the middle circle
+"431041a4-f956-410b-8ff9-8208a679381f" = true
+
+# Test case: Just outside the middle circle
+"7803b876-41a4-4f39-b30d-d26a76611099" = true
+
+# Test case: Just within the outer circle
+"2b9f9e29-82e9-4237-8f5f-ffa2d92f7a46" = true
+
+# Test case: Just outside the outer circle
+"69359c45-fddc-42cc-8a12-954b276e2d49" = true
+
+# Test case: Asymmetric position between the inner and middle circles
+"67d52a56-2812-4ea2-a4f6-74c0d198cac2" = true

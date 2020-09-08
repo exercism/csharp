@@ -1,0 +1,160 @@
+{
+  "exercise": "alphametics",
+  "version": "1.3.0",
+  "cases": [
+    {
+      "description": "Solve the alphametics puzzle",
+      "cases": [
+        {
+          "uuid": "ff3cb9fa-cc7d-4055-9bcc-ed7a32110bfe",
+          "description": "puzzle with three letters",
+          "property": "solve",
+          "input": {
+            "puzzle": "I + BB == ILL"
+          },
+          "expected": {
+            "I": 1,
+            "B": 9,
+            "L": 0
+          }
+        },
+        {
+          "uuid": "433938f9-5e60-45c8-9761-fe949f4372d8",
+          "description": "solution must have unique value for each letter",
+          "property": "solve",
+          "input": {
+            "puzzle": "A == B"
+          },
+          "expected": null
+        },
+        {
+          "uuid": "d7e6e757-036e-4186-8d3f-e22509499ce7",
+          "description": "leading zero solution is invalid",
+          "property": "solve",
+          "input": {
+            "puzzle": "ACA + DD == BD"
+          },
+          "expected": null
+        },
+        {
+          "uuid": "f7a1f3e1-aba4-4292-bf4e-4df46824b4af",
+          "description": "puzzle with two digits final carry",
+          "property": "solve",
+          "input": {
+            "puzzle": "A + A + A + A + A + A + A + A + A + A + A + B == BCC"
+          },
+          "expected": {
+            "A": 9,
+            "B": 1,
+            "C": 0
+          }
+        },
+        {
+          "uuid": "8f213331-3b56-4dec-ac02-89525d809382",
+          "description": "puzzle with four letters",
+          "property": "solve",
+          "input": {
+            "puzzle": "AS + A == MOM"
+          },
+          "expected": {
+            "A": 9,
+            "S": 2,
+            "M": 1,
+            "O": 0
+          }
+        },
+        {
+          "uuid": "119e7944-d132-445e-b53e-93c1cc7b84c2",
+          "description": "puzzle with six letters",
+          "property": "solve",
+          "input": {
+            "puzzle": "NO + NO + TOO == LATE"
+          },
+          "expected": {
+            "N": 7,
+            "O": 4,
+            "T": 9,
+            "L": 1,
+            "A": 0,
+            "E": 2
+          }
+        },
+        {
+          "uuid": "2348db74-cec0-4865-91c1-25aa0e08cf9e",
+          "description": "puzzle with seven letters",
+          "property": "solve",
+          "input": {
+            "puzzle": "HE + SEES + THE == LIGHT"
+          },
+          "expected": {
+            "E": 4,
+            "G": 2,
+            "H": 5,
+            "I": 0,
+            "L": 1,
+            "S": 9,
+            "T": 7
+          }
+        },
+        {
+          "uuid": "acefedb5-cc97-442f-b2a0-240a510affcd",
+          "description": "puzzle with eight letters",
+          "property": "solve",
+          "input": {
+            "puzzle": "SEND + MORE == MONEY"
+          },
+          "expected": {
+            "S": 9,
+            "E": 5,
+            "N": 6,
+            "D": 7,
+            "M": 1,
+            "O": 0,
+            "R": 8,
+            "Y": 2
+          }
+        },
+        {
+          "uuid": "0694777e-d99f-46a2-977d-5252587f8ce3",
+          "description": "puzzle with ten letters",
+          "property": "solve",
+          "input": {
+            "puzzle": "AND + A + STRONG + OFFENSE + AS + A + GOOD == DEFENSE"
+          },
+          "expected": {
+            "A": 5,
+            "D": 3,
+            "E": 4,
+            "F": 7,
+            "G": 8,
+            "N": 0,
+            "O": 2,
+            "R": 1,
+            "S": 6,
+            "T": 9
+          }
+        },
+        {
+          "uuid": "c8ccb870-48e3-4fa1-a297-1fcad9be4757",
+          "description": "puzzle with ten letters and 199 addends",
+          "property": "solve",
+          "input": {
+            "puzzle": "THIS + A + FIRE + THEREFORE + FOR + ALL + HISTORIES + I + TELL + A + TALE + THAT + FALSIFIES + ITS + TITLE + TIS + A + LIE + THE + TALE + OF + THE + LAST + FIRE + HORSES + LATE + AFTER + THE + FIRST + FATHERS + FORESEE + THE + HORRORS + THE + LAST + FREE + TROLL + TERRIFIES + THE + HORSES + OF + FIRE + THE + TROLL + RESTS + AT + THE + HOLE + OF + LOSSES + IT + IS + THERE + THAT + SHE + STORES + ROLES + OF + LEATHERS + AFTER + SHE + SATISFIES + HER + HATE + OFF + THOSE + FEARS + A + TASTE + RISES + AS + SHE + HEARS + THE + LEAST + FAR + HORSE + THOSE + FAST + HORSES + THAT + FIRST + HEAR + THE + TROLL + FLEE + OFF + TO + THE + FOREST + THE + HORSES + THAT + ALERTS + RAISE + THE + STARES + OF + THE + OTHERS + AS + THE + TROLL + ASSAILS + AT + THE + TOTAL + SHIFT + HER + TEETH + TEAR + HOOF + OFF + TORSO + AS + THE + LAST + HORSE + FORFEITS + ITS + LIFE + THE + FIRST + FATHERS + HEAR + OF + THE + HORRORS + THEIR + FEARS + THAT + THE + FIRES + FOR + THEIR + FEASTS + ARREST + AS + THE + FIRST + FATHERS + RESETTLE + THE + LAST + OF + THE + FIRE + HORSES + THE + LAST + TROLL + HARASSES + THE + FOREST + HEART + FREE + AT + LAST + OF + THE + LAST + TROLL + ALL + OFFER + THEIR + FIRE + HEAT + TO + THE + ASSISTERS + FAR + OFF + THE + TROLL + FASTS + ITS + LIFE + SHORTER + AS + STARS + RISE + THE + HORSES + REST + SAFE + AFTER + ALL + SHARE + HOT + FISH + AS + THEIR + AFFILIATES + TAILOR + A + ROOFS + FOR + THEIR + SAFE == FORTRESSES"
+          },
+          "expected": {
+            "A": 1,
+            "E": 0,
+            "F": 5,
+            "H": 8,
+            "I": 7,
+            "L": 2,
+            "O": 6,
+            "R": 3,
+            "S": 4,
+            "T": 9
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+[canonical-tests]
+
+# Test case: empty input
+"32e13212-0c8a-4f6b-af32-28b758bead96" = true
+
+# Test case: tree with no nodes
+"42bbec03-4d04-46db-9879-1abe8a6e6f12" = true
+
+# Test case: node without tree
+"8da03ebf-0506-41fd-b9b3-2f01f973878c" = true
+
+# Test case: node without properties
+"a024d2ad-1d30-4640-a8cc-feccc56ee2a0" = true
+
+# Test case: single node tree
+"18f40566-2f2b-4165-9d2d-d2dc11079a0a" = true
+
+# Test case: multiple properties
+"9433adea-844e-4d9f-9791-c6fdbf8517f4" = true
+
+# Test case: properties without delimiter
+"5396858e-1c9f-4adc-8ca8-49930e0066a4" = true
+
+# Test case: all lowercase property
+"38aadeec-43cb-47b4-892e-b52d4aad7cc0" = true
+
+# Test case: upper and lowercase property
+"4b0ef788-5040-434f-92fb-60b73f02e2c9" = true
+
+# Test case: two nodes
+"1a84fe82-9c0c-45ce-8e40-19f4f40a0ad3" = true
+
+# Test case: two child trees
+"1a763614-40ef-4e7c-86e6-5b1a30ed96fa" = true
+
+# Test case: multiple property values
+"5bdff4d2-d51c-4135-a865-844de44f2003" = true
+
+# Test case: escaped property
+"37007725-77a5-474d-8f3a-eec93d65d0a5" = true

@@ -1,0 +1,80 @@
+{
+  "exercise": "rail-fence-cipher",
+  "version": "1.1.0",
+  "comments": [
+    "The tests do not expect any normalization or cleaning.",
+    "That trade is tested in enough other exercises."
+  ],
+  "cases": [
+    {
+      "description": "encode",
+      "cases": [
+        {
+          "uuid": "55f97296-e1cf-4572-bc6a-74248fd7ca4d",
+          "description": "encode with two rails",
+          "property": "encode",
+          "input": {
+            "msg": "XOXOXOXOXOXOXOXOXO",
+            "rails": 2
+          },
+          "expected": "XXXXXXXXXOOOOOOOOO"
+        },
+        {
+          "uuid": "9086ae8f-7b7d-4410-9287-3abc508d6e75",
+          "description": "encode with three rails",
+          "property": "encode",
+          "input": {
+            "msg": "WEAREDISCOVEREDFLEEATONCE",
+            "rails": 3
+          },
+          "expected": "WECRLTEERDSOEEFEAOCAIVDEN"
+        },
+        {
+          "uuid": "e396fe43-8939-430b-a487-e5659278c13e",
+          "description": "encode with ending in the middle",
+          "property": "encode",
+          "input": {
+            "msg": "EXERCISES",
+            "rails": 4
+          },
+          "expected": "ESXIEECSR"
+        }
+      ]
+    },
+    {
+      "description": "decode",
+      "cases": [
+        {
+          "uuid": "627c8880-6060-4e44-b9e3-0dfa089e52e1",
+          "description": "decode with three rails",
+          "property": "decode",
+          "input": {
+            "msg": "TEITELHDVLSNHDTISEIIEA",
+            "rails": 3
+          },
+          "expected": "THEDEVILISINTHEDETAILS"
+        },
+        {
+          "uuid": "bff366ef-e533-4e7a-9f8a-a6d59bffded2",
+          "description": "decode with five rails",
+          "property": "decode",
+          "input": {
+            "msg": "EIEXMSMESAORIWSCE",
+            "rails": 5
+          },
+          "expected": "EXERCISMISAWESOME"
+        },
+        {
+          "uuid": "c51a1e8c-3df2-4ecc-b712-7e02d23ba4ca",
+          "description": "decode with six rails",
+          "property": "decode",
+          "input": {
+            "msg": "133714114238148966225439541018335470986172518171757571896261",
+            "rails": 6
+          },
+          "expected": "112358132134558914423337761098715972584418167651094617711286"
+        }
+      ]
+    }
+  ]
+}

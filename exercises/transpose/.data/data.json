@@ -1,0 +1,245 @@
+{
+  "exercise": "transpose",
+  "version": "1.1.0",
+  "comments": [
+    "JSON doesn't allow for multi-line strings, so all multi-line input is ",
+    "presented here as arrays of strings. It's up to the test generator to join the ",
+    "lines together with line breaks."
+  ],
+  "cases": [
+    {
+      "uuid": "931573ed-d835-457a-a98d-0d98aaeb15c4",
+      "description": "empty string",
+      "property": "transpose",
+      "input": {
+        "lines": []
+      },
+      "expected": []
+    },
+    {
+      "uuid": "89a246b4-41bc-4760-bc4e-4b72495c066e",
+      "description": "two characters in a row",
+      "property": "transpose",
+      "input": {
+        "lines": [
+          "A1"
+        ]
+      },
+      "expected": [
+        "A",
+        "1"
+      ]
+    },
+    {
+      "uuid": "c2c9ce71-f704-47b2-97f9-2ebe27ff2e27",
+      "description": "two characters in a column",
+      "property": "transpose",
+      "input": {
+        "lines": [
+          "A",
+          "1"
+        ]
+      },
+      "expected": [
+        "A1"
+      ]
+    },
+    {
+      "uuid": "29d2d009-1dc9-4afe-939a-093e30394e9c",
+      "description": "simple",
+      "property": "transpose",
+      "input": {
+        "lines": [
+          "ABC",
+          "123"
+        ]
+      },
+      "expected": [
+        "A1",
+        "B2",
+        "C3"
+      ]
+    },
+    {
+      "uuid": "02fb3aee-47e8-47da-b3ad-769ba32acd8c",
+      "description": "single line",
+      "property": "transpose",
+      "input": {
+        "lines": [
+          "Single line."
+        ]
+      },
+      "expected": [
+        "S",
+        "i",
+        "n",
+        "g",
+        "l",
+        "e",
+        " ",
+        "l",
+        "i",
+        "n",
+        "e",
+        "."
+      ]
+    },
+    {
+      "uuid": "605d8a18-4a00-4b00-9f28-8b2a12b78eed",
+      "description": "first line longer than second line",
+      "property": "transpose",
+      "input": {
+        "lines": [
+          "The fourth line.",
+          "The fifth line."
+        ]
+      },
+      "expected": [
+        "TT",
+        "hh",
+        "ee",
+        "  ",
+        "ff",
+        "oi",
+        "uf",
+        "rt",
+        "th",
+        "h ",
+        " l",
+        "li",
+        "in",
+        "ne",
+        "e.",
+        "."
+      ]
+    },
+    {
+      "uuid": "8485bfd9-50e2-42ad-91d6-1527e207f21f",
+      "description": "second line longer than first line",
+      "property": "transpose",
+      "input": {
+        "lines": [
+          "The first line.",
+          "The second line."
+        ]
+      },
+      "expected": [
+        "TT",
+        "hh",
+        "ee",
+        "  ",
+        "fs",
+        "ie",
+        "rc",
+        "so",
+        "tn",
+        " d",
+        "l ",
+        "il",
+        "ni",
+        "en",
+        ".e",
+        " ."
+      ]
+    },
+    {
+      "uuid": "521e377b-b526-45db-8d04-f750bdb26af3",
+      "description": "mixed line length",
+      "property": "transpose",
+      "input": {
+        "lines": [
+          "The longest line.",
+          "A long line.",
+          "A longer line.",
+          "A line."
+        ]
+      },
+      "expected": [
+        "TAAA",
+        "h   ",
+        "elll",
+        " ooi",
+        "lnnn",
+        "ogge",
+        "n e.",
+        "glr",
+        "ei ",
+        "snl",
+        "tei",
+        " .n",
+        "l e",
+        "i .",
+        "n",
+        "e",
+        "."
+      ]
+    },
+    {
+      "uuid": "74909caa-0de7-4955-8f04-fc09b335ef03",
+      "description": "square",
+      "property": "transpose",
+      "input": {
+        "lines": [
+          "HEART",
+          "EMBER",
+          "ABUSE",
+          "RESIN",
+          "TREND"
+        ]
+      },
+      "expected": [
+        "HEART",
+        "EMBER",
+        "ABUSE",
+        "RESIN",
+        "TREND"
+      ]
+    },
+    {
+      "uuid": "68333fc6-8199-4832-aea8-4f9b0b42099a",
+      "description": "rectangle",
+      "property": "transpose",
+      "input": {
+        "lines": [
+          "FRACTURE",
+          "OUTLINED",
+          "BLOOMING",
+          "SEPTETTE"
+        ]
+      },
+      "expected": [
+        "FOBS",
+        "RULE",
+        "ATOP",
+        "CLOT",
+        "TIME",
+        "UNIT",
+        "RENT",
+        "EDGE"
+      ]
+    },
+    {
+      "uuid": "c1508ce7-b1cf-4024-a15c-bff817d809f9",
+      "description": "triangle",
+      "property": "transpose",
+      "input": {
+        "lines": [
+          "T",
+          "EE",
+          "AAA",
+          "SSSS",
+          "EEEEE",
+          "RRRRRR"
+        ]
+      },
+      "expected": [
+        "TEASER",
+        " EASER",
+        "  ASER",
+        "   SER",
+        "    ER",
+        "     R"
+      ]
+    }
+  ]
+}

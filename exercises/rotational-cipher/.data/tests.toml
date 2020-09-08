@@ -1,0 +1,31 @@
+[canonical-tests]
+
+# Test case: rotate a by 0, same output as input
+"421365e4-78d1-4ed5-8fb2-fb47289dd9e3" = true
+
+# Test case: rotate a by 1
+"246e1cc6-ed4e-4eb5-a665-2ac1b93fc930" = true
+
+# Test case: rotate a by 26, same output as input
+"7c48ce13-2b3e-4a3e-b6ee-868fcb26b018" = true
+
+# Test case: rotate m by 13
+"9bd82bb1-d4ee-4bdb-934c-2872251416b7" = true
+
+# Test case: rotate n by 13 with wrap around alphabet
+"44ec935f-b232-4367-bc59-577d03879683" = true
+
+# Test case: rotate capital letters
+"7c9b4c3f-683f-4791-856d-4bf80a02b597" = true
+
+# Test case: rotate spaces
+"d40edb3a-abcc-4348-aa1d-5e89689140c2" = true
+
+# Test case: rotate numbers
+"9b457d1d-39de-4c0b-9b4b-3145a1c54f91" = true
+
+# Test case: rotate punctuation
+"218d7380-4658-428b-9658-b4a927f11d15" = true
+
+# Test case: rotate all letters
+"d0833ad0-377b-47cb-979c-393331be7ce5" = true

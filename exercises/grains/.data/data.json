@@ -1,0 +1,118 @@
+{
+  "exercise": "grains",
+  "version": "1.2.0",
+  "comments": [
+    "The final tests of square test error conditions",
+    "In these cases you should expect an error as is idiomatic for your language"
+  ],
+  "cases": [
+    {
+      "description": "returns the number of grains on the square",
+      "cases": [
+        {
+          "uuid": "42dd2265-7f39-4f45-831f-4e3785acbbee",
+          "description": "1",
+          "property": "square",
+          "input": {
+            "square": 1
+          },
+          "expected": 1
+        },
+        {
+          "uuid": "8c921b96-0357-4998-8bf9-e09c86d7d870",
+          "description": "2",
+          "property": "square",
+          "input": {
+            "square": 2
+          },
+          "expected": 2
+        },
+        {
+          "uuid": "87ecf005-6b82-435f-88fc-eb490035ed16",
+          "description": "3",
+          "property": "square",
+          "input": {
+            "square": 3
+          },
+          "expected": 4
+        },
+        {
+          "uuid": "62a54146-3e8a-43f7-83ca-d1ebe0f7c4d7",
+          "description": "4",
+          "property": "square",
+          "input": {
+            "square": 4
+          },
+          "expected": 8
+        },
+        {
+          "uuid": "34dfc92a-ec31-4766-afef-61ee5e0fe311",
+          "description": "16",
+          "property": "square",
+          "input": {
+            "square": 16
+          },
+          "expected": 32768
+        },
+        {
+          "uuid": "0303cab6-b06d-41bc-ad79-61d6b1c458c8",
+          "description": "32",
+          "property": "square",
+          "input": {
+            "square": 32
+          },
+          "expected": 2147483648
+        },
+        {
+          "uuid": "20420f01-bf00-488e-b038-bad43e26c309",
+          "description": "64",
+          "property": "square",
+          "input": {
+            "square": 64
+          },
+          "expected": 9223372036854775808
+        },
+        {
+          "uuid": "ca723e1c-b8b7-4b15-9db1-ea1479148f78",
+          "description": "square 0 raises an exception",
+          "property": "square",
+          "input": {
+            "square": 0
+          },
+          "expected": {
+            "error": "square must be between 1 and 64"
+          }
+        },
+        {
+          "uuid": "5c7ada30-262e-44ac-8e6a-0f1bd7e9363c",
+          "description": "negative square raises an exception",
+          "property": "square",
+          "input": {
+            "square": -1
+          },
+          "expected": {
+            "error": "square must be between 1 and 64"
+          }
+        },
+        {
+          "uuid": "9d3ea71a-e525-452d-ba2b-a4d0d65ba8c0",
+          "description": "square greater than 64 raises an exception",
+          "property": "square",
+          "input": {
+            "square": 65
+          },
+          "expected": {
+            "error": "square must be between 1 and 64"
+          }
+        }
+      ]
+    },
+    {
+      "uuid": "9b7797ff-b833-4a40-864f-3834b4f42f57",
+      "description": "returns the total number of grains on the board",
+      "property": "total",
+      "input": {},
+      "expected": 18446744073709551615
+    }
+  ]
+}

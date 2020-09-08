@@ -1,0 +1,259 @@
+{
+  "exercise": "list-ops",
+  "version": "2.4.1",
+  "comments": [
+    "Though there are no specifications here for dealing with large lists,",
+    "implementers may add tests for handling large lists to ensure that the",
+    "solutions have thought about performance concerns."
+  ],
+  "cases": [
+    {
+      "description": "append entries to a list and return the new list",
+      "cases": [
+        {
+          "uuid": "aecea77b-910b-4734-801d-ece6f79ba5db",
+          "description": "empty lists",
+          "property": "append",
+          "input": {
+            "list1": [],
+            "list2": []
+          },
+          "expected": []
+        },
+        {
+          "uuid": "628d4c62-6316-4854-a427-62587f47a44f",
+          "description": "list to empty list",
+          "property": "append",
+          "input": {
+            "list1": [],
+            "list2": [1, 2, 3, 4]
+          },
+          "expected": [1, 2, 3, 4]
+        },
+        {
+          "uuid": "a0d49d97-6a5a-453a-ac42-5076a721033f",
+          "description": "non-empty lists",
+          "property": "append",
+          "input": {
+            "list1": [1, 2],
+            "list2": [2, 3, 4, 5]
+          },
+          "expected": [1, 2, 2, 3, 4, 5]
+        }
+      ]
+    },
+    {
+      "description": "concatenate a list of lists",
+      "cases": [
+        {
+          "uuid": "20277e64-8706-4366-8091-28adf6282825",
+          "description": "empty list",
+          "property": "concat",
+          "input": {
+            "lists": []
+          },
+          "expected": []
+        },
+        {
+          "uuid": "ad50e75f-6de5-4165-b01d-6b2dddcf0967",
+          "description": "list of lists",
+          "property": "concat",
+          "input": {
+            "lists": [[1, 2], [3], [], [4, 5, 6]]
+          },
+          "expected": [1, 2, 3, 4, 5, 6]
+        },
+        {
+          "uuid": "52a18525-e90b-4e87-b56f-c83f8c6780b6",
+          "description": "list of nested lists",
+          "property": "concat",
+          "input": {
+            "lists": [[[1], [2]], [[3]], [[]], [[4, 5, 6]]]
+          },
+          "expected": [[1], [2], [3], [], [4, 5, 6]]
+        }
+      ]
+    },
+    {
+      "description": "filter list returning only values that satisfy the filter function",
+      "cases": [
+        {
+          "uuid": "657404bc-688c-49dd-8d21-fa42ca4e518c",
+          "description": "empty list",
+          "property": "filter",
+          "input": {
+            "list": [],
+            "function": "(x) -> x modulo 2 == 1"
+          },
+          "expected": []
+        },
+        {
+          "uuid": "65906eda-0752-4134-8b26-5baeaac3202d",
+          "description": "non-empty list",
+          "property": "filter",
+          "input": {
+            "list": [1, 2, 3, 5],
+            "function": "(x) -> x modulo 2 == 1"
+          },
+          "expected": [1, 3, 5]
+        }
+      ]
+    },
+    {
+      "description": "returns the length of a list",
+      "cases": [
+        {
+          "uuid": "b362f8bd-a1f3-4db2-984c-6f340b0e5269",
+          "description": "empty list",
+          "property": "length",
+          "input": {
+            "list": []
+          },
+          "expected": 0
+        },
+        {
+          "uuid": "56a846d0-23fc-49e5-861c-3803b2e9c8f1",
+          "description": "non-empty list",
+          "property": "length",
+          "input": {
+            "list": [1, 2, 3, 4]
+          },
+          "expected": 4
+        }
+      ]
+    },
+    {
+      "description": "return a list of elements whose values equal the list value transformed by the mapping function",
+      "cases": [
+        {
+          "uuid": "248eb879-8c67-4328-9ede-e02257c6c347",
+          "description": "empty list",
+          "property": "map",
+          "input": {
+            "list": [],
+            "function": "(x) -> x + 1"
+          },
+          "expected": []
+        },
+        {
+          "uuid": "d299a3ae-ed5a-4262-a946-73c9093a9198",
+          "description": "non-empty list",
+          "property": "map",
+          "input": {
+            "list": [1, 3, 5, 7],
+            "function": "(x) -> x + 1"
+          },
+          "expected": [2, 4, 6, 8]
+        }
+      ]
+    },
+    {
+      "description": "folds (reduces) the given list from the left with a function",
+      "cases": [
+        {
+          "uuid": "1db74d21-5643-4edf-b882-0eecb1f0791a",
+          "description": "empty list",
+          "property": "foldl",
+          "input": {
+            "list": [],
+            "initial": 2,
+            "function": "(x, y) -> x * y"
+          },
+          "expected": 2
+        },
+        {
+          "uuid": "ecc7a709-5706-4de4-8f35-35f95a8a108c",
+          "description": "direction independent function applied to non-empty list",
+          "property": "foldl",
+          "input": {
+            "list": [1, 2, 3, 4],
+            "initial": 5,
+            "function": "(x, y) -> x + y"
+          },
+          "expected": 15
+        },
+        {
+          "uuid": "1cb8bb0c-0292-4688-8920-3b92153e3c22",
+          "description": "direction dependent function applied to non-empty list",
+          "property": "foldl",
+          "input": {
+            "list": [2, 5],
+            "initial": 5,
+            "function": "(x, y) -> x / y"
+          },
+          "expected": 0
+        }
+      ]
+    },
+    {
+      "description": "folds (reduces) the given list from the right with a function",
+      "cases": [
+        {
+          "uuid": "ef1dc9b4-c33d-4105-a557-ca5220ecf4b0",
+          "description": "empty list",
+          "property": "foldr",
+          "input": {
+            "list": [],
+            "initial": 2,
+            "function": "(x, y) -> x * y"
+          },
+          "expected": 2
+        },
+        {
+          "uuid": "c8bfe5cf-b194-40f5-9025-238b730339ac",
+          "description": "direction independent function applied to non-empty list",
+          "property": "foldr",
+          "input": {
+            "list": [1, 2, 3, 4],
+            "initial": 5,
+            "function": "(x, y) -> x + y"
+          },
+          "expected": 15
+        },
+        {
+          "uuid": "f975fd0b-998d-4d21-b9bf-5e977147c883",
+          "description": "direction dependent function applied to non-empty list",
+          "property": "foldr",
+          "input": {
+            "list": [2, 5],
+            "initial": 5,
+            "function": "(x, y) -> x / y"
+          },
+          "expected": 2
+        }
+      ]
+    },
+    {
+      "description": "reverse the elements of the list",
+      "cases": [
+        {
+          "uuid": "baf27fcd-2011-452f-992b-d287709b6fbd",
+          "description": "empty list",
+          "property": "reverse",
+          "input": {
+            "list": []
+          },
+          "expected": []
+        },
+        {
+          "uuid": "c22e14d8-680d-422b-a384-bab84e90472b",
+          "description": "non-empty list",
+          "property": "reverse",
+          "input": {
+            "list": [1, 3, 5, 7]
+          },
+          "expected": [7, 5, 3, 1]
+        },
+        {
+          "uuid": "0349dc35-d023-4eb4-991a-2bb62201dfff",
+          "description": "list of lists is not flattened",
+          "property": "reverse",
+          "input": {
+            "list": [[1, 2], [3], [], [4, 5, 6]]
+          },
+          "expected": [[4, 5, 6], [], [3], [1, 2]]
+        }
+      ]
+    }
+  ]
+}

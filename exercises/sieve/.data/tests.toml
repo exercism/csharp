@@ -1,0 +1,16 @@
+[canonical-tests]
+
+# Test case: no primes under two
+"40739b44-ef13-4a3a-b2fe-283a40fdbac9" = true
+
+# Test case: find first prime
+"b6c8b736-9cfd-477e-96a8-efa001a4fbf6" = true
+
+# Test case: find primes up to 10
+"8e8f6ee3-3d82-4f4c-9ccb-5a948453aca7" = true
+
+# Test case: limit is prime
+"ecbc6436-e069-43d0-ba12-b276b4753227" = true
+
+# Test case: find primes up to 1000
+"b7a8f1ac-28a9-47d3-994c-19acf8de1f75" = true

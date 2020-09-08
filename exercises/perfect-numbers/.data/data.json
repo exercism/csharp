@@ -1,0 +1,147 @@
+{
+  "exercise": "perfect-numbers",
+  "version": "1.1.0",
+  "cases": [
+    {
+      "description": "Perfect numbers",
+      "cases": [
+        {
+          "uuid": "b274a4f4-21ee-4fd8-9d49-a968643906c6",
+          "description": "Smallest perfect number is classified correctly",
+          "property": "classify",
+          "input": {
+            "number": 6
+          },
+          "expected": "perfect"
+        },
+        {
+          "uuid": "a4670329-4cce-4356-be9f-f0085cba8b23",
+          "description": "Medium perfect number is classified correctly",
+          "property": "classify",
+          "input": {
+            "number": 28
+          },
+          "expected": "perfect"
+        },
+        {
+          "uuid": "4f3b3fc4-a3ca-486d-a423-591dd27dfd74",
+          "description": "Large perfect number is classified correctly",
+          "property": "classify",
+          "input": {
+            "number": 33550336
+          },
+          "expected": "perfect"
+        }
+      ]
+    },
+    {
+      "description": "Abundant numbers",
+      "cases": [
+        {
+          "uuid": "ab58f00f-88ed-4ffd-a5c1-a51dfe1ecd55",
+          "description": "Smallest abundant number is classified correctly",
+          "property": "classify",
+          "input": {
+            "number": 12
+          },
+          "expected": "abundant"
+        },
+        {
+          "uuid": "6e328b02-9b09-4e53-abee-b53bbdbbfe1e",
+          "description": "Medium abundant number is classified correctly",
+          "property": "classify",
+          "input": {
+            "number": 30
+          },
+          "expected": "abundant"
+        },
+        {
+          "uuid": "361e0279-5787-4846-a2f2-5b7099ff1462",
+          "description": "Large abundant number is classified correctly",
+          "property": "classify",
+          "input": {
+            "number": 33550335
+          },
+          "expected": "abundant"
+        }
+      ]
+    },
+    {
+      "description": "Deficient numbers",
+      "cases": [
+        {
+          "uuid": "0597d454-1791-4331-8eec-7ce69f4c0b1f",
+          "description": "Smallest prime deficient number is classified correctly",
+          "property": "classify",
+          "input": {
+            "number": 2
+          },
+          "expected": "deficient"
+        },
+        {
+          "uuid": "206f2cf3-c3f9-4fe2-8b46-f904bb9d31e2",
+          "description": "Smallest non-prime deficient number is classified correctly",
+          "property": "classify",
+          "input": {
+            "number": 4
+          },
+          "expected": "deficient"
+        },
+        {
+          "uuid": "1c6b8be2-1326-4a32-bc10-be6fdc5108d1",
+          "description": "Medium deficient number is classified correctly",
+          "property": "classify",
+          "input": {
+            "number": 32
+          },
+          "expected": "deficient"
+        },
+        {
+          "uuid": "d2f3ab00-6d9d-4aac-b953-3906cbaa4f15",
+          "description": "Large deficient number is classified correctly",
+          "property": "classify",
+          "input": {
+            "number": 33550337
+          },
+          "expected": "deficient"
+        },
+        {
+          "uuid": "20c41626-28ad-4ed1-af4e-d09d9da275ca",
+          "description": "Edge case (no factors other than itself) is classified correctly",
+          "property": "classify",
+          "input": {
+            "number": 1
+          },
+          "expected": "deficient"
+        }
+      ]
+    },
+    {
+      "description": "Invalid inputs",
+      "cases": [
+        {
+          "uuid": "7e4ef81d-5925-4037-a4e9-0552db79c185",
+          "description": "Zero is rejected (not a natural number)",
+          "property": "classify",
+          "input": {
+            "number": 0
+          },
+          "expected": {
+            "error": "Classification is only possible for natural numbers."
+          }
+        },
+        {
+          "uuid": "bb0f7254-caed-451d-8f56-bda1d2d87b52",
+          "description": "Negative integer is rejected (not a natural number)",
+          "property": "classify",
+          "input": {
+            "number": -1
+          },
+          "expected": {
+            "error": "Classification is only possible for natural numbers."
+          }
+        }
+      ]
+    }
+  ]
+}

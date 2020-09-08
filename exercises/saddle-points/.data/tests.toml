@@ -1,0 +1,28 @@
+[canonical-tests]
+
+# Test case: Can identify single saddle point
+"cbdb090a-f3ed-4e0a-9efa-f0610b4dc49a" = true
+
+# Test case: Can identify that empty matrix has no saddle points
+"a4346c84-0bcf-419e-ae68-998716fa6ead" = true
+
+# Test case: Can identify lack of saddle points when there are none
+"e58962fe-c56a-47f1-85dc-f5aa1094bd06" = true
+
+# Test case: Can identify multiple saddle points in a column
+"c4c0cd9d-fffe-4fc7-9326-8e5ea89690b6" = true
+
+# Test case: Can identify multiple saddle points in a row
+"bb76939f-62d3-4ac1-a801-d9dbac299f73" = true
+
+# Test case: Can identify saddle point in bottom right corner
+"fdcb2a07-0958-4e76-98bf-e43e09a366fa" = true
+
+# Test case: Can identify saddle points in a non square matrix
+"2d180d99-18d5-42dc-bb44-cad46747837c" = true
+
+# Test case: Can identify that saddle points in a single column matrix are those with the minimum value
+"244bc8d7-7f75-49b1-a62c-d95f2a65e67e" = true
+
+# Test case: Can identify that saddle points in a single row matrix are those with the maximum value
+"92c63f3c-491e-4930-a98b-d69807ef57af" = true

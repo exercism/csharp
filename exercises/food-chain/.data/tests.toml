@@ -1,0 +1,31 @@
+[canonical-tests]
+
+# Test case: fly
+"bb21608f-213e-4111-94fe-cbd0d6a253c9" = true
+
+# Test case: spider
+"da0002f1-e1ed-4b16-9e29-3e4a647b6bec" = true
+
+# Test case: bird
+"33d2e253-624a-4986-93a1-621f03fa9ee4" = true
+
+# Test case: cat
+"1a64b0b1-63f9-4042-b842-a659ae80afdc" = true
+
+# Test case: dog
+"c78adb59-5997-4b14-80c8-5caea592f481" = true
+
+# Test case: goat
+"b6d328cc-0939-4e47-a5df-149108c883d5" = true
+
+# Test case: cow
+"f108a775-a87e-41d3-a05a-722fd11d15b4" = true
+
+# Test case: horse
+"52107b6d-9675-49a4-9324-aeceea052f10" = true
+
+# Test case: multiple verses
+"0a711aad-493a-4410-9ebb-30610a23c7fa" = true
+
+# Test case: full song
+"538ac06a-6fdb-4a13-ae64-651c9f381833" = true

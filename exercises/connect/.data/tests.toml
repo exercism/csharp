@@ -1,0 +1,31 @@
+[canonical-tests]
+
+# Test case: an empty board has no winner
+"7b1ec6e6-8ec7-4aa1-a748-b8b72e0772dc" = true
+
+# Test case: X can win on a 1x1 board
+"05696d05-f52e-4da2-ba04-0b4bc3b7e31c" = true
+
+# Test case: O can win on a 1x1 board
+"9f3f5d0e-03ae-4d0f-b941-a192e099f01d" = true
+
+# Test case: only edges does not make a winner
+"75c06929-90b3-488a-9a20-7f37890fdc4a" = true
+
+# Test case: illegal diagonal does not make a winner
+"a1ec9455-976b-4b81-a6b1-fddb14f1c16e" = true
+
+# Test case: nobody wins crossing adjacent angles
+"d90ba7b3-af63-4756-8e7c-2aa4e94308c4" = true
+
+# Test case: X wins crossing from left to right
+"39bb1fba-8c88-47ea-bba8-9addbcdee596" = true
+
+# Test case: O wins crossing from top to bottom
+"c95dad59-0168-4b89-b9bc-85c85029a48b" = true
+
+# Test case: X wins using a convoluted path
+"21dff602-9f75-4d79-995b-2632ea654a3a" = true
+
+# Test case: X wins using a spiral path
+"0b37d07c-4bd9-4a17-9a1f-2c355df2e0df" = true

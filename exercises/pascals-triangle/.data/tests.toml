@@ -1,0 +1,25 @@
+[canonical-tests]
+
+# Test case: zero rows
+"9e1716ea-9621-4862-a393-e178d7f680f9" = true
+
+# Test case: single row
+"f6cbb979-4590-4fc4-8ff4-6b5a1d43b794" = true
+
+# Test case: two rows
+"7b937b1f-b418-4e12-88fa-035c25587128" = true
+
+# Test case: three rows
+"b3e9f194-6453-49f4-9f71-619aa0137068" = true
+
+# Test case: four rows
+"c4fd874c-5eba-4304-9cc0-80a3683a8cc3" = true
+
+# Test case: five rows
+"926fb951-4e85-4acd-beb0-612cb82b3172" = true
+
+# Test case: six rows
+"91f50e9c-2b16-40a7-a13f-5b881304e5a4" = true
+
+# Test case: ten rows
+"47360bd9-b8df-4834-95cf-7244aad86907" = true

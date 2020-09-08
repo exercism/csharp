@@ -1,0 +1,20 @@
+{
+  "exercise": "zebra-puzzle",
+  "version": "1.1.0",
+  "cases": [
+    {
+      "uuid": "935f854d-94b8-4269-8a1f-1e4c188f1d01",
+      "description": "resident who drinks water",
+      "property": "drinksWater",
+      "input": {},
+      "expected": "Norwegian"
+    },
+    {
+      "uuid": "8c9b0565-0b4b-4d15-a7ad-bebe9dc60614",
+      "description": "resident who owns zebra",
+      "property": "ownsZebra",
+      "input": {},
+      "expected": "Japanese"
+    }
+  ]
+}

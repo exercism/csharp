@@ -1,0 +1,58 @@
+[canonical-tests]
+
+# Test case: all sides are equal
+"931fe9f2-ac71-4579-8fa7-0ac1a44318e6" = true
+
+# Test case: any side is unequal
+"dfa2f5cf-efee-4865-9324-4c43207090b9" = true
+
+# Test case: no sides are equal
+"ceba4898-48f9-4b06-93fa-97ea6a155585" = true
+
+# Test case: all zero sides is not a triangle
+"8accd008-2577-4f3c-bdf6-02f4cda95249" = true
+
+# Test case: sides may be floats
+"71bbaf68-0550-4a57-9e68-296b711651de" = true
+
+# Test case: last two sides are equal
+"40e11118-c521-4e3d-8de8-3eb623f7ea56" = true
+
+# Test case: first two sides are equal
+"0daee7c3-1dd9-493c-abb6-28bf707fc1bf" = true
+
+# Test case: first and last sides are equal
+"a53d67bd-c9cf-4bf3-abaf-b68fb5e7c602" = true
+
+# Test case: equilateral triangles are also isosceles
+"abb6e064-22bf-48a6-9504-f03fc8995d40" = true
+
+# Test case: no sides are equal
+"816190ef-5112-4b27-a291-3fd1f14752f4" = true
+
+# Test case: first triangle inequality violation
+"c7d7db17-e363-4add-b664-960962c88b11" = true
+
+# Test case: second triangle inequality violation
+"61f7db65-cae5-4f84-b2d6-cef218235d6e" = true
+
+# Test case: third triangle inequality violation
+"9042ca1e-481b-4532-9363-8f6b58f11d4e" = true
+
+# Test case: sides may be floats
+"69ed8968-0c55-4aa4-8141-0b51273ca6ea" = true
+
+# Test case: no sides are equal
+"3a7ad0de-7e93-45df-b338-2fc845c0df57" = true
+
+# Test case: all sides are equal
+"5a0bea4f-8696-4177-8f34-cf546f15d19f" = true
+
+# Test case: two sides are equal
+"75dfdfa9-382b-4c43-8986-35fa94578778" = true
+
+# Test case: may not violate triangle inequality
+"dd17479d-57dc-4e26-b96a-9c3752b23495" = true
+
+# Test case: sides may be floats
+"678ca13d-8a28-4dab-a783-1c5f111a7c18" = true

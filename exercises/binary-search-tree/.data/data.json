@@ -1,0 +1,190 @@
+{
+  "exercise": "binary-search-tree",
+  "version": "1.0.0",
+  "comments": [
+    "Each test case assumes an empty/new tree.",
+    "As per exercism/problem-specifications#996 key 'treeData' counts as an input",
+    "to test generators.",
+    "The key 'treeData' represents an array of numbers for which the data should be ",
+    "inserted/added to the tree as it appears in the array from left to right.",
+    "e.g. treeData: ['2', '1', '3', '6', '7', '5']",
+    "Insert 2. Insert 1. Insert 3. Insert 6, so on...",
+    "This canonical-data does not restrict the data type of array elements to either",
+    "strings or integers.",
+    "The key 'expected' represents tree state as JSON object of schema :",
+    "{",
+    "    'title':'nodeObject',",
+    "    'type':'object',",
+    "    'properties':{",
+    "        'data':{",
+    "            'type':'string'",
+    "        },",
+    "        'left':{",
+    "            'type':'nodeObject'",
+    "        },",
+    "        'right':{",
+    "            'type':'nodeObject'",
+    "        }",
+    "    },",
+    "    'required':['data', 'left', 'right']",
+    "}"
+  ],
+  "cases": [
+    {
+      "uuid": "fe6f106b-1e06-43e9-acea-2d93b1897ff4",
+      "description": "data is retained",
+      "property": "data",
+      "input": {
+        "treeData": ["4"]
+      },
+      "expected": {
+        "data": "4",
+        "left": null,
+        "right": null
+      }
+    },
+    {
+      "description": "insert data at proper node",
+      "cases": [
+        {
+          "uuid": "01373876-7e45-4110-9bed-47e13e6244d6",
+          "description": "smaller number at left node",
+          "property": "data",
+          "input": {
+            "treeData": ["4", "2"]
+          },
+          "expected": {
+            "data": "4",
+            "left": {
+              "data": "2",
+              "left": null,
+              "right": null
+            },
+            "right": null
+          }
+        },
+        {
+          "uuid": "a28ee76d-5a22-44bf-865e-7d64a17f8caa",
+          "description": "same number at left node",
+          "property": "data",
+          "input": {
+            "treeData": ["4", "4"]
+          },
+          "expected": {
+            "data": "4",
+            "left": {
+              "data": "4",
+              "left": null,
+              "right": null
+            },
+            "right": null
+          }
+        },
+        {
+          "uuid": "ce198570-5444-4432-b844-57c065f274e7",
+          "description": "greater number at right node",
+          "property": "data",
+          "input": {
+            "treeData": ["4", "5"]
+          },
+          "expected": {
+            "data": "4",
+            "left": null,
+            "right": {
+              "data": "5",
+              "left": null,
+              "right": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "uuid": "14ec8d60-456b-4631-9800-7abc34d669ec",
+      "description": "can create complex tree",
+      "property": "data",
+      "input": {
+        "treeData": ["4", "2", "6", "1", "3", "5", "7"]
+      },
+      "expected": {
+        "data": "4",
+        "left": {
+          "data": "2",
+          "left": {
+            "data": "1",
+            "left": null,
+            "right": null
+          },
+          "right": {
+            "data": "3",
+            "left": null,
+            "right": null
+          }
+        },
+        "right": {
+          "data": "6",
+          "left": {
+            "data": "5",
+            "left": null,
+            "right": null
+          },
+          "right": {
+            "data": "7",
+            "left": null,
+            "right": null
+          }
+        }
+      }
+    },
+    {
+      "description": "can sort data",
+      "cases": [
+        {
+          "uuid": "7e97841d-bf77-42b6-8301-42506c7d0bcb",
+          "description": "can sort single number",
+          "property": "sortedData",
+          "input": {
+            "treeData": ["2"]
+          },
+          "expected": ["2"]
+        },
+        {
+          "uuid": "79b414a5-feb2-4144-bd84-4f4295e9cfa8",
+          "description": "can sort if second number is smaller than first",
+          "property": "sortedData",
+          "input": {
+            "treeData": ["2", "1"]
+          },
+          "expected": ["1", "2"]
+        },
+        {
+          "uuid": "d9e1dfce-7fa8-4052-bbe5-dddbe102730c",
+          "description": "can sort if second number is same as first",
+          "property": "sortedData",
+          "input": {
+            "treeData": ["2", "2"]
+          },
+          "expected": ["2", "2"]
+        },
+        {
+          "uuid": "7d16229e-a212-4796-9a06-fd20fb3fe46f",
+          "description": "can sort if second number is greater than first",
+          "property": "sortedData",
+          "input": {
+            "treeData": ["2", "3"]
+          },
+          "expected": ["2", "3"]
+        },
+        {
+          "uuid": "407a50bf-d5a0-4542-adc8-0be53dddb107",
+          "description": "can sort complex tree",
+          "property": "sortedData",
+          "input": {
+            "treeData": ["2", "1", "3", "6", "7", "5"]
+          },
+          "expected": ["1", "2", "3", "5", "6", "7"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "exercise": "two-bucket",
+  "version": "1.4.0",
+  "cases": [
+    {
+      "uuid": "86302e29-444c-48b3-8add-5565d1a5eafe",
+      "description": "Measure using bucket one of size 3 and bucket two of size 5 - start with bucket one",
+      "property": "measure",
+      "input": {
+        "bucketOne": 3,
+        "bucketTwo": 5,
+        "goal": 1,
+        "startBucket": "one"
+      },
+      "expected": {
+        "moves": 4,
+        "goalBucket": "one",
+        "otherBucket": 5
+      }
+    },
+    {
+      "uuid": "fb3f8713-a6de-4f12-acf0-1dd733171975",
+      "description": "Measure using bucket one of size 3 and bucket two of size 5 - start with bucket two",
+      "property": "measure",
+      "input": {
+        "bucketOne": 3,
+        "bucketTwo": 5,
+        "goal": 1,
+        "startBucket": "two"
+      },
+      "expected": {
+        "moves": 8,
+        "goalBucket": "two",
+        "otherBucket": 3
+      }
+    },
+    {
+      "uuid": "70f293e5-2462-4c40-9ccf-745c35d040a1",
+      "description": "Measure using bucket one of size 7 and bucket two of size 11 - start with bucket one",
+      "property": "measure",
+      "input": {
+        "bucketOne": 7,
+        "bucketTwo": 11,
+        "goal": 2,
+        "startBucket": "one"
+      },
+      "expected": {
+        "moves": 14,
+        "goalBucket": "one",
+        "otherBucket": 11
+      }
+    },
+    {
+      "uuid": "1b3c4a15-ec9d-4102-870a-a85f96781cfc",
+      "description": "Measure using bucket one of size 7 and bucket two of size 11 - start with bucket two",
+      "property": "measure",
+      "input": {
+        "bucketOne": 7,
+        "bucketTwo": 11,
+        "goal": 2,
+        "startBucket": "two"
+      },
+      "expected": {
+        "moves": 18,
+        "goalBucket": "two",
+        "otherBucket": 7
+      }
+    },
+    {
+      "uuid": "1bbd2643-3112-45c4-8995-d286dc1dc4ed",
+      "description": "Measure one step using bucket one of size 1 and bucket two of size 3 - start with bucket two",
+      "property": "measure",
+      "input": {
+        "bucketOne": 1,
+        "bucketTwo": 3,
+        "goal": 3,
+        "startBucket": "two"
+      },
+      "expected": {
+        "moves": 1,
+        "goalBucket": "two",
+        "otherBucket": 0
+      }
+    },
+    {
+      "uuid": "c0ae37db-e96a-4c03-88d0-e382d00e202c",
+      "description": "Measure using bucket one of size 2 and bucket two of size 3 - start with bucket one and end with bucket two",
+      "property": "measure",
+      "input": {
+        "bucketOne": 2,
+        "bucketTwo": 3,
+        "goal": 3,
+        "startBucket": "one"
+      },
+      "expected": {
+        "moves": 2,
+        "goalBucket": "two",
+        "otherBucket": 2
+      }
+    }
+  ]
+}

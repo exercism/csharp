@@ -1,0 +1,55 @@
+[canonical-tests]
+
+# Test case: at origin facing north
+"44f0dc3b-df6d-481c-b591-9a73a8e42a7d" = true
+
+# Test case: at negative position facing south
+"98441518-5c8d-4c0d-ba77-be50ab99fda1" = true
+
+# Test case: changes north to east
+"b9eef50c-ebfc-437c-aa7b-7cb3abc700ff" = true
+
+# Test case: changes east to south
+"17200d0e-cb70-4341-9852-3493b423b784" = true
+
+# Test case: changes south to west
+"caf38eab-f663-4a70-ab2a-4842554e8f7a" = true
+
+# Test case: changes west to north
+"06280e89-e7ff-4d71-b0d4-540731dc3d43" = true
+
+# Test case: changes north to west
+"6909fe0a-de0d-4b6f-acd2-54b0b06cb754" = true
+
+# Test case: changes west to south
+"314ba20a-fc7a-4e71-a382-56ed4f55f668" = true
+
+# Test case: changes south to east
+"a49d018d-66d1-4d3e-88a6-8f8ea4a6c921" = true
+
+# Test case: changes east to north
+"87721d76-b16d-4433-a4f7-adf84df2ae65" = true
+
+# Test case: facing north increments Y
+"c8b96ee4-6985-4cea-bf2d-75b960e16cad" = true
+
+# Test case: facing south decrements Y
+"ef527c91-4538-4e66-8331-f1abc1ae6067" = true
+
+# Test case: facing east increments X
+"db408a1f-ffa1-4957-b803-69e10be4593f" = true
+
+# Test case: facing west decrements X
+"be533784-cda7-40ba-9c31-70de01684cbc" = true
+
+# Test case: moving east and north from README
+"e8d4ec17-36a5-4abd-a232-c11a956e10d4" = true
+
+# Test case: moving west and north
+"071232fc-7cb5-4a68-b698-9b25390a6a28" = true
+
+# Test case: moving west and south
+"02344520-7b07-4310-b3db-7ff37587e734" = true
+
+# Test case: moving east and north
+"5d8c2723-c2b3-470a-bbc7-df1e2704a8ce" = true

@@ -1,0 +1,211 @@
+{
+  "exercise": "dominoes",
+  "version": "2.1.0",
+  "comments": [
+    "Inputs are given as lists of two-element lists.",
+    "Feel free to convert the input to a sensible type in the specific language",
+    "For example, if the target language has 2-tuples, that is a good candidate.",
+    "",
+    "There are two levels of this exercise that can be implemented and/or tested:",
+    "",
+    "1: Given a list of dominoes, determine whether it can be made into a chain.",
+    "Under this scheme, the submitted code only needs to return a boolean.",
+    "The test code only needs to check that that boolean value matches up.",
+    "",
+    "2: Given a list of dominoes, determine one possible chain, if one exists, or else conclude that none can be made.",
+    "Under this scheme, the submitted code needs to either return a chain, or signal that none exists.",
+    "Different languages may do this differently:",
+    "return Option<Vector<Domino>>, return ([]Domino, error), raise exception, etc.",
+    "The test code needs to check that the returned chain is correct (see below).",
+    "",
+    "It's infeasible to list every single possible result chain in this file.",
+    "That's because for even a simple list [(1, 2), (2, 3), (3, 1)],",
+    "the possible chains are that order, any rotation of that order,",
+    "and any rotation of that order with all dominoes reversed.",
+    "",
+    "For this reason, this JSON file will only list whether a chain is possible.",
+    "Tracks wishing to verify correct results of the second level must separately perform this verification.",
+    "",
+    "The properties to verify are:",
+    "1. The submitted code claims there is a chain if and only if there actually is one.",
+    "2. The number of dominoes in the output equals the number of dominoes in the input.",
+    "3a. For each adjacent pair of dominoes ... (a, b), (c, d) ...: b is equal to c.",
+    "3b. For the dominoes on the ends (a, b) ... (c, d): a is equal to d.",
+    "4. Every domino appears in the output an equal number of times as the number of times it appears in the input.",
+    "(in other words, the dominoes in the output are the same dominoes as the ones in the input)",
+    "",
+    "Feel free to examine the Rust track for ideas on implementing the second level verification."
+  ],
+  "cases": [
+    {
+      "uuid": "22b856d6-1e0d-4b17-8ada-b9df6e4615a1",
+      "description": "empty input = empty output",
+      "property": "canChain",
+      "input": {
+        "dominoes": []
+      },
+      "expected": true
+    },
+    {
+      "uuid": "1358085a-3817-4e8a-a5d5-31c505bf85e6",
+      "description": "singleton input = singleton output",
+      "property": "canChain",
+      "input": {
+        "dominoes": [[1, 1]]
+      },
+      "expected": true
+    },
+    {
+      "uuid": "a2e3bec4-3b34-46ce-8afd-88611af14510",
+      "description": "singleton that can't be chained",
+      "property": "canChain",
+      "input": {
+        "dominoes": [[1, 2]]
+      },
+      "expected": false
+    },
+    {
+      "uuid": "18b5cf15-c9e7-453e-a054-ec0248f59d22",
+      "description": "three elements",
+      "property": "canChain",
+      "input": {
+        "dominoes": [
+          [1, 2],
+          [3, 1],
+          [2, 3]
+        ]
+      },
+      "expected": true
+    },
+    {
+      "uuid": "ae47bd7a-f764-4f0a-8cb7-6edcfa4a8f41",
+      "description": "can reverse dominoes",
+      "property": "canChain",
+      "input": {
+        "dominoes": [
+          [1, 2],
+          [1, 3],
+          [2, 3]
+        ]
+      },
+      "expected": true
+    },
+    {
+      "uuid": "2eb24e56-571c-4e9f-b7a0-f5114503e186",
+      "description": "can't be chained",
+      "property": "canChain",
+      "input": {
+        "dominoes": [
+          [1, 2],
+          [4, 1],
+          [2, 3]
+        ]
+      },
+      "expected": false
+    },
+    {
+      "uuid": "02157f96-7587-47a1-99cf-485d7b3cf5ae",
+      "description": "disconnected - simple",
+      "comments": [
+        "This meets the requirement of being possibly-Euclidean.",
+        "All vertices have even degree.",
+        "Nevertheless, there is no chain here, as there's no way to get from 1 to 2.",
+        "This test (and the two following) prevent solutions from using the even-degree test as the sole criterion,",
+        "as that is not a sufficient condition."
+      ],
+      "property": "canChain",
+      "input": {
+        "dominoes": [
+          [1, 1],
+          [2, 2]
+        ]
+      },
+      "expected": false
+    },
+    {
+      "uuid": "7ff744d3-f55f-4942-9ec2-701d111f20af",
+      "description": "disconnected - double loop",
+      "property": "canChain",
+      "input": {
+        "dominoes": [
+          [1, 2],
+          [2, 1],
+          [3, 4],
+          [4, 3]
+        ]
+      },
+      "expected": false
+    },
+    {
+      "uuid": "14ba03d9-e396-49b6-8e29-4774257ed606",
+      "description": "disconnected - single isolated",
+      "property": "canChain",
+      "input": {
+        "dominoes": [
+          [1, 2],
+          [2, 3],
+          [3, 1],
+          [4, 4]
+        ]
+      },
+      "expected": false
+    },
+    {
+      "uuid": "a327117a-f825-40db-95de-f02cbf782f46",
+      "description": "need backtrack",
+      "comments": [
+        "Some solutions may make a chain out of (1, 2), (2, 3), (3, 1)",
+        "then decide that since there are no more dominoes containing a 1,",
+        "there is no chain possible.",
+        "There is indeed a chain here, so this test checks for this line of reasoning.",
+        "You need to place the (2, 4) after the (1, 2) rather than the (2, 3)."
+      ],
+      "property": "canChain",
+      "input": {
+        "dominoes": [
+          [1, 2],
+          [2, 3],
+          [3, 1],
+          [2, 4],
+          [2, 4]
+        ]
+      },
+      "expected": true
+    },
+    {
+      "uuid": "a9b080fd-e4b8-4469-a705-65fa53be448d",
+      "description": "separate loops",
+      "property": "canChain",
+      "input": {
+        "dominoes": [
+          [1, 2],
+          [2, 3],
+          [3, 1],
+          [1, 1],
+          [2, 2],
+          [3, 3]
+        ]
+      },
+      "expected": true
+    },
+    {
+      "uuid": "eb8697db-e965-403b-ba7b-1bdd1aa8006c",
+      "description": "nine elements",
+      "property": "canChain",
+      "input": {
+        "dominoes": [
+          [1, 2],
+          [5, 3],
+          [3, 1],
+          [1, 2],
+          [2, 4],
+          [1, 6],
+          [2, 3],
+          [3, 4],
+          [5, 6]
+        ]
+      },
+      "expected": true
+    }
+  ]
+}

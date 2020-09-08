@@ -1,0 +1,28 @@
+[canonical-tests]
+
+# Test case: square of sum 1
+"28651ba8-70d4-45e9-b09a-7599facd0dcd" = true
+
+# Test case: square of sum 5
+"951b869c-ec97-4bfa-81c3-f017ffecac00" = true
+
+# Test case: square of sum 100
+"fe3c4e1a-0729-4aa6-a76d-b60b547bf7ce" = true
+
+# Test case: sum of squares 1
+"d7cfb909-f389-419d-ae99-e11307981a82" = true
+
+# Test case: sum of squares 5
+"f49e789e-1eb9-4f1a-ba2e-ec4c2305b3bc" = true
+
+# Test case: sum of squares 100
+"b8c62a1d-ca7b-435f-b3fe-115177a2a4cd" = true
+
+# Test case: difference of squares 1
+"31b4c1cd-6c76-43e7-a8e4-fcf5ad7f24aa" = true
+
+# Test case: difference of squares 5
+"d0bd3855-6ff4-4fe3-b29f-0d026086e8bb" = true
+
+# Test case: difference of squares 100
+"d9094e6f-028a-4b18-b613-88cb5be04f52" = true

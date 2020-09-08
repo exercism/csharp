@@ -1,0 +1,34 @@
+[canonical-tests]
+
+# Test case: lowercase letter
+"6d8cd62b-2552-4f74-a86c-bbdb6cd7c176" = true
+
+# Test case: uppercase letter
+"c89e2aaf-7949-471d-88c5-2b64c30740a1" = true
+
+# Test case: valuable letter
+"62087cb6-cebe-4b8a-bbb7-839190279567" = true
+
+# Test case: short word
+"05d5859f-75ed-456a-b13d-aa369d9f1bc8" = true
+
+# Test case: short, valuable word
+"f14cda32-fa62-4e61-928b-b9752d2ee693" = true
+
+# Test case: medium word
+"e3d79c42-47a5-40a6-b306-3cba1f5931dd" = true
+
+# Test case: medium, valuable word
+"9cb57555-0f67-4a3b-a794-79323ac1082e" = true
+
+# Test case: long, mixed-case word
+"00f80930-cac0-4526-9ab2-f945a2332251" = true
+
+# Test case: english-like word
+"573cb109-6234-4e9b-a08a-fcf01c0b4b8e" = true
+
+# Test case: empty input
+"94b3b8e7-f756-4894-a86f-7944d83d5c00" = true
+
+# Test case: entire alphabet available
+"c9b52868-9f22-4914-9b0d-21a0df2f9a2f" = true

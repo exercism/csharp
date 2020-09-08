@@ -1,0 +1,78 @@
+{
+  "exercise": "spiral-matrix",
+  "version": "1.1.0",
+  "cases": [
+    {
+      "uuid": "db8e8c1a-db57-48c4-afc9-d57fbdd0255d",
+      "description": "empty spiral",
+      "property": "spiralMatrix",
+      "input": {
+        "size": 0
+      },
+      "expected": []
+    },
+    {
+      "uuid": "5f25d887-4ff3-4784-b45f-6e9c09933ba4",
+      "description": "trivial spiral",
+      "property": "spiralMatrix",
+      "input": {
+        "size": 1
+      },
+      "expected": [[1]]
+    },
+    {
+      "uuid": "e69a4a01-de36-4b65-bca5-8b079f70681e",
+      "description": "spiral of size 2",
+      "property": "spiralMatrix",
+      "input": {
+        "size": 2
+      },
+      "expected": [
+        [1, 2],
+        [4, 3]
+      ]
+    },
+    {
+      "uuid": "98dc2103-3480-4f2c-b576-7e32d3d2b1c6",
+      "description": "spiral of size 3",
+      "property": "spiralMatrix",
+      "input": {
+        "size": 3
+      },
+      "expected": [
+        [1, 2, 3],
+        [8, 9, 4],
+        [7, 6, 5]
+      ]
+    },
+    {
+      "uuid": "61120e2d-5472-4767-8264-21ca2259d4f6",
+      "description": "spiral of size 4",
+      "property": "spiralMatrix",
+      "input": {
+        "size": 4
+      },
+      "expected": [
+        [1, 2, 3, 4],
+        [12, 13, 14, 5],
+        [11, 16, 15, 6],
+        [10, 9, 8, 7]
+      ]
+    },
+    {
+      "uuid": "9707b6d5-4a56-43ed-adde-89893286aded",
+      "description": "spiral of size 5",
+      "property": "spiralMatrix",
+      "input": {
+        "size": 5
+      },
+      "expected": [
+        [1, 2, 3, 4, 5],
+        [16, 17, 18, 19, 6],
+        [15, 24, 25, 20, 7],
+        [14, 23, 22, 21, 8],
+        [13, 12, 11, 10, 9]
+      ]
+    }
+  ]
+}

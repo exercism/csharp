@@ -1,0 +1,46 @@
+[canonical-tests]
+
+# Test case: Results in the same tree if the input tree is a singleton
+"478aa47d-d72b-4ae8-b1b5-83f1e2c1f3dc" = true
+
+# Test case: Can reroot a tree with a parent and one sibling
+"b0fd8a78-0a4a-4ce4-96dd-28834dfe4ead" = true
+
+# Test case: Can reroot a tree with a parent and many siblings
+"990543da-38ed-4028-9af8-6fdb83328a95" = true
+
+# Test case: Can reroot a tree with new root deeply nested in tree
+"a0575b30-1353-4b32-84cc-6748b1434929" = true
+
+# Test case: Moves children of the new root to same level as former parent
+"2c438575-d39f-47da-ac6b-55e263b88181" = true
+
+# Test case: Can reroot a complex tree with cousins
+"5124075a-6196-46af-a020-27ee28e5f136" = true
+
+# Test case: Errors if target does not exist in a singleton tree
+"aab14f82-f0f9-4044-a478-a3a3b458b4ae" = true
+
+# Test case: Errors if target does not exist in a large tree
+"24a94872-badc-4561-a457-22d93501e7a5" = true
+
+# Test case: Can find path to parent
+"67186de7-780d-41c2-8020-2b969062bf3f" = true
+
+# Test case: Can find path to sibling
+"117cc520-e19c-4b5c-950b-fb2d758d2031" = true
+
+# Test case: Can find path to cousin
+"1454f307-1e63-4efc-a6a1-a0bb3335addd" = true
+
+# Test case: Can find path not involving root
+"c3feb6b6-58c7-4ab5-8d24-47dfb632ae32" = true
+
+# Test case: Can find path from nodes other than x
+"934cef6b-76db-42f8-828d-6fd1abd6d2bc" = true
+
+# Test case: Errors if destination does not exist
+"89aaa196-3067-4437-ac6c-e6365d4c9402" = true
+
+# Test case: Errors if source does not exist
+"b15a2d90-2421-4ac2-9ce2-f8d2f4db5574" = true

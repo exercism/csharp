@@ -1,0 +1,166 @@
+{
+  "exercise": "sum-of-multiples",
+  "version": "1.5.0",
+  "cases": [
+    {
+      "uuid": "68463b9f-d758-412c-b06b-7b43a112ec18",
+      "description": "no multiples within limit",
+      "property": "sum",
+      "input": {
+        "factors": [3, 5],
+        "limit": 1
+      },
+      "expected": 0
+    },
+    {
+      "uuid": "a599ef8c-1b06-4c0a-9dd5-aaa59fcc017f",
+      "description": "one factor has multiples within limit",
+      "property": "sum",
+      "input": {
+        "factors": [3, 5],
+        "limit": 4
+      },
+      "expected": 3
+    },
+    {
+      "uuid": "6f3f027d-1476-4a98-99e6-6adecdff6ebd",
+      "description": "more than one multiple within limit",
+      "property": "sum",
+      "input": {
+        "factors": [3],
+        "limit": 7
+      },
+      "expected": 9
+    },
+    {
+      "uuid": "720236d4-b3c7-462c-bf20-5f0034160995",
+      "description": "more than one factor with multiples within limit",
+      "property": "sum",
+      "input": {
+        "factors": [3, 5],
+        "limit": 10
+      },
+      "expected": 23
+    },
+    {
+      "uuid": "32137adf-4a93-49f3-9b23-1886e980d213",
+      "description": "each multiple is only counted once",
+      "property": "sum",
+      "input": {
+        "factors": [3, 5],
+        "limit": 100
+      },
+      "expected": 2318
+    },
+    {
+      "uuid": "21861bad-2d4f-4413-afcb-23d4610645e1",
+      "description": "a much larger limit",
+      "property": "sum",
+      "input": {
+        "factors": [3, 5],
+        "limit": 1000
+      },
+      "expected": 233168
+    },
+    {
+      "uuid": "2d851a10-7ab3-400c-91f3-c0b6a0fc0fb3",
+      "description": "three factors",
+      "property": "sum",
+      "input": {
+        "factors": [7, 13, 17],
+        "limit": 20
+      },
+      "expected": 51
+    },
+    {
+      "uuid": "ff1d6ab2-e3e5-4194-89fb-fadd9293df0d",
+      "description": "factors not relatively prime",
+      "property": "sum",
+      "input": {
+        "factors": [4, 6],
+        "limit": 15
+      },
+      "expected": 30
+    },
+    {
+      "uuid": "c396d351-ef33-423d-911a-5aa31be78608",
+      "description": "some pairs of factors relatively prime and some not",
+      "property": "sum",
+      "input": {
+        "factors": [5, 6, 8],
+        "limit": 150
+      },
+      "expected": 4419
+    },
+    {
+      "uuid": "0d788df4-f929-4b16-be14-12813773014c",
+      "description": "one factor is a multiple of another",
+      "property": "sum",
+      "input": {
+        "factors": [5, 25],
+        "limit": 51
+      },
+      "expected": 275
+    },
+    {
+      "uuid": "d610daea-360f-4ee6-a65b-de96f8ea3a79",
+      "description": "much larger factors",
+      "property": "sum",
+      "input": {
+        "factors": [43, 47],
+        "limit": 10000
+      },
+      "expected": 2203160
+    },
+    {
+      "uuid": "42e603b1-dd54-4fbb-bea4-f21b3de98525",
+      "description": "all numbers are multiples of 1",
+      "property": "sum",
+      "input": {
+        "factors": [1],
+        "limit": 100
+      },
+      "expected": 4950
+    },
+    {
+      "uuid": "41f44e3c-6eff-4d71-a286-8a6ae53c17dd",
+      "description": "no factors means an empty sum",
+      "property": "sum",
+      "input": {
+        "factors": [],
+        "limit": 10000
+      },
+      "expected": 0
+    },
+    {
+      "uuid": "012855d4-eff2-41f1-a7db-55c564d6c6c0",
+      "description": "the only multiple of 0 is 0",
+      "property": "sum",
+      "input": {
+        "factors": [0],
+        "limit": 1
+      },
+      "expected": 0
+    },
+    {
+      "uuid": "96b28d30-ce1a-4ebf-b67b-f4ea5ed7ab95",
+      "description": "the factor 0 does not affect the sum of multiples of other factors",
+      "property": "sum",
+      "input": {
+        "factors": [3, 0],
+        "limit": 4
+      },
+      "expected": 3
+    },
+    {
+      "uuid": "a73675e0-e947-4ac8-92f8-0387c825ff54",
+      "description": "solutions using include-exclude must extend to cardinality greater than 3",
+      "property": "sum",
+      "input": {
+        "factors": [2, 3, 5, 7, 11],
+        "limit": 10000
+      },
+      "expected": 39614537
+    }
+  ]
+}

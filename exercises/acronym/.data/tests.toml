@@ -1,0 +1,28 @@
+[canonical-tests]
+
+# Test case: basic
+"cc930a66-93cd-4d55-afd2-da6135f7f502" = true
+
+# Test case: lowercase words
+"2009a269-4cc9-4e30-8156-f5331b6269f5" = true
+
+# Test case: punctuation
+"4a1418cf-4212-48c0-8288-ca12f1f831a3" = true
+
+# Test case: all caps word
+"e3ff137a-b83e-45ab-a524-7880298d2db1" = true
+
+# Test case: punctuation without whitespace
+"8f1f5d2d-6874-4e0c-bc50-dfa6b9c88edc" = true
+
+# Test case: very long abbreviation
+"af96ecf5-127b-471f-8bf2-c732fc4eecfd" = true
+
+# Test case: consecutive delimiters
+"fde40877-b6c4-4e5f-9e6c-423331e495ba" = true
+
+# Test case: apostrophes
+"8ddad956-9f4a-44c4-a259-0c704f4b92a9" = true
+
+# Test case: underscore emphasis
+"f027136c-55df-45c5-a108-54ae46754b13" = true

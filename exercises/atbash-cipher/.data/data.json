@@ -1,0 +1,149 @@
+{
+  "exercise": "atbash-cipher",
+  "version": "1.2.0",
+  "comments": [
+    "The tests are divided into two groups: ",
+    "* Encoding from English to atbash cipher",
+    "* Decoding from atbash cipher to all-lowercase-mashed-together English"
+  ],
+  "cases": [
+    {
+      "description": "encode",
+      "comments": ["Test encoding from English to atbash"],
+      "cases": [
+        {
+          "uuid": "9ed185c2-55a4-43d0-a060-f85e3dc0cbd1",
+          "description": "encode yes",
+          "property": "encode",
+          "input": {
+            "phrase": "yes"
+          },
+          "expected": "bvh"
+        },
+        {
+          "uuid": "f23db198-106d-4f95-b43c-b423f62ded98",
+          "description": "encode no",
+          "property": "encode",
+          "input": {
+            "phrase": "no"
+          },
+          "expected": "ml"
+        },
+        {
+          "uuid": "e06e7129-7a2c-4465-ab88-ae160d6624ce",
+          "description": "encode OMG",
+          "property": "encode",
+          "input": {
+            "phrase": "OMG"
+          },
+          "expected": "lnt"
+        },
+        {
+          "uuid": "58f0461b-e89f-4cb8-ab4a-aef973602f88",
+          "description": "encode spaces",
+          "property": "encode",
+          "input": {
+            "phrase": "O M G"
+          },
+          "expected": "lnt"
+        },
+        {
+          "uuid": "5c44b5fb-8e6b-486a-aed3-f5796610a0b9",
+          "description": "encode mindblowingly",
+          "property": "encode",
+          "input": {
+            "phrase": "mindblowingly"
+          },
+          "expected": "nrmwy oldrm tob"
+        },
+        {
+          "uuid": "876bc335-58b9-41b8-8680-983bf1e29436",
+          "description": "encode numbers",
+          "property": "encode",
+          "input": {
+            "phrase": "Testing,1 2 3, testing."
+          },
+          "expected": "gvhgr mt123 gvhgr mt"
+        },
+        {
+          "uuid": "3e0695ce-d69a-4636-b4d8-d4fd76e86e5d",
+          "description": "encode deep thought",
+          "property": "encode",
+          "input": {
+            "phrase": "Truth is fiction."
+          },
+          "expected": "gifgs rhurx grlm"
+        },
+        {
+          "uuid": "4559368d-f7fe-461e-827d-48a23ee1c0cc",
+          "description": "encode all the letters",
+          "property": "encode",
+          "input": {
+            "phrase": "The quick brown fox jumps over the lazy dog."
+          },
+          "expected": "gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt"
+        }
+      ]
+    },
+    {
+      "description": "decode",
+      "comments": ["Test decoding from atbash to English"],
+      "cases": [
+        {
+          "uuid": "00681da6-25a0-48be-81f7-3fd9aab2cab2",
+          "description": "decode exercism",
+          "property": "decode",
+          "input": {
+            "phrase": "vcvix rhn"
+          },
+          "expected": "exercism"
+        },
+        {
+          "uuid": "6802e635-b5d2-474e-ba17-cdeb1fb7bc9c",
+          "description": "decode a sentence",
+          "property": "decode",
+          "input": {
+            "phrase": "zmlyh gzxov rhlug vmzhg vkkrm thglm v"
+          },
+          "expected": "anobstacleisoftenasteppingstone"
+        },
+        {
+          "uuid": "3738709d-0321-4d16-98d3-778b4764a0fd",
+          "description": "decode numbers",
+          "property": "decode",
+          "input": {
+            "phrase": "gvhgr mt123 gvhgr mt"
+          },
+          "expected": "testing123testing"
+        },
+        {
+          "uuid": "46926af5-a74c-43f7-b616-e612e0c67305",
+          "description": "decode all the letters",
+          "property": "decode",
+          "input": {
+            "phrase": "gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt"
+          },
+          "expected": "thequickbrownfoxjumpsoverthelazydog"
+        },
+        {
+          "uuid": "d994c6f8-87c1-4777-9a63-768396cf20a6",
+          "description": "decode with too many spaces",
+          "property": "decode",
+          "input": {
+            "phrase": "vc vix    r hn"
+          },
+          "expected": "exercism"
+        },
+        {
+          "uuid": "5386503e-6c3f-42bd-be05-cecb2f5e0e3e",
+          "description": "decode with no spaces",
+          "property": "decode",
+          "input": {
+            "phrase": "zmlyhgzxovrhlugvmzhgvkkrmthglmv"
+          },
+          "expected": "anobstacleisoftenasteppingstone"
+        }
+      ]
+    }
+  ]
+}

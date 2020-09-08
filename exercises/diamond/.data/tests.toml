@@ -1,0 +1,16 @@
+[canonical-tests]
+
+# Test case: Degenerate case with a single 'A' row
+"92ee5bb5-b70b-4ad2-a26c-ac6eeb108db8" = true
+
+# Test case: Degenerate case with no row containing 3 distinct groups of spaces
+"8c9ff564-f5cd-43ae-b047-41e7958b0064" = true
+
+# Test case: Smallest non-degenerate case with odd diamond side length
+"2d2df373-19fa-4dcf-9c50-722ae44f6f35" = true
+
+# Test case: Smallest non-degenerate case with even diamond side length
+"be0a27d1-9295-4482-ac51-a4c46628442f" = true
+
+# Test case: Largest possible diamond
+"11a5a43c-170f-4b49-a6ca-a61ba52a2962" = true

@@ -1,0 +1,105 @@
+{
+  "exercise": "scrabble-score",
+  "version": "1.1.0",
+  "cases": [
+    {
+      "uuid": "6d8cd62b-2552-4f74-a86c-bbdb6cd7c176",
+      "description": "lowercase letter",
+      "property": "score",
+      "input": {
+        "word": "a"
+      },
+      "expected": 1
+    },
+    {
+      "uuid": "c89e2aaf-7949-471d-88c5-2b64c30740a1",
+      "description": "uppercase letter",
+      "property": "score",
+      "input": {
+        "word": "A"
+      },
+      "expected": 1
+    },
+    {
+      "uuid": "62087cb6-cebe-4b8a-bbb7-839190279567",
+      "description": "valuable letter",
+      "property": "score",
+      "input": {
+        "word": "f"
+      },
+      "expected": 4
+    },
+    {
+      "uuid": "05d5859f-75ed-456a-b13d-aa369d9f1bc8",
+      "description": "short word",
+      "property": "score",
+      "input": {
+        "word": "at"
+      },
+      "expected": 2
+    },
+    {
+      "uuid": "f14cda32-fa62-4e61-928b-b9752d2ee693",
+      "description": "short, valuable word",
+      "property": "score",
+      "input": {
+        "word": "zoo"
+      },
+      "expected": 12
+    },
+    {
+      "uuid": "e3d79c42-47a5-40a6-b306-3cba1f5931dd",
+      "description": "medium word",
+      "property": "score",
+      "input": {
+        "word": "street"
+      },
+      "expected": 6
+    },
+    {
+      "uuid": "9cb57555-0f67-4a3b-a794-79323ac1082e",
+      "description": "medium, valuable word",
+      "property": "score",
+      "input": {
+        "word": "quirky"
+      },
+      "expected": 22
+    },
+    {
+      "uuid": "00f80930-cac0-4526-9ab2-f945a2332251",
+      "description": "long, mixed-case word",
+      "property": "score",
+      "input": {
+        "word": "OxyphenButazone"
+      },
+      "expected": 41
+    },
+    {
+      "uuid": "573cb109-6234-4e9b-a08a-fcf01c0b4b8e",
+      "description": "english-like word",
+      "property": "score",
+      "input": {
+        "word": "pinata"
+      },
+      "expected": 8
+    },
+    {
+      "uuid": "94b3b8e7-f756-4894-a86f-7944d83d5c00",
+      "description": "empty input",
+      "property": "score",
+      "input": {
+        "word": ""
+      },
+      "expected": 0
+    },
+    {
+      "uuid": "c9b52868-9f22-4914-9b0d-21a0df2f9a2f",
+      "description": "entire alphabet available",
+      "property": "score",
+      "input": {
+        "word": "abcdefghijklmnopqrstuvwxyz"
+      },
+      "expected": 87
+    }
+  ]
+}

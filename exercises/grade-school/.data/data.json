@@ -1,0 +1,94 @@
+{
+  "exercise": "grade-school",
+  "version": "1.0.1",
+  "comments": [
+    "Given students' names along with the grade that they are in, ",
+    "create a roster for the school."
+  ],
+  "cases": [
+    {
+      "uuid": "b4d5ce42-54fc-45c1-8757-47651ea0fa77",
+      "description": "Adding a student adds them to the sorted roster",
+      "property": "roster",
+      "input": {
+        "students": [["Aimee", 2]]
+      },
+      "expected": ["Aimee"]
+    },
+    {
+      "uuid": "66dfc288-9375-4f47-abef-267e2bfead5d",
+      "description": "Adding more student adds them to the sorted roster",
+      "property": "roster",
+      "input": {
+        "students": [
+          ["Blair", 2],
+          ["James", 2],
+          ["Paul", 2]
+        ]
+      },
+      "expected": ["Blair", "James", "Paul"]
+    },
+    {
+      "uuid": "baf50433-20f2-4200-a174-1aa1a19a85a8",
+      "description": "Adding students to different grades adds them to the same sorted roster",
+      "property": "roster",
+      "input": {
+        "students": [
+          ["Chelsea", 3],
+          ["Logan", 7]
+        ]
+      },
+      "expected": ["Chelsea", "Logan"]
+    },
+    {
+      "uuid": "709d2f62-41a3-4915-a139-f3d56662024b",
+      "description": "Roster returns an empty list if there are no students enrolled",
+      "property": "roster",
+      "input": {
+        "students": []
+      },
+      "expected": []
+    },
+    {
+      "uuid": "0435972e-1f4a-4d34-a18d-a081749c473d",
+      "description": "Student names with grades are displayed in the same sorted roster",
+      "property": "roster",
+      "input": {
+        "students": [
+          ["Peter", 2],
+          ["Anna", 1],
+          ["Barb", 1],
+          ["Zoe", 2],
+          ["Alex", 2],
+          ["Jim", 3],
+          ["Charlie", 1]
+        ]
+      },
+      "expected": ["Anna", "Barb", "Charlie", "Alex", "Peter", "Zoe", "Jim"]
+    },
+    {
+      "uuid": "afead1c8-66b8-4169-a24e-469b885bff3c",
+      "description": "Grade returns the students in that grade in alphabetical order",
+      "property": "grade",
+      "input": {
+        "students": [
+          ["Franklin", 5],
+          ["Bradley", 5],
+          ["Jeff", 1]
+        ],
+        "desiredGrade": 5
+      },
+      "expected": ["Bradley", "Franklin"]
+    },
+    {
+      "uuid": "b1899a2a-5bc6-4b3e-811a-b81e283d90f3",
+      "description": "Grade returns an empty list if there are no students in that grade",
+      "property": "grade",
+      "input": {
+        "students": [],
+        "desiredGrade": 1
+      },
+      "expected": []
+    }
+  ]
+}

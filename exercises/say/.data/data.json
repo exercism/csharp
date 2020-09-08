@@ -1,0 +1,149 @@
+{
+  "exercise": "say",
+  "version": "1.2.0",
+  "comments": [
+    "An 'error' object is used as expected value to indicate that the",
+    "input value is out of the range described in the exercise."
+  ],
+  "cases": [
+    {
+      "uuid": "14ba5c2e-adfc-48f1-894c-47c23d826daa",
+      "description": "zero",
+      "property": "say",
+      "input": {
+        "number": 0
+      },
+      "expected": "zero"
+    },
+    {
+      "uuid": "0510cad8-4bc0-4752-b4c6-e92495b23b1d",
+      "description": "one",
+      "property": "say",
+      "input": {
+        "number": 1
+      },
+      "expected": "one"
+    },
+    {
+      "uuid": "77631c5e-1509-4cc4-848f-83df2b4773cc",
+      "description": "fourteen",
+      "property": "say",
+      "input": {
+        "number": 14
+      },
+      "expected": "fourteen"
+    },
+    {
+      "uuid": "e5a40ce6-3dab-4e70-8c95-10c22c025183",
+      "description": "twenty",
+      "property": "say",
+      "input": {
+        "number": 20
+      },
+      "expected": "twenty"
+    },
+    {
+      "uuid": "86998462-2c10-468a-b2c3-95669df26131",
+      "description": "twenty-two",
+      "property": "say",
+      "input": {
+        "number": 22
+      },
+      "expected": "twenty-two"
+    },
+    {
+      "uuid": "e629e645-ac74-48e2-99ed-8144d7fd8254",
+      "description": "one hundred",
+      "property": "say",
+      "input": {
+        "number": 100
+      },
+      "expected": "one hundred"
+    },
+    {
+      "uuid": "7aea2775-b5c5-44fc-ad25-e67fc61c3bb1",
+      "description": "one hundred twenty-three",
+      "property": "say",
+      "input": {
+        "number": 123
+      },
+      "expected": "one hundred twenty-three"
+    },
+    {
+      "uuid": "4b2b0b58-90ad-4a5b-acd4-15bc9a1c47d0",
+      "description": "one thousand",
+      "property": "say",
+      "input": {
+        "number": 1000
+      },
+      "expected": "one thousand"
+    },
+    {
+      "uuid": "8a547b35-fd89-4abb-b032-fc89bf56669a",
+      "description": "one thousand two hundred thirty-four",
+      "property": "say",
+      "input": {
+        "number": 1234
+      },
+      "expected": "one thousand two hundred thirty-four"
+    },
+    {
+      "uuid": "9f161c1f-e4ea-4ebd-b77e-1fcb387cb33a",
+      "description": "one million",
+      "property": "say",
+      "input": {
+        "number": 1000000
+      },
+      "expected": "one million"
+    },
+    {
+      "uuid": "f06b79e6-f404-4335-98d4-932042a0847e",
+      "description": "one million two thousand three hundred forty-five",
+      "property": "say",
+      "input": {
+        "number": 1002345
+      },
+      "expected": "one million two thousand three hundred forty-five"
+    },
+    {
+      "uuid": "ca003617-c474-4ccd-9b88-08cdcba093fb",
+      "description": "one billion",
+      "property": "say",
+      "input": {
+        "number": 1000000000
+      },
+      "expected": "one billion"
+    },
+    {
+      "uuid": "f29c9ca9-88a9-4116-829c-d91f8a26c9de",
+      "description": "a big number",
+      "property": "say",
+      "input": {
+        "number": 987654321123
+      },
+      "expected": "nine hundred eighty-seven billion six hundred fifty-four million three hundred twenty-one thousand one hundred twenty-three"
+    },
+    {
+      "uuid": "07db2952-f870-49e2-856a-ae7b32825c84",
+      "description": "numbers below zero are out of range",
+      "property": "say",
+      "input": {
+        "number": -1
+      },
+      "expected": {
+        "error": "input out of range"
+      }
+    },
+    {
+      "uuid": "72ea600c-96b1-4400-9d73-402c6e819e44",
+      "description": "numbers above 999,999,999,999 are out of range",
+      "property": "say",
+      "input": {
+        "number": 1000000000000
+      },
+      "expected": {
+        "error": "input out of range"
+      }
+    }
+  ]
+}

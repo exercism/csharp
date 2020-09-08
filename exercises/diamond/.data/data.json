@@ -1,0 +1,140 @@
+{
+  "exercise": "diamond",
+  "version": "1.1.0",
+  "comments": [
+    " The tests contained within this canonical data file are suitable   ",
+    " for value-based testing, in which each test case checks that the   ",
+    " value returned by the function under test is in every way          ",
+    " identical to a given expected value.                               ",
+    "                                                                    ",
+    " This exercise is also amenable to property-based testing, in which ",
+    " each test case verifies that the value returned by the function    ",
+    " under test exhibits a specific desired property.                   ",
+    "                                                                    ",
+    " Several tracks (notably, C# and Go) forgo the value-based tests    ",
+    " below in favor of property-based tests. If you are feeling         ",
+    " adventurous and would like to use this exercise to introduce the   ",
+    " concept of property-based testing to participants in your track,   ",
+    " please ignore the value-based tests below and instead reference    ",
+    " the test suites in the aforementioned tracks.                      "
+  ],
+  "cases": [
+    {
+      "uuid": "92ee5bb5-b70b-4ad2-a26c-ac6eeb108db8",
+      "description": "Degenerate case with a single 'A' row",
+      "property": "rows",
+      "input": {
+        "letter": "A"
+      },
+      "expected": [
+        "A"
+      ]
+    },
+    {
+      "uuid": "8c9ff564-f5cd-43ae-b047-41e7958b0064",
+      "description": "Degenerate case with no row containing 3 distinct groups of spaces",
+      "property": "rows",
+      "input": {
+        "letter": "B"
+      },
+      "expected": [
+        " A ",
+        "B B",
+        " A "
+      ]
+    },
+    {
+      "uuid": "2d2df373-19fa-4dcf-9c50-722ae44f6f35",
+      "description": "Smallest non-degenerate case with odd diamond side length",
+      "property": "rows",
+      "input": {
+        "letter": "C"
+      },
+      "expected": [
+        "  A  ",
+        " B B ",
+        "C   C",
+        " B B ",
+        "  A  "
+      ]
+    },
+    {
+      "uuid": "be0a27d1-9295-4482-ac51-a4c46628442f",
+      "description": "Smallest non-degenerate case with even diamond side length",
+      "property": "rows",
+      "input": {
+        "letter": "D"
+      },
+      "expected": [
+        "   A   ",
+        "  B B  ",
+        " C   C ",
+        "D     D",
+        " C   C ",
+        "  B B  ",
+        "   A   "
+      ]
+    },
+    {
+      "uuid": "11a5a43c-170f-4b49-a6ca-a61ba52a2962",
+      "description": "Largest possible diamond",
+      "property": "rows",
+      "input": {
+        "letter": "Z"
+      },
+      "expected": [
+        "                         A                         ",
+        "                        B B                        ",
+        "                       C   C                       ",
+        "                      D     D                      ",
+        "                     E       E                     ",
+        "                    F         F                    ",
+        "                   G           G                   ",
+        "                  H             H                  ",
+        "                 I               I                 ",
+        "                J                 J                ",
+        "               K                   K               ",
+        "              L                     L              ",
+        "             M                       M             ",
+        "            N                         N            ",
+        "           O                           O           ",
+        "          P                             P          ",
+        "         Q                               Q         ",
+        "        R                                 R        ",
+        "       S                                   S       ",
+        "      T                                     T      ",
+        "     U                                       U     ",
+        "    V                                         V    ",
+        "   W                                           W   ",
+        "  X                                             X  ",
+        " Y                                               Y ",
+        "Z                                                 Z",
+        " Y                                               Y ",
+        "  X                                             X  ",
+        "   W                                           W   ",
+        "    V                                         V    ",
+        "     U                                       U     ",
+        "      T                                     T      ",
+        "       S                                   S       ",
+        "        R                                 R        ",
+        "         Q                               Q         ",
+        "          P                             P          ",
+        "           O                           O           ",
+        "            N                         N            ",
+        "             M                       M             ",
+        "              L                     L              ",
+        "               K                   K               ",
+        "                J                 J                ",
+        "                 I               I                 ",
+        "                  H             H                  ",
+        "                   G           G                   ",
+        "                    F         F                    ",
+        "                     E       E                     ",
+        "                      D     D                      ",
+        "                       C   C                       ",
+        "                        B B                        ",
+        "                         A                         "
+      ]
+    }
+  ]
+}

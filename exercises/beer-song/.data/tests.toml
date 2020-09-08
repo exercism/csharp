@@ -1,0 +1,25 @@
+[canonical-tests]
+
+# Test case: first generic verse
+"eab43234-ae92-4e9a-976d-6db6e459d416" = true
+
+# Test case: last generic verse
+"b8844fab-c6f1-4512-93bd-2b50fdfd6a2c" = true
+
+# Test case: verse with 2 bottles
+"d02f337c-2a76-4a43-ae44-c245c09bed93" = true
+
+# Test case: verse with 1 bottle
+"ab44f9a7-9670-4e80-99cf-c20b0aa7b882" = true
+
+# Test case: verse with 0 bottles
+"e1d3963d-c9ec-4f6c-a750-675c6abf35d7" = true
+
+# Test case: first two verses
+"29f8b257-0f35-4cfb-a581-28edfa2148b0" = true
+
+# Test case: last three verses
+"1a9668ec-e76a-4f10-ab54-5a5e3a747a2c" = true
+
+# Test case: all verses
+"ea783e80-4def-46a7-93a4-a1c160105af6" = true

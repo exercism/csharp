@@ -1,0 +1,16 @@
+[canonical-tests]
+
+# Test case: date only specification of time
+"93beae38-39cc-48e4-a6f0-15f75cd195d0" = true
+
+# Test case: second test for date only specification of time
+"d2e33508-9efd-4e1e-869d-f4919cb0099b" = true
+
+# Test case: third test for date only specification of time
+"3bf36a96-22ce-4288-b66c-8234bf9d9901" = true
+
+# Test case: full time specified
+"197d4929-251b-44a2-8549-ded4a9aec642" = true
+
+# Test case: full time with day roll-over
+"3a0cf0b5-3fb1-4b75-a63f-249b0cfdf07a" = true

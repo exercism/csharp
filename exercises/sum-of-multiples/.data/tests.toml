@@ -1,0 +1,49 @@
+[canonical-tests]
+
+# Test case: no multiples within limit
+"68463b9f-d758-412c-b06b-7b43a112ec18" = true
+
+# Test case: one factor has multiples within limit
+"a599ef8c-1b06-4c0a-9dd5-aaa59fcc017f" = true
+
+# Test case: more than one multiple within limit
+"6f3f027d-1476-4a98-99e6-6adecdff6ebd" = true
+
+# Test case: more than one factor with multiples within limit
+"720236d4-b3c7-462c-bf20-5f0034160995" = true
+
+# Test case: each multiple is only counted once
+"32137adf-4a93-49f3-9b23-1886e980d213" = true
+
+# Test case: a much larger limit
+"21861bad-2d4f-4413-afcb-23d4610645e1" = true
+
+# Test case: three factors
+"2d851a10-7ab3-400c-91f3-c0b6a0fc0fb3" = true
+
+# Test case: factors not relatively prime
+"ff1d6ab2-e3e5-4194-89fb-fadd9293df0d" = true
+
+# Test case: some pairs of factors relatively prime and some not
+"c396d351-ef33-423d-911a-5aa31be78608" = true
+
+# Test case: one factor is a multiple of another
+"0d788df4-f929-4b16-be14-12813773014c" = true
+
+# Test case: much larger factors
+"d610daea-360f-4ee6-a65b-de96f8ea3a79" = true
+
+# Test case: all numbers are multiples of 1
+"42e603b1-dd54-4fbb-bea4-f21b3de98525" = true
+
+# Test case: no factors means an empty sum
+"41f44e3c-6eff-4d71-a286-8a6ae53c17dd" = true
+
+# Test case: the only multiple of 0 is 0
+"012855d4-eff2-41f1-a7db-55c564d6c6c0" = true
+
+# Test case: the factor 0 does not affect the sum of multiples of other factors
+"96b28d30-ce1a-4ebf-b67b-f4ea5ed7ab95" = true
+
+# Test case: solutions using include-exclude must extend to cardinality greater than 3
+"a73675e0-e947-4ac8-92f8-0387c825ff54" = true

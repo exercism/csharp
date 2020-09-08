@@ -1,0 +1,46 @@
+[canonical-tests]
+
+# Test case: finds the largest product if span equals length
+"85ce8637-94b3-4940-8852-19fb7f93acf2" = true
+
+# Test case: can find the largest product of 2 with numbers in order
+"99c9abc2-3cbf-401c-a874-2985328c4460" = true
+
+# Test case: can find the largest product of 2
+"0a84c640-5656-4736-937c-a2d6bedee275" = true
+
+# Test case: can find the largest product of 3 with numbers in order
+"98eb977a-2f54-45db-bbf1-2d1a98149165" = true
+
+# Test case: can find the largest product of 3
+"36f4bd19-7c81-430c-9287-31b0c1afb859" = true
+
+# Test case: can find the largest product of 5 with numbers in order
+"e49a5ec5-2fec-43be-adcd-a2c563d65387" = true
+
+# Test case: can get the largest product of a big number
+"fa70b358-8fb8-46f9-85c7-1925e23cdff0" = true
+
+# Test case: reports zero if the only digits are zero
+"9d3bc064-b06d-45fc-90de-2ad4ad7704e9" = true
+
+# Test case: reports zero if all spans include zero
+"becf829d-5e79-433d-8519-58432d1b45ad" = true
+
+# Test case: rejects span longer than string length
+"90af61f3-fdea-4744-a458-4b2f83aa91df" = true
+
+# Test case: reports 1 for empty string and empty product (0 span)
+"44985b75-f9be-44cb-9828-f978ee1753a8" = true
+
+# Test case: reports 1 for nonempty string and empty product (0 span)
+"e8471567-103d-4a75-a55e-0e4db27a0511" = true
+
+# Test case: rejects empty string and nonzero span
+"6be09c99-9a24-417d-91bc-b426e2800548" = true
+
+# Test case: rejects invalid character in digits
+"99e8ccf2-6aef-466a-b608-f3124b85fbd3" = true
+
+# Test case: rejects negative span
+"d13b194a-14b6-4956-bd2c-501c6d43fbc3" = true

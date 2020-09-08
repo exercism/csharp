@@ -1,0 +1,102 @@
+{
+  "exercise": "difference-of-squares",
+  "version": "1.2.0",
+  "cases": [
+    {
+      "description": "Square the sum of the numbers up to the given number",
+      "cases": [
+        {
+          "uuid": "28651ba8-70d4-45e9-b09a-7599facd0dcd",
+          "description": "square of sum 1",
+          "property": "squareOfSum",
+          "input": {
+            "number": 1
+          },
+          "expected": 1
+        },
+        {
+          "uuid": "951b869c-ec97-4bfa-81c3-f017ffecac00",
+          "description": "square of sum 5",
+          "property": "squareOfSum",
+          "input": {
+            "number": 5
+          },
+          "expected": 225
+        },
+        {
+          "uuid": "fe3c4e1a-0729-4aa6-a76d-b60b547bf7ce",
+          "description": "square of sum 100",
+          "property": "squareOfSum",
+          "input": {
+            "number": 100
+          },
+          "expected": 25502500
+        }
+      ]
+    },
+    {
+      "description": "Sum the squares of the numbers up to the given number",
+      "cases": [
+        {
+          "uuid": "d7cfb909-f389-419d-ae99-e11307981a82",
+          "description": "sum of squares 1",
+          "property": "sumOfSquares",
+          "input": {
+            "number": 1
+          },
+          "expected": 1
+        },
+        {
+          "uuid": "f49e789e-1eb9-4f1a-ba2e-ec4c2305b3bc",
+          "description": "sum of squares 5",
+          "property": "sumOfSquares",
+          "input": {
+            "number": 5
+          },
+          "expected": 55
+        },
+        {
+          "uuid": "b8c62a1d-ca7b-435f-b3fe-115177a2a4cd",
+          "description": "sum of squares 100",
+          "property": "sumOfSquares",
+          "input": {
+            "number": 100
+          },
+          "expected": 338350
+        }
+      ]
+    },
+    {
+      "description": "Subtract sum of squares from square of sums",
+      "cases": [
+        {
+          "uuid": "31b4c1cd-6c76-43e7-a8e4-fcf5ad7f24aa",
+          "description": "difference of squares 1",
+          "property": "differenceOfSquares",
+          "input": {
+            "number": 1
+          },
+          "expected": 0
+        },
+        {
+          "uuid": "d0bd3855-6ff4-4fe3-b29f-0d026086e8bb",
+          "description": "difference of squares 5",
+          "property": "differenceOfSquares",
+          "input": {
+            "number": 5
+          },
+          "expected": 170
+        },
+        {
+          "uuid": "d9094e6f-028a-4b18-b613-88cb5be04f52",
+          "description": "difference of squares 100",
+          "property": "differenceOfSquares",
+          "input": {
+            "number": 100
+          },
+          "expected": 25164150
+        }
+      ]
+    }
+  ]
+}

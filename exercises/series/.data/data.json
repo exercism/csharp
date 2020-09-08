@@ -1,0 +1,123 @@
+{
+  "exercise": "series",
+  "version": "1.0.0",
+  "cases": [
+    {
+      "uuid": "86a8eba1-5401-46cd-b516-23a4b5e4b129",
+      "description": "slices of one from one",
+      "property": "slices",
+      "input": {
+        "series": "1",
+        "sliceLength": 1
+      },
+      "expected": ["1"]
+    },
+    {
+      "uuid": "fef765b5-e52a-4ac5-a372-9bd189a0bcc1",
+      "description": "slices of one from two",
+      "property": "slices",
+      "input": {
+        "series": "12",
+        "sliceLength": 1
+      },
+      "expected": ["1", "2"]
+    },
+    {
+      "uuid": "9940a5fb-a762-4a4a-b8bc-5e3319afef72",
+      "description": "slices of two",
+      "property": "slices",
+      "input": {
+        "series": "35",
+        "sliceLength": 2
+      },
+      "expected": ["35"]
+    },
+    {
+      "uuid": "ca8ce8e4-5b64-4a3a-af14-c0588e8acc2b",
+      "description": "slices of two overlap",
+      "property": "slices",
+      "input": {
+        "series": "9142",
+        "sliceLength": 2
+      },
+      "expected": ["91", "14", "42"]
+    },
+    {
+      "uuid": "abd78732-ac6d-4813-ad52-4859603694fa",
+      "description": "slices can include duplicates",
+      "property": "slices",
+      "input": {
+        "series": "777777",
+        "sliceLength": 3
+      },
+      "expected": ["777", "777", "777", "777"]
+    },
+    {
+      "uuid": "4ad1ac16-1b94-47d3-bf18-de39d0b9954e",
+      "description": "slices of a long series",
+      "property": "slices",
+      "input": {
+        "series": "918493904243",
+        "sliceLength": 5
+      },
+      "expected": [
+        "91849",
+        "18493",
+        "84939",
+        "49390",
+        "93904",
+        "39042",
+        "90424",
+        "04243"
+      ]
+    },
+    {
+      "uuid": "509330d5-7445-491e-9fc4-d1e1cfd2da4e",
+      "description": "slice length is too large",
+      "property": "slices",
+      "input": {
+        "series": "12345",
+        "sliceLength": 6
+      },
+      "expected": {
+        "error": "slice length cannot be greater than series length"
+      }
+    },
+    {
+      "uuid": "0ddd719d-3791-4395-9597-47f05bab376b",
+      "description": "slice length cannot be zero",
+      "property": "slices",
+      "input": {
+        "series": "12345",
+        "sliceLength": 0
+      },
+      "expected": {
+        "error": "slice length cannot be zero"
+      }
+    },
+    {
+      "uuid": "7feb2c51-c978-48e5-a907-3a2905bf7d27",
+      "description": "slice length cannot be negative",
+      "property": "slices",
+      "input": {
+        "series": "123",
+        "sliceLength": -1
+      },
+      "expected": {
+        "error": "slice length cannot be negative"
+      }
+    },
+    {
+      "uuid": "d1b59085-1c9e-4df9-8bc6-9641023cfa97",
+      "description": "empty series is invalid",
+      "property": "slices",
+      "input": {
+        "series": "",
+        "sliceLength": 1
+      },
+      "expected": {
+        "error": "series cannot be empty"
+      }
+    }
+  ]
+}

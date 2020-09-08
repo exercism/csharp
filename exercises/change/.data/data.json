@@ -1,0 +1,143 @@
+{
+  "exercise": "change",
+  "version": "1.3.0",
+  "comments": [
+    "Given an infinite supply of coins with different values, ",
+    "find the smallest number of coins needed to make a desired ",
+    "amount of change."
+  ],
+  "cases": [
+    {
+      "uuid": "e6e02131-4354-4236-8a0a-ba5eac1f7bcc",
+      "description": "single coin change",
+      "property": "findFewestCoins",
+      "input": {
+        "coins": [1, 5, 10, 25, 100],
+        "target": 25
+      },
+      "expected": [25]
+    },
+    {
+      "uuid": "8e1bb606-1fde-4563-aaa4-61e6b69709fd",
+      "description": "multiple coin change",
+      "property": "findFewestCoins",
+      "input": {
+        "coins": [1, 5, 10, 25, 100],
+        "target": 15
+      },
+      "expected": [5, 10]
+    },
+    {
+      "uuid": "72cb591c-d8cb-4c80-a0de-21a3040a07e8",
+      "description": "change with Lilliputian Coins",
+      "property": "findFewestCoins",
+      "input": {
+        "coins": [1, 4, 15, 20, 50],
+        "target": 23
+      },
+      "expected": [4, 4, 15]
+    },
+    {
+      "uuid": "dd9e18ef-2419-43d6-927a-ba8897a516e6",
+      "description": "change with Lower Elbonia Coins",
+      "property": "findFewestCoins",
+      "input": {
+        "coins": [1, 5, 10, 21, 25],
+        "target": 63
+      },
+      "expected": [21, 21, 21]
+    },
+    {
+      "uuid": "f75c2764-795e-4814-9ac4-7c2b5bb5df20",
+      "description": "large target values",
+      "property": "findFewestCoins",
+      "input": {
+        "coins": [1, 2, 5, 10, 20, 50, 100],
+        "target": 999
+      },
+      "expected": [
+        2,
+        2,
+        5,
+        20,
+        20,
+        50,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ]
+    },
+    {
+      "uuid": "6be282b4-d4ab-4862-af42-debaeb410af0",
+      "description": "possible change without unit coins available",
+      "property": "findFewestCoins",
+      "input": {
+        "coins": [2, 5, 10, 20, 50],
+        "target": 21
+      },
+      "expected": [2, 2, 2, 5, 10]
+    },
+    {
+      "uuid": "62dadd54-45a8-45ea-8d5c-d71eba7cc3c1",
+      "description": "another possible change without unit coins available",
+      "property": "findFewestCoins",
+      "input": {
+        "coins": [4, 5],
+        "target": 27
+      },
+      "expected": [4, 4, 4, 5, 5, 5]
+    },
+    {
+      "uuid": "b6c2a2bd-f349-486f-a68d-d82b7978d7fe",
+      "description": "no coins make 0 change",
+      "property": "findFewestCoins",
+      "input": {
+        "coins": [1, 5, 10, 21, 25],
+        "target": 0
+      },
+      "expected": []
+    },
+    {
+      "uuid": "301f7217-ac5a-4a89-8dd1-503afbd482fa",
+      "description": "error testing for change smaller than the smallest of coins",
+      "property": "findFewestCoins",
+      "input": {
+        "coins": [5, 10],
+        "target": 3
+      },
+      "expected": {
+        "error": "can't make target with given coins"
+      }
+    },
+    {
+      "uuid": "4dad97fa-b65a-4771-b336-38f0ec7293c1",
+      "description": "error if no combination can add up to target",
+      "property": "findFewestCoins",
+      "input": {
+        "coins": [5, 10],
+        "target": 94
+      },
+      "expected": {
+        "error": "can't make target with given coins"
+      }
+    },
+    {
+      "uuid": "502d89d9-ef1d-4475-a761-bbb2ac5142d7",
+      "description": "cannot find negative change values",
+      "property": "findFewestCoins",
+      "input": {
+        "coins": [1, 2, 5],
+        "target": -5
+      },
+      "expected": {
+        "error": "target can't be negative"
+      }
+    }
+  ]
+}

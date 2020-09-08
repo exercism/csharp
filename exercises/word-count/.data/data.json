@@ -1,0 +1,189 @@
+{
+  "exercise": "word-count",
+  "version": "1.4.0",
+  "comments": [
+    "For each word in the input, count the number of times it appears in the",
+    "entire sentence."
+  ],
+  "cases": [
+    {
+      "uuid": "532fa520-fbea-4b46-8d62-77ef2a4ef492",
+      "description": "count one word",
+      "property": "countWords",
+      "input": {
+        "sentence": "word"
+      },
+      "expected": {
+        "word": 1
+      }
+    },
+    {
+      "uuid": "0daca715-0c14-4ca7-bb78-a47d1284daa8",
+      "description": "count one of each word",
+      "property": "countWords",
+      "input": {
+        "sentence": "one of each"
+      },
+      "expected": {
+        "one": 1,
+        "of": 1,
+        "each": 1
+      }
+    },
+    {
+      "uuid": "ca93ad74-94f2-48d7-b2dd-e8eb767936a1",
+      "description": "multiple occurrences of a word",
+      "property": "countWords",
+      "input": {
+        "sentence": "one fish two fish red fish blue fish"
+      },
+      "expected": {
+        "one": 1,
+        "fish": 4,
+        "two": 1,
+        "red": 1,
+        "blue": 1
+      }
+    },
+    {
+      "uuid": "2f0f0616-a2eb-45de-9971-056cb3db5814",
+      "description": "handles cramped lists",
+      "property": "countWords",
+      "input": {
+        "sentence": "one,two,three"
+      },
+      "expected": {
+        "one": 1,
+        "two": 1,
+        "three": 1
+      }
+    },
+    {
+      "uuid": "06c1d14f-bb56-45aa-8952-61057d5d9726",
+      "description": "handles expanded lists",
+      "property": "countWords",
+      "input": {
+        "sentence": "one,\ntwo,\nthree"
+      },
+      "expected": {
+        "one": 1,
+        "two": 1,
+        "three": 1
+      }
+    },
+    {
+      "uuid": "a879828b-bd63-48a2-ba55-6d168eabb686",
+      "description": "ignore punctuation",
+      "property": "countWords",
+      "input": {
+        "sentence": "car: carpet as java: javascript!!&@$%^&"
+      },
+      "expected": {
+        "car": 1,
+        "carpet": 1,
+        "as": 1,
+        "java": 1,
+        "javascript": 1
+      }
+    },
+    {
+      "uuid": "088459ed-d691-4689-a529-d41ba3dd040c",
+      "description": "include numbers",
+      "property": "countWords",
+      "input": {
+        "sentence": "testing, 1, 2 testing"
+      },
+      "expected": {
+        "testing": 2,
+        "1": 1,
+        "2": 1
+      }
+    },
+    {
+      "uuid": "c3a21d4e-2d51-4a50-8818-41bcf456656b",
+      "description": "normalize case",
+      "property": "countWords",
+      "input": {
+        "sentence": "go Go GO Stop stop"
+      },
+      "expected": {
+        "go": 3,
+        "stop": 2
+      }
+    },
+    {
+      "uuid": "2b52a49a-beda-4934-901e-e186adf538af",
+      "description": "with apostrophes",
+      "property": "countWords",
+      "input": {
+        "sentence": "First: don't laugh. Then: don't cry."
+      },
+      "expected": {
+        "first": 1,
+        "don't": 2,
+        "laugh": 1,
+        "then": 1,
+        "cry": 1
+      }
+    },
+    {
+      "uuid": "54b6f915-ff57-41cc-8845-4255811f23bb",
+      "description": "with quotations",
+      "property": "countWords",
+      "input": {
+        "sentence": "Joe can't tell between 'large' and large."
+      },
+      "expected": {
+        "joe": 1,
+        "can't": 1,
+        "tell": 1,
+        "between": 1,
+        "large": 2,
+        "and": 1
+      }
+    },
+    {
+      "uuid": "f023d4ac-c59e-4071-a263-4a5c708b55a4",
+      "description": "substrings from the beginning",
+      "property": "countWords",
+      "input": {
+        "sentence": "Joe can't tell between app, apple and a."
+      },
+      "expected": {
+        "joe": 1,
+        "can't": 1,
+        "tell": 1,
+        "between": 1,
+        "app": 1,
+        "apple": 1,
+        "and": 1,
+        "a": 1
+      }
+    },
+    {
+      "uuid": "1157b416-a888-4a73-94aa-cb8ed2ff3e20",
+      "description": "multiple spaces not detected as a word",
+      "property": "countWords",
+      "input": {
+        "sentence": " multiple   whitespaces"
+      },
+      "expected": {
+        "multiple": 1,
+        "whitespaces": 1
+      }
+    },
+    {
+      "uuid": "fbcb0dc0-124b-481d-b7ce-cf33a315a719",
+      "description": "alternating word separators not detected as a word",
+      "property": "countWords",
+      "input": {
+        "sentence": ",\n,one,\n ,two \n 'three'"
+      },
+      "expected": {
+        "one": 1,
+        "two": 1,
+        "three": 1
+      }
+    }
+  ]
+}

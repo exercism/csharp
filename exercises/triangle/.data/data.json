@@ -1,0 +1,220 @@
+{
+  "exercise": "triangle",
+  "version": "1.2.1",
+  "comments": [
+    " Pursuant to discussion in #202, we have decided NOT to test triangles ",
+    " where all side lengths are positive but a + b = c. e.g:               ",
+    " (2, 4, 2, Isosceles), (1, 3, 4, Scalene).                             ",
+    " It's true that the triangle inequality admits such triangles.These    ",
+    " triangles have zero area, however.                                    ",
+    " They're degenerate triangles with all three vertices collinear.       ",
+    " (In contrast, we will test (0, 0, 0, Illegal), as it is a point)      ",
+    " The tests assert properties of the triangle are true or false.        ",
+    " See: https://github.com/exercism/problem-specifications/issues/379 for disscussion  ",
+    " of this approach                                                      ",
+    " How you handle invalid triangles is up to you. These tests suggest a  ",
+    " triangle is returned, but all of its properties are false. But you    ",
+    " could also have the creation of an invalid triangle return an error   ",
+    " or exception. Choose what is idiomatic for your language.             "
+  ],
+  "cases": [
+    {
+      "description": "equilateral triangle",
+      "cases": [
+        {
+          "uuid": "931fe9f2-ac71-4579-8fa7-0ac1a44318e6",
+          "description": "all sides are equal",
+          "property": "equilateral",
+          "input": {
+            "sides": [2, 2, 2]
+          },
+          "expected": true
+        },
+        {
+          "uuid": "dfa2f5cf-efee-4865-9324-4c43207090b9",
+          "description": "any side is unequal",
+          "property": "equilateral",
+          "input": {
+            "sides": [2, 3, 2]
+          },
+          "expected": false
+        },
+        {
+          "uuid": "ceba4898-48f9-4b06-93fa-97ea6a155585",
+          "description": "no sides are equal",
+          "property": "equilateral",
+          "input": {
+            "sides": [5, 4, 6]
+          },
+          "expected": false
+        },
+        {
+          "uuid": "8accd008-2577-4f3c-bdf6-02f4cda95249",
+          "description": "all zero sides is not a triangle",
+          "property": "equilateral",
+          "input": {
+            "sides": [0, 0, 0]
+          },
+          "expected": false
+        },
+        {
+          "uuid": "71bbaf68-0550-4a57-9e68-296b711651de",
+          "comments": [
+            " Your track may choose to skip this test    ",
+            " and deal only with integers if appropriate "
+          ],
+          "description": "sides may be floats",
+          "property": "equilateral",
+          "input": {
+            "sides": [0.5, 0.5, 0.5]
+          },
+          "expected": true
+        }
+      ]
+    },
+    {
+      "description": "isosceles triangle",
+      "cases": [
+        {
+          "uuid": "40e11118-c521-4e3d-8de8-3eb623f7ea56",
+          "description": "last two sides are equal",
+          "property": "isosceles",
+          "input": {
+            "sides": [3, 4, 4]
+          },
+          "expected": true
+        },
+        {
+          "uuid": "0daee7c3-1dd9-493c-abb6-28bf707fc1bf",
+          "description": "first two sides are equal",
+          "property": "isosceles",
+          "input": {
+            "sides": [4, 4, 3]
+          },
+          "expected": true
+        },
+        {
+          "uuid": "a53d67bd-c9cf-4bf3-abaf-b68fb5e7c602",
+          "description": "first and last sides are equal",
+          "property": "isosceles",
+          "input": {
+            "sides": [4, 3, 4]
+          },
+          "expected": true
+        },
+        {
+          "uuid": "abb6e064-22bf-48a6-9504-f03fc8995d40",
+          "description": "equilateral triangles are also isosceles",
+          "property": "isosceles",
+          "input": {
+            "sides": [4, 4, 4]
+          },
+          "expected": true
+        },
+        {
+          "uuid": "816190ef-5112-4b27-a291-3fd1f14752f4",
+          "description": "no sides are equal",
+          "property": "isosceles",
+          "input": {
+            "sides": [2, 3, 4]
+          },
+          "expected": false
+        },
+        {
+          "uuid": "c7d7db17-e363-4add-b664-960962c88b11",
+          "description": "first triangle inequality violation",
+          "property": "isosceles",
+          "input": {
+            "sides": [1, 1, 3]
+          },
+          "expected": false
+        },
+        {
+          "uuid": "61f7db65-cae5-4f84-b2d6-cef218235d6e",
+          "description": "second triangle inequality violation",
+          "property": "isosceles",
+          "input": {
+            "sides": [1, 3, 1]
+          },
+          "expected": false
+        },
+        {
+          "uuid": "9042ca1e-481b-4532-9363-8f6b58f11d4e",
+          "description": "third triangle inequality violation",
+          "property": "isosceles",
+          "input": {
+            "sides": [3, 1, 1]
+          },
+          "expected": false
+        },
+        {
+          "uuid": "69ed8968-0c55-4aa4-8141-0b51273ca6ea",
+          "comments": [
+            " Your track may choose to skip this test    ",
+            " and deal only with integers if appropriate "
+          ],
+          "property": "isosceles",
+          "description": "sides may be floats",
+          "input": {
+            "sides": [0.5, 0.4, 0.5]
+          },
+          "expected": true
+        }
+      ]
+    },
+    {
+      "description": "scalene triangle",
+      "cases": [
+        {
+          "uuid": "3a7ad0de-7e93-45df-b338-2fc845c0df57",
+          "description": "no sides are equal",
+          "property": "scalene",
+          "input": {
+            "sides": [5, 4, 6]
+          },
+          "expected": true
+        },
+        {
+          "uuid": "5a0bea4f-8696-4177-8f34-cf546f15d19f",
+          "description": "all sides are equal",
+          "property": "scalene",
+          "input": {
+            "sides": [4, 4, 4]
+          },
+          "expected": false
+        },
+        {
+          "uuid": "75dfdfa9-382b-4c43-8986-35fa94578778",
+          "description": "two sides are equal",
+          "property": "scalene",
+          "input": {
+            "sides": [4, 4, 3]
+          },
+          "expected": false
+        },
+        {
+          "uuid": "dd17479d-57dc-4e26-b96a-9c3752b23495",
+          "description": "may not violate triangle inequality",
+          "property": "scalene",
+          "input": {
+            "sides": [7, 3, 2]
+          },
+          "expected": false
+        },
+        {
+          "uuid": "678ca13d-8a28-4dab-a783-1c5f111a7c18",
+          "comments": [
+            " Your track may choose to skip this test    ",
+            " and deal only with integers if appropriate "
+          ],
+          "description": "sides may be floats",
+          "property": "scalene",
+          "input": {
+            "sides": [0.5, 0.4, 0.6]
+          },
+          "expected": true
+        }
+      ]
+    }
+  ]
+}

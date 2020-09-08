@@ -1,0 +1,105 @@
+{
+  "exercise": "pascals-triangle",
+  "version": "1.5.0",
+  "comments": [
+    "Expectations are represented here as an array of arrays.",
+    "How you represent this idiomatically in your language is up to you."
+  ],
+  "cases": [
+    {
+      "description": "Given a count, return a collection of that many rows of pascal's triangle",
+      "cases": [
+        {
+          "uuid": "9e1716ea-9621-4862-a393-e178d7f680f9",
+          "description": "zero rows",
+          "property": "rows",
+          "input": {
+            "count": 0
+          },
+          "expected": []
+        },
+        {
+          "uuid": "f6cbb979-4590-4fc4-8ff4-6b5a1d43b794",
+          "description": "single row",
+          "property": "rows",
+          "input": {
+            "count": 1
+          },
+          "expected": [[1]]
+        },
+        {
+          "uuid": "7b937b1f-b418-4e12-88fa-035c25587128",
+          "description": "two rows",
+          "property": "rows",
+          "input": {
+            "count": 2
+          },
+          "expected": [[1], [1, 1]]
+        },
+        {
+          "uuid": "b3e9f194-6453-49f4-9f71-619aa0137068",
+          "description": "three rows",
+          "property": "rows",
+          "input": {
+            "count": 3
+          },
+          "expected": [[1], [1, 1], [1, 2, 1]]
+        },
+        {
+          "uuid": "c4fd874c-5eba-4304-9cc0-80a3683a8cc3",
+          "description": "four rows",
+          "property": "rows",
+          "input": {
+            "count": 4
+          },
+          "expected": [[1], [1, 1], [1, 2, 1], [1, 3, 3, 1]]
+        },
+        {
+          "uuid": "926fb951-4e85-4acd-beb0-612cb82b3172",
+          "description": "five rows",
+          "property": "rows",
+          "input": {
+            "count": 5
+          },
+          "expected": [[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1]]
+        },
+        {
+          "uuid": "91f50e9c-2b16-40a7-a13f-5b881304e5a4",
+          "description": "six rows",
+          "property": "rows",
+          "input": {
+            "count": 6
+          },
+          "expected": [
+            [1],
+            [1, 1],
+            [1, 2, 1],
+            [1, 3, 3, 1],
+            [1, 4, 6, 4, 1],
+            [1, 5, 10, 10, 5, 1]
+          ]
+        },
+        {
+          "uuid": "47360bd9-b8df-4834-95cf-7244aad86907",
+          "description": "ten rows",
+          "property": "rows",
+          "input": {
+            "count": 10
+          },
+          "expected": [
+            [1],
+            [1, 1],
+            [1, 2, 1],
+            [1, 3, 3, 1],
+            [1, 4, 6, 4, 1],
+            [1, 5, 10, 10, 5, 1],
+            [1, 6, 15, 20, 15, 6, 1],
+            [1, 7, 21, 35, 35, 21, 7, 1],
+            [1, 8, 28, 56, 70, 56, 28, 8, 1],
+            [1, 9, 36, 84, 126, 126, 84, 36, 9, 1]
+          ]
+        }
+      ]
+    }
+  ]
+}

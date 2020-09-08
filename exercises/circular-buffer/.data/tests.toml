@@ -1,0 +1,43 @@
+[canonical-tests]
+
+# Test case: reading empty buffer should fail
+"4ea9f36b-6c91-496b-88ec-5733a50350fa" = true
+
+# Test case: can read an item just written
+"0b3375c4-4e57-49c1-8e2b-2497a455d32c" = true
+
+# Test case: each item may only be read once
+"4b7536c3-031e-45f4-adb8-bb5be120898e" = true
+
+# Test case: items are read in the order they are written
+"f3aabb06-45d1-45c4-b1e7-b926fcfe239e" = true
+
+# Test case: full buffer can't be written to
+"49f367eb-ebc7-4f82-ab9f-a4962fc8416b" = true
+
+# Test case: a read frees up capacity for another write
+"508697dc-624b-44e5-8399-c6acae3bc87c" = true
+
+# Test case: read position is maintained even across multiple writes
+"58e2530f-2525-4383-a350-24d3d66ac875" = true
+
+# Test case: items cleared out of buffer can't be read
+"1ec525a9-9330-46b5-83dd-7110a6d152b7" = true
+
+# Test case: clear frees up capacity for another write
+"47ce3e72-366b-4134-819c-70a9761898fb" = true
+
+# Test case: clear does nothing on empty buffer
+"ba002371-04ef-44dd-a505-7ee45ee9f193" = true
+
+# Test case: overwrite acts like write on non-full buffer
+"ad62446a-3fd8-47b6-99bf-6e0e154b1571" = true
+
+# Test case: overwrite replaces the oldest item on full buffer
+"c1d042b2-318a-497c-aff8-61a67a464e4a" = true
+
+# Test case: overwrite replaces the oldest item remaining in buffer following a read
+"f52fb74e-4d48-4bcd-8798-fa855f3805fe" = true
+
+# Test case: initial clear does not affect wrapping around
+"e717a496-7d44-41a5-9846-ee7c67607378" = true

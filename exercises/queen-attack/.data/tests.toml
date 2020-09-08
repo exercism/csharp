@@ -1,0 +1,37 @@
+[canonical-tests]
+
+# Test case: queen with a valid position
+"a06a1eb5-d532-4f39-ae8d-003d61bf8ae2" = true
+
+# Test case: queen must have positive row
+"773c79c8-4ec2-41f1-bbe2-a39b54fa3ea0" = true
+
+# Test case: queen must have row on board
+"ff3451b6-0e26-4cc7-b8aa-4c137e15080d" = true
+
+# Test case: queen must have positive column
+"942bc7cb-3c0b-4e17-9e47-3e11cd7245dc" = true
+
+# Test case: queen must have column on board
+"9c16d1e4-8967-4e9c-b924-aed1e9abb622" = true
+
+# Test case: can not attack
+"0a8ff029-2f63-417c-87bb-a51debd5901a" = true
+
+# Test case: can attack on same row
+"0fc9b837-2222-4f60-8713-5252a8d9595c" = true
+
+# Test case: can attack on same column
+"e9d3723a-8e9a-4aed-bb41-a4b1514ae1bf" = true
+
+# Test case: can attack on first diagonal
+"fec4ccb5-fe25-4911-83e5-f290ca005804" = true
+
+# Test case: can attack on second diagonal
+"cabcfbd7-22a4-4451-8734-e73800fcec2f" = true
+
+# Test case: can attack on third diagonal
+"6570e85e-e11c-427a-9351-c3ab5f8cd3ea" = true
+
+# Test case: can attack on fourth diagonal
+"8b434bd9-a349-4d5b-929a-db323d9a5dfb" = true

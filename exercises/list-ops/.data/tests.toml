@@ -1,0 +1,64 @@
+[canonical-tests]
+
+# Test case: empty lists
+"aecea77b-910b-4734-801d-ece6f79ba5db" = true
+
+# Test case: list to empty list
+"628d4c62-6316-4854-a427-62587f47a44f" = true
+
+# Test case: non-empty lists
+"a0d49d97-6a5a-453a-ac42-5076a721033f" = true
+
+# Test case: empty list
+"20277e64-8706-4366-8091-28adf6282825" = true
+
+# Test case: list of lists
+"ad50e75f-6de5-4165-b01d-6b2dddcf0967" = true
+
+# Test case: list of nested lists
+"52a18525-e90b-4e87-b56f-c83f8c6780b6" = true
+
+# Test case: empty list
+"657404bc-688c-49dd-8d21-fa42ca4e518c" = true
+
+# Test case: non-empty list
+"65906eda-0752-4134-8b26-5baeaac3202d" = true
+
+# Test case: empty list
+"b362f8bd-a1f3-4db2-984c-6f340b0e5269" = true
+
+# Test case: non-empty list
+"56a846d0-23fc-49e5-861c-3803b2e9c8f1" = true
+
+# Test case: empty list
+"248eb879-8c67-4328-9ede-e02257c6c347" = true
+
+# Test case: non-empty list
+"d299a3ae-ed5a-4262-a946-73c9093a9198" = true
+
+# Test case: empty list
+"1db74d21-5643-4edf-b882-0eecb1f0791a" = true
+
+# Test case: direction independent function applied to non-empty list
+"ecc7a709-5706-4de4-8f35-35f95a8a108c" = true
+
+# Test case: direction dependent function applied to non-empty list
+"1cb8bb0c-0292-4688-8920-3b92153e3c22" = true
+
+# Test case: empty list
+"ef1dc9b4-c33d-4105-a557-ca5220ecf4b0" = true
+
+# Test case: direction independent function applied to non-empty list
+"c8bfe5cf-b194-40f5-9025-238b730339ac" = true
+
+# Test case: direction dependent function applied to non-empty list
+"f975fd0b-998d-4d21-b9bf-5e977147c883" = true
+
+# Test case: empty list
+"baf27fcd-2011-452f-992b-d287709b6fbd" = true
+
+# Test case: non-empty list
+"c22e14d8-680d-422b-a384-bab84e90472b" = true
+
+# Test case: list of lists is not flattened
+"0349dc35-d023-4eb4-991a-2bb62201dfff" = true

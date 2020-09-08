@@ -1,0 +1,163 @@
+{
+  "exercise": "isbn-verifier",
+  "version": "2.7.0",
+  "comments": [
+    "An expected value of true indicates a valid ISBN-10, ",
+    "whereas false means the ISBN-10 is invalid."
+  ],
+  "cases": [
+    {
+      "uuid": "f49e4cd5-1d2e-4026-b62e-df5b6ff7c17a",
+      "description": "valid isbn number",
+      "property": "isValid",
+      "input": {
+        "isbn": "3-598-21508-8"
+      },
+      "expected": true
+    },
+    {
+      "uuid": "b7d57964-3be6-4261-8446-9cda9bba0bed",
+      "description": "invalid isbn check digit",
+      "property": "isValid",
+      "input": {
+        "isbn": "3-598-21508-9"
+      },
+      "expected": false
+    },
+    {
+      "uuid": "0e07193f-8c5f-4928-b387-01c6ad58bff0",
+      "description": "valid isbn number with a check digit of 10",
+      "property": "isValid",
+      "input": {
+        "isbn": "3-598-21507-X"
+      },
+      "expected": true
+    },
+    {
+      "uuid": "4294b690-fb2f-4470-ae82-999ce9a72e7c",
+      "description": "check digit is a character other than X",
+      "property": "isValid",
+      "input": {
+        "isbn": "3-598-21507-A"
+      },
+      "expected": false
+    },
+    {
+      "uuid": "056b32d7-7449-4fe1-8d8e-983051634858",
+      "description": "invalid character in isbn",
+      "property": "isValid",
+      "input": {
+        "isbn": "3-598-P1581-X"
+      },
+      "expected": false
+    },
+    {
+      "uuid": "fb8e997e-cf72-44a6-b5db-a6ca8d21b71b",
+      "description": "X is only valid as a check digit",
+      "property": "isValid",
+      "input": {
+        "isbn": "3-598-2X507-9"
+      },
+      "expected": false
+    },
+    {
+      "uuid": "ec984bf9-14ad-4722-aeed-3b86bfb47ef6",
+      "description": "valid isbn without separating dashes",
+      "property": "isValid",
+      "input": {
+        "isbn": "3598215088"
+      },
+      "expected": true
+    },
+    {
+      "uuid": "a5de3ce0-ab67-49e5-8516-e593d3e1a302",
+      "description": "isbn without separating dashes and X as check digit",
+      "property": "isValid",
+      "input": {
+        "isbn": "359821507X"
+      },
+      "expected": true
+    },
+    {
+      "uuid": "353fc8d8-3dea-44c4-99f5-6c9c7cf64153",
+      "description": "isbn without check digit and dashes",
+      "property": "isValid",
+      "input": {
+        "isbn": "359821507"
+      },
+      "expected": false
+    },
+    {
+      "uuid": "9a6f6b23-9cf5-4f00-9dc6-aa77c9cbb2c6",
+      "description": "too long isbn and no dashes",
+      "property": "isValid",
+      "input": {
+        "isbn": "3598215078X"
+      },
+      "expected": false
+    },
+    {
+      "uuid": "6466cc6b-c289-4d05-8576-4a5711d5c5bd",
+      "description": "too short isbn",
+      "property": "isValid",
+      "input": {
+        "isbn": "00"
+      },
+      "expected": false
+    },
+    {
+      "uuid": "c27b97ba-b45c-4028-a56d-a15774df5193",
+      "description": "isbn without check digit",
+      "property": "isValid",
+      "input": {
+        "isbn": "3-598-21507"
+      },
+      "expected": false
+    },
+    {
+      "uuid": "add87aaf-aeba-4f5f-9f23-6eb58eae6135",
+      "description": "check digit of X should not be used for 0",
+      "property": "isValid",
+      "input": {
+        "isbn": "3-598-21515-X"
+      },
+      "expected": false
+    },
+    {
+      "uuid": "1fdb2b9f-94df-49cd-b1d6-336ccb6c88bf",
+      "description": "empty isbn",
+      "property": "isValid",
+      "input": {
+        "isbn": ""
+      },
+      "expected": false
+    },
+    {
+      "uuid": "ce0f9ec5-bd55-4976-ba3c-c7d094b8c8c4",
+      "description": "input is 9 characters",
+      "property": "isValid",
+      "input": {
+        "isbn": "134456729"
+      },
+      "expected": false
+    },
+    {
+      "uuid": "b1056078-6f14-434e-9d19-af93b33e9dd3",
+      "description": "invalid characters are not ignored",
+      "property": "isValid",
+      "input": {
+        "isbn": "3132P34035"
+      },
+      "expected": false
+    },
+    {
+      "uuid": "14833faa-c01a-4a6f-a088-984801422a45",
+      "description": "input is too long but contains a valid isbn",
+      "property": "isValid",
+      "input": {
+        "isbn": "98245726788"
+      },
+      "expected": false
+    }
+  ]
+}

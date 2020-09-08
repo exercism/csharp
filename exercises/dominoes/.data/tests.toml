@@ -1,0 +1,37 @@
+[canonical-tests]
+
+# Test case: empty input = empty output
+"22b856d6-1e0d-4b17-8ada-b9df6e4615a1" = true
+
+# Test case: singleton input = singleton output
+"1358085a-3817-4e8a-a5d5-31c505bf85e6" = true
+
+# Test case: singleton that can't be chained
+"a2e3bec4-3b34-46ce-8afd-88611af14510" = true
+
+# Test case: three elements
+"18b5cf15-c9e7-453e-a054-ec0248f59d22" = true
+
+# Test case: can reverse dominoes
+"ae47bd7a-f764-4f0a-8cb7-6edcfa4a8f41" = true
+
+# Test case: can't be chained
+"2eb24e56-571c-4e9f-b7a0-f5114503e186" = true
+
+# Test case: disconnected - simple
+"02157f96-7587-47a1-99cf-485d7b3cf5ae" = true
+
+# Test case: disconnected - double loop
+"7ff744d3-f55f-4942-9ec2-701d111f20af" = true
+
+# Test case: disconnected - single isolated
+"14ba03d9-e396-49b6-8e29-4774257ed606" = true
+
+# Test case: need backtrack
+"a327117a-f825-40db-95de-f02cbf782f46" = true
+
+# Test case: separate loops
+"a9b080fd-e4b8-4469-a705-65fa53be448d" = true
+
+# Test case: nine elements
+"eb8697db-e965-403b-ba7b-1bdd1aa8006c" = true

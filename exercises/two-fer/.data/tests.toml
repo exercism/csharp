@@ -1,0 +1,10 @@
+[canonical-tests]
+
+# Test case: no name given
+"a87d9f10-5ab7-4a6f-8a20-59f72c4628be" = true
+
+# Test case: a name given
+"7daa351a-8549-41e0-b740-b77d57d432ee" = true
+
+# Test case: another name given
+"db593086-0018-4e46-acb2-00c96a6181f5" = true

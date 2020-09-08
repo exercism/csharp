@@ -1,0 +1,400 @@
+{
+  "exercise": "robot-simulator",
+  "version": "3.2.0",
+  "comments": [
+    "Some tests have two expectations: one for the position, one for the direction",
+    "Optionally, you can also test",
+    " - An invalid direction throws an error",
+    " - An invalid instruction throws an error",
+    " - Default starting position and direction if none are provided"
+  ],
+  "cases": [
+    {
+      "description": "Create robot",
+      "cases": [
+        {
+          "uuid": "44f0dc3b-df6d-481c-b591-9a73a8e42a7d",
+          "description": "at origin facing north",
+          "property": "create",
+          "input": {
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "direction": "north"
+          },
+          "expected": {
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "direction": "north"
+          }
+        },
+        {
+          "uuid": "98441518-5c8d-4c0d-ba77-be50ab99fda1",
+          "description": "at negative position facing south",
+          "property": "create",
+          "input": {
+            "position": {
+              "x": -1,
+              "y": -1
+            },
+            "direction": "south"
+          },
+          "expected": {
+            "position": {
+              "x": -1,
+              "y": -1
+            },
+            "direction": "south"
+          }
+        }
+      ]
+    },
+    {
+      "description": "Rotating clockwise",
+      "cases": [
+        {
+          "uuid": "b9eef50c-ebfc-437c-aa7b-7cb3abc700ff",
+          "description": "changes north to east",
+          "property": "move",
+          "input": {
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "direction": "north",
+            "instructions": "R"
+          },
+          "expected": {
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "direction": "east"
+          }
+        },
+        {
+          "uuid": "17200d0e-cb70-4341-9852-3493b423b784",
+          "description": "changes east to south",
+          "property": "move",
+          "input": {
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "direction": "east",
+            "instructions": "R"
+          },
+          "expected": {
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "direction": "south"
+          }
+        },
+        {
+          "uuid": "caf38eab-f663-4a70-ab2a-4842554e8f7a",
+          "description": "changes south to west",
+          "property": "move",
+          "input": {
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "direction": "south",
+            "instructions": "R"
+          },
+          "expected": {
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "direction": "west"
+          }
+        },
+        {
+          "uuid": "06280e89-e7ff-4d71-b0d4-540731dc3d43",
+          "description": "changes west to north",
+          "property": "move",
+          "input": {
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "direction": "west",
+            "instructions": "R"
+          },
+          "expected": {
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "direction": "north"
+          }
+        }
+      ]
+    },
+    {
+      "description": "Rotating counter-clockwise",
+      "cases": [
+        {
+          "uuid": "6909fe0a-de0d-4b6f-acd2-54b0b06cb754",
+          "description": "changes north to west",
+          "property": "move",
+          "input": {
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "direction": "north",
+            "instructions": "L"
+          },
+          "expected": {
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "direction": "west"
+          }
+        },
+        {
+          "uuid": "314ba20a-fc7a-4e71-a382-56ed4f55f668",
+          "description": "changes west to south",
+          "property": "move",
+          "input": {
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "direction": "west",
+            "instructions": "L"
+          },
+          "expected": {
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "direction": "south"
+          }
+        },
+        {
+          "uuid": "a49d018d-66d1-4d3e-88a6-8f8ea4a6c921",
+          "description": "changes south to east",
+          "property": "move",
+          "input": {
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "direction": "south",
+            "instructions": "L"
+          },
+          "expected": {
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "direction": "east"
+          }
+        },
+        {
+          "uuid": "87721d76-b16d-4433-a4f7-adf84df2ae65",
+          "description": "changes east to north",
+          "property": "move",
+          "input": {
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "direction": "east",
+            "instructions": "L"
+          },
+          "expected": {
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "direction": "north"
+          }
+        }
+      ]
+    },
+    {
+      "description": "Moving forward one",
+      "cases": [
+        {
+          "uuid": "c8b96ee4-6985-4cea-bf2d-75b960e16cad",
+          "description": "facing north increments Y",
+          "property": "move",
+          "input": {
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "direction": "north",
+            "instructions": "A"
+          },
+          "expected": {
+            "position": {
+              "x": 0,
+              "y": 1
+            },
+            "direction": "north"
+          }
+        },
+        {
+          "uuid": "ef527c91-4538-4e66-8331-f1abc1ae6067",
+          "description": "facing south decrements Y",
+          "property": "move",
+          "input": {
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "direction": "south",
+            "instructions": "A"
+          },
+          "expected": {
+            "position": {
+              "x": 0,
+              "y": -1
+            },
+            "direction": "south"
+          }
+        },
+        {
+          "uuid": "db408a1f-ffa1-4957-b803-69e10be4593f",
+          "description": "facing east increments X",
+          "property": "move",
+          "input": {
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "direction": "east",
+            "instructions": "A"
+          },
+          "expected": {
+            "position": {
+              "x": 1,
+              "y": 0
+            },
+            "direction": "east"
+          }
+        },
+        {
+          "uuid": "be533784-cda7-40ba-9c31-70de01684cbc",
+          "description": "facing west decrements X",
+          "property": "move",
+          "input": {
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "direction": "west",
+            "instructions": "A"
+          },
+          "expected": {
+            "position": {
+              "x": -1,
+              "y": 0
+            },
+            "direction": "west"
+          }
+        }
+      ]
+    },
+    {
+      "description": "Follow series of instructions",
+      "comments": [
+        "The robot can follow a series of instructions and end up with the correct position and direction.",
+        "Where R = Turn Right, L = Turn Left and A = Advance"
+      ],
+      "cases": [
+        {
+          "uuid": "e8d4ec17-36a5-4abd-a232-c11a956e10d4",
+          "description": "moving east and north from README",
+          "property": "move",
+          "input": {
+            "position": {
+              "x": 7,
+              "y": 3
+            },
+            "direction": "north",
+            "instructions": "RAALAL"
+          },
+          "expected": {
+            "position": {
+              "x": 9,
+              "y": 4
+            },
+            "direction": "west"
+          }
+        },
+        {
+          "uuid": "071232fc-7cb5-4a68-b698-9b25390a6a28",
+          "description": "moving west and north",
+          "property": "move",
+          "input": {
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "direction": "north",
+            "instructions": "LAAARALA"
+          },
+          "expected": {
+            "position": {
+              "x": -4,
+              "y": 1
+            },
+            "direction": "west"
+          }
+        },
+        {
+          "uuid": "02344520-7b07-4310-b3db-7ff37587e734",
+          "description": "moving west and south",
+          "property": "move",
+          "input": {
+            "position": {
+              "x": 2,
+              "y": -7
+            },
+            "direction": "east",
+            "instructions": "RRAAAAALA"
+          },
+          "expected": {
+            "position": {
+              "x": -3,
+              "y": -8
+            },
+            "direction": "south"
+          }
+        },
+        {
+          "uuid": "5d8c2723-c2b3-470a-bbc7-df1e2704a8ce",
+          "description": "moving east and north",
+          "property": "move",
+          "input": {
+            "position": {
+              "x": 8,
+              "y": 4
+            },
+            "direction": "south",
+            "instructions": "LAAARRRALLLL"
+          },
+          "expected": {
+            "position": {
+              "x": 11,
+              "y": 5
+            },
+            "direction": "north"
+          }
+        }
+      ]
+    }
+  ]
+}

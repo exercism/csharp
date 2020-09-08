@@ -1,0 +1,176 @@
+{
+  "exercise": "luhn",
+  "version": "1.7.0",
+  "cases": [
+    {
+      "uuid": "f2c6e036-9235-4de5-8675-ec6e9087afc1",
+      "description": "single digit strings can not be valid",
+      "property": "valid",
+      "input": {
+        "value": "1"
+      },
+      "expected": false
+    },
+    {
+      "uuid": "e25c7351-f17a-40c2-82aa-921723a14389",
+      "description": "a single zero is invalid",
+      "property": "valid",
+      "input": {
+        "value": "0"
+      },
+      "expected": false
+    },
+    {
+      "uuid": "e57508ad-c8c6-4962-a3ea-bc9572baaeeb",
+      "description": "a simple valid SIN that remains valid if reversed",
+      "property": "valid",
+      "input": {
+        "value": "059"
+      },
+      "expected": true
+    },
+    {
+      "uuid": "153819f3-e87f-4cf8-bd5b-5ff217660f0b",
+      "description": "a simple valid SIN that becomes invalid if reversed",
+      "property": "valid",
+      "input": {
+        "value": "59"
+      },
+      "expected": true
+    },
+    {
+      "uuid": "8369ca01-ec42-4dd7-bbe0-1aef29b23b81",
+      "description": "a valid Canadian SIN",
+      "property": "valid",
+      "input": {
+        "value": "055 444 285"
+      },
+      "expected": true
+    },
+    {
+      "uuid": "e8b96a2b-da11-4522-b0d4-900edc51476f",
+      "description": "invalid Canadian SIN",
+      "property": "valid",
+      "input": {
+        "value": "055 444 286"
+      },
+      "expected": false
+    },
+    {
+      "uuid": "5fb0e551-addd-44d7-b580-b3d38ff559d0",
+      "description": "invalid credit card",
+      "property": "valid",
+      "input": {
+        "value": "8273 1232 7352 0569"
+      },
+      "expected": false
+    },
+    {
+      "uuid": "67dde846-089d-4df4-9e0e-69a87dc3c75e",
+      "description": "invalid long number with an even remainder",
+      "property": "valid",
+      "input": {
+        "value": "1 2345 6789 1234 5678 9012"
+      },
+      "expected": false
+    },
+    {
+      "uuid": "a60d433e-db0e-4870-990d-860c75b94b58",
+      "description": "valid number with an even number of digits",
+      "property": "valid",
+      "input": {
+        "value": "095 245 88"
+      },
+      "expected": true
+    },
+    {
+      "uuid": "5e5e6ac2-e8ca-4ee9-b67c-bc7166a066f9",
+      "description": "valid number with an odd number of spaces",
+      "property": "valid",
+      "input": {
+        "value": "234 567 891 234"
+      },
+      "expected": true
+    },
+    {
+      "uuid": "329d7c32-ef0e-4b44-9a1d-8a13a955c8c1",
+      "description": "valid strings with a non-digit added at the end become invalid",
+      "property": "valid",
+      "input": {
+        "value": "059a"
+      },
+      "expected": false
+    },
+    {
+      "uuid": "5efe2974-b8ef-4901-b756-5294f8d2df14",
+      "description": "valid strings with punctuation included become invalid",
+      "property": "valid",
+      "input": {
+        "value": "055-444-285"
+      },
+      "expected": false
+    },
+    {
+      "uuid": "5906da87-ec34-4686-b001-12cb0b10e9af",
+      "description": "valid strings with symbols included become invalid",
+      "property": "valid",
+      "input": {
+        "value": "055# 444$ 285"
+      },
+      "expected": false
+    },
+    {
+      "uuid": "f0d6dc94-c8dd-4079-8a82-5f4bbb49e8cc",
+      "description": "single zero with space is invalid",
+      "property": "valid",
+      "input": {
+        "value": " 0"
+      },
+      "expected": false
+    },
+    {
+      "uuid": "5a4d1c5e-398e-428c-8a55-2fc657151c5d",
+      "description": "more than a single zero is valid",
+      "property": "valid",
+      "input": {
+        "value": "0000 0"
+      },
+      "expected": true
+    },
+    {
+      "uuid": "9a4aa08f-8609-40dc-9b09-0028d5381d19",
+      "description": "input digit 9 is correctly converted to output digit 9",
+      "property": "valid",
+      "input": {
+        "value": "091"
+      },
+      "expected": true
+    },
+    {
+      "uuid": "66e2ed15-90fb-4dcb-a37e-6bb8ff6d9637",
+      "comments": [
+        "Convert non-digits to their ascii values and then offset them by 48 sometimes accidentally declare an invalid string to be valid.",
+        "This test is designed to avoid that solution."
+      ],
+      "description": "using ascii value for non-doubled non-digit isn't allowed",
+      "property": "valid",
+      "input": {
+        "value": "055b 444 285"
+      },
+      "expected": false
+    },
+    {
+      "uuid": "e767ba33-2736-4b65-8062-aea4153b22f8",
+      "comments": [
+        "Convert non-digits to their ascii values and then offset them by 48 sometimes accidentally declare an invalid string to be valid.",
+        "This test is designed to avoid that solution."
+      ],
+      "description": "using ascii value for doubled non-digit isn't allowed",
+      "property": "valid",
+      "input": {
+        "value": ":9"
+      },
+      "expected": false
+    }
+  ]
+}

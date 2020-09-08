@@ -1,0 +1,25 @@
+[canonical-tests]
+
+# Test case: extract row from one number matrix
+"ef85a3bf-907d-4b90-97bf-bbe3eacf4957" = true
+
+# Test case: can extract row
+"641f076f-420b-4763-903f-1a83312693b7" = true
+
+# Test case: extract row where numbers have different widths
+"bc357cc9-5f39-4fdd-b4b4-773cec46e799" = true
+
+# Test case: can extract row from non-square matrix with no corresponding column
+"09da45b5-5167-47f1-958b-5bbb68266c18" = true
+
+# Test case: extract column from one number matrix
+"e84f1a4c-d9f8-4c99-830e-cf2c74d864af" = true
+
+# Test case: can extract column
+"363dc2ef-0a35-4cb3-ac2d-8eeb402a794b" = true
+
+# Test case: can extract column from non-square matrix with no corresponding row
+"bec0fbf3-6588-4656-b145-ddaa8fa85eb3" = true
+
+# Test case: extract column where numbers have different widths
+"10c23fff-4409-466e-85aa-a1288d7daf9b" = true

@@ -1,0 +1,420 @@
+{
+  "exercise": "grep",
+  "version": "1.2.0",
+  "comments": [
+    " JSON doesn't allow for multi-line strings, so all   ",
+    " outputs are presented here as arrays of strings.    ",
+    " It's up to the test generator to join the lines     ",
+    " together with line breaks.                          ",
+    "                                                     ",
+    " The tests are divided into two groups:              ",
+    "  - Grepping a single file                           ",
+    "  - Grepping multiple files at once                  ",
+    "                                                     ",
+    " The language track implementing this exercise       ",
+    " should ensure that when the tests run, three files  ",
+    " are created with the following contents. The file   ",
+    " names and their contents are listed below:          ",
+    "                                                     ",
+    " iliad.txt                                           ",
+    "   ---------------------------------------------     ",
+    "   |Achilles sing, O Goddess! Peleus' son;     |     ",
+    "   |His wrath pernicious, who ten thousand woes|     ",
+    "   |Caused to Achaia's host, sent many a soul  |     ",
+    "   |Illustrious into Ades premature,           |     ",
+    "   |And Heroes gave (so stood the will of Jove)|     ",
+    "   |To dogs and to all ravening fowls a prey,  |     ",
+    "   |When fierce dispute had separated once     |     ",
+    "   |The noble Chief Achilles from the son      |     ",
+    "   |Of Atreus, Agamemnon, King of men.         |     ",
+    "   ---------------------------------------------     ",
+    "                                                     ",
+    " midsummer-night.txt                                 ",
+    "   -----------------------------------------------   ",
+    "   |I do entreat your grace to pardon me.        |   ",
+    "   |I know not by what power I am made bold,     |   ",
+    "   |Nor how it may concern my modesty,           |   ",
+    "   |In such a presence here to plead my thoughts;|   ",
+    "   |But I beseech your grace that I may know     |   ",
+    "   |The worst that may befall me in this case,   |   ",
+    "   |If I refuse to wed Demetrius.                |   ",
+    "   -----------------------------------------------   ",
+    "                                                     ",
+    " paradise-lost.txt                                   ",
+    "   ------------------------------------------------- ",
+    "   |Of Mans First Disobedience, and the Fruit      | ",
+    "   |Of that Forbidden Tree, whose mortal tast      | ",
+    "   |Brought Death into the World, and all our woe, | ",
+    "   |With loss of Eden, till one greater Man        | ",
+    "   |Restore us, and regain the blissful Seat,      | ",
+    "   |Sing Heav'nly Muse, that on the secret top     | ",
+    "   |Of Oreb, or of Sinai, didst inspire            | ",
+    "   |That Shepherd, who first taught the chosen Seed| ",
+    "   ------------------------------------------------- "
+  ],
+  "cases": [
+    {
+      "description": "Test grepping a single file",
+      "cases": [
+        {
+          "uuid": "6c476eba-8a5f-4012-b577-2467786024f4",
+          "description": "One file, one match, no flags",
+          "property": "grep",
+          "input": {
+            "pattern": "Agamemnon",
+            "flags": [],
+            "files": ["iliad.txt"]
+          },
+          "expected": ["Of Atreus, Agamemnon, King of men."]
+        },
+        {
+          "uuid": "a80661be-0edc-42f1-8375-6452caca3fd8",
+          "description": "One file, one match, print line numbers flag",
+          "property": "grep",
+          "input": {
+            "pattern": "Forbidden",
+            "flags": ["-n"],
+            "files": ["paradise-lost.txt"]
+          },
+          "expected": ["2:Of that Forbidden Tree, whose mortal tast"]
+        },
+        {
+          "uuid": "8022a47d-a5e1-46df-8b89-2dd0a1160ce7",
+          "description": "One file, one match, case-insensitive flag",
+          "property": "grep",
+          "input": {
+            "pattern": "FORBIDDEN",
+            "flags": ["-i"],
+            "files": ["paradise-lost.txt"]
+          },
+          "expected": ["Of that Forbidden Tree, whose mortal tast"]
+        },
+        {
+          "uuid": "9fc05ce3-b29e-453f-b629-bb340c9babfe",
+          "description": "One file, one match, print file names flag",
+          "property": "grep",
+          "input": {
+            "pattern": "Forbidden",
+            "flags": ["-l"],
+            "files": ["paradise-lost.txt"]
+          },
+          "expected": ["paradise-lost.txt"]
+        },
+        {
+          "uuid": "dd5c8142-6834-406f-8b25-257a9ebab3cc",
+          "description": "One file, one match, match entire lines flag",
+          "property": "grep",
+          "input": {
+            "pattern": "With loss of Eden, till one greater Man",
+            "flags": ["-x"],
+            "files": ["paradise-lost.txt"]
+          },
+          "expected": ["With loss of Eden, till one greater Man"]
+        },
+        {
+          "uuid": "45907a13-c581-41bc-8835-0feaa0a6230c",
+          "description": "One file, one match, multiple flags",
+          "property": "grep",
+          "input": {
+            "pattern": "OF ATREUS, Agamemnon, KIng of MEN.",
+            "flags": ["-n", "-i", "-x"],
+            "files": ["iliad.txt"]
+          },
+          "expected": ["9:Of Atreus, Agamemnon, King of men."]
+        },
+        {
+          "uuid": "1b7760c0-cf59-4a73-a08a-736998c0ca75",
+          "description": "One file, several matches, no flags",
+          "property": "grep",
+          "input": {
+            "pattern": "may",
+            "flags": [],
+            "files": ["midsummer-night.txt"]
+          },
+          "expected": [
+            "Nor how it may concern my modesty,",
+            "But I beseech your grace that I may know",
+            "The worst that may befall me in this case,"
+          ]
+        },
+        {
+          "uuid": "1ccbfc65-ce00-4f14-93dd-32084d083e0b",
+          "description": "One file, several matches, print line numbers flag",
+          "property": "grep",
+          "input": {
+            "pattern": "may",
+            "flags": ["-n"],
+            "files": ["midsummer-night.txt"]
+          },
+          "expected": [
+            "3:Nor how it may concern my modesty,",
+            "5:But I beseech your grace that I may know",
+            "6:The worst that may befall me in this case,"
+          ]
+        },
+        {
+          "uuid": "f176fd85-9f2c-4f11-870f-6883cf31cea0",
+          "description": "One file, several matches, match entire lines flag",
+          "property": "grep",
+          "input": {
+            "pattern": "may",
+            "flags": ["-x"],
+            "files": ["midsummer-night.txt"]
+          },
+          "expected": []
+        },
+        {
+          "uuid": "5c25344d-62e5-4107-82b8-3aa723a072c5",
+          "description": "One file, several matches, case-insensitive flag",
+          "property": "grep",
+          "input": {
+            "pattern": "ACHILLES",
+            "flags": ["-i"],
+            "files": ["iliad.txt"]
+          },
+          "expected": [
+            "Achilles sing, O Goddess! Peleus' son;",
+            "The noble Chief Achilles from the son"
+          ]
+        },
+        {
+          "uuid": "2b50c4a4-81a8-4340-ab7f-3de08b22f109",
+          "description": "One file, several matches, inverted flag",
+          "property": "grep",
+          "input": {
+            "pattern": "Of",
+            "flags": ["-v"],
+            "files": ["paradise-lost.txt"]
+          },
+          "expected": [
+            "Brought Death into the World, and all our woe,",
+            "With loss of Eden, till one greater Man",
+            "Restore us, and regain the blissful Seat,",
+            "Sing Heav'nly Muse, that on the secret top",
+            "That Shepherd, who first taught the chosen Seed"
+          ]
+        },
+        {
+          "uuid": "01e9be3a-9f74-41ec-a3c7-c652fab94ad6",
+          "description": "One file, no matches, various flags",
+          "property": "grep",
+          "input": {
+            "pattern": "Gandalf",
+            "flags": ["-n", "-l", "-x", "-i"],
+            "files": ["iliad.txt"]
+          },
+          "expected": []
+        },
+        {
+          "uuid": "fc9fc8e1-32da-4482-8d9c-d1a190acf102",
+          "description": "One file, one match, file flag takes precedence over line flag",
+          "property": "grep",
+          "input": {
+            "pattern": "ten",
+            "flags": ["-n", "-l"],
+            "files": ["iliad.txt"]
+          },
+          "expected": ["iliad.txt"]
+        },
+        {
+          "uuid": "3b273e4c-c18e-4144-ba5d-cb385c0bf9d6",
+          "description": "One file, several matches, inverted and match entire lines flags",
+          "property": "grep",
+          "input": {
+            "pattern": "Illustrious into Ades premature,",
+            "flags": ["-x", "-v"],
+            "files": ["iliad.txt"]
+          },
+          "expected": [
+            "Achilles sing, O Goddess! Peleus' son;",
+            "His wrath pernicious, who ten thousand woes",
+            "Caused to Achaia's host, sent many a soul",
+            "And Heroes gave (so stood the will of Jove)",
+            "To dogs and to all ravening fowls a prey,",
+            "When fierce dispute had separated once",
+            "The noble Chief Achilles from the son",
+            "Of Atreus, Agamemnon, King of men."
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Test grepping multiples files at once",
+      "cases": [
+        {
+          "uuid": "bbe9a3c7-552f-47a5-aaa8-08c0663a7774",
+          "description": "Multiple files, one match, no flags",
+          "property": "grep",
+          "input": {
+            "pattern": "Agamemnon",
+            "flags": [],
+            "files": ["iliad.txt", "midsummer-night.txt", "paradise-lost.txt"]
+          },
+          "expected": ["iliad.txt:Of Atreus, Agamemnon, King of men."]
+        },
+        {
+          "uuid": "e4d58a5f-9c29-474d-bc8f-53eb316fb7e6",
+          "description": "Multiple files, several matches, no flags",
+          "property": "grep",
+          "input": {
+            "pattern": "may",
+            "flags": [],
+            "files": ["iliad.txt", "midsummer-night.txt", "paradise-lost.txt"]
+          },
+          "expected": [
+            "midsummer-night.txt:Nor how it may concern my modesty,",
+            "midsummer-night.txt:But I beseech your grace that I may know",
+            "midsummer-night.txt:The worst that may befall me in this case,"
+          ]
+        },
+        {
+          "uuid": "9516105e-1b22-4d5b-a454-d1ba8c723184",
+          "description": "Multiple files, several matches, print line numbers flag",
+          "property": "grep",
+          "input": {
+            "pattern": "that",
+            "flags": ["-n"],
+            "files": ["iliad.txt", "midsummer-night.txt", "paradise-lost.txt"]
+          },
+          "expected": [
+            "midsummer-night.txt:5:But I beseech your grace that I may know",
+            "midsummer-night.txt:6:The worst that may befall me in this case,",
+            "paradise-lost.txt:2:Of that Forbidden Tree, whose mortal tast",
+            "paradise-lost.txt:6:Sing Heav'nly Muse, that on the secret top"
+          ]
+        },
+        {
+          "uuid": "0afee9d6-d457-431f-a713-e01bb2a6e2f6",
+          "description": "Multiple files, one match, print file names flag",
+          "property": "grep",
+          "input": {
+            "pattern": "who",
+            "flags": ["-l"],
+            "files": ["iliad.txt", "midsummer-night.txt", "paradise-lost.txt"]
+          },
+          "expected": ["iliad.txt", "paradise-lost.txt"]
+        },
+        {
+          "uuid": "6b80c0d6-26c9-4f4c-a61f-4d8224a07f37",
+          "description": "Multiple files, several matches, case-insensitive flag",
+          "property": "grep",
+          "input": {
+            "pattern": "TO",
+            "flags": ["-i"],
+            "files": ["iliad.txt", "midsummer-night.txt", "paradise-lost.txt"]
+          },
+          "expected": [
+            "iliad.txt:Caused to Achaia's host, sent many a soul",
+            "iliad.txt:Illustrious into Ades premature,",
+            "iliad.txt:And Heroes gave (so stood the will of Jove)",
+            "iliad.txt:To dogs and to all ravening fowls a prey,",
+            "midsummer-night.txt:I do entreat your grace to pardon me.",
+            "midsummer-night.txt:In such a presence here to plead my thoughts;",
+            "midsummer-night.txt:If I refuse to wed Demetrius.",
+            "paradise-lost.txt:Brought Death into the World, and all our woe,",
+            "paradise-lost.txt:Restore us, and regain the blissful Seat,",
+            "paradise-lost.txt:Sing Heav'nly Muse, that on the secret top"
+          ]
+        },
+        {
+          "uuid": "ef48f601-978b-445b-b44d-6ae65695d750",
+          "description": "Multiple files, several matches, inverted flag",
+          "property": "grep",
+          "input": {
+            "pattern": "a",
+            "flags": ["-v"],
+            "files": ["iliad.txt", "midsummer-night.txt", "paradise-lost.txt"]
+          },
+          "expected": [
+            "iliad.txt:Achilles sing, O Goddess! Peleus' son;",
+            "iliad.txt:The noble Chief Achilles from the son",
+            "midsummer-night.txt:If I refuse to wed Demetrius."
+          ]
+        },
+        {
+          "uuid": "e94d82b5-4013-44eb-8769-4b4ee7cc9615",
+          "description": "Multiple files, one match, match entire lines flag",
+          "property": "grep",
+          "input": {
+            "pattern": "But I beseech your grace that I may know",
+            "flags": ["-x"],
+            "files": ["iliad.txt", "midsummer-night.txt", "paradise-lost.txt"]
+          },
+          "expected": [
+            "midsummer-night.txt:But I beseech your grace that I may know"
+          ]
+        },
+        {
+          "uuid": "8fd29269-1400-45ea-9ec3-c1e9ef5e66e3",
+          "description": "Multiple files, one match, multiple flags",
+          "property": "grep",
+          "input": {
+            "pattern": "WITH LOSS OF EDEN, TILL ONE GREATER MAN",
+            "flags": ["-n", "-i", "-x"],
+            "files": ["iliad.txt", "midsummer-night.txt", "paradise-lost.txt"]
+          },
+          "expected": [
+            "paradise-lost.txt:4:With loss of Eden, till one greater Man"
+          ]
+        },
+        {
+          "uuid": "2c9bacfb-ef31-4024-9665-3789fd01232a",
+          "description": "Multiple files, no matches, various flags",
+          "property": "grep",
+          "input": {
+            "pattern": "Frodo",
+            "flags": ["-n", "-l", "-x", "-i"],
+            "files": ["iliad.txt", "midsummer-night.txt", "paradise-lost.txt"]
+          },
+          "expected": []
+        },
+        {
+          "uuid": "ec77f27b-6de9-4e2b-a576-e5262701a4e8",
+          "description": "Multiple files, several matches, file flag takes precedence over line number flag",
+          "property": "grep",
+          "input": {
+            "pattern": "who",
+            "flags": ["-n", "-l"],
+            "files": ["iliad.txt", "midsummer-night.txt", "paradise-lost.txt"]
+          },
+          "expected": ["iliad.txt", "paradise-lost.txt"]
+        },
+        {
+          "uuid": "2b12fbfc-c528-49dc-acb4-9e314678f162",
+          "description": "Multiple files, several matches, inverted and match entire lines flags",
+          "property": "grep",
+          "input": {
+            "pattern": "Illustrious into Ades premature,",
+            "flags": ["-x", "-v"],
+            "files": ["iliad.txt", "midsummer-night.txt", "paradise-lost.txt"]
+          },
+          "expected": [
+            "iliad.txt:Achilles sing, O Goddess! Peleus' son;",
+            "iliad.txt:His wrath pernicious, who ten thousand woes",
+            "iliad.txt:Caused to Achaia's host, sent many a soul",
+            "iliad.txt:And Heroes gave (so stood the will of Jove)",
+            "iliad.txt:To dogs and to all ravening fowls a prey,",
+            "iliad.txt:When fierce dispute had separated once",
+            "iliad.txt:The noble Chief Achilles from the son",
+            "iliad.txt:Of Atreus, Agamemnon, King of men.",
+            "midsummer-night.txt:I do entreat your grace to pardon me.",
+            "midsummer-night.txt:I know not by what power I am made bold,",
+            "midsummer-night.txt:Nor how it may concern my modesty,",
+            "midsummer-night.txt:In such a presence here to plead my thoughts;",
+            "midsummer-night.txt:But I beseech your grace that I may know",
+            "midsummer-night.txt:The worst that may befall me in this case,",
+            "midsummer-night.txt:If I refuse to wed Demetrius.",
+            "paradise-lost.txt:Of Mans First Disobedience, and the Fruit",
+            "paradise-lost.txt:Of that Forbidden Tree, whose mortal tast",
+            "paradise-lost.txt:Brought Death into the World, and all our woe,",
+            "paradise-lost.txt:With loss of Eden, till one greater Man",
+            "paradise-lost.txt:Restore us, and regain the blissful Seat,",
+            "paradise-lost.txt:Sing Heav'nly Muse, that on the secret top",
+            "paradise-lost.txt:Of Oreb, or of Sinai, didst inspire",
+            "paradise-lost.txt:That Shepherd, who first taught the chosen Seed"
+          ]
+        }
+      ]
+    }
+  ]
+}

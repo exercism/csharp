@@ -1,0 +1,31 @@
+[canonical-tests]
+
+# Test case: empty sentence
+"40ac1d41-d827-4e06-9c3f-55a7e4549cb8" = true
+
+# Test case: perfect lower case
+"83b4693f-e1c5-44c7-a934-59444f453789" = true
+
+# Test case: only lower case
+"0642bb5b-31f4-4d0e-b048-196e578c69a2" = true
+
+# Test case: missing the letter 'x'
+"1a99284f-4910-4fd3-a65d-10a9951f08a9" = true
+
+# Test case: missing the letter 'h'
+"fbfbf91d-2af3-4ded-9b70-920e38a30c6a" = true
+
+# Test case: with underscores
+"4f17ceae-658a-4adc-9ab7-1296b8a57652" = true
+
+# Test case: with numbers
+"edb59d04-3590-4138-ad3a-2b5ee60b0336" = true
+
+# Test case: missing letters replaced by numbers
+"22d63742-2354-4272-b810-3570695d6d4f" = true
+
+# Test case: mixed case and punctuation
+"3ef8c328-c338-4ad0-88a6-973a0597f1c7" = true
+
+# Test case: case insensitive
+"d904d16c-842f-4d0d-9a38-96419dd2a9e9" = true

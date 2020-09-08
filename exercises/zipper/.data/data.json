@@ -1,0 +1,710 @@
+{
+  "exercise": "zipper",
+  "version": "1.1.0",
+  "comments": [
+    " The test cases for this exercise include an initial tree and a     ",
+    " series of operations to perform on the initial tree.               ",
+    "                                                                    ",
+    " Trees are encoded as nested objects. Each node in the tree has     ",
+    " three members: 'value', 'left', and 'right'. Each value is a       ",
+    " number (for simplicity). Left and right are trees. An empty node   ",
+    " is encoded as null.                                                ",
+    "                                                                    ",
+    " Each operation in the operations list is an object. The function   ",
+    " name is listed under 'operation'. If the function requires         ",
+    " arguments, the argument is listed under 'item'. Some functions     ",
+    " require values (i.e.  numbers), while others require trees.        ",
+    " Comments are always optional and can be used almost anywhere.      "
+  ],
+  "cases": [
+    {
+      "uuid": "4359aaa9-9c9b-420e-9963-265215f565d7",
+      "description": "data is retained",
+      "property": "expectedValue",
+      "input": {
+        "initialTree": {
+          "value": 1,
+          "left": {
+            "value": 2,
+            "left": null,
+            "right": {
+              "value": 3,
+              "left": null,
+              "right": null
+            }
+          },
+          "right": {
+            "value": 4,
+            "left": null,
+            "right": null
+          }
+        },
+        "operations": [
+          {
+            "operation": "to_tree"
+          }
+        ]
+      },
+      "expected": {
+        "type": "tree",
+        "value": {
+          "value": 1,
+          "left": {
+            "value": 2,
+            "left": null,
+            "right": {
+              "value": 3,
+              "left": null,
+              "right": null
+            }
+          },
+          "right": {
+            "value": 4,
+            "left": null,
+            "right": null
+          }
+        }
+      }
+    },
+    {
+      "uuid": "78e16e3a-8f84-4459-be21-97edc8da2ce3",
+      "description": "left, right and value",
+      "property": "expectedValue",
+      "input": {
+        "initialTree": {
+          "value": 1,
+          "left": {
+            "value": 2,
+            "left": null,
+            "right": {
+              "value": 3,
+              "left": null,
+              "right": null
+            }
+          },
+          "right": {
+            "value": 4,
+            "left": null,
+            "right": null
+          }
+        },
+        "operations": [
+          {
+            "operation": "left"
+          },
+          {
+            "operation": "right"
+          },
+          {
+            "operation": "value"
+          }
+        ]
+      },
+      "expected": {
+        "type": "int",
+        "value": 3
+      }
+    },
+    {
+      "uuid": "aafbe4ba-3aee-4e9a-9513-a839ece3c933",
+      "description": "dead end",
+      "property": "expectedValue",
+      "input": {
+        "initialTree": {
+          "value": 1,
+          "left": {
+            "value": 2,
+            "left": null,
+            "right": {
+              "value": 3,
+              "left": null,
+              "right": null
+            }
+          },
+          "right": {
+            "value": 4,
+            "left": null,
+            "right": null
+          }
+        },
+        "operations": [
+          {
+            "operation": "left"
+          },
+          {
+            "operation": "left"
+          }
+        ]
+      },
+      "expected": {
+        "type": "zipper",
+        "value": null
+      }
+    },
+    {
+      "uuid": "d3ede2be-fe6e-4b48-bf1a-df1d2335fe96",
+      "description": "tree from deep focus",
+      "property": "expectedValue",
+      "input": {
+        "initialTree": {
+          "value": 1,
+          "left": {
+            "value": 2,
+            "left": null,
+            "right": {
+              "value": 3,
+              "left": null,
+              "right": null
+            }
+          },
+          "right": {
+            "value": 4,
+            "left": null,
+            "right": null
+          }
+        },
+        "operations": [
+          {
+            "operation": "left"
+          },
+          {
+            "operation": "right"
+          },
+          {
+            "operation": "to_tree"
+          }
+        ]
+      },
+      "expected": {
+        "type": "tree",
+        "value": {
+          "value": 1,
+          "left": {
+            "value": 2,
+            "left": null,
+            "right": {
+              "value": 3,
+              "left": null,
+              "right": null
+            }
+          },
+          "right": {
+            "value": 4,
+            "left": null,
+            "right": null
+          }
+        }
+      }
+    },
+    {
+      "uuid": "e3d443cb-b097-4b33-b846-4313a0023754",
+      "description": "traversing up from top",
+      "property": "expectedValue",
+      "input": {
+        "initialTree": {
+          "value": 1,
+          "left": {
+            "value": 2,
+            "left": null,
+            "right": {
+              "value": 3,
+              "left": null,
+              "right": null
+            }
+          },
+          "right": {
+            "value": 4,
+            "left": null,
+            "right": null
+          }
+        },
+        "operations": [
+          {
+            "operation": "up"
+          }
+        ]
+      },
+      "expected": {
+        "type": "zipper",
+        "value": null
+      }
+    },
+    {
+      "uuid": "9aed2464-b239-4936-9f7f-b6c905395aac",
+      "description": "left, right, and up",
+      "property": "expectedValue",
+      "input": {
+        "initialTree": {
+          "value": 1,
+          "left": {
+            "value": 2,
+            "left": null,
+            "right": {
+              "value": 3,
+              "left": null,
+              "right": null
+            }
+          },
+          "right": {
+            "value": 4,
+            "left": null,
+            "right": null
+          }
+        },
+        "operations": [
+          {
+            "operation": "left"
+          },
+          {
+            "operation": "up"
+          },
+          {
+            "operation": "right"
+          },
+          {
+            "operation": "up"
+          },
+          {
+            "operation": "left"
+          },
+          {
+            "operation": "right"
+          },
+          {
+            "operation": "value"
+          }
+        ]
+      },
+      "expected": {
+        "type": "int",
+        "value": 3
+      }
+    },
+    {
+      "uuid": "a834dff2-bab8-4416-ae8a-bca4fb2f1b8a",
+      "description": "set_value",
+      "property": "expectedValue",
+      "input": {
+        "initialTree": {
+          "value": 1,
+          "left": {
+            "value": 2,
+            "left": null,
+            "right": {
+              "value": 3,
+              "left": null,
+              "right": null
+            }
+          },
+          "right": {
+            "value": 4,
+            "left": null,
+            "right": null
+          }
+        },
+        "operations": [
+          {
+            "operation": "left"
+          },
+          {
+            "operation": "set_value",
+            "item": 5
+          },
+          {
+            "operation": "to_tree"
+          }
+        ]
+      },
+      "expected": {
+        "type": "tree",
+        "value": {
+          "value": 1,
+          "left": {
+            "value": 5,
+            "left": null,
+            "right": {
+              "value": 3,
+              "left": null,
+              "right": null
+            }
+          },
+          "right": {
+            "value": 4,
+            "left": null,
+            "right": null
+          }
+        }
+      }
+    },
+    {
+      "uuid": "bb053d70-ee2b-48f3-aab4-f0051d105192",
+      "description": "set_value after traversing up",
+      "property": "expectedValue",
+      "input": {
+        "initialTree": {
+          "value": 1,
+          "left": {
+            "value": 2,
+            "left": null,
+            "right": {
+              "value": 3,
+              "left": null,
+              "right": null
+            }
+          },
+          "right": {
+            "value": 4,
+            "left": null,
+            "right": null
+          }
+        },
+        "operations": [
+          {
+            "operation": "left"
+          },
+          {
+            "operation": "right"
+          },
+          {
+            "operation": "up"
+          },
+          {
+            "operation": "set_value",
+            "item": 5
+          },
+          {
+            "operation": "to_tree"
+          }
+        ]
+      },
+      "expected": {
+        "type": "tree",
+        "value": {
+          "value": 1,
+          "left": {
+            "value": 5,
+            "left": null,
+            "right": {
+              "value": 3,
+              "left": null,
+              "right": null
+            }
+          },
+          "right": {
+            "value": 4,
+            "left": null,
+            "right": null
+          }
+        }
+      }
+    },
+    {
+      "uuid": "2f1aae71-3e17-48a4-9b0d-5a596bed0cd5",
+      "description": "set_left with leaf",
+      "property": "expectedValue",
+      "input": {
+        "initialTree": {
+          "value": 1,
+          "left": {
+            "value": 2,
+            "left": null,
+            "right": {
+              "value": 3,
+              "left": null,
+              "right": null
+            }
+          },
+          "right": {
+            "value": 4,
+            "left": null,
+            "right": null
+          }
+        },
+        "operations": [
+          {
+            "operation": "left"
+          },
+          {
+            "operation": "set_left",
+            "item": {
+              "value": 5,
+              "left": null,
+              "right": null
+            }
+          },
+          {
+            "operation": "to_tree"
+          }
+        ]
+      },
+      "expected": {
+        "type": "tree",
+        "value": {
+          "value": 1,
+          "left": {
+            "value": 2,
+            "left": {
+              "value": 5,
+              "left": null,
+              "right": null
+            },
+            "right": {
+              "value": 3,
+              "left": null,
+              "right": null
+            }
+          },
+          "right": {
+            "value": 4,
+            "left": null,
+            "right": null
+          }
+        }
+      }
+    },
+    {
+      "uuid": "e1cfed47-e5cc-45b4-bffd-bf2aa3a94c10",
+      "description": "set_right with null",
+      "property": "expectedValue",
+      "input": {
+        "initialTree": {
+          "value": 1,
+          "left": {
+            "value": 2,
+            "left": null,
+            "right": {
+              "value": 3,
+              "left": null,
+              "right": null
+            }
+          },
+          "right": {
+            "value": 4,
+            "left": null,
+            "right": null
+          }
+        },
+        "operations": [
+          {
+            "operation": "left"
+          },
+          {
+            "operation": "set_right",
+            "item": null
+          },
+          {
+            "operation": "to_tree"
+          }
+        ]
+      },
+      "expected": {
+        "type": "tree",
+        "value": {
+          "value": 1,
+          "left": {
+            "value": 2,
+            "left": null,
+            "right": null
+          },
+          "right": {
+            "value": 4,
+            "left": null,
+            "right": null
+          }
+        }
+      }
+    },
+    {
+      "uuid": "40160edc-d4ff-4e24-9f1f-aab89efac07b",
+      "description": "set_right with subtree",
+      "property": "expectedValue",
+      "input": {
+        "initialTree": {
+          "value": 1,
+          "left": {
+            "value": 2,
+            "left": null,
+            "right": {
+              "value": 3,
+              "left": null,
+              "right": null
+            }
+          },
+          "right": {
+            "value": 4,
+            "left": null,
+            "right": null
+          }
+        },
+        "operations": [
+          {
+            "operation": "set_right",
+            "item": {
+              "value": 6,
+              "left": {
+                "value": 7,
+                "left": null,
+                "right": null
+              },
+              "right": {
+                "value": 8,
+                "left": null,
+                "right": null
+              }
+            }
+          },
+          {
+            "operation": "to_tree"
+          }
+        ]
+      },
+      "expected": {
+        "type": "tree",
+        "value": {
+          "value": 1,
+          "left": {
+            "value": 2,
+            "left": null,
+            "right": {
+              "value": 3,
+              "left": null,
+              "right": null
+            }
+          },
+          "right": {
+            "value": 6,
+            "left": {
+              "value": 7,
+              "left": null,
+              "right": null
+            },
+            "right": {
+              "value": 8,
+              "left": null,
+              "right": null
+            }
+          }
+        }
+      }
+    },
+    {
+      "uuid": "75911daa-d41e-461e-a9b8-13916118d986",
+      "description": "set_value on deep focus",
+      "property": "expectedValue",
+      "input": {
+        "initialTree": {
+          "value": 1,
+          "left": {
+            "value": 2,
+            "left": null,
+            "right": {
+              "value": 3,
+              "left": null,
+              "right": null
+            }
+          },
+          "right": {
+            "value": 4,
+            "left": null,
+            "right": null
+          }
+        },
+        "operations": [
+          {
+            "operation": "left"
+          },
+          {
+            "operation": "right"
+          },
+          {
+            "operation": "set_value",
+            "item": 5
+          },
+          {
+            "operation": "to_tree"
+          }
+        ]
+      },
+      "expected": {
+        "type": "tree",
+        "value": {
+          "value": 1,
+          "left": {
+            "value": 2,
+            "left": null,
+            "right": {
+              "value": 5,
+              "left": null,
+              "right": null
+            }
+          },
+          "right": {
+            "value": 4,
+            "left": null,
+            "right": null
+          }
+        }
+      }
+    },
+    {
+      "uuid": "4bf36ab7-4278-4a6a-8d10-aa8e498f81c2",
+      "description": "different paths to same zipper",
+      "property": "sameResultFromOperations",
+      "input": {
+        "initialTree": {
+          "value": 1,
+          "left": {
+            "value": 2,
+            "left": null,
+            "right": {
+              "value": 3,
+              "left": null,
+              "right": null
+            }
+          },
+          "right": {
+            "value": 4,
+            "left": null,
+            "right": null
+          }
+        },
+        "operations": [
+          {
+            "operation": "left"
+          },
+          {
+            "operation": "up"
+          },
+          {
+            "operation": "right"
+          }
+        ]
+      },
+      "expected": {
+        "type": "zipper",
+        "initialTree": {
+          "value": 1,
+          "left": {
+            "value": 2,
+            "left": null,
+            "right": {
+              "value": 3,
+              "left": null,
+              "right": null
+            }
+          },
+          "right": {
+            "value": 4,
+            "left": null,
+            "right": null
+          }
+        },
+        "operations": [
+          {
+            "operation": "right"
+          }
+        ]
+      }
+    }
+  ]
+}

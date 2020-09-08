@@ -1,0 +1,7 @@
+[canonical-tests]
+
+# Test case: resident who drinks water
+"935f854d-94b8-4269-8a1f-1e4c188f1d01" = true
+
+# Test case: resident who owns zebra
+"8c9b0565-0b4b-4d15-a7ad-bebe9dc60614" = true

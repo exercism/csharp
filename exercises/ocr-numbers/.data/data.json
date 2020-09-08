@@ -1,0 +1,260 @@
+{
+  "exercise": "ocr-numbers",
+  "version": "1.2.0",
+  "cases": [
+    {
+      "description": "Converts lines of OCR Numbers to a string of integers",
+      "cases": [
+        {
+          "uuid": "0c18607f-7777-4289-a6e4-b6eb8d26d2f3",
+          "description": "Recognizes 0",
+          "property": "convert",
+          "input": {
+            "rows": [
+              " _ ",
+              "| |",
+              "|_|",
+              "   "
+            ]
+          },
+          "expected": "0"
+        },
+        {
+          "uuid": "61bab0f1-f6dc-4310-94a1-e48d199e2eb5",
+          "description": "Recognizes 1",
+          "property": "convert",
+          "input": {
+            "rows": [
+              "   ",
+              "  |",
+              "  |",
+              "   "
+            ]
+          },
+          "expected": "1"
+        },
+        {
+          "uuid": "d4e96a48-8615-4234-a0a2-66415a3f8268",
+          "description": "Unreadable but correctly sized inputs return ?",
+          "property": "convert",
+          "input": {
+            "rows": [
+              "   ",
+              "  _",
+              "  |",
+              "   "
+            ]
+          },
+          "expected": "?"
+        },
+        {
+          "uuid": "09d90f6e-6898-4028-8830-2bd37e77a5e9",
+          "description": "Input with a number of lines that is not a multiple of four raises an error",
+          "property": "convert",
+          "input": {
+            "rows": [
+              " _ ",
+              "| |",
+              "   "
+            ]
+          },
+          "expected": {
+            "error": "Number of input lines is not a multiple of four"
+          }
+        },
+        {
+          "uuid": "8169bbd2-0377-4c07-83d7-88d7e46991f6",
+          "description": "Input with a number of columns that is not a multiple of three raises an error",
+          "property": "convert",
+          "input": {
+            "rows": [
+              "    ",
+              "   |",
+              "   |",
+              "    "
+            ]
+          },
+          "expected": {
+            "error": "Number of input columns is not a multiple of three"
+          }
+        },
+        {
+          "uuid": "2130196b-c8e4-4f30-935e-c3e91aa92b5c",
+          "description": "Recognizes 110101100",
+          "property": "convert",
+          "input": {
+            "rows": [
+              "       _     _        _  _ ",
+              "  |  || |  || |  |  || || |",
+              "  |  ||_|  ||_|  |  ||_||_|",
+              "                           "
+            ]
+          },
+          "expected": "110101100"
+        },
+        {
+          "uuid": "2fa8a9d2-561e-4f2f-bac9-a93e8dacb319",
+          "description": "Garbled numbers in a string are replaced with ?",
+          "property": "convert",
+          "input": {
+            "rows": [
+              "       _     _           _ ",
+              "  |  || |  || |     || || |",
+              "  |  | _|  ||_|  |  ||_||_|",
+              "                           "
+            ]
+          },
+          "expected": "11?10?1?0"
+        },
+        {
+          "uuid": "a091b62b-463e-4bed-b001-7bb3d9af90e5",
+          "description": "Recognizes 2",
+          "property": "convert",
+          "input": {
+            "rows": [
+              " _ ",
+              " _|",
+              "|_ ",
+              "   "
+            ]
+          },
+          "expected": "2"
+        },
+        {
+          "uuid": "e9ddad94-f1e3-4233-8b91-1635e9211393",
+          "description": "Recognizes 3",
+          "property": "convert",
+          "input": {
+            "rows": [
+              " _ ",
+              " _|",
+              " _|",
+              "   "
+            ]
+          },
+          "expected": "3"
+        },
+        {
+          "uuid": "41457fc2-9c1a-4674-86a1-a3eccfc0f383",
+          "description": "Recognizes 4",
+          "property": "convert",
+          "input": {
+            "rows": [
+              "   ",
+              "|_|",
+              "  |",
+              "   "
+            ]
+          },
+          "expected": "4"
+        },
+        {
+          "uuid": "a1e66363-4e1c-41d1-9e3b-c78b4e7482cc",
+          "description": "Recognizes 5",
+          "property": "convert",
+          "input": {
+            "rows": [
+              " _ ",
+              "|_ ",
+              " _|",
+              "   "
+            ]
+          },
+          "expected": "5"
+        },
+        {
+          "uuid": "aadb0c3b-eed1-42dd-8879-91add0dfa57f",
+          "description": "Recognizes 6",
+          "property": "convert",
+          "input": {
+            "rows": [
+              " _ ",
+              "|_ ",
+              "|_|",
+              "   "
+            ]
+          },
+          "expected": "6"
+        },
+        {
+          "uuid": "b1cbeccf-0432-4df8-a859-cb3f339efcfe",
+          "description": "Recognizes 7",
+          "property": "convert",
+          "input": {
+            "rows": [
+              " _ ",
+              "  |",
+              "  |",
+              "   "
+            ]
+          },
+          "expected": "7"
+        },
+        {
+          "uuid": "cde69c4c-87f1-404c-b19e-dc7343f98fbb",
+          "description": "Recognizes 8",
+          "property": "convert",
+          "input": {
+            "rows": [
+              " _ ",
+              "|_|",
+              "|_|",
+              "   "
+            ]
+          },
+          "expected": "8"
+        },
+        {
+          "uuid": "58265fc0-7152-471f-bddb-9388d8546213",
+          "description": "Recognizes 9",
+          "property": "convert",
+          "input": {
+            "rows": [
+              " _ ",
+              "|_|",
+              " _|",
+              "   "
+            ]
+          },
+          "expected": "9"
+        },
+        {
+          "uuid": "736c1c0c-25fd-4825-97ac-6d1acd455e66",
+          "description": "Recognizes string of decimal numbers",
+          "property": "convert",
+          "input": {
+            "rows": [
+              "    _  _     _  _  _  _  _  _ ",
+              "  | _| _||_||_ |_   ||_||_|| |",
+              "  ||_  _|  | _||_|  ||_| _||_|",
+              "                              "
+            ]
+          },
+          "expected": "1234567890"
+        },
+        {
+          "uuid": "9ce94936-5cce-48db-b737-08d642eca02a",
+          "description": "Numbers separated by empty lines are recognized. Lines are joined by commas.",
+          "property": "convert",
+          "input": {
+            "rows": [
+              "    _  _ ",
+              "  | _| _|",
+              "  ||_  _|",
+              "         ",
+              "    _  _ ",
+              "|_||_ |_ ",
+              "  | _||_|",
+              "         ",
+              " _  _  _ ",
+              "  ||_||_|",
+              "  ||_| _|",
+              "         "
+            ]
+          },
+          "expected": "123,456,789"
+        }
+      ]
+    }
+  ]
+}

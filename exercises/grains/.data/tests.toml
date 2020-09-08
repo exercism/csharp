@@ -1,0 +1,34 @@
+[canonical-tests]
+
+# Test case: 1
+"42dd2265-7f39-4f45-831f-4e3785acbbee" = true
+
+# Test case: 2
+"8c921b96-0357-4998-8bf9-e09c86d7d870" = true
+
+# Test case: 3
+"87ecf005-6b82-435f-88fc-eb490035ed16" = true
+
+# Test case: 4
+"62a54146-3e8a-43f7-83ca-d1ebe0f7c4d7" = true
+
+# Test case: 16
+"34dfc92a-ec31-4766-afef-61ee5e0fe311" = true
+
+# Test case: 32
+"0303cab6-b06d-41bc-ad79-61d6b1c458c8" = true
+
+# Test case: 64
+"20420f01-bf00-488e-b038-bad43e26c309" = true
+
+# Test case: square 0 raises an exception
+"ca723e1c-b8b7-4b15-9db1-ea1479148f78" = true
+
+# Test case: negative square raises an exception
+"5c7ada30-262e-44ac-8e6a-0f1bd7e9363c" = true
+
+# Test case: square greater than 64 raises an exception
+"9d3ea71a-e525-452d-ba2b-a4d0d65ba8c0" = true
+
+# Test case: returns the total number of grains on the board
+"9b7797ff-b833-4a40-864f-3834b4f42f57" = true

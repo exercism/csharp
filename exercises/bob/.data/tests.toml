@@ -1,0 +1,76 @@
+[canonical-tests]
+
+# Test case: stating something
+"8cb5e79a-62d8-4646-9703-b3b2cbdb2fd7" = true
+
+# Test case: shouting
+"6c069243-081f-40a9-8b6f-dd3394e1afab" = true
+
+# Test case: shouting gibberish
+"723bd6da-9947-4e93-b1a2-aaa355deaf3c" = true
+
+# Test case: asking a question
+"addf4dca-f21c-4505-bc49-10816b5abda0" = true
+
+# Test case: asking a numeric question
+"94a3b236-9125-4177-90eb-1b4934661de1" = true
+
+# Test case: asking gibberish
+"a0fe2e0a-285b-47bc-9c47-cbf9563efb2c" = true
+
+# Test case: talking forcefully
+"9ceb08ce-fd6d-4c41-ad9e-13f00a2faac2" = true
+
+# Test case: using acronyms in regular speech
+"ef2c8344-0318-44a5-9105-9701928c0563" = true
+
+# Test case: forceful question
+"9ec0367a-7716-4520-95de-fb9f49843dde" = true
+
+# Test case: shouting numbers
+"af6fdea4-81d2-40ac-b4b2-b44d3682d658" = true
+
+# Test case: no letters
+"490b62f9-8124-419b-bae1-89476665dd77" = true
+
+# Test case: question with no letters
+"77bd82b4-4117-4fb7-ac3c-e41106a29849" = true
+
+# Test case: shouting with special characters
+"61d9a5e5-5ff4-466a-a88e-f0bc746ae7dc" = true
+
+# Test case: shouting with no exclamation mark
+"e312128c-0822-4a99-88b6-b8615bb9c35c" = true
+
+# Test case: statement containing question mark
+"251a6c41-8b57-4f6a-a125-dd1c806bb52a" = true
+
+# Test case: non-letters with question
+"2b12180d-ca02-4de0-a953-fd8b6469a3ed" = true
+
+# Test case: prattling on
+"8162d44d-a424-4539-bba3-8f7a06bf2fd4" = true
+
+# Test case: silence
+"48aa074c-96f5-4fdf-afcd-5db64bcd54f6" = true
+
+# Test case: prolonged silence
+"117040e6-d8e7-4a15-bf93-27f4f1fc31f4" = true
+
+# Test case: alternate silence
+"85db75ad-fe93-472d-adba-8a90ccd0bec3" = true
+
+# Test case: multiple line question
+"20626b14-df7e-4564-afdf-a85bc37478b1" = true
+
+# Test case: starting with whitespace
+"5e7b9ec1-1c20-445d-9c0f-8c1f5244960b" = true
+
+# Test case: ending with whitespace
+"69ef14fb-fa80-4c39-b02b-f8940ddc9321" = true
+
+# Test case: other whitespace
+"6cad5634-2986-4838-a5af-0c4740358b46" = true
+
+# Test case: non-question ending with whitespace
+"331c3498-381a-4cc1-93e0-286dda1819e8" = true

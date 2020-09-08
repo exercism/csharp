@@ -1,0 +1,52 @@
+[canonical-tests]
+
+# Test case: empty lists
+"7f2deacb-d487-4c76-a7fc-fe5fd7cc9785" = true
+
+# Test case: empty list within non empty list
+"6397dafb-4fb3-40ff-87db-febbe842af45" = true
+
+# Test case: non empty list contains empty list
+"b1cef543-92c0-4ef4-83b3-6fa6141955cf" = true
+
+# Test case: list equals itself
+"3b6fff56-b658-4bc8-b678-ae8cdfcb8819" = true
+
+# Test case: different lists
+"03fc9dee-0dc5-46ec-be62-d4be541fbe5e" = true
+
+# Test case: false start
+"c6e52d5b-eaef-4359-ae00-cfd55b253fee" = true
+
+# Test case: consecutive
+"444c9bdd-34d4-4f50-99f4-6ac53b336c28" = true
+
+# Test case: sublist at start
+"55132a8f-cab7-4576-aad1-4c120135d77e" = true
+
+# Test case: sublist in middle
+"821b9703-ee31-431c-93ec-ab89fccffa28" = true
+
+# Test case: sublist at end
+"aa04ea72-0fc5-493b-b4f6-e7c37d479b61" = true
+
+# Test case: at start of superlist
+"ba9ff3f4-bb87-4ec2-8a17-462d437d22c0" = true
+
+# Test case: in middle of superlist
+"6f03d7f6-5b9a-4d09-b8d3-eade88b69dae" = true
+
+# Test case: at end of superlist
+"05d5b96f-7ce5-40b0-adbd-6b6fb80b3126" = true
+
+# Test case: first list missing element from second list
+"c13bd0f1-0d44-4003-b8d8-f8a3eab810da" = true
+
+# Test case: second list missing element from first list
+"7a0550ab-d465-4883-89df-ac1967cde6e5" = true
+
+# Test case: order matters to a list
+"863d4686-3c2e-4927-9df2-47443ab790c2" = true
+
+# Test case: same digits but different numbers
+"ac303807-66af-4d8e-8a6a-66e420f7cf42" = true

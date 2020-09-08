@@ -1,0 +1,52 @@
+[canonical-tests]
+
+# Test case: Recognizes 0
+"0c18607f-7777-4289-a6e4-b6eb8d26d2f3" = true
+
+# Test case: Recognizes 1
+"61bab0f1-f6dc-4310-94a1-e48d199e2eb5" = true
+
+# Test case: Unreadable but correctly sized inputs return ?
+"d4e96a48-8615-4234-a0a2-66415a3f8268" = true
+
+# Test case: Input with a number of lines that is not a multiple of four raises an error
+"09d90f6e-6898-4028-8830-2bd37e77a5e9" = true
+
+# Test case: Input with a number of columns that is not a multiple of three raises an error
+"8169bbd2-0377-4c07-83d7-88d7e46991f6" = true
+
+# Test case: Recognizes 110101100
+"2130196b-c8e4-4f30-935e-c3e91aa92b5c" = true
+
+# Test case: Garbled numbers in a string are replaced with ?
+"2fa8a9d2-561e-4f2f-bac9-a93e8dacb319" = true
+
+# Test case: Recognizes 2
+"a091b62b-463e-4bed-b001-7bb3d9af90e5" = true
+
+# Test case: Recognizes 3
+"e9ddad94-f1e3-4233-8b91-1635e9211393" = true
+
+# Test case: Recognizes 4
+"41457fc2-9c1a-4674-86a1-a3eccfc0f383" = true
+
+# Test case: Recognizes 5
+"a1e66363-4e1c-41d1-9e3b-c78b4e7482cc" = true
+
+# Test case: Recognizes 6
+"aadb0c3b-eed1-42dd-8879-91add0dfa57f" = true
+
+# Test case: Recognizes 7
+"b1cbeccf-0432-4df8-a859-cb3f339efcfe" = true
+
+# Test case: Recognizes 8
+"cde69c4c-87f1-404c-b19e-dc7343f98fbb" = true
+
+# Test case: Recognizes 9
+"58265fc0-7152-471f-bddb-9388d8546213" = true
+
+# Test case: Recognizes string of decimal numbers
+"736c1c0c-25fd-4825-97ac-6d1acd455e66" = true
+
+# Test case: Numbers separated by empty lines are recognized. Lines are joined by commas.
+"9ce94936-5cce-48db-b737-08d642eca02a" = true
