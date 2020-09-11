@@ -50,7 +50,7 @@ public class ItalianTravellerV2 : IItalianLanguage
         return "migliorata - Ciao mondo";
     }
 
-    public string SpeakItalisn()
+    public string SpeakItalian()
     {
         return Speak();
     }
