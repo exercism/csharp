@@ -243,6 +243,16 @@
           "name": "optional-parameters",
           "track-neutral-concept": "",
           "original-concepts": []
+        },
+        {
+          "name": "named-arguments",
+          "track-neutral-concept": "",
+          "original-concepts": [
+            {
+              "name": "    - Named arguments",
+              "line-number": 25
+            }
+          ]
         }
       ]
     },
@@ -741,16 +751,6 @@
             {
               "name": "  - Method arguments / parameters",
               "line-number": 24
-            }
-          ]
-        },
-        {
-          "name": "named-arguments",
-          "track-neutral-concept": "",
-          "original-concepts": [
-            {
-              "name": "    - Named arguments",
-              "line-number": 25
             }
           ]
         },

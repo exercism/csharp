@@ -16,6 +16,7 @@ As this is an advanced exercise, there are no enum-related things that we should
 
 - `flag-enums`: know how to define a "flags" enum; know how to add, remove or check for flags; know how to change the underlying type of an enum.
 - `bit-manipulation`: know how to use bitwise operators to manipulate bits.
+- `compound-assignment`: know how to use compound assignments )`&=`, etc)
 
 ## Prerequisites
 
