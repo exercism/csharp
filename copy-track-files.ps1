@@ -35,7 +35,7 @@ function Copy-Track-Files {
     Write-Output "Copying track files"
 
     $filter = if ($Exercise) { $($Exercise) } else { @() }
-    Get-Childitem –Path "exercises" -Filter $filter -Directory | ForEach-Object {
+    Get-Childitem -Path "exercises" -Filter $filter -Directory | ForEach-Object {
         Copy-Track-Files-For-Exercise -ExerciseDirectory $_
     }
 }
