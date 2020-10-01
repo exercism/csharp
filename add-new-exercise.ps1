@@ -54,14 +54,14 @@ function Add-Project {
     New-Item -ItemType File -Path "$exerciseDir/Example.cs"
     
     [xml]$proj = Get-Content $csProj
-    $compilePropertyGroup = $proj.CreateElement("PropertyGroup");
+    $compileItemGroup = $proj.CreateElement("ItemGroup");
     $compileElement = $proj.CreateElement("Compile");
     $removeAttribute = $proj.CreateAttribute("Remove");
     $removeAttribute.Value = "Example.cs";
     $compileElement.Attributes.Append($removeAttribute);
-    $compilePropertyGroup.AppendChild($compileElement);
+    $compileItemGroup.AppendChild($compileElement);
     $propertyGroup = $proj.Project.PropertyGroup
-    $propertyGroup.ParentNode.InsertAfter($compilePropertyGroup, $propertyGroup)
+    $propertyGroup.ParentNode.InsertAfter($compileItemGroup, $propertyGroup)
     $proj.Save($csProj)
 }
 
