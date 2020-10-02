@@ -8,7 +8,7 @@ Exercism exercises in C#
 
 Please see the [contributing guide](https://github.com/exercism/docs/tree/master/contributing-to-language-tracks)
 
-##### Adding a new exercise
+### Adding a new exercise
 To add a new exercise you can run the add-new-exercise.ps1 powershell script. This will create all the necessary files and tests for you. Then you just need to implement the Example.cs file.  Parameters and examples for running the script can be found in the script file.  
 
 ## Support
