@@ -16,3 +16,11 @@ public static class ResistorColorDuo
 
      private static readonly string[] AllColors = new[] { "black", "brown", "red", "orange", "yellow", "green", "blue", "violet", "grey", "white" };
 }
+
+// An Alternative implementation that doesn't utilize LINQ
+// public static class ResistorColorDuo
+// {
+//     public static int Value(string[] colors) => Value(colors[0]) * 10 + Value(colors[1]);
+//     public static int Value(string color) => Array.IndexOf(AllColors, color);
+//     private static readonly string[] AllColors = new[] { "black", "brown", "red", "orange", "yellow", "green", "blue", "violet", "grey", "white" };
+// }
