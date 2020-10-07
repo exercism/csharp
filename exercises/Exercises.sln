@@ -242,6 +242,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DndCharacter", "dnd-charact
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResistorColor", "resistor-color\ResistorColor.csproj", "{3E499D5B-C5A9-4BCD-BF35-46D590EC06AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResistorColorDuo", "resistor-color-duo\ResistorColorDuo.csproj", "{F16F1FD4-2B74-4E90-83D1-0614843FDF62}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -728,6 +730,10 @@ Global
 		{3E499D5B-C5A9-4BCD-BF35-46D590EC06AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E499D5B-C5A9-4BCD-BF35-46D590EC06AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E499D5B-C5A9-4BCD-BF35-46D590EC06AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F16F1FD4-2B74-4E90-83D1-0614843FDF62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F16F1FD4-2B74-4E90-83D1-0614843FDF62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F16F1FD4-2B74-4E90-83D1-0614843FDF62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F16F1FD4-2B74-4E90-83D1-0614843FDF62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
