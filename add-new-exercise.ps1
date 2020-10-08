@@ -45,7 +45,7 @@ function Add-Project {
 
     $csProj = "$exerciseDir/$exerciseName.csproj"
 
-    Run-Command "dotnet new xunit -lang ""C#"" -o $exerciseDir -n $exerciseName"
+    Run-Command "dotnet new xunit -lang ""C#"" --target-framework-override netcoreapp3.0 -o $exerciseDir -n $exerciseName"
     Run-Command "dotnet sln ""$exercisesDir/Exercises.sln"" add $csProj"
     
     Remove-Item -Path "$exerciseDir/UnitTest1.cs"
@@ -54,15 +54,31 @@ function Add-Project {
     New-Item -ItemType File -Path "$exerciseDir/Example.cs"
     
     [xml]$proj = Get-Content $csProj
+    $propertyGroup = $proj.Project.PropertyGroup
+
+    $nugetItemGroup = $proj.Project.ItemGroup;
+    $nugetItemGroup.RemoveAll();
+    $nugetList = @(@{nuget="Microsoft.NET.Test.Sdk";Version="16.7.1"}, @{nuget="xunit";Version="2.4.1"}, @{nuget="xunit.runner.visualstudio";version="2.4.3"})
+    $nugetList | % { 
+        $packageElement = $proj.CreateElement("PackageReference");
+        $includeAttribute = $proj.CreateAttribute("Include");
+        $includeAttribute.Value = $_.nuget;
+        $packageElement.Attributes.Append($includeAttribute);
+        $versionAttribute = $proj.CreateAttribute("Version");
+        $versionAttribute.Value = $_.version;
+        $packageElement.Attributes.Append($versionAttribute);
+        $nugetItemGroup.AppendChild($packageElement);
+    }
+
     $compileItemGroup = $proj.CreateElement("ItemGroup");
     $compileElement = $proj.CreateElement("Compile");
     $removeAttribute = $proj.CreateAttribute("Remove");
     $removeAttribute.Value = "Example.cs";
     $compileElement.Attributes.Append($removeAttribute);
     $compileItemGroup.AppendChild($compileElement);
-    $propertyGroup = $proj.Project.PropertyGroup
-    $propertyGroup.ParentNode.InsertAfter($compileItemGroup, $propertyGroup)
-    $proj.Save($csProj)
+    $propertyGroup.ParentNode.InsertAfter($compileItemGroup, $propertyGroup);
+    
+    $proj.Save($csProj);
 }
 
 function Add-Generator {

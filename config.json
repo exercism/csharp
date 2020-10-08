@@ -2,6 +2,10 @@
   "language": "C#",
   "active": true,
   "blurb": "C# is a modern, object-oriented language with lots of great features, such as type-inference and async/await. The tooling is excellent, and there is extensive, well-written documentation.",
+  "online_editor": {	
+    "indent_style": "space",	
+    "indent_size": 4	
+  },
   "foregone": [
     "lens-person",
     "nucleotide-codons",
@@ -1395,6 +1399,17 @@
       "difficulty": 1,
       "topics": [
         "arrays"
+      ]
+    },
+    {
+      "slug": "resistor-color-trio",
+      "uuid": "328e6978-0384-445b-b07a-adfd017a9eff",
+      "core": false,
+      "unlocked_by": "resistor-color",
+      "difficulty": 1,
+      "topics": [
+        "arrays",
+        "conditionals"
       ]
     }
   ]
