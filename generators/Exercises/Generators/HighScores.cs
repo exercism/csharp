@@ -25,7 +25,7 @@ namespace Exercism.CSharp.Exercises.Generators
         private static void AddTestMethodForPersonalBest(TestClass testClass)
         {
             testClass.AdditionalMethods.Add(@"[Fact(Skip = ""Remove this Skip property to run this test"")]
-public void Lastest_score_should_not_change_after_calling_personal_best()
+public void Latest_score_should_not_change_after_calling_personal_best()
 {
     var sut = new HighScores(new List<int> { 20, 10, 30, 3, 2, 1 });
     Assert.Equal(30, sut.PersonalBest());
