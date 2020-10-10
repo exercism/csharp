@@ -12,10 +12,10 @@ SimpleCalculator.Calculate(512, 4, "/"); // => returns "512 / 4 = 128"
 
 ## 1. Handle the code that may throw errors within the method Calculate
 
-The main method for implementation in this task will be the (_static_) `SimpleCalculator.Calculate()` method. It takes three arguments. The first two arguments are integer numbers on which an operation is going to be conducted. The third argument is of type string and for this excercise it is necessary to implement the following operations:
+The main method for implementation in this task will be the (_static_) `SimpleCalculator.Calculate()` method. It takes three arguments. The first two arguments are integer numbers on which an operation is going to be conducted. The third argument is of type string and for this exercise it is necessary to implement the following operations:
 
 - addition using the `+` string
-- multiplication using the `-` string
+- multiplication using the `*` string
 - division using the `/` string
 
 ## 2. Handle illegal operations
