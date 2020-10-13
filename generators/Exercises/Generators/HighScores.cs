@@ -11,12 +11,26 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.ConstructorInputParameters = new[] { "scores" };
 
             testMethod.Input["scores"] = new List<int>(testMethod.Input["scores"]);
-            
+
             if (testMethod.Expected is IEnumerable<int>)
                 testMethod.Expected = new List<int>(testMethod.Expected);
         }
 
-        protected override void UpdateNamespaces(ISet<string> namespaces) 
+        protected override void UpdateTestClass(TestClass testClass)
+            => AddTestMethodForPersonalBest(testClass);
+
+        protected override void UpdateNamespaces(ISet<string> namespaces)
             => namespaces.Add(typeof(List<int>).Namespace);
+
+        private static void AddTestMethodForPersonalBest(TestClass testClass)
+        {
+            testClass.AdditionalMethods.Add(@"[Fact(Skip = ""Remove this Skip property to run this test"")]
+public void Latest_score_should_not_change_after_calling_personal_best()
+{
+    var sut = new HighScores(new List<int> { 20, 10, 30, 3, 2, 1 });
+    Assert.Equal(30, sut.PersonalBest());
+    Assert.Equal(1, sut.Latest());
+}");
+        }
     }
 }
