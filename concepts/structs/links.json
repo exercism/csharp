@@ -1,1 +1,34 @@
-[]
+[
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/choosing-between-class-and-struct",
+    "description": "class-or-struct"
+  },
+  {
+    "url": "https://stackoverflow.com/a/3753640/96167",
+    "description": "structs-immutable"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.int32?view=netcore-3.1",
+    "description": "int32"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.timespan?view=netcore-3.1",
+    "description": "time-span"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/how-to-define-value-equality-for-a-type",
+    "description": "equality"
+  },
+  {
+    "url": "https://medium.com/@semuserable/c-journey-into-struct-equality-comparison-deep-dive-9693f74562f1",
+    "description": "equality-performance"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct",
+    "description": "structs"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/choosing-between-class-and-struct",
+    "description": "class-or-struct"
+  }
+]
