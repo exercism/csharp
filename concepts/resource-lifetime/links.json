@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/try-finally",
+    "description": "try-finally"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/standard/exceptions/how-to-use-the-try-catch-block-to-catch-exceptions",
+    "description": "try-catch"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-statement",
+    "description": "using-statement"
+  },
+  {
+    "url": "https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html",
+    "description": "automatic-resource-management"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-statement",
+    "description": "using-statement"
+  }
+]
