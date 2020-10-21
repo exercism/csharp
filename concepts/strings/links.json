@@ -1,1 +1,30 @@
-[]
+[
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.string?view=netcore-3.1#methods",
+    "description": "methods"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.string?view=netcore-3.1#properties",
+    "description": "properties"
+  },
+  {
+    "url": "https://devblogs.microsoft.com/csharpfaq/what-character-escape-sequences-are-available/",
+    "description": "escaping"
+  },
+  {
+    "url": "https://csharp.net-tutorials.com/data-types/strings/#aelm5298",
+    "description": "verbatim"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/how-to/concatenate-multiple-strings",
+    "description": "concatenation"
+  },
+  {
+    "url": "https://csharp.net-tutorials.com/data-types/strings/#aelm5211",
+    "description": "plus-operator"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/string-interpolation",
+    "description": "interpolation"
+  }
+]
