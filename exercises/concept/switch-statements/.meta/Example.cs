@@ -1,32 +1,10 @@
 using System;
 
-// **** please do not modify the Manager class ****
-public class Manager
-{
-    public string Name { get; }
-    public string Activity { get; }
-
-    public Manager(string name, string activity)
-    {
-        this.Name = name;
-        this.Activity = activity;
-    }
-}
-
-// **** please do not modify the Incident enum ****
-public enum Incident
-{
-    RedCard,
-    YellowCard,
-    Foul,
-    Injury
-}
-
 public static class PlayAnalyzer
 {
     public static string AnalyzeOnField(int shirtNum)
     {
-        string playerDescription = string.Empty;
+        string playerDescription;
         switch (shirtNum)
         {
             case 1:
@@ -65,7 +43,7 @@ public static class PlayAnalyzer
 
     public static string AnalyzeOffField(object report)
     {
-        string description = string.Empty;
+        string description;
         switch (report)
         {
             case int shirtNum:
@@ -74,8 +52,11 @@ public static class PlayAnalyzer
             case string freeFormText:
                 description = freeFormText;
                 break;
+            case Injury injury:
+                description = $"{injury.GetDescription()} Medics are on the field.";
+                break;
             case Incident incident:
-                description = incident.ToString();
+                description = incident.GetDescription();
                 break;
             case Manager manager when !string.IsNullOrWhiteSpace(manager.Name):
                 description = manager.Name;
@@ -89,4 +70,35 @@ public static class PlayAnalyzer
 
         return description;
     }
+}
+
+// **** please do not modify the Manager class ****
+public class Manager
+{
+    public string Name { get; }
+    public string Activity { get; }
+
+    public Manager(string name, string activity)
+    {
+        this.Name = name;
+        this.Activity = activity;
+    }
+}
+
+// **** please do not modify the Incident class or any subclasses ****
+public class Incident
+{
+    public virtual string GetDescription() => "An incident happened.";
+}
+
+// **** please do not modify the Foul class ****
+public class Foul : Incident
+{
+    public override string GetDescription() => "The referee deemed a foul.";
+}
+
+// **** please do not modify the Injury class ****
+public class Injury : Incident
+{
+    public override string GetDescription() => "A player is injured.";
 }

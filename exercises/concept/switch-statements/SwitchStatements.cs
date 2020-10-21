@@ -26,11 +26,20 @@ public class Manager
     }
 }
 
-// **** please do not modify the Incident enum ****
-public enum Incident
+// **** please do not modify the Incident class or any subclasses ****
+public class Incident
 {
-    RedCard,
-    YellowCard,
-    Foul,
-    Injury
+    public virtual string GetDescription() => "An incident happened.";
+}
+
+// **** please do not modify the Foul class ****
+public class Foul : Incident
+{
+    public override string GetDescription() => "The referee deemed a foul.";
+}
+
+// **** please do not modify the Injury class ****
+public class Injury : Incident
+{
+    public override string GetDescription() => "A player is injured.";
 }

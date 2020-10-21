@@ -27,10 +27,11 @@ Animal animal = GetAnimal();
 
 switch (animal)
 {
-    case Dog dog:
-        dog.Bark();
+    case Dog canine:
+    case Coyote canine:
+        canine.Bark();
         break;
-    case Cat cat when cat.Had8Lives():
+    case Cat cat when cat.HasOnly8Lives():
         cat.IsCareful();
         cat.Meow();
         break;

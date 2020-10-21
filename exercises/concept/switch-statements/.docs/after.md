@@ -29,10 +29,11 @@ Animal animal = GetAnimal();
 
 switch(animal)
 {
-    case Dog dog:
-        dog.Bark();
+    case Dog canine:
+    case Coyote canine:
+        canine.Bark();
         break;
-    case Cat cat when cat.Had8Lives():
+    case Cat cat when cat.HasOnly8Lives():
         cat.IsCareful();
         cat.Meow();
         break;
@@ -46,6 +47,7 @@ switch(animal)
 - The `break` statement is mandatory for any non-empty `case` clause.
 - Obviously the type of all the arguments to the `case` labels must be derived from the type of the `switch` argument. A `switch` argument of type `Object` obviously allows the widest range.
 - The guard expression can include anything in scope not just members of the `case` argument.
+- Multiple `case` with different `case` arguments can refer to the same code block.
 
 [switch statement][switch-statement] documentation provides an introduction to `switch` statements.
 

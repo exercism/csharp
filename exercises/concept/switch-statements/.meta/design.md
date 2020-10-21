@@ -8,6 +8,7 @@
 
 - switch expressions
 - pattern matching tuples
+- enums
 
 ## Concepts
 
@@ -15,6 +16,5 @@
 
 ## Prerequisites
 
-- `enums`
 - `classes`
 - `inheritance`: with type pattern matching the student needs to be aware of the need for a common base type including `Object`.
