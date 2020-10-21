@@ -1,1 +1,46 @@
-[]
+[
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/tuples#assignment-and-tuples",
+    "description": "tuple-assignment"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/tuples#tuples-as-method-return-values",
+    "description": "tuple-return-values"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/tuples#equality-and-tuples",
+    "description": "tuple-equality"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/tuples",
+    "description": "tuples"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/tuples#tuple-projection-initializers",
+    "description": "tuple-projection-initializers"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/tuples#deconstruction",
+    "description": "tuple-deconstruction"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/tuples#deconstructing-user-defined-types",
+    "description": "udt-deconstruction"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.tuple?view=netcore-3.1",
+    "description": "system-tuple"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.valuetuple-8?view=netcore-3.1",
+    "description": "system-value-tuple"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.valuetuple-8?view=netcore-3.1",
+    "description": "system-value-tuple"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/configure-language-version",
+    "description": "language-version"
+  }
+]
