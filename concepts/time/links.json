@@ -1,1 +1,31 @@
-[]
+[
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.datetime?view=netcore-3.1",
+    "description": "date-time"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.timespan?view=netcore-2.0",
+    "description": "time-span"
+  },
+  {
+    "url": "https://stackoverflow.com/a/2037375/96167",
+    "description": "skeet-time-of-day"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings",
+    "description": "date-string-formatting"
+  },
+  {
+    "url": "https://stackoverflow.com/questions/10317088/why-there-are-5-versions-of-timer-classes-in-net",
+    "description": "so-timers"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/standard/datetime/",
+    "description": "time-overview"
+  },
+  { "url": "https://nodatime.org/", "description": "noda-time" },
+  {
+    "url": "https://en.wikipedia.org/wiki/Coordinated_Universal_Time",
+    "description": "wiki-utc"
+  }
+]

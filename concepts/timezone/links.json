@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo?view=netcore-2.0",
+    "description": "time-zone-info"
+  },
+  {
+    "url": "https://devblogs.microsoft.com/dotnet/cross-platform-time-zones-with-net-core/",
+    "description": "cross-platform-time-zones"
+  }
+]
