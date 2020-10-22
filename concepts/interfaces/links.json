@@ -1,1 +1,42 @@
-[]
+[
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/interfaces/",
+    "description": "interfaces"
+  },
+  {
+    "url": "https://en.wikipedia.org/wiki/Loose_coupling",
+    "description": "wiki-loose-coupling"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.icomparable-1?view=netcore-3.1",
+    "description": "icomparable"
+  },
+  {
+    "url": "https://en.wikipedia.org/wiki/Test_double",
+    "description": "wiki-test-double"
+  },
+  {
+    "url": "https://stackoverflow.com/a/9226437/96167",
+    "description": "so-mocking-interfaces"
+  },
+  {
+    "url": "https://www.talkingdotnet.com/default-implementations-in-interfaces-in-c-sharp-8/",
+    "description": "dt-interfaces"
+  },
+  {
+    "url": "https://en.wikipedia.org/wiki/Namespace",
+    "description": "wiki-namespaces"
+  },
+  {
+    "url": "https://www.cs.utexas.edu/~mitra/csSummer2013/cs312/lectures/interfaces.html",
+    "description": "interface-polymorphism"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/interfaces/explicit-interface-implementation",
+    "description": "explicit-implementation"
+  },
+  {
+    "url": "https://www.talkingdotnet.com/default-implementations-in-interfaces-in-c-sharp-8/",
+    "description": "dt-interfaces"
+  }
+]
