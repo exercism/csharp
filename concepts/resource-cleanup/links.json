@@ -1,1 +1,42 @@
-[]
+[
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.idisposable?view=netcore-3.1",
+    "description": "idisposable"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.idisposable.dispose?view=netcore-3.1",
+    "description": "dispose"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals",
+    "description": "garbage-collector"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-statement",
+    "description": "using-statement"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.io.stream?view=netcore-3.1",
+    "description": "stream"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.io.textreader?view=netcore-3.1",
+    "description": "text-reader"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/try-catch-finally",
+    "description": "try-catch-finally"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-dispose",
+    "description": "dispose-pattern"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/destructors",
+    "description": "finalizer"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/standard/native-interop/",
+    "description": "native-interoperability"
+  }
+]
