@@ -1,1 +1,26 @@
-[]
+[
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/operator-overloading",
+    "description": "operator-overloading"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/user-defined-conversion-operators",
+    "description": "ud-conversion-operators"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netcore-3.1#System_Object_Equals_System_Object_",
+    "description": "equals"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.icomparable-1?view=netcore-3.1",
+    "description": "icomparable"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/operator-overloading#overloadable-operators",
+    "description": "overloadable-operators"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/operator-overloading",
+    "description": "operator-overloading"
+  }
+]
