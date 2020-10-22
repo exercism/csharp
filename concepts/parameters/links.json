@@ -1,1 +1,54 @@
-[]
+[
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/passing-parameters",
+    "description": "passing-parameters"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/out-parameter-modifier",
+    "description": "out-parameter"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/ref#passing-an-argument-by-reference",
+    "description": "ref-parameter"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/discards",
+    "description": "discard"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/in-parameter-modifier",
+    "description": "in-parameter"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/passing-parameters",
+    "description": "passing-parameters"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/ref#passing-an-argument-by-reference",
+    "description": "ref-parameter"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/out-parameter-modifier",
+    "description": "out-parameter"
+  },
+  {
+    "url": "https://stackoverflow.com/questions/6381918/returning-two-values-tuple-vs-out-vs-struct",
+    "description": "so-tuples-vs-out"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/ref#passing-an-argument-by-reference",
+    "description": "ref-parameter"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/ref#ref-locals",
+    "description": "ref-local"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/ref#reference-return-values",
+    "description": "ref-return"
+  },
+  {
+    "url": "https://en.wikipedia.org/wiki/X86_calling_conventions",
+    "description": "calling-conventions"
+  }
+]
