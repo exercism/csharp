@@ -1,1 +1,66 @@
-[]
+[
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/char",
+    "description": "chars-docs"
+  },
+  {
+    "url": "https://csharp.net-tutorials.com/data-types/the-char-type/",
+    "description": "chars-tutorial"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.char.issurrogate?view=netcore-3.1",
+    "description": "surrogates"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.char.iscontrol?view=netcore-3.1",
+    "description": "is-control"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.char.isdigit?view=netcore-3.1",
+    "description": "is-digit"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.globalization.stringinfo?view=netcore-3.1",
+    "description": "string-info"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.globalization.stringinfo.getnexttextelement?view=netcore-3.1",
+    "description": "get-next-text-element"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.text.rune?view=netcore-3.1",
+    "description": "runes"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/standard/base-types/character-encoding-introduction",
+    "description": "char-encoding-net"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.char.toupper?view=netcore-3.1#System_Char_ToUpper_System_Char_System_Globalization_CultureInfo_",
+    "description": "to-upper"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.char.tolower?view=netcore-3.1#System_Char_ToLower_System_Char_System_Globalization_CultureInfo_",
+    "description": "to-lower"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.char.toupperinvariant?view=netcore-3.1",
+    "description": "to-upper-invariant"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.char.tolowerinvariant?view=netcore-3.1",
+    "description": "to-lower-invariant"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.globalization.cultureinfo?view=netcore-3.1",
+    "description": "culture-info"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.char.compareto?view=netcore-3.1",
+    "description": "compare-to"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.uint16?view=netcore-3.1",
+    "description": "uint16"
+  }
+]
