@@ -1,1 +1,30 @@
-[]
+[
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/namespaces/",
+    "description": "namespaces"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-directive",
+    "description": "using"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/namespace-alias-qualifier",
+    "description": "namespace-alias-qualifier"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/extern-alias",
+    "description": "extern-alias"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/namespace-alias-qualifier",
+    "description": "dot-dot-operator"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/namespaces/",
+    "description": "namespaces"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/accessibility-levels",
+    "description": "accessibility-levels"
+  }
+]
