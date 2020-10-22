@@ -1,1 +1,38 @@
-[]
+[
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null",
+    "description": "null-keyword"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/nullable-value-types",
+    "description": "nullable-value-types"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/nullable-references",
+    "description": "nullable-csharp-8"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/nullable-references",
+    "description": "nullable-reference-types"
+  },
+  {
+    "url": "https://csharp.net-tutorials.com/data-types/nullable-types/",
+    "description": "nullable-types-tutorial"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/null-coalescing-operator",
+    "description": "null-coalescing-operator"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/member-access-operators#null-conditional-operators--and-",
+    "description": "null-conditional-operator"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/null-forgiving",
+    "description": "null-forgiving-operator"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/archive/msdn-magazine/2018/february/essential-net-csharp-8-0-and-nullable-reference-types",
+    "description": "nullable-reference-types-tutorial"
+  }
+]
