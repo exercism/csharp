@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators",
+    "description": "arithmetic-operators"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/comparison-operators",
+    "description": "comparison-operators"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/equality-operators",
+    "description": "equality-operators"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/equality-operators",
+    "description": "equality-operators"
+  }
+]
