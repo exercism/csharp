@@ -1,1 +1,34 @@
-[]
+[
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/constants",
+    "description": "constants"
+  },
+  {
+    "url": "https://wiki.c2.com/?PrematureOptimization",
+    "description": "premature-optimization"
+  },
+  {
+    "url": "https://stackoverflow.com/a/5834473/96167",
+    "description": "so-consts"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/readonly#readonly-field-example",
+    "description": "readonly-fields"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.collections.objectmodel.readonlycollection-1?view=netcore-3.1",
+    "description": "readonly-collections"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.array.asreadonly?view=netcore-3.1",
+    "description": "as-read-only"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/readonly#readonly-field-example",
+    "description": "readonly-fields"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/constants",
+    "description": "constants"
+  }
+]

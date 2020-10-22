@@ -1,1 +1,6 @@
-[]
+[
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.collections.objectmodel.readonlycollection-1?view=netcore-3.1",
+    "description": "readonly-collections"
+  }
+]

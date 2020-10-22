@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "url": "https://stackoverflow.com/questions/78536/deep-cloning-objects",
+    "description": "so-deep-copy"
+  },
+  {
+    "url": "https://www.informit.com/articles/article.aspx?p=31551\u0026seqNum=2",
+    "description": "defensive-copying"
+  }
+]
