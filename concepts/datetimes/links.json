@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.datetime?view=netcore-3.1#properties",
+    "description": "properties"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.datetime?view=netcore-3.1#methods",
+    "description": "methods"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.datetime.parse?view=netcore-3.1#System_DateTime_Parse_System_String_",
+    "description": "parse"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.datetime.tostring?view=netcore-3.1",
+    "description": "to-string"
+  }
+]
