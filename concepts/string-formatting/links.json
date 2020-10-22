@@ -1,1 +1,98 @@
-[]
+[
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.icustomformatter?view=netcore-3.1",
+    "description": "custom-formatter"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/string-interpolation",
+    "description": "string-interpolation"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.string.format?view=netcore-3.1#System_String_Format_System_String_System_Object_System_Object_System_Object_",
+    "description": "string-format"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/standard/base-types/stringbuilder",
+    "description": "string-builder"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.iformatprovider?view=netcore-3.1",
+    "description": "format-provider"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/strings/#regular-and-verbatim-string-literals",
+    "description": "verbatim-strings"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/standard/base-types/composite-formatting",
+    "description": "composite-formatting"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/standard/base-types/composite-formatting",
+    "description": "composite-formatting"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.icustomformatter?view=netcore-3.1",
+    "description": "custom-formatter"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings",
+    "description": "standard-numeric-format-strings"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-numeric-format-strings",
+    "description": "custom-numeric-format-strings"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings",
+    "description": "standard-date-and-time-format-strings"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings",
+    "description": "custom-date-and-time-format-strings"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/standard/base-types/enumeration-format-strings",
+    "description": "enum-format-strings"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.guid.tostring?view=netcore-3.1",
+    "description": "guid-format-strings"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/string-interpolation",
+    "description": "string-interpolation"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/standard/base-types/formatting-types",
+    "description": "formatting-types"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings",
+    "description": "standard-numeric-format-strings"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-numeric-format-strings",
+    "description": "custom-numeric-format-strings"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings",
+    "description": "standard-date-and-time-format-strings"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings",
+    "description": "custom-date-and-time-format-strings"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/standard/base-types/stringbuilder",
+    "description": "string-builder"
+  },
+  {
+    "url": "https://weblog.west-wind.com/posts/2016/Dec/27/Back-to-Basics-String-Interpolation-in-C#",
+    "description": "string-interpolation-in-depth"
+  },
+  {
+    "url": "https://www.meziantou.net/interpolated-strings-advanced-usages.htm",
+    "description": "string-interpolation-advanced"
+  }
+]
