@@ -1,1 +1,30 @@
-[]
+[
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regex?view=netcore-3.1",
+    "description": "regex"
+  },
+  {
+    "url": "https://en.wikipedia.org/wiki/Comparison_of_regular-expression_engines",
+    "description": "regex-comparison"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.capturecollection?view=netcore-3.1",
+    "description": "capture"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regexoptions?view=netcore-3.1",
+    "description": "regex-options"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/standard/base-types/best-practices",
+    "description": "regex-compilation"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference",
+    "description": "regular-expressions"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regex?view=netcore-3.1",
+    "description": "regex"
+  }
+]
