@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "url": "https://jonskeet.uk/csharp/stringbuilder.html",
+    "description": "skeet-stringbuilder"
+  },
+  {
+    "url": "https://stackoverflow.com/users/22656/jon-skeet",
+    "description": "so-jon-skeet"
+  }
+]
