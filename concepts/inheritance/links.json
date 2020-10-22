@@ -1,1 +1,42 @@
-[]
+[
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/virtual",
+    "description": "virtual-keyword"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/abstract",
+    "description": "abstract-keyword"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/abstract-and-sealed-classes-and-class-members#abstract-classes-and-class-members",
+    "description": "abstract-classes"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/protected",
+    "description": "protected-keyword"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/base",
+    "description": "base-keyword"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/using-constructors",
+    "description": "constructors"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/base#example-1",
+    "description": "base-keyword-constructor"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/abstract-and-sealed-classes-and-class-members#sealed-classes-and-class-members",
+    "description": "sealed-classes"
+  },
+  {
+    "url": "https://stackoverflow.com/questions/16724946/why-derive-from-a-concrete-class-is-a-poor-design",
+    "description": "pro-sealed"
+  },
+  {
+    "url": "https://stackoverflow.com/questions/7777611/when-and-why-would-you-seal-a-class",
+    "description": "anti-sealed"
+  }
+]
