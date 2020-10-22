@@ -1,1 +1,30 @@
-[]
+[
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types",
+    "description": "integral-numeric-types"
+  },
+  {
+    "url": "https://en.wikipedia.org/wiki/Binary_number",
+    "description": "wiki-binary"
+  },
+  {
+    "url": "https://en.wikipedia.org/wiki/Two%27s_complement",
+    "description": "wiki-twos-complement"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/numeric-conversions",
+    "description": "implicit-casts"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/type-testing-and-cast#cast-expression",
+    "description": "cast-operator"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types",
+    "description": "integral-numeric-types"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/numeric-conversions",
+    "description": "numeric-conversions"
+  }
+]
