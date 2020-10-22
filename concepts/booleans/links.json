@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/boolean-logical-operators",
+    "description": "operators"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/boolean-logical-operators#operator-precedence",
+    "description": "precedence"
+  }
+]
