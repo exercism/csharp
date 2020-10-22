@@ -1,1 +1,58 @@
-[]
+[
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types",
+    "description": "integral-numeric-types"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-options/checked-compiler-option",
+    "description": "checked-compiler-setting"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/checked-and-unchecked",
+    "description": "checked-and-unchecked"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types",
+    "description": "floating-point-numeric-types"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types",
+    "description": "floating-point-numeric-types"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.numerics.biginteger?view=netcore-3.1",
+    "description": "big-integer"
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=vA0Rl6Ne5C8",
+    "description": "computerphile-gangnam-style"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types",
+    "description": "integral-numeric-types"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types",
+    "description": "floating-point-numeric-types"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/numeric-conversions",
+    "description": "numeric-conversions"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/checked-and-unchecked",
+    "description": "checked-and-unchecked"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/checked",
+    "description": "checked-keyword"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/unchecked",
+    "description": "unchecked-keyword"
+  },
+  {
+    "url": "https://www.youtube.com/watch?v=vA0Rl6Ne5C8",
+    "description": "computerphile-gangnam-style"
+  }
+]
