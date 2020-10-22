@@ -1,1 +1,86 @@
-[]
+[
+  {
+    "url": "https://en.wikipedia.org/wiki/Type_conversion",
+    "description": "wiki-casting"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/type-testing-and-cast",
+    "description": "type-testing-and-cast-operators"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/type-testing-and-cast#as-operator",
+    "description": "as-operator"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/type-testing-and-cast#is-operator",
+    "description": "is-operator"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/type-testing-and-cast#cast-expression",
+    "description": "cast-operator"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.int32.parse?view=netcore-3.1",
+    "description": "int32-parse"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/operator-overloading",
+    "description": "operator-overloading"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/numeric-conversions",
+    "description": "implicit-casts"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/type-testing-and-cast#cast-expression",
+    "description": "cast-operator"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/checked",
+    "description": "checked"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/type-testing-and-cast#is-operator",
+    "description": "is-operator"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/type-testing-and-cast#as-operator",
+    "description": "as-operator"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/user-defined-conversion-operators",
+    "description": "custom-casts"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.numerics.biginteger.op_explicit?view=netcore-3.1",
+    "description": "big-integer-explicit"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.numerics.biginteger.op_implicit?view=netcore-3.1",
+    "description": "big-integer-implicit"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/type-testing-and-cast",
+    "description": "type-testing-and-cast-operators"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/type-testing-and-cast#cast-expression",
+    "description": "cast-operator"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/type-testing-and-cast#is-operator",
+    "description": "is-operator"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/type-testing-and-cast#as-operator",
+    "description": "as-operator"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/type-testing-and-cast#typeof-operator",
+    "description": "typeof-operator"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/types/casting-and-type-conversions#type-conversion-exceptions-at-run-time",
+    "description": "type-conversion-exceptions"
+  }
+]
