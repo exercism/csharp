@@ -1,1 +1,78 @@
-[]
+[
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netcore-3.1#System_Object_Equals_System_Object_",
+    "description": "object-equals"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/operator-overloading",
+    "description": "operator-overloading"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct",
+    "description": "struct"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-7.3/tuple-equality",
+    "description": "tuples-equality"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.delegate.equals?view=netcore-3.1",
+    "description": "delegate-equality"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/",
+    "description": "linq"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.sequenceequal?redirectedfrom=MSDN\u0026view=netcore-3.1#System_Linq_Enumerable_SequenceEqual__1_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__",
+    "description": "sequence-equal"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netcore-3.1",
+    "description": "get-hash-code"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=netcore-3.1",
+    "description": "dictionary"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.hashset-1?view=netcore-3.1",
+    "description": "hash-set"
+  },
+  {
+    "url": "https://en.wikipedia.org/wiki/Hash_function",
+    "description": "wiki-hash"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.hashcode.combine?view=netcore-3.1",
+    "description": "hash-code-combine"
+  },
+  {
+    "url": "https://en.wikipedia.org/wiki/Immutable_object",
+    "description": "wiki-immutable"
+  },
+  {
+    "url": "https://0.30000000000000004.com/",
+    "description": "0.30000000000000004.com"
+  },
+  {
+    "url": "https://stackoverflow.com/questions/22154799/equals-method-inheritance-confusion",
+    "description": "so-equals-inheritance"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/equality-comparisons",
+    "description": "equality"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.hashcode?view=netcore-3.1",
+    "description": "hash-code"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netcore-3.1",
+    "description": "get-hash-code"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.hashset-1?view=netcore-3.1",
+    "description": "hash-set"
+  }
+]
