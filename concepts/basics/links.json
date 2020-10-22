@@ -1,1 +1,30 @@
-[]
+[
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/var",
+    "description": "var"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/assignment-operator",
+    "description": "assignment"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/classes#declaring-classes",
+    "description": "classes"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/methods",
+    "description": "methods"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/return",
+    "description": "return"
+  },
+  {
+    "url": "https://www.w3schools.com/cs/cs_comments.asp",
+    "description": "comments"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators#addition-operator-",
+    "description": "operators"
+  }
+]
