@@ -1,1 +1,46 @@
-[]
+[
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.random?view=netcore-3.1",
+    "description": "system-random"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.random?view=netcore-3.1",
+    "description": "system-random"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.random?view=netcore-3.1#instantiating-the-random-number-generator",
+    "description": "random-seedless"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.random?view=netcore-3.1#UniqueArray",
+    "description": "random-use-case-array"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.random?view=netcore-3.1#generate-random-boolean-values",
+    "description": "random-use-cases"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.random?view=netcore-3.1#the-systemrandom-class-and-thread-safety",
+    "description": "random-thread-safety"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.random?view=netcore-3.1#avoiding-multiple-instantiations",
+    "description": "random-multiple-instantiations"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.rngcryptoserviceprovider?view=netcore-3.1",
+    "description": "crypto-provider"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.randomnumbergenerator?view=netcore-3.1",
+    "description": "crypto-rng"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/standard/threading/using-threads-and-threading",
+    "description": "threading"
+  },
+  {
+    "url": "https://stackoverflow.com/questions/34510/what-is-a-race-condition",
+    "description": "so-race-conditions"
+  }
+]
