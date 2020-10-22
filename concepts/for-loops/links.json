@@ -1,1 +1,30 @@
-[]
+[
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.array?view=netcore-3.1#methods",
+    "description": "array-methods"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.array?view=netcore-3.1#properties",
+    "description": "array-properties"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.array?view=netcore-3.1",
+    "description": "array-class"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/foreach-in",
+    "description": "foreach-statement"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/for",
+    "description": "for-statement"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/arrays/multidimensional-arrays",
+    "description": "multi-dimensional-arrays"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.array.createinstance?view=netcore-3.1#System_Array_CreateInstance_System_Type_System_Int32_",
+    "description": "system-array-object"
+  }
+]
