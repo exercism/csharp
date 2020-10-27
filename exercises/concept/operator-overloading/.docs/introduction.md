@@ -3,7 +3,7 @@ The principal arithmetic and comparison operators can be adapted for use by your
 Most operators have the form:
 
 ```csharp
-static <return type> operaator <operator symbols>(<parameters>);
+static <return type> operator <operator symbols>(<parameters>);
 ```
 
 Cast operators have the form:

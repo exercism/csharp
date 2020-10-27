@@ -109,7 +109,7 @@ Interfaces can inherit from other interfaces.
 
 Members of an interface are public by default.
 
-Interfaces can contain nested types, such as `const` literals, `enums`, `delegates`, `classes` and `structs`. Here, the interfaces act as [namespaces][wiki-namespaces] in the same way that classes and structs do and the behaviour and syntax is identical.
+Interfaces can contain nested types, such as `const` literals, `enums`, `delegates`, `classes` and `structs`. Here, the interfaces act as [namespaces][wiki-namespaces] in the same way that classes and structs do and the behavior and syntax is identical.
 
 By design, C# does not support multiple inheritance, but it facilitates a kind of multiple inheritance through interfaces.
 

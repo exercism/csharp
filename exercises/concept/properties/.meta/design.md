@@ -13,7 +13,7 @@ Properties are covered early in the C# track as their purpose and power can be s
 
 - expression bodied properties, get accessors and set accessors (covered by expression-bodied members)
 - properties on interfaces (covered by Interfaces)
-- properties/absract properties on abstract classes (covered by Inheritance)
+- properties/abstract properties on abstract classes (covered by Inheritance)
 - use of the `readonly` keyword with properties (covered by Immutability)
 - static properties (covered by Statics)
 - indexers (covered by Indexers)

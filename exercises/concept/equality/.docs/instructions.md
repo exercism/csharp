@@ -6,7 +6,7 @@ In all occurrences the eye color parameter is guaranteed to be non-null.
 
 Implement `Authenticator.AreSameFace()` to check that two faces match.
 
-Add equality reoutines for the `FacialFeatures` class.
+Add equality routines for the `FacialFeatures` class.
 
 ```csharp
 Authenticator.AreSameFace(new FacialFeatures("green", 0.9m), new FacialFeatures("green", 0.9m);
@@ -45,7 +45,7 @@ authenticator.IsRegistered(new Identity("alice@thecompetition.com", new FacialFe
 
 ## 3. Register new identities
 
-Implement the `Authenticator.Register()` method which stores an identity on the authenticator itself such that calls to `IsRegistered()` will return `true` for this identity: otherwise `IsRegisterd()` returns `false`.
+Implement the `Authenticator.Register()` method which stores an identity on the authenticator itself such that calls to `IsRegistered()` will return `true` for this identity: otherwise `IsRegistered()` returns `false`.
 
 To detect duplicated attempts to register an identity, if the identity has already been registered then `false` is returned by `Authenticator.Register()`, otherwise `true`.
 
@@ -71,7 +71,7 @@ authenticator.IsRegistered(new Identity("alice@thecompetition.com", new FacialFe
 
 ## 5. Add diagnostics to detect multiple attempts to authenticate
 
-A bug has been reported whereby the `Authenticator.IsRegistered()` nethod is called multiple times in quick succession for the same identity. You believe that there is some sort of "bounce" problem where the exact same record is being submitted multiple times. Your task is to add a diagnostic routine `Authenticator.AreSameObject()` to support any testing that's undertaken. The routine compares to objects and returns `true` if they are the exact same instance otherwise `false`.
+A bug has been reported whereby the `Authenticator.IsRegistered()` method is called multiple times in quick succession for the same identity. You believe that there is some sort of "bounce" problem where the exact same record is being submitted multiple times. Your task is to add a diagnostic routine `Authenticator.AreSameObject()` to support any testing that's undertaken. The routine compares to objects and returns `true` if they are the exact same instance otherwise `false`.
 
 ```csharp
 var identityA = new Identity("alice@thecompetition.com", new FacialFeatures("blue", 0.9m));

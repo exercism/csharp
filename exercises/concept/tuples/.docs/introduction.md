@@ -7,7 +7,7 @@ within a set of parentheses.
 ```csharp
 string boast = "All you need to know";
 bool success = !string.IsNullOrWhiteSpace(boast);
-(bool, int, string) tripple = (success, 42, boast);
+(bool, int, string) triple = (success, 42, boast);
 ```
 
 A tuple can be used in assignment and initialization operations, as a return value or a method argument.
@@ -42,10 +42,10 @@ Field names `Item1` etc. do not make for readable code. The code below shows
 // name items in declaration
 (bool success, string message) results = (true, "well done!");
 bool mySuccess = results.success;
-string myMessaage = results.message;
+string myMessage = results.message;
 
 // name items in creating expression
 var results2 = (success: true, message: "well done!");
 bool mySuccess2 = results2.success;
-string myMessaage2 = results2.message;
+string myMessage2 = results2.message;
 ```

@@ -13,7 +13,7 @@ DialingCodes.GetEmptyDictionary();
 
 ### 2. Create a pre-populated dictionary
 
-There exists a pre-populated dictionary which contains the following 3 dialing codes: "United States of America" which has a code of 1, "Brazil" which has a code of 55 and "India" which has a code of 91. Implement the (static) `DialingCodes.GetExistingDictionary()` method to return the pre-propulated dictionary:
+There exists a pre-populated dictionary which contains the following 3 dialing codes: "United States of America" which has a code of 1, "Brazil" which has a code of 55 and "India" which has a code of 91. Implement the (static) `DialingCodes.GetExistingDictionary()` method to return the pre-populated dictionary:
 
 ```csharp
 DialingCodes.GetExistingDictionary();
@@ -29,9 +29,9 @@ DialingCodes.AddCountryToEmptyDictionary(44, "United Kingdom");
 // 44 => "United Kingdom"
 ```
 
-### 4. Add a country to an dxisting dictionary
+### 4. Add a country to an existing dictionary
 
-Add "United Kindom" with a dialing code of 44 to the dictionary created in task 2:
+Add "United Kingdom" with a dialing code of 44 to the dictionary created in task 2:
 
 ```csharp
 DialingCodes.AddCountryToExistingDictionary(DialingCodes.GetExistingDictionary(),
