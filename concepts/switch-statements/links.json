@@ -1,1 +1,42 @@
-[]
+[
+  {
+    "url": "https://en.wikipedia.org/wiki/Switch_statement",
+    "description": "wiki-switch"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/cpp/c-language/switch-statement-c?view=vs-2019",
+    "description": "c-switch"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/switch-expression#basic-example",
+    "description": "switch-expression"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/switch#the-switch-section",
+    "description": "switch"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/switch#case-labels",
+    "description": "case"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/break",
+    "description": "switch-break"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/switch#the-default-case",
+    "description": "switch-default"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/switch#type-pattern",
+    "description": "switch-pattern-matching"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/switch#the-case-statement-and-the-when-clause",
+    "description": "switch-when"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/switch",
+    "description": "switch-statement"
+  }
+]
