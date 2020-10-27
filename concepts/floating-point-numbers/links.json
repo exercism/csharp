@@ -1,1 +1,26 @@
-[]
+[
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types#characteristics-of-the-floating-point-types",
+    "description": "docs-microsoft.com-characteristics-of-the-floating-point-types"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/numeric-conversions#implicit-numeric-conversions",
+    "description": "docs-microsoft.com-implicit-numeric-conversion"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/numeric-conversions#explicit-numeric-conversions",
+    "description": "docs-microsoft.com-explicit-numeric-conversion"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.double.equals#precision-in-comparisons",
+    "description": "docs.microsoft.com_precision-in-comparisons"
+  },
+  {
+    "url": "https://0.30000000000000004.com/",
+    "description": "0.30000000000000004.com"
+  },
+  {
+    "url": "https://evanw.github.io/float-toy/",
+    "description": "evanw.github.io-float-toy"
+  }
+]
