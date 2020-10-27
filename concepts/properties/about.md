@@ -16,11 +16,11 @@ The two main types of property are
    }
    ```
 
-There is considerable overlap of behaviour and power between properties and methods.
+There is considerable overlap of behavior and power between properties and methods.
 When they are not auto-implemented properties can contain any statement or expression
 that can appear within the scope of the class. In a common case they are often described
 as wrapping a backing field.
-Although much of the time it is obvious whether to code behaviour as a property or method in a particular case it is
+Although much of the time it is obvious whether to code behavior as a property or method in a particular case it is
 often a judgement call for the coder and in particular how much code should be
 executed within the accessors. Validation in a set accessor and simple calculation or formatting in a
 get accessor are commonly found:
@@ -55,7 +55,7 @@ public int ConfidentialValueUsedInternally {private get; set; }
 ```
 
 Non-public set accessors are also supported but a more common case is where
-the set accessor may be ommitted completely. This is maybe because
+the set accessor may be omitted completely. This is maybe because
 the value of the property is set in the class's constructor.
 
 ```csharp
@@ -74,7 +74,7 @@ topics in other exercises:
 
 - expression bodied properties, get accessors and set accessors (covered by expression-bodied members)
 - properties on interfaces (covered by Interfaces)
-- properties/absract properties on abstract classes (covered by Inheritance)
+- properties/abstract properties on abstract classes (covered by Inheritance)
 - use of the `readonly` keyword with properties (covered by Immutability)
 - static properties (covered by Statics)
 - indexers (covered by Indexers)

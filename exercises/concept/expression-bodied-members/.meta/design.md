@@ -28,4 +28,4 @@
 - `if-statements`
 - `exceptions`
 - `switch statements`: background for `switch expressions`.
-- `datetimes`: `DateTiime.Now` is used in example code.
+- `datetimes`: `DateTime.Now` is used in example code.

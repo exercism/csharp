@@ -28,7 +28,7 @@ On Windows, they are:
 - London - GMT Standard Time
 - Paris - W. Europe Standard Time
 
-Implement the static `Appointment.Shedule()` overload which takes a location and time string and returns the UTC time of the appointment.
+Implement the static `Appointment.Schedule()` overload which takes a location and time string and returns the UTC time of the appointment.
 
 The implementation of `Schedule()` will need to allow the code, once built, to be run on Linux, Windows and Mac. This is the first exercise where you need to be concerned about the operating system. It will be necessary to have separate code paths to accommodate the difference in the time zone ids as described above.
 

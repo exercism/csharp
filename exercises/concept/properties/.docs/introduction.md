@@ -35,4 +35,4 @@ public int MyProperty
 public int MyProperty { get; private set; } = 42;
 ```
 
-Initialisation is optional.
+Initialization is optional.

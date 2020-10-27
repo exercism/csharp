@@ -21,7 +21,7 @@ The goal of this exercise is to teach the student the Concept of Exceptions in C
 
 - `exceptions`: know what exceptions are; know when an exception should be thrown; know how to throw (and rethrow) an exception; know how to catch an exception; know the most important built-in exceptions (`ArgumentException`, `InvalidOperationException`).
 
-## Prequisites
+## Prerequisites
 
 - `basics`: know how to do string interpolation and how to work with `int`s
 - `inheritance`: know about class hierarchies

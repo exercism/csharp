@@ -1,6 +1,6 @@
 This exercise addresses the parsing of log files.
 
-After a recent security review you have been asked to clean up the organisation's archived log files.
+After a recent security review you have been asked to clean up the organization's archived log files.
 
 All strings passed to the methods are guaranteed to be non-null and leading and without trailing spaces.
 
@@ -74,7 +74,7 @@ Just remove the end of line string. Do not attempt to adjust the whitespaces.
 
 ```csharp
 var lp = new LogParser();
-lp.RemoveEndOfLineText("[INF] end-of-lline23033 Network Falure end-of-line27");
+lp.RemoveEndOfLineText("[INF] end-of-line23033 Network Failure end-of-line27");
 // => "[INF]  Network Failure "
 ```
 
@@ -93,7 +93,7 @@ Lines not containing an offending password should be returned prefixed with "---
 ```csharp
 var lp = new LogParser();
 lp.ListLinesWithPasswords(new string[] {"my passwordsecret is great"});
-// => "passwordsecre: my passwordsecret is great"
+// => "passwordsecret: my passwordsecret is great"
 lp.ListLinesWithPasswords(new string[] {"my password secret"});
 // => {"--------: my password secret"}
 

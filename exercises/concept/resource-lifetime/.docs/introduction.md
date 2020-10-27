@@ -16,7 +16,7 @@ For the pattern to work the variable in the using statement must be a reference 
 C# 8 introduces a refinement to the pattern. A using statement can placed at the beginning of a block.
 
 ```csharp
-using var drawingResource = some_provided_or_newed_object;
+using var drawingResource = some_provided_or_new_object;
 try
 {
     drawingResource.DrawSomething();

@@ -20,7 +20,7 @@ To work with bits, C# supports the following operators:
 - `>>`: right shift
 - `&`: logical AND
 - `|`: logical OR
-- `^`: logial XOR
+- `^`: logical XOR
 
 Here is an example how to use a bitwise operator:
 
