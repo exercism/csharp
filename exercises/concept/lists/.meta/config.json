@@ -11,5 +11,9 @@
       "exercism_username": "mikedamay"
     }
   ],
-  "forked_from": ["fsharp/lists"]
+  "forked_from": ["fsharp/lists"],
+  "editor": {
+    "solution_files": ["Lists.cs"],
+    "test_files": ["ListsTests.cs"]
+  }
 }

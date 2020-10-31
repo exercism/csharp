@@ -10,5 +10,9 @@
       "github_username": "mikedamay",
       "exercism_username": "mikedamay"
     }
-  ]
+  ],
+  "editor": {
+    "solution_files": ["Object-initializers.cs"],
+    "test_files": ["Object-initializersTests.cs"]
+  }
 }

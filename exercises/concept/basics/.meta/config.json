@@ -5,5 +5,9 @@
       "exercism_username": "ErikSchierboom"
     }
   ],
-  "forked_from": ["fsharp/basics"]
+  "forked_from": ["fsharp/basics"],
+  "editor": {
+    "solution_files": ["Basics.cs"],
+    "test_files": ["BasicsTests.cs"]
+  }
 }

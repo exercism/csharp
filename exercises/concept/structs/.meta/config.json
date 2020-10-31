@@ -18,5 +18,9 @@
       "github_username": "mikedamay",
       "exercism_username": "mikedamay"
     }
-  ]
+  ],
+  "editor": {
+    "solution_files": ["Structs.cs"],
+    "test_files": ["StructsTests.cs"]
+  }
 }

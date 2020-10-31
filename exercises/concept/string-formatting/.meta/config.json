@@ -11,5 +11,9 @@
       "exercism_username": "mikedamay"
     }
   ],
-  "forked_from": ["elixir/strings"]
+  "forked_from": ["elixir/strings"],
+  "editor": {
+    "solution_files": ["String-formatting.cs"],
+    "test_files": ["String-formattingTests.cs"]
+  }
 }

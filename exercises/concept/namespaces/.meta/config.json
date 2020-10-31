@@ -10,5 +10,9 @@
       "github_username": "mikedamay",
       "exercism_username": "mikedamay"
     }
-  ]
+  ],
+  "editor": {
+    "solution_files": ["Namespaces.cs"],
+    "test_files": ["NamespacesTests.cs"]
+  }
 }

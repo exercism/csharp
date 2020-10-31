@@ -5,5 +5,9 @@
       "exercism_username": "ErikSchierboom"
     }
   ],
-  "forked_from": ["fsharp/booleans"]
+  "forked_from": ["fsharp/booleans"],
+  "editor": {
+    "solution_files": ["Booleans.cs"],
+    "test_files": ["BooleansTests.cs"]
+  }
 }

@@ -10,5 +10,9 @@
       "github_username": "mikedamay",
       "exercism_username": "mikedamay"
     }
-  ]
+  ],
+  "editor": {
+    "solution_files": ["Regular-expressions.cs"],
+    "test_files": ["Regular-expressionsTests.cs"]
+  }
 }
