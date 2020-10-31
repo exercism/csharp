@@ -4,5 +4,9 @@
       "github_username": "archrisV",
       "exercism_username": "archrisV"
     }
-  ]
+  ],
+  "editor": {
+    "solution_files": ["Exceptions.cs"],
+    "test_files": ["ExceptionsTests.cs"]
+  }
 }

@@ -10,5 +10,9 @@
       "github_username": "mikedamay",
       "exercism_username": "mikedamay"
     }
-  ]
+  ],
+  "editor": {
+    "solution_files": ["Nested-types.cs"],
+    "test_files": ["Nested-typesTests.cs"]
+  }
 }

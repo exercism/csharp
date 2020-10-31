@@ -4,5 +4,9 @@
       "github_username": "ErikSchierboom",
       "exercism_username": "ErikSchierboom"
     }
-  ]
+  ],
+  "editor": {
+    "solution_files": ["Numbers.cs"],
+    "test_files": ["NumbersTests.cs"]
+  }
 }

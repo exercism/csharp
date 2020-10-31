@@ -22,5 +22,9 @@
       "github_username": "mikedamay",
       "exercism_username": "mikedamay"
     }
-  ]
+  ],
+  "editor": {
+    "solution_files": ["Overflow.cs"],
+    "test_files": ["OverflowTests.cs"]
+  }
 }

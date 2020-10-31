@@ -11,5 +11,9 @@
       "exercism_username": "mikedamay"
     }
   ],
-  "forked_from": ["elixir/errors"]
+  "forked_from": ["elixir/errors"],
+  "editor": {
+    "solution_files": ["User-defined-exceptions.cs"],
+    "test_files": ["User-defined-exceptionsTests.cs"]
+  }
 }

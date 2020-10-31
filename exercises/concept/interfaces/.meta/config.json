@@ -14,5 +14,9 @@
       "github_username": "mikedamay",
       "exercism_username": "mikedamay"
     }
-  ]
+  ],
+  "editor": {
+    "solution_files": ["Interfaces.cs"],
+    "test_files": ["InterfacesTests.cs"]
+  }
 }

@@ -14,5 +14,9 @@
       "github_username": "mikedamay",
       "exercism_username": "mikedamay"
     }
-  ]
+  ],
+  "editor": {
+    "solution_files": ["Switch-statements.cs"],
+    "test_files": ["Switch-statementsTests.cs"]
+  }
 }

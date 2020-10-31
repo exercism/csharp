@@ -4,5 +4,9 @@
       "github_username": "ErikSchierboom",
       "exercism_username": "ErikSchierboom"
     }
-  ]
+  ],
+  "editor": {
+    "solution_files": ["Flag-enums.cs"],
+    "test_files": ["Flag-enumsTests.cs"]
+  }
 }

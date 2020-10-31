@@ -10,5 +10,9 @@
       "github_username": "mikedamay",
       "exercism_username": "mikedamay"
     }
-  ]
+  ],
+  "editor": {
+    "solution_files": ["Constants.cs"],
+    "test_files": ["ConstantsTests.cs"]
+  }
 }

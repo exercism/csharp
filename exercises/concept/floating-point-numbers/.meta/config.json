@@ -4,5 +4,9 @@
       "github_username": "ErikSchierboom",
       "exercism_username": "ErikSchierboom"
     }
-  ]
+  ],
+  "editor": {
+    "solution_files": ["Floating-point-numbers.cs"],
+    "test_files": ["Floating-point-numbersTests.cs"]
+  }
 }
