@@ -1,0 +1,18 @@
+{
+  "contributors": [
+    {
+      "github_username": "ErikSchierboom",
+      "exercism_username": "ErikSchierboom"
+    }
+  ],
+  "authors": [
+    {
+      "github_username": "mikedamay",
+      "exercism_username": "mikedamay"
+    }
+  ],
+  "editor": {
+    "solution_files": ["WhyCantIPushToMain.cs"],
+    "test_files": ["WhyCantIPushToMainTests.cs"]
+  }
+}

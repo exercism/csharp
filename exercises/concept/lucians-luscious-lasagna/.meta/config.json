@@ -1,0 +1,13 @@
+{
+  "authors": [
+    {
+      "github_username": "ErikSchierboom",
+      "exercism_username": "ErikSchierboom"
+    }
+  ],
+  "forked_from": ["fsharp/basics"],
+  "editor": {
+    "solution_files": ["LuciansLusciousLasagna.cs"],
+    "test_files": ["LuciansLusciousLasagnaTests.cs"]
+  }
+}

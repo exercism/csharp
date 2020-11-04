@@ -1,0 +1,12 @@
+{
+  "authors": [
+    {
+      "github_username": "ErikSchierboom",
+      "exercism_username": "ErikSchierboom"
+    }
+  ],
+  "editor": {
+    "solution_files": ["LogLevels.cs"],
+    "test_files": ["LogLevelsTests.cs"]
+  }
+}

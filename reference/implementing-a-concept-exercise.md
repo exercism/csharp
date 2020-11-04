@@ -115,7 +115,7 @@ _Skip this step if you're not sure what to do._
 
 ## Inspiration
 
-When implementing an exercise, it can be very useful to look at already implemented C# exercises like the [strings][concept-exercise-strings], [datetimes][concept-exercise-datetimes] or [floating-point numbers][concept-exercise-numbers-floating-point] exercises. You can also check the exercise's [general concepts documents][reference] to see if other languages have already implemented an exercise for that concept.
+When implementing an exercise, it can be very useful to look at already implemented C# exercises like the [log-levels][concept-exercise-log-levels], [datetimes][concept-exercise-booking-up-for-beauty] or [floating-point numbers][concept-exercise-interest-is-interesting] exercises. You can also check the exercise's [general concepts documents][reference] to see if other languages have already implemented an exercise for that concept.
 
 ## Help
 
@@ -129,9 +129,9 @@ If you have any questions regarding implementing the exercise, please post them 
 [docs-rationale-for-v3]: ../../../docs/rationale-for-v3.md
 [docs-features-of-v3]: ../../../docs/features-of-v3.md
 [anatomy-of-a-concept-exercise]: https://www.youtube.com/watch?v=gkbBqd7hPrA
-[concept-exercise-strings]: ../exercises/concept/strings
-[concept-exercise-datetimes]: ../exercises/concept/datetimes
-[concept-exercise-numbers-floating-point]: ../exercises/concept/floating-point-numbers
+[concept-exercise-log-levels]: ../exercises/concept/log-levels
+[concept-exercise-booking-up-for-beauty]: ../exercises/concept/booking-up-for-beauty
+[concept-exercise-interest-is-interesting]: ../exercises/concept/interest-is-interesting
 [reference]: ../../../reference
 [dotnet-format]: https://github.com/dotnet/format
 [allowing-fork-pr-changes]: https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/allowing-changes-to-a-pull-request-branch-created-from-a-fork
@@ -139,23 +139,23 @@ If you have any questions regarding implementing the exercise, please post them 
 [video-stub-file]: https://www.youtube.com/watch?v=gkbBqd7hPrA&t=1171
 [video-tests-file]: https://www.youtube.com/watch?v=gkbBqd7hPrA&t=1255
 [video-example-file]: https://www.youtube.com/watch?v=gkbBqd7hPrA&t=781
-[example-stub-file]: ../exercises/concept/strings/Strings.cs
-[example-tests-file]: ../exercises/concept/strings/StringsTests.cs
-[example-example-file]: ../exercises/concept/strings/.meta/Example.cs
-[example-project-file]: ../exercises/concept/strings/Strings.csproj
-[skip-fact]: ../exercises/concept/strings/StringsTests.cs#L11
-[test-name]: ../exercises/concept/strings/StringsTests.cs#L24
+[example-stub-file]: ../exercises/concept/log-levels/LogLevels.cs
+[example-tests-file]: ../exercises/concept/log-levels/LogLevelsTests.cs
+[example-example-file]: ../exercises/concept/log-levels/.meta/Example.cs
+[example-project-file]: ../exercises/concept/log-levels/LogLevels.csproj
+[skip-fact]: ../exercises/concept/log-levels/LogLevelsTests.cs#L11
+[test-name]: ../exercises/concept/log-levels/LogLevelsTests.cs#L24
 [xunit]: https://xunit.net/
-[not-implemented-static]: ../exercises/concept/arrays/Arrays.cs#L12
-[not-implemented]: ../exercises/concept/arrays/Arrays.cs#L17
-[todo]: ../exercises/concept/basics/Basics.cs
+[not-implemented-static]: ../exercises/concept/bird-watcher/BirdWatcher.cs#L12
+[not-implemented]: ../exercises/concept/bird-watcher/BirdWatcher.cs#L17
+[todo]: ../exercises/concept/lucians-luscious-lasagna/LuciansLusciousLasagna.cs
 [stub-file]: ../../../docs/concept-exercises.md#stub-implementation-file
 [tests-file]: ../../../docs/concept-exercises.md#tests-file
 [example-file]: ../../../docs/concept-exercises.md#example-implementation-file
 [video-stub-file]: https://www.youtube.com/watch?v=gkbBqd7hPrA&t=1171
 [video-tests-file]: https://www.youtube.com/watch?v=gkbBqd7hPrA&t=1255
 [video-example-file]: https://www.youtube.com/watch?v=gkbBqd7hPrA&t=781
-[example-stub-file]: ../languages/csharp/exercises/concept/strings/Strings.cs
-[example-tests-file]: ../languages/csharp/exercises/concept/strings/StringsTests.cs
-[example-example-file]: ../languages/csharp/exercises/concept/strings/.meta/Example.cs
-[example-project-file]: ../exercises/concept/strings/Strings.csproj
+[example-stub-file]: ../languages/csharp/exercises/concept/log-levels/LogLevels.cs
+[example-tests-file]: ../languages/csharp/exercises/concept/log-levels/LogLevelsTests.cs
+[example-example-file]: ../languages/csharp/exercises/concept/log-levels/.meta/Example.cs
+[example-project-file]: ../exercises/concept/log-levels/LogLevels.csproj

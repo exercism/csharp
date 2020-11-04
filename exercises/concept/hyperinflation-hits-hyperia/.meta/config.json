@@ -1,0 +1,30 @@
+{
+  "contributors": [
+    {
+      "github_username": "ihid",
+      "exercism_username": "ihid"
+    },
+    {
+      "github_username": "sleeplessbyte",
+      "exercism_username": "sleeplessbyte"
+    },
+    {
+      "github_username": "saschamann",
+      "exercism_username": "saschamann"
+    },
+    {
+      "github_username": "ErikSchierboom",
+      "exercism_username": "ErikSchierboom"
+    }
+  ],
+  "authors": [
+    {
+      "github_username": "mikedamay",
+      "exercism_username": "mikedamay"
+    }
+  ],
+  "editor": {
+    "solution_files": ["HyperinflationHitsHyperia.cs"],
+    "test_files": ["HyperinflationHitsHyperiaTests.cs"]
+  }
+}
