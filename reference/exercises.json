@@ -12,7 +12,7 @@
   ],
   "exercises": [
     {
-      "slug": "classes",
+      "slug": "elons-toys",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -90,7 +90,7 @@
       ]
     },
     {
-      "slug": "inheritance",
+      "slug": "wizards-and-warriors",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -118,7 +118,7 @@
       ]
     },
     {
-      "slug": "basics",
+      "slug": "lucians-luscious-lasagna",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -206,7 +206,7 @@
       ]
     },
     {
-      "slug": "constructors",
+      "slug": "need-for-speed",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -224,7 +224,7 @@
       ]
     },
     {
-      "slug": "method-overloading",
+      "slug": "wizards-and-warriors-2",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -257,7 +257,7 @@
       ]
     },
     {
-      "slug": "properties",
+      "slug": "weighing-machine",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -275,7 +275,7 @@
       ]
     },
     {
-      "slug": "nullability",
+      "slug": "tim-from-marketing",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -333,7 +333,7 @@
       ]
     },
     {
-      "slug": "numbers",
+      "slug": "cars-assemble",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -395,7 +395,7 @@
       ]
     },
     {
-      "slug": "booleans",
+      "slug": "annalyns-infiltration",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -423,7 +423,7 @@
       ]
     },
     {
-      "slug": "chars",
+      "slug": "squeaky-clean",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -451,7 +451,7 @@
       ]
     },
     {
-      "slug": "arrays",
+      "slug": "bird-watcher",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -489,7 +489,7 @@
       ]
     },
     {
-      "slug": "dictionaries",
+      "slug": "international-calling-connoisseur",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -517,7 +517,7 @@
       ]
     },
     {
-      "slug": "datetimes",
+      "slug": "booking-up-for-beauty",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -535,7 +535,7 @@
       ]
     },
     {
-      "slug": "enums",
+      "slug": "logs-logs-logs",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -558,7 +558,7 @@
       ]
     },
     {
-      "slug": "floating-point-numbers",
+      "slug": "interest-is-interesting",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -596,7 +596,7 @@
       ]
     },
     {
-      "slug": "strings",
+      "slug": "log-levels",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -614,7 +614,7 @@
       ]
     },
     {
-      "slug": "flag-enums",
+      "slug": "attack-of-the-trolls",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -642,7 +642,7 @@
       ]
     },
     {
-      "slug": "user-defined-exceptions",
+      "slug": "instruments-of-texas",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -665,7 +665,7 @@
       ]
     },
     {
-      "slug": "equality",
+      "slug": "faceid-2",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -703,7 +703,7 @@
       ]
     },
     {
-      "slug": "tuples",
+      "slug": "phone-number-analysis",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -721,7 +721,7 @@
       ]
     },
     {
-      "slug": "randomness",
+      "slug": "roll-the-die",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -739,7 +739,7 @@
       ]
     },
     {
-      "slug": "parameters",
+      "slug": "building-telemetry",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -777,7 +777,7 @@
       ]
     },
     {
-      "slug": "switch-statements",
+      "slug": "football-match-reports",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -795,7 +795,7 @@
       ]
     },
     {
-      "slug": "object-initializers",
+      "slug": "why-cant-i-push-to-main",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -813,7 +813,7 @@
       ]
     },
     {
-      "slug": "resource-cleanup",
+      "slug": "object-relational-mapping",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -831,7 +831,7 @@
       ]
     },
     {
-      "slug": "time",
+      "slug": "beauty-salon-goes-global",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -864,7 +864,7 @@
       ]
     },
     {
-      "slug": "interfaces",
+      "slug": "remote-control-competition",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -902,7 +902,7 @@
       ]
     },
     {
-      "slug": "integral-numbers",
+      "slug": "hyper-optimized-telemetry",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -930,7 +930,7 @@
       ]
     },
     {
-      "slug": "constants",
+      "slug": "authentication-system",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -958,7 +958,7 @@
       ]
     },
     {
-      "slug": "exceptions",
+      "slug": "calculator-conundrum",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -976,7 +976,7 @@
       ]
     },
     {
-      "slug": "lists",
+      "slug": "tracks-on-tracks-on-tracks",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -1014,7 +1014,7 @@
       ]
     },
     {
-      "slug": "structs",
+      "slug": "land-grab-in-space",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -1032,7 +1032,7 @@
       ]
     },
     {
-      "slug": "expression-bodied-members",
+      "slug": "the-weather-in-deather",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -1070,7 +1070,7 @@
       ]
     },
     {
-      "slug": "namespaces",
+      "slug": "red-vs-blue-darwin-style",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -1103,7 +1103,7 @@
       ]
     },
     {
-      "slug": "string-formatting",
+      "slug": "high-school-sweethearts",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -1141,7 +1141,7 @@
       ]
     },
     {
-      "slug": "regular-expressions",
+      "slug": "parsing-log-files",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -1159,7 +1159,7 @@
       ]
     },
     {
-      "slug": "resource-lifetime",
+      "slug": "orm-in-one-go",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -1177,7 +1177,7 @@
       ]
     },
     {
-      "slug": "overflow",
+      "slug": "hyperinflation-hits-hyperia",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -1195,7 +1195,7 @@
       ]
     },
     {
-      "slug": "nested-types",
+      "slug": "remote-control-cleanup",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -1213,7 +1213,7 @@
       ]
     },
     {
-      "slug": "casting",
+      "slug": "secure-munchester-united",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",
@@ -1241,7 +1241,7 @@
       ]
     },
     {
-      "slug": "operator-overloading",
+      "slug": "hyperia-forex",
       "level": "introductory",
       "completion-status": "complete",
       "document-link": "",

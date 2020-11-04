@@ -1,0 +1,12 @@
+{
+  "authors": [
+    {
+      "github_username": "maurelio1234",
+      "exercism_username": "maurelio1234"
+    }
+  ],
+  "editor": {
+    "solution_files": ["TimFromMarketing.cs"],
+    "test_files": ["TimFromMarketingTests.cs"]
+  }
+}

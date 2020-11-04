@@ -1,0 +1,13 @@
+{
+  "authors": [
+    {
+      "github_username": "ErikSchierboom",
+      "exercism_username": "ErikSchierboom"
+    }
+  ],
+  "forked_from": ["fsharp/booleans"],
+  "editor": {
+    "solution_files": ["AnnalynsInfiltration.cs"],
+    "test_files": ["AnnalynsInfiltrationTests.cs"]
+  }
+}

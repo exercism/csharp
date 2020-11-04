@@ -1,0 +1,26 @@
+{
+  "contributors": [
+    {
+      "github_username": "efx",
+      "exercism_username": "efx"
+    },
+    {
+      "github_username": "jrr",
+      "exercism_username": "jrr"
+    },
+    {
+      "github_username": "ErikSchierboom",
+      "exercism_username": "ErikSchierboom"
+    }
+  ],
+  "authors": [
+    {
+      "github_username": "mikedamay",
+      "exercism_username": "mikedamay"
+    }
+  ],
+  "editor": {
+    "solution_files": ["LandGrabInSpace.cs"],
+    "test_files": ["LandGrabInSpaceTests.cs"]
+  }
+}
