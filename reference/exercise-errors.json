@@ -2,7 +2,7 @@
   "Errors": [
     {
       "Severity": "error",
-      "Message": "Failed to find concept compound-assignment, from the flag-enums design.md, in exercises.json file",
+      "Message": "Failed to find concept compound-assignment, from the attack-of-the-trolls design.md, in exercises.json file",
       "Source": "merge"
     }
   ]
