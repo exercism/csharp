@@ -5,6 +5,21 @@ A dictionary is a collection of elements where each element comprises a key and 
 A dictionary can be created as follows:
 
 ```csharp
+new Dictionary<int, string>();
+// Empty dictionary
+```
+
+Or
+
+```csharp
+new Dictionary<int, string>
+{
+    [1] = "One",
+    [2] = "Two"
+};
+
+// Or
+
 new Dictionary<int, string>
 {
     {1, "One"},
@@ -15,7 +30,7 @@ new Dictionary<int, string>
 
 Note that the key and value types are part of the definition of the dictionary.
 
-Once constructed, entries can be added or removed from a dictionary using its built-in methods.
+Once constructed, entries can be added or removed from a dictionary using its built-in methods `Add` and `Remove`.
 
 Retrieving or updating values in a dictionary is done by indexing into the dictionary using a key:
 
@@ -31,7 +46,7 @@ numbers[2] = "Deux";
 
 // Get the value of the element with key 2
 numbers[2];
-// "Deux"
+// => "Deux"
 ```
 
 You can test if a value exists in the dictionary with:
