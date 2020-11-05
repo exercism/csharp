@@ -1,17 +1,4 @@
-The C# `enum` type represents a fixed set of named constants (an enumeration). Normally, one can only refer to exactly one of those named constants. However, sometimes it is useful to refer to more than one constant. To do so, one can annotate the `enum` with the `Flags` attribute. A _flags_ enum's constants are interpreted as bitwise _flags_.
-
-A flags enum can be defined as follows (using binary integer notation):
-
-```csharp
-[Flags]
-enum PhoneFeatures
-{
-    Call = 0b00000001,
-    Text = 0b00000010
-}
-```
-
-A `PhoneFeatures` instance which value is `0b00000011` has both its `Call` _and_ `Text` flags set.
+## bit-manipulation
 
 To work with bits, C# supports the following operators:
 
@@ -29,6 +16,23 @@ Here is an example how to use a bitwise operator:
 // => 4
 ```
 
+## flag-enums
+
+The C# `enum` type represents a fixed set of named constants (an enumeration). Normally, one can only refer to exactly one of those named constants. However, sometimes it is useful to refer to more than one constant. To do so, one can annotate the `enum` with the `Flags` attribute. A _flags_ enum's constants are interpreted as bitwise _flags_.
+
+A flags enum can be defined as follows (using binary integer notation):
+
+```csharp
+[Flags]
+enum PhoneFeatures
+{
+    Call = 0b00000001,
+    Text = 0b00000010
+}
+```
+
+A `PhoneFeatures` instance which value is `0b00000011` has both its `Call` _and_ `Text` flags set.
+
 By default, the `int` type is used for enum member values. One can use a different integer type by specifying the type in the enum declaration:
 
 ```csharp
@@ -39,3 +43,7 @@ enum PhoneFeatures : byte
     Text = 0b00000010
 }
 ```
+
+## compound-assignment
+
+TODO: consider what to put here - do this in conjunction with issue #2529 cleanup about.md files and approach detailed in csharp/concepts/bit-manipulation/about.md.

@@ -1,3 +1,5 @@
+## exceptions
+
 Exceptions in C# provide a structured, uniform, and type-safe way of handling error conditions that occur during runtime. Proper handling of exceptions and error is important when trying to prevent application crashes.
 
 In C#, all exceptions have `System.Exception` class as their base type. It contains important properties such as `Message`, which contains a human-readable description of the reason for the exception being thrown.

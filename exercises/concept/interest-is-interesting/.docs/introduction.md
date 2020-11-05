@@ -1,3 +1,5 @@
+## floating-point-numbers
+
 A floating-point number is a number with zero or more digits behind the decimal separator. Examples are `-2.4`, `0.1`, `3.14`, `16.984025` and `1024.0`.
 
 Different floating-point types can store different numbers of digits after the digit separator - this is referred to as its precision.
@@ -10,6 +12,8 @@ C# has three floating-point types:
 
 As can be seen, each type can store a different number of digits. This means that trying to store PI in a `float` will only store the first 6 to 9 digits (with the last digit being rounded).
 
+## while-loops
+
 In this exercise you may also want to use a loop. There are several ways to write loops in C#, but the `while` loop is most appropriate here:
 
 ```csharp
@@ -18,5 +22,20 @@ int x = 23;
 while (x > 10)
 {
     // Execute logic if x > 10
+    x = x - 2;
 }
+```
+
+## do-while-loops
+
+An less commonly used alternative to the above syntax is a `do-while` loop:
+
+```csharp
+int x = 23;
+
+do
+{
+    // Execute logic if x > 10
+    x = x - 2;
+} while (x > 10)
 ```

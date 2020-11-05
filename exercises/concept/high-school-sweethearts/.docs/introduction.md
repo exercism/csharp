@@ -1,6 +1,8 @@
+## string-formatting
+
 There are two principal mechanisms for formatting strings in C#/.NET. Use of `String.Format()` and string interpolation.
 
-## Composite Formatting
+### Composite Formatting
 
 `String.Format()` takes a string (referred to in the documentation as a _composite format_) comprising fixed text and placeholders (known in the documentation as format items), and a variable number of arguments. The return value resolves each format item using the corresponding argument and combines the resolved values with the fixed text.
 
@@ -11,7 +13,7 @@ string.Format("I had {0} bitcoins on {1}, the day I forgot my password.", 55.5, 
 
 This mechanism is technically known as _composite formatting_.
 
-## String Interpolation
+### String Interpolation
 
 Interpolated strings are prefixed with a `$` and include run-time expressions enclosed in braces. The format item has the following syntax: `$"{<interpolationExpression>}"`. They do away with the need for a separate list of arguments. The result is functionally equivalent to the `String.Format()` mechanism.
 
@@ -22,7 +24,7 @@ $"I had {loadsOf} bitcoins on {thatDay}, the day I forgot my password."
 // => "I had 55.5 bitcoins on 2/25/2010 00:00:00, the day I forgot my password." - US settings
 ```
 
-## Format Items
+### Format Items
 
 The text in braces, placeholders in the case of the composite format and interpolated expressions in the case of string interpolation is known as a _format item_.
 
@@ -50,13 +52,13 @@ string.Format(
 
 There are both standard and custom formatting for both numbers and dates. There is no vital difference between _custom_ and _standard_ except that you have a chance to compose custom format strings out of format letters.
 
-## Culture
+### Culture
 
 Each thread has a default culture `Thread.CurrentThread.CurrentCulture` encapsulated in an instance of `CultureInfo`. The thread's culture determines how dates and numbers are formatted with respect to regional variations such as the difference in conventional date format between the UK _DD/MM/YYYY_ and the US _MM/DD/YYYY_.
 
 `CultureInfo` implements the `IFormatProvider` interface which can be passed to certain overloads of `String.Format()`. This can be used to override the thread culture.
 
-## Verbatim Strings
+## verbatim-strings
 
 Verbatim strings allow multi-line strings. They are introduced with an @.
 

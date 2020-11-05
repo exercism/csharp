@@ -1,3 +1,5 @@
+## casting
+
 Casting and type conversion are different ways of changing an expression from one data type to another.
 
 An expression can be cast to another type with the cast operator `(<type>)`.

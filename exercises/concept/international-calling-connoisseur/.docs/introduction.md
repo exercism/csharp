@@ -1,3 +1,5 @@
+## dictionaries
+
 A dictionary is a collection of elements where each element comprises a key and value such that if a key is passed to a method of the dictionary its associated value is returned. It has the same role as maps or associative arrays do in other languages.
 
 A dictionary can be created as follows:

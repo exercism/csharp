@@ -1,3 +1,5 @@
+## switch-statements
+
 Wikipedia describes a `switch` statement as "a type of selection control mechanism used to allow the value of a variable or expression to change the control flow of program".
 
 The mechanism involves the following keywords: `switch`, `case`, `break` and `default`.
