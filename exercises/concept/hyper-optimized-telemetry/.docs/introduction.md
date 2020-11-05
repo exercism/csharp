@@ -1,3 +1,5 @@
+## integral-numbers
+
 C#, like many statically typed languages, provides a number of types that represent integers, each with its own range of values. At the low end, the `sbyte` type has a minimum value of -128 and a maximum value of 127. Like all the integer types these values are available as `<type>.MinValue` and `<type>.MaxValue`. At the high end, the `long` type has a minimum value of -9,223,372,036,854,775,808 and a maximum value of 9,223,372,036,854,775,807. In between lie the `short` and `int` types.
 
 The ranges are determined by the storage width of the type as allocated by the system. For example, a `byte` uses 8 bits and a `long` uses 64 bits.

@@ -1,3 +1,5 @@
+## constants
+
 The `const` modifier can be (and generally should be) applied to any field where its value is known at compile time and will not change during the lifetime of the program.
 
 ```csharp
@@ -17,9 +19,9 @@ public MyClass(int num)
 }
 ```
 
-#### Read-only collections
+## readonly-collections
 
-Although the `readonly` modifier prevents the value or reference in a field from being overwritten, the modifier provides no protection for the members of a reference type.
+While the `readonly` modifier prevents the value or reference in a field from being overwritten, it offers no protection for the members of a reference type.
 
 ```csharp
 readonly List<int> ints = new List<int>();
@@ -38,6 +40,6 @@ The Base Class Library (BCL) provides some readonly versions of collections wher
 - `ReadOnlyDictionary<T>` exposes a `Dictionary<T>` as read-only.
 - `ReadOnlyCollection<T>` exposes a `List<T>` as read-only.
 
-#### Defensive copying
+## defensive-copying
 
 In security sensitive situations (or even simply on a large code-base where developers have different priorities and agendas) you should avoid allowing a class's public API to be circumvented by accepting and storing a method's mutable parameters or by exposing a mutable member of a class through a return value or as an `out` parameter.

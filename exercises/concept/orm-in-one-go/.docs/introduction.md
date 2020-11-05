@@ -1,3 +1,5 @@
+## resource-lifetime
+
 You saw in (TODO cross-ref-tba) that the `IDispose` interface could be used to signal that some object's resource or other program state needed to be released or reset when the object was no longer required (and that relying on the garbage collector would not achieve this or provide the required level of control) and that `IDisposable.Dispose()` method was the natural place for such cleanup operations.
 
 There is another construct, the `using` block, that enables, from the caller's perspective, all the resource lifetime management to be gathered into a single statement.

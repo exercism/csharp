@@ -1,3 +1,5 @@
+## inheritance
+
 In C#, a _class_ hierarchy can be defined using _inheritance_, which allows a derived class (`Car`) to inherit the behavior and data of its parent class (`Vehicle`). If no parent is specified, the class inherits from the `object` class.
 
 Parent classes can provide functionality to derived classes in three ways:

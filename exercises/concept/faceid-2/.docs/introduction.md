@@ -1,6 +1,4 @@
-This exercise looks at how you test for equality and the importance of hash codes.
-
-### `Object.Equals()`
+## equality
 
 Simple types (strings and primitives) are typically tested for equality with the `==` and `!=`.
 
@@ -22,6 +20,6 @@ The HashCode library API documentation discusses the best way to generate a hash
 
 The values used in the equality test must be stable while the hashed collection is in use. If you add an object to the collection with one set of values and then change those values the hash code will no longer point to the correct "bucket". In practice this means that the object should be immutable. Other approaches run the risk of creating gotchas for maintainers.
 
-### HashSet
+## sets
 
 The `HashSet` library class provides a good mechanism for storing unique values.
