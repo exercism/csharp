@@ -3,12 +3,6 @@ using Xunit;
 public class CharsTest
 {
     [Fact]
-    public void Clean_empty_string()
-    {
-        Assert.Equal(string.Empty, Identifier.Clean(string.Empty));
-    }
-
-    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Clean_single_letter()
     {
         Assert.Equal("A", Identifier.Clean("A"));
@@ -39,6 +33,12 @@ public class CharsTest
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Clean_empty_string()
+    {
+        Assert.Equal(string.Empty, Identifier.Clean(string.Empty));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Convert_kebab_to_camel_case()
     {
         Assert.Equal("àḂç", Identifier.Clean("à-ḃç"));
@@ -55,6 +55,4 @@ public class CharsTest
     {
         Assert.Equal("_AbcĐCTRL", Identifier.Clean("9 -abcĐ😀ω\0"));
     }
-
-
 }
