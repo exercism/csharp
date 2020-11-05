@@ -4,7 +4,9 @@ clean up identifier names.
 In the 4 tasks you will gradually build up the routine `Clean` A valid identifier comprises
 zero or more letters and underscores.
 
-In all cases the input string is guaranteed to be non-null. Note that the `Clean` method should treat an empty string as valid.
+In all cases the input string is guaranteed to be non-null. If an empty string is passed to the `Clean` function, an empty string should be returned.
+
+Note that the caller should avoid calling the routine `Clean` with an empty identifier since such identifiers are ineffectual.
 
 ### 1. Replace any spaces encountered with underscores
 
