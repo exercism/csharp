@@ -1,20 +1,20 @@
 using System;
 
-public static class HighSchoolSweetheart
+public static class HighSchoolSweethearts
 {
     public static string DisplaySingleLine(string studentA, string studentB)
     {
-        throw new NotImplementedException($"Please implement the (static) HighSchoolSweetheart.DisplaySingleLine() method");
+        throw new NotImplementedException($"Please implement the (static) HighSchoolSweethearts.DisplaySingleLine() method");
     }
 
     public static string DisplayBanner(string studentA, string studentB)
     {
-        throw new NotImplementedException($"Please implement the (static) HighSchoolSweetheart.DisplayBanner() method");
+        throw new NotImplementedException($"Please implement the (static) HighSchoolSweethearts.DisplayBanner() method");
     }
 
     public static string DisplayGermanExchangeStudents(string studentA
         , string studentB, DateTime start, float hours)
     {
-        throw new NotImplementedException($"Please implement the (static) HighSchoolSweetheart.DisplayGermanExchangeStudents() method");
+        throw new NotImplementedException($"Please implement the (static) HighSchoolSweethearts.DisplayGermanExchangeStudents() method");
     }
 }

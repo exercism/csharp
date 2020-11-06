@@ -1,7 +1,7 @@
 using System;
 using System.Globalization;
 
-public static class HighSchoolSweetheart
+public static class HighSchoolSweethearts
 {
     private const string banner =
         @"
