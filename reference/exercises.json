@@ -549,11 +549,6 @@
               "line-number": 155
             }
           ]
-        },
-        {
-          "name": "pattern-matching-constants",
-          "track-neutral-concept": "",
-          "original-concepts": []
         }
       ]
     },
@@ -1048,7 +1043,7 @@
           ]
         },
         {
-          "name": "conditionals-ternary",
+          "name": "ternary-operators",
           "track-neutral-concept": "reference/concepts/conditionals.md",
           "original-concepts": [
             {
@@ -1084,11 +1079,6 @@
               "line-number": 122
             }
           ]
-        },
-        {
-          "name": "accessibility",
-          "track-neutral-concept": "",
-          "original-concepts": []
         },
         {
           "name": "imports",
