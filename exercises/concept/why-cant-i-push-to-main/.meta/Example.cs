@@ -11,7 +11,7 @@ public class Authenticator
             EyeColor = "green",
             PhiltrumWidth = 0.9m
         },
-        NameAndAddress = new List<string>{"Chanakya", "Mombai", "India"}
+        NameAndAddress = new List<string> { "Chanakya", "Mombai", "India" }
     };
 
     public IDictionary<string, Identity> Developers { get; }
@@ -25,7 +25,7 @@ public class Authenticator
                     EyeColor = "blue",
                     PhiltrumWidth = 0.8m
                 },
-                NameAndAddress = new List<string>{"Bertrand", "Paris", "France"}
+                NameAndAddress = new List<string> { "Bertrand", "Paris", "France" }
             },
 
             ["Anders"] = new Identity
@@ -36,7 +36,7 @@ public class Authenticator
                     EyeColor = "brown",
                     PhiltrumWidth = 0.85m
                 },
-                NameAndAddress = new List<string>{"Anders", "Redmond", "USA"}
+                NameAndAddress = new List<string> { "Anders", "Redmond", "USA" }
             }
         };
 }
