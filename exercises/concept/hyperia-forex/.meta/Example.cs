@@ -87,12 +87,12 @@ public struct CurrencyAmount
         return new CurrencyAmount(@this.amount / divisor, @this.currency);
     }
 
-    public static explicit operator double (CurrencyAmount @this)
+    public static explicit operator double(CurrencyAmount @this)
     {
-        return (double) @this.amount;
+        return (double)@this.amount;
     }
 
-    public static implicit operator decimal (CurrencyAmount @this)
+    public static implicit operator decimal(CurrencyAmount @this)
     {
         return @this.amount;
     }

@@ -12,7 +12,7 @@ public class OverflowTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void DisplayDenomination_bad()
     {
-        Assert.Equal("*** Too Big ***", CentralBank.DisplayDenomination( long.MaxValue / 2L, 10000L));
+        Assert.Equal("*** Too Big ***", CentralBank.DisplayDenomination(long.MaxValue / 2L, 10000L));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]

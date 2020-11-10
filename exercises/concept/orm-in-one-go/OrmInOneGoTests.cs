@@ -82,7 +82,7 @@ public class ResourceLifetimeTests
 // **** please do not modify the Database class ****
 public class Database : IDisposable
 {
-    public enum State {TransactionStarted, DataWritten, Invalid, Closed}
+    public enum State { TransactionStarted, DataWritten, Invalid, Closed }
 
     public static State DbState { get; private set; } = State.Closed;
     public static string lastData = string.Empty;

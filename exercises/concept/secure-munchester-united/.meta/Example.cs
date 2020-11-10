@@ -21,9 +21,9 @@ public class SecurityPassMaker
 
 /**** Please do not alter the code below ****/
 
-public interface TeamSupport {string Title { get; } }
+public interface TeamSupport { string Title { get; } }
 
-public abstract class Staff : TeamSupport { public abstract string Title { get; }}
+public abstract class Staff : TeamSupport { public abstract string Title { get; } }
 
 public class Manager : TeamSupport { public string Title { get; } = "The Manager"; }
 

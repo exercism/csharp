@@ -35,8 +35,8 @@ public class InterfacesTests
         fast.NumberOfVictories = 3;
         medium.NumberOfVictories = 2;
         slow.NumberOfVictories = 1;
-        var cars = new List<ProductionRemoteControlCar> {fast, slow, medium};
+        var cars = new List<ProductionRemoteControlCar> { fast, slow, medium };
         cars.Sort();
-        Assert.Equal(new ProductionRemoteControlCar[] {slow, medium, fast}, cars);
+        Assert.Equal(new ProductionRemoteControlCar[] { slow, medium, fast }, cars);
     }
 }

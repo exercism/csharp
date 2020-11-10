@@ -35,7 +35,7 @@ public struct Plot
             TopRight.X - TopLeft.X,
             Math.Max(BottomRight.X - BottomLeft.X,
                 Math.Max(BottomRight.Y - TopRight.Y
-                    ,BottomLeft.Y - TopLeft.Y)));
+                                    , BottomLeft.Y - TopLeft.Y)));
     }
 }
 

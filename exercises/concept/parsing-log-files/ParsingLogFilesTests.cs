@@ -21,14 +21,14 @@ public class RegularExpressionTests
     public void SplitLogLine()
     {
         var lp = new LogParser();
-        Assert.Equal(new string[] {"section 1", "section 2", "section 3"}, lp.SplitLogLine("section 1<^>section 2<--->section 3"));
+        Assert.Equal(new string[] { "section 1", "section 2", "section 3" }, lp.SplitLogLine("section 1<^>section 2<--->section 3"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void SplitLogLine_Empty()
     {
         var lp = new LogParser();
-        Assert.Equal(new string[] {string.Empty}, lp.SplitLogLine(string.Empty));
+        Assert.Equal(new string[] { string.Empty }, lp.SplitLogLine(string.Empty));
     }
 
 

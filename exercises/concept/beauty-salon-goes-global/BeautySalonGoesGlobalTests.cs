@@ -20,7 +20,7 @@ public class TimeTests
         var offset = tzi.GetUtcOffset(dt);
         Assert.Equal(dt + offset, Appointment.ShowLocalTime(dt));
     }
- 
+
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Schedule_newyork()
     {
@@ -141,7 +141,7 @@ public class TimeTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void NormalizeDateTime_newyork()
     {
-        Assert.Equal( new DateTime(2019, 11, 25, 13, 45, 0),
+        Assert.Equal(new DateTime(2019, 11, 25, 13, 45, 0),
             Appointment.NormalizeDateTime("11/25/2019 13:45:00",
                 Location.NewYork));
     }
@@ -149,7 +149,7 @@ public class TimeTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void NormalizeDateTime_london()
     {
-        Assert.Equal( new DateTime(2019, 11, 25, 13, 45, 0),
+        Assert.Equal(new DateTime(2019, 11, 25, 13, 45, 0),
             Appointment.NormalizeDateTime("25/11/2019 13:45:00",
                 Location.London));
     }
@@ -157,7 +157,7 @@ public class TimeTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void NormalizeDateTime_paris()
     {
-        Assert.Equal( new DateTime(2019, 11, 25, 13, 45, 0),
+        Assert.Equal(new DateTime(2019, 11, 25, 13, 45, 0),
             Appointment.NormalizeDateTime("25/11/2019 13:45:00",
                 Location.Paris));
     }
@@ -165,7 +165,7 @@ public class TimeTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void NormalizeDateTime_bad()
     {
-        Assert.Equal( DateTime.MinValue,
+        Assert.Equal(DateTime.MinValue,
             Appointment.NormalizeDateTime("25/11/2019 13:45:00",
                 Location.NewYork));
     }

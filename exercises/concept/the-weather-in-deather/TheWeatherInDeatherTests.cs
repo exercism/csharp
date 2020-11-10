@@ -8,8 +8,8 @@ public class ExpressionBodiedMembersTests
     {
         var ws = new WeatherStation();
         ws.AcceptReading(new Reading(20m, 25m, 0.01m, WindDirection.Unknown));
-        decimal[] expected = {20, 25, 0.01m};
-        decimal[] actual = {ws.LatestTemperature, ws.LatestPressure, ws.LatestRainfall};
+        decimal[] expected = { 20, 25, 0.01m };
+        decimal[] actual = { ws.LatestTemperature, ws.LatestPressure, ws.LatestRainfall };
         Assert.Equal(expected, actual);
     }
 
@@ -37,8 +37,8 @@ public class ExpressionBodiedMembersTests
         ws.AcceptReading(new Reading(20m, 25m, 0.01m, WindDirection.Unknown));
         ws.AcceptReading(new Reading(21m, 25m, 0.00m, WindDirection.Unknown));
         ws.ClearAll();
-        object[] expected = {false, 0m};
-        object[] actual = {ws.HasHistory, ws.LatestTemperature};
+        object[] expected = { false, 0m };
+        object[] actual = { ws.HasHistory, ws.LatestTemperature };
         Assert.Equal(expected, actual);
     }
 

@@ -46,7 +46,7 @@ public static class TestTrack
     public static List<ProductionRemoteControlCar> GetRankedCars(ProductionRemoteControlCar prc1,
         ProductionRemoteControlCar prc2)
     {
-        var rankings = new List<ProductionRemoteControlCar>{prc1, prc2};
+        var rankings = new List<ProductionRemoteControlCar> { prc1, prc2 };
         rankings.Sort();
         return rankings;
     }
