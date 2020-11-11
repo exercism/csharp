@@ -117,7 +117,7 @@ If only one hashed collection is in play then it may be better to avoid `IEquali
 
 ### Note on floating-point equality
 
-One primitive that can challenge the unwary coder is testing the [equality of floating-point values][0.30000000000000004.com]. This is discussed in the _after.md_ document for the `floating-point-numbers` exercise.
+One primitive that can challenge the unwary coder is testing the [equality of floating-point values][0.30000000000000004.com]. This is discussed in the _about.md_ document for the `floating-point-numbers` concept.
 
 ### Equality and Inheritance
 
