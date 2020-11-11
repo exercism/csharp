@@ -22,17 +22,7 @@ The main method for implementation in this task will be the (_static_) `SimpleCa
 
 Any other operation symbol should throw the `ArgumentOutOfRangeException` exception. If the operation argument is an empty string, then the method should throw the `ArgumentException` exception. When `null` is provided as an operation argument, then the method should throw the `ArgumentNullException` exception. This functionality and handling of operations should be contained in a `try` block.
 
-## 3. Handle the thrown Overflow exceptions
-
-When the `OverflowException` exception gets thrown, the code handling the exception should return the string of the following content: `The result of operation {operand1} {operation} {operand2} does not fit into integer type.`.
-
-```csharp
-SimpleCalculator.Calculate(2_147_483_647, 2, "+"); // => returns "The result of operation 2147483647 + 2 does not fit into integer type."
-
-SimpleCalculator.Calculate(2_147_483_647, 2, "*"); // => returns "The result of operation 2147483647 * 2 does not fit into integer type."
-```
-
-## 4. Handle the thrown DivideByZero exceptions
+## 3. Handle the thrown DivideByZero exceptions
 
 When a `DivideByZeroException` exception gets thrown, the handling code should return the string with the content `Division by zero is not allowed.`. Any other exception should not be handled by the `SimpleCalculator.Calculate()` method.
 

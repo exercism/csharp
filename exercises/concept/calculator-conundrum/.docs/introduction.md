@@ -4,7 +4,7 @@ Exceptions in C# provide a structured, uniform, and type-safe way of handling er
 
 In C#, all exceptions have `System.Exception` class as their base type. It contains important properties such as `Message`, which contains a human-readable description of the reason for the exception being thrown.
 
-To signal that there should be an error in a certain part of the code, a new exception object needs to be created and then thrown,using the `throw` keyword:
+To signal that there should be an error in a certain part of the code, a new exception object needs to be created and then thrown, using the `throw` keyword:
 
 ```csharp
 using System;
@@ -18,29 +18,31 @@ static int Square(int number)
 }
 ```
 
-When an exception gets thrown, the runtime has the task of finding a piece of code that is responsible for handling of that exception. If no appropriate handler is found, the runtime displays the unhandled exception message in addition to stoping the execution of the program. To create a handler for an exception, C# uses the try-catch statement, which consists of a `try` block and one or more `catch` clauses. The `try` block should contain and guard code that may result in the exception getting thrown. The `catch` clauses should contain code that handles the behaviour of the program after the error has occured. It is important to note that the order of exceptions matters after the `try` block, as when multiple exceptions are listed, the first matching `catch` clause is executed.
+When an exception gets thrown, the runtime has the task of finding a piece of code that is responsible for handling of that exception. If no appropriate handler is found, the runtime displays the unhandled exception message in addition to stopping the execution of the program.
+
+To create a handler for an exception, C# uses the try-catch statement, which consists of a `try` block and one or more `catch` clauses. The `try` block should contain and guard code that may result in the exception getting thrown. The `catch` clauses should contain code that handles the behavior of the program after the error has occurred. It is important to note that the order of exceptions matters after the `try` block, as when multiple exceptions are listed, the first matching `catch` clause is executed.
 
 ```csharp
 try
 {
-   if (number == -1)
+   if (number == 42)
    {
-       throw new ArgumentException("The number cannot be equal to -1", "number");
+       throw new ArgumentException("The number cannot be equal to 42.", "number");
    }
 
    if (number < 0)
    {
-      throw new ArgumentOutOfRangeException("number", "The number cannot be negative");
+      throw new ArgumentOutOfRangeException("number", "The number cannot be negative.");
    }
 
     // Process number ...
 }
 catch (ArgumentOutOfRangeException e)
 {
-    Console.WriteLine($"Number is out of range: {e.Message}");
+    Console.WriteLine($"Number is out of range: {e.Message}.");
 }
 catch (ArgumentException)
 {
-    Console.WriteLine($"Invalid number");
+    Console.WriteLine("Invalid number.");
 }
 ```
