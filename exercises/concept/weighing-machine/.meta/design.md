@@ -112,7 +112,6 @@ languages
         └── concept
             └── properties
                 ├── .docs
-                |   ├── after.md
                 |   ├── hints.md
                 |   ├── instructions.md
                 |   └── introduction.md
@@ -136,13 +135,7 @@ This file contains instructions for the exercise. It should explicitly explain w
 
 If the user gets stuck, we will allow them to click a button requesting a hint, which shows this file. We will softly discourage them using it. The file should contain both general and task-specific "hints". These hints should be enough to unblock almost any student.
 
-## Step 4: add .docs/after.md
-
-Once the user completes the exercise they will be shown this file, which gives them any bonus information or further reading about the concept taught.
-
-These files are also all described in the [concept exercises document][docs-concept-exercises].
-
-## Step 5: update languages/csharp/config.json
+## Step 4: update languages/csharp/config.json
 
 An entry should be added to the track's `config.json` file for the new concept exercise:
 
@@ -169,7 +162,7 @@ An entry should be added to the track's `config.json` file for the new concept e
 }
 ```
 
-## Step 6: adding track-specific files
+## Step 5: adding track-specific files
 
 These files are specific to the C# track:
 
@@ -180,15 +173,15 @@ These files are specific to the C# track:
 
 Check out the [`floating-point-numbers exercise`][csharp-docs-concept-exercises-numbers-floating-point] for an example on what these files should look like.
 
-## Step 7: update the general concept document
+## Step 6: update the general concept document
 
 Not applicable for this concept
 
-## Step 8: updating list of implemented exercises
+## Step 7: updating list of implemented exercises
 
 - Add the exercise to the [list of implemented exercises][csharp-docs-concept-exercises].
 
-## Step 9: add .meta/design.md:
+## Step 8: add .meta/design.md:
 
 This file contains information on the exercise's design, which includes things like its goal, its teaching goals, what not to teach, and more ([example][meta-design]). This information can be extracted from this GitHub issue.
 
@@ -212,7 +205,6 @@ When implementing this exericse, it can be very useful to look at already implem
 [csharp-representer]: https://github.com/exercism/csharp-representer
 [csharp-docs-cli.md]: https://github.com/exercism/v3/blob/master/languages/csharp/exercises/.docs/cli.md
 [csharp-docs-debug.md]: https://github.com/exercism/v3/blob/master/languages/csharp/exercises/.docs/debug.md
-[csharp-docs-after.md]: https://github.com/exercism/v3/blob/master/interest-is-interesting/.docs/after.md
 [csharp-docs-hints.md]: https://github.com/exercism/v3/blob/master/interest-is-interesting/.docs/hints.md
 [csharp-docs-introduction.md]: https://github.com/exercism/v3/blob/master/interest-is-interesting/.docs/introduction.md
 [csharp-docs-instructions.md]: https://github.com/exercism/v3/blob/master/interest-is-interesting/.docs/instructions.md

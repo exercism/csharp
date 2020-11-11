@@ -14,8 +14,9 @@ Please also watch the following video:
 
 As this document is generic, the following placeholders are used:
 
-- `<SLUG>`: the name of the exercise in kebab-case (e.g. `anonymous-methods`).
-- `<NAME>`: the name of the exercise in PascalCase (e.g. `AnonymousMethods`).
+- `<SLUG>`: the slug of the exercise in kebab-case (e.g. `calculator-conundrum`).
+- `<NAME>`: the name of the exercise in PascalCase (e.g. `CalculatorConundrum`).
+- `<CONCEPT_SLUG>`: the slug of one of the exercise's concepts in kebab-case (e.g. `anonymous-methods`).
 
 Before implementing the exercise, please make sure you have a good understanding of what the exercise should be teaching (and what not). This information can be found in the exercise's GitHub issue. Having done this, please read the [C# concept exercises introduction][concept-exercises].
 
@@ -24,11 +25,14 @@ To implement a concept exercise, the following files must be added:
 <pre>
 languages
 └── csharp
+    ├── concepts
+    |   └── &lt;CONCEPT_SLUG&gt;
+    |       ├── about.md
+    |       └── links.json
     └── exercises
         └── concept
             └── &lt;SLUG&gt;
                 ├── .docs
-                |   ├── after.md
                 |   ├── instructions.md
                 |   ├── introduction.md
                 |   ├── hints.md

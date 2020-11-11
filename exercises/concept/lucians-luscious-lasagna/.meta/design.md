@@ -9,7 +9,7 @@
 - Know how to call a method
 - Know that methods must be defined in classes
 - Know about the `public` access modifier
-- Know about the `static` modifier (only in `after.md`)
+- Know about the `static` modifier (only in concept's `about.md`)
 - Know how to define an integer
 - Know how to use mathematical operators on integers
 - Know how to define single- and multiline comments
