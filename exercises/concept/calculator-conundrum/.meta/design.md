@@ -14,8 +14,9 @@ The goal of this exercise is to teach the student the Concept of Exceptions in C
 
 - Exception filters.
 - User-defined exceptions.
-- try/finally blocks
+- try/finally blocks.
 - Memory and performance characteristics.
+- Overflows.
 
 ## Concepts
 
@@ -26,7 +27,6 @@ The goal of this exercise is to teach the student the Concept of Exceptions in C
 - `basics`: know how to do string interpolation and how to work with `int`s
 - `inheritance`: know about class hierarchies
 - `nullability`: know what `null` is
-- `overflows`: know what an `OverflowException` is
 - `switch-statements`: know how to write a `switch` statement
 
 ## Resources to refer to
