@@ -13,7 +13,7 @@
 - strings: used to store the isbn numbers
 - for loop: iterate over the numbers to check if valid
 - conditionals: used for checking values
-- ternary operator: combine conditonals to check for isbn
+- ternary operator: combine conditionals to check for isbn
 - assignment: assigning values to variables
 - type inference: using var to define variables
 - math operators: `++` and `--` used to increment counts in loop, modulus operator

@@ -5,7 +5,7 @@
 ## General
 
 - functions: used as the main entry point to this exercise
-- constructors: initalizing values when object is created
+- constructors: initializing values when object is created
 - conditionals using if: conditionally execute logic using an `if` statement
 - classes: the tested method is defined in a class
 - objects: creating an object to keep track of the robot

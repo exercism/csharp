@@ -33,7 +33,7 @@
 
 ## Types
 
-- strings: the basis of the exercice. I think things like Concat/Join/+/StringBuilder/ToString are problably concepts by themselves.
+- strings: the basis of the exercise. I think things like Concat/Join/+/StringBuilder/ToString are probably concepts by themselves.
 - lists: used as intermediate data structure.
 - dictionaries: used to store pre computed RNA pairs.
 - arrays: used as intermediate data structure.
