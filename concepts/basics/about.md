@@ -1,4 +1,4 @@
-C# is a statically-typed language, which means that everything has a type at compile-time. Assigning a value to a name is referred to as defining a variable. A variable can be defined either by explicitly specifying its type, or by using the [`var` keyword][var] to have the C# compiler infer its type based on the assigned value.
+C# is a statically-typed language, which means that everything has a type at compile-time. Choosing a name for a variable is referred to as defining a variable. Once a variable is defined, setting or updating a value is called variable assignment. A variable can be defined either by explicitly specifying its type, or by using the [`var` keyword][var] to have the C# compiler infer its type based on the assigned value.
 
 ```csharp
 int explicitVar = 10; // Explicitly typed
@@ -70,6 +70,8 @@ C# supports two types of [comments][comments]. Single line comments are preceded
 
 Integer values are defined as one or more (consecutive) digits and support the [default mathematical operators][operators].
 
+A variable name [must follow some rules][identifier-names] like starting either by a letter or an underscore, and [should follow C# naming convention][naming-guidelines]. If a variable name collides with a reserved [C# keyword][csharp-keywords], it must be escaped using `@`. It is not recommended to use that notation, but it can be encountered in exceptional cases, for example: `var @this`, `var @class` or `var @var`.
+
 [assignment]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/assignment-operator
 [var]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/var
 [classes]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/classes#declaring-classes
@@ -77,3 +79,6 @@ Integer values are defined as one or more (consecutive) digits and support the [
 [return]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/return
 [operators]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators#addition-operator-
 [comments]: https://www.w3schools.com/cs/cs_comments.asp
+[identifier-names]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/inside-a-program/identifier-names
+[naming-guidelines]: https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/naming-guidelines
+[csharp-keywords]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/
