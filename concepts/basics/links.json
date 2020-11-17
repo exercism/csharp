@@ -26,5 +26,17 @@
   {
     "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators#addition-operator-",
     "description": "operators"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/inside-a-program/identifier-names",
+    "description": "variable-names"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/naming-guidelines",
+    "description": "naming-guidelines"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/",
+    "description": "csharp-keywords"
   }
 ]
