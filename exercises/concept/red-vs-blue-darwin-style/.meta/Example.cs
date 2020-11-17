@@ -35,7 +35,6 @@ namespace BlueRemoteControlCarTeam
     {
         public RemoteControlCar(Motor motor, Chassis chassis, Telemetry telemetry)
         {
-
         }
         // blue members and API
     }
