@@ -28,13 +28,13 @@ public static class RedRemoteControlCarTeam
         // red members and API
     }
 }
+
 public static class BlueRemoteControlCarTeam
 {
     public class RemoteControlCar
     {
         public RemoteControlCar(Motor motor, Chassis chassis, Telemetry telemetry)
         {
-
         }
         // blue members and API
     }
