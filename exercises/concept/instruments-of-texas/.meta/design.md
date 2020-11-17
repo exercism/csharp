@@ -23,5 +23,5 @@ This Concept Exercise's prerequisites Concepts are:
 - `inheritance`: inheriting from the `Exception` class for the custom exception.
 - `strings`: converting an into a string
 - `if-statements`: use of `&&`
-- `arithmetic-overflow`
+- `overflow`
 - `signed-integers`: `Int32.MaxValue`
