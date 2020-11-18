@@ -1,13 +1,17 @@
 using Xunit;
-using Xunit.Sdk;
 using System;
 using System.Globalization;
-using System.Reflection;
 using System.Threading;
 
-[UseCulture("en-US")]
 public class AppointmentTests
 {
+    public AppointmentTests()
+    {
+        var enUsCulture = new CultureInfo("en-US");
+        Thread.CurrentThread.CurrentCulture = enUsCulture;
+        Thread.CurrentThread.CurrentUICulture = enUsCulture;
+    }
+
     [Fact]
     public void Schedule_date_using_only_numbers()
     {
@@ -152,48 +156,9 @@ public class AppointmentTests
         Assert.Equal("You have an appointment on 9/9/2020 9:09:09 AM.", Appointment.Description(new DateTime(2020, 9, 9, 9, 9, 9)));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Anniversary_date()
     {
         Assert.Equal(new DateTime(DateTime.Now.Year, 9, 15), Appointment.AnniversaryDate());
-    }
-
-    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
-    private class UseCultureAttribute : BeforeAfterTestAttribute
-    {
-        private readonly CultureInfo _culture;
-        private readonly CultureInfo _uiCulture;
-        private CultureInfo _originalCulture;
-        private CultureInfo _originalUiCulture;
-
-        public UseCultureAttribute(string culture)
-            : this(culture, culture) { }
-
-        public UseCultureAttribute(string culture, string uiCulture)
-        {
-            _culture = new CultureInfo(culture, false);
-            _uiCulture = new CultureInfo(uiCulture, false);
-        }
-
-        public override void Before(MethodInfo methodUnderTest)
-        {
-            _originalCulture = Thread.CurrentThread.CurrentCulture;
-            _originalUiCulture = Thread.CurrentThread.CurrentUICulture;
-
-            Thread.CurrentThread.CurrentCulture = _culture;
-            Thread.CurrentThread.CurrentUICulture = _uiCulture;
-
-            CultureInfo.CurrentCulture.ClearCachedData();
-            CultureInfo.CurrentUICulture.ClearCachedData();
-        }
-
-        public override void After(MethodInfo methodUnderTest)
-        {
-            Thread.CurrentThread.CurrentCulture = _originalCulture;
-            Thread.CurrentThread.CurrentUICulture = _originalUiCulture;
-
-            CultureInfo.CurrentCulture.ClearCachedData();
-            CultureInfo.CurrentUICulture.ClearCachedData();
-        }
     }
 }
