@@ -4,36 +4,6 @@
       "Severity": "error",
       "Message": "Failed to find concept compound-assignment, from the attack-of-the-trolls design.md, in exercises.json file",
       "Source": "merge"
-    },
-    {
-      "Severity": "error",
-      "Message": "Failed to find concept encapsulation, from the elons-toys design.md, in exercises.json file",
-      "Source": "merge"
-    },
-    {
-      "Severity": "error",
-      "Message": "Failed to find concept fields, from the elons-toys design.md, in exercises.json file",
-      "Source": "merge"
-    },
-    {
-      "Severity": "error",
-      "Message": "Failed to find concept objects, from the elons-toys design.md, in exercises.json file",
-      "Source": "merge"
-    },
-    {
-      "Severity": "error",
-      "Message": "Failed to find concept state, from the elons-toys design.md, in exercises.json file",
-      "Source": "merge"
-    },
-    {
-      "Severity": "error",
-      "Message": "Failed to find concept visibility, from the elons-toys design.md, in exercises.json file",
-      "Source": "merge"
-    },
-    {
-      "Severity": "error",
-      "Message": "Failed to find concept default-value, from the elons-toys design.md, in exercises.json file",
-      "Source": "merge"
     }
   ]
 }
