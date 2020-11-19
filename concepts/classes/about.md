@@ -7,7 +7,9 @@ Access to members can be restricted through access modifiers, the two most commo
 
 It is customary to specify an access modifier for all members. If no access modifier is specified, it will default to `private`.
 
-The above-mentioned grouping of related data and behavior plus restricting access to members is known as _encapsulation_, which is one of the core object-oriented concepts.
+The above-mentioned grouping of related data and behavior plus restricting access to members is known as [encapsulation][encapsulation], which is one of the core object-oriented concepts.
+
+The combination of field values of an object at any one time are known as the object's [state][object-state].
 
 You can think of a class as a template for creating instances of that class. To [create an instance of a class][creating-objects] (also known as an _object_), the [`new` keyword][new] is used:
 
@@ -21,7 +23,7 @@ var myCar = new Car();
 var yourCar = new Car();
 ```
 
-[Fields][fields] have a type and a name (defined in [camelCase][camel-case]) and can be defined anywhere in a class (defined in [PascalCase][pascal-case]).
+[Fields][fields] have a type and a name (defined, by convention, in [camelCase][camel-case]) and can be defined anywhere in a class (defined, again by convention, in [PascalCase][pascal-case]).
 
 ```csharp
 class Car
@@ -86,6 +88,12 @@ class CarImporter
 }
 ```
 
+The class and method structure provides a natural way to limit visibility of program elements such as fields and methods and avoid the well-known [problem of global state][so-global-state-problem]. Public fields, methods and other members have to be qualified with the object name, `object.field` or `object.method()`, (class name in the case of statics) to be seen by code outside the class. Variables and parameters declared within a method can be seen only within that method.
+
+One thing to be wary of with this approach is that if a field name and the name of a variable or parameter in a method are the same then the field name will be ignored by code within the method which may not be what you desire.  In general, you should avoid this where possible although it is a common pattern in constructors.  If it is appropriate for the field and variable name to be the same then qualify the field name with the `this` keyword within the method.
+
+These [access modifiers][access-modifiers] can be used to further limit visibility.
+
 [fields]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/fields
 [methods]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/methods
 [this]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/this
@@ -98,3 +106,8 @@ class CarImporter
 [default-values]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/default-values
 [camel-case]: https://techterms.com/definition/camelcase
 [pascal-case]: https://techterms.com/definition/pascalcase
+[encapsulation]: https://docs.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/architectural-principles#encapsulation
+[visibility]: https://docs.microsoft.com/en-us/cpp/c-language/scope-and-visibility?view=msvc-160
+[object-state]: https://cs.stackexchange.com/questions/6536/definition-of-the-state-of-an-object-in-oop
+[so-global-state-problem]: https://softwareengineering.stackexchange.com/questions/148108/why-is-global-state-so-evil
+[access-modifiers]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers
