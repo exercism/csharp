@@ -24,63 +24,27 @@
             {
               "name": "- [Classes][classes]",
               "line-number": 11
-            }
-          ]
-        },
-        {
-          "name": "encapsulation",
-          "track-neutral-concept": "reference/concepts/encapsulation.md",
-          "original-concepts": [
+            },
             {
               "name": "- [Encapsulation][encapsulation]",
               "line-number": 13
-            }
-          ]
-        },
-        {
-          "name": "fields",
-          "track-neutral-concept": "",
-          "original-concepts": [
+            },
             {
               "name": "- Fields",
               "line-number": 14
-            }
-          ]
-        },
-        {
-          "name": "objects",
-          "track-neutral-concept": "reference/concepts/objects.md",
-          "original-concepts": [
+            },
             {
               "name": "- [Objects][objects]",
               "line-number": 32
-            }
-          ]
-        },
-        {
-          "name": "state",
-          "track-neutral-concept": "reference/concepts/state.md",
-          "original-concepts": [
+            },
             {
               "name": "- [State][state]",
               "line-number": 36
-            }
-          ]
-        },
-        {
-          "name": "visibility",
-          "track-neutral-concept": "",
-          "original-concepts": [
+            },
             {
               "name": "  - Visibility (\u0060public\u0060; \u0060private\u0060; etc.)",
               "line-number": 123
-            }
-          ]
-        },
-        {
-          "name": "default-value",
-          "track-neutral-concept": "",
-          "original-concepts": [
+            },
             {
               "name": "  - Default values (a \u0060bool\u0060 being \u0060false\u0060 by default; etc.)",
               "line-number": 133
