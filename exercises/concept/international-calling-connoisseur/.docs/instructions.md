@@ -2,13 +2,15 @@ In this exercise you'll be writing code to keep track of international dialling 
 
 The dictionary uses an integer for its keys (the dialing code) and a string (country name) for its values.
 
-You have 11 tasks which involve DialingCodes.
+You have 9 tasks which involve the  `DialingCodes` static class.
 
 ### 1. Create a new dictionary
 
+Implement the (static) method `DialingCodes.GetEmptyDictionary()` that returns an empty dictionary.
+
 ```csharp
 DialingCodes.GetEmptyDictionary();
-// empty dictionary
+// => empty dictionary
 ```
 
 ### 2. Create a pre-populated dictionary
@@ -17,93 +19,81 @@ There exists a pre-populated dictionary which contains the following 3 dialing c
 
 ```csharp
 DialingCodes.GetExistingDictionary();
-// 1 => "United States of America", 55 => "Brazil", 91 => "India"
+// => 1 => "United States of America", 55 => "Brazil", 91 => "India"
 ```
 
 ### 3. Add a country to an empty dictionary
 
-Add "United Kingdom" with a dialing code of 44:
+Implement the (static) method `DialingCodes.AddCountryToEmptyDictionary()` that creates a dictionary and adds a dialing code and associated country name to it.
 
 ```csharp
 DialingCodes.AddCountryToEmptyDictionary(44, "United Kingdom");
-// 44 => "United Kingdom"
+// => 44 => "United Kingdom"
 ```
 
 ### 4. Add a country to an existing dictionary
 
-Add "United Kingdom" with a dialing code of 44 to the dictionary created in task 2:
+Implement the (static) method `DialingCodes.AddCountryToExistingDictionary()` that adds a dialing code and associated country name to a non-empty dictionary.
 
 ```csharp
 DialingCodes.AddCountryToExistingDictionary(DialingCodes.GetExistingDictionary(),
   44, "United Kingdom");
-// 1 => "United States of America", 44 => "United Kingdom", 55 => "Brazil", 91 => "India"
+// => 1 => "United States of America", 44 => "United Kingdom", 55 => "Brazil", 91 => "India"
 ```
 
-### 5. Get the country name matching a country code
+### 5. Get the country name matching a dialing code
 
-Check that a country with the country name for dialing code 55
+Implement the (static) method `DialingCodes.GetCountryNameFromDictionary()` that takes a dialing code and returns the corresponding country name. If the dialing code is not contained in the dictionary then an empty string is returned.
 
 ```csharp
 DialingCodes.GetCountryNameFromDictionary(
   DialingCodes.GetExistingDictionary(), 55);
-// "Brazil"
+// => "Brazil"
+
+DialingCodes.GetCountryNameFromDictionary(
+  DialingCodes.GetExistingDictionary(), 999);
+// => string.Empty
 ```
 
 ### 6. Check that a country exists in the dictionary
 
-Check that a record for Brazil exists in the dictionary created in task 2
+Implement the (static) method `DialingCodes.CheckCodeExists()` to check whether a dialing code exists in the dictionary.
 
 ```csharp
 DialingCodes.CheckCodeExists(DialingCodes.GetExistingDictionary(), 55);
-// true
+// => true
 ```
 
-### 7. Attempt to get country name for a non-existent country code
+### 7. Update a country name
 
-Request the country name for a code that is not in the existing dictionary, e.g. 999. An empty string should be returned:
-
-```csharp
-DialingCodes.GetCountryNameFromDictionary(
-  DialingCodes.GetExistingDictionary(), 999);
-// string.Empty
-```
-
-### 8. Update a country name
-
-Change the name of "United States of America" to "Les États-Unis":
+Implement the (static) method `DialingCodes.UpdateDictionary()` which takes a dialing code and replaces the corresponding country name in the dictionary with the country name passed as a parameter. If the dialing code does not exist in the dictionary then the dictionary remains unchanged.
 
 ```csharp
 DialingCodes.UpdateDictionary(
   DialingCodes.GetExistingDictionary(), 1, "Les États-Unis");
-// 1 => "Les États-Unis", 55 => "Brazil", 91 => "India"
-```
+// => 1 => "Les États-Unis", 55 => "Brazil", 91 => "India"
 
-### 9. Attempt to update name of country that is not in the dictionary
-
-Try to change the name of a country with a code that is not in the dictionary e.g. 999. This should result in no change to the dictionary:
-
-```csharp
 DialingCodes.UpdateDictionary(
   DialingCodes.GetExistingDictionary(), 999, "Newlands");
 // 1 => "United States of America", 55 => "Brazil", 91 => "India"
 ```
 
-### 10. Remove a country from the dictionary
+### 8. Remove a country from the dictionary
 
-Remove India from the dictionary:
+Implement the (static) method `DialingCodes.RemoveCountryFromDictionary()` that takes a dialing code and will remove the corresponding record, dialing code + country name, from the dictionary.
 
 ```csharp
 DialingCodes.RemoveCountryFromDictionary(
   DialingCodes.GetExistingDictionary(), 91);
-// 1 => "United States of America", 55 => "Brazil"
+// => 1 => "United States of America", 55 => "Brazil"
 ```
 
-### 11. Find the country with the longest name
+### 9. Find the country with the longest name
 
-Process the values in the dictionary to find the one with the longest name:
+Implement the (static) method `DialingCodes.FindLongestCountryName()` which will return the name of the country with the longest name stored in the dictionary.
 
 ```csharp
 DialingCodes.FindLongestCountryName(
   DialingCodes.GetExistingDictionary());
-// "United States of America"
+// => "United States of America"
 ```
