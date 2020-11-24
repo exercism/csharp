@@ -2,7 +2,7 @@ In this exercise you'll be writing code to keep track of international dialling 
 
 The dictionary uses an integer for its keys (the dialing code) and a string (country name) for its values.
 
-You have 9 tasks which involve the  `DialingCodes` static class.
+You have 9 tasks which involve the `DialingCodes` static class.
 
 ### 1. Create a new dictionary
 

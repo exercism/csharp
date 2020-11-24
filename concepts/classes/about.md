@@ -90,7 +90,7 @@ class CarImporter
 
 The class and method structure provides a natural way to limit visibility of program elements such as fields and methods and avoid the well-known [problem of global state][so-global-state-problem]. Public fields, methods and other members have to be qualified with the object name, `object.field` or `object.method()`, (class name in the case of statics) to be seen by code outside the class. Variables and parameters declared within a method can be seen only within that method.
 
-One thing to be wary of with this approach is that if a field name and the name of a variable or parameter in a method are the same then the field name will be ignored by code within the method which may not be what you desire.  In general, you should avoid this where possible although it is a common pattern in constructors.  If it is appropriate for the field and variable name to be the same then qualify the field name with the `this` keyword within the method.
+One thing to be wary of with this approach is that if a field name and the name of a variable or parameter in a method are the same then the field name will be ignored by code within the method which may not be what you desire. In general, you should avoid this where possible although it is a common pattern in constructors. If it is appropriate for the field and variable name to be the same then qualify the field name with the `this` keyword within the method.
 
 These [access modifiers][access-modifiers] can be used to further limit visibility.
 
