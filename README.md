@@ -1,6 +1,6 @@
 # Exercism C# Track
 
-[![Build Status](https://travis-ci.org/exercism/csharp.svg?branch=master)](https://travis-ci.org/exercism/csharp)
+![Test](https://github.com/exercism/csharp/workflows/Test/badge.svg)
 
 Exercism exercises in C#
 
