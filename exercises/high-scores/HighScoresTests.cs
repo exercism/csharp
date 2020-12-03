@@ -68,4 +68,12 @@ public class HighScoresTests
         Assert.Equal(30, sut.PersonalBest());
         Assert.Equal(1, sut.Latest());
     }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Latest_score_should_not_change_after_calling_personal_top_three()
+    {
+        var sut = new HighScores(new List<int> { 20, 100, 30, 90, 2, 70 });
+        Assert.Equal(new List<int> { 100, 90, 70 }, sut.PersonalTopThree());
+        Assert.Equal(70, sut.Latest());
+    }
 }
