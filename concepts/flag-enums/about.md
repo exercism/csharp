@@ -71,9 +71,8 @@ enum PhoneFeatures : byte
 ```
 
 [docs.microsoft.com-enumeration-types-as-bit-flags]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/enumeration-types#enumeration-types-as-bit-flags
-[alanzucconi.com-enum-flags-and-bitwise-operators]: https://www.alanzucconi.com/2015/07/26/enum-flags-and-bitwise-operators/
 [or-operator]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/bitwise-and-shift-operators#logical-or-operator-
 [and-operator]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/bitwise-and-shift-operators#logical-and-operator-
 [bitwise-complement-operator]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/bitwise-and-shift-operators#bitwise-complement-operator-
 [binary-literals]: https://riptutorial.com/csharp/example/6327/binary-literals
-[has-flag]: https://docs.microsoft.com/en-us/dotnet/api/system.enum.hasflag?view=netcore-3.1
+[has-flag]: https://docs.microsoft.com/en-us/dotnet/api/system.enum.hasflag?view=net-5.0

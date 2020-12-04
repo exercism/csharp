@@ -3,6 +3,24 @@ using Xunit;
 public class PermissionsTests
 {
     [Fact]
+    public void Permissions_read_write_can_be_combined_as_flags()
+    {
+        Assert.Equal("Read, Write", (Permission.Read | Permission.Write).ToString());
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Combining_none_delete_permissions_is_same_as_delete_permission()
+    {
+        Assert.Equal("Delete", (Permission.Delete | Permission.None).ToString());
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Combining_read_write_delete_permissions_is_same_as_all_permission()
+    {
+        Assert.Equal("All", (Permission.Read | Permission.Write | Permission.Delete).ToString());
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Default_for_guest()
     {
         Assert.Equal(Permission.Read, Permissions.Default(AccountType.Guest));
