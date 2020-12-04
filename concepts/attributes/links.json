@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/attributes/",
+    "description": "Attribute"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/attributes",
+    "description": "Tutorial"
+  },
+  {
+    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/attributes/global",
+    "description": "Assembly level attributes"
+  }
+]
