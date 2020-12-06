@@ -2,8 +2,13 @@
   "Errors": [
     {
       "Severity": "error",
-      "Message": "Failed to find concept compound-assignment, from the attack-of-the-trolls design.md, in exercises.json file",
+      "Message": "Failed to find concept attributes, from the attack-of-the-trolls design.md, in exercises.json file",
       "Source": "merge"
+    },
+    {
+      "Severity": "error",
+      "Message": "The bit-manipulation concept has no learning objectives on the exercise report - update the design.md for the attack-of-the-trolls exercise",
+      "Source": "missingLearningObjective"
     }
   ]
 }
