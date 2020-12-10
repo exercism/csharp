@@ -61,8 +61,51 @@ class Car : Vehicle
 }
 ```
 
+Where more than one class is derived from a base class the two (or more) sub-classes will often implement different versions of a base class method. This is a very important principle called [polymorphism][polymorphism]. For instance in a variation on the above example we show how code using `Vehicle` can change its behavior depending on what type of vehicle has been instantiated.
+
+```csharp
+abstract class Vehicle
+{
+   public abstract string GetDescription();
+}
+
+class Car : Vehicle
+{
+   public Car()
+   {
+   }
+
+   public override string GetDescription()
+   {
+      return "Runabout";
+   }
+}
+
+class Rig : Vehicle
+{
+   public Rig()
+   {
+   }
+
+   public override string GetDescription()
+   {
+      return "Big Rig";
+   }
+}
+
+Vehicle v1 = new Car();
+Vehicle v2 = new Rig();
+
+v1.GetDescription();
+// => Runabout
+v2.GetDescription();
+// => Big Rig
+```
+
 To prevent a class being inherited, add the [`sealed` modifier][sealed-classes].
 Some practitioners try to avoid inheriting from concrete classes (as discussed in [this SO question][pro-sealed]) and the _sealed_ modifier supports this approach. On the other hand many C# developers consider them a hindrance to maintenance as discussed in some of the comments on [this question][anti-sealed]. The advice is to use the sealed modifier sparingly until you have gained confidence in their use for your requirements.
+
+The following [article][new-vs-override] describes `new` as an alternative to the `override` modifier. This is occasionally useful, perhaps with convoluted class hierarchies and/or some sort of clash of libraries.
 
 [abstract-keyword]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/abstract
 [virtual-keyword]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/virtual
@@ -76,3 +119,5 @@ Some practitioners try to avoid inheriting from concrete classes (as discussed i
 [sealed-classes]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/abstract-and-sealed-classes-and-class-members#sealed-classes-and-class-members
 [pro-sealed]: https://stackoverflow.com/questions/16724946/why-derive-from-a-concrete-class-is-a-poor-design
 [anti-sealed]: https://stackoverflow.com/questions/7777611/when-and-why-would-you-seal-a-class
+[new-vs-override]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/knowing-when-to-use-override-and-new-keywords
+[polymorphism]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/polymorphism
