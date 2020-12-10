@@ -66,13 +66,7 @@
             {
               "name": " [Inheritance][inheritance]",
               "line-number": 16
-            }
-          ]
-        },
-        {
-          "name": "polymorphism",
-          "track-neutral-concept": "reference/concepts/polymorphism.md",
-          "original-concepts": [
+            },
             {
               "name": "- [Polymorphism][polymorphism]",
               "line-number": 34
