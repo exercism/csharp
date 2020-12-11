@@ -44,7 +44,7 @@ LogLine.ParseLogLevel("[XYZ]: Overly specific, out of context message")
 
 The log level of a log line is quite verbose. To reduce the disk space needed to store the log lines, a short format is developed: `"[<ENCODED_LEVEL>]:<MESSAGE>"`.
 
-The encoded log level is simple mapping of a log level to a number:
+The encoded log level is a simple mapping of a log level to a number:
 
 - `Trace` - `0`
 - `Debug` - `1`
