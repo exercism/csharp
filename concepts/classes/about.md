@@ -18,7 +18,7 @@ class Car
 {
 }
 
-// Create two car instances
+// Create two (unique) car instances
 var myCar = new Car();
 var yourCar = new Car();
 ```
