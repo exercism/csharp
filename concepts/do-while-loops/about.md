@@ -1,5 +1,4 @@
-TODO: clarify context for do-while loop
-A closely related construct is the `do` loop:
+To repeatedly execute logic, one can use loops. If the code in a loop should always be executed at least one, a `do/while` loop can be used:
 
 ```csharp
 int x = 0;
