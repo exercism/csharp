@@ -1,4 +1,4 @@
-## numbers
+## Numbers
 
 There are two different types of numbers in C#:
 
@@ -16,7 +16,7 @@ C# has two types of numeric conversions:
 
 As an `int` has less precision than a `double`, converting from an `int` to a `double` is safe and is thus an implicit conversion. However, converting from a `double` to an `int` could mean losing data, so that requires an explicit conversion.
 
-## if-statements
+## If Statements
 
 In this exercise you must conditionally execute logic. The most common way to do this in C# is by using an `if/else` statement:
 

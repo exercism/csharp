@@ -1,4 +1,4 @@
-## floating-point-numbers
+## Floating Point Numbers
 
 A floating-point number is a number with zero or more digits behind the decimal separator. Examples are `-2.4`, `0.1`, `3.14`, `16.984025` and `1024.0`.
 
@@ -12,7 +12,7 @@ C# has three floating-point types:
 
 As can be seen, each type can store a different number of digits. This means that trying to store PI in a `float` will only store the first 6 to 9 digits (with the last digit being rounded).
 
-## while-loops
+## While Loops
 
 In this exercise you may also want to use a loop. There are several ways to write loops in C#, but the `while` loop is most appropriate here:
 
@@ -26,7 +26,7 @@ while (x > 10)
 }
 ```
 
-## do-while-loops
+## Do While Loops
 
 An less commonly used alternative to the above syntax is a `do-while` loop:
 
