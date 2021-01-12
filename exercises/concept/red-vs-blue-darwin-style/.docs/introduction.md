@@ -1,5 +1,3 @@
-## namespaces
-
 Namespaces are a way to group related code and to avoid name clashes and are generally present in all but the most trivial code base.
 
 The syntax is as follows:

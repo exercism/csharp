@@ -1,4 +1,4 @@
-## string-formatting
+## String Formatting
 
 There are two principal mechanisms for formatting strings in C#/.NET. Use of `String.Format()` and string interpolation.
 
@@ -58,7 +58,7 @@ Each thread has a default culture `Thread.CurrentThread.CurrentCulture` encapsul
 
 `CultureInfo` implements the `IFormatProvider` interface which can be passed to certain overloads of `String.Format()`. This can be used to override the thread culture.
 
-## verbatim-strings
+## Verbatim Strings
 
 Verbatim strings allow multi-line strings. They are introduced with an @.
 

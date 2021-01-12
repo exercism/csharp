@@ -1,4 +1,4 @@
-## interfaces
+## Interfaces
 
 An interface is a type containing members defining a group of related functionality. It distances the uses of a class from the implementation allowing multiple different implementations or support for some generic behavior such as formatting, comparison or conversion.
 
@@ -33,6 +33,6 @@ All operations defined by the interface must be implemented.
 
 Interfaces can contain instance methods and properties amongst other members
 
-## ordering
+## Ordering
 
 The `IComparable<T>` interface can be implemented where a default generic sort order in collections is required.

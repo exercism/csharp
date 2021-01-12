@@ -1,4 +1,4 @@
-## arrays
+## Arrays
 
 In C#, data structures that can hold zero or more elements are known as _collections_. An **array** is a collection that has a fixed size/length and whose elements must all be of the same type. Elements can be assigned to an array or retrieved from it using an index. C# arrays are zero-based, meaning that the first element's index is always zero:
 
@@ -24,7 +24,7 @@ int[] threeIntsV3 = { 4, 9, 7 };
 
 Arrays can be manipulated by either calling an array instance's methods or properties, or by using the static methods defined in the `Array` class.
 
-## foreach-loops
+## Foreach Loops
 
 The fact that an array is also a _collection_ means that, besides accessing values by index, you can iterate over _all_ its values using a `foreach` loop:
 
@@ -40,7 +40,7 @@ foreach (char vowel in vowels)
 // => aeiou
 ```
 
-## for-loops
+## For Loops
 
 If you want more control over which values to iterate over, a `for` loop can be used:
 
