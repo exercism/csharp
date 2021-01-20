@@ -1,4 +1,4 @@
-C# is a statically-typed language, which means that everything has a type at compile-time. Choosing a name for a variable is referred to as defining a variable. Once a variable is defined, setting or updating a value is called variable assignment. A variable can be defined either by explicitly specifying its type, or by using the [`var` keyword][var] to have the C# compiler infer its type based on the assigned value.
+C# is a statically-typed language, which means that everything has a type at compile-time. Choosing a name for a [variable][variable] is referred to as defining a variable. Once a variable is defined, setting or updating a value is called variable assignment. A variable can be defined either by explicitly specifying its type, or by using the [`var` keyword][var] to have the C# compiler infer its type based on the assigned value. The use of `var` is known as _type inference_.
 
 ```csharp
 int explicitVar = 10; // Explicitly typed
@@ -15,7 +15,7 @@ count = 2;     // Update to new value
 // count = false;
 ```
 
-C# is an object-oriented language and requires all functions to be defined in a _class_, which are defined using the [`class` keyword][classes]. Objects (or _instances_) are created by using the `new` keyword.
+C# is an object-oriented language and requires all [functions][function] to be defined in a _class_, which are defined using the [`class` keyword][classes]. Objects (or _instances_) are created by using the `new` keyword.
 
 ```csharp
 class Calculator
@@ -70,7 +70,9 @@ C# supports two types of [comments][comments]. Single line comments are preceded
 
 Integer values are defined as one or more (consecutive) digits and support the [default mathematical operators][operators].
 
-A variable name [must follow some rules][identifier-names] like starting either by a letter or an underscore, and [should follow C# naming convention][naming-guidelines]. If a variable name collides with a reserved [C# keyword][csharp-keywords], it must be escaped using `@`. It is not recommended to use that notation, but it can be encountered in exceptional cases, for example: `var @this`, `var @class` or `var @var`.
+A variable name [must follow some rules][identifier-names] like starting either by a letter or an underscore, and [should follow C# naming convention][naming-guidelines]. If a variable name collides with a reserved [C# keyword][csharp-keywords], it must be escaped using `@`. Use of that notation is not recommended, but it can be encountered in exceptional cases, for example: `var @this`, `var @class` or `var @var`.
+
+There are a couple of concepts that are so fundamental to a C-family language like C# that they occur naturally in almost any piece of non-trivial code. These are [mutation][mutation] and [scope][scope]. Mutation is the idea that a variable can have its value changed in the course of a program's lifetime. Scope is the idea that the value associated with a name (of a program element) is only accessible within the code "area" where it is defined. The principal code areas in C# are _class/struct_ and _function_ (typically methods) but can also include the bodies of loops and other constructs.
 
 [assignment]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/assignment-operator
 [var]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/var
@@ -82,3 +84,7 @@ A variable name [must follow some rules][identifier-names] like starting either 
 [identifier-names]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/inside-a-program/identifier-names
 [naming-guidelines]: https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/naming-guidelines
 [csharp-keywords]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/
+[variable]: https://www.guru99.com/c-sharp-variables-operator.html
+[function]: https://csharp.net-tutorials.com/classes/methods/
+[mutation]: https://benmccormick.org/2016/06/04/what-are-mutable-and-immutable-data-structures-2
+[scope]: https://www.geeksforgeeks.org/scope-of-variables-in-c-sharp/
