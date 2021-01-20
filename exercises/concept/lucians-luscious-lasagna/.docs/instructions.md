@@ -1,4 +1,6 @@
-In this exercise you're going to write some code to help you cook a brilliant lasagna from your favorite cooking book.
+Lucian's girlfriend is on her way home and he hasn't cooked their anniversary dinner!
+
+In this exercise, you're going to write some code to help Lucian cook an exquisite lasagna from his favorite cook book.
 
 You have four tasks, all related to the time spent cooking the lasagna.
 
