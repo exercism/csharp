@@ -88,73 +88,31 @@
             {
               "name": " basics (including methods)",
               "line-number": 20
-            }
-          ]
-        },
-        {
-          "name": "return-values",
-          "track-neutral-concept": "",
-          "original-concepts": [
+            },
             {
               "name": "  - Return values",
               "line-number": 30
-            }
-          ]
-        },
-        {
-          "name": "mutation",
-          "track-neutral-concept": "reference/concepts/mutation.md",
-          "original-concepts": [
+            },
             {
               "name": "- [Mutation][mutation]",
               "line-number": 31
-            }
-          ]
-        },
-        {
-          "name": "functions",
-          "track-neutral-concept": "reference/types/function.md",
-          "original-concepts": [
+            },
             {
               "name": "- [Functions][functions]",
               "line-number": 46
-            }
-          ]
-        },
-        {
-          "name": "type-inference",
-          "track-neutral-concept": "reference/concepts/type_inference.md",
-          "original-concepts": [
+            },
             {
               "name": "- [Type inference][type_inference]",
               "line-number": 61
-            }
-          ]
-        },
-        {
-          "name": "comments",
-          "track-neutral-concept": "",
-          "original-concepts": [
+            },
             {
               "name": "- Comments",
               "line-number": 78
-            }
-          ]
-        },
-        {
-          "name": "scoping",
-          "track-neutral-concept": "",
-          "original-concepts": [
+            },
             {
               "name": "- Scoping",
               "line-number": 120
-            }
-          ]
-        },
-        {
-          "name": "variables",
-          "track-neutral-concept": "reference/concepts/variables.md",
-          "original-concepts": [
+            },
             {
               "name": "- [Variables][variables]",
               "line-number": 131
