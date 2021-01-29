@@ -1,5 +1,6 @@
 {
   "language": "C#",
+  "slug": "csharp",
   "active": true,
   "status": {
     "concept_exercises": false,
