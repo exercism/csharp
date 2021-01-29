@@ -2031,5 +2031,421 @@
       "point-mutations",
       "counter"
     ]
-  }
+  },
+  "concepts": [
+    {
+      "uuid": "efc1a32a-ebea-45ab-8c0b-5b512717abc0",
+      "slug": "arrays",
+      "name": "Arrays",
+      "blurb": "TODO: add blurb for arrays concept"
+    },
+    {
+      "uuid": "06a39e16-780f-4d44-811e-53ebf2fdf6d5",
+      "slug": "attributes",
+      "name": "Attributes",
+      "blurb": "TODO: add blurb for attributes concept"
+    },
+    {
+      "uuid": "2eb4a463-355f-46ef-ac55-a75ec5afdf86",
+      "slug": "basics",
+      "name": "Basics",
+      "blurb": "TODO: add blurb for basics concept"
+    },
+    {
+      "uuid": "83226d8e-9d8b-4223-82ad-6d251f519a49",
+      "slug": "bit-manipulation",
+      "name": "Bit Manipulation",
+      "blurb": "TODO: add blurb for bit-manipulation concept"
+    },
+    {
+      "uuid": "64a2670d-f61a-419f-8623-7116bad8e8a7",
+      "slug": "booleans",
+      "name": "Booleans",
+      "blurb": "TODO: add blurb for booleans concept"
+    },
+    {
+      "uuid": "e3b507b0-d2c3-4791-9c6e-6a40bdb4ec1a",
+      "slug": "casting",
+      "name": "Casting",
+      "blurb": "TODO: add blurb for casting concept"
+    },
+    {
+      "uuid": "352db7e4-c47c-42cf-a290-74e42fadc6ff",
+      "slug": "chars",
+      "name": "Chars",
+      "blurb": "TODO: add blurb for chars concept"
+    },
+    {
+      "uuid": "5b2f9bbb-079c-47fd-9ba6-0c6469e547cb",
+      "slug": "classes",
+      "name": "Classes",
+      "blurb": "TODO: add blurb for classes concept"
+    },
+    {
+      "uuid": "2c1ac74e-cec8-4616-a1c4-a08ef9f3f926",
+      "slug": "compound-assignment",
+      "name": "Compound Assignment",
+      "blurb": "TODO: add blurb for compound-assignment concept"
+    },
+    {
+      "uuid": "43820de3-174a-41a3-9fc0-d7a6f0c393aa",
+      "slug": "ternary-operators",
+      "name": "Conditionals Ternary",
+      "blurb": "TODO: add blurb for ternary-operators concept"
+    },
+    {
+      "uuid": "b29bc90a-65ae-4984-b7de-17debee7fc5f",
+      "slug": "const-readonly",
+      "name": "Const Readonly",
+      "blurb": "TODO: add blurb for const-readonly concept"
+    },
+    {
+      "uuid": "0ae08bee-1252-4d21-ae47-4952a1ab03b5",
+      "slug": "constants",
+      "name": "Constants",
+      "blurb": "TODO: add blurb for constants concept"
+    },
+    {
+      "uuid": "250f7606-f01d-4713-8e3e-1b1056a6b790",
+      "slug": "constructors",
+      "name": "Constructors",
+      "blurb": "TODO: add blurb for constructors concept"
+    },
+    {
+      "uuid": "bed44bba-b5a5-43e7-a548-b17812a6f536",
+      "slug": "datetimes",
+      "name": "Datetimes",
+      "blurb": "TODO: add blurb for datetimes concept"
+    },
+    {
+      "uuid": "c710b7f8-226f-4cc0-8a8f-b125cebb13fc",
+      "slug": "defensive-copying",
+      "name": "Defensive Copying",
+      "blurb": "TODO: add blurb for defensive-copying concept"
+    },
+    {
+      "uuid": "3af88acb-1487-4554-8715-089d7dda1199",
+      "slug": "dictionaries",
+      "name": "Dictionaries",
+      "blurb": "TODO: add blurb for dictionaries concept"
+    },
+    {
+      "uuid": "5b04ddb3-54ff-479f-a525-fb4f117d5c34",
+      "slug": "do-while-loops",
+      "name": "Do While Loops",
+      "blurb": "TODO: add blurb for do-while-loops concept"
+    },
+    {
+      "uuid": "d5b628d9-ac64-4eeb-91c7-f2dcff798b31",
+      "slug": "enums",
+      "name": "Enums",
+      "blurb": "TODO: add blurb for enums concept"
+    },
+    {
+      "uuid": "08632727-cfae-4c5b-b53f-f04ba35ce4ed",
+      "slug": "equality",
+      "name": "Equality",
+      "blurb": "TODO: add blurb for equality concept"
+    },
+    {
+      "uuid": "d3f5d61c-6bed-46ef-be21-cf7fdc07d4f7",
+      "slug": "exception-filtering",
+      "name": "Exception Filtering",
+      "blurb": "TODO: add blurb for exception-filtering concept"
+    },
+    {
+      "uuid": "6a322f90-1428-4ced-ba8c-cdcadf8914bd",
+      "slug": "exceptions",
+      "name": "Exceptions",
+      "blurb": "TODO: add blurb for exceptions concept"
+    },
+    {
+      "uuid": "c82d74c8-fbe1-42ab-be71-b1f524f28bf6",
+      "slug": "explicit-casts",
+      "name": "Explicit Casts",
+      "blurb": "TODO: add blurb for explicit-casts concept"
+    },
+    {
+      "uuid": "8e69833b-9668-4ed1-bfdd-d3c90fe4d9a4",
+      "slug": "expression-bodied-members",
+      "name": "Expression Bodied Members",
+      "blurb": "TODO: add blurb for expression-bodied-members concept"
+    },
+    {
+      "uuid": "0d0ce715-a7f2-42f4-b97b-54ba99b4df73",
+      "slug": "flag-enums",
+      "name": "Flag Enums",
+      "blurb": "TODO: add blurb for flag-enums concept"
+    },
+    {
+      "uuid": "05cd97a1-fedb-40c1-9f73-3a47d3f8690d",
+      "slug": "floating-point-numbers",
+      "name": "Floating Point Numbers",
+      "blurb": "TODO: add blurb for floating-point-numbers concept"
+    },
+    {
+      "uuid": "bd406da5-7a16-4487-a820-ce7ef5f1066b",
+      "slug": "for-loops",
+      "name": "For Loops",
+      "blurb": "TODO: add blurb for for-loops concept"
+    },
+    {
+      "uuid": "a352e32f-2e90-43ba-94c3-f22dc985e10a",
+      "slug": "foreach-loops",
+      "name": "Foreach Loops",
+      "blurb": "TODO: add blurb for foreach-loops concept"
+    },
+    {
+      "uuid": "555dc4c4-b30e-4928-a52e-336b05c26fca",
+      "slug": "generic-types",
+      "name": "Generic Types",
+      "blurb": "TODO: add blurb for generic-types concept"
+    },
+    {
+      "uuid": "4466e33e-dcd2-4b1f-9d9d-2c4315bf5188",
+      "slug": "if-statements",
+      "name": "If Statements",
+      "blurb": "TODO: add blurb for if-statements concept"
+    },
+    {
+      "uuid": "760a9811-a77f-4022-bc62-2a84dfbddbfc",
+      "slug": "indexers",
+      "name": "Indexers",
+      "blurb": "TODO: add blurb for indexers concept"
+    },
+    {
+      "uuid": "4725bc7b-481a-4ba2-951d-e7fa42c5b0c3",
+      "slug": "inheritance",
+      "name": "Inheritance",
+      "blurb": "TODO: add blurb for inheritance concept"
+    },
+    {
+      "uuid": "0b793025-5434-4c3d-ab72-67578669529f",
+      "slug": "integral-numbers",
+      "name": "Integral Numbers",
+      "blurb": "TODO: add blurb for integral-numbers concept"
+    },
+    {
+      "uuid": "10b71949-a188-481a-8c24-04a9c20c1530",
+      "slug": "interfaces",
+      "name": "Interfaces",
+      "blurb": "TODO: add blurb for interfaces concept"
+    },
+    {
+      "uuid": "dd7bf404-59af-4ae6-895b-5d04cdc8ecaa",
+      "slug": "lists",
+      "name": "Lists",
+      "blurb": "TODO: add blurb for lists concept"
+    },
+    {
+      "uuid": "a93a154c-4706-4c01-8ece-b5504ba3378d",
+      "slug": "memory-allocation",
+      "name": "Memory Allocation",
+      "blurb": "TODO: add blurb for memory-allocation concept"
+    },
+    {
+      "uuid": "e4c0bba5-e08b-426a-bccf-0f0fb375c2ad",
+      "slug": "method-overloading",
+      "name": "Method Overloading",
+      "blurb": "TODO: add blurb for method-overloading concept"
+    },
+    {
+      "uuid": "3b67cb8b-bcd3-4d34-ad4c-8e2009c3e6b5",
+      "slug": "named-arguments",
+      "name": "Named Arguments",
+      "blurb": "TODO: add blurb for named-arguments concept"
+    },
+    {
+      "uuid": "944d243a-65bc-4a52-97e8-b692a8419d04",
+      "slug": "namespaces",
+      "name": "Namespaces",
+      "blurb": "TODO: add blurb for namespaces concept"
+    },
+    {
+      "uuid": "339dce38-c4b6-423d-9b66-88fed35408d4",
+      "slug": "nested-types",
+      "name": "Nested Types",
+      "blurb": "TODO: add blurb for nested-types concept"
+    },
+    {
+      "uuid": "f66d4f26-ebd8-41d0-b79e-05858491e035",
+      "slug": "nullability",
+      "name": "Nullability",
+      "blurb": "TODO: add blurb for nullability concept"
+    },
+    {
+      "uuid": "b9a421b2-c5ff-4213-bd6d-b886da31ea0d",
+      "slug": "numbers",
+      "name": "Numbers",
+      "blurb": "TODO: add blurb for numbers concept"
+    },
+    {
+      "uuid": "9b50d5ee-7b68-46e3-9c3b-893c3a83110f",
+      "slug": "object-initializers",
+      "name": "Object Initializers",
+      "blurb": "TODO: add blurb for object-initializers concept"
+    },
+    {
+      "uuid": "3b510fdc-2975-41e4-acc5-c6b3780acf50",
+      "slug": "operator-overloading",
+      "name": "Operator Overloading",
+      "blurb": "TODO: add blurb for operator-overloading concept"
+    },
+    {
+      "uuid": "cddf1b02-6dcd-4ef0-9847-a2cd35abdb80",
+      "slug": "optional-parameters",
+      "name": "Optional Parameters",
+      "blurb": "TODO: add blurb for optional-parameters concept"
+    },
+    {
+      "uuid": "9f993d9a-144c-45fe-ab09-e368b5be2e6c",
+      "slug": "ordering",
+      "name": "Ordering",
+      "blurb": "TODO: add blurb for ordering concept"
+    },
+    {
+      "uuid": "a9ea7864-bfc7-49ce-815b-32d018627fe9",
+      "slug": "overflow",
+      "name": "Overflow",
+      "blurb": "TODO: add blurb for overflow concept"
+    },
+    {
+      "uuid": "83414ea8-0335-485c-a826-95c88a532d65",
+      "slug": "parameters",
+      "name": "Parameters",
+      "blurb": "TODO: add blurb for parameters concept"
+    },
+    {
+      "uuid": "7149c281-8b8c-42a2-a534-7bc5553cbbce",
+      "slug": "properties",
+      "name": "Properties",
+      "blurb": "TODO: add blurb for properties concept"
+    },
+    {
+      "uuid": "b71dc153-1cb0-4b82-ab5f-d896d6f1f7ed",
+      "slug": "randomness",
+      "name": "Randomness",
+      "blurb": "TODO: add blurb for randomness concept"
+    },
+    {
+      "uuid": "34e99b87-8862-47a7-87d3-621e1db47e5c",
+      "slug": "readonly-collections",
+      "name": "Readonly Collections",
+      "blurb": "TODO: add blurb for readonly-collections concept"
+    },
+    {
+      "uuid": "3c67b33f-e2a6-45e9-b4c4-456044e3c6ef",
+      "slug": "regular-expressions",
+      "name": "Regular Expressions",
+      "blurb": "TODO: add blurb for regular-expressions concept"
+    },
+    {
+      "uuid": "726f35e6-8af7-4279-b3bc-5299e1b7c182",
+      "slug": "resource-cleanup",
+      "name": "Resource Cleanup",
+      "blurb": "TODO: add blurb for resource-cleanup concept"
+    },
+    {
+      "uuid": "64ef0e6d-ca7a-4a3e-81a7-e66766615a9b",
+      "slug": "resource-lifetime",
+      "name": "Resource Lifetime",
+      "blurb": "TODO: add blurb for resource-lifetime concept"
+    },
+    {
+      "uuid": "d38a4651-09d2-47e5-8a18-9bcb6f3bfa0b",
+      "slug": "sets",
+      "name": "Sets",
+      "blurb": "TODO: add blurb for sets concept"
+    },
+    {
+      "uuid": "c1fcce17-0cbb-410e-8281-698606d73690",
+      "slug": "string-builder",
+      "name": "String Builder",
+      "blurb": "TODO: add blurb for string-builder concept"
+    },
+    {
+      "uuid": "7262549b-0bb3-4650-af34-e655c6ec59c2",
+      "slug": "string-formatting",
+      "name": "String Formatting",
+      "blurb": "TODO: add blurb for string-formatting concept"
+    },
+    {
+      "uuid": "df01147e-eac9-4df8-be9d-7bd81561a3c5",
+      "slug": "string-interpolation",
+      "name": "String Interpolation",
+      "blurb": "TODO: add blurb for string-interpolation concept"
+    },
+    {
+      "uuid": "fe39a4ab-e760-4e71-804e-2937ecc52b4d",
+      "slug": "strings",
+      "name": "Strings",
+      "blurb": "TODO: add blurb for strings concept"
+    },
+    {
+      "uuid": "b9a177bc-b815-4e85-9c0f-b84eb059500d",
+      "slug": "structs",
+      "name": "Structs",
+      "blurb": "TODO: add blurb for structs concept"
+    },
+    {
+      "uuid": "bc342654-6ebc-46fd-8148-eef2c8477a15",
+      "slug": "switch-expressions",
+      "name": "Switch Expressions",
+      "blurb": "TODO: add blurb for switch-expressions concept"
+    },
+    {
+      "uuid": "f57713c2-ddf3-4e71-802b-b24b552db609",
+      "slug": "switch-statements",
+      "name": "Switch Statements",
+      "blurb": "TODO: add blurb for switch-statements concept"
+    },
+    {
+      "uuid": "58d5caa7-1683-44e0-a62f-1564ac6959ab",
+      "slug": "throw-expressions",
+      "name": "Throw Expressions",
+      "blurb": "TODO: add blurb for throw-expressions concept"
+    },
+    {
+      "uuid": "050e789f-d318-41df-b2cc-f386ccf349dc",
+      "slug": "time",
+      "name": "Time",
+      "blurb": "TODO: add blurb for time concept"
+    },
+    {
+      "uuid": "3b83bdcc-de0b-43f7-b8f1-41fa9c656fb1",
+      "slug": "timezone",
+      "name": "Timezone",
+      "blurb": "TODO: add blurb for timezone concept"
+    },
+    {
+      "uuid": "86848fc2-c1ef-44ce-b099-86feabbbc7c9",
+      "slug": "tuples",
+      "name": "Tuples",
+      "blurb": "TODO: add blurb for tuples concept"
+    },
+    {
+      "uuid": "a625c3c3-7299-4426-99e5-f2c850479a29",
+      "slug": "user-defined-exceptions",
+      "name": "User Defined Exceptions",
+      "blurb": "TODO: add blurb for user-defined-exceptions concept"
+    },
+    {
+      "uuid": "1f78e26c-14d1-402e-a3cd-c786f8b1eec2",
+      "slug": "varargs",
+      "name": "Varargs",
+      "blurb": "TODO: add blurb for varargs concept"
+    },
+    {
+      "uuid": "6d85366c-7767-4d6a-af08-4cee5db801ca",
+      "slug": "verbatim-strings",
+      "name": "Verbatim Strings",
+      "blurb": "TODO: add blurb for verbatim-strings concept"
+    },
+    {
+      "uuid": "5442d5da-f74e-4793-97ee-97ddc09d4942",
+      "slug": "while-loops",
+      "name": "While Loops",
+      "blurb": "TODO: add blurb for while-loops concept"
+    }
+  ]
 }
