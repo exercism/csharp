@@ -29,7 +29,8 @@
           "booleans",
           "classes",
           "if-statements"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "lucians-luscious-lasagna",
@@ -38,7 +39,8 @@
         "concepts": [
           "basics"
         ],
-        "prerequisites": []
+        "prerequisites": [],
+        "status": "wip"
       },
       {
         "slug": "annalyns-infiltration",
@@ -49,7 +51,8 @@
         ],
         "prerequisites": [
           "basics"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "secure-munchester-united",
@@ -62,7 +65,8 @@
           "exceptions",
           "inheritance",
           "numbers"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "squeaky-clean",
@@ -76,7 +80,8 @@
           "if-statements",
           "for-loops",
           "strings"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "elons-toys",
@@ -89,7 +94,8 @@
           "if-statements",
           "numbers",
           "strings"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "authentication-system",
@@ -108,7 +114,8 @@
           "nested-types",
           "object-initializers",
           "properties"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "need-for-speed",
@@ -122,7 +129,8 @@
           "if-statements",
           "numbers",
           "while-loops"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "booking-up-for-beauty",
@@ -135,7 +143,8 @@
           "classes",
           "numbers",
           "strings"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "international-calling-connoisseur",
@@ -149,7 +158,8 @@
           "generic-types",
           "strings",
           "indexers"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "logs-logs-logs",
@@ -161,7 +171,8 @@
         "prerequisites": [
           "strings",
           "switch-statements"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "faceid-2",
@@ -178,7 +189,8 @@
           "inheritance",
           "interfaces",
           "lists"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "calculator-conundrum",
@@ -191,7 +203,8 @@
           "inheritance",
           "nullability",
           "switch-statements"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "the-weather-in-deather",
@@ -212,7 +225,8 @@
           "exceptions",
           "properties",
           "switch-statements"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "attack-of-the-trolls",
@@ -226,7 +240,8 @@
           "bit-manipulation",
           "enums",
           "integral-numbers"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "interest-is-interesting",
@@ -240,7 +255,8 @@
         "prerequisites": [
           "if-statements",
           "numbers"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "wizards-and-warriors",
@@ -255,7 +271,8 @@
           "if-statements",
           "constructors",
           "strings"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "hyper-optimized-telemetry",
@@ -267,7 +284,8 @@
         "prerequisites": [
           "arrays",
           "numbers"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "remote-control-competition",
@@ -281,7 +299,8 @@
           "classes",
           "lists",
           "properties"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "tracks-on-tracks-on-tracks",
@@ -294,7 +313,8 @@
         "prerequisites": [
           "arrays",
           "for-loops"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "wizards-and-warriors-2",
@@ -311,7 +331,8 @@
           "enums",
           "properties",
           "strings"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "red-vs-blue-darwin-style",
@@ -324,7 +345,8 @@
           "classes",
           "inheritance",
           "nested-types"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "remote-control-cleanup",
@@ -339,7 +361,8 @@
           "interfaces",
           "properties",
           "structs"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "tim-from-marketing",
@@ -352,7 +375,8 @@
           "if-statements",
           "memory-allocation",
           "strings"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "cars-assemble",
@@ -364,7 +388,8 @@
         ],
         "prerequisites": [
           "basics"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "developer-privileges",
@@ -377,7 +402,8 @@
           "constructors",
           "dictionaries",
           "properties"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "hyperia-forex",
@@ -390,7 +416,8 @@
           "equality",
           "floating-point-numbers",
           "method-overloading"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "hyperinflation-hits-hyperia",
@@ -404,7 +431,8 @@
           "floating-point-numbers",
           "integral-numbers",
           "strings"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "building-telemetry",
@@ -419,7 +447,8 @@
           "named-arguments",
           "numbers",
           "strings"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "weighing-machine",
@@ -434,7 +463,8 @@
           "exceptions",
           "floating-point-numbers",
           "numbers"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "roll-the-die",
@@ -445,7 +475,8 @@
         ],
         "prerequisites": [
           "numbers"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "parsing-log-files",
@@ -460,7 +491,8 @@
           "strings",
           "string-interpolation",
           "verbatim-strings"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "object-relational-mapping",
@@ -472,7 +504,8 @@
         "prerequisites": [
           "exceptions",
           "inheritance"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "orm-in-one-go",
@@ -483,7 +516,8 @@
         ],
         "prerequisites": [
           "resource-cleanup"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "high-school-sweethearts",
@@ -500,7 +534,8 @@
           "strings",
           "time",
           "varargs"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "log-levels",
@@ -511,7 +546,8 @@
         ],
         "prerequisites": [
           "basics"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "land-grab-in-space",
@@ -526,7 +562,8 @@
           "numbers",
           "sets",
           "integral-numbers"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "football-match-reports",
@@ -538,7 +575,8 @@
         "prerequisites": [
           "classes",
           "inheritance"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "beauty-salon-goes-global",
@@ -553,7 +591,8 @@
           "datetimes",
           "strings",
           "switch-statements"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "phone-number-analysis",
@@ -564,7 +603,8 @@
         ],
         "prerequisites": [
           "strings"
-        ]
+        ],
+        "status": "wip"
       },
       {
         "slug": "instruments-of-texas",
@@ -581,7 +621,8 @@
           "if-statements",
           "overflow",
           "integral-numbers"
-        ]
+        ],
+        "status": "wip"
       }
     ],
     "practice": [
