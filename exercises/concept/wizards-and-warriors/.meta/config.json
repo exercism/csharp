@@ -5,8 +5,9 @@
       "exercism_username": "ErikSchierboom"
     }
   ],
-  "editor": {
-    "solution_files": ["WizardsAndWarriors.cs"],
-    "test_files": ["WizardsAndWarriorsTests.cs"]
+  "files": {
+    "solution": ["WizardsAndWarriors.cs"],
+    "test": ["WizardsAndWarriorsTests.cs"],
+    "exemplar": [".meta/Exemplar.cs"]
   }
 }

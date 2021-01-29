@@ -15,8 +15,9 @@
       "exercism_username": "mikedamay"
     }
   ],
-  "editor": {
-    "solution_files": ["RedVsBlueDarwinStyle.cs"],
-    "test_files": ["RedVsBlueDarwinStyleTests.cs"]
+  "files": {
+    "solution": ["RedVsBlueDarwinStyle.cs"],
+    "test": ["RedVsBlueDarwinStyleTests.cs"],
+    "exemplar": [".meta/Exemplar.cs"]
   }
 }

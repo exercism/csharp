@@ -11,8 +11,9 @@
       "exercism_username": "ErikSchierboom"
     }
   ],
-  "editor": {
-    "solution_files": ["LogsLogsLogs.cs"],
-    "test_files": ["LogsLogsLogsTests.cs"]
+  "files": {
+    "solution": ["LogsLogsLogs.cs"],
+    "test": ["LogsLogsLogsTests.cs"],
+    "exemplar": [".meta/Exemplar.cs"]
   }
 }

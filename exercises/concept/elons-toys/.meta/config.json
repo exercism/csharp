@@ -5,8 +5,9 @@
       "exercism_username": "ErikSchierboom"
     }
   ],
-  "editor": {
-    "solution_files": ["ElonsToys.cs"],
-    "test_files": ["ElonsToysTests.cs"]
+  "files": {
+    "solution": ["ElonsToys.cs"],
+    "test": ["ElonsToysTests.cs"],
+    "exemplar": [".meta/Exemplar.cs"]
   }
 }

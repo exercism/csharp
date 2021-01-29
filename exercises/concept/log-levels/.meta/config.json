@@ -5,8 +5,9 @@
       "exercism_username": "ErikSchierboom"
     }
   ],
-  "editor": {
-    "solution_files": ["LogLevels.cs"],
-    "test_files": ["LogLevelsTests.cs"]
+  "files": {
+    "solution": ["LogLevels.cs"],
+    "test": ["LogLevelsTests.cs"],
+    "exemplar": [".meta/Exemplar.cs"]
   }
 }

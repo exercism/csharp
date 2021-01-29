@@ -11,8 +11,9 @@
       "exercism_username": "mikedamay"
     }
   ],
-  "editor": {
-    "solution_files": ["WhyCantIPushToMain.cs"],
-    "test_files": ["WhyCantIPushToMainTests.cs"]
+  "files": {
+    "solution": ["WhyCantIPushToMain.cs"],
+    "test": ["WhyCantIPushToMainTests.cs"],
+    "exemplar": [".meta/Exemplar.cs"]
   }
 }
