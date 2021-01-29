@@ -15,6 +15,575 @@
     "indent_size": 4
   },
   "exercises": {
+    "concept": [
+      {
+        "slug": "bird-watcher",
+        "name": "Bird Watcher",
+        "uuid": "b6c532c9-1e89-4fbf-8f08-27f5befb5bb8",
+        "concepts": [
+          "arrays",
+          "for-loops",
+          "foreach-loops"
+        ],
+        "prerequisites": [
+          "booleans",
+          "classes",
+          "if-statements"
+        ]
+      },
+      {
+        "slug": "lucians-luscious-lasagna",
+        "name": "Lucian's Luscious Lasagna",
+        "uuid": "7d358894-4fbd-4c91-b49f-d68f1c5aa6bc",
+        "concepts": [
+          "basics"
+        ],
+        "prerequisites": []
+      },
+      {
+        "slug": "annalyns-infiltration",
+        "name": "Annalyn's Infiltration",
+        "uuid": "401fe55e-407e-4408-88ca-0a4b342ab95b",
+        "concepts": [
+          "booleans"
+        ],
+        "prerequisites": [
+          "basics"
+        ]
+      },
+      {
+        "slug": "secure-munchester-united",
+        "name": "Secure Munchester United",
+        "uuid": "0d63645d-385a-43ea-b89e-448ed608f6ce",
+        "concepts": [
+          "casting"
+        ],
+        "prerequisites": [
+          "exceptions",
+          "inheritance",
+          "numbers"
+        ]
+      },
+      {
+        "slug": "squeaky-clean",
+        "name": "Squeaky Clean",
+        "uuid": "e74c6cd6-add7-45d1-abcb-513418e9d2d0",
+        "concepts": [
+          "chars",
+          "string-builder"
+        ],
+        "prerequisites": [
+          "if-statements",
+          "for-loops",
+          "strings"
+        ]
+      },
+      {
+        "slug": "elons-toys",
+        "name": "Elon's Toys",
+        "uuid": "e01dc85b-0731-4701-9eea-c78fb69ce543",
+        "concepts": [
+          "classes"
+        ],
+        "prerequisites": [
+          "if-statements",
+          "numbers",
+          "strings"
+        ]
+      },
+      {
+        "slug": "authentication-system",
+        "name": "Authentication System",
+        "uuid": "54126398-4339-4073-9f5d-cf71cabcb328",
+        "concepts": [
+          "constants",
+          "defensive-copying",
+          "readonly-collections"
+        ],
+        "prerequisites": [
+          "arrays",
+          "basics",
+          "classes",
+          "dictionaries",
+          "nested-types",
+          "object-initializers",
+          "properties"
+        ]
+      },
+      {
+        "slug": "need-for-speed",
+        "name": "Need for Speed",
+        "uuid": "655b5c37-c2eb-4da2-ab0a-3845de898835",
+        "concepts": [
+          "constructors"
+        ],
+        "prerequisites": [
+          "classes",
+          "if-statements",
+          "numbers",
+          "while-loops"
+        ]
+      },
+      {
+        "slug": "booking-up-for-beauty",
+        "name": "Booking up for Beauty",
+        "uuid": "7762d9ec-ca95-4e10-b93c-afd2521787a2",
+        "concepts": [
+          "datetimes"
+        ],
+        "prerequisites": [
+          "classes",
+          "numbers",
+          "strings"
+        ]
+      },
+      {
+        "slug": "international-calling-connoisseur",
+        "name": "International Calling Connoisseur",
+        "uuid": "ea01c7d9-a387-451b-9a69-f1b48f00d7a5",
+        "concepts": [
+          "dictionaries"
+        ],
+        "prerequisites": [
+          "foreach-loops",
+          "generic-types",
+          "strings",
+          "indexers"
+        ]
+      },
+      {
+        "slug": "logs-logs-logs",
+        "name": "Logs, Logs, Logs!",
+        "uuid": "047b895b-7039-4af6-ad3a-17fd818d0b88",
+        "concepts": [
+          "enums"
+        ],
+        "prerequisites": [
+          "strings",
+          "switch-statements"
+        ]
+      },
+      {
+        "slug": "faceid-2",
+        "name": "Face ID 2.0",
+        "uuid": "116e0b8d-21f2-409f-abec-676da014a800",
+        "concepts": [
+          "equality",
+          "sets"
+        ],
+        "prerequisites": [
+          "classes",
+          "explicit-casts",
+          "generic-types",
+          "inheritance",
+          "interfaces",
+          "lists"
+        ]
+      },
+      {
+        "slug": "calculator-conundrum",
+        "name": "Calculator Conundrum",
+        "uuid": "b140614f-36df-4ce9-a539-97a81304b941",
+        "concepts": [
+          "exceptions"
+        ],
+        "prerequisites": [
+          "inheritance",
+          "nullability",
+          "switch-statements"
+        ]
+      },
+      {
+        "slug": "the-weather-in-deather",
+        "name": "The Weather in Deather",
+        "uuid": "27221c37-177e-437b-b423-977e46695db9",
+        "concepts": [
+          "ternary-operators",
+          "expression-bodied-members",
+          "switch-expressions",
+          "throw-expressions"
+        ],
+        "prerequisites": [
+          "booleans",
+          "classes",
+          "if-statements",
+          "constructors",
+          "datetimes",
+          "exceptions",
+          "properties",
+          "switch-statements"
+        ]
+      },
+      {
+        "slug": "attack-of-the-trolls",
+        "name": "Attack of the Trolls",
+        "uuid": "ad240550-d732-4125-b00b-b852027a2db7",
+        "concepts": [
+          "attributes",
+          "flag-enums"
+        ],
+        "prerequisites": [
+          "bit-manipulation",
+          "enums",
+          "integral-numbers"
+        ]
+      },
+      {
+        "slug": "interest-is-interesting",
+        "name": "Interest is Interesting",
+        "uuid": "4eb8d86f-7123-473e-9d96-7939e9652608",
+        "concepts": [
+          "do-while-loops",
+          "floating-point-numbers",
+          "while-loops"
+        ],
+        "prerequisites": [
+          "if-statements",
+          "numbers"
+        ]
+      },
+      {
+        "slug": "wizards-and-warriors",
+        "name": "Wizards and Warriors",
+        "uuid": "2eecc903-a3d9-47dd-ac62-1d88505f089c",
+        "concepts": [
+          "inheritance"
+        ],
+        "prerequisites": [
+          "booleans",
+          "classes",
+          "if-statements",
+          "constructors",
+          "strings"
+        ]
+      },
+      {
+        "slug": "hyper-optimized-telemetry",
+        "name": "Hyper-optimized Telemetry",
+        "uuid": "86bbc073-1726-423d-b156-c394554a4a8c",
+        "concepts": [
+          "integral-numbers"
+        ],
+        "prerequisites": [
+          "arrays",
+          "numbers"
+        ]
+      },
+      {
+        "slug": "remote-control-competition",
+        "name": "Remote Control Competition",
+        "uuid": "15ac87b1-2976-4a43-a41d-1b6f6628bd9a",
+        "concepts": [
+          "interfaces",
+          "ordering"
+        ],
+        "prerequisites": [
+          "classes",
+          "lists",
+          "properties"
+        ]
+      },
+      {
+        "slug": "tracks-on-tracks-on-tracks",
+        "name": "Tracks on Tracks on Tracks",
+        "uuid": "5c438d02-67a6-43b6-9e3c-8ba309c4ea32",
+        "concepts": [
+          "generic-types",
+          "lists"
+        ],
+        "prerequisites": [
+          "arrays",
+          "for-loops"
+        ]
+      },
+      {
+        "slug": "wizards-and-warriors-2",
+        "name": "Wizards and Warriors 2.0",
+        "uuid": "3f728065-98d8-472a-a84c-290f05ab1e58",
+        "concepts": [
+          "method-overloading",
+          "named-arguments",
+          "optional-parameters"
+        ],
+        "prerequisites": [
+          "classes",
+          "constructors",
+          "enums",
+          "properties",
+          "strings"
+        ]
+      },
+      {
+        "slug": "red-vs-blue-darwin-style",
+        "name": "Red vs. Blue: Darwin Style",
+        "uuid": "dcfd75d2-8264-4445-a95b-718867ec5eb4",
+        "concepts": [
+          "namespaces"
+        ],
+        "prerequisites": [
+          "classes",
+          "inheritance",
+          "nested-types"
+        ]
+      },
+      {
+        "slug": "remote-control-cleanup",
+        "name": "Remote Control Cleanup",
+        "uuid": "694cbd8d-677d-4052-960e-69386463a94b",
+        "concepts": [
+          "nested-types"
+        ],
+        "prerequisites": [
+          "classes",
+          "enums",
+          "interfaces",
+          "properties",
+          "structs"
+        ]
+      },
+      {
+        "slug": "tim-from-marketing",
+        "name": "Tim from Marketing",
+        "uuid": "370e7e54-6a96-11ea-bc55-0242ac130003",
+        "concepts": [
+          "nullability"
+        ],
+        "prerequisites": [
+          "if-statements",
+          "memory-allocation",
+          "strings"
+        ]
+      },
+      {
+        "slug": "cars-assemble",
+        "name": "Cars, Assemble!",
+        "uuid": "93fbc7cf-3a7e-4450-ad22-e30129c36bb9",
+        "concepts": [
+          "if-statements",
+          "numbers"
+        ],
+        "prerequisites": [
+          "basics"
+        ]
+      },
+      {
+        "slug": "developer-privileges",
+        "name": "Developer Privileges",
+        "uuid": "a9c3a1c9-19ee-45b2-8189-57e15870a051",
+        "concepts": [
+          "object-initializers"
+        ],
+        "prerequisites": [
+          "constructors",
+          "dictionaries",
+          "properties"
+        ]
+      },
+      {
+        "slug": "hyperia-forex",
+        "name": "Hyperia Forex",
+        "uuid": "555cf3ae-d9b0-446f-8e2d-70a81aceab49",
+        "concepts": [
+          "operator-overloading"
+        ],
+        "prerequisites": [
+          "equality",
+          "floating-point-numbers",
+          "method-overloading"
+        ]
+      },
+      {
+        "slug": "hyperinflation-hits-hyperia",
+        "name": "Hyperinflation Hits Hyperia",
+        "uuid": "16f760c1-29b8-4c82-a085-9b4d81002c62",
+        "concepts": [
+          "overflow"
+        ],
+        "prerequisites": [
+          "exceptions",
+          "floating-point-numbers",
+          "integral-numbers",
+          "strings"
+        ]
+      },
+      {
+        "slug": "building-telemetry",
+        "name": "Building Telemetry",
+        "uuid": "f5c259fd-a404-432f-922d-781bde34fe08",
+        "concepts": [
+          "parameters"
+        ],
+        "prerequisites": [
+          "if-statements",
+          "constructors",
+          "named-arguments",
+          "numbers",
+          "strings"
+        ]
+      },
+      {
+        "slug": "weighing-machine",
+        "name": "Weighing Machine",
+        "uuid": "978bcc16-0c49-4328-92e9-79f6204ce350",
+        "concepts": [
+          "properties"
+        ],
+        "prerequisites": [
+          "classes",
+          "enums",
+          "exceptions",
+          "floating-point-numbers",
+          "numbers"
+        ]
+      },
+      {
+        "slug": "roll-the-die",
+        "name": "Roll the Die!",
+        "uuid": "d8a43f1e-4ed0-4015-8307-fba1d9cdd117",
+        "concepts": [
+          "randomness"
+        ],
+        "prerequisites": [
+          "numbers"
+        ]
+      },
+      {
+        "slug": "parsing-log-files",
+        "name": "Parsing Log Files",
+        "uuid": "c63bb75d-51bd-4d5d-b37d-88e53ee0da69",
+        "concepts": [
+          "regular-expressions"
+        ],
+        "prerequisites": [
+          "arrays",
+          "for-loops",
+          "strings",
+          "string-interpolation",
+          "verbatim-strings"
+        ]
+      },
+      {
+        "slug": "object-relational-mapping",
+        "name": "Object Relational Mapping",
+        "uuid": "e99221eb-eecb-4746-9ef6-cc62650e41e1",
+        "concepts": [
+          "resource-cleanup"
+        ],
+        "prerequisites": [
+          "exceptions",
+          "inheritance"
+        ]
+      },
+      {
+        "slug": "orm-in-one-go",
+        "name": "Orm in One Go",
+        "uuid": "1c23e163-ceca-4cce-87ec-2e016db1262b",
+        "concepts": [
+          "resource-lifetime"
+        ],
+        "prerequisites": [
+          "resource-cleanup"
+        ]
+      },
+      {
+        "slug": "high-school-sweethearts",
+        "name": "High School Sweethearts",
+        "uuid": "eb435600-f983-4d55-a2c8-ef8b122334a0",
+        "concepts": [
+          "string-formatting",
+          "verbatim-strings"
+        ],
+        "prerequisites": [
+          "const-readonly",
+          "inheritance",
+          "string-builder",
+          "strings",
+          "time",
+          "varargs"
+        ]
+      },
+      {
+        "slug": "log-levels",
+        "name": "Log Levels",
+        "uuid": "eda235a5-37de-4fb6-a5c5-cf7aa2309987",
+        "concepts": [
+          "strings"
+        ],
+        "prerequisites": [
+          "basics"
+        ]
+      },
+      {
+        "slug": "land-grab-in-space",
+        "name": "Land Grab in Space",
+        "uuid": "1f43f015-fb34-49f6-bc77-7ab2234d90f2",
+        "concepts": [
+          "structs"
+        ],
+        "prerequisites": [
+          "classes",
+          "inheritance",
+          "numbers",
+          "sets",
+          "integral-numbers"
+        ]
+      },
+      {
+        "slug": "football-match-reports",
+        "name": "Football Match Reports",
+        "uuid": "eb9faaec-9754-4df1-8eb1-09ca0ad94665",
+        "concepts": [
+          "switch-statements"
+        ],
+        "prerequisites": [
+          "classes",
+          "inheritance"
+        ]
+      },
+      {
+        "slug": "beauty-salon-goes-global",
+        "name": "Beauty Salon Goes Global",
+        "uuid": "61dd2e1c-94bb-4c92-95ad-6460a7677884",
+        "concepts": [
+          "time",
+          "timezone"
+        ],
+        "prerequisites": [
+          "if-statements",
+          "datetimes",
+          "strings",
+          "switch-statements"
+        ]
+      },
+      {
+        "slug": "phone-number-analysis",
+        "name": "Phone Number Analysis",
+        "uuid": "8bb88ab5-3cde-4ebd-8eef-03323ebfd700",
+        "concepts": [
+          "tuples"
+        ],
+        "prerequisites": [
+          "strings"
+        ]
+      },
+      {
+        "slug": "instruments-of-texas",
+        "name": "Instruments of Texas",
+        "uuid": "1be577b0-95db-4c09-aff4-ddc68fb7520d",
+        "concepts": [
+          "user-defined-exceptions",
+          "exception-filtering"
+        ],
+        "prerequisites": [
+          "exceptions",
+          "inheritance",
+          "strings",
+          "if-statements",
+          "overflow",
+          "integral-numbers"
+        ]
+      }
+    ],
     "practice": [
       {
         "slug": "hello-world",
