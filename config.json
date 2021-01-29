@@ -2,9 +2,10 @@
   "language": "C#",
   "active": true,
   "blurb": "C# is a modern, object-oriented language with lots of great features, such as type-inference and async/await. The tooling is excellent, and there is extensive, well-written documentation.",
-  "online_editor": {	
-    "indent_style": "space",	
-    "indent_size": 4	
+  "version": 3,
+  "online_editor": {
+    "indent_style": "space",
+    "indent_size": 4
   },
   "foregone": [
     "lens-person",
