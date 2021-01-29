@@ -11,8 +11,9 @@
       "exercism_username": "mikedamay"
     }
   ],
-  "editor": {
-    "solution_files": ["HyperOptimizedTelemetry.cs"],
-    "test_files": ["HyperOptimizedTelemetryTests.cs"]
+  "files": {
+    "solution": ["HyperOptimizedTelemetry.cs"],
+    "test": ["HyperOptimizedTelemetryTests.cs"],
+    "exemplar": [".meta/Exemplar.cs"]
   }
 }

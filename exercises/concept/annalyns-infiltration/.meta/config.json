@@ -6,8 +6,9 @@
     }
   ],
   "forked_from": ["fsharp/booleans"],
-  "editor": {
-    "solution_files": ["AnnalynsInfiltration.cs"],
-    "test_files": ["AnnalynsInfiltrationTests.cs"]
+  "files": {
+    "solution": ["AnnalynsInfiltration.cs"],
+    "test": ["AnnalynsInfiltrationTests.cs"],
+    "exemplar": [".meta/Exemplar.cs"]
   }
 }

@@ -12,8 +12,9 @@
     }
   ],
   "forked_from": ["fsharp/lists"],
-  "editor": {
-    "solution_files": ["TracksOnTracksOnTracks.cs"],
-    "test_files": ["TracksOnTracksOnTracksTests.cs"]
+  "files": {
+    "solution": ["TracksOnTracksOnTracks.cs"],
+    "test": ["TracksOnTracksOnTracksTests.cs"],
+    "exemplar": [".meta/Exemplar.cs"]
   }
 }

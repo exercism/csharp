@@ -11,8 +11,9 @@
       "exercism_username": "mikedamay"
     }
   ],
-  "editor": {
-    "solution_files": ["Faceid2.cs"],
-    "test_files": ["Faceid2Tests.cs"]
+  "files": {
+    "solution": ["Faceid2.cs"],
+    "test": ["Faceid2Tests.cs"],
+    "exemplar": [".meta/Exemplar.cs"]
   }
 }

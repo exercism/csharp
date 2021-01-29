@@ -11,8 +11,9 @@
       "exercism_username": "ErikSchierboom"
     }
   ],
-  "editor": {
-    "solution_files": ["BookingUpForBeauty.cs"],
-    "test_files": ["BookingUpForBeautyTests.cs"]
+  "files": {
+    "solution": ["BookingUpForBeauty.cs"],
+    "test": ["BookingUpForBeautyTests.cs"],
+    "exemplar": [".meta/Exemplar.cs"]
   }
 }

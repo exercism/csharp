@@ -12,8 +12,9 @@
     }
   ],
   "forked_from": ["elixir/strings"],
-  "editor": {
-    "solution_files": ["HighSchoolSweethearts.cs"],
-    "test_files": ["HighSchoolSweetheartsTests.cs"]
+  "files": {
+    "solution": ["HighSchoolSweethearts.cs"],
+    "test": ["HighSchoolSweetheartsTests.cs"],
+    "exemplar": [".meta/Exemplar.cs"]
   }
 }

@@ -12,8 +12,9 @@
     }
   ],
   "forked_from": ["elixir/errors"],
-  "editor": {
-    "solution_files": ["InstrumentsOfTexas.cs"],
-    "test_files": ["InstrumentsOfTexasTests.cs"]
+  "files": {
+    "solution": ["InstrumentsOfTexas.cs"],
+    "test": ["InstrumentsOfTexasTests.cs"],
+    "exemplar": [".meta/Exemplar.cs"]
   }
 }

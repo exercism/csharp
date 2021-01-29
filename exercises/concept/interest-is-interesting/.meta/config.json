@@ -5,8 +5,9 @@
       "exercism_username": "ErikSchierboom"
     }
   ],
-  "editor": {
-    "solution_files": ["InterestIsInteresting.cs"],
-    "test_files": ["InterestIsInterestingTests.cs"]
+  "files": {
+    "solution": ["InterestIsInteresting.cs"],
+    "test": ["InterestIsInterestingTests.cs"],
+    "exemplar": [".meta/Exemplar.cs"]
   }
 }

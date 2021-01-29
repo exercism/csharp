@@ -15,8 +15,9 @@
       "exercism_username": "mikedamay"
     }
   ],
-  "editor": {
-    "solution_files": ["FootballMatchReports.cs"],
-    "test_files": ["FootballMatchReportsTests.cs"]
+  "files": {
+    "solution": ["FootballMatchReports.cs"],
+    "test": ["FootballMatchReportsTests.cs"],
+    "exemplar": [".meta/Exemplar.cs"]
   }
 }

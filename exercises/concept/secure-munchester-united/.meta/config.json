@@ -11,8 +11,9 @@
       "exercism_username": "mikedamay"
     }
   ],
-  "editor": {
-    "solution_files": ["SecureMunchesterUnited.cs"],
-    "test_files": ["SecureMunchesterUnitedTests.cs"]
+  "files": {
+    "solution": ["SecureMunchesterUnited.cs"],
+    "test": ["SecureMunchesterUnitedTests.cs"],
+    "exemplar": [".meta/Exemplar.cs"]
   }
 }

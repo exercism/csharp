@@ -11,8 +11,9 @@
       "exercism_username": "mikedamay"
     }
   ],
-  "editor": {
-    "solution_files": ["RemoteControlCleanup.cs"],
-    "test_files": ["RemoteControlCleanupTests.cs"]
+  "files": {
+    "solution": ["RemoteControlCleanup.cs"],
+    "test": ["RemoteControlCleanupTests.cs"],
+    "exemplar": [".meta/Exemplar.cs"]
   }
 }

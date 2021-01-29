@@ -5,8 +5,9 @@
       "exercism_username": "ErikSchierboom"
     }
   ],
-  "editor": {
-    "solution_files": ["BirdWatcher.cs"],
-    "test_files": ["BirdWatcherTests.cs"]
+  "files": {
+    "solution": ["BirdWatcher.cs"],
+    "test": ["BirdWatcherTests.cs"],
+    "exemplar": [".meta/Exemplar.cs"]
   }
 }

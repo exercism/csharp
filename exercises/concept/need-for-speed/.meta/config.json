@@ -5,8 +5,9 @@
       "exercism_username": "ErikSchierboom"
     }
   ],
-  "editor": {
-    "solution_files": ["NeedForSpeed.cs"],
-    "test_files": ["NeedForSpeedTests.cs"]
+  "files": {
+    "solution": ["NeedForSpeed.cs"],
+    "test": ["NeedForSpeedTests.cs"],
+    "exemplar": [".meta/Exemplar.cs"]
   }
 }

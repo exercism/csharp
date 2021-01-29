@@ -5,8 +5,9 @@
       "exercism_username": "maurelio1234"
     }
   ],
-  "editor": {
-    "solution_files": ["TimFromMarketing.cs"],
-    "test_files": ["TimFromMarketingTests.cs"]
+  "files": {
+    "solution": ["TimFromMarketing.cs"],
+    "test": ["TimFromMarketingTests.cs"],
+    "exemplar": [".meta/Exemplar.cs"]
   }
 }
