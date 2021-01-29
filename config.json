@@ -14,13 +14,6 @@
     "indent_style": "space",
     "indent_size": 4
   },
-  "foregone": [
-    "lens-person",
-    "nucleotide-codons",
-    "paasio",
-    "point-mutations",
-    "counter"
-  ],
   "exercises": {
     "practice": [
       {
@@ -1420,6 +1413,13 @@
           "transforming"
         ]
       }
+    ],
+    "foregone": [
+      "lens-person",
+      "nucleotide-codons",
+      "paasio",
+      "point-mutations",
+      "counter"
     ]
   }
 }
