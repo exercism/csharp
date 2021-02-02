@@ -2481,11 +2481,25 @@
     }
   ],
   "tags": [
-    "compiles_to/bytecode",
-    "runtime/common_language_runtime",
-    "paradigm/declarative",
     "paradigm/functional",
+    "paradigm/imperative",
     "paradigm/object_oriented",
-    "typing/static"
+    "typing/static",
+    "typing/strong",
+    "execution_mode/compiled",
+    "platform/windows",
+    "platform/mac",
+    "platform/linux",
+    "platform/ios",
+    "platform/android",
+    "platform/web",
+    "runtime/clr",
+    "used_for/backends",
+    "used_for/cross_platform_development",
+    "used_for/frontends",
+    "used_for/games",
+    "used_for/guis",
+    "used_for/mobile",
+    "used_for/web_development"
   ]
 }
