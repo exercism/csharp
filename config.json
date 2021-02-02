@@ -3,10 +3,10 @@
   "slug": "csharp",
   "active": true,
   "status": {
-    "concept_exercises": false,
-    "test_runner": false,
-    "representer": false,
-    "analyzer": false
+    "concept_exercises": true,
+    "test_runner": true,
+    "representer": true,
+    "analyzer": true
   },
   "blurb": "C# is a modern, object-oriented language with lots of great features, such as type-inference and async/await. The tooling is excellent, and there is extensive, well-written documentation.",
   "version": 3,
