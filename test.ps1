@@ -31,7 +31,7 @@ $exercisesDir = Resolve-Path "exercises"
 function Configlet-Lint {
     Write-Output "Linting config.json"
     Run-Command "./bin/fetch-configlet"
-    Run-Command "./bin/configlet lint ."
+    Run-Command "./bin/configlet lint"
 }
 
 function Build-Generators { 
