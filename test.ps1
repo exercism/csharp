@@ -63,22 +63,21 @@ function Test-Refactoring-Projects {
     @("tree-building", "ledger", "markdown") | ForEach-Object { Run-Command "dotnet test $practiceExercisesDir/$_" }
 }
 
+function Replace-Stubs-With-File ($ExercisesDir, $ReplaceFileName) {
+    Get-ChildItem -Path $ExercisesDir -Include "*.csproj" -Recurse | ForEach-Object {
+        $stub = Join-Path $_.Directory ($_.BaseName + ".cs")
+        $example = Join-Path $_.Directory ".meta" $ReplaceFileName
+    
+        Move-Item -Path $example -Destination $stub -Force
+    }
+}
+
 function Replace-Stubs {
     Write-Output "Replacing concept exercise stubs with exemplar"
-    Get-ChildItem -Path $conceptExercisesDir -Include "*.csproj" -Recurse | ForEach-Object {
-        $stub = Join-Path $_.Directory ($_.BaseName + ".cs")
-        $example = Join-Path $_.Directory ".meta" "Exemplar.cs"
-    
-        Move-Item -Path $example -Destination $stub -Force
-    }
+    Replace-Stubs-With-File $conceptExercisesDir "Exemplar.cs"
 
     Write-Output "Replacing practice exercise stubs with example"
-    Get-ChildItem -Path $practiceExercisesDir -Include "*.csproj" -Recurse | ForEach-Object {
-        $stub = Join-Path $_.Directory ($_.BaseName + ".cs")
-        $example = Join-Path $_.Directory "Example.cs"
-    
-        Move-Item -Path $example -Destination $stub -Force
-    }
+    Replace-Stubs-With-File $practiceExercisesDir "Example.cs"
 }
 
 function Test-Using-Example-Implementation {
