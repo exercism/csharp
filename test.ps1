@@ -26,7 +26,9 @@ param (
 . ./shared.ps1
 
 $buildDir = Join-Path $PSScriptRoot "build"
-$exercisesDir = Resolve-Path "exercises"
+$practiceExercisesDir = Join-Path $buildDir "practice"
+$conceptExercisesDir = Join-Path $buildDir "concept"
+$sourceDir = Resolve-Path "exercises"
 
 function Configlet-Lint {
     Write-Output "Linting config.json"
@@ -46,7 +48,7 @@ function Clean {
 
 function Copy-Exercises {
     Write-Output "Copying exercises"
-    Copy-Item $exercisesDir -Destination $buildDir -Recurse
+    Copy-Item $sourceDir -Destination $buildDir -Recurse
 }
 
 function Enable-All-Tests {
@@ -58,12 +60,20 @@ function Enable-All-Tests {
 
 function Test-Refactoring-Projects {
     Write-Output "Testing refactoring projects"
-    @("tree-building", "ledger", "markdown") | ForEach-Object { Run-Command "dotnet test $buildDir/$_" }
+    @("tree-building", "ledger", "markdown") | ForEach-Object { Run-Command "dotnet test $practiceExercisesDir/$_" }
 }
 
-function Replace-Stubs-With-Example {
-    Write-Output "Replacing stubs with example"
-    Get-ChildItem -Path $buildDir -Include "*.csproj" -Recurse | ForEach-Object {
+function Replace-Stubs {
+    Write-Output "Replacing concept exercise stubs with exemplar"
+    Get-ChildItem -Path $conceptExercisesDir -Include "*.csproj" -Recurse | ForEach-Object {
+        $stub = Join-Path $_.Directory ($_.BaseName + ".cs")
+        $example = Join-Path $_.Directory ".meta" "Exemplar.cs"
+    
+        Move-Item -Path $example -Destination $stub -Force
+    }
+
+    Write-Output "Replacing practice exercise stubs with example"
+    Get-ChildItem -Path $practiceExercisesDir -Include "*.csproj" -Recurse | ForEach-Object {
         $stub = Join-Path $_.Directory ($_.BaseName + ".cs")
         $example = Join-Path $_.Directory "Example.cs"
     
@@ -73,8 +83,19 @@ function Replace-Stubs-With-Example {
 
 function Test-Using-Example-Implementation {
     Write-Output "Running tests"
-    $testTarget = if ($Exercise) { "$buildDir/$Exercise" } else { "$buildDir/Exercises.sln" }
-    Run-Command "dotnet test $testTarget"
+
+    if (-Not $Exercise) {
+        Run-Command "dotnet test $buildDir/Exercises.sln"
+    }
+    elseif (Test-Path "$conceptExercisesDir/$exercise") {
+        Run-Command "dotnet test $conceptExercisesDir/$exercise"
+    }
+    elseif (Test-Path "$practiceExercisesDir/$exercise") {
+        Run-Command "dotnet test $practiceExercisesDir/$exercise"
+    }
+    else {
+        throw "Could not find exercise '$exercise'"
+    }
 }
 
 Configlet-Lint
@@ -87,7 +108,7 @@ if (!$Exercise) {
     Test-Refactoring-Projects
 }
 
-Replace-Stubs-With-Example
+Replace-Stubs
 Test-Using-Example-Implementation
 
 exit $LastExitCode
