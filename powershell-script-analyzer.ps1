@@ -1,4 +1,4 @@
-if (!(Get-InstalledModule PSScriptAnalyzer)) {
+if (!(Get-Module -ListAvailable -Name PSScriptAnalyzer)) {
     Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
     Install-Module PSScriptAnalyzer -Scope CurrentUser -Repository PSGallery -Force
 }
