@@ -3,7 +3,7 @@
   "files": {
     "solution": [],
     "test": [],
-    "example": []
+    "example": [".meta/Example.cs"]
   },
   "source": "Inspired by the training course from Udacity.",
   "source_url": "https://www.udacity.com/course/viewer#!/c-cs212/"

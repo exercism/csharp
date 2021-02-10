@@ -3,7 +3,7 @@
   "files": {
     "solution": [],
     "test": [],
-    "example": []
+    "example": [".meta/Example.cs"]
   },
   "source": "Josh Cheek",
   "source_url": "https://twitter.com/josh_cheek"
