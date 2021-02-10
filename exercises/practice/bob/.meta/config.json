@@ -3,7 +3,7 @@
   "files": {
     "solution": [],
     "test": [],
-    "example": []
+    "example": [".meta/Example.cs"]
   },
   "source": "Inspired by the 'Deaf Grandma' exercise in Chris Pine's Learn to Program tutorial.",
   "source_url": "http://pine.fm/LearnToProgram/?Chapter=06"

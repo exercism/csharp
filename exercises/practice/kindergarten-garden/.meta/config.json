@@ -3,7 +3,7 @@
   "files": {
     "solution": [],
     "test": [],
-    "example": []
+    "example": [".meta/Example.cs"]
   },
   "source": "Random musings during airplane trip.",
   "source_url": "http://jumpstartlab.com"

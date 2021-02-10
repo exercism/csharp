@@ -3,7 +3,7 @@
   "files": {
     "solution": [],
     "test": [],
-    "example": []
+    "example": [".meta/Example.cs"]
   },
   "source": "Inspired by the Bank OCR kata",
   "source_url": "http://codingdojo.org/cgi-bin/wiki.pl?KataBankOCR"

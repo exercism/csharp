@@ -3,7 +3,7 @@
   "files": {
     "solution": [],
     "test": [],
-    "example": []
+    "example": [".meta/Example.cs"]
   },
   "source": "Tribute to the eighties' arcade game Frogger"
 }

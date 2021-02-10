@@ -3,7 +3,7 @@
   "files": {
     "solution": [],
     "test": [],
-    "example": []
+    "example": [".meta/Example.cs"]
   },
   "source": "Learn to Program by Chris Pine",
   "source_url": "http://pine.fm/LearnToProgram/?Chapter=06"
