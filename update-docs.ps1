@@ -40,9 +40,9 @@ function Update-DocFile {
 
     if ($PSCmdlet.ShouldProcess($true)) {
         Write-Output "Updating docs"
-        $configlet_args = if ($Exercise) { @("-o", $Exercise) } else { @() }
+        $configlet_args = if ($Exercise) { @("-e", $Exercise) } else { @() }
         Invoke-CommandExecution "./bin/fetch-configlet"
-        Invoke-CommandExecution "./bin/configlet generate . -p problem-specifications $configlet_args"
+        Invoke-CommandExecution "./bin/configlet sync -p problem-specifications -o $configlet_args"
     }
 }
 
