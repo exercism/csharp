@@ -641,8 +641,8 @@
         "slug": "two-fer",
         "name": "Two Fer",
         "uuid": "57f02d0e-7b75-473b-892d-26a7d980c4ce",
-        "practices": [],
-        "prerequisites": [],
+        "practices": ["optional-parameters", "interpolation"],
+        "prerequisites": ["optional-parameters", "interpolation"],
         "difficulty": 1,
         "topics": [
           "optional_values",
