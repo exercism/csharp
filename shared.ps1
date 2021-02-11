@@ -1,8 +1,10 @@
 $ErrorActionPreference = 'Stop'
 
 # PowerShell does not check the return code of native commands.
-# There is a pending proposal to support this: https://github.com/PowerShell/PowerShell-RFC/pull/88/files
-function Run-Command ($Command) {
+# There is a pending proposal to support this:
+# https://github.com/PowerShell/PowerShell-RFC/pull/88/files
+# https://github.com/PowerShell/PowerShell-RFC/pull/261
+function Invoke-CommandExecution ($Command) {
     <#
         .SYNOPSIS
             Run a native command.
@@ -11,11 +13,11 @@ function Run-Command ($Command) {
         .EXAMPLE
             The example below runs the "./bin/configlet hint ." command
 
-            Run-Command "./bin/configlet hint ."
+            Invoke-CommandExecution "./bin/configlet hint ."
     #>
 
-    Invoke-Expression $Command
-    
+    Invoke-Expression -Command $Command
+
     if ($Lastexitcode -ne 0) {
         exit $Lastexitcode
     }

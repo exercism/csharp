@@ -11,7 +11,7 @@
 # Import shared functionality
 . ./shared.ps1
 
-Run-Command "git submodule init"
-Run-Command "git submodule update --remote"
+Invoke-CommandExecution "git submodule init"
+Invoke-CommandExecution "git submodule update --remote"
 
 exit $LastExitCode

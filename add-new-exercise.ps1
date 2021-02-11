@@ -36,21 +36,27 @@ param (
 # Import shared functionality
 . ./shared.ps1
 
-$exerciseName = (Get-Culture).TextInfo.ToTitleCase($Exercise).Replace("-", "")
-$exercisesDir = Resolve-Path "exercises"
-$exerciseDir = Join-Path $exercisesDir $Exercise
+
 
 function Add-Project {
+    param (
+        [Parameter(Position = 0, Mandatory = $true)][string]$Exercise,
+        [Parameter(Position = 1, Mandatory = $true)][string]$ExerciseName
+    )
+
     Write-Output "Adding project"
 
-    $csProj = "$exerciseDir/$exerciseName.csproj"
+    $exercisesDir = Resolve-Path "exercises"
+    $exerciseDir = Join-Path $exercisesDir $Exercise
 
-    Run-Command "dotnet new xunit -lang ""C#"" --target-framework-override netcoreapp3.0 -o $exerciseDir -n $exerciseName"
-    Run-Command "dotnet sln ""$exercisesDir/Exercises.sln"" add $csProj"
+    $csProj = "$exerciseDir/$ExerciseName.csproj"
+
+    Invoke-CommandExecution "dotnet new xunit -lang ""C#"" --target-framework-override netcoreapp3.0 -o $exerciseDir -n $ExerciseName"
+    Invoke-CommandExecution "dotnet sln ""$exercisesDir/Exercises.sln"" add $csProj"
     
     Remove-Item -Path "$exerciseDir/UnitTest1.cs"
     
-    New-Item -ItemType File -Path "$exerciseDir/$exerciseName.cs"
+    New-Item -ItemType File -Path "$exerciseDir/$ExerciseName.cs"
     New-Item -ItemType File -Path "$exerciseDir/Example.cs"
     
     [xml]$proj = Get-Content $csProj
@@ -58,8 +64,8 @@ function Add-Project {
 
     $nugetItemGroup = $proj.Project.ItemGroup;
     $nugetItemGroup.RemoveAll();
-    $nugetList = @(@{nuget="Microsoft.NET.Test.Sdk";Version="16.7.1"}, @{nuget="xunit";Version="2.4.1"}, @{nuget="xunit.runner.visualstudio";version="2.4.3"})
-    $nugetList | % { 
+    $nugetList = @(@{nuget = "Microsoft.NET.Test.Sdk"; Version = "16.7.1" }, @{nuget = "xunit"; Version = "2.4.1" }, @{nuget = "xunit.runner.visualstudio"; version = "2.4.3" })
+    $nugetList | ForEach-Object { 
         $packageElement = $proj.CreateElement("PackageReference");
         $includeAttribute = $proj.CreateAttribute("Include");
         $includeAttribute.Value = $_.nuget;
@@ -81,35 +87,67 @@ function Add-Project {
     $proj.Save($csProj);
 }
 
-function Add-Generator {
+function Add-GeneratorClass {
+    param (
+        [Parameter(Position = 0, Mandatory = $true)][string]$ExerciseName
+    )
+
     Write-Output "Adding generator"
 
     $generatorsDir = Resolve-Path "generators"
     $generatorsExercisesDir = Join-Path $generatorsDir "Exercises"
     $generatorsExerciseGeneratorsDir = Join-Path $generatorsExercisesDir "Generators"
-    $generator = Join-Path $generatorsExerciseGeneratorsDir "$exerciseName.cs"
-    $generatorClass = "namespace Exercism.CSharp.Exercises.Generators`n{`n    public class $exerciseName : GeneratorExercise`n    {`n    }`n}"
+    $generator = Join-Path $generatorsExerciseGeneratorsDir "$ExerciseName.cs"
+    $generatorClass = "namespace Exercism.CSharp.Exercises.Generators`n{`n    public class $ExerciseName : GeneratorExercise`n    {`n    }`n}"
     
     Set-Content -Path $generator -Value $generatorClass
 }
 
-function Copy-Track-Files {
-    Write-Output "Copying track files"
-    ./copy-track-files.ps1 $Exercise
+function Copy-ExerciseTrackFile {
+    [CmdletBinding(SupportsShouldProcess)]
+    param (
+        [Parameter(Position = 0, Mandatory = $true)][string]$Exercise
+    )
+
+    if ($PSCmdlet.ShouldProcess($true)) {
+        Write-Output "Copying track files"
+        ./copy-track-files.ps1 $Exercise
+    }
 }
 
-function Update-Readme {
-    Write-Output "Updating README"
-    ./update-docs.ps1 $Exercise
+function Update-ExerciseReadme {
+    [CmdletBinding(SupportsShouldProcess)]
+    param (
+        [Parameter(Position = 0, Mandatory = $true)][string]$Exercise
+    )
+
+    if ($PSCmdlet.ShouldProcess($true)) {
+        Write-Output "Updating README"
+        ./update-docs.ps1 $Exercise
+    }
 }
 
-function Update-Tests { 
-    Write-Output "Updating test suite"
-    ./generate-tests.ps1 $Exercise
+function Update-ExerciseTest {
+    [CmdletBinding(SupportsShouldProcess)]
+    param (
+        [Parameter(Position = 0, Mandatory = $true)][string]$Exercise
+    )
+
+    if ($PSCmdlet.ShouldProcess($true)) {
+        Write-Output "Updating test suite"
+        ./generate-tests.ps1 $Exercise
+    } 
 }
 
-function Update-Config-Json {
-    Write-Output "Updating config.json"
+function Update-ConfigJson {
+    [CmdletBinding(SupportsShouldProcess)]
+    param (
+        [Parameter(Mandatory = $true, Position = 0)][string]$Exercise,
+        [Parameter()][string[]]$Topics = @(),
+        [Parameter()][switch]$Core,
+        [Parameter()][int]$Difficulty = 1,
+        [Parameter()]$UnlockedBy
+    )
 
     $configJson = Resolve-Path "config.json"
 
@@ -123,17 +161,22 @@ function Update-Config-Json {
         topics      = $Topics;
     }
     
-    ConvertTo-Json -InputObject $config -Depth 10 | Set-Content -Path $configJson
+    if ($PSCmdlet.ShouldProcess($true)) {
+        Write-Output "Updating config.json"
+        ConvertTo-Json -InputObject $config -Depth 10 | Set-Content -Path $configJson
+    } 
 
-    Run-Command "./bin/fetch-configlet"
-    Run-Command "./bin/configlet fmt ."
+    Invoke-CommandExecution "./bin/fetch-configlet"
+    Invoke-CommandExecution "./bin/configlet fmt ."
 }
 
-Add-Project
-Add-Generator
-Copy-Track-Files
-Update-Readme
-Update-Tests
-Update-Config-Json
+$exerciseName = (Get-Culture).TextInfo.ToTitleCase($Exercise).Replace("-", "")
+
+Add-Project $Exercise $exerciseName
+Add-GeneratorClass $exerciseName
+Copy-ExerciseTrackFile $Exercise
+Update-ExerciseReadme $Exercise
+Update-ExerciseTest $Exercise
+Update-ConfigJson $Exercise -Topics $Topics -Core $Core -Difficulty $Difficulty -UnlockedBy $UnlockedBy
 
 exit $LastExitCode

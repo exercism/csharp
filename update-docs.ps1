@@ -22,18 +22,31 @@ param (
 . ./shared.ps1
 
 function Update-Canonical-Data {
-    Write-Output "Updating canonical data"
-    Run-Command "./update-canonical-data.ps1" 
+    [CmdletBinding(SupportsShouldProcess)]
+    param ()
+
+    if ($PSCmdlet.ShouldProcess($true)) {
+        Write-Output "Updating canonical data"
+        Invoke-CommandExecution "./update-canonical-data.ps1" 
+    }
 }
 
-function Update-Docs {
-    Write-Output "Updating docs"
-    $args = if ($Exercise) { @("-o", $Exercise) } else { @() }
-    Run-Command "./bin/fetch-configlet"
-    Run-Command "./bin/configlet generate . -p problem-specifications $args"
+function Update-DocFile {
+    [CmdletBinding(SupportsShouldProcess)]
+    param (
+        [Parameter(Position = 0, Mandatory = $false)]
+        [string]$Exercise
+    )
+
+    if ($PSCmdlet.ShouldProcess($true)) {
+        Write-Output "Updating docs"
+        $configlet_args = if ($Exercise) { @("-o", $Exercise) } else { @() }
+        Invoke-CommandExecution "./bin/fetch-configlet"
+        Invoke-CommandExecution "./bin/configlet generate . -p problem-specifications $configlet_args"
+    }
 }
 
 Update-Canonical-Data
-Update-Docs
+Update-DocFile $Exercise
 
 exit $LastExitCode

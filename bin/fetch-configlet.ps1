@@ -1,21 +1,22 @@
 $ErrorActionPreference = "Stop"
 $ProgressPreference = "SilentlyContinue"
+function Get-DownloadUrl {
+    $arch = If ([Environment]::Is64BitOperatingSystem) { "64bit" } Else { "32bit" }
+    $fileName = "configlet-windows-$arch.zip"
 
-$requestOpts = @{
-    Headers = If ($env:GITHUB_TOKEN) { @{ Authorization = "Bearer ${env:GITHUB_TOKEN}" } } Else { @{ } }
-    MaximumRetryCount = 3
-    RetryIntervalSec = 1
-}
+    if ($PSVersionTable.PSVersion.Major -le 5) {
+        # PreserveAuthorizationOnRedirect requires PowerShell 7+
+        throw "Please upgrade to PowerShell Core with https://aka.ms/install-powershell.ps1"
+    }
 
-$arch = If ([Environment]::Is64BitOperatingSystem) { "64bit" } Else { "32bit" }
-$fileName = "configlet-windows-$arch.zip"
-
-Function Get-DownloadUrl {
+    $requestOpts = @{
+        Headers           = If ($env:GITHUB_TOKEN) { @{ Authorization = "Bearer ${env:GITHUB_TOKEN}" } } Else { @{ } }
+        MaximumRetryCount = 3
+        RetryIntervalSec  = 1
+    }
     $latestUrl = "https://api.github.com/repos/exercism/configlet/releases/latest"
-    Invoke-RestMethod -Uri $latestUrl -PreserveAuthorizationOnRedirect @requestOpts
-    | Select-Object -ExpandProperty assets
-    | Where-Object { $_.browser_download_url -match $FileName }
-    | Select-Object -ExpandProperty browser_download_url
+    $assets = Invoke-RestMethod -Uri $latestUrl -PreserveAuthorizationOnRedirect @requestOpts | Select-Object -ExpandProperty assets
+    $assets | Where-Object { $_.browser_download_url -match $FileName } | Select-Object -ExpandProperty browser_download_url
 }
 
 $downloadUrl = Get-DownloadUrl
