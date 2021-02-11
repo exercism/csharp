@@ -1,12 +1,10 @@
 $ErrorActionPreference = "Stop"
 $ProgressPreference = "SilentlyContinue"
-function Get-DownloadUrl {
-    $arch = If ([Environment]::Is64BitOperatingSystem) { "64bit" } Else { "32bit" }
-    $fileName = "configlet-windows-$arch.zip"
 
+function Get-DownloadUrl($FileName) {
     if ($PSVersionTable.PSVersion.Major -le 5) {
         # PreserveAuthorizationOnRedirect requires PowerShell 7+
-        throw "Please upgrade to PowerShell Core with https://aka.ms/install-powershell.ps1"
+        throw "Please upgrade to PowerShell Core with 'dotnet tool install --global PowerShell'"
     }
 
     $requestOpts = @{
@@ -19,8 +17,11 @@ function Get-DownloadUrl {
     $assets | Where-Object { $_.browser_download_url -match $FileName } | Select-Object -ExpandProperty browser_download_url
 }
 
-$downloadUrl = Get-DownloadUrl
 $outputDirectory = "bin"
+$arch = If ([Environment]::Is64BitOperatingSystem) { "64bit" } Else { "32bit" }
+$fileName = "configlet-windows-$arch.zip"
+
+$downloadUrl = Get-DownloadUrl $fileName
 $outputFile = Join-Path -Path $outputDirectory -ChildPath $fileName
 Invoke-WebRequest -Uri $downloadUrl -OutFile $outputFile @requestOpts
 Expand-Archive $outputFile -DestinationPath $outputDirectory -Force
