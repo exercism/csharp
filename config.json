@@ -1059,8 +1059,8 @@
         "slug": "accumulate",
         "name": "Accumulate",
         "uuid": "3c0563dc-665a-45b4-9b29-f133e235efd0",
-        "practices": [],
-        "prerequisites": [],
+        "practices": ["lambdas", "foreach"],
+        "prerequisites": ["lambdas", "generic-types", "foreach", "enumerables"],
         "difficulty": 2,
         "topics": [
           "extension_methods",
