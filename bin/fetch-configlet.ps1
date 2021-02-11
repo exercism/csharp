@@ -4,7 +4,7 @@ $ProgressPreference = "SilentlyContinue"
 function Get-DownloadUrl($FileName) {
     if ($PSVersionTable.PSVersion.Major -le 5) {
         # PreserveAuthorizationOnRedirect requires PowerShell 7+
-        throw "Please upgrade to PowerShell Core with 'dotnet tool install --global PowerShell'"
+        throw "Please upgrade to PowerShell Core. For example: 'dotnet tool install --global PowerShell'"
     }
 
     $requestOpts = @{
