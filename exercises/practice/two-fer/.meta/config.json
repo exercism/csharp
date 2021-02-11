@@ -3,7 +3,7 @@
   "files": {
     "solution": [],
     "test": [],
-    "example": []
+    "example": [".meta/Example.cs"]
   },
   "source_url": "https://github.com/exercism/problem-specifications/issues/757"
 }
