@@ -36,8 +36,6 @@ param (
 # Import shared functionality
 . ./shared.ps1
 
-
-
 function Add-Project {
     param (
         [Parameter(Position = 0, Mandatory = $true)][string]$Exercise,
@@ -51,7 +49,7 @@ function Add-Project {
 
     $csProj = "$exerciseDir/$ExerciseName.csproj"
 
-    Invoke-CommandExecution "dotnet new xunit -lang ""C#"" --target-framework-override netcoreapp3.0 -o $exerciseDir -n $ExerciseName"
+    Invoke-CommandExecution "dotnet new xunit -lang ""C#"" --target-framework-override net5.0 -o $exerciseDir -n $ExerciseName"
     Invoke-CommandExecution "dotnet sln ""$exercisesDir/Exercises.sln"" add $csProj"
     
     Remove-Item -Path "$exerciseDir/UnitTest1.cs"
@@ -64,7 +62,7 @@ function Add-Project {
 
     $nugetItemGroup = $proj.Project.ItemGroup;
     $nugetItemGroup.RemoveAll();
-    $nugetList = @(@{nuget = "Microsoft.NET.Test.Sdk"; Version = "16.7.1" }, @{nuget = "xunit"; Version = "2.4.1" }, @{nuget = "xunit.runner.visualstudio"; version = "2.4.3" })
+    $nugetList = @(@{nuget = "Microsoft.NET.Test.Sdk"; Version = "16.8.3" }, @{nuget = "xunit"; Version = "2.4.1" }, @{nuget = "xunit.runner.visualstudio"; version = "2.4.3" })
     $nugetList | ForEach-Object { 
         $packageElement = $proj.CreateElement("PackageReference");
         $includeAttribute = $proj.CreateAttribute("Include");
