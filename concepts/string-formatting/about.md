@@ -1,3 +1,5 @@
+# About
+
 Mechanisms for formatting strings are many and various in C#/.NET: everything from simple concatenation of objects through calls to the overridden `object.ToString()` method to use of [`ICustomFormatter`][custom-formatter] (not covered in this exercise).
 
 The two most common mechanisms for formatting strings are [string interpolation][string-interpolation] and [String.Format()][string-format]. The [`StringBuilder`][string-builder] (cross-ref-tba) class can also be used to build up a string if there is complexity such as multiple lines involved.

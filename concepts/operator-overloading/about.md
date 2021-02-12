@@ -1,3 +1,5 @@
+# About
+
 The principal arithmetic and comparison operators can be adapted for use by your own classes and structs. This is known as _operator overloading_.
 
 This [article][operator-overloading] is a thorough discussion of the syntax as well as which operators can be overloaded and those that can't.

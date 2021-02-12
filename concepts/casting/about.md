@@ -1,3 +1,5 @@
+# About
+
 Casting and type conversion [are different ways of changing an expression from one data type to another][wiki-casting].
 
 The [C# documentation][type-testing-and-cast-operators] classifies type conversion as the use of the [`as` operator][as-operator] or [`is` operator][is-operator]. Casting is defined as the use of the [cast operator][cast-operator].

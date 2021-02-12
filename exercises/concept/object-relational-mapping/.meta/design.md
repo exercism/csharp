@@ -1,3 +1,5 @@
+# Design
+
 ## Learning objectives
 
 - Know how to clean up resources using `IDisposable` in C# for managed resources.

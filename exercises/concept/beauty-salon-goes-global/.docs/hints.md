@@ -1,3 +1,5 @@
+# Hints
+
 ## General
 
 - This [article][time-overview] is an overview of dates, times and time zones on .NET.

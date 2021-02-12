@@ -1,3 +1,5 @@
+# Instructions
+
 In this exercise, you'll be implementing the quest logic for a new RPG game a friend is developing.
 
 The game's main character is Annalyn, a brave girl with a fierce and loyal pet dog. Unfortunately, disaster strikes, as her best friend was kidnapped while searching for berries in the forest.

@@ -1,3 +1,5 @@
+# Hints
+
 ## General
 
 - [String interpolation][string-interpolation]: tutorial on how to use string interpolation.

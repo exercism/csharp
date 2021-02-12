@@ -1,3 +1,5 @@
+# Hints
+
 ## General
 
 - [structs][structs]: introduction to structs.

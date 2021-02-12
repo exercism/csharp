@@ -1,3 +1,5 @@
+# Instructions
+
 In this exercise you'll be modelling a weighing machine.
 
 The weight can be set and retrieved in pounds or kilograms and cannot be negative.

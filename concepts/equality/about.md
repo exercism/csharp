@@ -1,3 +1,5 @@
+# About
+
 The coding exercise illustrates a number of properties of equality in C#:
 
 ### `Object.Equals()`

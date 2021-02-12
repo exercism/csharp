@@ -1,4 +1,4 @@
-## Hints
+# Hints
 
 For this exercise the following C# feature comes in handy: 
 Enumerables are evaluated lazily.    They allow you to work with an infinite sequence of values.

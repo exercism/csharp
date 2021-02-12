@@ -1,3 +1,5 @@
+# Design
+
 ## Learning objectives
 
 - Know of the existence of the three floating point types: `double`, `float` and `decimal`.

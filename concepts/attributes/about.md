@@ -1,3 +1,5 @@
+# About
+
 A [C# `Attribute`][attribute-concept] provides a way to decorate a declaration to associate metadata to: a class, a method, an enum, a field, a property or any [other supported][attribute-targets] declarations.
 
 You can apply [an attribute][attribute] to a declaration by adding it between brackets `[]` before the declaration, the following example uses both a `ClassAttribute` and a `FieldAttribute`:

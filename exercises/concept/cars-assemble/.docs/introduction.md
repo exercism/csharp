@@ -1,3 +1,5 @@
+# Introduction
+
 ## Numbers
 
 There are two different types of numbers in C#:

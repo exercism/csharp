@@ -1,3 +1,5 @@
+# Hints
+
 ## General
 
 - [object initializer][object-initializers] documentation describes how to use initializers.

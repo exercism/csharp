@@ -1,3 +1,5 @@
+# Design
+
 ## Learning objectives
 
 - Know how to define a user-defined exception.

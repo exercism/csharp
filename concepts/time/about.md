@@ -1,3 +1,5 @@
+# About
+
 Although this exercise investigates the concept of `time` in practice you rarely deal with times on their own. They are almost always dealt with in conjunction with dates. There is no specific separate _time_ type, only [`DateTime`][date-time].
 
 Time-of-day can be expressed with [`TimeSpan`][time-span] (and this is in fact the return type of `DateTime.TimeOfDay`). It is not [purpose made][skeet-time-of-day] so the expressiveness of code can get a bit clunky. For instance, what do you expect time-of-day to be for an instance of `DateTime` that is in UTC form? But, it does the job.

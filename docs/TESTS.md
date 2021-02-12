@@ -1,3 +1,5 @@
+# Tests
+
 ## Running Tests
 
 To run the tests, execute the following command:

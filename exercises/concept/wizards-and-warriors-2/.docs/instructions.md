@@ -1,3 +1,5 @@
+# Instructions
+
 In this exercise you're playing a role-playing game named "Wizard and Warriors" with your best friends. You are the Game Master, the person tasked with making the game world come alive for the players. A key aspect of this is describing the game to the players: what is a character's status, what the town they're visiting looks like, etc.
 
 You have five tasks that have you describe parts of the game to the players.

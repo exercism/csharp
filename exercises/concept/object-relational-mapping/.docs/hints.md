@@ -1,3 +1,5 @@
+# Hints
+
 ## General
 
 Documentation related to `IDisposable` is [here][idisposable]

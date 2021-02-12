@@ -1,3 +1,5 @@
+# About
+
 Booleans in C# are represented by the `bool` type, which values can be either `true` or `false`.
 
 C# supports three [boolean operators][operators]: `!` (NOT), `&&` (AND), and `||` (OR). The `&&` and `||` operators use _short-circuit evaluation_, which means that the right-hand side of the operator is only evaluated when needed.

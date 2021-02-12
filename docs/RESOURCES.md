@@ -1,4 +1,4 @@
-## Recommended Learning Resources
+# Recommended Learning Resources
 
 ### Blogs
 

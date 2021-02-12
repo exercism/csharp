@@ -1,3 +1,5 @@
+# Hints
+
 ## General
 
 - [Create user-defined exceptions][create-user-defined-exceptions]: how to create user-defined exceptions

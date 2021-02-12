@@ -1,3 +1,5 @@
+# Hints
+
 ## 1. Print a badge for an employee
 
 - [String interpolation][string-interpolation] can be used to concisely format the badge.

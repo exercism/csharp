@@ -1,3 +1,5 @@
+# Hints
+
 ## General
 
 - This documentation of [nested types][nested-types] details the syntax.

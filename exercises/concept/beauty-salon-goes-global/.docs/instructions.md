@@ -1,3 +1,5 @@
+# Instructions
+
 In this exercise you are back in the world of salons (first introduced in the `datetimes` exercise). As with a number of your projects another of your clients has had great success and opened outlets in London and Paris in addition to their New York base.
 
 ## 1. Provide local time equivalents of UTC (Universal Coordinated Time) appointments for the administrators

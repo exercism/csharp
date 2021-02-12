@@ -1,4 +1,4 @@
-## General
+# General
 
 - Expression bodied members are discussed [here][expression-bodied-members].
 - Ternary operators are discussed [here][ternary-operators].

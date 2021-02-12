@@ -1,3 +1,5 @@
+# About
+
 To allow a single enum instance to represent multiple values (usually referred to as _flags_), one can annotate the enum with the `[Flags]` attribute. By carefully assigning the values of the enum members such that specific bits are set to `1`, bitwise operators can be used to set or unset flags.
 
 ```csharp

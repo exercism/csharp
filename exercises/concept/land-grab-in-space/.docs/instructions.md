@@ -1,3 +1,5 @@
+# Instructions
+
 You have been tasked by the claims department of Isaacs Asteroid Exploration Co. to improve the performance of their land claim system.
 
 Every time a new asteroid is ready for exploitation speculators are invited to stake their claim to a plot of land. The asteroid's land is divided into 4 sided plots. Speculators claim the land by specifying its dimensions.

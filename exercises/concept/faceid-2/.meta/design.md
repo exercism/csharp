@@ -1,3 +1,5 @@
+# Design
+
 ## Learning objectives
 
 - Know how to check for equality and inequality.
