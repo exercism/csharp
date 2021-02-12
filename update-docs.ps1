@@ -13,6 +13,7 @@
     PS C:\> ./update-docs.ps1 acronym
 #>
 
+[CmdletBinding(SupportsShouldProcess)]
 param (
     [Parameter(Position = 0, Mandatory = $false)]
     [string]$Exercise

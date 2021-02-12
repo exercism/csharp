@@ -26,6 +26,8 @@ $fileName = "configlet-windows-$arch.zip"
 
 $downloadUrl = Get-DownloadUrl $fileName $requestOpts
 $outputFile = Join-Path -Path $outputDirectory -ChildPath $fileName
-Invoke-WebRequest -Uri $downloadUrl -OutFile $outputFile -PreserveAuthorizationOnRedirect @requestOpts
+
+# using PreserveAuthorizationOnRedirect named parameter wouldn't work on WSL
+Invoke-WebRequest -Uri $downloadUrl -OutFile $outputFile @requestOpts
 Expand-Archive $outputFile -DestinationPath $outputDirectory -Force
 Remove-Item -Path $outputFile

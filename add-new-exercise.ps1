@@ -25,6 +25,7 @@
     PS C:\> ./add-new-exercise.ps1 acronym -Core -Topics strings,optional -Difficulty 3 -UnlockedBy two-fer
 #>
 
+[CmdletBinding(SupportsShouldProcess)]
 param (
     [Parameter(Position = 0, Mandatory = $true)][string]$Exercise,
     [Parameter()][string[]]$Topics = @(),
@@ -160,7 +161,7 @@ function Update-ConfigJson {
         topics      = $Topics;
     }
     
-    if ($PSCmdlet.ShouldProcess($true)) {
+    if ($PSCmdlet.ShouldProcess("config.json", "add new file")) {
         Write-Output "Updating config.json"
         ConvertTo-Json -InputObject $config -Depth 10 | Set-Content -Path $configJson
     } 

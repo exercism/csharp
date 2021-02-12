@@ -8,6 +8,9 @@
     PS C:\> ./update-canonical-data.ps1
 #>
 
+[CmdletBinding(SupportsShouldProcess)]
+param ()
+
 # Import shared functionality
 . ./shared.ps1
 

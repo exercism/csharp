@@ -17,6 +17,7 @@
     PS C:\> ./test.ps1 acronym
 #>
 
+[CmdletBinding(SupportsShouldProcess)]
 param (
     [Parameter(Position = 0, Mandatory = $false)]
     [string]$Exercise
@@ -59,11 +60,11 @@ function Test-Refactoring-Exercise($PracticeExercisesDir) {
     @("tree-building", "ledger", "markdown") | ForEach-Object { Invoke-ExpressionExitOnError "dotnet test $practiceExercisesDir/$_" }
 }
 
-function Set-SolutionFileForExercise {
+function Set-ExampleImplementation {
     [CmdletBinding(SupportsShouldProcess)]
     param($ExercisesDir, $ReplaceFileName)
 
-    if ($PSCmdlet.ShouldProcess($ReplaceFileName)) {
+    if ($PSCmdlet.ShouldProcess("Exercise $ReplaceFileName", "replace solution with example")) {
         Get-ChildItem -Path $ExercisesDir -Include "*.csproj" -Recurse | ForEach-Object {
             $stub = Join-Path -Path $_.Directory ($_.BaseName + ".cs")
             $example = Join-Path -Path $_.Directory ".meta" $ReplaceFileName
@@ -73,20 +74,20 @@ function Set-SolutionFileForExercise {
     }
 }
 
-function Set-AllSolutionsForExercise {
+function Use-ExampleImplementation {
     [CmdletBinding(SupportsShouldProcess)]
     param($ConceptExercisesDir, $PracticeExercisesDir)
 
-    if ($PSCmdlet.ShouldProcess($true)) {
+    if ($PSCmdlet.ShouldProcess("Exercises directory", "replace all solutions with corresponding examples")) {
         Write-Output "Replacing concept exercise stubs with exemplar"
-        Set-SolutionFileForExercise $ConceptExercisesDir "Exemplar.cs"
+        Set-ExampleImplementation $ConceptExercisesDir "Exemplar.cs"
 
         Write-Output "Replacing practice exercise stubs with example"
-        Set-SolutionFileForExercise $PracticeExercisesDir "Example.cs"
+        Set-ExampleImplementation $PracticeExercisesDir "Example.cs"
     }
 }
 
-function Test-EveryExerciseImplementation($Exercise, $BuildDir, $ConceptExercisesDir, $PracticeExercisesDir) {
+function Test-ExerciseImplementation($Exercise, $BuildDir, $ConceptExercisesDir, $PracticeExercisesDir) {
     Write-Output "Running tests"
 
     if (-Not $Exercise) {
@@ -120,7 +121,7 @@ if (!$Exercise) {
     Test-Refactoring-Exercise $practiceExercisesDir
 }
 
-Set-AllSolutionsForExercise $conceptExercisesDir $practiceExercisesDir
-Test-EveryExerciseImplementation -Exercise $Exercise -BuildDir $buildDir -ConceptExercisesDir $conceptExercisesDir -PracticeExercisesDir $practiceExercisesDir
+Use-ExampleImplementation $conceptExercisesDir $practiceExercisesDir
+Test-ExerciseImplementation -Exercise $Exercise -BuildDir $buildDir -ConceptExercisesDir $conceptExercisesDir -PracticeExercisesDir $practiceExercisesDir
 
 exit $LastExitCode
