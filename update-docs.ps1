@@ -21,32 +21,33 @@ param (
 # Import shared functionality
 . ./shared.ps1
 
-function Update-Canonical-Data {
+function Update-CanonicalData {
     [CmdletBinding(SupportsShouldProcess)]
     param ()
 
-    if ($PSCmdlet.ShouldProcess($true)) {
+    if ($PSCmdlet.ShouldProcess("all git submodules, including problem-specifications", "git init and update")) {
         Write-Output "Updating canonical data"
         Invoke-CommandExecution "./update-canonical-data.ps1" 
     }
 }
 
-function Update-DocFile {
+function Update-DocsFolder {
     [CmdletBinding(SupportsShouldProcess)]
     param (
         [Parameter(Position = 0, Mandatory = $false)]
         [string]$Exercise
     )
 
-    if ($PSCmdlet.ShouldProcess($true)) {
+    if ($PSCmdlet.ShouldProcess((& { If ($Exercise) { $Exercise } Else { "All Exercises" } }), "fetch configlet and pull specifications")) {
         Write-Output "Updating docs"
-        $configlet_args = if ($Exercise) { @("-e", $Exercise) } else { @() }
         Invoke-CommandExecution "./bin/fetch-configlet"
-        Invoke-CommandExecution "./bin/configlet sync -p problem-specifications -o $configlet_args"
+
+        $configletArgs = if ($Exercise) { @("-e", $Exercise) } else { @() }
+        Invoke-CommandExecution "./bin/configlet sync -p problem-specifications -o $configletArgs"
     }
 }
 
-Update-Canonical-Data
-Update-DocFile $Exercise
+Update-CanonicalData
+Update-DocsFolder $Exercise
 
 exit $LastExitCode
