@@ -654,7 +654,7 @@
         "name": "Leap",
         "uuid": "8ba15933-29a2-49b1-a9ce-70474bad3007",
         "practices": ["math-operators", "if-statements"],
-        "prerequisites": ["math-operators", "if-statements"],
+        "prerequisites": ["math-operators", "if-statements", "numbers"],
         "difficulty": 1,
         "topics": [
           "conditionals",
