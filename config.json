@@ -641,8 +641,8 @@
         "slug": "two-fer",
         "name": "Two Fer",
         "uuid": "57f02d0e-7b75-473b-892d-26a7d980c4ce",
-        "practices": ["optional-parameters", "interpolation"],
-        "prerequisites": ["optional-parameters", "interpolation"],
+        "practices": ["optional-parameters", "string-interpolation"],
+        "prerequisites": ["optional-parameters", "string-interpolation"],
         "difficulty": 1,
         "topics": [
           "optional_values",
@@ -1059,8 +1059,8 @@
         "slug": "accumulate",
         "name": "Accumulate",
         "uuid": "3c0563dc-665a-45b4-9b29-f133e235efd0",
-        "practices": ["lambdas", "foreach"],
-        "prerequisites": ["lambdas", "generic-types", "foreach", "enumerables"],
+        "practices": ["lambdas", "foreach", "yield"],
+        "prerequisites": ["lambdas", "generic-types", "foreach", "enumerables", "extension-methods"],
         "difficulty": 2,
         "topics": [
           "extension_methods",
