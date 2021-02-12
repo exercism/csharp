@@ -22,7 +22,7 @@ param (
 . ./shared.ps1
 
 
-function Copy-Track-Files-For-Exercise ($ExerciseDirectory) {
+function Copy-GenericTrackFile-Exercise ($ExerciseDirectory) {
     $exerciseName = (Get-Culture).TextInfo.ToTitleCase($ExerciseDirectory.Name).Replace("-", "")
 
     $defaultEditorConfigSettings = Get-Content -Path ".editorconfig"
@@ -32,7 +32,7 @@ function Copy-Track-Files-For-Exercise ($ExerciseDirectory) {
     Set-Content -Path $exerciseEditorConfigPath $editorConfigSettings
 }
 
-function Copy-TrackFile {
+function Copy-GenericTrackFile {
     param (
         [Parameter(Position = 0, Mandatory = $false)]
         [string]$Exercise
@@ -46,6 +46,6 @@ function Copy-TrackFile {
     }
 }
 
-Copy-TrackFile $Exercise
+Copy-GenericTrackFile $Exercise
 
 exit $LastExitCode

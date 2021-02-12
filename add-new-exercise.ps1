@@ -44,13 +44,14 @@ function Add-Project {
 
     Write-Output "Adding project"
 
+    # TODO We need to support concept exercises
     $exercisesDir = Resolve-Path "exercises"
-    $exerciseDir = Join-Path $exercisesDir $Exercise
+    $exerciseDir = Join-Path -Path $exercisesDir "practice" $Exercise
 
     $csProj = "$exerciseDir/$ExerciseName.csproj"
 
-    Invoke-CommandExecution "dotnet new xunit -lang ""C#"" --target-framework-override net5.0 -o $exerciseDir -n $ExerciseName"
-    Invoke-CommandExecution "dotnet sln ""$exercisesDir/Exercises.sln"" add $csProj"
+    Invoke-ExpressionExitOnError "dotnet new xunit -lang ""C#"" --target-framework-override net5.0 -o $exerciseDir -n $ExerciseName"
+    Invoke-ExpressionExitOnError "dotnet sln ""$exercisesDir/Exercises.sln"" add $csProj"
     
     Remove-Item -Path "$exerciseDir/UnitTest1.cs"
     
@@ -101,37 +102,37 @@ function Add-GeneratorClass {
     Set-Content -Path $generator -Value $generatorClass
 }
 
-function Copy-ExerciseTrackFile {
+function Copy-TrackFile {
     [CmdletBinding(SupportsShouldProcess)]
     param (
         [Parameter(Position = 0, Mandatory = $true)][string]$Exercise
     )
 
-    if ($PSCmdlet.ShouldProcess($true)) {
+    if ($PSCmdlet.ShouldProcess("exercise $Exercise", "copy generic track files")) {
         Write-Output "Copying track files"
         ./copy-track-files.ps1 $Exercise
     }
 }
 
-function Update-ExerciseReadme {
+function Update-Readme {
     [CmdletBinding(SupportsShouldProcess)]
     param (
         [Parameter(Position = 0, Mandatory = $true)][string]$Exercise
     )
 
-    if ($PSCmdlet.ShouldProcess($true)) {
+    if ($PSCmdlet.ShouldProcess("exercise $Exercise", "update Readme files")) {
         Write-Output "Updating README"
         ./update-docs.ps1 $Exercise
     }
 }
 
-function Update-ExerciseTest {
+function Update-Test {
     [CmdletBinding(SupportsShouldProcess)]
     param (
         [Parameter(Position = 0, Mandatory = $true)][string]$Exercise
     )
 
-    if ($PSCmdlet.ShouldProcess($true)) {
+    if ($PSCmdlet.ShouldProcess("exercise $Exercise", "generate new tests")) {
         Write-Output "Updating test suite"
         ./generate-tests.ps1 $Exercise
     } 
@@ -164,8 +165,8 @@ function Update-ConfigJson {
         ConvertTo-Json -InputObject $config -Depth 10 | Set-Content -Path $configJson
     } 
 
-    Invoke-CommandExecution "./bin/fetch-configlet"
-    Invoke-CommandExecution "./bin/configlet fmt ."
+    Invoke-ExpressionExitOnError "./bin/fetch-configlet"
+    Invoke-ExpressionExitOnError "./bin/configlet fmt ."
 }
 
 $exerciseName = (Get-Culture).TextInfo.ToTitleCase($Exercise).Replace("-", "")

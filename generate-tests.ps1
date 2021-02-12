@@ -18,19 +18,9 @@ param (
     [string]$Exercise
 )
 
-
 # Import shared functionality
 . ./shared.ps1
-
-function Update-Canonical-Data {
-    [CmdletBinding(SupportsShouldProcess)]
-    param()
-
-    if ($PSCmdlet.ShouldProcess($true)) {
-        Write-Output "Updating canonical data"
-        Invoke-CommandExecution "./update-canonical-data.ps1" 
-    }
-}
+. ./update-canonical-data.ps1
 
 function Update-TestFile {
     [CmdletBinding(SupportsShouldProcess)]
@@ -39,15 +29,14 @@ function Update-TestFile {
         [string]$Exercise
     )
 
-    $generators_exec = "./generators"
-    $generators_args = if ($Exercise) { @("--exercise", $Exercise) } else { @() }
-
+    $generatorsProject = "./generators"
+    $generatorsArgs = if ($Exercise) { @("--exercise", $Exercise) } else { @() }
     
-    if ($PSCmdlet.ShouldProcess($generators_exec)) {
+    if ($PSCmdlet.ShouldProcess($generatorsProject, "execute")) {
         Write-Output "Updating tests"
-        Invoke-CommandExecution "dotnet run --project $generators_exec $generators_args"
+        Invoke-ExpressionExitOnError "dotnet run --project $generatorsProject $generatorsArgs"
     }
 }
 
-Update-Canonical-Data
+Update-CanonicalData
 Update-TestFile $Exercise

@@ -28,34 +28,35 @@ param (
 
 function Invoke-Configlet-Lint {
     Write-Output "Linting config.json"
-    Invoke-CommandExecution "./bin/fetch-configlet"
-    Invoke-CommandExecution "./bin/configlet lint"
+    Invoke-ExpressionExitOnError "./bin/fetch-configlet"
+    Invoke-ExpressionExitOnError "./bin/configlet lint"
 }
 
-function Invoke-DotNetBuild-Generators { 
+function Invoke-Build-Generators { 
     Write-Output "Building generators"
-    Invoke-CommandExecution "dotnet build ./generators"
+    Invoke-ExpressionExitOnError "dotnet build ./generators"
 }
 
 function Clean($BuildDir) {
     Write-Output "Cleaning previous build"
     Remove-Item -Recurse -Force $BuildDir -ErrorAction Ignore
 }
+
 function Copy-Exercise($SourceDir, $BuildDir) {
     Write-Output "Copying exercises"
     Copy-Item $SourceDir -Destination $BuildDir -Recurse
 }
 
-function ConvertTo-UnSkippedTest($BuildDir) {
+function Enable-AllUnitTest($BuildDir) {
     Write-Output "Enabling all tests"
     Get-ChildItem -Path $BuildDir -Include "*Tests.cs" -Recurse | ForEach-Object {
         (Get-Content $_.FullName) -replace "Skip = ""Remove this Skip property to run this test""", "" | Set-Content $_.FullName
     }
 }
 
-function Test-ExeciseWithRefactoring($PracticeExercisesDir) {
-    Write-Output "Testing refactoring exercises"
-    @("tree-building", "ledger", "markdown") | ForEach-Object { Invoke-CommandExecution "dotnet test $practiceExercisesDir/$_" }
+function Test-Refactoring-Exercise($PracticeExercisesDir) {
+    Write-Output "Testing refactoring projects"
+    @("tree-building", "ledger", "markdown") | ForEach-Object { Invoke-ExpressionExitOnError "dotnet test $practiceExercisesDir/$_" }
 }
 
 function Set-SolutionFileForExercise {
@@ -89,13 +90,13 @@ function Test-EveryExerciseImplementation($Exercise, $BuildDir, $ConceptExercise
     Write-Output "Running tests"
 
     if (-Not $Exercise) {
-        Invoke-CommandExecution "dotnet test $BuildDir/Exercises.sln"
+        Invoke-ExpressionExitOnError "dotnet test $BuildDir/Exercises.sln"
     }
     elseif (Test-Path "$ConceptExercisesDir/$Exercise") {
-        Invoke-CommandExecution "dotnet test $ConceptExercisesDir/$Exercise"
+        Invoke-ExpressionExitOnError "dotnet test $ConceptExercisesDir/$Exercise"
     }
     elseif (Test-Path "$PracticeExercisesDir/$Exercise") {
-        Invoke-CommandExecution "dotnet test $PracticeExercisesDir/$Exercise"
+        Invoke-ExpressionExitOnError "dotnet test $PracticeExercisesDir/$Exercise"
     }
     else {
         throw "Could not find exercise '$Exercise'"
@@ -108,14 +109,15 @@ $practiceExercisesDir = Join-Path $buildDir "practice"
 $conceptExercisesDir = Join-Path $buildDir "concept"
 $sourceDir = Resolve-Path "exercises"
 
+
 Invoke-Configlet-Lint
 Clean $buildDir
 Copy-Exercise $sourceDir $buildDir
-ConvertTo-UnSkippedTest $buildDir
+Enable-AllUnitTest $buildDir
 
 if (!$Exercise) {
-    Invoke-DotNetBuild-Generators
-    Test-ExeciseWithRefactoring $practiceExercisesDir
+    Invoke-Build-Generators
+    Test-Refactoring-Exercise $practiceExercisesDir
 }
 
 Set-AllSolutionsForExercise $conceptExercisesDir $practiceExercisesDir
