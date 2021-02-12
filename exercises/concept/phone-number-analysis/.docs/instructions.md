@@ -7,7 +7,7 @@ You are asked to implement 2 features.
 Phone numbers passed to the routines are guaranteed to be in the form
 NNN-NNN-NNNN e.g. 212-515-9876 and non-null.
 
-### 1. Analyze a phone number
+## 1. Analyze a phone number
 
 Your analysis should return 3 pieces of data
 
@@ -22,7 +22,7 @@ PhoneNumber.Analyze("631-555-1234");
 // => (false, true, "1234")
 ```
 
-### 2. Detect if a phone number has a fake prefix code (555)
+## 2. Detect if a phone number has a fake prefix code (555)
 
 Implement the (static) method `PhoneNumber.IsFake()` to detect whether the phone number is fake using the phone number info produced in task 1.
 

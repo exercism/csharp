@@ -28,7 +28,7 @@ You may see documentation discouraging the use of seedless constructors. This mo
 
 You are advised not to use `System.Random` for crypto or security. See this [provider][crypto-provider] and this [number generator][crypto-rng].
 
-##### Thread safety
+## Thread safety
 
 When applied in the context of library APIs "not thread safe" is simply shorthand for saying that, if you are likely to access instances of the class through multiple concurrent [threads][threading], you should provide your own thread synchronization mechanisms or, in the case of collections, look at the possibility of using a concurrent version of the class. In the absence of these precautions, [race conditions][so-race-conditions] are likely to occur. If your code base does not use multiple threads, and is not likely to, then this warning is of little concern.
 

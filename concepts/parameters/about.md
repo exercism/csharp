@@ -74,7 +74,7 @@ Note that `optional parameters` and `named arguments` are discussed in the `meth
 
 The related topics of [`ref local`][ref-local] and [`ref return`][ref-return] are discussed elsewhere.
 
-### Stack Allocations
+## Stack Allocations
 
 The rules regarding parameters and their modifiers are sufficiently straightforward that you can take them at face value and understand them at their level of abstraction. However, if you are interested in the underlying mechanisms and why these keywords may make a performance difference, at least in the case of `struct`s, then you could start with this [_Wikipedia article_][calling-conventions], noting that C# uses `stdcall` on x86/64.
 

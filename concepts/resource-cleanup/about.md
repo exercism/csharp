@@ -54,7 +54,7 @@ public class Activity : IDisposable
 
 The `IDisposable` interface may be useful even where no unmanaged resources are in the mix. Say you have a long-lived object which requires short-lived objects to register themselves with it and then unregister when they are no longer required. Implementing `IDisposable` on the short-lived object puts a developer using that class on notice that `Dispose()` needs to be called at the end of the short-lived object's life.
 
-#### Dispose pattern
+## Dispose pattern
 
 You will see references in the documentation to the [dispose pattern][dispose-pattern]. The _dispose pattern_ includes calling `Dispose()` from a class's [finalizer][finalizer] and ensuring that disposal of resources in base classes is handled correctly. The _dispose pattern_ is dealt with in a later exercise.
 

@@ -13,7 +13,7 @@ A collection definition typically includes a place holder in angle brackets, oft
 
 Unlike arrays (TODO cross-ref-tba) lists can resize themselves dynamically.
 
-#### LINQ
+## LINQ
 
 Although the built-in API of `List<T>` is rich (including mappings and filters such as `ConvertAll`, `FindAll` and `Foreach`) and its [looping syntax][for-each] is very clear, and you definitely need to be familiar with this API, Language Integrated Query ([LINQ][linq]) is available for many tasks, is even more powerful and widely used and has the advantage of providing a consistent interface across library collections, third-party collections and your own classes. See (TODO cross-ref-tba).
 

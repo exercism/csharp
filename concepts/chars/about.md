@@ -14,7 +14,7 @@ These rough edges mostly relate to the opposition
 between the full unicode standard on the one side and historic representations
 of text as well as performance and memory usage on the other.
 
-### Unicode Issues
+## Unicode Issues
 
 When dealing with strings, if `System.String` library methods are available you should
 seek these out and use them rather than breaking the string down into characters.
@@ -45,7 +45,7 @@ is where you can use `String`'s library methods.
 If you do find yourself in the unenviable position of dealing with the minutiae of unicode
 then [this][char-encoding-net] is a good starting point.
 
-### Globalization
+## Globalization
 
 If you are working in an environment where you are dealing with multiple cultures or
 the culture is important in some parts of the code but not others then be
@@ -53,7 +53,7 @@ aware of the overloads of [`ToUpper`][to-upper] and [`ToLower`][to-lower] which 
 [`ToUpperInvariant`][to-upper-invariant] and [`ToLowerInvariant`][to-lower-invariant] which will provide a consistent
 result irrespective of the current [culture][culture-info].
 
-### Representation, Characters and Integers
+## Representation, Characters and Integers
 
 Like other simple types (`int`s, `bool`s, etc.) the `char` has a companion
 or alias type, in this case, `System.Char`. This is in fact a `struct` with

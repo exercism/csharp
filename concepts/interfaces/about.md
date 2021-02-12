@@ -117,7 +117,7 @@ By design, C# does not support multiple inheritance, but it facilitates a kind o
 
 Moreover, the concept of [polymorphism can be implemented through interfaces][interface-polymorphism] underpins the interface mechanism.
 
-#### Explicit interface implementation
+## Explicit interface implementation
 
 Sometimes method names and signatures can be shared in two different interfaces.
 In order provide a distinct implementation of these methods, C# provides [explicit implementation of interfaces][explicit-implementation]. Note that to use a particular implementation of an interface you need to convert the expression containing referencing the object to that interface. Assignment, casting or passing as a parameter will achieve this.
@@ -166,7 +166,7 @@ There are a number of use cases:
 - Methods with the same name but different return types: if you implement your own collection classes you may find that an explicit interface for the legacy `IEnumerable.GetEnumerator()`, alongside `IEnumerable<T>.GetEnuerator()`, is required. You may never make use of such the interface but the compiler may insist.
 - Methods where there is no clash of names between interfaces but it is desirable that the implementing class uses the name for some related purpose: `IFormattable` has a `ToString()` method which takes a _format type_ parameter as well as parameter of type `IFormatProvider`. A class like `FormattableString` from the Base Class Library (BCL) has the interface to ensure it can be used by routines that take an `IFormattable` but it is more expressive for its main version of `ToString(IFormatProvider)` to omit the _format type_ parameter as it is not used in the implementation and would confuse API users.
 
-#### Default implementation
+## Default implementation
 
 Version 8 of C# addresses a nagging problem with APIs. If you add methods to an interface to enhance functionality for new implementations then it is necessary to modify all the existing implementations of the interface so that they comply with the API-contract even though they have no implementation specific behavior. C# now allows for a _default method_ to be provided as part of the interface (Java developers will be familiar). Previously, when such a change occurred a _version 2_ of the interface would exist alongside the original.
 

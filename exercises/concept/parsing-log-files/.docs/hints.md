@@ -3,23 +3,23 @@
 - [regular expressions][regular-expressions] documentation describes regexes and the flavour built into the .NET libraries.
 - [Regex][regex] documentation describing the built-in library class.
 
-### 1. Identify garbled log lines
+## 1. Identify garbled log lines
 
 - See [this discussion][ismatch] of matching.
 
-### 2. Split the log line
+## 2. Split the log line
 
 - [This][split] article shows an approach to splitting lines.
 
-### 3. Count the number of lines containing a password
+## 3. Count the number of lines containing a password
 
 - See [this discussion][multiple-matches] of multiple matches and [this][multi-line] on multi-line searches.
 
-### 4. Remove artifacts from log
+## 4. Remove artifacts from log
 
 - [This article][replace] shows how text can be replaced.
 
-### 5. List lines with extremely weak passwords so the guilty can be punished
+## 5. List lines with extremely weak passwords so the guilty can be punished
 
 - Capture groups are discussed [here][capture-groups].
 

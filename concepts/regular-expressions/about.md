@@ -4,7 +4,7 @@ The .NET base class libraries provide the [`Regex`][regex] class for processing 
 
 See this [article][regex-comparison] for a comparison of C# with other flavours of regular expressions.
 
-#### Capture Groups
+## Capture Groups
 
 One aspect to consider is that of capture groups which return parts of the text matching various parts of the regex pattern. The approach to capture groups needs getting used to. See this [documentation][capture].
 
@@ -26,7 +26,7 @@ Caveats:
 - `Groups[0]` appears to relate to the entire match.
 - `Groups[<capture name>].Value` is almost certainly what you are interested in. Individual captures (other than `Caputures[0]`) appear to be for intended for diagnostic purposes if they are present.
 
-#### Regex Options
+## Regex Options
 
 Familiarise yourself with [`RegexOptions`][regex-options].
 
