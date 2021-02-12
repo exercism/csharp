@@ -11,7 +11,15 @@
 # Import shared functionality
 . ./shared.ps1
 
-Invoke-CommandExecution "git submodule init"
-Invoke-CommandExecution "git submodule update --remote"
+function Update-CanonicalData {
+    [CmdletBinding(SupportsShouldProcess)]
+    param()
+
+    if ($PSCmdlet.ShouldProcess("all git submodules, including problem-specifications", "git init and update")) {
+        Write-Output "Updating canonical data"
+        Invoke-ExpressionExitOnError "git submodule init"
+        Invoke-ExpressionExitOnError "git submodule update --remote"
+    }
+}
 
 exit $LastExitCode
