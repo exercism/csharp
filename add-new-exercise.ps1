@@ -173,9 +173,9 @@ $exerciseName = (Get-Culture).TextInfo.ToTitleCase($Exercise).Replace("-", "")
 
 Add-Project $Exercise $exerciseName
 Add-GeneratorClass $exerciseName
-Copy-ExerciseTrackFile $Exercise
-Update-ExerciseReadme $Exercise
-Update-ExerciseTest $Exercise
+Copy-TrackFile $Exercise
+Update-Readme $Exercise
+Update-Test $Exercise
 Update-ConfigJson $Exercise -Topics $Topics -Core $Core -Difficulty $Difficulty -UnlockedBy $UnlockedBy
 
 exit $LastExitCode
