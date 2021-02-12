@@ -1,3 +1,5 @@
+# Introduction
+
 Simple types (strings and primitives) are typically tested for equality with the `==` and `!=`.
 
 Reference types (Instances of classes) are compared using the `Equals()` method inherited from `Object`. If your goal with the equality test is to ensure that two objects are the exact same instance then relying on `Object`'s implementation will suffice. If not, you need to override `object.Equals()`.

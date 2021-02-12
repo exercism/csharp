@@ -1,3 +1,5 @@
+# About
+
 In C# applications randomness is generally implemented using the `System.Random` class.
 
 This [article][system-random] is an excellent introduction to the subject.

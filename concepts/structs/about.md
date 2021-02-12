@@ -1,3 +1,5 @@
+# About
+
 C# `struct`s are closely related `class`s. They have state and behavior. They can have the same kinds of members: constructors, methods, fields, properties, etc.
 
 Fields and properties can be simple types, `struct`s or reference types. `struct`s observe the same rules about scope, read/write rules and access levels as do `class`s.

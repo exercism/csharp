@@ -1,3 +1,5 @@
+# Introduction
+
 There are two principal mechanisms for formatting strings in C#/.NET. Use of `String.Format()` and string interpolation.
 
 ### Composite Formatting

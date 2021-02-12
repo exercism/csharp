@@ -1,3 +1,5 @@
+# Hints
+
 ### 1. Create a new dictionary
 
 A dictionary is like any other class. You simply 'new' it to create an empty instance.

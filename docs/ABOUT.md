@@ -1,3 +1,5 @@
+# About
+
 C# is a multi-paradigm, statically-typed programming language with object-oriented, declarative, functional, generic, lazy, integrated querying features and type inference. 
 
 __Statically-typed__ means that identifiers have a [type](https://en.wikipedia.org/wiki/Type_system#Static_type_checking) set at compile time--like those in Java, C++ or Haskell--instead of holding data of any type like those in Python, Ruby or JavaScript. 

@@ -1,3 +1,5 @@
+# Hints
+
 ## General
 
 - [Floating-point numeric types introduction][docs.microsoft.com-floating_point_numeric_types].

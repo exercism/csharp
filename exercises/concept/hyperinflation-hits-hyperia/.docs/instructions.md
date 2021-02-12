@@ -1,3 +1,5 @@
+# Instructions
+
 The country of Hyperia has its problems. In particular, inflation is out of control. You have been flown in to take up a contract at the central bank.
 
 ## 1. Print bank note denominations

@@ -1,3 +1,5 @@
+# Hints
+
 ## General
 
 - [passing-parameters][passing-parameters]: explains how values can be passed as arguments.

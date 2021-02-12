@@ -1,3 +1,5 @@
+# About
+
 Object initializers are an alternative to constructors. The syntax is a comma separated list of field name=value pairs, illustrated below:
 
 ```csharp

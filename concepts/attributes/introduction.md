@@ -1,3 +1,5 @@
+# Introduction
+
 A [C# `Attribute`](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/attributes/) provides a way to decorate a declaration to associate metadata to: a class, a method, an enum, a field, a property or any [other supported](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/attributes/#attribute-targets) declarations.
 
 You can apply an attribute by adding it on the line before the declaration using a `ClassAttribute` and a `FieldAttribute`:

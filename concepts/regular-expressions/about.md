@@ -1,3 +1,5 @@
+# About
+
 The .NET base class libraries provide the [`Regex`][regex] class for processing of regular expressions.
 
 See this [article][regex-comparison] for a comparison of C# with other flavours of regular expressions.

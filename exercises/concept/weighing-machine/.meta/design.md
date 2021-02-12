@@ -1,3 +1,5 @@
+# Design
+
 Properties are covered early in the C# track as their purpose and power can be shown with few dependencies (classes, access modifiers and fields of simple types).
 
 ## Learning objectives

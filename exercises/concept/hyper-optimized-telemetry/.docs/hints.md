@@ -1,3 +1,5 @@
+# Hints
+
 ## General
 
 - [Integral numeric types][integral-numeric-types]: overview of the integral numeric types.

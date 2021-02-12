@@ -1,3 +1,5 @@
+# About
+
 The coding exercise illustrates a number of properties of parameters:
 
 - Parameters [passed][passing-parameters] without a modifier (such as `out` or `ref`) are passed by value. That is to say that the parameter can be used and assigned to in the called method but any changes will have no effect on the caller.

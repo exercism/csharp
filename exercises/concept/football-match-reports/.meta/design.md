@@ -1,3 +1,5 @@
+# Design
+
 ## Learning objectives
 
 - Know how to use simple `switch` statements.

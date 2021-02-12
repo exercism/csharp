@@ -1,3 +1,5 @@
+# Installation
+
 ### Installing .NET Core
 
 The C# track is built on top of the [.NET Core](https://www.microsoft.com/net/core/platform) platform, which runs on Windows, Linux and macOS. To build .NET Core projects, you can use the .NET Core Command Line Interface (CLI). This CLI is part of the .NET Core SDK, which you can install by following the [installation instructions](https://www.microsoft.com/net/download/core). Note: the C# track requires SDK version 3.0 or greater.

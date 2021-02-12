@@ -1,3 +1,5 @@
+# Hints
+
 ### General
 
 This [article][system-random] is an excellent introduction to the subject.

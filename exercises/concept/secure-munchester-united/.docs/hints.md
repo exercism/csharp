@@ -1,3 +1,5 @@
+# Hints
+
 ## General
 
 - [Type testing and cast operators][type-testing-and-cast-operators]: introduction to type testing and casting.

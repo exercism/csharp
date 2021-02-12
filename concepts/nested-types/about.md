@@ -1,3 +1,5 @@
+# About
+
 C# types can be defined within the scope of a class or struct. The enclosing type provides a kind name space. Access to the type is through the enclosing type with dot syntax.
 
 ```csharp

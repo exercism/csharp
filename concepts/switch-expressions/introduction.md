@@ -1,3 +1,5 @@
+# Introduction
+
 A switch expression can match a value to one case in a set of patterns and return the associated value or take the associated action. The association is denoted by the `=>` symbol. In addition, each pattern can have an optional case guard introduced with the `when` keyword. The case guard expression must evaluate to true for that "arm" of the switch to be selected. The cases (also known as _switch arms_) are evaluated in text order and the process is cut short and the associated value is returned as soon as a match is found.
 
 ```csharp

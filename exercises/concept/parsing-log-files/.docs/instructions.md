@@ -1,3 +1,5 @@
+# Instructions
+
 This exercise addresses the parsing of log files.
 
 After a recent security review you have been asked to clean up the organization's archived log files.

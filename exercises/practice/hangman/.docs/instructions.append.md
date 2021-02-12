@@ -1,4 +1,4 @@
-## Hints
+# Hints
 This exercise requires you to work with Reactive extension. For more information, see 
 [this page](http://reactivex.io/intro.html) .
 

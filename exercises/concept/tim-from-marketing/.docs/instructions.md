@@ -1,3 +1,5 @@
+# Instructions
+
 In this exercise you'll be writing code to print name badges for factory employees.
 
 ## 1. Print a badge for an employee

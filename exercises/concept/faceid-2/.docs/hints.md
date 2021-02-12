@@ -1,3 +1,5 @@
+# Hints
+
 ### General
 
 - [Equality][equality]: how equality comparisons work in C#, including reference- and value type equality.

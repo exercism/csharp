@@ -1,3 +1,5 @@
+# About
+
 It is unlikely that you will come across much production code that does not make use of namespaces.
 
 An example of the syntax is:

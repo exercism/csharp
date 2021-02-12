@@ -1,3 +1,5 @@
+# Introduction
+
 The fact that an array is also a _collection_ means that, besides accessing values by index, you can iterate over _all_ its values using a `foreach` loop:
 
 ```csharp

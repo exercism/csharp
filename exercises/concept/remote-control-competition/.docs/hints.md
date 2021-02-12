@@ -1,3 +1,5 @@
+# Hints
+
 ## General
 
 - [Interface][interface]: what an interface is and how to implement it.

@@ -1,3 +1,5 @@
+# Hints
+
 ### General
 
 - [Tuples][tuples]: shows how to define and use tuples.

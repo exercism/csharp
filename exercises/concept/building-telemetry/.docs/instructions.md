@@ -1,3 +1,5 @@
+# Instructions
+
 The remote control car project you kicked off in the `classes` exercise has gone well (congratulations!) and due to a number of recent sponsorship deals there is money in the budget for enhancements.
 
 Part of the budget is being used to provide some telemetry.

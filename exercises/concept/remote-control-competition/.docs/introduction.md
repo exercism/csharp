@@ -1,3 +1,5 @@
+# Introduction
+
 ## Interfaces
 
 An interface is a type containing members defining a group of related functionality. It distances the uses of a class from the implementation allowing multiple different implementations or support for some generic behavior such as formatting, comparison or conversion.

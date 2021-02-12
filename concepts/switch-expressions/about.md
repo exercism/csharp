@@ -1,3 +1,5 @@
+# About
+
 [Switch expressions][switch-expressions] behave in a similar manner to [switch statements][switch-statements] covered in (TODO cross-ref-tba switch statements). They support a kind of decision table that maps input conditions to actions or values.
 
 At the core of the switch expression is _pattern matching_. In the coding exercise we matched values against `const` patterns. In this case the inputs to the `switch` are a _range expression_ which is matched to const values and the values used by the _case guards_.

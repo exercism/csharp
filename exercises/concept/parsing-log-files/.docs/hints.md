@@ -1,4 +1,4 @@
-## General
+# General
 
 - [regular expressions][regular-expressions] documentation describes regexes and the flavour built into the .NET libraries.
 - [Regex][regex] documentation describing the built-in library class.

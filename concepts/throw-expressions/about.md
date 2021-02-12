@@ -1,3 +1,5 @@
+# About
+
 [`throw` expressions][throw-expressions] are an alternative to `throw` statements and in particular can add to the power of ternary and other compound expressions.
 
 ```csharp

@@ -1,3 +1,5 @@
+# Instructions
+
 Continuing the theme of the wizards and warriors game, it is time to add an all purpose die rolling method. This will be the traditional 18 sided die with numbers 1 to 18. Players also generate a spell strength.
 
 ## 1. Enable a _wizards and warriors_ player to roll a die.
