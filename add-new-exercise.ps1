@@ -151,6 +151,7 @@ function Update-ConfigJson {
 
     $configJson = Resolve-Path "config.json"
 
+    # TODO We need to support the new config.json with concept exercises
     $config = Get-Content $configJson | ConvertFrom-JSON
     $config.exercises += [pscustomobject]@{
         slug        = $Exercise;
