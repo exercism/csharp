@@ -61,15 +61,15 @@ catch (Exception)
 
 The rules related to how the `using` keyword can be used and with instances of what sort of types are detailed [here][using-statement].
 
-#### Note for Java Developers
+## Note for Java Developers
 
 Java developers may recognize this as an analog of the [_automatic resource management_][automatic-resource-management] mechanism introduced in Java 7. They are very similar. Java's syntax, which repurposes `try` has the advantage of incorporating `catch` blocks more naturally than does C#'s `using`.
 
-#### Versions
+## Versions
 
 Note that the more flexible version of `using` where it does not have its own syntactic block was introduced in C# 8 so you may need to check if the code base you are working on is using C# 8 or later.
 
-#### Reference
+## Reference
 
 [using statement][using-statement] documentation describes how and when to use the `using` keyword.
 

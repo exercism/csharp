@@ -44,7 +44,7 @@ There are a couple of things that you will come up against (and about which the 
 
 As a result of points 1 and 3 above there is no way for the developer of a `struct` to prevent invalid instances from coming into existence.
 
-#### Common structs
+## Common structs
 
 You will see from the documentation that there is a close relationship between primitives and structs. See [`Int32/int]`][int32], for an example. A more conventional example of a`struct`is the type [`TimeSpan`][time-span].
 
@@ -52,7 +52,7 @@ Instances of `TimeSpan` behave much like numbers with comparison operators like 
 
 One thing to note about `TimeSpan` is that it implements a number of interfaces e.g. `IComparable<TimeSpan>`. Although `struct`s cannot be derived from other `struct`s they can implement interfaces.
 
-#### Equality
+## Equality
 
 Equality testing for `struct`s can often be much simpler than that for `class`s as it simply compares fields for equality by default. There is no need to override `object.Equals()` (or `GetHashCode()`). Remember that if you are relying on `Object.GetHashCode()` you must still ensure that the fields involved in generating the hash code (i.e. all the fields) must not change while a hashed collection is use. Effectively, this means that structs used in this way should be immutable. See (TODO cross-ref-tba).
 
@@ -79,7 +79,7 @@ public override int GetHashCode()
 }
 ```
 
-#### General
+## General
 
 - [structs][structs]: introduction to structs.
 - [class-or-struct][class-or-struct]: lists the guidelines for choosing between a struct and class.

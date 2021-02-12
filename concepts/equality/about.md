@@ -2,9 +2,9 @@
 
 The coding exercise illustrates a number of properties of equality in C#:
 
-### `Object.Equals()`
+## `Object.Equals()`
 
-#### Topics covered by the coding exercise
+### Topics covered by the coding exercise
 
 - Simple types (strings and primitives) are typically tested for equality with the `==` and `!=`. This is considered more idiomatic than using the [`Equals()`][object-equals] method which is also available with these types. Java programmers should be alert, when dealing with strings, to the fact that `==` compares by value in C# but by reference in Java when returning to their former language.
 - Reference types (Instances of classes) are compared using the `Equals()` method inherited from `object`. If your goal with the equality test is to ensure that two objects are the exact same instance then relying on `object`'s implementation will suffice. If not, you need to override `object.Equals()`.
@@ -48,7 +48,7 @@ ReferenceEquals(winA, winC);
 // => true
 ```
 
-#### Ancillary topics
+### Ancillary topics
 
 - In addition to `public override bool Equals(object obj)` IDEs typically generate the overload `protected bool Equals(FacialFeatures other)` for use when inheritance is involved. A derived class can call the base classe's `Equals()` and then add its own test.
 - Do not use `==` unless you have [overloaded][operator-overloading] the `==` operator, as well as the `Equals()` method in your class (see the `operator-overloading` exercise) or you care only that the references are equal.

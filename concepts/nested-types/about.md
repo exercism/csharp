@@ -15,7 +15,7 @@ var outer = new Outer();
 var inner = new Outer.CInner();
 ```
 
-#### Access levels
+## Access levels
 
 Access levels can be applied to the inner types. For example if a class is `private` then it cannot be seen outside of the enclosing type's scope and of course instances cannot be seen or used outside the scope.
 
@@ -55,7 +55,7 @@ outer.Inner.Interesting
 // => 1729
 ```
 
-#### Prevent independent instantiation
+## Prevent independent instantiation
 
 There is a pattern to prevent an instantiable type being created outside the enclosing type. You expose a public interface but keep the implementing class private.
 
@@ -97,7 +97,7 @@ outer.Inner.DoSomething();
 // NOT var inner = new Outer.Inner(outer);
 ```
 
-#### Note for Java developers
+## Note for Java developers
 
 C#'s nested classes are a cross between Java's static nested classes and inner classes. In C# private members of the enclosing class are in scope for members of the nested class but there is no special syntax for instantiating them and linking them to an instance of the enclosing class. You have to use some variation of the pattern illustrated in the examples above.
 

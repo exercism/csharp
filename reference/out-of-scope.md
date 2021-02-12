@@ -14,26 +14,26 @@ Where material is covered under "Out of scope" in _design.md_
 for a particular exercise it should not be repeated here
 unless it is felt that the topic otherwise has insufficient prominence.
 
-### 3rd Party and Microsoft Libraries
+## 3rd Party and Microsoft Libraries
 
 - JSON.net
 - NodaTime
 - .NET Forms
 - WPF
 
-### Frameworks
+## Frameworks
 
 - .NET Framework
 - ASP.NET (Core)
 - Unity
 
-### Platform
+## Platform
 
 - .NET interop (e.g. with Visual Basic or F#)
 - NuGet
 - Project/solution files
 
-### Other
+## Other
 
 - File handling
 - Networking

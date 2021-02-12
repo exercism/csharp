@@ -31,6 +31,6 @@ short s = 42;
 uint ui = (uint)s;
 ```
 
-#### Bit conversion
+## Bit conversion
 
 The `BitConverter` class provides a convenient way of converting integer types to and from arrays of bytes.
