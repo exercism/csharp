@@ -150,16 +150,19 @@ function Update-ConfigJson {
     )
 
     $configJson = Resolve-Path "config.json"
+    $practices = @()
+    if($Exercise) { $practices += $Exercise }
 
-    # TODO We need to support the new config.json with concept exercises
+    # TODO We need to support the creation of a concept exercise with the new config.json 
     $config = Get-Content $configJson | ConvertFrom-JSON
-    $config.exercises += [pscustomobject]@{
-        slug        = $Exercise;
-        uuid        = [Guid]::NewGuid();
-        core        = $Core.IsPresent;
-        unlocked_by = $UnlockedBy;
-        difficulty  = $Difficulty;
-        topics      = $Topics;
+    $config.exercises.practice += [pscustomobject]@{
+        slug          = $Exercise;
+        uuid          = [Guid]::NewGuid();
+        core          = $Core.IsPresent;
+        practices     = $practices;
+        prerequisites = @();
+        difficulty    = $Difficulty;
+        topics        = $Topics;
     }
     
     if ($PSCmdlet.ShouldProcess("config.json", "add new file")) {
