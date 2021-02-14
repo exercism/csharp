@@ -22,7 +22,7 @@ param (
 . ./shared.ps1
 
 
-function Copy-GenericTrackFile-Exercise ($ExerciseDirectory) {
+function Copy-TrackFilesForExercise ($ExerciseDirectory) {
     $exerciseName = (Get-Culture).TextInfo.ToTitleCase($ExerciseDirectory.Name).Replace("-", "")
 
     $defaultEditorConfigSettings = Get-Content -Path ".editorconfig"
@@ -32,20 +32,23 @@ function Copy-GenericTrackFile-Exercise ($ExerciseDirectory) {
     Set-Content -Path $exerciseEditorConfigPath $editorConfigSettings
 }
 
-function Copy-GenericTrackFile {
+function Copy-TrackFilesForTrack {
     param (
         [Parameter(Position = 0, Mandatory = $false)]
         [string]$Exercise
     )
 
-    Write-Output "Copying track files"
+    Write-Output "Copying generic track files"
 
     $filter = if ($Exercise) { $($Exercise) } else { @() }
-    Get-Childitem -Path "exercises" -Filter $filter -Directory | ForEach-Object {
-        Copy-Track-Files-For-Exercise -ExerciseDirectory $_
+    Get-Childitem -Path "exercises\practice" -Filter $filter -Directory | ForEach-Object {
+        Copy-TrackFilesForExercise -ExerciseDirectory $_
+    }
+    Get-Childitem -Path "exercises\concept" -Filter $filter -Directory | ForEach-Object {
+        Copy-TrackFilesForExercise -ExerciseDirectory $_
     }
 }
 
-Copy-GenericTrackFile $Exercise
+Copy-TrackFilesForTrack $Exercise
 
 exit $LastExitCode
