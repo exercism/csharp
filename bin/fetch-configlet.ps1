@@ -10,7 +10,7 @@ if ($PSVersionTable.PSVersion.Major -le 5) {
 function Get-DownloadUrl($FileName, $RequestOpts) {
     $latestUrl = "https://api.github.com/repos/exercism/configlet/releases/latest"
     $assets = Invoke-RestMethod -Uri $latestUrl -PreserveAuthorizationOnRedirect @RequestOpts | Select-Object -ExpandProperty assets
-    $assets | Where-Object { $_.browser_download_url -match $FileName } | Select-Object -ExpandProperty browser_download_url
+    return $assets | Where-Object { $_.browser_download_url -match $FileName } | Select-Object -ExpandProperty browser_download_url -First 1
 }
 
 # Use GITHUB_TOKEN to download the configlet metadata and binaries from github releases for github actions.
@@ -29,5 +29,5 @@ $outputFile = Join-Path -Path $outputDirectory -ChildPath $fileName
 
 # using PreserveAuthorizationOnRedirect named parameter doesn't work on WSL
 Invoke-WebRequest -Uri $downloadUrl -OutFile $outputFile @requestOpts
-Expand-Archive $outputFile -DestinationPath $outputDirectory -Force
+Expand-Archive -Path $outputFile -DestinationPath $outputDirectory -Force
 Remove-Item -Path $outputFile
