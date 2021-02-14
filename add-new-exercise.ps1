@@ -57,7 +57,8 @@ function Add-Project {
     Remove-Item -Path "$exerciseDir/UnitTest1.cs"
     
     New-Item -ItemType File -Path "$exerciseDir/$ExerciseName.cs"
-    New-Item -ItemType File -Path "$exerciseDir/Example.cs"
+    New-Item -ItemType Directory -Path "$exerciseDir/.meta"
+    New-Item -ItemType File -Path "$exerciseDir/.meta/Example.cs"
     
     [xml]$proj = Get-Content $csProj
     $propertyGroup = $proj.Project.PropertyGroup
@@ -79,7 +80,7 @@ function Add-Project {
     $compileItemGroup = $proj.CreateElement("ItemGroup");
     $compileElement = $proj.CreateElement("Compile");
     $removeAttribute = $proj.CreateAttribute("Remove");
-    $removeAttribute.Value = "Example.cs";
+    $removeAttribute.Value = ".meta/Example.cs";
     $compileElement.Attributes.Append($removeAttribute);
     $compileItemGroup.AppendChild($compileElement);
     $propertyGroup.ParentNode.InsertAfter($compileItemGroup, $propertyGroup);
@@ -103,7 +104,7 @@ function Add-GeneratorClass {
     Set-Content -Path $generator -Value $generatorClass
 }
 
-function Copy-TrackFile {
+function Copy-TrackFilesForExercise {
     [CmdletBinding(SupportsShouldProcess)]
     param (
         [Parameter(Position = 0, Mandatory = $true)][string]$Exercise
@@ -150,8 +151,8 @@ function Update-ConfigJson {
     )
 
     $configJson = Resolve-Path "config.json"
-    $practices = @()
-    if($Exercise) { $practices += $Exercise }
+    $prerequisites = @()
+    if ($UnlockedBy) { $prerequisites += $UnlockedBy }
 
     # TODO We need to support the creation of a concept exercise with the new config.json 
     $config = Get-Content $configJson | ConvertFrom-JSON
@@ -159,8 +160,8 @@ function Update-ConfigJson {
         slug          = $Exercise;
         uuid          = [Guid]::NewGuid();
         core          = $Core.IsPresent;
-        practices     = $practices;
-        prerequisites = @();
+        practices     = @($Exercise);
+        prerequisites = $prerequisites;
         difficulty    = $Difficulty;
         topics        = $Topics;
     }
@@ -178,7 +179,7 @@ $exerciseName = (Get-Culture).TextInfo.ToTitleCase($Exercise).Replace("-", "")
 
 Add-Project $Exercise $exerciseName
 Add-GeneratorClass $exerciseName
-Copy-TrackFile $Exercise
+Copy-TrackFilesForExercise $Exercise
 Update-Readme $Exercise
 Update-Test $Exercise
 Update-ConfigJson $Exercise -Topics $Topics -Core $Core -Difficulty $Difficulty -UnlockedBy $UnlockedBy
