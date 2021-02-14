@@ -29,13 +29,13 @@ param (
 
 function Invoke-Configlet-Lint {
     Write-Output "Linting config.json"
-    Invoke-ExpressionExitOnError "./bin/fetch-configlet"
-    Invoke-ExpressionExitOnError "./bin/configlet lint"
+    Invoke-CallScriptExitOnError { ./bin/fetch-configlet }
+    Invoke-CallScriptExitOnError { ./bin/configlet lint }
 }
 
 function Invoke-Build-Generators { 
     Write-Output "Building generators"
-    Invoke-ExpressionExitOnError "dotnet build ./generators"
+    Invoke-CallScriptExitOnError { dotnet build ./generators }
 }
 
 function Clean($BuildDir) {
@@ -57,7 +57,9 @@ function Enable-AllUnitTest($BuildDir) {
 
 function Test-Refactoring-Exercise($PracticeExercisesDir) {
     Write-Output "Testing refactoring projects"
-    @("tree-building", "ledger", "markdown") | ForEach-Object { Invoke-ExpressionExitOnError "dotnet test $practiceExercisesDir/$_" }
+    @("tree-building", "ledger", "markdown") | ForEach-Object {
+        Invoke-CallScriptExitOnError { dotnet test "$practiceExercisesDir/$_" }
+    }
 }
 
 function Set-ExampleImplementation {
@@ -91,13 +93,13 @@ function Test-ExerciseImplementation($Exercise, $BuildDir, $ConceptExercisesDir,
     Write-Output "Running tests"
 
     if (-Not $Exercise) {
-        Invoke-ExpressionExitOnError "dotnet test $BuildDir/Exercises.sln"
+        Invoke-CallScriptExitOnError { dotnet test "$BuildDir/Exercises.sln" }
     }
     elseif (Test-Path "$ConceptExercisesDir/$Exercise") {
-        Invoke-ExpressionExitOnError "dotnet test $ConceptExercisesDir/$Exercise"
+        Invoke-CallScriptExitOnError { dotnet test "$ConceptExercisesDir/$Exercise" }
     }
     elseif (Test-Path "$PracticeExercisesDir/$Exercise") {
-        Invoke-ExpressionExitOnError "dotnet test $PracticeExercisesDir/$Exercise"
+        Invoke-CallScriptExitOnError { dotnet test "$PracticeExercisesDir/$Exercise" }
     }
     else {
         throw "Could not find exercise '$Exercise'"

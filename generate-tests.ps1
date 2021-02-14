@@ -35,7 +35,7 @@ function Update-TestFile {
     
     if ($PSCmdlet.ShouldProcess($generatorsProject, "execute")) {
         Write-Output "Updating tests"
-        Invoke-ExpressionExitOnError "dotnet run --project $generatorsProject $generatorsArgs"
+        Invoke-CallScriptExitOnError { dotnet run --project $generatorsProject $generatorsArgs }
     }
 }
 

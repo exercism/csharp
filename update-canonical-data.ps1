@@ -20,8 +20,8 @@ function Update-CanonicalData {
 
     if ($PSCmdlet.ShouldProcess("all git submodules, including problem-specifications", "git init and update")) {
         Write-Output "Updating canonical data"
-        Invoke-ExpressionExitOnError "git submodule init"
-        Invoke-ExpressionExitOnError "git submodule update --remote"
+        Invoke-CallScriptExitOnError { git submodule init }
+        Invoke-CallScriptExitOnError { git submodule update --remote }
     }
 }
 
