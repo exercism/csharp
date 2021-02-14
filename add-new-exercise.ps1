@@ -103,7 +103,7 @@ function Add-GeneratorClass {
     Set-Content -Path $generator -Value $generatorClass
 }
 
-function Copy-TrackFile {
+function Copy-TrackFilesForExercise {
     [CmdletBinding(SupportsShouldProcess)]
     param (
         [Parameter(Position = 0, Mandatory = $true)][string]$Exercise
@@ -151,7 +151,7 @@ function Update-ConfigJson {
 
     $configJson = Resolve-Path "config.json"
     $practices = @()
-    if($Exercise) { $practices += $Exercise }
+    if ($Exercise) { $practices += $Exercise }
 
     # TODO We need to support the creation of a concept exercise with the new config.json 
     $config = Get-Content $configJson | ConvertFrom-JSON
@@ -178,7 +178,7 @@ $exerciseName = (Get-Culture).TextInfo.ToTitleCase($Exercise).Replace("-", "")
 
 Add-Project $Exercise $exerciseName
 Add-GeneratorClass $exerciseName
-Copy-TrackFile $Exercise
+Copy-TrackFilesForExercise $Exercise
 Update-Readme $Exercise
 Update-Test $Exercise
 Update-ConfigJson $Exercise -Topics $Topics -Core $Core -Difficulty $Difficulty -UnlockedBy $UnlockedBy
