@@ -33,7 +33,7 @@ function Invoke-Configlet-Lint {
     Invoke-CallScriptExitOnError { ./bin/configlet lint }
 }
 
-function Invoke-Build-Generators { 
+function Invoke-Build-Generators {
     Write-Output "Building generators"
     Invoke-CallScriptExitOnError { dotnet build ./generators }
 }
@@ -70,7 +70,7 @@ function Set-ExampleImplementation {
         Get-ChildItem -Path $ExercisesDir -Include "*.csproj" -Recurse | ForEach-Object {
             $stub = Join-Path -Path $_.Directory ($_.BaseName + ".cs")
             $example = Join-Path -Path $_.Directory ".meta" $ReplaceFileName
-        
+
             Move-Item -Path $example -Destination $stub -Force
         }
     }

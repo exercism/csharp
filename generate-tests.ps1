@@ -32,7 +32,7 @@ function Update-TestFile {
 
     $generatorsProject = "./generators"
     $generatorsArgs = if ($Exercise) { @("--exercise", $Exercise) } else { @() }
-    
+
     if ($PSCmdlet.ShouldProcess($generatorsProject, "execute")) {
         Write-Output "Updating tests"
         Invoke-CallScriptExitOnError { dotnet run --project $generatorsProject $generatorsArgs }
