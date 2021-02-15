@@ -48,14 +48,14 @@ function Copy-Exercise($SourceDir, $BuildDir) {
     Copy-Item $SourceDir -Destination $BuildDir -Recurse
 }
 
-function Enable-AllUnitTest($BuildDir) {
+function Enable-All-UnitTests($BuildDir) {
     Write-Output "Enabling all tests"
     Get-ChildItem -Path $BuildDir -Include "*Tests.cs" -Recurse | ForEach-Object {
         (Get-Content $_.FullName) -replace "Skip = ""Remove this Skip property to run this test""", "" | Set-Content $_.FullName
     }
 }
 
-function Test-Refactoring-Exercise($PracticeExercisesDir) {
+function Test-Refactoring-Projects($PracticeExercisesDir) {
     Write-Output "Testing refactoring projects"
     @("tree-building", "ledger", "markdown") | ForEach-Object { Invoke-ExpressionExitOnError "dotnet test $practiceExercisesDir/$_" }
 }
@@ -114,11 +114,11 @@ $sourceDir = Resolve-Path "exercises"
 Invoke-Configlet-Lint
 Clean $buildDir
 Copy-Exercise $sourceDir $buildDir
-Enable-AllUnitTest $buildDir
+Enable-All-UnitTests $buildDir
 
 if (!$Exercise) {
     Invoke-Build-Generators
-    Test-Refactoring-Exercise $practiceExercisesDir
+    Test-Refactoring-Projects $practiceExercisesDir
 }
 
 Use-ExampleImplementation $conceptExercisesDir $practiceExercisesDir
