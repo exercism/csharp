@@ -53,20 +53,20 @@ function Add-Project {
 
     Invoke-ExpressionExitOnError "dotnet new xunit -lang ""C#"" --target-framework-override net5.0 -o $exerciseDir -n $ExerciseName"
     Invoke-ExpressionExitOnError "dotnet sln ""$exercisesDir/Exercises.sln"" add $csProj"
-    
+
     Remove-Item -Path "$exerciseDir/UnitTest1.cs"
-    
+
     New-Item -ItemType File -Path "$exerciseDir/$ExerciseName.cs"
     New-Item -ItemType Directory -Path "$exerciseDir/.meta"
     New-Item -ItemType File -Path "$exerciseDir/.meta/Example.cs"
-    
+
     [xml]$proj = Get-Content $csProj
     $propertyGroup = $proj.Project.PropertyGroup
 
     $nugetItemGroup = $proj.Project.ItemGroup;
     $nugetItemGroup.RemoveAll();
     $nugetList = @(@{nuget = "Microsoft.NET.Test.Sdk"; Version = "16.8.3" }, @{nuget = "xunit"; Version = "2.4.1" }, @{nuget = "xunit.runner.visualstudio"; version = "2.4.3" })
-    $nugetList | ForEach-Object { 
+    $nugetList | ForEach-Object {
         $packageElement = $proj.CreateElement("PackageReference");
         $includeAttribute = $proj.CreateAttribute("Include");
         $includeAttribute.Value = $_.nuget;
@@ -84,7 +84,7 @@ function Add-Project {
     $compileElement.Attributes.Append($removeAttribute);
     $compileItemGroup.AppendChild($compileElement);
     $propertyGroup.ParentNode.InsertAfter($compileItemGroup, $propertyGroup);
-    
+
     $proj.Save($csProj);
 }
 
@@ -100,7 +100,7 @@ function Add-GeneratorClass {
     $generatorsExerciseGeneratorsDir = Join-Path $generatorsExercisesDir "Generators"
     $generator = Join-Path $generatorsExerciseGeneratorsDir "$ExerciseName.cs"
     $generatorClass = "namespace Exercism.CSharp.Exercises.Generators`n{`n    public class $ExerciseName : GeneratorExercise`n    {`n    }`n}"
-    
+
     Set-Content -Path $generator -Value $generatorClass
 }
 
@@ -137,7 +137,7 @@ function Update-Test {
     if ($PSCmdlet.ShouldProcess("exercise $Exercise", "generate new tests")) {
         Write-Output "Updating test suite"
         ./generate-tests.ps1 $Exercise
-    } 
+    }
 }
 
 function Update-ConfigJson {
@@ -154,7 +154,7 @@ function Update-ConfigJson {
     $prerequisites = @()
     if ($UnlockedBy) { $prerequisites += $UnlockedBy }
 
-    # TODO We need to support the creation of a concept exercise with the new config.json 
+    # TODO We need to support the creation of a concept exercise with the new config.json
     $config = Get-Content $configJson | ConvertFrom-JSON
     $config.exercises.practice += [pscustomobject]@{
         slug          = $Exercise;
@@ -165,11 +165,11 @@ function Update-ConfigJson {
         difficulty    = $Difficulty;
         topics        = $Topics;
     }
-    
+
     if ($PSCmdlet.ShouldProcess("config.json", "add new file")) {
         Write-Output "Updating config.json"
         ConvertTo-Json -InputObject $config -Depth 10 | Set-Content -Path $configJson
-    } 
+    }
 
     Invoke-ExpressionExitOnError "./bin/fetch-configlet"
     Invoke-ExpressionExitOnError "./bin/configlet fmt ."
