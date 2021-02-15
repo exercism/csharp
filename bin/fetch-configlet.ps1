@@ -24,7 +24,7 @@ $arch = If ([Environment]::Is64BitOperatingSystem) { "64bit" } Else { "32bit" }
 $fileName = "configlet-windows-$arch.zip"
 
 Write-Output "Fetching configlet download URL"
-$downloadUrl = Get-DownloadUrl $fileName $requestOpts
+$downloadUrl = Get-DownloadUrl -FileName $fileName -RequestOpts $requestOpts
 $outputFile = Join-Path -Path $outputDirectory -ChildPath $fileName
 
 Write-Output "Fetching configlet binaries"
