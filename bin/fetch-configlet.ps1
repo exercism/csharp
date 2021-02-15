@@ -23,11 +23,12 @@ $outputDirectory = "bin"
 $arch = If ([Environment]::Is64BitOperatingSystem) { "64bit" } Else { "32bit" }
 $fileName = "configlet-windows-$arch.zip"
 
-
-$downloadUrl = Get-DownloadUrl $fileName $requestOpts
+Write-Output "Fetching configlet download URL"
+$downloadUrl = Get-DownloadUrl -FileName $fileName -RequestOpts $requestOpts
 $outputFile = Join-Path -Path $outputDirectory -ChildPath $fileName
 
-# using PreserveAuthorizationOnRedirect named parameter doesn't work on WSL
+Write-Output "Fetching configlet binaries"
+# Use PreserveAuthorizationOnRedirect named parameter doesn't work on WSL
 Invoke-WebRequest -Uri $downloadUrl -OutFile $outputFile @requestOpts
 Expand-Archive -Path $outputFile -DestinationPath $outputDirectory -Force
 Remove-Item -Path $outputFile
