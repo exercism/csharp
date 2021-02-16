@@ -14,6 +14,7 @@
 * [PluralSight](https://www.pluralsight.com/) has several [great](https://www.pluralsight.com/courses/csharp-6-from-scratch) [introduction](https://www.pluralsight.com/courses/c-sharp-fundamentals-with-visual-studio-2015) [courses](http://www.pluralsight.com/courses/csharp-best-practices-improving-basics). The downside: PluralSight is a paid service, but you can request a [free trial](https://www.pluralsight.com/pricing).
 
 ## Books
+
 * [C# 6.0 in a Nutshell](https://www.amazon.com/C-6-0-Nutshell-Definitive-Reference/dp/1491927062/)
 * [C# 5.0 Unleashed](https://www.amazon.com/C-5-0-Unleashed-Bart-Smet/dp/0672336901/)
 * [C# in Depth](https://www.amazon.com/dp/161729134X/)
