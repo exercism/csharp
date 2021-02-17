@@ -23,7 +23,7 @@ param (
 . ./shared.ps1
 . ./update-canonical-data.ps1
 
-function Update-TestFile {
+function Update-TestFilesForTrack {
     [CmdletBinding(SupportsShouldProcess)]
     param (
         [Parameter(Position = 0, Mandatory = $false)]
@@ -40,4 +40,4 @@ function Update-TestFile {
 }
 
 Update-CanonicalData
-Update-TestFile $Exercise
+Update-TestFilesForTrack $Exercise

@@ -23,7 +23,7 @@ param (
 . ./shared.ps1
 . ./update-canonical-data.ps1
 
-function Update-DocsFolder {
+function Update-Documentation {
     [CmdletBinding(SupportsShouldProcess)]
     param (
         [Parameter(Position = 0, Mandatory = $false)]
@@ -40,6 +40,6 @@ function Update-DocsFolder {
 }
 
 Update-CanonicalData
-Update-DocsFolder $Exercise
+Update-Documentation -Exercise $Exercise
 
 exit $LastExitCode
