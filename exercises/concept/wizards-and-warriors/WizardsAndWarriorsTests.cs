@@ -24,10 +24,10 @@ public class RolePlayingGameTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Wizard_is_not_vulnerable()
+    public void Wizard_is_vulnerable()
     {
         var wizard = new Wizard();
-        Assert.False(wizard.Vulnerable());
+        Assert.True(wizard.Vulnerable());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
