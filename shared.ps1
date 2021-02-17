@@ -4,19 +4,19 @@ $ErrorActionPreference = 'Stop'
 # There is a pending proposal to support this:
 # https://github.com/PowerShell/PowerShell-RFC/pull/88/files
 # https://github.com/PowerShell/PowerShell-RFC/pull/261
-function Invoke-ExpressionExitOnError ($Command) {
+function Invoke-CallScriptExitOnError ($ScriptBlock) {
     <#
         .SYNOPSIS
             Run a native command.
         .PARAMETER Command
             The command to execute.
         .EXAMPLE
-            The example below runs the "./bin/configlet lint" command
+            The example below runs the { ./bin/configlet lint } script block
 
-            Invoke-ExpressionExitOnError "./bin/configlet lint"
+            Invoke-CallScriptExitOnError { ./bin/configlet lint }
     #>
 
-    Invoke-Expression -Command $Command
+    & $ScriptBlock
 
     if ($Lastexitcode -ne 0) {
         exit $Lastexitcode

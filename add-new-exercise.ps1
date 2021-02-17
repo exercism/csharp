@@ -51,8 +51,8 @@ function Add-Project {
 
     $csProj = "$exerciseDir/$ExerciseName.csproj"
 
-    Invoke-ExpressionExitOnError "dotnet new xunit -lang ""C#"" --target-framework-override net5.0 -o $exerciseDir -n $ExerciseName"
-    Invoke-ExpressionExitOnError "dotnet sln ""$exercisesDir/Exercises.sln"" add $csProj"
+    Invoke-CallScriptExitOnError { dotnet new xunit -lang "C#" --target-framework-override net5.0 -o $exerciseDir -n $ExerciseName }
+    Invoke-CallScriptExitOnError { dotnet sln "$exercisesDir/Exercises.sln" add $csProj }
 
     Remove-Item -Path "$exerciseDir/UnitTest1.cs"
 
@@ -171,8 +171,8 @@ function Update-ConfigJson {
         ConvertTo-Json -InputObject $config -Depth 10 | Set-Content -Path $configJson
     }
 
-    Invoke-ExpressionExitOnError "./bin/fetch-configlet"
-    Invoke-ExpressionExitOnError "./bin/configlet fmt ."
+    Invoke-CallScriptExitOnError { ./bin/fetch-configlet }
+    Invoke-CallScriptExitOnError { ./bin/configlet fmt . }
 }
 
 $exerciseName = (Get-Culture).TextInfo.ToTitleCase($Exercise).Replace("-", "")

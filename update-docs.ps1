@@ -32,10 +32,10 @@ function Update-Documentation {
 
     if ($PSCmdlet.ShouldProcess((& { If ($Exercise) { $Exercise } Else { "All Exercises" } }), "fetch configlet and pull specifications")) {
         Write-Output "Updating docs"
-        Invoke-ExpressionExitOnError "./bin/fetch-configlet"
+        Invoke-CallScriptExitOnError { ./bin/fetch-configlet }
 
         $configletArgs = if ($Exercise) { @("-e", $Exercise) } else { @() }
-        Invoke-ExpressionExitOnError "./bin/configlet sync -p problem-specifications -o $configletArgs"
+        Invoke-CallScriptExitOnError { ./bin/configlet sync -p problem-specifications -o $configletArgs }
     }
 }
 
