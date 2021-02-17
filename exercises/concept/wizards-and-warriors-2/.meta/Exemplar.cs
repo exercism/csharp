@@ -42,5 +42,5 @@ class Destination
 enum TravelMethod
 {
     Walking,
-    Horse
+    Horseback
 }
