@@ -15,10 +15,10 @@ if (!(Get-Module -ListAvailable -Name PSScriptAnalyzer)) {
 }
 
 Import-Module PSScriptAnalyzer
-$PSSAResults = Invoke-ScriptAnalyzer -Path . -ExcludeRule PSAvoidTrailingWhitespace -Recurse
+$PSSAResults = Invoke-ScriptAnalyzer -Path . -Recurse
 $DETAILS = ($PSSAResults | ForEach-Object { "{0,-11} [{1,-3}, {2,-3}] {3,-50} {4,-35} - {5}" -f $_.Severity, $_.Line, $_.Column, $_.ScriptName, $_.RuleName, $_.Message } | Out-String -Width 88).Trim()
 $DETAILS
 $SUMMARY = ($PSSAResults | Group-Object -Property Severity -NoElement | Foreach-Object { "$($_.Count) $($_.Name)" }) -join ", "
 $SUMMARY
 
-exit $SUMMARY.Count
+exit $SUMMARY.Length

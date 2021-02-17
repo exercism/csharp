@@ -17,6 +17,7 @@
     PS C:\> ./test.ps1 acronym
 #>
 
+[CmdletBinding(SupportsShouldProcess)]
 param (
     [Parameter(Position = 0, Mandatory = $false)]
     [string]$Exercise
@@ -25,89 +26,102 @@ param (
 # Import shared functionality
 . ./shared.ps1
 
+
+function Invoke-Configlet-Lint {
+    Write-Output "Linting config.json"
+    Invoke-ExpressionExitOnError "./bin/fetch-configlet"
+    Invoke-ExpressionExitOnError "./bin/configlet lint"
+}
+
+function Invoke-Build-Generators {
+    Write-Output "Building generators"
+    Invoke-ExpressionExitOnError "dotnet build ./generators"
+}
+
+function Clean($BuildDir) {
+    Write-Output "Cleaning previous build"
+    Remove-Item -Recurse -Force $BuildDir -ErrorAction Ignore
+}
+
+function Copy-Exercise($SourceDir, $BuildDir) {
+    Write-Output "Copying exercises"
+    Copy-Item $SourceDir -Destination $BuildDir -Recurse
+}
+
+function Enable-All-UnitTests($BuildDir) {
+    Write-Output "Enabling all tests"
+    Get-ChildItem -Path $BuildDir -Include "*Tests.cs" -Recurse | ForEach-Object {
+        (Get-Content $_.FullName) -replace "Skip = ""Remove this Skip property to run this test""", "" | Set-Content $_.FullName
+    }
+}
+
+function Test-Refactoring-Projects($PracticeExercisesDir) {
+    Write-Output "Testing refactoring projects"
+    @("tree-building", "ledger", "markdown") | ForEach-Object { Invoke-ExpressionExitOnError "dotnet test $practiceExercisesDir/$_" }
+}
+
+function Set-ExampleImplementation {
+    [CmdletBinding(SupportsShouldProcess)]
+    param($ExercisesDir, $ReplaceFileName)
+
+    if ($PSCmdlet.ShouldProcess("Exercise $ReplaceFileName", "replace solution with example")) {
+        Get-ChildItem -Path $ExercisesDir -Include "*.csproj" -Recurse | ForEach-Object {
+            $stub = Join-Path -Path $_.Directory ($_.BaseName + ".cs")
+            $example = Join-Path -Path $_.Directory ".meta" $ReplaceFileName
+
+            Move-Item -Path $example -Destination $stub -Force
+        }
+    }
+}
+
+function Use-ExampleImplementation {
+    [CmdletBinding(SupportsShouldProcess)]
+    param($ConceptExercisesDir, $PracticeExercisesDir)
+
+    if ($PSCmdlet.ShouldProcess("Exercises directory", "replace all solutions with corresponding examples")) {
+        Write-Output "Replacing concept exercise stubs with exemplar"
+        Set-ExampleImplementation $ConceptExercisesDir "Exemplar.cs"
+
+        Write-Output "Replacing practice exercise stubs with example"
+        Set-ExampleImplementation $PracticeExercisesDir "Example.cs"
+    }
+}
+
+function Test-ExerciseImplementation($Exercise, $BuildDir, $ConceptExercisesDir, $PracticeExercisesDir) {
+    Write-Output "Running tests"
+
+    if (-Not $Exercise) {
+        Invoke-ExpressionExitOnError "dotnet test $BuildDir/Exercises.sln"
+    }
+    elseif (Test-Path "$ConceptExercisesDir/$Exercise") {
+        Invoke-ExpressionExitOnError "dotnet test $ConceptExercisesDir/$Exercise"
+    }
+    elseif (Test-Path "$PracticeExercisesDir/$Exercise") {
+        Invoke-ExpressionExitOnError "dotnet test $PracticeExercisesDir/$Exercise"
+    }
+    else {
+        throw "Could not find exercise '$Exercise'"
+    }
+}
+
+
 $buildDir = Join-Path $PSScriptRoot "build"
 $practiceExercisesDir = Join-Path $buildDir "practice"
 $conceptExercisesDir = Join-Path $buildDir "concept"
 $sourceDir = Resolve-Path "exercises"
 
-function Configlet-Lint {
-    Write-Output "Linting config.json"
-    Run-Command "./bin/fetch-configlet"
-    Run-Command "./bin/configlet lint"
-}
 
-function Build-Generators { 
-    Write-Output "Building generators"
-    Run-Command "dotnet build ./generators"
-}
-
-function Clean {
-    Write-Output "Cleaning previous build"
-    Remove-Item -Recurse -Force $buildDir -ErrorAction Ignore
-}
-
-function Copy-Exercises {
-    Write-Output "Copying exercises"
-    Copy-Item $sourceDir -Destination $buildDir -Recurse
-}
-
-function Enable-All-Tests {
-    Write-Output "Enabling all tests"
-    Get-ChildItem -Path $buildDir -Include "*Tests.cs" -Recurse | ForEach-Object {
-        (Get-Content $_.FullName) -replace "Skip = ""Remove this Skip property to run this test""", "" | Set-Content $_.FullName
-    }
-}
-
-function Test-Refactoring-Projects {
-    Write-Output "Testing refactoring projects"
-    @("tree-building", "ledger", "markdown") | ForEach-Object { Run-Command "dotnet test $practiceExercisesDir/$_" }
-}
-
-function Replace-Stubs-With-File ($ExercisesDir, $ReplaceFileName) {
-    Get-ChildItem -Path $ExercisesDir -Include "*.csproj" -Recurse | ForEach-Object {
-        $stub = Join-Path $_.Directory ($_.BaseName + ".cs")
-        $example = Join-Path $_.Directory ".meta" $ReplaceFileName
-    
-        Move-Item -Path $example -Destination $stub -Force
-    }
-}
-
-function Replace-Stubs {
-    Write-Output "Replacing concept exercise stubs with exemplar"
-    Replace-Stubs-With-File $conceptExercisesDir "Exemplar.cs"
-
-    Write-Output "Replacing practice exercise stubs with example"
-    Replace-Stubs-With-File $practiceExercisesDir "Example.cs"
-}
-
-function Test-Using-Example-Implementation {
-    Write-Output "Running tests"
-
-    if (-Not $Exercise) {
-        Run-Command "dotnet test $buildDir/Exercises.sln"
-    }
-    elseif (Test-Path "$conceptExercisesDir/$exercise") {
-        Run-Command "dotnet test $conceptExercisesDir/$exercise"
-    }
-    elseif (Test-Path "$practiceExercisesDir/$exercise") {
-        Run-Command "dotnet test $practiceExercisesDir/$exercise"
-    }
-    else {
-        throw "Could not find exercise '$exercise'"
-    }
-}
-
-Configlet-Lint
-Clean
-Copy-Exercises
-Enable-All-Tests
+Invoke-Configlet-Lint
+Clean $buildDir
+Copy-Exercise $sourceDir $buildDir
+Enable-All-UnitTests $buildDir
 
 if (!$Exercise) {
-    Build-Generators
-    Test-Refactoring-Projects
+    Invoke-Build-Generators
+    Test-Refactoring-Projects $practiceExercisesDir
 }
 
-Replace-Stubs
-Test-Using-Example-Implementation
+Use-ExampleImplementation $conceptExercisesDir $practiceExercisesDir
+Test-ExerciseImplementation -Exercise $Exercise -BuildDir $buildDir -ConceptExercisesDir $conceptExercisesDir -PracticeExercisesDir $practiceExercisesDir
 
 exit $LastExitCode

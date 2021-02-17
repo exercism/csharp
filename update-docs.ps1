@@ -13,6 +13,7 @@
     PS C:\> ./update-docs.ps1 acronym
 #>
 
+[CmdletBinding(SupportsShouldProcess)]
 param (
     [Parameter(Position = 0, Mandatory = $false)]
     [string]$Exercise
@@ -20,20 +21,25 @@ param (
 
 # Import shared functionality
 . ./shared.ps1
+. ./update-canonical-data.ps1
 
-function Update-Canonical-Data {
-    Write-Output "Updating canonical data"
-    Run-Command "./update-canonical-data.ps1" 
+function Update-Documentation {
+    [CmdletBinding(SupportsShouldProcess)]
+    param (
+        [Parameter(Position = 0, Mandatory = $false)]
+        [string]$Exercise
+    )
+
+    if ($PSCmdlet.ShouldProcess((& { If ($Exercise) { $Exercise } Else { "All Exercises" } }), "fetch configlet and pull specifications")) {
+        Write-Output "Updating docs"
+        Invoke-ExpressionExitOnError "./bin/fetch-configlet"
+
+        $configletArgs = if ($Exercise) { @("-e", $Exercise) } else { @() }
+        Invoke-ExpressionExitOnError "./bin/configlet sync -p problem-specifications -o $configletArgs"
+    }
 }
 
-function Update-Docs {
-    Write-Output "Updating docs"
-    $args = if ($Exercise) { @("-o", $Exercise) } else { @() }
-    Run-Command "./bin/fetch-configlet"
-    Run-Command "./bin/configlet generate . -p problem-specifications $args"
-}
-
-Update-Canonical-Data
-Update-Docs
+Update-CanonicalData
+Update-Documentation -Exercise $Exercise
 
 exit $LastExitCode

@@ -25,6 +25,7 @@
     PS C:\> ./add-new-exercise.ps1 acronym -Core -Topics strings,optional -Difficulty 3 -UnlockedBy two-fer
 #>
 
+[CmdletBinding(SupportsShouldProcess)]
 param (
     [Parameter(Position = 0, Mandatory = $true)][string]$Exercise,
     [Parameter()][string[]]$Topics = @(),
@@ -36,30 +37,36 @@ param (
 # Import shared functionality
 . ./shared.ps1
 
-$exerciseName = (Get-Culture).TextInfo.ToTitleCase($Exercise).Replace("-", "")
-$exercisesDir = Resolve-Path "exercises"
-$exerciseDir = Join-Path $exercisesDir $Exercise
-
 function Add-Project {
+    param (
+        [Parameter(Position = 0, Mandatory = $true)][string]$Exercise,
+        [Parameter(Position = 1, Mandatory = $true)][string]$ExerciseName
+    )
+
     Write-Output "Adding project"
 
-    $csProj = "$exerciseDir/$exerciseName.csproj"
+    # TODO We need to support concept exercises
+    $exercisesDir = Resolve-Path "exercises"
+    $exerciseDir = Join-Path -Path $exercisesDir "practice" $Exercise
 
-    Run-Command "dotnet new xunit -lang ""C#"" --target-framework-override netcoreapp3.0 -o $exerciseDir -n $exerciseName"
-    Run-Command "dotnet sln ""$exercisesDir/Exercises.sln"" add $csProj"
-    
+    $csProj = "$exerciseDir/$ExerciseName.csproj"
+
+    Invoke-ExpressionExitOnError "dotnet new xunit -lang ""C#"" --target-framework-override net5.0 -o $exerciseDir -n $ExerciseName"
+    Invoke-ExpressionExitOnError "dotnet sln ""$exercisesDir/Exercises.sln"" add $csProj"
+
     Remove-Item -Path "$exerciseDir/UnitTest1.cs"
-    
-    New-Item -ItemType File -Path "$exerciseDir/$exerciseName.cs"
-    New-Item -ItemType File -Path "$exerciseDir/Example.cs"
-    
+
+    New-Item -ItemType File -Path "$exerciseDir/$ExerciseName.cs"
+    New-Item -ItemType Directory -Path "$exerciseDir/.meta"
+    New-Item -ItemType File -Path "$exerciseDir/.meta/Example.cs"
+
     [xml]$proj = Get-Content $csProj
     $propertyGroup = $proj.Project.PropertyGroup
 
     $nugetItemGroup = $proj.Project.ItemGroup;
     $nugetItemGroup.RemoveAll();
-    $nugetList = @(@{nuget="Microsoft.NET.Test.Sdk";Version="16.7.1"}, @{nuget="xunit";Version="2.4.1"}, @{nuget="xunit.runner.visualstudio";version="2.4.3"})
-    $nugetList | % { 
+    $nugetList = @(@{nuget = "Microsoft.NET.Test.Sdk"; Version = "16.8.3" }, @{nuget = "xunit"; Version = "2.4.1" }, @{nuget = "xunit.runner.visualstudio"; version = "2.4.3" })
+    $nugetList | ForEach-Object {
         $packageElement = $proj.CreateElement("PackageReference");
         $includeAttribute = $proj.CreateAttribute("Include");
         $includeAttribute.Value = $_.nuget;
@@ -73,67 +80,108 @@ function Add-Project {
     $compileItemGroup = $proj.CreateElement("ItemGroup");
     $compileElement = $proj.CreateElement("Compile");
     $removeAttribute = $proj.CreateAttribute("Remove");
-    $removeAttribute.Value = "Example.cs";
+    $removeAttribute.Value = ".meta/Example.cs";
     $compileElement.Attributes.Append($removeAttribute);
     $compileItemGroup.AppendChild($compileElement);
     $propertyGroup.ParentNode.InsertAfter($compileItemGroup, $propertyGroup);
-    
+
     $proj.Save($csProj);
 }
 
-function Add-Generator {
+function Add-GeneratorClass {
+    param (
+        [Parameter(Position = 0, Mandatory = $true)][string]$ExerciseName
+    )
+
     Write-Output "Adding generator"
 
     $generatorsDir = Resolve-Path "generators"
     $generatorsExercisesDir = Join-Path $generatorsDir "Exercises"
     $generatorsExerciseGeneratorsDir = Join-Path $generatorsExercisesDir "Generators"
-    $generator = Join-Path $generatorsExerciseGeneratorsDir "$exerciseName.cs"
-    $generatorClass = "namespace Exercism.CSharp.Exercises.Generators`n{`n    public class $exerciseName : GeneratorExercise`n    {`n    }`n}"
-    
+    $generator = Join-Path $generatorsExerciseGeneratorsDir "$ExerciseName.cs"
+    $generatorClass = "namespace Exercism.CSharp.Exercises.Generators`n{`n    public class $ExerciseName : GeneratorExercise`n    {`n    }`n}"
+
     Set-Content -Path $generator -Value $generatorClass
 }
 
-function Copy-Track-Files {
-    Write-Output "Copying track files"
-    ./copy-track-files.ps1 $Exercise
+function Copy-TrackFilesForExercise {
+    [CmdletBinding(SupportsShouldProcess)]
+    param (
+        [Parameter(Position = 0, Mandatory = $true)][string]$Exercise
+    )
+
+    if ($PSCmdlet.ShouldProcess("exercise $Exercise", "copy generic track files")) {
+        Write-Output "Copying track files"
+        ./copy-track-files.ps1 $Exercise
+    }
 }
 
 function Update-Readme {
-    Write-Output "Updating README"
-    ./update-docs.ps1 $Exercise
+    [CmdletBinding(SupportsShouldProcess)]
+    param (
+        [Parameter(Position = 0, Mandatory = $true)][string]$Exercise
+    )
+
+    if ($PSCmdlet.ShouldProcess("exercise $Exercise", "update Readme files")) {
+        Write-Output "Updating README"
+        ./update-docs.ps1 $Exercise
+    }
 }
 
-function Update-Tests { 
-    Write-Output "Updating test suite"
-    ./generate-tests.ps1 $Exercise
+function Update-TestSuite {
+    [CmdletBinding(SupportsShouldProcess)]
+    param (
+        [Parameter(Position = 0, Mandatory = $true)][string]$Exercise
+    )
+
+    if ($PSCmdlet.ShouldProcess("exercise $Exercise", "generate new tests")) {
+        Write-Output "Updating test suite"
+        ./generate-tests.ps1 $Exercise
+    }
 }
 
-function Update-Config-Json {
-    Write-Output "Updating config.json"
+function Update-ConfigJson {
+    [CmdletBinding(SupportsShouldProcess)]
+    param (
+        [Parameter(Mandatory = $true, Position = 0)][string]$Exercise,
+        [Parameter()][string[]]$Topics = @(),
+        [Parameter()][switch]$Core,
+        [Parameter()][int]$Difficulty = 1,
+        [Parameter()]$UnlockedBy
+    )
 
     $configJson = Resolve-Path "config.json"
+    $prerequisites = @()
+    if ($UnlockedBy) { $prerequisites += $UnlockedBy }
 
+    # TODO We need to support the creation of a concept exercise with the new config.json
     $config = Get-Content $configJson | ConvertFrom-JSON
-    $config.exercises += [pscustomobject]@{
-        slug        = $Exercise;
-        uuid        = [Guid]::NewGuid();
-        core        = $Core.IsPresent;
-        unlocked_by = $UnlockedBy;
-        difficulty  = $Difficulty;
-        topics      = $Topics;
+    $config.exercises.practice += [pscustomobject]@{
+        slug          = $Exercise;
+        uuid          = [Guid]::NewGuid();
+        core          = $Core.IsPresent;
+        practices     = @($Exercise);
+        prerequisites = $prerequisites;
+        difficulty    = $Difficulty;
+        topics        = $Topics;
     }
-    
-    ConvertTo-Json -InputObject $config -Depth 10 | Set-Content -Path $configJson
 
-    Run-Command "./bin/fetch-configlet"
-    Run-Command "./bin/configlet fmt ."
+    if ($PSCmdlet.ShouldProcess("config.json", "add new file")) {
+        Write-Output "Updating config.json"
+        ConvertTo-Json -InputObject $config -Depth 10 | Set-Content -Path $configJson
+    }
+
+    Invoke-ExpressionExitOnError "./bin/fetch-configlet"
+    Invoke-ExpressionExitOnError "./bin/configlet fmt ."
 }
 
-Add-Project
-Add-Generator
-Copy-Track-Files
-Update-Readme
-Update-Tests
-Update-Config-Json
+$exerciseName = (Get-Culture).TextInfo.ToTitleCase($Exercise).Replace("-", "")
+
+Add-Project $Exercise $exerciseName
+Add-GeneratorClass $exerciseName
+Copy-TrackFilesForExercise $Exercise
+Update-Readme $Exercise
+Update-TestSuite $Exercise
+Update-ConfigJson $Exercise -Topics $Topics -Core $Core -Difficulty $Difficulty -UnlockedBy $UnlockedBy
 
 exit $LastExitCode

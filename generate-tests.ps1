@@ -13,25 +13,31 @@
     PS C:\> ./generate-tests.ps1 acronym
 #>
 
+[CmdletBinding(SupportsShouldProcess)]
 param (
     [Parameter(Position = 0, Mandatory = $false)]
     [string]$Exercise
 )
 
-
 # Import shared functionality
 . ./shared.ps1
+. ./update-canonical-data.ps1
 
-function Update-Canonical-Data {
-    Write-Output "Updating canonical data"
-    Run-Command "./update-canonical-data.ps1" 
+function Update-TestFilesForTrack {
+    [CmdletBinding(SupportsShouldProcess)]
+    param (
+        [Parameter(Position = 0, Mandatory = $false)]
+        [string]$Exercise
+    )
+
+    $generatorsProject = "./generators"
+    $generatorsArgs = if ($Exercise) { @("--exercise", $Exercise) } else { @() }
+
+    if ($PSCmdlet.ShouldProcess($generatorsProject, "execute")) {
+        Write-Output "Updating tests"
+        Invoke-ExpressionExitOnError "dotnet run --project $generatorsProject $generatorsArgs"
+    }
 }
 
-function Update-Tests {
-    Write-Output "Updating tests"
-    $args = if ($Exercise) { @("--exercise", $Exercise) } else { @() }
-    Run-Command "dotnet run --project ./generators $args"
-}
-
-Update-Canonical-Data
-Update-Tests
+Update-CanonicalData
+Update-TestFilesForTrack $Exercise
