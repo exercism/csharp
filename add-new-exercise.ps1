@@ -128,7 +128,7 @@ function Update-Readme {
     }
 }
 
-function Update-Test {
+function Update-TestSuite {
     [CmdletBinding(SupportsShouldProcess)]
     param (
         [Parameter(Position = 0, Mandatory = $true)][string]$Exercise
@@ -181,7 +181,7 @@ Add-Project $Exercise $exerciseName
 Add-GeneratorClass $exerciseName
 Copy-TrackFilesForExercise $Exercise
 Update-Readme $Exercise
-Update-Test $Exercise
+Update-TestSuite $Exercise
 Update-ConfigJson $Exercise -Topics $Topics -Core $Core -Difficulty $Difficulty -UnlockedBy $UnlockedBy
 
 exit $LastExitCode
