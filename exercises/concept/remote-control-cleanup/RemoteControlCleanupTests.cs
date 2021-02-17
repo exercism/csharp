@@ -16,7 +16,6 @@ public class NestedTypeTests
     {
         var car = new RemoteControlCar();
         string expected = "100 meters per second";
-        decimal expectedAmount = 100;
         car.Telemetry.SetSpeed(100, "mps");
         Assert.Equal(expected, car.GetSpeed());
     }
