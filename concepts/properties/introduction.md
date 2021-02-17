@@ -1,3 +1,5 @@
+# Introduction
+
 A property in C# is a member of a class that provides access to data within that class.
 Callers can set or retrieve (get) the data. Properties can be either auto-implemented or
 have a backing field. They comprise a set accessor and/or a get accessor.
@@ -18,7 +20,7 @@ accessor and vice versa. A property doesn't have to have both accessors, it can 
 
 The basic syntax to express properties can take two forms:
 
-#### Field/Expression Backed Properties:
+## Field/Expression Backed Properties:
 
 ```csharp
 private int myField;
@@ -29,7 +31,7 @@ public int MyProperty
 }
 ```
 
-#### Auto-implemented Properties
+## Auto-implemented Properties
 
 ```
 public int MyProperty { get; private set; } = 42;

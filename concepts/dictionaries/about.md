@@ -1,3 +1,5 @@
+# About
+
 Dictionaries, like their equivalents in other languages such as maps or associative arrays, store key/value pairs such that a value can be retrieved or changed directly by passing the key to the dictionary's indexer property.
 
 In addition key/value pairs can be added and removed from the dictionary. Keys, values and key/value pairs can be enumerated.

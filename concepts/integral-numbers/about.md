@@ -1,3 +1,5 @@
+# About
+
 C#, like many statically typed languages, provides a number of types that represent integers, each with its own [range of values][integral-numeric-types]. At the low end, the `sbyte` type has a minimum value of -128 and a maximum value of 127. Like all the integer types these values are available as `<type>.MinValue` and `<type>.MaxValue`. At the high end, the `long` type has a minimum value of -9,223,372,036,854,775,808 and a maximum value of 9,223,372,036,854,775,807. In between lie the `short` and `int` types.
 
 Each of the above types is paired with an unsigned equivalent: `sbyte`/`byte`, `short`/`ushort`, `int`/`uint` and `long`/`ulong`. In all cases the range of the values is from 0 to the negative signed maximum times 2 plus 1.
@@ -19,7 +21,7 @@ The types discussed so far are _primitive_ types. Each is paired with a `struct`
 | `uint`   | `UInt32` | 32 bit | 0                          | +4_294_967_295              |
 | `ulong`  | `UInt64` | 64 bit | 0                          | +18_446_744_073_709_551_615 |
 
-#### Casting
+## Casting
 
 A variable (or expression) of one type can easily be converted to another. For instance, in an assignment operation, if the type of the value being assigned (rhs) ensures that the value will fit within the range of the type being assigned to (lhs) then there is a simple assignment:
 
@@ -43,13 +45,13 @@ The requirement for casting is determined by the two types involved rather than 
 
 The following paragraphs discuss the casting of integral types. (TODO cross-ref-tba casting) provides a broader discussion of casting and type conversion. See that documentation for a discussion of conversion between integral types and floating-point numbers, `char` and `bool`.
 
-##### Casting Primitive Types - Implicit
+### Casting Primitive Types - Implicit
 
 C#'s type system is somewhat stricter than _C_'s or Javascript's and as a consequence, casting operations are more restricted. [Implicit casting][implicit-casts] takes place between two numeric types as long as the "to" type can preserve the scale and sign of the "from" type's value.
 
 An implicit cast is not signified by any special syntax.
 
-##### Casting Primitive Types - Explicit
+### Casting Primitive Types - Explicit
 
 Where numeric types cannot be cast implicitly you can generally use the explicit cast [operator][cast-operator].
 

@@ -1,3 +1,5 @@
+# About
+
 The exercise shows the behavior of various numeric types when they overflow, i.e. when their capacity is insufficient to contain the value resulting from a computation such as an arithmetic operation or cast.
 
 - unsigned [integers][integral-numeric-types] (`byte`, `ushort`, `uint`, `ulong`) will wrap around to zero (the type's maximum value + 1 acts as a modulus) unless [broadly speaking][checked-compiler-setting] they appear within a [`checked`][checked-and-unchecked] block in which case an instance of `OverflowException` is thrown. `int` and `long` will behave similarly except that they wrap around to `int.MinValue` and `long.minValue` respectively.

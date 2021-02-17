@@ -1,3 +1,5 @@
+# Hints
+
 ## General
 
 - [Tutorial on working with enums][docs.microsoft.com-enumeration-types].

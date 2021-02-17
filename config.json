@@ -641,8 +641,8 @@
         "slug": "two-fer",
         "name": "Two Fer",
         "uuid": "57f02d0e-7b75-473b-892d-26a7d980c4ce",
-        "practices": [],
-        "prerequisites": [],
+        "practices": ["optional-parameters", "string-interpolation"],
+        "prerequisites": ["optional-parameters", "string-interpolation"],
         "difficulty": 1,
         "topics": [
           "optional_values",
@@ -653,8 +653,8 @@
         "slug": "leap",
         "name": "Leap",
         "uuid": "8ba15933-29a2-49b1-a9ce-70474bad3007",
-        "practices": [],
-        "prerequisites": [],
+        "practices": ["math-operators", "if-statements"],
+        "prerequisites": ["math-operators", "if-statements", "numbers"],
         "difficulty": 1,
         "topics": [
           "conditionals",
@@ -1059,8 +1059,8 @@
         "slug": "accumulate",
         "name": "Accumulate",
         "uuid": "3c0563dc-665a-45b4-9b29-f133e235efd0",
-        "practices": [],
-        "prerequisites": [],
+        "practices": ["lambdas", "foreach", "yield"],
+        "prerequisites": ["lambdas", "generic-types", "foreach", "enumerables", "extension-methods"],
         "difficulty": 2,
         "topics": [
           "extension_methods",

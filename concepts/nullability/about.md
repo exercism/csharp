@@ -1,3 +1,5 @@
+# About
+
 In C#, the [`null` literal][null-keyword] is used to denote the absence of a value. A _nullable_ type is a type that allows for `null` values.
 
 Prior to C# 8.0, reference types were always nullable and value types were not. A [value type can be made nullable][nullable-value-types] though by appending it with a question mark (`?`).

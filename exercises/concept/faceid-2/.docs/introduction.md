@@ -1,3 +1,5 @@
+# Introduction
+
 ## Equality
 
 Simple types (strings and primitives) are typically tested for equality with the `==` and `!=`.

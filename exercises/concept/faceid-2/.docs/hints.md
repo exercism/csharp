@@ -1,4 +1,6 @@
-### General
+# Hints
+
+## General
 
 - [Equality][equality]: how equality comparisons work in C#, including reference- and value type equality.
 - [HashCode][hash-code]: how to create and combine hash codes

@@ -1,3 +1,5 @@
+# About
+
 The principal arithmetic and comparison operators can be adapted for use by your own classes and structs. This is known as _operator overloading_.
 
 This [article][operator-overloading] is a thorough discussion of the syntax as well as which operators can be overloaded and those that can't.
@@ -70,7 +72,7 @@ You should note that you cannot create operators from symbols that are not part 
 
 Note that the order of parameters is important where they differ in type. In the above example code `pt * 10m` is a legal expression whereas `10m * pt` will not compile.
 
-#### Reference
+## Reference
 
 This documentation of [operator overloading][operator-overloading] details the syntax.
 

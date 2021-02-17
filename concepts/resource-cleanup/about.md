@@ -1,3 +1,5 @@
+# About
+
 The [`IDisposable`][idisposable] interface is central to resource cleanup and has two significant roles in C#:
 
 - It indicates to users of the implementing class that they are responsible for letting the class know (by calling the [`Dispose()`][dispose] method) that it is no longer required so that it can release any unmanaged resources or reset its internal state as appropriate. This contrasts with the normal approach to cleaning up of allowing the [garbage collector][garbage-collector] to clean everything up (principally, release memory).
@@ -52,7 +54,7 @@ public class Activity : IDisposable
 
 The `IDisposable` interface may be useful even where no unmanaged resources are in the mix. Say you have a long-lived object which requires short-lived objects to register themselves with it and then unregister when they are no longer required. Implementing `IDisposable` on the short-lived object puts a developer using that class on notice that `Dispose()` needs to be called at the end of the short-lived object's life.
 
-#### Dispose pattern
+## Dispose pattern
 
 You will see references in the documentation to the [dispose pattern][dispose-pattern]. The _dispose pattern_ includes calling `Dispose()` from a class's [finalizer][finalizer] and ensuring that disposal of resources in base classes is handled correctly. The _dispose pattern_ is dealt with in a later exercise.
 

@@ -1,3 +1,5 @@
+# Introduction
+
 Simple types (strings and primitives) are typically tested for equality with the `==` and `!=`.
 
 Reference types (Instances of classes) are compared using the `Equals()` method inherited from `Object`. If your goal with the equality test is to ensure that two objects are the exact same instance then relying on `Object`'s implementation will suffice. If not, you need to override `object.Equals()`.
@@ -8,7 +10,7 @@ An overridden `Equals()` method will contain equality tests on members of simple
 
 The `Object` class provides appropriate methods to compare two objects to detect if they are one and the same instance.
 
-### `Object.GetHashCode()`
+## `Object.GetHashCode()`
 
 The `Object.GetHashCode()` method returns a hash code in the form of a 32 bit integer. The hash code is used by _dictionary_ and _set_ classes such as `Dictionary<T>` and `HashSet<T>`to store and retrieve objects in a performant manner.
 

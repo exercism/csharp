@@ -1,3 +1,5 @@
+# About
+
 Switch statements have a venerable [history][wiki-switch] in programming languages. They were introduced in [`C`][c-switch] where they were prized for their speed. That speed came at the cost of functionality which was very constrained. In C# the role of the switch statement has been expanded beyond integers. Switch statements can encompass any arbitrary type, value or reference.
 
 If you are coming from a functional language then working with switch statements (and [switch expressions][switch-expression] discussed elsewhere) is the nearest you will get in C# to using discriminated unions and pattern matching. However, they have nowhere near the discriminated union's power to enforce type safety.

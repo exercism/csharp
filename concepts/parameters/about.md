@@ -1,3 +1,5 @@
+# About
+
 The coding exercise illustrates a number of properties of parameters:
 
 - Parameters [passed][passing-parameters] without a modifier (such as `out` or `ref`) are passed by value. That is to say that the parameter can be used and assigned to in the called method but any changes will have no effect on the caller.
@@ -72,7 +74,7 @@ Note that `optional parameters` and `named arguments` are discussed in the `meth
 
 The related topics of [`ref local`][ref-local] and [`ref return`][ref-return] are discussed elsewhere.
 
-### Stack Allocations
+## Stack Allocations
 
 The rules regarding parameters and their modifiers are sufficiently straightforward that you can take them at face value and understand them at their level of abstraction. However, if you are interested in the underlying mechanisms and why these keywords may make a performance difference, at least in the case of `struct`s, then you could start with this [_Wikipedia article_][calling-conventions], noting that C# uses `stdcall` on x86/64.
 

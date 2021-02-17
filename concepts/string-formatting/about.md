@@ -1,14 +1,16 @@
+# About
+
 Mechanisms for formatting strings are many and various in C#/.NET: everything from simple concatenation of objects through calls to the overridden `object.ToString()` method to use of [`ICustomFormatter`][custom-formatter] (not covered in this exercise).
 
 The two most common mechanisms for formatting strings are [string interpolation][string-interpolation] and [String.Format()][string-format]. The [`StringBuilder`][string-builder] (cross-ref-tba) class can also be used to build up a string if there is complexity such as multiple lines involved.
 
-#### Using `ToString()`
+## Using `ToString()`
 
 `System.Object()` from which all classes and structs inherit has a `ToString()` method. For example `new DateTime(2019, 5, 23).ToString()` will render "05/23/2019 00:00:00" (on a thread with US culture - [see below](#culture)). There are situations such as string concatenation where this default `ToString()` method may be invoked implicitly, `"" + new DateTime(2019, 5, 23)` gives the same result.
 
 In addition to the default `ToString()` method, types where formatting is an issue will have overloads which take a [_format string_](#bcl-formatters-and-format-strings) or even a [format provider][format-provider]. Notably in the BCL (Base Class Library) these are numbers, dates, enums and GUIDs.
 
-#### Composite Formatting
+## Composite Formatting
 
 `String.Format()` takes a string (referred to in the documentation as a _composite format_) comprising fixed text and placeholders (known in the documentation as a _format items_) and a variable number of arguments. The return value resolves each _format item_ using the corresponding argument and combines the resolved values with the fixed text.
 
@@ -23,7 +25,7 @@ This mechanism is technically known as [_composite formatting_][composite-format
 
 A fuller list of string producing methods that take advantage _composite formatting_ is given in this [article][composite-formatting].
 
-#### String Interpolation
+## String Interpolation
 
 Interpolated strings are prefixed with a `$` and include run-time expressions enclosed in braces. The format item has the following syntax: `$"{<interpolationExpression>[,<alignment>][:<formatString>]}"`. They do away with the need for a separate list of arguments. The result is functionally equivalent to the `String.Format()` mechanism.
 
@@ -36,7 +38,7 @@ $"I had {loadsOf} bitcoins on {thatDay}, the day I forgot my password."
 // => "I had 55.5 bitcoins on 2/25/2010 00:00:00, the day I forgot my password." - US settings
 ```
 
-#### Format Items
+## Format Items
 
 The text in braces, placeholders in the case of the composite format and interpolated expressions in the case of string interpolation is known as a _format item_.
 
@@ -65,7 +67,7 @@ string.Format(
 
 There is both standard and custom formatting for both numbers and dates. There is no vital difference between _custom_ and _standard_ except that you have a chance to compose custom format strings out of format characters. "custom" in this context has nothing to do with the [`ICustomFormatter`][custom-formatter] interface which is used when developing your own custom formatters.
 
-#### BCL Formatters and Format Strings
+## BCL Formatters and Format Strings
 
 The Base Class Library (BCL) provides 2 formatters: `DateTimeFormatInfo` and `NumberFormatInfo` and 6 groups of format strings.
 
@@ -82,13 +84,13 @@ The various lists of _format strings_ are below:
 
 An attempt is made in the library to instill some consistency into _format strings_ (beyond the fact that they are represented as strings). This push for consistency is found in the standard strings. In reality as a developer you rarely care about the difference between standard and custom strings. Although it is a good idea, if you are implementing formatters for your own classes to echo the existing standard strings if your classes appear to call for it, you can pretty well ignore the difference.
 
-#### Culture
+## Culture
 
 Each thread of execution has a default culture `Thread.CurrentThread.CurrentCulture` encapsulated in an instance of `CultureInfo`. The thread's culture determines how dates and numbers are formatted by default with respect to regional variations such as the difference in conventional date format between the UK _DD/MM/YYYY_ and the US _MM/DD/YYYY_.
 
 `CultureInfo` implements the `IFormatProvider` interface which can be passed to certain overloads of `String.Format()`. This can be used to override the thread culture.
 
-#### Reference Material
+## Reference Material
 
 [string-interpolation]: https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/string-interpolation
 [string-interpolation-in-depth]: https://weblog.west-wind.com/posts/2016/Dec/27/Back-to-Basics-String-Interpolation-in-C#

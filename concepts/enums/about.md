@@ -1,3 +1,5 @@
+# About
+
 You can use [Enumeration types][enumeration types] whenever you have a fixed set of constant values. Using an `enum` gives one a type-safe way of interacting with constant values. Defining an enum is done through the `enum` keyword. An enum member is referred to by prepending it with the enum name and a dot (e.g. `Status.Active`).
 
 Each enum member is an association of a name and an `int` value. If the first member does not have an explicit value, its value is set to `0`. If no value is explicitly defined for an enum member, its value is automatically assigned to the previous member's value plus `1`.

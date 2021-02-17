@@ -1,3 +1,5 @@
+# Introduction
+
 ## Chars
 
 The C# `char` type is a 16 bit quantity to represent the smallest addressable components of text.

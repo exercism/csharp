@@ -1,3 +1,5 @@
+# Hints
+
 ## General
 
 - [using statement][using-statement] documentation describes how and when to use the `using` keyword.

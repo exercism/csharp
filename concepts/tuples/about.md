@@ -1,3 +1,5 @@
+# About
+
 In C#, a tuple is a data structure which organizes data, holding two or more fields
 of any type.
 
@@ -50,7 +52,7 @@ bool result = estimateA == estimateB;
 
 This [introduction][tuples] shows how to define and use tuples.
 
-### Naming
+## Naming
 
 Field names `Item1` etc. do not make for readable code. There are 3 ways to
 provide names to the fields a) in the type declaration or b) in the expression that
@@ -73,7 +75,7 @@ Don't try to be too clever with the naming mechanism. It is really just syntacti
 sugar. For example, you cannot change the names of a tuple when you assign to it
 from another tuple.
 
-### Deconstruction
+## Deconstruction
 
 Sometimes it is convenient to take a tuple and assign the fields to multiple variables
 and initialize them if appropriate.
@@ -87,7 +89,7 @@ return ultimateQuestion;
 // => 42
 ```
 
-### Field Assignment
+## Field Assignment
 
 The fields of tuples can be individually assigned to.
 However, given the trend in C# towards immutability this
@@ -102,7 +104,7 @@ tpl.Item2 = "even worse";
 // => (1, "even worse";
 ```
 
-### Background
+## Background
 
 The tuples we are discussing should not be confused with [`System.Tuple`][system-tuple]
 which will probably be found only in legacy code bases.
@@ -117,7 +119,7 @@ unlikely to be of much interest, most of the time, to most people. Unfortunately
 documentation on "tuples" including Microsoft's own is liberally sprinkled with references
 to `System.ValueTuple`. It is probably safe to skate over such references.
 
-### Other Uses and Limitations
+## Other Uses and Limitations
 
 Pattern matching is a particularly productive use for tuples. This
 is covered in a later exercise.

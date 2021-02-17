@@ -1,3 +1,5 @@
+# About
+
 Casting and type conversion [are different ways of changing an expression from one data type to another][wiki-casting].
 
 The [C# documentation][type-testing-and-cast-operators] classifies type conversion as the use of the [`as` operator][as-operator] or [`is` operator][is-operator]. Casting is defined as the use of the [cast operator][cast-operator].
@@ -6,7 +8,7 @@ In C# very often, outside of the realm of numeric values and class hierarchies, 
 
 Note that implicit an explicit cast [operators][operator-overloading] (discussed in (TODO cross-ref-tba)) are available which can bring fairly arbitrary casting to your own types.
 
-#### Casting Primitive Types - Implicit
+## Casting Primitive Types - Implicit
 
 C#'s type system is somewhat stricter than _C_'s or Javascript's and as a consequence, casting operations are more restricted. [Implicit casting][implicit-casts] takes place between two numeric types as long as the "to" type can preserve the scale and sign of the "from" type's value. Note in the documentation the exception for converting to real numbers where precision may be lost.
 
@@ -21,7 +23,7 @@ There is no implicit conversion of a numeric (or string) expression to `bool`. T
 
 An expression of type `char` can be implicitly cast to `int`. The cast in the opposite direction must be explicit. Not all values of `int` are valid utf 16 chars.
 
-#### Casting Primitive Types - Explicit
+## Casting Primitive Types - Explicit
 
 Where numeric types cannot be cast implicitly you can generally use the explicit cast [operator][cast-operator].
 
@@ -29,7 +31,7 @@ Where the value being cast cannot be represented by the "to" type because it is 
 
 An expression of type `int` can be explicitly cast to `char`. This may result in an invalid `char`.
 
-#### Casting Primitive Types - Examples
+## Casting Primitive Types - Examples
 
 ```csharp
 int largeInt = Int32.MaxValue;
@@ -59,7 +61,7 @@ int fromString_bad = Int32.Parse("forty two");     // FormatException is thrown
 
 See this [article][checked] for the _**checked**_ keyword.
 
-#### Type Conversion for types in a hierarchy
+## Type Conversion for types in a hierarchy
 
 Any type can be implicitly converted to its base class or interface.
 
@@ -110,13 +112,13 @@ if (r is Foo foo3)
 
 The [`as`][as-operator] keyword fulfills a similar function to `is` e.g. `var foo = ifoo as Foo;`. In this example `foo` will be `null` if `ifoo` is not of type `Foo` otherwise `ifoo` will be assigned to it.
 
-#### Custom Cast Operator
+## Custom Cast Operator
 
 Types can define their own custom explicit and implicit [cast operators][custom-casts]. See (TODO cross-ref-tba) for coverage of this..
 
 Examples of [explicit][big-integer-explicit] and [implicit][big-integer-implicit] casts in the BCL is conversions from the `BigInteger` struct to and from other numeric types
 
-#### Using `typeof`
+## Using `typeof`
 
 If you need to detect the precise type of an object then `is` may be a little too permissive as it will convert an object to a class or any of its base classes. `typeof` and `Object.GetType()` are the solution in this case.
 

@@ -1,3 +1,5 @@
+# Hints
+
 ## 1. Get default permissions for an account type
 
 - Define the `Permission` enum with values for the following permission types: `None`, `Read`, `Write` and `Delete`.

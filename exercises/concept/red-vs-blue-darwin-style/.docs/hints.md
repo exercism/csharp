@@ -1,3 +1,5 @@
+# Hints
+
 ## General
 
 - [Namespaces][namespaces]: how to define and import namespaces.

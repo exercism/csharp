@@ -1,3 +1,5 @@
+# Hints
+
 ## General
 
 - This documentation of [operator overloading][operator-overloading] details the syntax.

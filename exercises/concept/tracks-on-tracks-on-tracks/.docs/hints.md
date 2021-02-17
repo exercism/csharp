@@ -1,3 +1,5 @@
+# Hints
+
 ## General
 
 - [List documentation][lists-docs]: reference documentation for `List<T>`.

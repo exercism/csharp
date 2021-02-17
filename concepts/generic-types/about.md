@@ -1,3 +1,5 @@
+# About
+
 Lists are an example of generic classes. You will also see `HashSet<T>` and `Dictionary<T>` in early exercises.
 
 More [advanced generic techniques][generics] are discussed in (TODO cross-ref-tba) including creating your own generics.

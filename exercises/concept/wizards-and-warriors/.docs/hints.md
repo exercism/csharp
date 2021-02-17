@@ -1,3 +1,5 @@
+# Hints
+
 ## 1. Describe a character
 
 - Modify the [constructors][constructor-syntax] of the `Wizard` and `Warrior` classes to pass their character type to the [base class' constructor][instance-constructors].

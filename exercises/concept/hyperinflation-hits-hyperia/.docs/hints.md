@@ -1,3 +1,5 @@
+# Hints
+
 ## 1. Print bank note denominations
 
 - [Integral numeric types][integral-numeric-types]: overview of the integral numeric types.

@@ -1,5 +1,6 @@
-## Hints
-This exercise requires you to work with Reactive extension. For more information, see 
+# Hints
+
+This exercise requires you to work with Reactive extension. For more information, see
 [this page](http://reactivex.io/intro.html) .
 
 In reactive programming it's easier to communicate intentions in marble diagrams. Tests are augmented

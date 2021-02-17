@@ -1,5 +1,6 @@
-## Hints
-The tests in this exercise are different from your usual tests. Normally, a test checks if for a given input, the output matches the expected value. This is called *value-based testing*. However, this exercise uses *property-based testing*, where the tests check if for a range of inputs, the output has a specific property. The two key differences that differentiate property-based testing from value-based testing are:
+# Hints
+
+The tests in this exercise are different from your usual tests. Normally, a test checks if for a given input, the output matches the expected value. This is called _value-based testing_. However, this exercise uses _property-based testing_, where the tests check if for a range of inputs, the output has a specific property. The two key differences that differentiate property-based testing from value-based testing are:
 
 1. A property-based test works not with a single input value, but with many.
 1. A property-based test verifies properties, not concrete values.

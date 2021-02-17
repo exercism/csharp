@@ -1,3 +1,5 @@
+# Hints
+
 ## General
 
 - [Properties][docs.microsoft.com-properties]
