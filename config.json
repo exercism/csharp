@@ -14,6 +14,12 @@
     "indent_style": "space",
     "indent_size": 4
   },
+  "files": {
+    "solution": ["%{pascal_slug}.cs"],
+    "test": ["%{pascal_slug}Tests.cs"],
+    "example": [".meta/Example.cs"],
+    "exemplar": [".meta/Exemplar.cs"]
+  },
   "exercises": {
     "concept": [
       {
