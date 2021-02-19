@@ -1,8 +1,14 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": [".meta/Example.cs"]
+    "solution": [
+      "Minesweeper.cs"
+    ],
+    "test": [
+      "MinesweeperTests.cs"
+    ],
+    "example": [
+      ".meta/Example.cs"
+    ]
   }
 }

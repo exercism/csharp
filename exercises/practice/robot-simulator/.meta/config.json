@@ -1,9 +1,15 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": [".meta/Example.cs"]
+    "solution": [
+      "RobotSimulator.cs"
+    ],
+    "test": [
+      "RobotSimulatorTests.cs"
+    ],
+    "example": [
+      ".meta/Example.cs"
+    ]
   },
   "source": "Inspired by an interview question at a famous company.",
   "source_url": ""

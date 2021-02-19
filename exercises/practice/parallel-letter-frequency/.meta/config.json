@@ -1,8 +1,14 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": [".meta/Example.cs"]
+    "solution": [
+      "ParallelLetterFrequency.cs"
+    ],
+    "test": [
+      "ParallelLetterFrequencyTests.cs"
+    ],
+    "example": [
+      ".meta/Example.cs"
+    ]
   }
 }

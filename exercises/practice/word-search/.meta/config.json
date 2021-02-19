@@ -1,8 +1,14 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": [".meta/Example.cs"]
+    "solution": [
+      "WordSearch.cs"
+    ],
+    "test": [
+      "WordSearchTests.cs"
+    ],
+    "example": [
+      ".meta/Example.cs"
+    ]
   }
 }

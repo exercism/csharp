@@ -1,8 +1,14 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": [".meta/Example.cs"]
+    "solution": [
+      "SgfParsing.cs"
+    ],
+    "test": [
+      "SgfParsingTests.cs"
+    ],
+    "example": [
+      ".meta/Example.cs"
+    ]
   }
 }

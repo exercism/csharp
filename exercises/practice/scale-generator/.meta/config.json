@@ -1,8 +1,14 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": [".meta/Example.cs"]
+    "solution": [
+      "ScaleGenerator.cs"
+    ],
+    "test": [
+      "ScaleGeneratorTests.cs"
+    ],
+    "example": [
+      ".meta/Example.cs"
+    ]
   }
 }
