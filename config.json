@@ -15,18 +15,10 @@
     "indent_size": 4
   },
   "files": {
-    "solution": [
-      "path/to/%{kebab_slug}.ext"
-    ],
-    "test": [
-      "path/to/%{kebab_slug}.ext"
-    ],
-    "example": [
-      "path/to/%{kebab_slug}.ext"
-    ],
-    "exemplar": [
-      "path/to/%{kebab_slug}.ext"
-    ]
+    "solution": ["%{pascal_slug}.cs"],
+    "test": ["%{pascal_slug}Tests.cs"],
+    "example": [".meta/Example.cs"],
+    "exemplar": [".meta/Exemplar.cs"]
   },
   "exercises": {
     "concept": [
@@ -655,14 +647,8 @@
         "slug": "two-fer",
         "name": "Two Fer",
         "uuid": "57f02d0e-7b75-473b-892d-26a7d980c4ce",
-        "practices": [
-          "optional-parameters",
-          "string-interpolation"
-        ],
-        "prerequisites": [
-          "optional-parameters",
-          "string-interpolation"
-        ],
+        "practices": ["optional-parameters", "string-interpolation"],
+        "prerequisites": ["optional-parameters", "string-interpolation"],
         "difficulty": 1,
         "topics": [
           "optional_values",
@@ -673,15 +659,8 @@
         "slug": "leap",
         "name": "Leap",
         "uuid": "8ba15933-29a2-49b1-a9ce-70474bad3007",
-        "practices": [
-          "math-operators",
-          "if-statements"
-        ],
-        "prerequisites": [
-          "math-operators",
-          "if-statements",
-          "numbers"
-        ],
+        "practices": ["math-operators", "if-statements"],
+        "prerequisites": ["math-operators", "if-statements", "numbers"],
         "difficulty": 1,
         "topics": [
           "conditionals",
@@ -1086,18 +1065,8 @@
         "slug": "accumulate",
         "name": "Accumulate",
         "uuid": "3c0563dc-665a-45b4-9b29-f133e235efd0",
-        "practices": [
-          "lambdas",
-          "foreach",
-          "yield"
-        ],
-        "prerequisites": [
-          "lambdas",
-          "generic-types",
-          "foreach",
-          "enumerables",
-          "extension-methods"
-        ],
+        "practices": ["lambdas", "foreach", "yield"],
+        "prerequisites": ["lambdas", "generic-types", "foreach", "enumerables", "extension-methods"],
         "difficulty": 2,
         "topics": [
           "extension_methods",
