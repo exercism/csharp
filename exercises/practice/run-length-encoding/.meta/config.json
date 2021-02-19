@@ -1,9 +1,15 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": [".meta/Example.cs"]
+    "solution": [
+      "RunLengthEncoding.cs"
+    ],
+    "test": [
+      "RunLengthEncodingTests.cs"
+    ],
+    "example": [
+      ".meta/Example.cs"
+    ]
   },
   "source": "Wikipedia",
   "source_url": "https://en.wikipedia.org/wiki/Run-length_encoding"

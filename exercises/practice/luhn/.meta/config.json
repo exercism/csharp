@@ -1,9 +1,15 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": [".meta/Example.cs"]
+    "solution": [
+      "Luhn.cs"
+    ],
+    "test": [
+      "LuhnTests.cs"
+    ],
+    "example": [
+      ".meta/Example.cs"
+    ]
   },
   "source": "The Luhn Algorithm on Wikipedia",
   "source_url": "http://en.wikipedia.org/wiki/Luhn_algorithm"

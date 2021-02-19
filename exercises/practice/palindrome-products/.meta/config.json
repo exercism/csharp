@@ -1,9 +1,15 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": [".meta/Example.cs"]
+    "solution": [
+      "PalindromeProducts.cs"
+    ],
+    "test": [
+      "PalindromeProductsTests.cs"
+    ],
+    "example": [
+      ".meta/Example.cs"
+    ]
   },
   "source": "Problem 4 at Project Euler",
   "source_url": "http://projecteuler.net/problem=4"

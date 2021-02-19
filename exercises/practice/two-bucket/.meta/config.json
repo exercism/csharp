@@ -1,9 +1,15 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": [".meta/Example.cs"]
+    "solution": [
+      "TwoBucket.cs"
+    ],
+    "test": [
+      "TwoBucketTests.cs"
+    ],
+    "example": [
+      ".meta/Example.cs"
+    ]
   },
   "source": "Water Pouring Problem",
   "source_url": "http://demonstrations.wolfram.com/WaterPouringProblem/"

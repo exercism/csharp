@@ -1,8 +1,14 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": [".meta/Example.cs"]
+    "solution": [
+      "TreeBuilding.cs"
+    ],
+    "test": [
+      "TreeBuildingTests.cs"
+    ],
+    "example": [
+      ".meta/Example.cs"
+    ]
   }
 }

@@ -1,8 +1,14 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": [".meta/Example.cs"]
+    "solution": [
+      "Forth.cs"
+    ],
+    "test": [
+      "ForthTests.cs"
+    ],
+    "example": [
+      ".meta/Example.cs"
+    ]
   }
 }

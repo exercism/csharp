@@ -1,8 +1,14 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": [".meta/Example.cs"]
+    "solution": [
+      "BankAccount.cs"
+    ],
+    "test": [
+      "BankAccountTests.cs"
+    ],
+    "example": [
+      ".meta/Example.cs"
+    ]
   }
 }

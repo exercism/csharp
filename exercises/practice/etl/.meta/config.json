@@ -1,9 +1,15 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": [".meta/Example.cs"]
+    "solution": [
+      "Etl.cs"
+    ],
+    "test": [
+      "EtlTests.cs"
+    ],
+    "example": [
+      ".meta/Example.cs"
+    ]
   },
   "source": "The Jumpstart Lab team",
   "source_url": "http://jumpstartlab.com"

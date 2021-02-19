@@ -1,8 +1,14 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": [".meta/Example.cs"]
+    "solution": [
+      "RestApi.cs"
+    ],
+    "test": [
+      "RestApiTests.cs"
+    ],
+    "example": [
+      ".meta/Example.cs"
+    ]
   }
 }

@@ -1,9 +1,15 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": [".meta/Example.cs"]
+    "solution": [
+      "Octal.cs"
+    ],
+    "test": [
+      "OctalTests.cs"
+    ],
+    "example": [
+      ".meta/Example.cs"
+    ]
   },
   "source": "All of Computer Science",
   "source_url": "http://www.wolframalpha.com/input/?i=base+8"

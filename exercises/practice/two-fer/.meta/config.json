@@ -1,9 +1,15 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": [".meta/Example.cs"]
+    "solution": [
+      "TwoFer.cs"
+    ],
+    "test": [
+      "TwoFerTests.cs"
+    ],
+    "example": [
+      ".meta/Example.cs"
+    ]
   },
   "source_url": "https://github.com/exercism/problem-specifications/issues/757"
 }

@@ -1,8 +1,14 @@
 {
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
-    "example": [".meta/Example.cs"]
+    "solution": [
+      "Zipper.cs"
+    ],
+    "test": [
+      "ZipperTests.cs"
+    ],
+    "example": [
+      ".meta/Example.cs"
+    ]
   }
 }
