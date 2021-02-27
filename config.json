@@ -671,8 +671,12 @@
         "slug": "gigasecond",
         "name": "Gigasecond",
         "uuid": "b7116dfb-1107-4546-9f95-f15acdb6f6a4",
-        "practices": [],
-        "prerequisites": [],
+        "practices": [
+          "datetimes"
+        ],
+        "prerequisites": [
+          "numbers"
+        ],
         "difficulty": 1,
         "topics": [
           "dates"
@@ -682,8 +686,13 @@
         "slug": "resistor-color",
         "name": "Resistor Color",
         "uuid": "5314dbee-4a0d-4fd6-a98a-36a746ee0d5c",
-        "practices": [],
-        "prerequisites": [],
+        "practices": [
+          "arrays"
+        ],
+        "prerequisites": [
+          "integers",
+          "strings"
+        ],
         "difficulty": 1,
         "topics": [
           "arrays"
@@ -693,8 +702,13 @@
         "slug": "space-age",
         "name": "Space Age",
         "uuid": "612f058b-c6d9-4c97-913a-eeeb59ef61e1",
-        "practices": [],
-        "prerequisites": [],
+        "practices": [
+          "floating-point-numbers"
+        ],
+        "prerequisites": [
+          "constructors",
+          "numbers"
+        ],
         "difficulty": 1,
         "topics": [
           "floating_point_numbers"
@@ -704,8 +718,14 @@
         "slug": "high-scores",
         "name": "High Scores",
         "uuid": "f52d9be9-7044-4001-8678-dcae91a8d7f3",
-        "practices": [],
-        "prerequisites": [],
+        "practices": [
+          "lists",
+          "ordering"
+        ],
+        "prerequisites": [
+          "constructors",
+          "numbers"
+        ],
         "difficulty": 1,
         "topics": [
           "lists"
@@ -715,8 +735,13 @@
         "slug": "hamming",
         "name": "Hamming",
         "uuid": "05162ee0-38ac-40ad-a591-d70a74b6963a",
-        "practices": [],
-        "prerequisites": [],
+        "practices": [
+          "if-statements",
+          "for-loops"
+        ],
+        "prerequisites": [
+          "strings"
+        ],
         "difficulty": 2,
         "topics": [
           "filtering",
@@ -727,8 +752,14 @@
         "slug": "nucleotide-count",
         "name": "Nucleotide Count",
         "uuid": "caca1c6a-b998-431e-b6af-ca2d47b7708f",
-        "practices": [],
-        "prerequisites": [],
+        "practices": [
+          "dictionaries"
+        ],
+        "prerequisites": [
+          "strings",
+          "if-statements",
+          "foreach-loops"
+        ],
         "difficulty": 2,
         "topics": [
           "dictionaries",
