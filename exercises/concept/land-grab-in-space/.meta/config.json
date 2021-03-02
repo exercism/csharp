@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for land-grab-in-space exercise",
   "contributors": [
     {
       "github_username": "efx",
@@ -20,8 +21,14 @@
     }
   ],
   "files": {
-    "solution": ["LandGrabInSpace.cs"],
-    "test": ["LandGrabInSpaceTests.cs"],
-    "exemplar": [".meta/Exemplar.cs"]
+    "solution": [
+      "LandGrabInSpace.cs"
+    ],
+    "test": [
+      "LandGrabInSpaceTests.cs"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.cs"
+    ]
   }
 }

@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for hyperinflation-hits-hyperia exercise",
   "contributors": [
     {
       "github_username": "ihid",
@@ -24,8 +25,14 @@
     }
   ],
   "files": {
-    "solution": ["HyperinflationHitsHyperia.cs"],
-    "test": ["HyperinflationHitsHyperiaTests.cs"],
-    "exemplar": [".meta/Exemplar.cs"]
+    "solution": [
+      "HyperinflationHitsHyperia.cs"
+    ],
+    "test": [
+      "HyperinflationHitsHyperiaTests.cs"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.cs"
+    ]
   }
 }

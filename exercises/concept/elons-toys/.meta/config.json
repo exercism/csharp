@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for elons-toys exercise",
   "authors": [
     {
       "github_username": "ErikSchierboom",
@@ -6,8 +7,14 @@
     }
   ],
   "files": {
-    "solution": ["ElonsToys.cs"],
-    "test": ["ElonsToysTests.cs"],
-    "exemplar": [".meta/Exemplar.cs"]
+    "solution": [
+      "ElonsToys.cs"
+    ],
+    "test": [
+      "ElonsToysTests.cs"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.cs"
+    ]
   }
 }

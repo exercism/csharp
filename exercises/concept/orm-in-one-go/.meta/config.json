@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for orm-in-one-go exercise",
   "contributors": [
     {
       "github_username": "ErikSchierboom",
@@ -12,8 +13,14 @@
     }
   ],
   "files": {
-    "solution": ["OrmInOneGo.cs"],
-    "test": ["OrmInOneGoTests.cs"],
-    "exemplar": [".meta/Exemplar.cs"]
+    "solution": [
+      "OrmInOneGo.cs"
+    ],
+    "test": [
+      "OrmInOneGoTests.cs"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.cs"
+    ]
   }
 }

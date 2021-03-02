@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for international-calling-connoisseur exercise",
   "contributors": [
     {
       "github_username": "ErikSchierboom",
@@ -16,8 +17,14 @@
     }
   ],
   "files": {
-    "solution": ["InternationalCallingConnoisseur.cs"],
-    "test": ["InternationalCallingConnoisseurTests.cs"],
-    "exemplar": [".meta/Exemplar.cs"]
+    "solution": [
+      "InternationalCallingConnoisseur.cs"
+    ],
+    "test": [
+      "InternationalCallingConnoisseurTests.cs"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.cs"
+    ]
   }
 }

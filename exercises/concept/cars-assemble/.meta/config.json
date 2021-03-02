@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for cars-assemble exercise",
   "authors": [
     {
       "github_username": "ErikSchierboom",
@@ -6,8 +7,14 @@
     }
   ],
   "files": {
-    "solution": ["CarsAssemble.cs"],
-    "test": ["CarsAssembleTests.cs"],
-    "exemplar": [".meta/Exemplar.cs"]
+    "solution": [
+      "CarsAssemble.cs"
+    ],
+    "test": [
+      "CarsAssembleTests.cs"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.cs"
+    ]
   }
 }

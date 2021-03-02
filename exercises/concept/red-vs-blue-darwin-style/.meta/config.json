@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for red-vs-blue-darwin-style exercise",
   "contributors": [
     {
       "github_username": "ErikSchierboom",
@@ -16,8 +17,14 @@
     }
   ],
   "files": {
-    "solution": ["RedVsBlueDarwinStyle.cs"],
-    "test": ["RedVsBlueDarwinStyleTests.cs"],
-    "exemplar": [".meta/Exemplar.cs"]
+    "solution": [
+      "RedVsBlueDarwinStyle.cs"
+    ],
+    "test": [
+      "RedVsBlueDarwinStyleTests.cs"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.cs"
+    ]
   }
 }

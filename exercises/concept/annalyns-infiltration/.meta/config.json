@@ -1,14 +1,23 @@
 {
+  "blurb": "TODO: add blurb for annalyns-infiltration exercise",
   "authors": [
     {
       "github_username": "ErikSchierboom",
       "exercism_username": "ErikSchierboom"
     }
   ],
-  "forked_from": ["fsharp/booleans"],
+  "forked_from": [
+    "fsharp/booleans"
+  ],
   "files": {
-    "solution": ["AnnalynsInfiltration.cs"],
-    "test": ["AnnalynsInfiltrationTests.cs"],
-    "exemplar": [".meta/Exemplar.cs"]
+    "solution": [
+      "AnnalynsInfiltration.cs"
+    ],
+    "test": [
+      "AnnalynsInfiltrationTests.cs"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.cs"
+    ]
   }
 }

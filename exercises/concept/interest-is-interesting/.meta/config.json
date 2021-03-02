@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for interest-is-interesting exercise",
   "authors": [
     {
       "github_username": "ErikSchierboom",
@@ -6,8 +7,14 @@
     }
   ],
   "files": {
-    "solution": ["InterestIsInteresting.cs"],
-    "test": ["InterestIsInterestingTests.cs"],
-    "exemplar": [".meta/Exemplar.cs"]
+    "solution": [
+      "InterestIsInteresting.cs"
+    ],
+    "test": [
+      "InterestIsInterestingTests.cs"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.cs"
+    ]
   }
 }

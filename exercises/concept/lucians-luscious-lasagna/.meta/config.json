@@ -1,14 +1,23 @@
 {
+  "blurb": "TODO: add blurb for lucians-luscious-lasagna exercise",
   "authors": [
     {
       "github_username": "ErikSchierboom",
       "exercism_username": "ErikSchierboom"
     }
   ],
-  "forked_from": ["fsharp/basics"],
+  "forked_from": [
+    "fsharp/basics"
+  ],
   "files": {
-    "solution": ["LuciansLusciousLasagna.cs"],
-    "test": ["LuciansLusciousLasagnaTests.cs"],
-    "exemplar": [".meta/Exemplar.cs"]
+    "solution": [
+      "LuciansLusciousLasagna.cs"
+    ],
+    "test": [
+      "LuciansLusciousLasagnaTests.cs"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.cs"
+    ]
   }
 }

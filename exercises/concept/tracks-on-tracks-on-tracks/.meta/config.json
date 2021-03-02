@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for tracks-on-tracks-on-tracks exercise",
   "contributors": [
     {
       "github_username": "ErikSchierboom",
@@ -11,10 +12,18 @@
       "exercism_username": "mikedamay"
     }
   ],
-  "forked_from": ["fsharp/lists"],
+  "forked_from": [
+    "fsharp/lists"
+  ],
   "files": {
-    "solution": ["TracksOnTracksOnTracks.cs"],
-    "test": ["TracksOnTracksOnTracksTests.cs"],
-    "exemplar": [".meta/Exemplar.cs"]
+    "solution": [
+      "TracksOnTracksOnTracks.cs"
+    ],
+    "test": [
+      "TracksOnTracksOnTracksTests.cs"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.cs"
+    ]
   }
 }

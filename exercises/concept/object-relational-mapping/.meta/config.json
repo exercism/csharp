@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for object-relational-mapping exercise",
   "contributors": [
     {
       "github_username": "ErikSchierboom",
@@ -12,8 +13,14 @@
     }
   ],
   "files": {
-    "solution": ["ObjectRelationalMapping.cs"],
-    "test": ["ObjectRelationalMappingTests.cs"],
-    "exemplar": [".meta/Exemplar.cs"]
+    "solution": [
+      "ObjectRelationalMapping.cs"
+    ],
+    "test": [
+      "ObjectRelationalMappingTests.cs"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.cs"
+    ]
   }
 }

@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for authentication-system exercise",
   "contributors": [
     {
       "github_username": "ErikSchierboom",
@@ -12,8 +13,14 @@
     }
   ],
   "files": {
-    "solution": ["AuthenticationSystem.cs"],
-    "test": ["AuthenticationSystemTests.cs"],
-    "exemplar": [".meta/Exemplar.cs"]
+    "solution": [
+      "AuthenticationSystem.cs"
+    ],
+    "test": [
+      "AuthenticationSystemTests.cs"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.cs"
+    ]
   }
 }

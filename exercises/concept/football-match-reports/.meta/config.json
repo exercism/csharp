@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for football-match-reports exercise",
   "contributors": [
     {
       "github_username": "ErikSchierboom",
@@ -16,8 +17,14 @@
     }
   ],
   "files": {
-    "solution": ["FootballMatchReports.cs"],
-    "test": ["FootballMatchReportsTests.cs"],
-    "exemplar": [".meta/Exemplar.cs"]
+    "solution": [
+      "FootballMatchReports.cs"
+    ],
+    "test": [
+      "FootballMatchReportsTests.cs"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.cs"
+    ]
   }
 }
