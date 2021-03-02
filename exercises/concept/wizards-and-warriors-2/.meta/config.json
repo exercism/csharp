@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for wizards-and-warriors-2 exercise",
   "authors": [
     {
       "github_username": "ErikSchierboom",
@@ -6,8 +7,14 @@
     }
   ],
   "files": {
-    "solution": ["WizardsAndWarriors2.cs"],
-    "test": ["WizardsAndWarriors2Tests.cs"],
-    "exemplar": [".meta/Exemplar.cs"]
+    "solution": [
+      "WizardsAndWarriors2.cs"
+    ],
+    "test": [
+      "WizardsAndWarriors2Tests.cs"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.cs"
+    ]
   }
 }

@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for weighing-machine exercise",
   "contributors": [
     {
       "github_username": "ErikSchierboom",
@@ -12,8 +13,14 @@
     }
   ],
   "files": {
-    "solution": ["WeighingMachine.cs"],
-    "test": ["WeighingMachineTests.cs"],
-    "exemplar": [".meta/Exemplar.cs"]
+    "solution": [
+      "WeighingMachine.cs"
+    ],
+    "test": [
+      "WeighingMachineTests.cs"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.cs"
+    ]
   }
 }

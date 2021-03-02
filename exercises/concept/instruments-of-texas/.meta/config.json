@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for instruments-of-texas exercise",
   "contributors": [
     {
       "github_username": "ErikSchierboom",
@@ -11,10 +12,18 @@
       "exercism_username": "mikedamay"
     }
   ],
-  "forked_from": ["elixir/errors"],
+  "forked_from": [
+    "elixir/errors"
+  ],
   "files": {
-    "solution": ["InstrumentsOfTexas.cs"],
-    "test": ["InstrumentsOfTexasTests.cs"],
-    "exemplar": [".meta/Exemplar.cs"]
+    "solution": [
+      "InstrumentsOfTexas.cs"
+    ],
+    "test": [
+      "InstrumentsOfTexasTests.cs"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.cs"
+    ]
   }
 }

@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for building-telemetry exercise",
   "contributors": [
     {
       "github_username": "ErikSchierboom",
@@ -12,8 +13,14 @@
     }
   ],
   "files": {
-    "solution": ["BuildingTelemetry.cs"],
-    "test": ["BuildingTelemetryTests.cs"],
-    "exemplar": [".meta/Exemplar.cs"]
+    "solution": [
+      "BuildingTelemetry.cs"
+    ],
+    "test": [
+      "BuildingTelemetryTests.cs"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.cs"
+    ]
   }
 }

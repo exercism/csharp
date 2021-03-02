@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for developer-privileges exercise",
   "contributors": [
     {
       "github_username": "ErikSchierboom",
@@ -12,8 +13,14 @@
     }
   ],
   "files": {
-    "solution": ["WhyCantIPushToMain.cs"],
-    "test": ["WhyCantIPushToMainTests.cs"],
-    "exemplar": [".meta/Exemplar.cs"]
+    "solution": [
+      "WhyCantIPushToMain.cs"
+    ],
+    "test": [
+      "WhyCantIPushToMainTests.cs"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.cs"
+    ]
   }
 }

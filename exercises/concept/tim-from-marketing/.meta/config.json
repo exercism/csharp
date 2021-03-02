@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for tim-from-marketing exercise",
   "authors": [
     {
       "github_username": "maurelio1234",
@@ -6,8 +7,14 @@
     }
   ],
   "files": {
-    "solution": ["TimFromMarketing.cs"],
-    "test": ["TimFromMarketingTests.cs"],
-    "exemplar": [".meta/Exemplar.cs"]
+    "solution": [
+      "TimFromMarketing.cs"
+    ],
+    "test": [
+      "TimFromMarketingTests.cs"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.cs"
+    ]
   }
 }

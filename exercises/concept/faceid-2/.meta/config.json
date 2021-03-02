@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for faceid-2 exercise",
   "contributors": [
     {
       "github_username": "ErikSchierboom",
@@ -12,8 +13,14 @@
     }
   ],
   "files": {
-    "solution": ["Faceid2.cs"],
-    "test": ["Faceid2Tests.cs"],
-    "exemplar": [".meta/Exemplar.cs"]
+    "solution": [
+      "Faceid2.cs"
+    ],
+    "test": [
+      "Faceid2Tests.cs"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.cs"
+    ]
   }
 }

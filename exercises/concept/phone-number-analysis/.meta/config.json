@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for phone-number-analysis exercise",
   "contributors": [
     {
       "github_username": "ErikSchierboom",
@@ -12,8 +13,14 @@
     }
   ],
   "files": {
-    "solution": ["PhoneNumberAnalysis.cs"],
-    "test": ["PhoneNumberAnalysisTests.cs"],
-    "exemplar": [".meta/Exemplar.cs"]
+    "solution": [
+      "PhoneNumberAnalysis.cs"
+    ],
+    "test": [
+      "PhoneNumberAnalysisTests.cs"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.cs"
+    ]
   }
 }

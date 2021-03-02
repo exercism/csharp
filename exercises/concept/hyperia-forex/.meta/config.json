@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for hyperia-forex exercise",
   "contributors": [
     {
       "github_username": "ErikSchierboom",
@@ -12,8 +13,14 @@
     }
   ],
   "files": {
-    "solution": ["HyperiaForex.cs"],
-    "test": ["HyperiaForexTests.cs"],
-    "exemplar": [".meta/Exemplar.cs"]
+    "solution": [
+      "HyperiaForex.cs"
+    ],
+    "test": [
+      "HyperiaForexTests.cs"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.cs"
+    ]
   }
 }

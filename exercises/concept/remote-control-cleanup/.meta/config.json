@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for remote-control-cleanup exercise",
   "contributors": [
     {
       "github_username": "ErikSchierboom",
@@ -12,8 +13,14 @@
     }
   ],
   "files": {
-    "solution": ["RemoteControlCleanup.cs"],
-    "test": ["RemoteControlCleanupTests.cs"],
-    "exemplar": [".meta/Exemplar.cs"]
+    "solution": [
+      "RemoteControlCleanup.cs"
+    ],
+    "test": [
+      "RemoteControlCleanupTests.cs"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.cs"
+    ]
   }
 }

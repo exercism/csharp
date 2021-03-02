@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for log-levels exercise",
   "authors": [
     {
       "github_username": "ErikSchierboom",
@@ -6,8 +7,14 @@
     }
   ],
   "files": {
-    "solution": ["LogLevels.cs"],
-    "test": ["LogLevelsTests.cs"],
-    "exemplar": [".meta/Exemplar.cs"]
+    "solution": [
+      "LogLevels.cs"
+    ],
+    "test": [
+      "LogLevelsTests.cs"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.cs"
+    ]
   }
 }

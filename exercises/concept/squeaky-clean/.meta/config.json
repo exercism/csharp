@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for squeaky-clean exercise",
   "contributors": [
     {
       "github_username": "ErikSchierboom",
@@ -12,8 +13,14 @@
     }
   ],
   "files": {
-    "solution": ["SqueakyClean.cs"],
-    "test": ["SqueakyCleanTests.cs"],
-    "exemplar": [".meta/Exemplar.cs"]
+    "solution": [
+      "SqueakyClean.cs"
+    ],
+    "test": [
+      "SqueakyCleanTests.cs"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.cs"
+    ]
   }
 }

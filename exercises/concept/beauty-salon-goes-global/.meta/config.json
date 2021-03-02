@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for beauty-salon-goes-global exercise",
   "contributors": [
     {
       "github_username": "ErikSchierboom",
@@ -12,8 +13,14 @@
     }
   ],
   "files": {
-    "solution": ["BeautySalonGoesGlobal.cs"],
-    "test": ["BeautySalonGoesGlobalTests.cs"],
-    "exemplar": [".meta/Exemplar.cs"]
+    "solution": [
+      "BeautySalonGoesGlobal.cs"
+    ],
+    "test": [
+      "BeautySalonGoesGlobalTests.cs"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.cs"
+    ]
   }
 }

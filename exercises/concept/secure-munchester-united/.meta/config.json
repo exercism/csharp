@@ -1,4 +1,5 @@
 {
+  "blurb": "TODO: add blurb for secure-munchester-united exercise",
   "contributors": [
     {
       "github_username": "ErikSchierboom",
@@ -12,8 +13,14 @@
     }
   ],
   "files": {
-    "solution": ["SecureMunchesterUnited.cs"],
-    "test": ["SecureMunchesterUnitedTests.cs"],
-    "exemplar": [".meta/Exemplar.cs"]
+    "solution": [
+      "SecureMunchesterUnited.cs"
+    ],
+    "test": [
+      "SecureMunchesterUnitedTests.cs"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.cs"
+    ]
   }
 }
