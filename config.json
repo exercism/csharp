@@ -691,6 +691,7 @@
           "arrays"
         ],
         "prerequisites": [
+          "arrays",
           "integers",
           "strings"
         ],
@@ -707,6 +708,7 @@
           "floating-point-numbers"
         ],
         "prerequisites": [
+          "floating-point-numbers",
           "constructors",
           "numbers"
         ],
@@ -724,6 +726,8 @@
           "ordering"
         ],
         "prerequisites": [
+          "lists",
+          "ordering",
           "constructors",
           "numbers"
         ],
@@ -741,6 +745,8 @@
           "for-loops"
         ],
         "prerequisites": [
+          "if-statements",
+          "for-loops",
           "strings"
         ],
         "difficulty": 2,
@@ -757,6 +763,7 @@
           "dictionaries"
         ],
         "prerequisites": [
+          "dictionaries",
           "strings",
           "if-statements",
           "foreach-loops"
