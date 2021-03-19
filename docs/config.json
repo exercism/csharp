@@ -1,0 +1,32 @@
+{
+  "docs": [
+    {
+      "uuid": "c4c4c0aa-673d-431c-ad61-f902275a70f4",
+      "slug": "installation",
+      "path": "docs/INSTALLATION.md",
+      "title": "Installing C# locally",
+      "blurb": "Learn how to install C# locally to solve Exercism's exercises on your own machine"
+    },
+    {
+      "uuid": "ae6b8e1c-538e-4431-89e9-c02640e4c3c5",
+      "slug": "learning",
+      "path": "docs/LEARNING.md",
+      "title": "How to learn C#",
+      "blurb": "An overview of how to get started from scratch with C#"
+    },
+    {
+      "uuid": "fa718304-b7c2-4114-a288-0b4b91414771",
+      "slug": "tests",
+      "path": "docs/TESTS.md",
+      "title": "Testing on the C# track",
+      "blurb": "Learn how to test your C# exercises on Exercism"
+    },
+    {
+      "uuid": "6e10c3d3-f463-4606-92fe-b3152d51de58",
+      "slug": "resources",
+      "path": "docs/RESOURCES.md",
+      "title": "Useful C# resources",
+      "blurb": "A collection of useful resources to help you master C#"
+    }
+  ]
+}
