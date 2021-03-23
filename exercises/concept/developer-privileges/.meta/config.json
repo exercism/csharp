@@ -1,16 +1,10 @@
 {
   "blurb": "TODO: add blurb for developer-privileges exercise",
   "contributors": [
-    {
-      "github_username": "ErikSchierboom",
-      "exercism_username": "ErikSchierboom"
-    }
+    "ErikSchierboom"
   ],
   "authors": [
-    {
-      "github_username": "mikedamay",
-      "exercism_username": "mikedamay"
-    }
+    "mikedamay"
   ],
   "files": {
     "solution": [

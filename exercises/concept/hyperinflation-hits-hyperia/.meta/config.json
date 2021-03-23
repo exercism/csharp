@@ -1,28 +1,13 @@
 {
   "blurb": "TODO: add blurb for hyperinflation-hits-hyperia exercise",
   "contributors": [
-    {
-      "github_username": "ihid",
-      "exercism_username": "ihid"
-    },
-    {
-      "github_username": "sleeplessbyte",
-      "exercism_username": "sleeplessbyte"
-    },
-    {
-      "github_username": "saschamann",
-      "exercism_username": "saschamann"
-    },
-    {
-      "github_username": "ErikSchierboom",
-      "exercism_username": "ErikSchierboom"
-    }
+    "ihid",
+    "sleeplessbyte",
+    "saschamann",
+    "ErikSchierboom"
   ],
   "authors": [
-    {
-      "github_username": "mikedamay",
-      "exercism_username": "mikedamay"
-    }
+    "mikedamay"
   ],
   "files": {
     "solution": [
