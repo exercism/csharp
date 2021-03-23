@@ -1,16 +1,10 @@
 {
   "blurb": "TODO: add blurb for logs-logs-logs exercise",
   "contributors": [
-    {
-      "github_username": "valentin-p",
-      "exercism_username": "valentin-p"
-    }
+    "valentin-p"
   ],
   "authors": [
-    {
-      "github_username": "ErikSchierboom",
-      "exercism_username": "ErikSchierboom"
-    }
+    "ErikSchierboom"
   ],
   "files": {
     "solution": [

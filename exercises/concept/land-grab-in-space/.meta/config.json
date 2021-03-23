@@ -1,24 +1,12 @@
 {
   "blurb": "TODO: add blurb for land-grab-in-space exercise",
   "contributors": [
-    {
-      "github_username": "efx",
-      "exercism_username": "efx"
-    },
-    {
-      "github_username": "jrr",
-      "exercism_username": "jrr"
-    },
-    {
-      "github_username": "ErikSchierboom",
-      "exercism_username": "ErikSchierboom"
-    }
+    "efx",
+    "jrr",
+    "ErikSchierboom"
   ],
   "authors": [
-    {
-      "github_username": "mikedamay",
-      "exercism_username": "mikedamay"
-    }
+    "mikedamay"
   ],
   "files": {
     "solution": [

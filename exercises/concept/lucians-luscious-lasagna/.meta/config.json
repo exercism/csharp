@@ -1,10 +1,7 @@
 {
   "blurb": "TODO: add blurb for lucians-luscious-lasagna exercise",
   "authors": [
-    {
-      "github_username": "ErikSchierboom",
-      "exercism_username": "ErikSchierboom"
-    }
+    "ErikSchierboom"
   ],
   "forked_from": [
     "fsharp/basics"

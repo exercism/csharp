@@ -1,20 +1,11 @@
 {
   "blurb": "TODO: add blurb for remote-control-competition exercise",
   "contributors": [
-    {
-      "github_username": "ErikSchierboom",
-      "exercism_username": "ErikSchierboom"
-    }
+    "ErikSchierboom"
   ],
   "authors": [
-    {
-      "github_username": "senal",
-      "exercism_username": "senal"
-    },
-    {
-      "github_username": "mikedamay",
-      "exercism_username": "mikedamay"
-    }
+    "senal",
+    "mikedamay"
   ],
   "files": {
     "solution": [

@@ -1,10 +1,7 @@
 {
   "blurb": "TODO: add blurb for annalyns-infiltration exercise",
   "authors": [
-    {
-      "github_username": "ErikSchierboom",
-      "exercism_username": "ErikSchierboom"
-    }
+    "ErikSchierboom"
   ],
   "forked_from": [
     "fsharp/booleans"

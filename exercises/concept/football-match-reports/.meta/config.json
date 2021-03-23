@@ -1,20 +1,11 @@
 {
   "blurb": "TODO: add blurb for football-match-reports exercise",
   "contributors": [
-    {
-      "github_username": "ErikSchierboom",
-      "exercism_username": "ErikSchierboom"
-    },
-    {
-      "github_username": "valentin-p",
-      "exercism_username": "valentin-p"
-    }
+    "ErikSchierboom",
+    "valentin-p"
   ],
   "authors": [
-    {
-      "github_username": "mikedamay",
-      "exercism_username": "mikedamay"
-    }
+    "mikedamay"
   ],
   "files": {
     "solution": [

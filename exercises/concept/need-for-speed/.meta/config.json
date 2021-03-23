@@ -1,10 +1,7 @@
 {
   "blurb": "TODO: add blurb for need-for-speed exercise",
   "authors": [
-    {
-      "github_username": "ErikSchierboom",
-      "exercism_username": "ErikSchierboom"
-    }
+    "ErikSchierboom"
   ],
   "files": {
     "solution": [

@@ -1,10 +1,7 @@
 {
   "blurb": "TODO: add blurb for interest-is-interesting exercise",
   "authors": [
-    {
-      "github_username": "ErikSchierboom",
-      "exercism_username": "ErikSchierboom"
-    }
+    "ErikSchierboom"
   ],
   "files": {
     "solution": [
