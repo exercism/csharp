@@ -1,6 +1,16 @@
 {
   "blurb": "Given a word and a list of possible anagrams, select the correct sublist.",
   "authors": [],
+  "contributors": [
+    "bressain",
+    "ErikSchierboom",
+    "irrationalRock",
+    "j2jensen",
+    "jwood803",
+    "NextNebula",
+    "robkeim",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "Anagram.cs"

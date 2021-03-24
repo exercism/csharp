@@ -1,6 +1,16 @@
 {
   "blurb": "Compute Pascal's triangle up to a given number of rows.",
-  "authors": [],
+  "authors": [
+    "ErikSchierboom"
+  ],
+  "contributors": [
+    "bcwood",
+    "bmeverett",
+    "j2jensen",
+    "jwood803",
+    "robkeim",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "PascalsTriangle.cs"

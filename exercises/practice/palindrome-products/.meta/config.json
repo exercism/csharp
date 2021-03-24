@@ -1,6 +1,15 @@
 {
   "blurb": "Detect palindrome products in a given range.",
-  "authors": [],
+  "authors": [
+    "ErikSchierboom"
+  ],
+  "contributors": [
+    "bressain",
+    "j2jensen",
+    "jmbradnan",
+    "robkeim",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "PalindromeProducts.cs"

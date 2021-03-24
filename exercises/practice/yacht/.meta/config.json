@@ -1,6 +1,14 @@
 {
   "blurb": "Score a single throw of dice in the game Yacht",
-  "authors": [],
+  "authors": [
+    "ShamilS"
+  ],
+  "contributors": [
+    "ErikSchierboom",
+    "j2jensen",
+    "robkeim",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "Yacht.cs"

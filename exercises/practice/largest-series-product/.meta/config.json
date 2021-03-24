@@ -1,6 +1,18 @@
 {
   "blurb": "Given a string of digits, calculate the largest product for a contiguous substring of digits of length n.",
-  "authors": [],
+  "authors": [
+    "bressain"
+  ],
+  "contributors": [
+    "ErikSchierboom",
+    "felix91gr",
+    "j2jensen",
+    "jwood803",
+    "petertseng",
+    "robkeim",
+    "wolf99",
+    "Zureka"
+  ],
   "files": {
     "solution": [
       "LargestSeriesProduct.cs"

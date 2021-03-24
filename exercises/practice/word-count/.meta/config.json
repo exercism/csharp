@@ -1,6 +1,17 @@
 {
   "blurb": "Given a phrase, count the occurrences of each word in that phrase.",
   "authors": [],
+  "contributors": [
+    "bressain",
+    "ErikSchierboom",
+    "j2jensen",
+    "jwood803",
+    "kytrinyx",
+    "robkeim",
+    "rprouse",
+    "tushartyagi",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "WordCount.cs"

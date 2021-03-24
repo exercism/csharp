@@ -1,6 +1,23 @@
 {
   "blurb": "Implement a clock that handles times without dates.",
-  "authors": [],
+  "authors": [
+    "rprouse"
+  ],
+  "contributors": [
+    "avjgit",
+    "bmeverett",
+    "bressain",
+    "ErikSchierboom",
+    "j2jensen",
+    "jwood803",
+    "kytrinyx",
+    "mattcbaker",
+    "robkeim",
+    "Thorocaine",
+    "vamcs",
+    "vgrigoriu",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "Clock.cs"

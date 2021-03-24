@@ -1,6 +1,14 @@
 {
   "blurb": "Produce the lyrics to that beloved classic, that field-trip favorite: 99 Bottles of Beer on the Wall.",
-  "authors": [],
+  "authors": [
+    "ErikSchierboom"
+  ],
+  "contributors": [
+    "j2jensen",
+    "jwood803",
+    "robkeim",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "BeerSong.cs"

@@ -1,6 +1,14 @@
 {
   "blurb": "Calculate the number of steps to reach 1 using the Collatz conjecture",
   "authors": [],
+  "contributors": [
+    "ErikSchierboom",
+    "FizzBuzz791",
+    "j2jensen",
+    "robkeim",
+    "ruanha",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "CollatzConjecture.cs"

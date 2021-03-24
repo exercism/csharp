@@ -1,6 +1,15 @@
 {
   "blurb": "Implement various kinds of error handling and resource management",
-  "authors": [],
+  "authors": [
+    "robkeim"
+  ],
+  "contributors": [
+    "balazsbotond",
+    "ErikSchierboom",
+    "felix91gr",
+    "j2jensen",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "ErrorHandling.cs"

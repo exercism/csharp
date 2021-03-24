@@ -1,6 +1,18 @@
 {
   "blurb": "Given a decimal number, convert it to the appropriate sequence of events for a secret handshake.",
-  "authors": [],
+  "authors": [
+    "mikecoop"
+  ],
+  "contributors": [
+    "bressain",
+    "ErikSchierboom",
+    "j2jensen",
+    "jwood803",
+    "kytrinyx",
+    "robkeim",
+    "sjwarner-bp",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "SecretHandshake.cs"

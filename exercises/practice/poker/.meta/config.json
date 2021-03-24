@@ -1,6 +1,14 @@
 {
   "blurb": "Pick the best hand(s) from a list of poker hands.",
-  "authors": [],
+  "authors": [
+    "ErikSchierboom"
+  ],
+  "contributors": [
+    "j2jensen",
+    "robkeim",
+    "rpottsoh",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "Poker.cs"

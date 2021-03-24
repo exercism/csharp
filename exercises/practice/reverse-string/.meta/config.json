@@ -1,6 +1,13 @@
 {
   "blurb": "Reverse a string",
-  "authors": [],
+  "authors": [
+    "robkeim"
+  ],
+  "contributors": [
+    "ErikSchierboom",
+    "j2jensen",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "ReverseString.cs"

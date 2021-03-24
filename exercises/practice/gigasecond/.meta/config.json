@@ -1,6 +1,16 @@
 {
   "blurb": "Given a moment, determine the moment that would be after a gigasecond has passed.",
-  "authors": [],
+  "authors": [
+    "bressain"
+  ],
+  "contributors": [
+    "ErikSchierboom",
+    "j2jensen",
+    "jwood803",
+    "robkeim",
+    "vgrigoriu",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "Gigasecond.cs"

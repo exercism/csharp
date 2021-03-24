@@ -1,6 +1,14 @@
 {
   "blurb": "Implement complex numbers.",
-  "authors": [],
+  "authors": [
+    "robkeim"
+  ],
+  "contributors": [
+    "ErikSchierboom",
+    "j2jensen",
+    "kytrinyx",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "ComplexNumbers.cs"

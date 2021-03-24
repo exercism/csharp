@@ -1,6 +1,17 @@
 {
   "blurb": "Given a year, report if it is a leap year.",
-  "authors": [],
+  "authors": [
+    "bressain"
+  ],
+  "contributors": [
+    "ErikSchierboom",
+    "j2jensen",
+    "jwood803",
+    "kytrinyx",
+    "NextNebula",
+    "robkeim",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "Leap.cs"

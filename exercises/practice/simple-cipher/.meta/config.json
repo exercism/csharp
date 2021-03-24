@@ -1,6 +1,17 @@
 {
   "blurb": "Implement a simple shift cipher like Caesar and a more secure substitution cipher",
-  "authors": [],
+  "authors": [
+    "bressain"
+  ],
+  "contributors": [
+    "ErikSchierboom",
+    "j2jensen",
+    "jwood803",
+    "robkeim",
+    "sjwarner",
+    "wolf99",
+    "Zureka"
+  ],
   "files": {
     "solution": [
       "SimpleCipher.cs"

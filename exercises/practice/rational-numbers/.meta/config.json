@@ -1,6 +1,14 @@
 {
   "blurb": "Implement rational numbers.",
-  "authors": [],
+  "authors": [
+    "ShamilS"
+  ],
+  "contributors": [
+    "ErikSchierboom",
+    "j2jensen",
+    "robkeim",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "RationalNumbers.cs"

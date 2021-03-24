@@ -1,6 +1,18 @@
 {
   "blurb": "Convert a long phrase to its acronym",
-  "authors": [],
+  "authors": [
+    "ErikSchierboom"
+  ],
+  "contributors": [
+    "bressain",
+    "j2jensen",
+    "jwood803",
+    "mattcbaker",
+    "robkeim",
+    "vgrigoriu",
+    "wolf99",
+    "yvincent"
+  ],
   "files": {
     "solution": [
       "Acronym.cs"

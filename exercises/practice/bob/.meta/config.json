@@ -1,6 +1,18 @@
 {
   "blurb": "Bob is a lackadaisical teenager. In conversation, his responses are very limited.",
   "authors": [],
+  "contributors": [
+    "austinlyons",
+    "bressain",
+    "delve",
+    "ErikSchierboom",
+    "j2jensen",
+    "jwood803",
+    "kytrinyx",
+    "robkeim",
+    "tomschluter",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "Bob.cs"

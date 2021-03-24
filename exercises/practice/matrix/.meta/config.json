@@ -1,6 +1,15 @@
 {
   "blurb": "Given a string representing a matrix of numbers, return the rows and columns of that matrix.",
-  "authors": [],
+  "authors": [
+    "ErikSchierboom"
+  ],
+  "contributors": [
+    "j2jensen",
+    "robkeim",
+    "ShamilS",
+    "vgrigoriu",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "Matrix.cs"

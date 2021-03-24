@@ -1,6 +1,14 @@
 {
   "blurb": "Write a function to determine if a list is a sublist of another list.",
-  "authors": [],
+  "authors": [
+    "ErikSchierboom"
+  ],
+  "contributors": [
+    "j2jensen",
+    "robkeim",
+    "ShamilS",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "Sublist.cs"

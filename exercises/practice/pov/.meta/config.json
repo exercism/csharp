@@ -1,6 +1,13 @@
 {
   "blurb": "Reparent a graph on a selected node",
-  "authors": [],
+  "authors": [
+    "ErikSchierboom"
+  ],
+  "contributors": [
+    "j2jensen",
+    "robkeim",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "Pov.cs"

@@ -1,6 +1,13 @@
 {
   "blurb": "Solve the zebra puzzle.",
-  "authors": [],
+  "authors": [
+    "ErikSchierboom"
+  ],
+  "contributors": [
+    "j2jensen",
+    "robkeim",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "ZebraPuzzle.cs"

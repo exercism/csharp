@@ -1,6 +1,15 @@
 {
   "blurb": "Implement a binary search algorithm.",
-  "authors": [],
+  "authors": [
+    "ErikSchierboom"
+  ],
+  "contributors": [
+    "abecerramatias",
+    "j2jensen",
+    "robkeim",
+    "vgrigoriu",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "BinarySearch.cs"
