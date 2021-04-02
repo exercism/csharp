@@ -1,6 +1,18 @@
 {
   "blurb": "Detect saddle points in a matrix.",
-  "authors": [],
+  "authors": [
+    "ErikSchierboom"
+  ],
+  "contributors": [
+    "GKotfis",
+    "j2jensen",
+    "jwood803",
+    "mrtank",
+    "robkeim",
+    "vgrigoriu",
+    "wolf99",
+    "Zureka"
+  ],
   "files": {
     "solution": [
       "SaddlePoints.cs"

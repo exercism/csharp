@@ -1,6 +1,18 @@
 {
   "blurb": "Manage robot factory settings.",
-  "authors": [],
+  "authors": [
+    "bressain"
+  ],
+  "contributors": [
+    "ErikSchierboom",
+    "haus",
+    "j2jensen",
+    "jwood803",
+    "kytrinyx",
+    "robkeim",
+    "vgrigoriu",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "RobotName.cs"

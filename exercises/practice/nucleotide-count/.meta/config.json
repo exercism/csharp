@@ -1,6 +1,19 @@
 {
   "blurb": "Given a DNA string, compute how many times each nucleotide occurs in the string.",
-  "authors": [],
+  "authors": [
+    "bressain"
+  ],
+  "contributors": [
+    "ErikSchierboom",
+    "InKahootz",
+    "j2jensen",
+    "jmbradnan",
+    "jwood803",
+    "kytrinyx",
+    "robkeim",
+    "sjakobi",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "NucleotideCount.cs"

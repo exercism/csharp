@@ -1,6 +1,15 @@
 {
   "blurb": "Insert and search for numbers in a binary tree.",
-  "authors": [],
+  "authors": [
+    "ErikSchierboom"
+  ],
+  "contributors": [
+    "bressain",
+    "j2jensen",
+    "robkeim",
+    "ShamilS",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "BinarySearchTree.cs"

@@ -1,6 +1,15 @@
 {
   "blurb": "Create a program to solve a word search puzzle.",
-  "authors": [],
+  "authors": [
+    "ErikSchierboom"
+  ],
+  "contributors": [
+    "ChrisPritchard",
+    "j2jensen",
+    "jmbradnan",
+    "robkeim",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "WordSearch.cs"

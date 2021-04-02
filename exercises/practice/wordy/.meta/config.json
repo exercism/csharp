@@ -1,6 +1,17 @@
 {
   "blurb": "Parse and evaluate simple math word problems returning the answer as an integer.",
-  "authors": [],
+  "authors": [
+    "bressain"
+  ],
+  "contributors": [
+    "deniscapeto",
+    "ErikSchierboom",
+    "j2jensen",
+    "jwood803",
+    "robkeim",
+    "tushartyagi",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "Wordy.cs"

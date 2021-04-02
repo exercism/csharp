@@ -1,6 +1,14 @@
 {
   "blurb": "Implement basic list operations",
-  "authors": [],
+  "authors": [
+    "ErikSchierboom"
+  ],
+  "contributors": [
+    "j2jensen",
+    "jmbradnan",
+    "robkeim",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "ListOps.cs"

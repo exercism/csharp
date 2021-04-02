@@ -1,6 +1,14 @@
 {
   "blurb": "Refactor a ledger printer.",
-  "authors": [],
+  "authors": [
+    "ErikSchierboom"
+  ],
+  "contributors": [
+    "AndrewYHuang",
+    "j2jensen",
+    "robkeim",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "Ledger.cs"

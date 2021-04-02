@@ -1,6 +1,18 @@
 {
   "blurb": "Output the lyrics to 'The Twelve Days of Christmas'",
-  "authors": [],
+  "authors": [
+    "jwood803"
+  ],
+  "contributors": [
+    "bressain",
+    "ErikSchierboom",
+    "j2jensen",
+    "kytrinyx",
+    "PatrickMcSweeny",
+    "robkeim",
+    "ShamilS",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "TwelveDays.cs"

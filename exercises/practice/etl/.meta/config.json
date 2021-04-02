@@ -1,6 +1,17 @@
 {
   "blurb": "We are going to do the `Transform` step of an Extract-Transform-Load.",
-  "authors": [],
+  "authors": [
+    "bressain"
+  ],
+  "contributors": [
+    "ErikSchierboom",
+    "InKahootz",
+    "j2jensen",
+    "jwood803",
+    "kytrinyx",
+    "robkeim",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "Etl.cs"

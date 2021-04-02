@@ -1,6 +1,14 @@
 {
   "blurb": "Count the scored points on a Go board.",
-  "authors": [],
+  "authors": [
+    "ErikSchierboom"
+  ],
+  "contributors": [
+    "ChrisPritchard",
+    "j2jensen",
+    "robkeim",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "GoCounting.cs"

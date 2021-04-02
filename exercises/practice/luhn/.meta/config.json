@@ -1,6 +1,17 @@
 {
   "blurb": "Given a number determine whether or not it is valid per the Luhn formula.",
-  "authors": [],
+  "authors": [
+    "bressain"
+  ],
+  "contributors": [
+    "ErikSchierboom",
+    "j2jensen",
+    "jwood803",
+    "morrme",
+    "robkeim",
+    "vgrigoriu",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "Luhn.cs"

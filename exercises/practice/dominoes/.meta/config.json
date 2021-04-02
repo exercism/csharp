@@ -1,6 +1,15 @@
 {
   "blurb": "Make a chain of dominoes.",
-  "authors": [],
+  "authors": [
+    "ErikSchierboom"
+  ],
+  "contributors": [
+    "InKahootz",
+    "j2jensen",
+    "robkeim",
+    "wolf99",
+    "Zureka"
+  ],
   "files": {
     "solution": [
       "Dominoes.cs"

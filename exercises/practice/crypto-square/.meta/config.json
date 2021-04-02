@@ -1,6 +1,18 @@
 {
   "blurb": "Implement the classic method for composing secret messages called a square code.",
-  "authors": [],
+  "authors": [
+    "bressain"
+  ],
+  "contributors": [
+    "ErikSchierboom",
+    "j2jensen",
+    "jwood803",
+    "kytrinyx",
+    "robkeim",
+    "rprouse",
+    "wolf99",
+    "Zureka"
+  ],
   "files": {
     "solution": [
       "CryptoSquare.cs"

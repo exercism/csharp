@@ -1,6 +1,14 @@
 {
   "blurb": "Parsing a Smart Game Format string.",
-  "authors": [],
+  "authors": [
+    "ErikSchierboom"
+  ],
+  "contributors": [
+    "deniscapeto",
+    "j2jensen",
+    "robkeim",
+    "wolf99"
+  ],
   "files": {
     "solution": [
       "SgfParsing.cs"

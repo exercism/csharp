@@ -1,6 +1,16 @@
 {
   "blurb": "Correctly determine change to be given using the least number of coins",
-  "authors": [],
+  "authors": [
+    "ErikSchierboom"
+  ],
+  "contributors": [
+    "FizzBuzz791",
+    "j2jensen",
+    "robkeim",
+    "sjwarner-bp",
+    "wolf99",
+    "Zureka"
+  ],
   "files": {
     "solution": [
       "Change.cs"
