@@ -381,7 +381,7 @@
       {
         "slug": "tim-from-marketing",
         "name": "Tim from Marketing",
-        "uuid": "370e7e54-6a96-11ea-bc55-0242ac130003",
+        "uuid": "a66821d2-356d-43f5-ab83-8060c4b38a44",
         "concepts": [
           "nullability"
         ],
@@ -1819,7 +1819,7 @@
       {
         "slug": "affine-cipher",
         "name": "Affine Cipher",
-        "uuid": "2462D9AE-6483-40C6-955A-79CB2AC25B34",
+        "uuid": "f4dfb6f7-839d-4b2a-9339-a677acf08dd7",
         "practices": [],
         "prerequisites": [],
         "difficulty": 4,
@@ -1984,7 +1984,7 @@
       {
         "slug": "rest-api",
         "name": "Rest Api",
-        "uuid": "4c89b6a8-0e89-46c9-5a7e-31bfe6a57007",
+        "uuid": "adaf12f9-2dea-4835-908b-dcb2a5ad92a7",
         "practices": [],
         "prerequisites": [],
         "difficulty": 6,
@@ -2207,7 +2207,7 @@
       {
         "slug": "reverse-string",
         "name": "Reverse String",
-        "uuid": "14395318-c7b9-11e7-abc4-cec278b6b50a",
+        "uuid": "7bc07922-f999-4358-9806-5d625ab6e333",
         "practices": [],
         "prerequisites": [],
         "difficulty": 1,
