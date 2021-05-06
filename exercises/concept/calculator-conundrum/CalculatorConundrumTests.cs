@@ -1,4 +1,5 @@
 using Xunit;
+using Exercism.Tests;
 using System;
 
 public class SimpleCalculatorTests

@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Threading;
 using Xunit;
+using Exercism.Tests;
 
 public class TimeTests
 {
