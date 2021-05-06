@@ -124,7 +124,7 @@ public class QuestLogicTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Cannot_release_prisoner_if_everyone_is_awake_and_pet_dog_is_present()
+    public void Cannot_free_prisoner_if_everyone_is_awake_and_pet_dog_is_present()
     {
         var knightIsAwake = true;
         var archerIsAwake = true;
@@ -134,7 +134,7 @@ public class QuestLogicTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Cannot_release_prisoner_if_everyone_is_awake_and_pet_dog_is_absent()
+    public void Cannot_free_prisoner_if_everyone_is_awake_and_pet_dog_is_absent()
     {
         var knightIsAwake = true;
         var archerIsAwake = true;
@@ -144,7 +144,7 @@ public class QuestLogicTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Can_release_prisoner_if_everyone_is_asleep_and_pet_dog_is_present()
+    public void Can_free_prisoner_if_everyone_is_asleep_and_pet_dog_is_present()
     {
         var knightIsAwake = false;
         var archerIsAwake = false;
@@ -154,7 +154,7 @@ public class QuestLogicTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Cannot_release_prisoner_if_everyone_is_asleep_and_pet_dog_is_absent()
+    public void Cannot_free_prisoner_if_everyone_is_asleep_and_pet_dog_is_absent()
     {
         var knightIsAwake = false;
         var archerIsAwake = false;
@@ -164,7 +164,7 @@ public class QuestLogicTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Can_release_prisoner_if_only_prisoner_is_awake_and_pet_dog_is_present()
+    public void Can_free_prisoner_if_only_prisoner_is_awake_and_pet_dog_is_present()
     {
         var knightIsAwake = false;
         var archerIsAwake = false;
@@ -174,7 +174,7 @@ public class QuestLogicTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Can_release_prisoner_if_only_prisoner_is_awake_and_pet_dog_is_absent()
+    public void Can_free_prisoner_if_only_prisoner_is_awake_and_pet_dog_is_absent()
     {
         var knightIsAwake = false;
         var archerIsAwake = false;
@@ -184,7 +184,7 @@ public class QuestLogicTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Cannot_release_prisoner_if_only_archer_is_awake_and_pet_dog_is_present()
+    public void Cannot_free_prisoner_if_only_archer_is_awake_and_pet_dog_is_present()
     {
         var knightIsAwake = false;
         var archerIsAwake = true;
@@ -194,7 +194,7 @@ public class QuestLogicTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Cannot_release_prisoner_if_only_archer_is_awake_and_pet_dog_is_absent()
+    public void Cannot_free_prisoner_if_only_archer_is_awake_and_pet_dog_is_absent()
     {
         var knightIsAwake = false;
         var archerIsAwake = true;
@@ -204,7 +204,7 @@ public class QuestLogicTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Can_release_prisoner_if_only_knight_is_awake_and_pet_dog_is_present()
+    public void Can_free_prisoner_if_only_knight_is_awake_and_pet_dog_is_present()
     {
         var knightIsAwake = true;
         var archerIsAwake = false;
@@ -214,7 +214,7 @@ public class QuestLogicTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Cannot_release_prisoner_if_only_knight_is_awake_and_pet_dog_is_absent()
+    public void Cannot_free_prisoner_if_only_knight_is_awake_and_pet_dog_is_absent()
     {
         var knightIsAwake = true;
         var archerIsAwake = false;
@@ -224,7 +224,7 @@ public class QuestLogicTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Cannot_release_prisoner_if_only_knight_is_asleep_and_pet_dog_is_present()
+    public void Cannot_free_prisoner_if_only_knight_is_asleep_and_pet_dog_is_present()
     {
         var knightIsAwake = false;
         var archerIsAwake = true;
@@ -234,7 +234,7 @@ public class QuestLogicTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Cannot_release_prisoner_if_only_knight_is_asleep_and_pet_dog_is_absent()
+    public void Cannot_free_prisoner_if_only_knight_is_asleep_and_pet_dog_is_absent()
     {
         var knightIsAwake = false;
         var archerIsAwake = true;
@@ -244,7 +244,7 @@ public class QuestLogicTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Can_release_prisoner_if_only_archer_is_asleep_and_pet_dog_is_present()
+    public void Can_free_prisoner_if_only_archer_is_asleep_and_pet_dog_is_present()
     {
         var knightIsAwake = true;
         var archerIsAwake = false;
@@ -254,7 +254,7 @@ public class QuestLogicTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Cannot_release_prisoner_if_only_archer_is_asleep_and_pet_dog_is_absent()
+    public void Cannot_free_prisoner_if_only_archer_is_asleep_and_pet_dog_is_absent()
     {
         var knightIsAwake = true;
         var archerIsAwake = false;
@@ -264,7 +264,7 @@ public class QuestLogicTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Cannot_release_prisoner_if_only_prisoner_is_asleep_and_pet_dog_is_present()
+    public void Cannot_free_prisoner_if_only_prisoner_is_asleep_and_pet_dog_is_present()
     {
         var knightIsAwake = true;
         var archerIsAwake = true;
@@ -274,7 +274,7 @@ public class QuestLogicTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Cannot_release_prisoner_if_only_prisoner_is_asleep_and_pet_dog_is_absent()
+    public void Cannot_free_prisoner_if_only_prisoner_is_asleep_and_pet_dog_is_absent()
     {
         var knightIsAwake = true;
         var archerIsAwake = true;
