@@ -16,6 +16,9 @@
     "ace_editor_language": "csharp",
     "highlightjs_language": "csharp"
   },
+  "test_runner": {
+    "average_run_time": 3.0
+  },
   "files": {
     "solution": [
       "%{pascal_slug}.cs"
