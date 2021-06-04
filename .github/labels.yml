@@ -8,8 +8,8 @@
 # don't edit this file directly but instead create a `.appends/.github/labels.yml`
 # file within this repo.
 #
-# Any changes to the repo's `.appends/.github/labels.yml` file or the 
-# Exercism-wide `labels.yml` file will automatically result in this file being 
+# Any changes to the repo's `.appends/.github/labels.yml` file or the
+# Exercism-wide `labels.yml` file will automatically result in this file being
 # regenerated and the labels being updated. This typically takes 5-10 minutes.
 
 # ---
@@ -90,23 +90,23 @@
 
 # The x:size labels describe the expected amount of work
 # for a contributor
-- name: "x:size/xs"
-  description: "Trivial amount of work"
+- name: "x:size/tiny"
+  description: "Tiny amount of work"
   color: "4836bf"
 
-- name: "x:size/s"
+- name: "x:size/small"
   description: "Small amount of work"
   color: "4836bf"
 
-- name: "x:size/m"
-  description: "Average amount of work"
+- name: "x:size/medium"
+  description: "Medium amount of work"
   color: "4836bf"
 
-- name: "x:size/l"
+- name: "x:size/large"
   description: "Large amount of work"
   color: "4836bf"
 
-- name: "x:size/xl"
+- name: "x:size/massive"
   description: "Massive amount of work"
   color: "4836bf"
 
