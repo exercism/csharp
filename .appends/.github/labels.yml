@@ -1,0 +1,72 @@
+- name: "bug"
+  description: ""
+  color: "fc2929"
+
+- name: "dependencies"
+  description: "Pull requests that update a dependency file"
+  color: "0025ff"
+
+- name: "discussion"
+  description: ""
+  color: "cc317c"
+
+- name: "documentation"
+  description: ""
+  color: "cc317c"
+
+- name: "duplicate"
+  description: ""
+  color: "cccccc"
+
+- name: "enhancement"
+  description: ""
+  color: "84b6eb"
+
+- name: "feature"
+  description: ""
+  color: "0e8a16"
+
+- name: "good first issue"
+  description: ""
+  color: "fcd8c4"
+
+- name: "hacktoberfest"
+  description: ""
+  color: "FF4500"
+
+- name: "help wanted"
+  description: ""
+  color: "0e8a16"
+
+- name: "in-progress"
+  description: ""
+  color: "fbca04"
+
+- name: "invalid"
+  description: ""
+  color: "cccccc"
+
+- name: "on-hold"
+  description: ""
+  color: "cccccc"
+
+- name: "optimization"
+  description: ""
+  color: "84b6eb"
+
+- name: "question"
+  description: ""
+  color: "cc317c"
+
+- name: "v3-migration 🤖"
+  description: "Preparing for Exercism v3"
+  color: "E99695"
+
+- name: "waiting-on-external"
+  description: ""
+  color: "2020a3"
+
+- name: "wontfix"
+  description: ""
+  color: "cccccc"
+
