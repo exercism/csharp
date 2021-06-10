@@ -1,72 +1,40 @@
+# ----------------------------------------------------------------------------------------- #
+# These are the repository-specific labels that augment the Exercise-wide labels defined in #
+# https://github.com/exercism/org-wide-files/blob/main/global-files/.github/labels.yml.     #
+# ----------------------------------------------------------------------------------------- #
+
 - name: "bug"
-  description: ""
-  color: "fc2929"
-
-- name: "dependencies"
-  description: "Pull requests that update a dependency file"
-  color: "0025ff"
-
-- name: "discussion"
-  description: ""
-  color: "cc317c"
+  description: "Something isn't working"
+  color: "d73a4a"
 
 - name: "documentation"
-  description: ""
-  color: "cc317c"
+  description: "Improvements or additions to documentation"
+  color: "0075ca"
 
 - name: "duplicate"
-  description: ""
-  color: "cccccc"
+  description: "This issue or pull request already exists"
+  color: "cfd3d7"
 
 - name: "enhancement"
-  description: ""
-  color: "84b6eb"
-
-- name: "feature"
-  description: ""
-  color: "0e8a16"
+  description: "New feature or request"
+  color: "a2eeef"
 
 - name: "good first issue"
-  description: ""
-  color: "fcd8c4"
-
-- name: "hacktoberfest"
-  description: ""
-  color: "FF4500"
+  description: "Good for newcomers"
+  color: "7057ff"
 
 - name: "help wanted"
-  description: ""
-  color: "0e8a16"
-
-- name: "in-progress"
-  description: ""
-  color: "fbca04"
+  description: "Extra attention is needed"
+  color: "008672"
 
 - name: "invalid"
-  description: ""
-  color: "cccccc"
-
-- name: "on-hold"
-  description: ""
-  color: "cccccc"
-
-- name: "optimization"
-  description: ""
-  color: "84b6eb"
+  description: "This doesn't seem right"
+  color: "e4e669"
 
 - name: "question"
-  description: ""
-  color: "cc317c"
-
-- name: "v3-migration 🤖"
-  description: "Preparing for Exercism v3"
-  color: "E99695"
-
-- name: "waiting-on-external"
-  description: ""
-  color: "2020a3"
+  description: "Further information is requested"
+  color: "d876e3"
 
 - name: "wontfix"
-  description: ""
-  color: "cccccc"
-
+  description: "This will not be worked on"
+  color: "ffffff"
