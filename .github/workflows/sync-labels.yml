@@ -7,7 +7,7 @@ on:
       - .github/labels.yml
       - .github/workflows/sync-labels.yml
   schedule:
-    - cron: 6 6 6 * *
+    - cron: 0 0 1 * *
   workflow_dispatch:
 
 jobs:
