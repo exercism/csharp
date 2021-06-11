@@ -1,9 +1,10 @@
 {
-  "blurb": "TODO: add blurb for attributes concept",
+  "blurb": "C# attributes associate metadata to supported attribute targets.",
   "authors": [
     "ErikSchierboom"
   ],
   "contributors": [
-    "valentin-p"
+    "valentin-p",
+    "yzAlvin"
   ]
 }

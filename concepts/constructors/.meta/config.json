@@ -1,7 +1,9 @@
 {
-  "blurb": "TODO: add blurb for constructors concept",
+  "blurb": "Creating an instance of a class is done using its constructor.",
   "authors": [
     "ErikSchierboom"
   ],
-  "contributors": []
+  "contributors": [
+    "yzAlvin"
+  ]
 }

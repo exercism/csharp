@@ -1,5 +1,7 @@
 {
-  "blurb": "TODO: add blurb for compound-assignment concept",
+  "blurb": "C# allows compound assignment in the form x op= y.",
   "authors": ["TODO: add author"],
-  "contributors": []
+  "contributors": [
+    "yzAlvin"
+  ]
 }

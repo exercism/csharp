@@ -1,10 +1,11 @@
 {
-  "blurb": "TODO: add blurb for dictionaries concept",
+  "blurb": "Dictionaries are a collection of key: value pairs.",
   "authors": [
     "mikedamay"
   ],
   "contributors": [
     "ErikSchierboom",
-    "valentin-p"
+    "valentin-p",
+    "yzAlvin"
   ]
 }

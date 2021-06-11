@@ -1,9 +1,10 @@
 {
-  "blurb": "TODO: add blurb for casting concept",
+  "blurb": "C# allows for casting and type conversion.",
   "authors": [
     "mikedamay"
   ],
   "contributors": [
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ]
 }

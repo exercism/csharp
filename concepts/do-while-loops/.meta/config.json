@@ -1,7 +1,9 @@
 {
-  "blurb": "TODO: add blurb for do-while-loops concept",
+  "blurb": "A do-while loops is similar to a while loop but code in the loop executed at least once.",
   "authors": [
     "ErikSchierboom"
   ],
-  "contributors": []
+  "contributors": [
+    "yzAlvin"
+  ]
 }

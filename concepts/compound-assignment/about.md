@@ -11,3 +11,4 @@ features &= ~PhoneFeatures.Call;
 ```
 
 [compound-assignment]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/bitwise-and-shift-operators#compound-assignment
+[compound-assignment-alt]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/expressions#compound-assignment
