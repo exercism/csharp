@@ -1,5 +1,5 @@
 {
-  "blurb": "A char is a type that respresents a Unicode UTF-16 character. Strings are a sequence of chars.",
+  "blurb": "A char is a type that represents a Unicode UTF-16 character. Strings are a sequence of chars.",
   "authors": [
     "mikedamay"
   ],
