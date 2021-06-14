@@ -1,9 +1,10 @@
 {
-  "blurb": "TODO: add blurb for expression-bodied-members concept",
+  "blurb": "An expression-bodied-member often produces more concise and readable code than the traditional block-body.",
   "authors": [
     "mikedamay"
   ],
   "contributors": [
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ]
 }

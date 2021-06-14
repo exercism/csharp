@@ -1,7 +1,9 @@
 {
-  "blurb": "TODO: add blurb for floating-point-numbers concept",
+  "blurb": "The three floating-point types in C# are: double, float and decimal.",
   "authors": [
     "ErikSchierboom"
   ],
-  "contributors": []
+  "contributors": [
+    "yzAlvin"
+  ]
 }
