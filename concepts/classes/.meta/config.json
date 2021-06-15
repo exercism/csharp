@@ -1,7 +1,9 @@
 {
-  "blurb": "TODO: add blurb for classes concept",
+  "blurb": "A class in C# is made up of its fields and methods. They are templates for creating objects with.",
   "authors": [
     "ErikSchierboom"
   ],
-  "contributors": []
+  "contributors": [
+    "yzAlvin"
+  ]
 }

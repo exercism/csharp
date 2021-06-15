@@ -1,7 +1,9 @@
 {
-  "blurb": "TODO: add blurb for inheritance concept",
+  "blurb": "Inheritance allows derived classes to inherit the behavior and data of its parent class.",
   "authors": [
     "ErikSchierboom"
   ],
-  "contributors": []
+  "contributors": [
+    "yzAlvin"
+  ]
 }

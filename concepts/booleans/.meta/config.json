@@ -1,7 +1,9 @@
 {
-  "blurb": "TODO: add blurb for booleans concept",
+  "blurb": "Booleans are either true or false. They support NOT, AND, and OR operators.",
   "authors": [
     "ErikSchierboom"
   ],
-  "contributors": []
+  "contributors": [
+    "yzAlvin"
+  ]
 }

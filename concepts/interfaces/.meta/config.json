@@ -1,10 +1,11 @@
 {
-  "blurb": "TODO: add blurb for interfaces concept",
+  "blurb": "Interfaces specify the behaviours of the classes that implement them, and are the primary means of decoupling the uses of a class from its implementation.",
   "authors": [
     "senal",
     "mikedamay"
   ],
   "contributors": [
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ]
 }

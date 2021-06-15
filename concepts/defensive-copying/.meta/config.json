@@ -1,9 +1,10 @@
 {
-  "blurb": "TODO: add blurb for defensive-copying concept",
+  "blurb": "Defensive-copying protects your program from unexpected or malicious behaviour.",
   "authors": [
     "mikedamay"
   ],
   "contributors": [
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ]
 }

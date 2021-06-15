@@ -1,9 +1,10 @@
 {
-  "blurb": "TODO: add blurb for lists concept",
+  "blurb": "Lists in C# are collections of primitive values or instances of structs or classes.",
   "authors": [
     "mikedamay"
   ],
   "contributors": [
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ]
 }
