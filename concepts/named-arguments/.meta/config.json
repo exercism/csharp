@@ -1,7 +1,9 @@
 {
-  "blurb": "TODO: add blurb for named-arguments concept",
+  "blurb": "Named arguments free you from matching the order of parameters in the parameter lists of called methods.",
   "authors": [
     "ErikSchierboom"
   ],
-  "contributors": []
+  "contributors": [
+    "yzAlvin"
+  ]
 }
