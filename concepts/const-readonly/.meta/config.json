@@ -1,7 +1,5 @@
 {
-  "blurb": "A const allows you to specify fields where their value is known at compile time and will not change during the runtime of the program.",
+  "blurb": "TODO: add blurb for const-readonly concept",
   "authors": ["TODO: add author"],
-  "contributors": [
-    "yzAlvin"
-  ]
+  "contributors": []
 }
