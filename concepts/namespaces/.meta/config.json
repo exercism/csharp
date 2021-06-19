@@ -1,10 +1,11 @@
 {
-  "blurb": "TODO: add blurb for namespaces concept",
+  "blurb": "Namespaces are a way to group related code and to avoid name clashes.",
   "authors": [
     "mikedamay"
   ],
   "contributors": [
     "ErikSchierboom",
-    "valentin-p"
+    "valentin-p",
+    "yzAlvin"
   ]
 }
