@@ -1,7 +1,9 @@
 {
-  "blurb": "TODO: add blurb for method-overloading concept",
+  "blurb": "Method overloading allows a method in a class to have different parameter lists, but the same name.",
   "authors": [
     "ErikSchierboom"
   ],
-  "contributors": []
+  "contributors": [
+    "yzAlvin"
+  ]
 }
