@@ -1,9 +1,10 @@
 {
-  "blurb": "TODO: add blurb for enums concept",
+  "blurb": "Enumeration types are a very declarative way of associating a fixed set of constant name and int values.",
   "authors": [
     "ErikSchierboom"
   ],
   "contributors": [
-    "valentin-p"
+    "valentin-p",
+    "yzAlvin"
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "blurb": "TODO: add blurb for integral-numbers concept",
+  "blurb": "The number types that represent integers in C# are sbyte, byte, short, ushort, int. uint, long and ulong.",
   "authors": [
     "mikedamay"
   ],

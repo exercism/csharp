@@ -1,5 +1,5 @@
 {
-  "blurb": "TODO: add blurb for equality concept",
+  "blurb": "The Equals method by default checks if two objects are the same instance, overriding the Equals method allows testing if different instances are equal.",
   "authors": [
     "mikedamay"
   ],

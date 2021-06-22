@@ -1,9 +1,10 @@
 {
-  "blurb": "TODO: add blurb for constants concept",
+  "blurb": "The const modifier allows you to specify fields where their value is known at compile time and will not change during the runtime of the program.",
   "authors": [
     "mikedamay"
   ],
   "contributors": [
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ]
 }
