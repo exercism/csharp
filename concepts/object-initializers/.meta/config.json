@@ -1,9 +1,10 @@
 {
-  "blurb": "TODO: add blurb for object-initializers concept",
+  "blurb": "Object initializers are an alternative to constructors.",
   "authors": [
     "mikedamay"
   ],
   "contributors": [
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ]
 }
