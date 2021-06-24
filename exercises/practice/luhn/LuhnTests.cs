@@ -99,6 +99,12 @@ public class LuhnTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Valid_string_with_an_odd_number_of_digits_and_non_zero_first_digit()
+    {
+        Assert.True(Luhn.IsValid("109"));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Using_ascii_value_for_non_doubled_non_digit_isnt_allowed()
     {
         Assert.False(Luhn.IsValid("055b 444 285"));
