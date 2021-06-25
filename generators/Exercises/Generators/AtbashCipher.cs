@@ -1,6 +1,6 @@
 ﻿namespace Exercism.CSharp.Exercises.Generators
 {
-    public class AtbashCipher : GeneratorExercise
+    public class AtbashCipher : ExerciseGenerator
     {
     }
 }

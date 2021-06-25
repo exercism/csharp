@@ -6,7 +6,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class Minesweeper : GeneratorExercise
+    public class Minesweeper : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

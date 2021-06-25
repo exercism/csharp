@@ -10,7 +10,7 @@ using Humanizer;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class DiffieHellman : GeneratorExercise
+    public class DiffieHellman : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

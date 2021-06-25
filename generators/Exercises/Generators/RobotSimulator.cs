@@ -5,7 +5,7 @@ using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class RobotSimulator : GeneratorExercise
+    public class RobotSimulator : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

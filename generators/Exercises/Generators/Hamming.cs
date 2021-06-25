@@ -3,7 +3,7 @@ using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class Hamming : GeneratorExercise
+    public class Hamming : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

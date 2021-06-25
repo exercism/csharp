@@ -8,7 +8,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class ComplexNumbers : GeneratorExercise
+    public class ComplexNumbers : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

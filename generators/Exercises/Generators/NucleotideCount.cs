@@ -5,7 +5,7 @@ using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class NucleotideCount : GeneratorExercise
+    public class NucleotideCount : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

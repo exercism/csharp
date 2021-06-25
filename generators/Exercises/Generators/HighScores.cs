@@ -3,7 +3,7 @@ using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class HighScores : GeneratorExercise
+    public class HighScores : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

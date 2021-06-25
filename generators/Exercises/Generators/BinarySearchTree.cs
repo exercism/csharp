@@ -5,7 +5,7 @@ using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class BinarySearchTree : GeneratorExercise
+    public class BinarySearchTree : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

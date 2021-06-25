@@ -7,9 +7,9 @@ using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises
 {
-    public abstract class GeneratorExercise : Exercise
+    public abstract class ExerciseGenerator
     {
-        public override string Name => GetType().ToExerciseName();
+        public string Name => GetType().ToExerciseName();
         
         protected Render Render { get; } = new Render();
 

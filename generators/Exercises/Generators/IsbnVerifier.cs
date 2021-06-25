@@ -1,6 +1,6 @@
 ﻿namespace Exercism.CSharp.Exercises.Generators
 {
-    public class IsbnVerifier : GeneratorExercise
+    public class IsbnVerifier : ExerciseGenerator
     {
     }
 }

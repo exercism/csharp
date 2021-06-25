@@ -1,6 +1,6 @@
 ﻿namespace Exercism.CSharp.Exercises.Generators
 {
-    public class ProteinTranslation : GeneratorExercise
+    public class ProteinTranslation : ExerciseGenerator
     {
     }
 }

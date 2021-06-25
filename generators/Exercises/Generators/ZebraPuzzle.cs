@@ -2,7 +2,7 @@
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class ZebraPuzzle : GeneratorExercise
+    public class ZebraPuzzle : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

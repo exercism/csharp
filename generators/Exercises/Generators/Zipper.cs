@@ -6,7 +6,7 @@ using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class Zipper : GeneratorExercise
+    public class Zipper : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

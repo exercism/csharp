@@ -5,7 +5,7 @@ using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class WordCount : GeneratorExercise
+    public class WordCount : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

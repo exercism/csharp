@@ -1,6 +1,6 @@
 ﻿namespace Exercism.CSharp.Exercises.Generators
 {
-    public class SecretHandshake : GeneratorExercise
+    public class SecretHandshake : ExerciseGenerator
     {
     }
 }

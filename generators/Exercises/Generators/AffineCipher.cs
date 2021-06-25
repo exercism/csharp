@@ -5,7 +5,7 @@ using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class AffineCipher : GeneratorExercise
+    public class AffineCipher : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

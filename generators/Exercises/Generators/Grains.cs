@@ -4,7 +4,7 @@ using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class Grains : GeneratorExercise
+    public class Grains : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

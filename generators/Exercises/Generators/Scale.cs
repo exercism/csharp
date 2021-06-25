@@ -2,7 +2,7 @@
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class ScaleGenerator : GeneratorExercise
+    public class Scale : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

@@ -3,7 +3,7 @@ using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class SpaceAge : GeneratorExercise
+    public class SpaceAge : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

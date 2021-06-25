@@ -1,6 +1,6 @@
 ﻿namespace Exercism.CSharp.Exercises.Generators
 {
-    public class Raindrops : GeneratorExercise
+    public class Raindrops : ExerciseGenerator
     {
     }
 }

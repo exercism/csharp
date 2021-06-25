@@ -2,7 +2,7 @@
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class RunLengthEncoding : GeneratorExercise
+    public class RunLengthEncoding : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

@@ -1,6 +1,6 @@
 ﻿namespace Exercism.CSharp.Exercises.Generators
 {
-    public class ScrabbleScore : GeneratorExercise
+    public class ScrabbleScore : ExerciseGenerator
     {
     }
 }

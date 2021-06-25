@@ -3,7 +3,7 @@ using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class Transpose : GeneratorExercise
+    public class Transpose : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

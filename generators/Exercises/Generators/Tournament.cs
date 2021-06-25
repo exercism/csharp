@@ -7,7 +7,7 @@ using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class Tournament : GeneratorExercise
+    public class Tournament : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

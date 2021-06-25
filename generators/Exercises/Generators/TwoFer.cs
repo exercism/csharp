@@ -3,7 +3,7 @@ using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class TwoFer : GeneratorExercise
+    public class TwoFer : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

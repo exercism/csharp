@@ -3,7 +3,7 @@ using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class PerfectNumbers : GeneratorExercise
+    public class PerfectNumbers : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

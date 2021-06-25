@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class Forth : GeneratorExercise
+    public class Forth : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

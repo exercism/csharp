@@ -5,7 +5,7 @@ using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class OcrNumbers : GeneratorExercise
+    public class OcrNumbers : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

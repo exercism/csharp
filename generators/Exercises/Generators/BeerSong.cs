@@ -3,7 +3,7 @@ using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class BeerSong : GeneratorExercise
+    public class BeerSong : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
