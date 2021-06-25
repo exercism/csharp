@@ -12,6 +12,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="serilog" Version="2.10.0" />
     <PackageReference Include="serilog.sinks.literate" Version="3.0.0" />
+    <PackageReference Include="Tomlyn" Version="0.1.2" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Output\Rendering\Templates\*.liquid" />
