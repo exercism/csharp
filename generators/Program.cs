@@ -22,9 +22,9 @@ namespace Exercism.CSharp
         {
             // TODO: enable nullable
             if (options.Exercise == null)
-                ExerciseGeneratorRun.RegenerateTestClasses(options);
+                GeneratorRunner.RegenerateAll(options);
             else
-                ExerciseGeneratorRun.RegenerateTestClass(options, options.Exercise);
+                GeneratorRunner.RegenerateExercise(options, options.Exercise);
         }
 
         private static void OnParseError(IEnumerable<Error> errors) =>
