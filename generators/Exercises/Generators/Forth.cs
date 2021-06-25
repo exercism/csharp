@@ -1,6 +1,5 @@
 ﻿using Exercism.CSharp.Output;
 using System;
-using System.Collections.Generic;
 
 namespace Exercism.CSharp.Exercises.Generators
 {

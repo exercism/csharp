@@ -21,26 +21,22 @@ namespace Exercism.CSharp.Input
         public string Contents(string exercise) => File.ReadAllText(GetExerciseCanonicalDataPath(exercise));
 
         private string GetExerciseCanonicalDataPath(string exercise)
-            => Path.Combine(_options.CanonicalDataDirectory, "exercises", exercise, "canonical-data.json");
+            => Path.Combine(_options.ProbSpecsDir, "exercises", exercise, "canonical-data.json");
 
         public void DownloadData()
         {
             CloneRepository();
-
-            if (_options.CacheCanonicalData)
-                return;
-
             UpdateToLatestVersion();
         }
 
         private void CloneRepository()
         {
-            if (Directory.Exists(_options.CanonicalDataDirectory))
+            if (Directory.Exists(_options.ProbSpecsDir))
                 return;
 
             Log.Information("Cloning repository...");
 
-            Repository.Clone(ProblemSpecificationsGitUrl, _options.CanonicalDataDirectory);
+            Repository.Clone(ProblemSpecificationsGitUrl, _options.ProbSpecsDir);
 
             Log.Information("Repository cloned.");
         }
@@ -49,7 +45,7 @@ namespace Exercism.CSharp.Input
         {
             Log.Information("Updating repository to latest version...");
 
-            using (var repository = new Repository(_options.CanonicalDataDirectory))
+            using (var repository = new Repository(_options.ProbSpecsDir))
             {
                 Commands.Fetch(repository, ProblemSpecificationsRemote, Enumerable.Empty<string>(), new FetchOptions(), null);
 

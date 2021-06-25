@@ -1,62 +1,33 @@
-﻿using System;
+﻿using System.Collections.Generic;
+
 using CommandLine;
 using Exercism.CSharp.Exercises;
-using Exercism.CSharp.Input;
+
 using Serilog;
 
 namespace Exercism.CSharp
 {
     public static class Program
     {
-        public static int Main(string[] args)
+        public static void Main(string[] args)
         {
-            SetupLogger();
+            Logging.Setup();
 
-            try
-            {
-                Parser.Default.ParseArguments<Options>(args)
-                    .WithParsed(options => RegenerateTestClasses(options, args));
-                return 0;
-            }
-            catch (Exception exception)
-            {
-                Log.Error(exception, "Exception occured: {Exception}", exception.Message);
-                return 1;
-            }
+            Options.Parse(args)
+                .WithParsed(OnParseSuccess)
+                .WithNotParsed(OnParseError);
+        }
+        
+        private static void OnParseSuccess(Options options)
+        {
+            // TODO: enable nullable
+            if (options.Exercise == null)
+                ExerciseGeneratorRun.RegenerateTestClasses(options);
+            else
+                ExerciseGeneratorRun.RegenerateTestClass(options, options.Exercise);
         }
 
-        private static void SetupLogger()
-        {
-            Log.Logger = new LoggerConfiguration()
-                .WriteTo.LiterateConsole()
-                .CreateLogger();
-        }
-
-        private static void RegenerateTestClasses(Options options, string[] args)
-        {
-            options.Setup(args);
-
-            var canonicalDataFile = new CanonicalDataFile(options);
-            canonicalDataFile.DownloadData();
-
-            if(options.ShouldGenerate)
-                Log.Information("Re-generating test classes...");
-            
-            var canonicalDataParser = new CanonicalDataParser(canonicalDataFile);
-
-            foreach (var exercise in new ExerciseGeneratorCollection(options))
-                RegenerateTestClass(exercise, canonicalDataParser);
-
-            if (options.ShouldGenerate)
-                Log.Information("Re-generated test classes.");
-        }
-
-        private static void RegenerateTestClass(ExerciseGenerator exercise, CanonicalDataParser canonicalDataParser)
-        {
-            var canonicalData = canonicalDataParser.Parse(exercise.Name);
-            exercise.Regenerate(canonicalData);
-
-            Log.Information("{Exercise}: tests generated", exercise.Name);
-        }
+        private static void OnParseError(IEnumerable<Error> errors) =>
+            Log.Error("Errors: {Errors}", errors);
     }
 }

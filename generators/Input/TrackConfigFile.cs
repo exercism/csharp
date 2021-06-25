@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Exercism.CSharp.Helpers;
+
 using Newtonsoft.Json;
 
 namespace Exercism.CSharp.Input

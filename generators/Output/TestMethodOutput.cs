@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Exercism.CSharp.Exercises;
 using Exercism.CSharp.Helpers;
-using Exercism.CSharp.Input;
 using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Output

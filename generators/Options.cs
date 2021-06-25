@@ -1,39 +1,19 @@
-﻿using System;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
+
 using CommandLine;
 
 namespace Exercism.CSharp
 {
     public class Options
     {
-        private static string DefaultCanonicalDataDirectory
-            => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "exercism", "problem-specifications");
-
-        [Option('e', "exercise", Required = false,
-            HelpText = "Exercise to generate (defaults to all exercises).")]
+        [Option('e', "exercise", Required = false, HelpText = "The exercise to generate.")]
         public string Exercise { get; set; }
 
-        [Option('d', "canonicaldatadirectory", Required = false,
-            HelpText = "Canonical data directory. If the directory does not exist, the canonical data will be downloaded.")]
-        public string CanonicalDataDirectory { get; set; }
+        [Option('d', "dir", Required = false, HelpText = "The directory of the problem-specifications repo. If the not specified, the repo will be downloaded.")]
+        public string ProbSpecsDir { get; set; }
 
-        [Option('c', "cachecanonicaldata", Required = false, Default = false,
-            HelpText = "Use the cached canonical data and don't update the data.")]
-        public bool CacheCanonicalData { get; set; }
-
-        public bool ShouldGenerate { get; set; }
-
-        public void Setup(string[] args)
-        {
-            CanonicalDataDirectory = CanonicalDataDirectory ?? DefaultCanonicalDataDirectory;
-            if (!args.Any())
-                ShouldGenerate = true;
-            foreach (var arg in args)
-            {
-                if (arg.StartsWith("-e") || arg.StartsWith("--ex"))
-                    ShouldGenerate = true;
-            }
-        }
+        public string PracticeExercisesDir = Path.Combine("..", "exercises", "practice");
+        
+        public static ParserResult<Options> Parse(string[] args) => Parser.Default.ParseArguments<Options>(args);
     }
 }
