@@ -1,9 +1,10 @@
 {
-  "blurb": "TODO: add blurb for string-formatting concept",
+  "blurb": "String formatting is the process of inserting variables into predefined text.",
   "authors": [
     "mikedamay"
   ],
   "contributors": [
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ]
 }
