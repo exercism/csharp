@@ -1,9 +1,10 @@
 {
-  "blurb": "TODO: add blurb for tuples concept",
+  "blurb": "A tuple is a data structure which organizes data, holding two or more fields of any type.",
   "authors": [
     "mikedamay"
   ],
   "contributors": [
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ]
 }
