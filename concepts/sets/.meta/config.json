@@ -1,9 +1,10 @@
 {
-  "blurb": "TODO: add blurb for sets concept",
+  "blurb": "A set is a collection that contains no duplicate elements, and whose elements are in no particular order.",
   "authors": [
     "mikedamay"
   ],
   "contributors": [
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ]
 }
