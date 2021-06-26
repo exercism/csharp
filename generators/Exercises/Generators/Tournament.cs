@@ -23,13 +23,9 @@ namespace Exercism.CSharp.Exercises.Generators
 
         private string RenderAssert() => Render.AssertEqual("expected", "RunTally(rows)");
 
-        protected override void UpdateTestClass(TestClass testClass)
-        {
-            AddRunTallyMethod(testClass);
-        }
+        protected override void UpdateTestClass(TestClass testClass) => AddRunTallyMethod(testClass);
 
-        private static void AddRunTallyMethod(TestClass testClass)
-        {
+        private static void AddRunTallyMethod(TestClass testClass) =>
             testClass.AdditionalMethods.Add(@"
 private string RunTally(string input)
 {
@@ -42,7 +38,6 @@ private string RunTally(string input)
         return encoding.GetString(outStream.ToArray());
     }
 }");
-        }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {

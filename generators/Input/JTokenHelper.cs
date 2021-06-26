@@ -16,32 +16,21 @@ namespace Exercism.CSharp.Input
             }
         }
         
-        public static dynamic ConvertJToken(JToken jToken)
-        {
-            switch (jToken)
+        public static dynamic ConvertJToken(JToken jToken) =>
+            jToken switch
             {
-                case JObject jObject:
-                    return ConvertJObject(jObject);
-                case JArray jArray:
-                    return ConvertJArray(jArray);
-            }
-
-            switch (jToken.Type)
-            {
-                case JTokenType.Integer:
-                    return ConvertJTokenToInteger(jToken);
-                case JTokenType.Float:
-                    return jToken.ToObject<float>();
-                case JTokenType.String:
-                    return jToken.ToObject<string>();
-                case JTokenType.Boolean:
-                    return jToken.ToObject<bool>();
-                case JTokenType.Date:
-                    return jToken.ToObject<DateTime>();
-                default:
-                    return null;
-            }
-        }
+                JObject jObject => ConvertJObject(jObject),
+                JArray jArray => ConvertJArray(jArray),
+                _ => jToken.Type switch
+                {
+                    JTokenType.Integer => ConvertJTokenToInteger(jToken),
+                    JTokenType.Float => jToken.ToObject<float>(),
+                    JTokenType.String => jToken.ToObject<string>(),
+                    JTokenType.Boolean => jToken.ToObject<bool>(),
+                    JTokenType.Date => jToken.ToObject<DateTime>(),
+                    _ => null
+                }
+            };
 
         private static dynamic ConvertJObject(JObject jObject)
         {

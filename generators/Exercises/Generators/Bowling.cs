@@ -70,13 +70,9 @@ namespace Exercism.CSharp.Exercises.Generators
             return act.ToString();
         }
 
-        protected override void UpdateTestClass(TestClass testClass)
-        {
-            AddDoRollMethod(testClass);
-        }
+        protected override void UpdateTestClass(TestClass testClass) => AddDoRollMethod(testClass);
 
-        private static void AddDoRollMethod(TestClass testClass)
-        {
+        private static void AddDoRollMethod(TestClass testClass) =>
             testClass.AdditionalMethods.Add(@"
 private void DoRoll(IEnumerable<int> rolls, BowlingGame sut)
 {
@@ -85,7 +81,6 @@ private void DoRoll(IEnumerable<int> rolls, BowlingGame sut)
         sut.Roll(roll);
     }
 }");
-        }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {

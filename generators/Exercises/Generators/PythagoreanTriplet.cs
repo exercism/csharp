@@ -9,14 +9,10 @@ namespace generators.Exercises.Generators
 {
     internal class PythagoreanTriplet : ExerciseGenerator
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
-            testMethod.Expected = ConvertExpected(testMethod.Expected);
-        }
-        protected override void UpdateNamespaces(ISet<string> namespaces)
-        {
-            namespaces.Add(typeof(Array).Namespace);
-        }
+        protected override void UpdateTestMethod(TestMethod testMethod) => testMethod.Expected = ConvertExpected(testMethod.Expected);
+
+        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(Array).Namespace);
+
         private dynamic ConvertExpected(dynamic value)
         {
             int[][] values = value.ToObject<int[][]>();

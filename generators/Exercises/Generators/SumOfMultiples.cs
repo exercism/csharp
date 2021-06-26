@@ -13,9 +13,6 @@ namespace Exercism.CSharp.Exercises.Generators
                 testMethod.Input["factors"] = Array.Empty<int>();
         }
 
-        protected override void UpdateNamespaces(ISet<string> namespaces)
-        {
-            namespaces.Add(typeof(Array).Namespace);
-        }
+        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(Array).Namespace);
     }
 }

@@ -24,10 +24,9 @@ namespace Exercism.CSharp.Exercises
         {
             var testMethods = CreateTestMethods(canonicalData);
             var testClass = new TestClass(
-                exercise: canonicalData.Exercise,
-                className: canonicalData.Exercise.ToTestClassName(),
-                testMethods: testMethods
-            );
+                canonicalData.Exercise,
+                canonicalData.Exercise.ToTestClassName(),
+                testMethods);
             UpdateTestClass(testClass);
             UpdateNamespaces(testClass.Namespaces);
 

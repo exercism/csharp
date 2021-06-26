@@ -41,9 +41,7 @@ namespace Exercism.CSharp.Output
         public bool UseVariableForExpected { get; set; }
         public bool UseVariablesForConstructorParameters { get; set; }
         public bool UseVariableForTested { get; set; }
-        public bool UseVariableForSut 
-            => TestedMethodType == TestedMethodType.InstanceMethod || 
-               TestedMethodType == TestedMethodType.Property;
+        public bool UseVariableForSut => TestedMethodType is TestedMethodType.InstanceMethod or TestedMethodType.Property;
 
         public string TestMethodName { get; set; }
         public string TestMethodNameWithPath { get; }

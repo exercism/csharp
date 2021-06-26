@@ -84,9 +84,6 @@ namespace Exercism.CSharp.Exercises.Generators
         private string RenderTerritory(dynamic territory)
             => Render.Object(((JArray)territory).Select(coordinate => (coordinate[0].ToObject<int>(), coordinate[1].ToObject<int>())).ToArray());
 
-        protected override void UpdateNamespaces(ISet<string> namespaces)
-        {
-            namespaces.Add(typeof(Dictionary<int, int>).Namespace);
-        }
+        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(Dictionary<int, int>).Namespace);
     }
 }

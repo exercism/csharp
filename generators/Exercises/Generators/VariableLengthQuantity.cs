@@ -23,9 +23,6 @@ namespace Exercism.CSharp.Exercises.Generators
         private static uint[] ConvertToUInt32Array(IEnumerable input) 
             => input.Cast<object>().Select(number => Convert.ToUInt32(number.ToString())).ToArray();
 
-        protected override void UpdateNamespaces(ISet<string> namespaces)
-        {
-            namespaces.Add(typeof(Array).Namespace);
-        }
+        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(Array).Namespace);
     }
 }

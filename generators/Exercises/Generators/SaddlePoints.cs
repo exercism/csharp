@@ -24,10 +24,7 @@ namespace Exercism.CSharp.Exercises.Generators
             }
         }
 
-        protected override void UpdateNamespaces(ISet<string> namespaces)
-        {
-            namespaces.Add(typeof(string).Namespace);
-        }
+        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(string).Namespace);
 
         private static dynamic ToMultiDimensionalArray(JToken jArray) => jArray.ToObject<int[,]>();
 

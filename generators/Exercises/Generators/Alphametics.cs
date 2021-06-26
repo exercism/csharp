@@ -24,9 +24,6 @@ namespace Exercism.CSharp.Exercises.Generators
             return expected.ToDictionary(kv => kv.Key[0], kv => Convert.ToInt32(kv.Value));
         }
 
-        protected override void UpdateNamespaces(ISet<string> namespaces)
-        {
-            namespaces.Add(typeof(Dictionary<char, int>).Namespace);
-        }
-}
+        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(Dictionary<char, int>).Namespace);
+    }
 }

@@ -5,24 +5,15 @@ namespace Exercism.CSharp.Output.Rendering
 {
     internal class MultiLineString
     {
-        public MultiLineString(object obj)
-        {
-            switch (obj)
+        public MultiLineString(object obj) =>
+            Lines = obj switch
             {
-                case string[] lines:
-                    Lines = lines;
-                    break;
-                case string line:
-                    Lines = line.Split("\n");
-                    break;
-                case JArray _:
-                    Lines = Array.Empty<string>();
-                    break;
-                default:
-                    throw new ArgumentException("Unsupported multi-line string type", nameof(obj));
-            }
-        }
-        
+                string[] lines => lines,
+                string line => line.Split("\n"),
+                JArray _ => Array.Empty<string>(),
+                _ => throw new ArgumentException("Unsupported multi-line string type", nameof(obj))
+            };
+
         public string[] Lines { get; }
     }
 }

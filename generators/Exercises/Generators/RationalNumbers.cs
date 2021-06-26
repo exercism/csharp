@@ -5,10 +5,7 @@ namespace Exercism.CSharp.Exercises.Generators
 {
     internal class RationalNumbers : ExerciseGenerator
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
-            testMethod.Assert = RenderAssert(testMethod);
-        }
+        protected override void UpdateTestMethod(TestMethod testMethod) => testMethod.Assert = RenderAssert(testMethod);
 
         private string RenderAssert(TestMethod testMethod)
         {

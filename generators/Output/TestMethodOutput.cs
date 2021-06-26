@@ -60,28 +60,18 @@ namespace Exercism.CSharp.Output
         private string ExpectedVariable => Renderer.Variable(ExpectedVariableName, Renderer.ObjectMultiLine(_testMethod.Expected));
         private string ExpectedValue => _testMethod.UseVariableForExpected ? ExpectedVariableName : Renderer.Object(_testMethod.Expected);
         
-        private string TestedMethodInvocation
-        {
-            get
+        private string TestedMethodInvocation =>
+            _testMethod.TestedMethodType switch
             {
-                switch (_testMethod.TestedMethodType)
-                {
-                    case TestedMethodType.StaticMethod:
-                        return $"{_testMethod.TestedClass}.{_testMethod.TestedMethod}({InputValues})";
-                    case TestedMethodType.ExtensionMethod:
-                        return $"{InputValues}.{_testMethod.TestedMethod}()";
-                    case TestedMethodType.InstanceMethod:
-                        return $"{SutVariableName}.{_testMethod.TestedMethod}({InputValues})";
-                    case TestedMethodType.Property:
-                        return $"{SutVariableName}.{_testMethod.TestedMethod}";
-                    case TestedMethodType.Constructor:
-                        return $"new {_testMethod.TestedClass}({ConstructorValues})";
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
-            }
-        }
-        
+                TestedMethodType.StaticMethod =>
+                    $"{_testMethod.TestedClass}.{_testMethod.TestedMethod}({InputValues})",
+                TestedMethodType.ExtensionMethod => $"{InputValues}.{_testMethod.TestedMethod}()",
+                TestedMethodType.InstanceMethod => $"{SutVariableName}.{_testMethod.TestedMethod}({InputValues})",
+                TestedMethodType.Property => $"{SutVariableName}.{_testMethod.TestedMethod}",
+                TestedMethodType.Constructor => $"new {_testMethod.TestedClass}({ConstructorValues})",
+                _ => throw new ArgumentOutOfRangeException()
+            };
+
         public string Render()
         {
             Update();
@@ -97,27 +87,18 @@ namespace Exercism.CSharp.Output
 
         private string RenderAct() => Template.Render("Act", new { });
 
-        private string RenderAssert()
-        {
-            switch (CurrentAssertType)
+        private string RenderAssert() =>
+            CurrentAssertType switch
             {
-                case AssertType.Equal:
-                    return Renderer.AssertEqual(ExpectedValue, TestedValue);
-                case AssertType.Empty:
-                    return Renderer.AssertEmpty(ExpectedValue, TestedValue);
-                case AssertType.Null:
-                    return Renderer.AssertNull(TestedValue);
-                case AssertType.Throws:
-                    return Renderer.AssertThrows(_testMethod.ExceptionThrown, TestedValue);
-                case AssertType.Boolean:
-                    return Renderer.AssertBoolean(Convert.ToBoolean(_testMethod.Expected), TestedValue);
-                case AssertType.Matches:
-                    return Renderer.AssertMatches(ExpectedValue, TestedValue);
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-        }
-        
+                AssertType.Equal => Renderer.AssertEqual(ExpectedValue, TestedValue),
+                AssertType.Empty => Renderer.AssertEmpty(ExpectedValue, TestedValue),
+                AssertType.Null => Renderer.AssertNull(TestedValue),
+                AssertType.Throws => Renderer.AssertThrows(_testMethod.ExceptionThrown, TestedValue),
+                AssertType.Boolean => Renderer.AssertBoolean(Convert.ToBoolean(_testMethod.Expected), TestedValue),
+                AssertType.Matches => Renderer.AssertMatches(ExpectedValue, TestedValue),
+                _ => throw new ArgumentOutOfRangeException()
+            };
+
         private object RenderValues => new { Name = _testMethod.TestMethodName, _testMethod.Skip, _testMethod.Arrange, _testMethod.Act, _testMethod.Assert };
 
         private void Update()
@@ -141,19 +122,13 @@ namespace Exercism.CSharp.Output
                 if (_testMethod.ExceptionThrown != null)
                     return AssertType.Throws;
 
-                switch (_testMethod.Expected)
+                return _testMethod.Expected switch
                 {
-                    case null:
-                        return AssertType.Null;
-                    case bool _:
-                        return AssertType.Boolean;
-                    case Regex _:
-                        return AssertType.Matches;
-                    default:
-                        return UseEmptyAssertion 
-                            ? AssertType.Empty 
-                            : AssertType.Equal;
-                }
+                    null => AssertType.Null,
+                    bool _ => AssertType.Boolean,
+                    Regex _ => AssertType.Matches,
+                    _ => UseEmptyAssertion ? AssertType.Empty : AssertType.Equal
+                };
             }
         }
 

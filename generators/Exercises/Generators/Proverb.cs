@@ -19,9 +19,6 @@ namespace Exercism.CSharp.Exercises.Generators
         private UnescapedValue RenderAsMultilineArray(dynamic value) 
             => new(Render.ArrayMultiLine(value as string[] ?? Array.Empty<string>()));
 
-        protected override void UpdateNamespaces(ISet<string> namespaces)
-        {
-            namespaces.Add(typeof(Array).Namespace);
-        }
+        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(Array).Namespace);
     }
 }

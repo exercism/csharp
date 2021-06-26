@@ -39,8 +39,7 @@ namespace Exercism.CSharp.Exercises.Generators
             AddDisposeMethod(testClass);
         }
 
-        private static void AddIliadData(TestClass testClass)
-        {
+        private static void AddIliadData(TestClass testClass) =>
             testClass.AdditionalMethods.Add(@"
 private const string IliadFileName = ""iliad.txt"";
 private const string IliadContents =
@@ -53,10 +52,8 @@ private const string IliadContents =
     ""When fierce dispute had separated once\n"" +
     ""The noble Chief Achilles from the son\n"" +
     ""Of Atreus, Agamemnon, King of men.\n"";");
-        }
 
-        private static void AddMidsummerNightData(TestClass testClass)
-        {
+        private static void AddMidsummerNightData(TestClass testClass) =>
             testClass.AdditionalMethods.Add(@"
 private const string MidsummerNightFileName = ""midsummer-night.txt"";
 private const string MidsummerNightContents =
@@ -67,10 +64,8 @@ private const string MidsummerNightContents =
     ""But I beseech your grace that I may know\n"" +
     ""The worst that may befall me in this case,\n"" +
     ""If I refuse to wed Demetrius.\n"";");
-        }
 
-        private static void AddParadiseLostData(TestClass testClass)
-        {
+        private static void AddParadiseLostData(TestClass testClass) =>
             testClass.AdditionalMethods.Add(@"
 private const string ParadiseLostFileName = ""paradise-lost.txt"";
 private const string ParadiseLostContents =
@@ -82,10 +77,8 @@ private const string ParadiseLostContents =
     ""Sing Heav'nly Muse, that on the secret top\n"" +
     ""Of Oreb, or of Sinai, didst inspire\n"" +
     ""That Shepherd, who first taught the chosen Seed\n"";");
-        }
 
-        private static void AddConstructor(TestClass testClass)
-        {
+        private static void AddConstructor(TestClass testClass) =>
             testClass.AdditionalMethods.Add(@"
 public GrepTest()
 {
@@ -94,10 +87,8 @@ public GrepTest()
     File.WriteAllText(MidsummerNightFileName, MidsummerNightContents);
     File.WriteAllText(ParadiseLostFileName, ParadiseLostContents);
 }");
-        }
 
-        private static void AddDisposeMethod(TestClass testClass)
-        {
+        private static void AddDisposeMethod(TestClass testClass) =>
             testClass.AdditionalMethods.Add(@"
 public void Dispose()
 {
@@ -106,8 +97,7 @@ public void Dispose()
     File.Delete(MidsummerNightFileName);
     File.Delete(ParadiseLostFileName);
 }");
-        }
-        
+
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {
             namespaces.Add(typeof(IDisposable).Namespace);

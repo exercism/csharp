@@ -88,18 +88,13 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.Assert = RenderAssertForKeyExchangeProperty();
         }
         
-        private static dynamic ConvertKeyExchangeInput(dynamic input, TestMethod testMethod)
-        {
-            switch (input)
+        private static dynamic ConvertKeyExchangeInput(dynamic input, TestMethod testMethod) =>
+            input switch
             {
-                case int i:
-                    return new BigInteger(i);
-                case string str:
-                    return new UnescapedValue($"{testMethod.TestedClass}.{char.ToUpper(str[0]) + str.Substring(1)}");
-                default:
-                    return input;
-            }
-        }
+                int i => new BigInteger(i),
+                string str => new UnescapedValue($"{testMethod.TestedClass}.{char.ToUpper(str[0]) + str.Substring(1)}"),
+                _ => input
+            };
 
         private string RenderAssertForKeyExchangeProperty() => Render.AssertEqual("secretA", "secretB");
 
