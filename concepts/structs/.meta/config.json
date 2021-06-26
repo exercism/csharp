@@ -1,11 +1,12 @@
 {
-  "blurb": "TODO: add blurb for structs concept",
+  "blurb": "A structure type is a value type that can encapsulate data and related functionality.",
   "authors": [
     "mikedamay"
   ],
   "contributors": [
     "efx",
     "jrr",
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ]
 }
