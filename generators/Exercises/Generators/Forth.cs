@@ -3,7 +3,7 @@ using System;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class Forth : ExerciseGenerator
+    internal class Forth : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

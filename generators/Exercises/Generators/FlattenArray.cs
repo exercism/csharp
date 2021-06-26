@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class FlattenArray : ExerciseGenerator
+    internal class FlattenArray : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

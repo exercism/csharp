@@ -2,7 +2,7 @@ using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class Luhn : ExerciseGenerator
+    internal class Luhn : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

@@ -6,7 +6,7 @@ using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class VariableLengthQuantity : ExerciseGenerator
+    internal class VariableLengthQuantity : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

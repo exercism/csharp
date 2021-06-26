@@ -2,7 +2,7 @@ using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class ResistorColorTrio : ExerciseGenerator
+    internal class ResistorColorTrio : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

@@ -6,7 +6,7 @@ using Humanizer;
 
 namespace Exercism.CSharp.Helpers
 {
-    public static class NameExtensions
+    internal static class NameExtensions
     {
         private static readonly HashSet<Type> ValueTupleTypes = new HashSet<Type>(new[]
         {

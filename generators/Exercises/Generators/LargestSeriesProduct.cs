@@ -3,7 +3,7 @@ using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class LargestSeriesProduct : ExerciseGenerator
+    internal class LargestSeriesProduct : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

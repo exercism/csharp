@@ -4,7 +4,7 @@ using Exercism.CSharp.Helpers;
 
 namespace Exercism.CSharp.Output.Rendering
 {
-    public partial class Render
+    internal partial class Render
     {   
         public string List<T>(List<T> elements) =>
             elements.Any()

@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Exercism.CSharp.Output.Rendering
 {
-    public partial class Render
+    internal partial class Render
     {   
         public string CollectionInitializer<T>(IEnumerable<T> elements)
             => CollectionInitializer(elements, line => Object(line), " ");

@@ -1,31 +1,37 @@
-﻿using System.Collections.Generic;
+﻿using System.IO;
+
 using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Input
 {
-    public class CanonicalDataParser
+    internal class CanonicalDataParser
     {
-        private readonly CanonicalDataFile _canonicalDataFile;
+        private readonly Options _options;
 
-        public CanonicalDataParser(CanonicalDataFile canonicalDataFile) => _canonicalDataFile = canonicalDataFile;
+        private CanonicalDataParser(Options options) => _options = options;
+
+        public static CanonicalDataParser Create(Options options)
+        {
+            var propSpecsRepository = new PropSpecsRepository(options);
+            propSpecsRepository.SyncToLatest();
+
+            return new CanonicalDataParser(options);
+        }
 
         public CanonicalData Parse(string exercise)
-        {
-            var canonicalDataJsonContents = _canonicalDataFile.Contents(exercise);
-            var canonicalDataJson = JObject.Parse(canonicalDataJsonContents);
-
-            var exerciseName = ParseExerciseName(canonicalDataJson);
-            var version = ParseVersion(canonicalDataJson);
-            var canonicalDataCases = ParseCanonicalDataCases(canonicalDataJson);
+        {   
+            var canonicalDataJson = ParseCanonicalData(exercise);
+            var exerciseName = canonicalDataJson.Value<string>("exercise");
+            var version = canonicalDataJson.Value<string>("version");
+            var canonicalDataCases = CanonicalDataCaseParser.Parse((JArray)canonicalDataJson["cases"]);
 
             return new CanonicalData(exerciseName, version, canonicalDataCases);
         }
 
-        private static string ParseExerciseName(JToken canonicalDataJObject) => canonicalDataJObject.Value<string>("exercise");
+        private JObject ParseCanonicalData(string exercise) =>
+            JObject.Parse(File.ReadAllText(ExerciseCanonicalDataPath(exercise)));
 
-        private static string ParseVersion(JToken canonicalDataJObject) => canonicalDataJObject.Value<string>("version");
-
-        private static IReadOnlyCollection<CanonicalDataCase> ParseCanonicalDataCases(JObject canonicalDataJObject)
-            => CanonicalDataCaseParser.Parse((JArray)canonicalDataJObject["cases"]);
+        private string ExerciseCanonicalDataPath(string exercise) =>
+            Path.Combine(_options.ProbSpecsDir, "exercises", exercise, "canonical-data.json");
     }
 }

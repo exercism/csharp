@@ -4,7 +4,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Input
 {
-    public static class CanonicalDataCaseParser
+    internal static class CanonicalDataCaseParser
     {
         public static IReadOnlyCollection<CanonicalDataCase> Parse(JToken canonicalDataCaseJToken) 
             => GetCanonicalDataCaseTokens(canonicalDataCaseJToken)

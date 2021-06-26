@@ -7,7 +7,7 @@ using Exercism.CSharp.Input;
 
 namespace Exercism.CSharp.Output
 {
-    public class TestMethod
+    internal class TestMethod
     {
         private readonly HashSet<string> _inputParameters = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         private readonly HashSet<string> _constructorInputParameters = new HashSet<string>(StringComparer.OrdinalIgnoreCase);

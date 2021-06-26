@@ -5,7 +5,7 @@ using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class CircularBuffer : ExerciseGenerator
+    internal class CircularBuffer : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

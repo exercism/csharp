@@ -3,7 +3,7 @@ using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class CollatzConjecture : ExerciseGenerator
+    internal class CollatzConjecture : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

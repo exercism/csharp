@@ -2,7 +2,7 @@
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class Yacht : ExerciseGenerator
+    internal class Yacht : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

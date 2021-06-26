@@ -3,7 +3,7 @@ using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class RnaTranscription : ExerciseGenerator
+    internal class RnaTranscription : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

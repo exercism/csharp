@@ -4,7 +4,7 @@ using CommandLine;
 
 namespace Exercism.CSharp
 {
-    public class Options
+    internal class Options
     {
         [Option('e', "exercise", Required = false, HelpText = "The exercise to generate.")]
         public string Exercise { get; set; }

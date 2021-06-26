@@ -6,7 +6,7 @@ using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Output
 {
-    public class TestClassOutput
+    internal class TestClassOutput
     {
         private readonly TestClass _testClass;
         

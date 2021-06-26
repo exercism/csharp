@@ -1,6 +1,6 @@
 ﻿namespace Exercism.CSharp.Exercises.Generators
 {
-    public class Pangram : ExerciseGenerator
+    internal class Pangram : ExerciseGenerator
     {
     }
 }

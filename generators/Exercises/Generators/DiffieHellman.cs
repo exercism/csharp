@@ -8,7 +8,7 @@ using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class DiffieHellman : ExerciseGenerator
+    internal class DiffieHellman : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

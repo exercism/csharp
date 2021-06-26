@@ -2,7 +2,7 @@
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class Leap : ExerciseGenerator
+    internal class Leap : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

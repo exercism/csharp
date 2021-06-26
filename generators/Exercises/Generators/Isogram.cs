@@ -1,6 +1,6 @@
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class Isogram : ExerciseGenerator
+    internal class Isogram : ExerciseGenerator
     {
     }
 }

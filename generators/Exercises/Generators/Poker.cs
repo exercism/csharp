@@ -2,7 +2,7 @@
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class Poker : ExerciseGenerator
+    internal class Poker : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

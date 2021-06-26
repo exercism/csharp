@@ -7,7 +7,7 @@ using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises
 {
-    public abstract class ExerciseGenerator
+    internal abstract class ExerciseGenerator
     {
         public string Name => GetType().ToExerciseName();
         

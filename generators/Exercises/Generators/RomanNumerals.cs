@@ -2,7 +2,7 @@
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class RomanNumerals : ExerciseGenerator
+    internal class RomanNumerals : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

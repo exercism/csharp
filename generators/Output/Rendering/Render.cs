@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace Exercism.CSharp.Output.Rendering
 {
-    public partial class Render
+    internal partial class Render
     {
         public string Object(object val)
         {

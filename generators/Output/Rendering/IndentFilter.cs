@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Exercism.CSharp.Output.Rendering
 {
-    public static class IndentFilter
+    internal static class IndentFilter
     {
         public static string Indent(string input)
             => string.Join(Environment.NewLine, input

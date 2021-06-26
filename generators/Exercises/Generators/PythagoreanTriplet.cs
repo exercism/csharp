@@ -7,7 +7,7 @@ using Exercism.CSharp.Output.Rendering;
 
 namespace generators.Exercises.Generators
 {
-    public class PythagoreanTriplet : ExerciseGenerator
+    internal class PythagoreanTriplet : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

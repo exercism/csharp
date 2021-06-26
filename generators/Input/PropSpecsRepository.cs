@@ -5,7 +5,7 @@ using Serilog;
 
 namespace Exercism.CSharp.Input
 {
-    public class CanonicalDataFile
+    internal class PropSpecsRepository
     {
         private const string ProblemSpecificationsGitUrl = "https://github.com/exercism/problem-specifications.git";
         private const string ProblemSpecificationsBranch = "master";
@@ -14,19 +14,12 @@ namespace Exercism.CSharp.Input
 
         private readonly Options _options;
 
-        public CanonicalDataFile(Options options) => _options = options;
+        public PropSpecsRepository(Options options) => _options = options;
 
-        public bool Exists(string exercise) => File.Exists(GetExerciseCanonicalDataPath(exercise));
-
-        public string Contents(string exercise) => File.ReadAllText(GetExerciseCanonicalDataPath(exercise));
-
-        private string GetExerciseCanonicalDataPath(string exercise)
-            => Path.Combine(_options.ProbSpecsDir, "exercises", exercise, "canonical-data.json");
-
-        public void DownloadData()
+        public void SyncToLatest()
         {
             CloneRepository();
-            UpdateToLatestVersion();
+            ResetBranchToUpstream();
         }
 
         private void CloneRepository()
@@ -41,7 +34,7 @@ namespace Exercism.CSharp.Input
             Log.Information("Repository cloned.");
         }
 
-        private void UpdateToLatestVersion()
+        private void ResetBranchToUpstream()
         {
             Log.Information("Updating repository to latest version...");
 

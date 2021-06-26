@@ -5,7 +5,7 @@ using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class Allergies : ExerciseGenerator
+    internal class Allergies : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

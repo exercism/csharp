@@ -2,7 +2,7 @@
 
 namespace Exercism.CSharp.Output
 {
-    public class TestClass
+    internal class TestClass
     {
         public TestClass(string exercise, string version, string className, IReadOnlyCollection<TestMethod> testMethods)
             => (Exercise, Version, ClassName, TestMethods) = (exercise, version, className, testMethods);

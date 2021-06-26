@@ -6,7 +6,7 @@ using Humanizer;
 
 namespace Exercism.CSharp.Output.Rendering
 {
-    public partial class Render
+    internal partial class Render
     {
         public UnescapedValue Enum(string enumType, string enumCase)
             => new UnescapedValue($"{enumType}.{enumCase.ToLower().Dehumanize()}");

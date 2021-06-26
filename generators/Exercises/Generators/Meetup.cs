@@ -4,7 +4,7 @@ using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class Meetup : ExerciseGenerator
+    internal class Meetup : ExerciseGenerator
     {
         private const string ParamYear = "year";
         private const string ParamMonth = "month";

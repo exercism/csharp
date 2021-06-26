@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 namespace Exercism.CSharp.Input
 {
-    public static class TrackConfigFile
+    internal static class TrackConfigFile
     {
         private static readonly string ConfigFilePath = Path.Combine("..", "config.json");
 
@@ -22,7 +22,7 @@ namespace Exercism.CSharp.Input
             public ConfigExercise[] Exercises { get; set; }
         }
 
-        public class ConfigExercise
+        internal class ConfigExercise
         {
             public string Slug { get; set; }
             public bool Deprecated { get; set; }

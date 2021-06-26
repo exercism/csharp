@@ -3,7 +3,7 @@ using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class Wordy : ExerciseGenerator
+    internal class Wordy : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

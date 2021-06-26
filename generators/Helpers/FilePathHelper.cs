@@ -2,7 +2,7 @@
 
 namespace Exercism.CSharp.Helpers
 {
-    public static class FilePathHelper
+    internal static class FilePathHelper
     {
         public static string TestClassFilePath(string exerciseName, string exerciseTestClassName) => Path.Combine("..", "exercises", exerciseName, CsharpFileName(exerciseTestClassName));
 

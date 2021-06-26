@@ -9,7 +9,7 @@ using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Output
 {
-    public class TestMethodOutput
+    internal class TestMethodOutput
     {
         private const string SutVariableName = "sut";
         private const string TestedVariableName = "actual";

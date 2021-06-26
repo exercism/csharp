@@ -4,7 +4,7 @@ using DotLiquid.FileSystems;
 
 namespace Exercism.CSharp.Output.Rendering
 {
-    public static class Template
+    internal static class Template
     {
         private static readonly string EmbeddedTemplatesNamespace = $"{typeof(Template).Namespace}.Templates";
 

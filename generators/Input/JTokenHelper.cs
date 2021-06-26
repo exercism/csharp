@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Input
 {
-    public static class JTokenHelper
+    internal static class JTokenHelper
     {
         public static IEnumerable<JToken> ParentsAndSelf(this JToken jToken)
         {

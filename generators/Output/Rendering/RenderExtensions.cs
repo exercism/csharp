@@ -1,6 +1,6 @@
 ﻿namespace Exercism.CSharp.Output.Rendering
 {
-    public static class RenderExtensions
+    internal static class RenderExtensions
     {
         private const int IndentSize = 4;
 

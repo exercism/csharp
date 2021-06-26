@@ -1,6 +1,6 @@
 ﻿namespace Exercism.CSharp.Exercises.Generators
 {
-    public class ArmstrongNumbers : ExerciseGenerator
+    internal class ArmstrongNumbers : ExerciseGenerator
     {
     }
 }

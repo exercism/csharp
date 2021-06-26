@@ -3,7 +3,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Output.Rendering
 {
-    public class MultiLineString
+    internal class MultiLineString
     {
         public MultiLineString(object obj)
         {

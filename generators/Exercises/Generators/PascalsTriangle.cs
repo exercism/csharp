@@ -4,7 +4,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class PascalsTriangle : ExerciseGenerator
+    internal class PascalsTriangle : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

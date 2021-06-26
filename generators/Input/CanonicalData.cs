@@ -2,10 +2,9 @@
 
 namespace Exercism.CSharp.Input
 {
-    public class CanonicalData
+    internal class CanonicalData
     {
-        public CanonicalData(string exercise, string version, IReadOnlyCollection<CanonicalDataCase> cases)
-            => (Exercise, Version, Cases) = (exercise, version, cases);
+        public CanonicalData(string exercise, string version, IReadOnlyCollection<CanonicalDataCase> cases) => (Exercise, Version, Cases) = (exercise, version, cases);
 
         public string Exercise { get; }
         public string Version { get; }

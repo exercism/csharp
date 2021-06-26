@@ -5,7 +5,7 @@ using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class Proverb : ExerciseGenerator
+    internal class Proverb : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

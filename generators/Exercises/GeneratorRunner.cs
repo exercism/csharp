@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -10,49 +9,41 @@ using Serilog;
 
 namespace Exercism.CSharp.Exercises
 {
-    public static class GeneratorRunner
+    internal class GeneratorRunner
     {
-        private static readonly Dictionary<string, Type> GeneratorTypes =
+        private readonly CanonicalDataParser _canonicalDataParser;
+        private readonly Dictionary<string, Type> _exerciseGeneratorTypes;
+        
+        public GeneratorRunner(Options options)
+        {
+            _canonicalDataParser = CanonicalDataParser.Create(options);
+            _exerciseGeneratorTypes = FindExerciseGeneratorTypes();
+        }
+
+        public void RegenerateAllExercises()
+        {
+            foreach (var exerciseGeneratorType in _exerciseGeneratorTypes.Values)
+                RegenerateExercise(exerciseGeneratorType);
+        }
+
+        public void RegenerateSingleExercise(string exercise)
+        {
+            if (_exerciseGeneratorTypes.TryGetValue(exercise, out var exerciseGeneratorType))
+                RegenerateExercise(exerciseGeneratorType);
+            else
+                Log.Error("Could not find generator for {Exercise} exercise", exercise);
+        }
+
+        private void RegenerateExercise(Type exerciseGeneratorType)
+        {
+            var exerciseGenerator = (ExerciseGenerator) Activator.CreateInstance(exerciseGeneratorType);
+            exerciseGenerator!.Regenerate(_canonicalDataParser.Parse(exerciseGenerator.Name));
+            Log.Information("{Exercise}: updated", exerciseGenerator.Name);
+        }
+
+        private static Dictionary<string, Type> FindExerciseGeneratorTypes() =>
             Assembly.GetEntryAssembly()!.GetTypes()
                 .Where(type => typeof(ExerciseGenerator).IsAssignableFrom(type) && !type.IsAbstract)
-                .ToDictionary(type => type.Name, type => type);
-    
-        public static void RegenerateAll(Options options)
-        {
-            // TODO: spl
-            
-            var canonicalDataFile = new CanonicalDataFile(options);
-            canonicalDataFile.DownloadData();
-
-            Log.Information("Re-generating test class(es)...");
-            
-            var canonicalDataParser = new CanonicalDataParser(canonicalDataFile);
-
-            // foreach (var exercise in new ExerciseGeneratorCollection(options))
-            //     RegenerateTestClass(exercise, canonicalDataParser);
-
-            Log.Information("Re-generated test class(es).");
-        }
-
-        public static void RegenerateExercise(Options options, string exercise)
-        {
-            // var canonicalData = canonicalDataParser.Parse(exercise.Name);
-            // exercise.Regenerate(canonicalData);
-            //
-            // Log.Information("{Exercise}: tests generated", exercise.Name);
-        }
-        
-        //
-        //
-        // private readonly ExerciseGenerator[] _exerciseGenerators;
-        //
-        // public GeneratorRunner(Options options) => _exerciseGenerators = GetExerciseTypesByName(options);
-        //
-        // private static ExerciseGenerator[] GetExerciseTypesByName(Options options) =>
-        //     (
-        //      where options.Exercise == null || string.Equals(type.Name, options.Exercise, StringComparison.OrdinalIgnoreCase)
-        //      select (ExerciseGenerator)Activator.CreateInstance(type))
-        //     .ToArray();
-
+                .ToDictionary(type => type.Name, type => type, StringComparer.OrdinalIgnoreCase);
     }
 }

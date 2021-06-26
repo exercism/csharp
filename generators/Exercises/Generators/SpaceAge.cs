@@ -2,7 +2,7 @@
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class SpaceAge : ExerciseGenerator
+    internal class SpaceAge : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

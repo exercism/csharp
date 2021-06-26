@@ -6,7 +6,7 @@ using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class Grep : ExerciseGenerator
+    internal class Grep : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

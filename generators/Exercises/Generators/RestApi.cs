@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class RestApi : ExerciseGenerator
+    internal class RestApi : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

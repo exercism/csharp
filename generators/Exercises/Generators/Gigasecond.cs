@@ -4,7 +4,7 @@ using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class Gigasecond : ExerciseGenerator
+    internal class Gigasecond : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

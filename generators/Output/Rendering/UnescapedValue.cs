@@ -2,7 +2,7 @@
 
 namespace Exercism.CSharp.Output.Rendering
 {
-    public class UnescapedValue : ILiquidizable
+    internal class UnescapedValue : ILiquidizable
     {
         private readonly string _value;
 

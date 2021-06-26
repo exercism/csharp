@@ -2,7 +2,7 @@
 
 namespace Exercism.CSharp.Input
 {
-    public class CanonicalDataCase
+    internal class CanonicalDataCase
     {
         public CanonicalDataCase(int index, string property, IReadOnlyDictionary<string, dynamic> input, 
             dynamic expected, string description, IReadOnlyCollection<string> descriptionPath)

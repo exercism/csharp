@@ -2,7 +2,7 @@
 
 namespace Exercism.CSharp.Output.Rendering
 {
-    public partial class Render
+    internal partial class Render
     {
         public string DateTime(DateTime dateTime)
         {

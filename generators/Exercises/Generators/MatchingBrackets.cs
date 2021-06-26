@@ -2,7 +2,7 @@
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class MatchingBrackets : ExerciseGenerator
+    internal class MatchingBrackets : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
