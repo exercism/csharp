@@ -9,7 +9,7 @@ namespace Exercism.CSharp.Output.Rendering
     internal partial class Render
     {
         public UnescapedValue Enum(string enumType, string enumCase)
-            => new UnescapedValue($"{enumType}.{enumCase.ToLower().Dehumanize()}");
+            => new($"{enumType}.{enumCase.ToLower().Dehumanize()}");
 
         public string Char(char c) => c.Quote();
        

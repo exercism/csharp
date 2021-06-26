@@ -21,7 +21,7 @@ namespace Exercism.CSharp.Exercises.Generators
             => string.Join(" ", testMethod.Input["flags"]);
 
         private static MultiLineString ConvertExpected(dynamic expected) 
-            => new MultiLineString(expected as string[] ?? Array.Empty<string>());
+            => new(expected as string[] ?? Array.Empty<string>());
 
         protected override void UpdateTestClass(TestClass testClass)
         {

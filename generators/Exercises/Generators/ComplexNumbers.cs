@@ -59,7 +59,7 @@ namespace Exercism.CSharp.Exercises.Generators
                 : rawValue;
 
         private UnescapedValue RenderComplexNumber(dynamic rawValue) 
-            => new UnescapedValue($"new ComplexNumber({Render.Object(ConvertToDouble(rawValue[0]))}, {Render.Object(ConvertToDouble(rawValue[1]))})");
+            => new($"new ComplexNumber({Render.Object(ConvertToDouble(rawValue[0]))}, {Render.Object(ConvertToDouble(rawValue[1]))})");
 
         private static bool IsComplexNumber(object rawValue) => rawValue is int[] || rawValue is double[] || rawValue is float[] || rawValue is JArray;
 

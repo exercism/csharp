@@ -8,7 +8,7 @@ namespace Exercism.CSharp.Helpers
 {
     internal static class NameExtensions
     {
-        private static readonly HashSet<Type> ValueTupleTypes = new HashSet<Type>(new[]
+        private static readonly HashSet<Type> ValueTupleTypes = new(new[]
         {
             typeof(ValueTuple<>),
             typeof(ValueTuple<,>),

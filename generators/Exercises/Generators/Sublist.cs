@@ -15,7 +15,7 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.Expected = Render.Enum("SublistType", testMethod.Expected);
         }
 
-        private static List<int> ConvertToList(dynamic value) => new List<int>(value as int[] ?? Array.Empty<int>());
+        private static List<int> ConvertToList(dynamic value) => new(value as int[] ?? Array.Empty<int>());
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {

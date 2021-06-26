@@ -17,6 +17,6 @@ namespace Exercism.CSharp.Exercises.Generators
         }
         
         private UnescapedValue RenderAsSingleLineArray(dynamic value) 
-            => new UnescapedValue(Render.Array(value as int[] ?? Array.Empty<int>()));
+            => new(Render.Array(value as int[] ?? Array.Empty<int>()));
     }
 }

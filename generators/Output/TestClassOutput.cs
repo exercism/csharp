@@ -27,7 +27,6 @@ namespace Exercism.CSharp.Output
         private object RenderParameters => new
         {
             _testClass.ClassName,
-            _testClass.Version,
             _testClass.IsDisposable,
             Methods,
             Namespaces

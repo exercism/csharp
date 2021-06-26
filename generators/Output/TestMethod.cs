@@ -9,8 +9,8 @@ namespace Exercism.CSharp.Output
 {
     internal class TestMethod
     {
-        private readonly HashSet<string> _inputParameters = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-        private readonly HashSet<string> _constructorInputParameters = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        private readonly HashSet<string> _inputParameters = new(StringComparer.OrdinalIgnoreCase);
+        private readonly HashSet<string> _constructorInputParameters = new(StringComparer.OrdinalIgnoreCase);
         
         public TestMethod(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase)
         {

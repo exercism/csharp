@@ -15,7 +15,7 @@ namespace Exercism.CSharp.Output
         private const string TestedVariableName = "actual";
         private const string ExpectedVariableName = "expected";
         
-        private static readonly Render Renderer = new Render();
+        private static readonly Render Renderer = new();
         private readonly TestMethod _testMethod;
 
         public TestMethodOutput(TestMethod testMethod) => _testMethod = testMethod;

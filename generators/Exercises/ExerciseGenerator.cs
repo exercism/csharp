@@ -11,7 +11,7 @@ namespace Exercism.CSharp.Exercises
     {
         public string Name => GetType().ToExerciseName();
         
-        protected Render Render { get; } = new Render();
+        protected Render Render { get; } = new();
 
         public void Regenerate(CanonicalData canonicalData)
         {   
@@ -25,7 +25,6 @@ namespace Exercism.CSharp.Exercises
             var testMethods = CreateTestMethods(canonicalData);
             var testClass = new TestClass(
                 exercise: canonicalData.Exercise,
-                version: canonicalData.Version,
                 className: canonicalData.Exercise.ToTestClassName(),
                 testMethods: testMethods
             );
