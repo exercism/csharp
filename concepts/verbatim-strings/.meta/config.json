@@ -1,9 +1,10 @@
 {
-  "blurb": "TODO: add blurb for verbatim-strings concept",
+  "blurb": "Verbatim strings allow multi-line strings.",
   "authors": [
     "mikedamay"
   ],
   "contributors": [
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ]
 }
