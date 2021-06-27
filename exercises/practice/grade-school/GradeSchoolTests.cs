@@ -13,16 +13,6 @@ public class GradeSchoolTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void A_student_cant_be_in_two_different_grades()
-    {
-        var sut = new GradeSchool();
-        sut.Add("Aimee", 2);
-        sut.Add("Aimee", 1);
-        var expected = Array.Empty<string>();
-        Assert.Empty(sut.Roster(2));
-    }
-
-    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Adding_more_students_adds_them_to_the_sorted_roster()
     {
         var sut = new GradeSchool();

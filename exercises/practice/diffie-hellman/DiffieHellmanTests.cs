@@ -33,15 +33,6 @@ public class DiffieHellmanTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Can_calculate_public_key_when_given_a_different_private_key()
-    {
-        var p = new BigInteger(23);
-        var g = new BigInteger(5);
-        var privateKey = new BigInteger(15);
-        Assert.Equal(new BigInteger(19), DiffieHellman.PublicKey(p, g, privateKey));
-    }
-
-    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Can_calculate_secret_using_other_partys_public_key()
     {
         var p = new BigInteger(23);

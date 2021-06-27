@@ -12,19 +12,19 @@ namespace Exercism.CSharp.Output
         private readonly HashSet<string> _inputParameters = new(StringComparer.OrdinalIgnoreCase);
         private readonly HashSet<string> _constructorInputParameters = new(StringComparer.OrdinalIgnoreCase);
         
-        public TestMethod(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase)
+        public TestMethod(Exercise exercise, TestCase testCase)
         {
-            Input = new Dictionary<string, dynamic>(canonicalDataCase.Input, StringComparer.OrdinalIgnoreCase);
-            Expected = canonicalDataCase.Expected;
-            Property = canonicalDataCase.Property;
-            Description = canonicalDataCase.Description;
-            TestMethodName = canonicalDataCase.Description.ToTestMethodName();
-            TestMethodNameWithPath = string.Join(" - ", canonicalDataCase.DescriptionPath).ToTestMethodName();
-            TestedClass = canonicalData.Exercise.ToTestedClassName();
-            TestedMethod = canonicalDataCase.Property.ToTestedMethodName();
-            Skip = canonicalDataCase.Index > 0;
+            Input = new Dictionary<string, dynamic>(testCase.Input, StringComparer.OrdinalIgnoreCase);
+            Expected = testCase.Expected;
+            Property = testCase.Property;
+            Description = testCase.Description;
+            TestMethodName = testCase.Description.ToTestMethodName();
+            TestMethodNameWithPath = string.Join(" - ", testCase.DescriptionPath).ToTestMethodName();
+            TestedClass = exercise.Name.ToTestedClassName();
+            TestedMethod = testCase.Property.ToTestedMethodName();
+            Skip = testCase.Index > 0;
 
-            InputParameters = canonicalDataCase.Input.Keys.ToArray();
+            InputParameters = testCase.Input.Keys.ToArray();
         }
         
         public string? Act { get; set; }

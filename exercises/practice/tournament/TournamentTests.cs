@@ -153,22 +153,6 @@ public class TournamentTests
         Assert.Equal(expected, RunTally(rows));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Ensure_points_sorted_numerically()
-    {
-        var rows = 
-            "Devastating Donkeys;Blithering Badgers;win\n" +
-            "Devastating Donkeys;Blithering Badgers;win\n" +
-            "Devastating Donkeys;Blithering Badgers;win\n" +
-            "Devastating Donkeys;Blithering Badgers;win\n" +
-            "Blithering Badgers;Devastating Donkeys;win";
-        var expected = 
-            "Team                           | MP |  W |  D |  L |  P\n" +
-            "Devastating Donkeys            |  5 |  4 |  0 |  1 | 12\n" +
-            "Blithering Badgers             |  5 |  1 |  0 |  4 |  3";
-        Assert.Equal(expected, RunTally(rows));
-    }
-
     private string RunTally(string input)
     {
         var encoding = new UTF8Encoding();

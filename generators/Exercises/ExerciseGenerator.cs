@@ -13,19 +13,19 @@ namespace Exercism.CSharp.Exercises
         
         protected Render Render { get; } = new();
 
-        public void Regenerate(CanonicalData canonicalData, Options options)
+        public void Regenerate(Exercise exercise, Options options)
         {   
-            var testClass = CreateTestClass(canonicalData);
+            var testClass = CreateTestClass(exercise);
             var testClassOutput = new TestClassOutput(testClass, options);
             testClassOutput.WriteToFile();
         }
 
-        private TestClass CreateTestClass(CanonicalData canonicalData)
+        private TestClass CreateTestClass(Exercise exercise)
         {
-            var testMethods = CreateTestMethods(canonicalData);
+            var testMethods = CreateTestMethods(exercise);
             var testClass = new TestClass(
-                canonicalData.Exercise,
-                canonicalData.Exercise.ToTestClassName(),
+                exercise.Name,
+                exercise.Name.ToTestClassName(),
                 testMethods);
             UpdateTestClass(testClass);
             UpdateNamespaces(testClass.Namespaces);
@@ -41,14 +41,14 @@ namespace Exercism.CSharp.Exercises
         {
         }
         
-        private TestMethod[] CreateTestMethods(CanonicalData canonicalData) =>
-            canonicalData.Cases
-                .Select(canonicalDataCase => CreateTestMethod(canonicalData, canonicalDataCase))
+        private TestMethod[] CreateTestMethods(Exercise exercise) =>
+            exercise.TestCases
+                .Select(canonicalDataCase => CreateTestMethod(exercise, canonicalDataCase))
                 .ToArray();
 
-        private TestMethod CreateTestMethod(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase)
+        private TestMethod CreateTestMethod(Exercise exercise, TestCase testCase)
         {
-            var testMethod = new TestMethod(canonicalData, canonicalDataCase);
+            var testMethod = new TestMethod(exercise, testCase);
             UpdateTestMethod(testMethod);
 
             return testMethod;

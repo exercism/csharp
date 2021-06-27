@@ -13,13 +13,13 @@ namespace Exercism.CSharp.Exercises
     internal class GeneratorRunner
     {
         private readonly Options _options;
-        private readonly CanonicalDataParser _canonicalDataParser;
         private readonly Dictionary<string, Type> _exerciseGeneratorTypes;
-        
+        private readonly Lazy<ExerciseParser> _exerciseParser;
+
         public GeneratorRunner(Options options)
         {
             _options = options;
-            _canonicalDataParser = CanonicalDataParser.Create(options);
+            _exerciseParser = new Lazy<ExerciseParser>(() => ExerciseParser.Create(options));
             _exerciseGeneratorTypes = FindExerciseGeneratorTypes();
         }
 
@@ -34,14 +34,14 @@ namespace Exercism.CSharp.Exercises
             if (_exerciseGeneratorTypes.TryGetValue(exercise, out var exerciseGeneratorType))
                 RegenerateExercise(exerciseGeneratorType);
             else
-                Log.Error("Could not find generator for {Exercise} exercise", exercise);
+                Log.Error("Could not find generator for {Name} exercise", exercise);
         }
 
         private void RegenerateExercise(Type exerciseGeneratorType)
         {
             var exerciseGenerator = Activator.CreateInstance(exerciseGeneratorType) as ExerciseGenerator;
-            exerciseGenerator!.Regenerate(_canonicalDataParser.Parse(exerciseGenerator.Name), _options);
-            Log.Information("{Exercise}: updated", exerciseGenerator.Name);
+            exerciseGenerator!.Regenerate(_exerciseParser.Value.Parse(exerciseGenerator.Name), _options);
+            Log.Information("{Name}: updated", exerciseGenerator.Name);
         }
 
         private static Dictionary<string, Type> FindExerciseGeneratorTypes() =>

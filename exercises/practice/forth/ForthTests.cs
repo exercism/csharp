@@ -238,12 +238,6 @@ public class ForthTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void User_defined_words_cannot_redefine_negative_numbers()
-    {
-        Assert.Throws<InvalidOperationException>(() => Forth.Evaluate(new[] { ": -1 2 ;" }));
-    }
-
-    [Fact(Skip = "Remove this Skip property to run this test")]
     public void User_defined_words_errors_if_executing_a_non_existent_word()
     {
         Assert.Throws<InvalidOperationException>(() => Forth.Evaluate(new[] { "foo" }));

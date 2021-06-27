@@ -20,15 +20,6 @@ public class AnagramTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Detects_two_anagrams()
-    {
-        var candidates = new[] { "lemons", "cherry", "melons" };
-        var sut = new Anagram("solemn");
-        var expected = new[] { "lemons", "melons" };
-        Assert.Equal(expected, sut.FindAnagrams(candidates));
-    }
-
-    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Does_not_detect_anagram_subsets()
     {
         var candidates = new[] { "dog", "goody" };

@@ -1,12 +1,35 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+
 using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Input
 {
-    internal static class CanonicalDataCaseParser
+    internal class CanonicalDataJsonParser
     {
-        public static IReadOnlyCollection<CanonicalDataCase> Parse(JToken canonicalDataCaseJToken) =>
+        private readonly Options _options;
+
+        private CanonicalDataJsonParser(Options options) => _options = options;
+
+        public static CanonicalDataJsonParser Create(Options options)
+        {
+            var propSpecsRepository = new PropSpecsRepository(options);
+            propSpecsRepository.SyncToLatest();
+
+            return new CanonicalDataJsonParser(options);
+        }
+
+        public IReadOnlyCollection<TestCase> Parse(string exercise) =>
+            Parse((JArray)ParseCanonicalData(exercise)["cases"]!);
+
+        private JObject ParseCanonicalData(string exercise) =>
+            JObject.Parse(File.ReadAllText(ExerciseCanonicalDataPath(exercise)));
+
+        private string ExerciseCanonicalDataPath(string exercise) =>
+            Path.Combine(_options.ProbSpecsDir, "exercises", exercise, "canonical-data.json");
+
+        private static IReadOnlyCollection<TestCase> Parse(JToken canonicalDataCaseJToken) =>
             GetCanonicalDataCaseTokens(canonicalDataCaseJToken)
                 .Select(ParseWithIndex)
                 .ToArray();
@@ -22,9 +45,10 @@ namespace Exercism.CSharp.Input
                 _ => Enumerable.Empty<JToken>()
             };
 
-        private static CanonicalDataCase ParseWithIndex(JToken canonicalDataCaseJToken, int index) =>
-            new CanonicalDataCase(
+        private static TestCase ParseWithIndex(JToken canonicalDataCaseJToken, int index) =>
+            new TestCase(
                 index,
+                canonicalDataCaseJToken.Value<string>("uuid"),
                 canonicalDataCaseJToken.Value<string>("property"),
                 JTokenHelper.ConvertJToken(canonicalDataCaseJToken["input"]!),
                 JTokenHelper.ConvertJToken(canonicalDataCaseJToken["expected"]!),

@@ -79,10 +79,4 @@ public class IsogramTests
     {
         Assert.False(Isogram.IsIsogram("angola"));
     }
-
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Word_with_duplicated_character_and_with_two_hyphens()
-    {
-        Assert.False(Isogram.IsIsogram("up-to-date"));
-    }
 }

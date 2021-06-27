@@ -109,10 +109,4 @@ public class LuhnTests
     {
         Assert.False(Luhn.IsValid(":9"));
     }
-
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Non_numeric_non_space_char_in_the_middle_with_a_sum_thats_divisible_by_10_isnt_allowed()
-    {
-        Assert.False(Luhn.IsValid("59%59"));
-    }
 }
