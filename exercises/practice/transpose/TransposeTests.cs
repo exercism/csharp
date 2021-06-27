@@ -1,5 +1,3 @@
-// This file was auto-generated based on version 1.1.0 of the canonical data.
-
 using Xunit;
 
 public class TransposeTests
@@ -201,6 +199,26 @@ public class TransposeTests
             "   SER\n" +
             "    ER\n" +
             "     R";
+        Assert.Equal(expected, Transpose.String(lines));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Jagged_triangle()
+    {
+        var lines = 
+            "11\n" +
+            "2\n" +
+            "3333\n" +
+            "444\n" +
+            "555555\n" +
+            "66666";
+        var expected = 
+            "123456\n" +
+            "1 3456\n" +
+            "  3456\n" +
+            "  3 56\n" +
+            "    56\n" +
+            "    5";
         Assert.Equal(expected, Transpose.String(lines));
     }
 }

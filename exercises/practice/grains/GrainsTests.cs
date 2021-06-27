@@ -1,48 +1,46 @@
-// This file was auto-generated based on version 1.2.0 of the canonical data.
-
 using System;
 using Xunit;
 
 public class GrainsTests
 {
     [Fact]
-    public void Number_1()
+    public void Grains_on_square_1()
     {
         Assert.Equal(1UL, Grains.Square(1));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Number_2()
+    public void Grains_on_square_2()
     {
         Assert.Equal(2UL, Grains.Square(2));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Number_3()
+    public void Grains_on_square_3()
     {
         Assert.Equal(4UL, Grains.Square(3));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Number_4()
+    public void Grains_on_square_4()
     {
         Assert.Equal(8UL, Grains.Square(4));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Number_16()
+    public void Grains_on_square_16()
     {
         Assert.Equal(32768UL, Grains.Square(16));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Number_32()
+    public void Grains_on_square_32()
     {
         Assert.Equal(2147483648UL, Grains.Square(32));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Number_64()
+    public void Grains_on_square_64()
     {
         Assert.Equal(9223372036854775808UL, Grains.Square(64));
     }

@@ -12,11 +12,13 @@ namespace Exercism.CSharp.Exercises
 {
     internal class GeneratorRunner
     {
+        private readonly Options _options;
         private readonly CanonicalDataParser _canonicalDataParser;
         private readonly Dictionary<string, Type> _exerciseGeneratorTypes;
         
         public GeneratorRunner(Options options)
         {
+            _options = options;
             _canonicalDataParser = CanonicalDataParser.Create(options);
             _exerciseGeneratorTypes = FindExerciseGeneratorTypes();
         }
@@ -38,7 +40,7 @@ namespace Exercism.CSharp.Exercises
         private void RegenerateExercise(Type exerciseGeneratorType)
         {
             var exerciseGenerator = (ExerciseGenerator) Activator.CreateInstance(exerciseGeneratorType);
-            exerciseGenerator!.Regenerate(_canonicalDataParser.Parse(exerciseGenerator.Name));
+            exerciseGenerator!.Regenerate(_canonicalDataParser.Parse(exerciseGenerator.Name), _options);
             Log.Information("{Exercise}: updated", exerciseGenerator.Name);
         }
 

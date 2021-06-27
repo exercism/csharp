@@ -1,5 +1,3 @@
-// This file was auto-generated based on version 1.2.1 of the canonical data.
-
 using System;
 using System.Collections.Generic;
 using Xunit;

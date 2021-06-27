@@ -1,5 +1,3 @@
-// This file was auto-generated based on version 1.5.0 of the canonical data.
-
 using Xunit;
 
 public class AnagramTests
@@ -18,6 +16,15 @@ public class AnagramTests
         var candidates = new[] { "stream", "pigeon", "maters" };
         var sut = new Anagram("master");
         var expected = new[] { "stream", "maters" };
+        Assert.Equal(expected, sut.FindAnagrams(candidates));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Detects_two_anagrams()
+    {
+        var candidates = new[] { "lemons", "cherry", "melons" };
+        var sut = new Anagram("solemn");
+        var expected = new[] { "lemons", "melons" };
         Assert.Equal(expected, sut.FindAnagrams(candidates));
     }
 

@@ -1,5 +1,3 @@
-// This file was auto-generated based on version 1.1.0 of the canonical data.
-
 using Xunit;
 
 public class PrimeFactorsTests
@@ -17,15 +15,45 @@ public class PrimeFactorsTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Another_prime_number()
+    {
+        Assert.Equal(new[] { 3L }, PrimeFactors.Factors(3L));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Square_of_a_prime()
     {
         Assert.Equal(new[] { 3L, 3L }, PrimeFactors.Factors(9L));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Product_of_first_prime()
+    {
+        Assert.Equal(new[] { 2L, 2L }, PrimeFactors.Factors(4L));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Cube_of_a_prime()
     {
         Assert.Equal(new[] { 2L, 2L, 2L }, PrimeFactors.Factors(8L));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Product_of_second_prime()
+    {
+        Assert.Equal(new[] { 3L, 3L, 3L }, PrimeFactors.Factors(27L));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Product_of_third_prime()
+    {
+        Assert.Equal(new[] { 5L, 5L, 5L, 5L }, PrimeFactors.Factors(625L));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Product_of_first_and_second_prime()
+    {
+        Assert.Equal(new[] { 2L, 3L }, PrimeFactors.Factors(6L));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]

@@ -1,5 +1,3 @@
-// This file was auto-generated based on version 1.7.0 of the canonical data.
-
 using Xunit;
 
 public class LuhnTests
@@ -110,5 +108,11 @@ public class LuhnTests
     public void Using_ascii_value_for_doubled_non_digit_isnt_allowed()
     {
         Assert.False(Luhn.IsValid(":9"));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Non_numeric_non_space_char_in_the_middle_with_a_sum_thats_divisible_by_10_isnt_allowed()
+    {
+        Assert.False(Luhn.IsValid("59%59"));
     }
 }

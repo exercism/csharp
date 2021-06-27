@@ -1,5 +1,3 @@
-// This file was auto-generated based on version  of the canonical data.
-
 using System.Collections.Generic;
 using Xunit;
 
@@ -59,6 +57,20 @@ public class HighScoresTests
     {
         var sut = new HighScores(new List<int> { 40 });
         Assert.Equal(new List<int> { 40 }, sut.PersonalTopThree());
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Latest_score_after_personal_top_scores()
+    {
+        var sut = new HighScores(new List<int> { 70, 50, 20, 30 });
+        Assert.Equal(30, sut.LatestAfterTopThree());
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Scores_after_personal_top_scores()
+    {
+        var sut = new HighScores(new List<int> { 30, 50, 20, 70 });
+        Assert.Equal(new List<int> { 30, 50, 20, 70 }, sut.ScoresAfterTopThree());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]

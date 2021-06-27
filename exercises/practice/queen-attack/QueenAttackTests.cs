@@ -1,5 +1,3 @@
-// This file was auto-generated based on version 2.3.0 of the canonical data.
-
 using System;
 using Xunit;
 
@@ -36,7 +34,7 @@ public class QueenAttackTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Can_not_attack()
+    public void Cannot_attack()
     {
         var whiteQueen = QueenAttack.Create(2,4);
         var blackQueen = QueenAttack.Create(6,6);

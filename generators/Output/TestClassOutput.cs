@@ -9,19 +9,22 @@ namespace Exercism.CSharp.Output
     internal class TestClassOutput
     {
         private readonly TestClass _testClass;
-        
-        public TestClassOutput(TestClass testClass)
-            => _testClass = testClass;
-        
+        private readonly Options _options;
+
+        public TestClassOutput(TestClass testClass, Options options)
+        {
+            _testClass = testClass;
+            _options = options;
+        }
+
         public void WriteToFile()
         {
-            var filePath = FilePathHelper.TestClassFilePath(_testClass.Exercise, _testClass.ClassName);
-            var renderedContents = Render();
-
-            Directory.CreateDirectory(Path.GetDirectoryName(filePath));
-            File.WriteAllText(filePath, renderedContents);
+            Directory.CreateDirectory(Path.GetDirectoryName(FilePath)!);
+            File.WriteAllText(FilePath, Render());
         }
-        
+
+        private string FilePath => Path.Combine(_options.PracticeExercisesDir, _testClass.Exercise, $"{_testClass.ClassName}.cs");
+
         private string Render() => Template.Render("TestClass", RenderParameters);
 
         private object RenderParameters => new
@@ -32,17 +35,17 @@ namespace Exercism.CSharp.Output
             Namespaces
         };
 
-        private IEnumerable<string> Methods 
-            => _testClass.TestMethods
+        private IEnumerable<string> Methods =>
+            _testClass.TestMethods
                 .Select(testMethod => new TestMethodOutput(testMethod).Render())
                 .Concat(_testClass.AdditionalMethods);
 
-        private SortedSet<string> Namespaces
-            => _testClass.TestMethods
-                    .Where(x => x.ExceptionThrown != null)
-                    .Select(x => x.ExceptionThrown.Namespace)
-                    .Concat(_testClass.Namespaces)
-                    .Append("Xunit")
-                    .ToSortedSet();
+        private SortedSet<string> Namespaces =>
+            _testClass.TestMethods
+                .Where(x => x.ExceptionThrown != null)
+                .Select(x => x.ExceptionThrown.Namespace)
+                .Concat(_testClass.Namespaces)
+                .Append("Xunit")
+                .ToSortedSet();
     }
 }

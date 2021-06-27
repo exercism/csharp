@@ -1,11 +1,18 @@
-// This file was auto-generated based on version 1.3.0 of the canonical data.
-
 using System;
 using Xunit;
 
 public class ChangeTests
 {
     [Fact]
+    public void Change_for_1_cent()
+    {
+        var coins = new[] { 1, 5, 10, 25 };
+        var target = 1;
+        var expected = new[] { 1 };
+        Assert.Equal(expected, Change.FindFewestCoins(coins, target));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Single_coin_change()
     {
         var coins = new[] { 1, 5, 10, 25, 100 };

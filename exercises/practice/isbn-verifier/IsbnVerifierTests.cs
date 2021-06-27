@@ -1,11 +1,9 @@
-// This file was auto-generated based on version 2.7.0 of the canonical data.
-
 using Xunit;
 
 public class IsbnVerifierTests
 {
     [Fact]
-    public void Valid_isbn_number()
+    public void Valid_isbn()
     {
         Assert.True(IsbnVerifier.IsValid("3-598-21508-8"));
     }
@@ -17,7 +15,7 @@ public class IsbnVerifierTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Valid_isbn_number_with_a_check_digit_of_10()
+    public void Valid_isbn_with_a_check_digit_of_10()
     {
         Assert.True(IsbnVerifier.IsValid("3-598-21507-X"));
     }

@@ -1,5 +1,4 @@
-// This file was auto-generated based on version 1.4.0 of the canonical data.
-
+using System;
 using Xunit;
 
 public class TwoBucketTests
@@ -62,5 +61,29 @@ public class TwoBucketTests
         Assert.Equal(2, actual.Moves);
         Assert.Equal(2, actual.OtherBucket);
         Assert.Equal(Bucket.Two, actual.GoalBucket);
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Not_possible_to_reach_the_goal()
+    {
+        var sut = new TwoBucket(6, 15, Bucket.One);
+        Assert.Throws<ArgumentException>(() => sut.Measure(5));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void With_the_same_buckets_but_a_different_goal_then_it_is_possible()
+    {
+        var sut = new TwoBucket(6, 15, Bucket.One);
+        var actual = sut.Measure(9);
+        Assert.Equal(10, actual.Moves);
+        Assert.Equal(0, actual.OtherBucket);
+        Assert.Equal(Bucket.Two, actual.GoalBucket);
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Goal_larger_than_both_buckets_is_impossible()
+    {
+        var sut = new TwoBucket(5, 7, Bucket.One);
+        Assert.Throws<ArgumentException>(() => sut.Measure(8));
     }
 }

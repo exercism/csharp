@@ -1,5 +1,3 @@
-// This file was auto-generated based on version 1.4.0 of the canonical data.
-
 using System;
 using System.IO;
 using System.Text;
@@ -152,6 +150,22 @@ public class TournamentTests
             "Courageous Californians        |  3 |  2 |  1 |  0 |  7\n" +
             "Blithering Badgers             |  3 |  0 |  1 |  2 |  1\n" +
             "Devastating Donkeys            |  3 |  0 |  1 |  2 |  1";
+        Assert.Equal(expected, RunTally(rows));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Ensure_points_sorted_numerically()
+    {
+        var rows = 
+            "Devastating Donkeys;Blithering Badgers;win\n" +
+            "Devastating Donkeys;Blithering Badgers;win\n" +
+            "Devastating Donkeys;Blithering Badgers;win\n" +
+            "Devastating Donkeys;Blithering Badgers;win\n" +
+            "Blithering Badgers;Devastating Donkeys;win";
+        var expected = 
+            "Team                           | MP |  W |  D |  L |  P\n" +
+            "Devastating Donkeys            |  5 |  4 |  0 |  1 | 12\n" +
+            "Blithering Badgers             |  5 |  1 |  0 |  4 |  3";
         Assert.Equal(expected, RunTally(rows));
     }
 

@@ -1,5 +1,3 @@
-// This file was auto-generated based on version 1.2.0 of the canonical data.
-
 using System;
 using System.IO;
 using Xunit;
@@ -357,7 +355,7 @@ public class GrepTests : IDisposable
         "Of Oreb, or of Sinai, didst inspire\n" +
         "That Shepherd, who first taught the chosen Seed\n";
 
-    public GrepTests()
+    public GrepTest()
     {
         Directory.SetCurrentDirectory(Path.GetTempPath());
         File.WriteAllText(IliadFileName, IliadContents);

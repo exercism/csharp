@@ -13,10 +13,10 @@ namespace Exercism.CSharp.Exercises
         
         protected Render Render { get; } = new();
 
-        public void Regenerate(CanonicalData canonicalData)
+        public void Regenerate(CanonicalData canonicalData, Options options)
         {   
             var testClass = CreateTestClass(canonicalData);
-            var testClassOutput = new TestClassOutput(testClass);
+            var testClassOutput = new TestClassOutput(testClass, options);
             testClassOutput.WriteToFile();
         }
 
