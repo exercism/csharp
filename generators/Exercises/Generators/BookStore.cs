@@ -12,7 +12,7 @@ namespace Exercism.CSharp.Exercises.Generators
             if (testMethod.Input["basket"] is JArray)
                 testMethod.Input["basket"] = Array.Empty<int>();
             
-            testMethod.Expected = testMethod.Expected / 100.0m;
+            testMethod.Expected /= 100.0m;
             testMethod.InputParameters = new[] { "basket" };
             testMethod.UseVariablesForInput = true;
         }

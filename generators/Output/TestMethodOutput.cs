@@ -63,8 +63,7 @@ namespace Exercism.CSharp.Output
         private string TestedMethodInvocation =>
             _testMethod.TestedMethodType switch
             {
-                TestedMethodType.StaticMethod =>
-                    $"{_testMethod.TestedClass}.{_testMethod.TestedMethod}({InputValues})",
+                TestedMethodType.StaticMethod => $"{_testMethod.TestedClass}.{_testMethod.TestedMethod}({InputValues})",
                 TestedMethodType.ExtensionMethod => $"{InputValues}.{_testMethod.TestedMethod}()",
                 TestedMethodType.InstanceMethod => $"{SutVariableName}.{_testMethod.TestedMethod}({InputValues})",
                 TestedMethodType.Property => $"{SutVariableName}.{_testMethod.TestedMethod}",
@@ -76,9 +75,9 @@ namespace Exercism.CSharp.Output
         {
             Update();
 
-            _testMethod.Arrange = _testMethod.Arrange ?? RenderArrange();
-            _testMethod.Act = _testMethod.Act ?? RenderAct();
-            _testMethod.Assert = _testMethod.Assert ?? RenderAssert();
+            _testMethod.Arrange ??= RenderArrange();
+            _testMethod.Act ??= RenderAct();
+            _testMethod.Assert ??= RenderAssert();
 
             return Template.Render("TestMethod", RenderValues);
         }
