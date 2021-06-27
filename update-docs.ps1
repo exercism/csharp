@@ -19,6 +19,8 @@ param (
     [string]$Exercise
 )
 
+# TODO: replace with configlet sync functionality
+
 # Import shared functionality
 . ./shared.ps1
 . ./update-canonical-data.ps1
