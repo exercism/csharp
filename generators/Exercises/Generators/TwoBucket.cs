@@ -1,3 +1,4 @@
+using System;
 using System.Text;
 using Exercism.CSharp.Output;
 
@@ -8,12 +9,14 @@ namespace Exercism.CSharp.Exercises.Generators
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
             testMethod.UseVariableForTested = true;
-            
             testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
             testMethod.ConstructorInputParameters = new[] { "bucketOne", "bucketTwo", "startBucket" };
             testMethod.Input["startBucket"] = Render.Enum("Bucket", testMethod.Input["startBucket"]);
             
-            testMethod.Assert = RenderAssert(testMethod);
+            if (testMethod.ExpectedIsError)
+                testMethod.ExceptionThrown = typeof(ArgumentException);
+            else
+                testMethod.Assert = RenderAssert(testMethod);
         }
 
         private string RenderAssert(TestMethod testMethod)
