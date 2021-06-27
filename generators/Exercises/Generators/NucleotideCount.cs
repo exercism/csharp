@@ -27,8 +27,8 @@ namespace Exercism.CSharp.Exercises.Generators
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {
-            namespaces.Add(typeof(ArgumentException).Namespace);
-            namespaces.Add(typeof(Dictionary<char, int>).Namespace);
+            namespaces.Add(typeof(ArgumentException).Namespace!);
+            namespaces.Add(typeof(Dictionary<char, int>).Namespace!);
         }
     }
 }

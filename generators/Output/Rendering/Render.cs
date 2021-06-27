@@ -7,7 +7,7 @@ namespace Exercism.CSharp.Output.Rendering
 {
     internal partial class Render
     {
-        public string Object(object val)
+        public string Object(object? val)
         {
             if (val == null)
                 return "null";
@@ -36,7 +36,7 @@ namespace Exercism.CSharp.Output.Rendering
                     if (IsDictionary(val))
                         return Dictionary((dynamic)val);
 
-                    return val.ToString();
+                    return val.ToString()!;
             }
         }
 
@@ -77,6 +77,6 @@ namespace Exercism.CSharp.Output.Rendering
             => IsNestedArray(elements) && elements.Length > 0;
 
         private static bool IsNestedArray<T>(T[] elements) 
-            => elements.GetType().GetElementType().IsArray;
+            => elements.GetType()!.GetElementType()!.IsArray;
     }
 }

@@ -100,8 +100,8 @@ public void Dispose()
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {
-            namespaces.Add(typeof(IDisposable).Namespace);
-            namespaces.Add(typeof(File).Namespace);
+            namespaces.Add(typeof(IDisposable).Namespace!);
+            namespaces.Add(typeof(File).Namespace!);
         }
     }
 }

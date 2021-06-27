@@ -49,6 +49,6 @@ namespace Exercism.CSharp.Exercises.Generators
         private static string RenderClearOperation()
             => "buffer.Clear();";
 
-        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(InvalidOperationException).Namespace);
+        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(InvalidOperationException).Namespace!);
     }
 }

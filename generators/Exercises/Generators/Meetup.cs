@@ -29,6 +29,6 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.Expected = DateTime.Parse(testMethod.Expected);
         }
 
-        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(DayOfWeek).Namespace);
+        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(DayOfWeek).Namespace!);
     }
 }

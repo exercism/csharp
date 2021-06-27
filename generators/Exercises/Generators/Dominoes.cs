@@ -15,8 +15,8 @@ namespace Exercism.CSharp.Exercises.Generators
         }
 
         private static ValueTuple<int, int>[] ConvertDominoes(JToken input)
-            => input.ToObject<int[][]>().Select(x => (x[0], x[1])).ToArray();
+            => input.ToObject<int[][]>()!.Select(x => (x[0], x[1])).ToArray();
 
-        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(ValueTuple).Namespace);
+        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(ValueTuple).Namespace!);
     }
 }

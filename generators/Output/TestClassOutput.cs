@@ -43,7 +43,7 @@ namespace Exercism.CSharp.Output
         private SortedSet<string> Namespaces =>
             _testClass.TestMethods
                 .Where(x => x.ExceptionThrown != null)
-                .Select(x => x.ExceptionThrown.Namespace)
+                .Select(x => x.ExceptionThrown!.Namespace!)
                 .Concat(_testClass.Namespaces)
                 .Append("Xunit")
                 .ToSortedSet();

@@ -16,7 +16,7 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.Input["array"] = new UnescapedValue(renderedArray.Replace("new[]", "new object[]"));
         }
 
-        private static dynamic ConvertToObjectArray(dynamic input)
+        private static dynamic? ConvertToObjectArray(dynamic input)
         {   
             if (input is int[] ints)
                 return ints;

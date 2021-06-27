@@ -19,6 +19,6 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.Input["strings"] = new UnescapedValue(Render.ArrayMultiLine(testMethod.Input["strings"]));
         }
 
-        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(Array).Namespace);
+        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(Array).Namespace!);
     }
 }

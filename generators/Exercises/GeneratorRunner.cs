@@ -39,7 +39,7 @@ namespace Exercism.CSharp.Exercises
 
         private void RegenerateExercise(Type exerciseGeneratorType)
         {
-            var exerciseGenerator = (ExerciseGenerator) Activator.CreateInstance(exerciseGeneratorType);
+            var exerciseGenerator = Activator.CreateInstance(exerciseGeneratorType) as ExerciseGenerator;
             exerciseGenerator!.Regenerate(_canonicalDataParser.Parse(exerciseGenerator.Name), _options);
             Log.Information("{Exercise}: updated", exerciseGenerator.Name);
         }

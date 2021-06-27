@@ -22,10 +22,10 @@ namespace Exercism.CSharp.Exercises.Generators
         private string RenderAssert(TestMethod testMethod)
         {
             var assert = new StringBuilder();
-            assert.AppendLine(Render.AssertEqual(testMethod.Expected["moves"].ToString(), "actual.Moves"));
-            assert.AppendLine(Render.AssertEqual(testMethod.Expected["otherBucket"].ToString(), "actual.OtherBucket"));
+            assert.AppendLine(Render.AssertEqual(testMethod.Expected!["moves"].ToString(), "actual.Moves"));
+            assert.AppendLine(Render.AssertEqual(testMethod.Expected!["otherBucket"].ToString(), "actual.OtherBucket"));
 
-            var expected = Render.Enum("Bucket", testMethod.Expected["goalBucket"]);
+            var expected = Render.Enum("Bucket", testMethod.Expected!["goalBucket"]);
             assert.AppendLine(Render.AssertEqual(expected.ToString(), "actual.GoalBucket"));
             
             return assert.ToString();

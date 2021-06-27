@@ -8,6 +8,6 @@ namespace Exercism.CSharp.Exercises.Generators
     {
         protected override void UpdateTestMethod(TestMethod testMethod) => testMethod.Input["moment"] = DateTime.Parse(testMethod.Input["moment"].ToString());
 
-        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(DateTime).Namespace);
+        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(DateTime).Namespace!);
     }
 }

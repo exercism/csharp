@@ -35,7 +35,7 @@ namespace Exercism.CSharp.Exercises.Generators
             return builder.ToString();
         }
 
-        private string RenderAssert(TestMethod testMethod)
+        private string? RenderAssert(TestMethod testMethod)
         {
             if (testMethod.ExceptionThrown != null && testMethod.Input.ContainsKey("roll"))
             {
@@ -84,8 +84,8 @@ private void DoRoll(IEnumerable<int> rolls, BowlingGame sut)
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {
-            namespaces.Add(typeof(Array).Namespace);
-            namespaces.Add(typeof(ICollection<>).Namespace);
+            namespaces.Add(typeof(Array).Namespace!);
+            namespaces.Add(typeof(ICollection<>).Namespace!);
         }
     }
 }

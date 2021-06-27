@@ -40,6 +40,6 @@ namespace Exercism.CSharp.Exercises.Generators
             if (tree["right"] != null) foreach (var assert in TestAsserts(tree["right"], $"{traverse}.Right")) yield return assert;
         }
 
-        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(IQueryable).Namespace);
+        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(IQueryable).Namespace!);
     }
 }

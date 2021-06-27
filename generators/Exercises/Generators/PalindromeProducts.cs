@@ -18,13 +18,13 @@ namespace Exercism.CSharp.Exercises.Generators
             {
                 testMethod.UseVariableForTested = true;
                 testMethod.UseVariableForExpected = true;
-                testMethod.Expected = (testMethod.Expected["value"], RenderCoordinates(testMethod.Expected["factors"]));
+                testMethod.Expected = (testMethod.Expected!["value"], RenderCoordinates(testMethod.Expected!["factors"]));
                 testMethod.Assert = RenderAssert();
             }
         }
 
         private static bool ShouldThrowException(TestMethod testMethod) =>
-            testMethod.ExpectedIsError || testMethod.Expected["value"] is null;
+            testMethod.ExpectedIsError || testMethod.Expected!["value"] is null;
 
         private string RenderAssert()
         {
@@ -40,6 +40,6 @@ namespace Exercism.CSharp.Exercises.Generators
                 .ToArray());
 
         private static (int, int) RenderCoordinate(JToken coordinate)
-            => (coordinate[0].ToObject<int>(), coordinate[1].ToObject<int>());
+            => (coordinate[0]!.ToObject<int>(), coordinate[1]!.ToObject<int>());
     }
 }

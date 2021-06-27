@@ -22,7 +22,7 @@ namespace Exercism.CSharp.Input
         {   
             var canonicalDataJson = ParseCanonicalData(exercise);
             var exerciseName = canonicalDataJson.Value<string>("exercise");
-            var canonicalDataCases = CanonicalDataCaseParser.Parse((JArray)canonicalDataJson["cases"]);
+            var canonicalDataCases = CanonicalDataCaseParser.Parse((JArray)canonicalDataJson["cases"]!);
 
             return new CanonicalData(exerciseName, canonicalDataCases);
         }

@@ -78,7 +78,7 @@ namespace Exercism.CSharp.Helpers
             if (type.IsGenericType)
                 return $"{type.Name.Split('`')[0]}<{string.Join(", ", type.GetGenericArguments().Select(ToFriendlyName))}>";
             if (type.IsArray)
-                return $"{type.GetElementType().ToFriendlyName()}[]";
+                return $"{type.GetElementType()!.ToFriendlyName()}[]";
             return type.Name;
         }
     }

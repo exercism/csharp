@@ -73,7 +73,7 @@ namespace Exercism.CSharp.Exercises.Generators
             }
         }
 
-        private string RenderExpected(dynamic expected)
+        private string? RenderExpected(dynamic expected)
         {
             switch (expected["type"])
             {

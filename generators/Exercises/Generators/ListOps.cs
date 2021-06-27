@@ -90,8 +90,8 @@ namespace Exercism.CSharp.Exercises.Generators
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {
-            namespaces.Add(typeof(Func<int,int>).Namespace);
-            namespaces.Add(typeof(List<int>).Namespace);
+            namespaces.Add(typeof(Func<int,int>).Namespace!);
+            namespaces.Add(typeof(List<int>).Namespace!);
         }
     }
 }

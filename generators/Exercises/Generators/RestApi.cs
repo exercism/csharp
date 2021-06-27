@@ -17,18 +17,12 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.Input["database"] = JsonConvert.SerializeObject(testMethod.Input["database"]["users"]);
 
             if (testMethod.Input.ContainsKey("payload"))
-            {
                 testMethod.Input["payload"] = JsonConvert.SerializeObject(testMethod.Input["payload"]);
-            }
 
-            if (testMethod.Expected.ContainsKey("users"))
-            {
-                testMethod.Expected = JsonConvert.SerializeObject(testMethod.Expected["users"]);
-            }
-            else
-            {
-                testMethod.Expected = JsonConvert.SerializeObject(testMethod.Expected);
-            }
+            testMethod.Expected =
+                JsonConvert.SerializeObject(testMethod.Expected!.ContainsKey("users")
+                    ? testMethod.Expected["users"]
+                    : testMethod.Expected);
         }
     }
 }

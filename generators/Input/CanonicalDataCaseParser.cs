@@ -26,8 +26,8 @@ namespace Exercism.CSharp.Input
             new CanonicalDataCase(
                 index,
                 canonicalDataCaseJToken.Value<string>("property"),
-                JTokenHelper.ConvertJToken(canonicalDataCaseJToken["input"]),
-                JTokenHelper.ConvertJToken(canonicalDataCaseJToken["expected"]),
+                JTokenHelper.ConvertJToken(canonicalDataCaseJToken["input"]!),
+                JTokenHelper.ConvertJToken(canonicalDataCaseJToken["expected"]!),
                 canonicalDataCaseJToken.Value<string>("description"),
                 GetDescriptionPath(canonicalDataCaseJToken));
 
@@ -35,7 +35,7 @@ namespace Exercism.CSharp.Input
             canonicalDataCaseJToken.ParentsAndSelf()
                 .Where(token => token.Type == JTokenType.Object)
                 .Select(token => token.Value<string>("description"))
-                .Where(description => description != null)
+                .Where(description => !string.IsNullOrWhiteSpace(description))
                 .Reverse()
                 .ToArray();
     }

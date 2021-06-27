@@ -41,9 +41,9 @@ private string RunTally(string input)
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {
-            namespaces.Add(typeof(Array).Namespace);
-            namespaces.Add(typeof(Stream).Namespace);
-            namespaces.Add(typeof(UTF8Encoding).Namespace);
+            namespaces.Add(typeof(Array).Namespace!);
+            namespaces.Add(typeof(Stream).Namespace!);
+            namespaces.Add(typeof(UTF8Encoding).Namespace!);
         }
     }
 }

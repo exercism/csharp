@@ -17,7 +17,7 @@ namespace Exercism.CSharp.Exercises.Generators
 
         private static List<int> ConvertToList(dynamic value) => new(value as int[] ?? Array.Empty<int>());
 
-        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(IList<int>).Namespace);
+        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(IList<int>).Namespace!);
     }
 }
 

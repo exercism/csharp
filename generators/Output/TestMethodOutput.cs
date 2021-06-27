@@ -93,7 +93,7 @@ namespace Exercism.CSharp.Output
                 AssertType.Equal => Renderer.AssertEqual(ExpectedValue, TestedValue),
                 AssertType.Empty => Renderer.AssertEmpty(ExpectedValue, TestedValue),
                 AssertType.Null => Renderer.AssertNull(TestedValue),
-                AssertType.Throws => Renderer.AssertThrows(_testMethod.ExceptionThrown, TestedValue),
+                AssertType.Throws => Renderer.AssertThrows(_testMethod.ExceptionThrown!, TestedValue),
                 AssertType.Boolean => Renderer.AssertBoolean(Convert.ToBoolean(_testMethod.Expected), TestedValue),
                 AssertType.Matches => Renderer.AssertMatches(ExpectedValue, TestedValue),
                 _ => throw new ArgumentOutOfRangeException()

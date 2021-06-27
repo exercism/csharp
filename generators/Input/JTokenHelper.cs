@@ -7,7 +7,7 @@ namespace Exercism.CSharp.Input
 {
     internal static class JTokenHelper
     {
-        public static IEnumerable<JToken> ParentsAndSelf(this JToken jToken)
+        public static IEnumerable<JToken> ParentsAndSelf(this JToken? jToken)
         {
             while (jToken != null)
             {
@@ -16,9 +16,10 @@ namespace Exercism.CSharp.Input
             }
         }
         
-        public static dynamic ConvertJToken(JToken jToken) =>
+        public static dynamic? ConvertJToken(JToken? jToken) =>
             jToken switch
             {
+                null => null,
                 JObject jObject => ConvertJObject(jObject),
                 JArray jArray => ConvertJArray(jArray),
                 _ => jToken.Type switch
@@ -34,7 +35,7 @@ namespace Exercism.CSharp.Input
 
         private static dynamic ConvertJObject(JObject jObject)
         {
-            var properties = new Dictionary<string, dynamic>(jObject.Count, StringComparer.OrdinalIgnoreCase);
+            var properties = new Dictionary<string, dynamic?>(jObject.Count, StringComparer.OrdinalIgnoreCase);
 
             foreach (var (key, value) in jObject)
                 properties[key] = ConvertJToken(value);
@@ -42,7 +43,7 @@ namespace Exercism.CSharp.Input
             return properties;
         }
 
-        private static dynamic ConvertJArray(JArray jArray)
+        private static dynamic? ConvertJArray(JArray jArray)
         {
             // We can't determine the type of the array if the array is empty
             if (!jArray.Any())
@@ -57,7 +58,7 @@ namespace Exercism.CSharp.Input
                 case JTokenType.Object:
                     return jArray.Select(ConvertJToken).ToArray();
                 case JTokenType.Integer:
-                    var strings = jArray.ToObject<string[]>();
+                    var strings = jArray.ToObject<string[]>()!;
                     if (strings.All(str => int.TryParse(str, out _)))
                         return jArray.ToObject<int[]>();
 
@@ -81,7 +82,7 @@ namespace Exercism.CSharp.Input
             }
         }
 
-        private static dynamic ConvertJTokenToInteger(JToken jToken)
+        private static dynamic? ConvertJTokenToInteger(JToken jToken)
         {
             var str = jToken.ToObject<string>();
 

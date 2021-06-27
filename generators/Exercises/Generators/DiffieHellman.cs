@@ -32,7 +32,7 @@ namespace Exercism.CSharp.Exercises.Generators
         private void UpdateTestMethodForPrivateKeyIsInRangeProperty(TestMethod testMethod)
         {
             testMethod.TestedMethod = "PrivateKey";
-            testMethod.Expected["greaterThan"] = new BigInteger(testMethod.Expected["greaterThan"]);
+            testMethod.Expected!["greaterThan"] = new BigInteger(testMethod.Expected!["greaterThan"]);
             
             testMethod.Arrange = RenderArrangeForPrivateKeyIsInRangeProperty(testMethod);
             testMethod.Assert = RenderAssertForPrivateKeyIsInRangeProperty(testMethod);
@@ -47,7 +47,7 @@ namespace Exercism.CSharp.Exercises.Generators
             
             arrange.AppendLine("foreach (var privateKey in privateKeys)");
             arrange.AppendLine("{");
-            arrange.AppendLine(((string)Render.AssertInRange("privateKey", Render.Object(testMethod.Expected["greaterThan"]), "p")).Indent());
+            arrange.AppendLine(((string)Render.AssertInRange("privateKey", Render.Object(testMethod.Expected!["greaterThan"]), "p")).Indent());
             arrange.AppendLine("}");
             
             return arrange.ToString();
@@ -111,8 +111,8 @@ namespace Exercism.CSharp.Exercises.Generators
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {
-            namespaces.Add(typeof(BigInteger).Namespace);
-            namespaces.Add(typeof(Enumerable).Namespace);
+            namespaces.Add(typeof(BigInteger).Namespace!);
+            namespaces.Add(typeof(Enumerable).Namespace!);
         }
     }
 }

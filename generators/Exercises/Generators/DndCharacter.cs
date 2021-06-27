@@ -115,8 +115,8 @@ public void Random_ability_is_distributed_correctly()
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {
-            namespaces.Add(typeof(Enumerable).Namespace);
-            namespaces.Add(typeof(Dictionary<int, int>).Namespace);
+            namespaces.Add(typeof(Enumerable).Namespace!);
+            namespaces.Add(typeof(Dictionary<int, int>).Namespace!);
         }
     }
 }

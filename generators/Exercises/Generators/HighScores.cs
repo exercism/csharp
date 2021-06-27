@@ -20,7 +20,7 @@ namespace Exercism.CSharp.Exercises.Generators
             => AddTestMethodForPersonalBest(testClass);
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
-            => namespaces.Add(typeof(List<int>).Namespace);
+            => namespaces.Add(typeof(List<int>).Namespace!);
 
         private static void AddTestMethodForPersonalBest(TestClass testClass)
         {

@@ -36,10 +36,9 @@ namespace Exercism.CSharp.Exercises.Generators
         private static string[] GetInputParameters(TestMethod testMethod, string constructorParamName)
             => testMethod.Input.Keys.Where(x => x != constructorParamName).ToArray();
 
-        private string RenderAssert(TestMethod testMethod) 
-            => testMethod.UseVariableForExpected
-                ? RenderComplexNumberAssert(testMethod)
-                : testMethod.Assert;
+        private string? RenderAssert(TestMethod testMethod) => testMethod.UseVariableForExpected
+            ? RenderComplexNumberAssert(testMethod)
+            : testMethod.Assert;
 
         private string RenderComplexNumberAssert(TestMethod testMethod)
         {
@@ -72,6 +71,6 @@ namespace Exercism.CSharp.Exercises.Generators
                 _ => double.Parse(value.ToString())
             };
 
-        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(Math).Namespace);
+        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(Math).Namespace!);
     }
 }

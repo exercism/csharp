@@ -23,7 +23,7 @@ namespace Exercism.CSharp.Exercises.Generators
             }
         }
 
-        private UnescapedValue RenderTree(dynamic tree)
+        private UnescapedValue? RenderTree(dynamic tree)
         {
             if (tree == null)
             {
