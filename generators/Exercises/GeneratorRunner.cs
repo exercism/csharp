@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
+using Exercism.CSharp.Helpers;
 using Exercism.CSharp.Input;
 
 using Serilog;
@@ -44,6 +45,6 @@ namespace Exercism.CSharp.Exercises
         private static Dictionary<string, Type> FindExerciseGeneratorTypes() =>
             Assembly.GetEntryAssembly()!.GetTypes()
                 .Where(type => typeof(ExerciseGenerator).IsAssignableFrom(type) && !type.IsAbstract)
-                .ToDictionary(type => type.Name, type => type, StringComparer.OrdinalIgnoreCase);
+                .ToDictionary(type => type.ToExerciseName(), type => type, StringComparer.OrdinalIgnoreCase);
     }
 }
