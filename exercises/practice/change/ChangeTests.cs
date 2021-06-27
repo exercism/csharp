@@ -3,7 +3,7 @@ using Xunit;
 
 public class ChangeTests
 {
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Single_coin_change()
     {
         var coins = new[] { 1, 5, 10, 25, 100 };

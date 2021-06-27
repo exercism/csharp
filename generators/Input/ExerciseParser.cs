@@ -26,9 +26,11 @@ namespace Exercism.CSharp.Input
         {
             var allTestCases = _canonicalDataJsonParser.Parse(exercise);
             var enabledTests = _testsTomlParser.ParseEnabledTests(exercise);
-            var enabledTestCases = allTestCases.Where(testCase => enabledTests.Contains(testCase.Uuid)).ToArray();
+            var enabledTestCases = allTestCases
+                .Where(testCase => enabledTests.Contains(testCase.Uuid))
+                .Select((testCase, index) => testCase with { Index = index })
+                .ToArray();
 
-            // TODO: update index
             return new Exercise(exercise, enabledTestCases);
         }
     }
