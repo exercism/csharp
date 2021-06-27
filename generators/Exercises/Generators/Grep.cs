@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+
 using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
 
@@ -17,10 +18,10 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.UseVariableForExpected = true;
         }
 
-        private static dynamic ConvertFlags(TestMethod testMethod) 
+        private static dynamic ConvertFlags(TestMethod testMethod)
             => string.Join(" ", testMethod.Input["flags"]);
 
-        private static MultiLineString ConvertExpected(dynamic expected) 
+        private static MultiLineString ConvertExpected(dynamic expected)
             => new(expected as string[] ?? Array.Empty<string>());
 
         protected override void UpdateTestClass(TestClass testClass)
@@ -80,7 +81,7 @@ private const string ParadiseLostContents =
 
         private static void AddConstructor(TestClass testClass) =>
             testClass.AdditionalMethods.Add(@"
-public GrepTest()
+public GrepTests()
 {
     Directory.SetCurrentDirectory(Path.GetTempPath());
     File.WriteAllText(IliadFileName, IliadContents);

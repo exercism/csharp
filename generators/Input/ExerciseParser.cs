@@ -28,6 +28,7 @@ namespace Exercism.CSharp.Input
             var enabledTests = _testsTomlParser.ParseEnabledTests(exercise);
             var enabledTestCases = allTestCases.Where(testCase => enabledTests.Contains(testCase.Uuid)).ToArray();
 
+            // TODO: update index
             return new Exercise(exercise, enabledTestCases);
         }
     }

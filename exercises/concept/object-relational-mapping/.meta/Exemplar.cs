@@ -15,7 +15,7 @@ public class Orm : IDisposable
         {
             database.BeginTransaction();
         }
-        catch (Exception e)
+        catch (Exception)
         {
             database.Dispose();
         }
@@ -27,7 +27,7 @@ public class Orm : IDisposable
         {
             database.Write(data);
         }
-        catch (Exception e)
+        catch (Exception)
         {
             database.Dispose();
         }
@@ -39,7 +39,7 @@ public class Orm : IDisposable
         {
             database.EndTransaction();
         }
-        catch (Exception e)
+        catch (Exception)
         {
             database.Dispose();
         }

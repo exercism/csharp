@@ -355,7 +355,7 @@ public class GrepTests : IDisposable
         "Of Oreb, or of Sinai, didst inspire\n" +
         "That Shepherd, who first taught the chosen Seed\n";
 
-    public GrepTest()
+    public GrepTests()
     {
         Directory.SetCurrentDirectory(Path.GetTempPath());
         File.WriteAllText(IliadFileName, IliadContents);
