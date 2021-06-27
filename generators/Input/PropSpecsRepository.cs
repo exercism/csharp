@@ -8,7 +8,7 @@ namespace Exercism.CSharp.Input
     internal class PropSpecsRepository
     {
         private const string ProblemSpecificationsGitUrl = "https://github.com/exercism/problem-specifications.git";
-        private const string ProblemSpecificationsBranch = "master";
+        private const string ProblemSpecificationsBranch = "main";
         private const string ProblemSpecificationsRemote = "origin";
         private const string ProblemSpecificationsRemoteBranch = ProblemSpecificationsRemote + "/" + ProblemSpecificationsBranch;
 
@@ -27,16 +27,16 @@ namespace Exercism.CSharp.Input
             if (Directory.Exists(_options.ProbSpecsDir))
                 return;
 
-            Log.Information("Cloning repository...");
+            Log.Debug("Cloning repository...");
 
             Repository.Clone(ProblemSpecificationsGitUrl, _options.ProbSpecsDir);
 
-            Log.Information("Repository cloned.");
+            Log.Debug("Repository cloned.");
         }
 
         private void ResetBranchToUpstream()
         {
-            Log.Information("Updating repository to latest version...");
+            Log.Debug("Updating repository to latest version...");
 
             using (var repository = new Repository(_options.ProbSpecsDir))
             {
@@ -46,7 +46,7 @@ namespace Exercism.CSharp.Input
                 repository.Reset(ResetMode.Hard, remoteBranch.Tip);
             }
 
-            Log.Information("Updated repository to latest version.");
+            Log.Debug("Updated repository to latest version.");
         }
     }
 }
