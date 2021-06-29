@@ -1,9 +1,8 @@
-﻿using System;
-using Exercism.CSharp.Output;
+﻿using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class SpaceAge : GeneratorExercise
+    internal class SpaceAge : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

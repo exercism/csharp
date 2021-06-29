@@ -5,12 +5,9 @@ using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class CircularBuffer : GeneratorExercise
+    internal class CircularBuffer : ExerciseGenerator
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
-            testMethod.Assert = RenderAssert(testMethod);
-        }
+        protected override void UpdateTestMethod(TestMethod testMethod) => testMethod.Assert = RenderAssert(testMethod);
 
         private string RenderAssert(TestMethod testMethod)
         {
@@ -26,22 +23,15 @@ namespace Exercism.CSharp.Exercises.Generators
         private string RenderSut(TestMethod testMethod)
             => Render.Variable("buffer", $"new CircularBuffer<int>(capacity: {testMethod.Input["capacity"]})");
 
-        private string RenderOperation(dynamic operation)
-        {
-            switch (operation["operation"])
+        private string RenderOperation(dynamic operation) =>
+            operation["operation"] switch
             {
-                case "read":
-                    return RenderReadOperation(operation);
-                case "write":
-                    return RenderWriteOperation(operation);
-                case "overwrite":
-                    return RenderOverwriteOperation(operation);
-                case "clear":
-                    return RenderClearOperation();
-                default:
-                    throw new ArgumentOutOfRangeException($"Unknown operation type: {operation["operation"]}");
-            }
-        }
+                "read" => RenderReadOperation(operation),
+                "write" => RenderWriteOperation(operation),
+                "overwrite" => RenderOverwriteOperation(operation),
+                "clear" => RenderClearOperation(),
+                _ => throw new ArgumentOutOfRangeException($"Unknown operation type: {operation["operation"]}")
+            };
 
         private string RenderReadOperation(dynamic operation) 
             => operation["should_succeed"]
@@ -59,9 +49,6 @@ namespace Exercism.CSharp.Exercises.Generators
         private static string RenderClearOperation()
             => "buffer.Clear();";
 
-        protected override void UpdateNamespaces(ISet<string> namespaces)
-        {
-            namespaces.Add(typeof(InvalidOperationException).Namespace);
-        }
+        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(InvalidOperationException).Namespace!);
     }
 }

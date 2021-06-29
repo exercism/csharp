@@ -2,7 +2,7 @@ using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class Anagram : GeneratorExercise
+    internal class Anagram : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

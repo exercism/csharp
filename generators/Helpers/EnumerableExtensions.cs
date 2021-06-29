@@ -2,9 +2,8 @@
 
 namespace Exercism.CSharp.Helpers
 {
-    public static class EnumerableExtensions
+    internal static class EnumerableExtensions
     {
-        public static SortedSet<TSource> ToSortedSet<TSource>(this IEnumerable<TSource> source)
-            => new SortedSet<TSource>(source);
+        public static SortedSet<TSource> ToSortedSet<TSource>(this IEnumerable<TSource> source) => new(source);
     }
 }

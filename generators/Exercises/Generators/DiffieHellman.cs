@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using System.Text;
-using Exercism.CSharp.Helpers;
+
 using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
-using Humanizer;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class DiffieHellman : GeneratorExercise
+    internal class DiffieHellman : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
@@ -34,7 +32,7 @@ namespace Exercism.CSharp.Exercises.Generators
         private void UpdateTestMethodForPrivateKeyIsInRangeProperty(TestMethod testMethod)
         {
             testMethod.TestedMethod = "PrivateKey";
-            testMethod.Expected["greaterThan"] = new BigInteger(testMethod.Expected["greaterThan"]);
+            testMethod.Expected!["greaterThan"] = new BigInteger(testMethod.Expected!["greaterThan"]);
             
             testMethod.Arrange = RenderArrangeForPrivateKeyIsInRangeProperty(testMethod);
             testMethod.Assert = RenderAssertForPrivateKeyIsInRangeProperty(testMethod);
@@ -49,7 +47,7 @@ namespace Exercism.CSharp.Exercises.Generators
             
             arrange.AppendLine("foreach (var privateKey in privateKeys)");
             arrange.AppendLine("{");
-            arrange.AppendLine(((string)Render.AssertInRange("privateKey", Render.Object(testMethod.Expected["greaterThan"]), "p")).Indent());
+            arrange.AppendLine(((string)Render.AssertInRange("privateKey", Render.Object(testMethod.Expected!["greaterThan"]), "p")).Indent());
             arrange.AppendLine("}");
             
             return arrange.ToString();
@@ -90,18 +88,13 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.Assert = RenderAssertForKeyExchangeProperty();
         }
         
-        private static dynamic ConvertKeyExchangeInput(dynamic input, TestMethod testMethod)
-        {
-            switch (input)
+        private static dynamic ConvertKeyExchangeInput(dynamic input, TestMethod testMethod) =>
+            input switch
             {
-                case int i:
-                    return new BigInteger(i);
-                case string str:
-                    return new UnescapedValue($"{testMethod.TestedClass}.{char.ToUpper(str[0]) + str.Substring(1)}");
-                default:
-                    return input;
-            }
-        }
+                int i => new BigInteger(i),
+                string str => new UnescapedValue($"{testMethod.TestedClass}.{char.ToUpper(str[0]) + str.Substring(1)}"),
+                _ => input
+            };
 
         private string RenderAssertForKeyExchangeProperty() => Render.AssertEqual("secretA", "secretB");
 
@@ -118,8 +111,8 @@ namespace Exercism.CSharp.Exercises.Generators
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {
-            namespaces.Add(typeof(BigInteger).Namespace);
-            namespaces.Add(typeof(Enumerable).Namespace);
+            namespaces.Add(typeof(BigInteger).Namespace!);
+            namespaces.Add(typeof(Enumerable).Namespace!);
         }
     }
 }

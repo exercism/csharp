@@ -8,7 +8,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class ListOps : GeneratorExercise
+    internal class ListOps : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
@@ -90,8 +90,8 @@ namespace Exercism.CSharp.Exercises.Generators
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {
-            namespaces.Add(typeof(Func<int,int>).Namespace);
-            namespaces.Add(typeof(List<int>).Namespace);
+            namespaces.Add(typeof(Func<int,int>).Namespace!);
+            namespaces.Add(typeof(List<int>).Namespace!);
         }
     }
 }

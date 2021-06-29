@@ -4,7 +4,7 @@ using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class Meetup : GeneratorExercise
+    internal class Meetup : ExerciseGenerator
     {
         private const string ParamYear = "year";
         private const string ParamMonth = "month";
@@ -29,9 +29,6 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.Expected = DateTime.Parse(testMethod.Expected);
         }
 
-        protected override void UpdateNamespaces(ISet<string> namespaces)
-        {
-            namespaces.Add(typeof(DayOfWeek).Namespace);
-        }
+        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(DayOfWeek).Namespace!);
     }
 }

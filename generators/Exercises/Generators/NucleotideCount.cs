@@ -5,7 +5,7 @@ using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class NucleotideCount : GeneratorExercise
+    internal class NucleotideCount : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
@@ -27,8 +27,8 @@ namespace Exercism.CSharp.Exercises.Generators
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {
-            namespaces.Add(typeof(ArgumentException).Namespace);
-            namespaces.Add(typeof(Dictionary<char, int>).Namespace);
+            namespaces.Add(typeof(ArgumentException).Namespace!);
+            namespaces.Add(typeof(Dictionary<char, int>).Namespace!);
         }
     }
 }

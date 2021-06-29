@@ -4,7 +4,7 @@ using Exercism.CSharp.Helpers;
 
 namespace Exercism.CSharp.Output.Rendering
 {
-    public partial class Render
+    internal partial class Render
     {
         public IEnumerable<string> Variables(IDictionary<string, object> variables)
             => variables.Select(Variable).ToArray();

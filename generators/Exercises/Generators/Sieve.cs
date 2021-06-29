@@ -4,7 +4,7 @@ using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class Sieve : GeneratorExercise
+    internal class Sieve : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
@@ -17,6 +17,6 @@ namespace Exercism.CSharp.Exercises.Generators
         }
         
         private UnescapedValue RenderAsSingleLineArray(dynamic value) 
-            => new UnescapedValue(Render.Array(value as int[] ?? Array.Empty<int>()));
+            => new(Render.Array(value as int[] ?? Array.Empty<int>()));
     }
 }

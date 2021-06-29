@@ -7,7 +7,7 @@ using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class DndCharacter : GeneratorExercise
+    internal class DndCharacter : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
@@ -21,10 +21,7 @@ namespace Exercism.CSharp.Exercises.Generators
                 UpdateTestMethodForStrengthProperty(testMethod);
         }
 
-        protected override void UpdateTestClass(TestClass testClass)
-        {
-            AddTestMethodForDistribution(testClass);
-        }
+        protected override void UpdateTestClass(TestClass testClass) => AddTestMethodForDistribution(testClass);
 
         private void UpdateTestMethodForAbilityProperty(TestMethod testMethod)
             => testMethod.Assert = RenderAssertForAbilityProperty(testMethod);
@@ -80,8 +77,7 @@ namespace Exercism.CSharp.Exercises.Generators
             return assert.ToString();
         }
 
-        private static void AddTestMethodForDistribution(TestClass testClass)
-        {
+        private static void AddTestMethodForDistribution(TestClass testClass) =>
             testClass.AdditionalMethods.Add(@"
 [Fact(Skip = ""Remove this Skip property to run this test"")]
 public void Random_ability_is_distributed_correctly()
@@ -116,12 +112,11 @@ public void Random_ability_is_distributed_correctly()
     foreach (var k in expectedDistribution.Keys)
         Assert.InRange(actualDistribution[k], min(expectedDistribution[k]), max(expectedDistribution[k]));
 }");
-        }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {
-            namespaces.Add(typeof(Enumerable).Namespace);
-            namespaces.Add(typeof(Dictionary<int, int>).Namespace);
+            namespaces.Add(typeof(Enumerable).Namespace!);
+            namespaces.Add(typeof(Dictionary<int, int>).Namespace!);
         }
     }
 }

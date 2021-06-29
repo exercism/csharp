@@ -4,7 +4,7 @@ using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class Connect : GeneratorExercise
+    internal class Connect : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
@@ -17,19 +17,13 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.Expected = ConvertExpected(testMethod);
         }
 
-        private UnescapedValue ConvertExpected(TestMethod testMethod)
-        {
-            switch (testMethod.Expected)
+        private UnescapedValue ConvertExpected(TestMethod testMethod) =>
+            testMethod.Expected switch
             {
-                case "X":
-                    return Render.Enum("ConnectWinner", "Black");
-                case "O":
-                    return Render.Enum("ConnectWinner", "White");
-                case "":
-                    return Render.Enum("ConnectWinner", "None");
-                default:
-                    throw new ArgumentException("Unsupported expected value");
-            }
-        }
+                "X" => Render.Enum("ConnectWinner", "Black"),
+                "O" => Render.Enum("ConnectWinner", "White"),
+                "" => Render.Enum("ConnectWinner", "None"),
+                _ => throw new ArgumentException("Unsupported expected value")
+            };
     }
 }

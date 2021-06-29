@@ -5,7 +5,7 @@ using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class Alphametics : GeneratorExercise
+    internal class Alphametics : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
@@ -20,13 +20,10 @@ namespace Exercism.CSharp.Exercises.Generators
 
         private static dynamic ConvertExpected(TestMethod testMethod)
         {
-            Dictionary<string, object> expected = testMethod.Expected;
+            Dictionary<string, object> expected = testMethod.Expected!;
             return expected.ToDictionary(kv => kv.Key[0], kv => Convert.ToInt32(kv.Value));
         }
 
-        protected override void UpdateNamespaces(ISet<string> namespaces)
-        {
-            namespaces.Add(typeof(Dictionary<char, int>).Namespace);
-        }
-}
+        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(Dictionary<char, int>).Namespace!);
+    }
 }

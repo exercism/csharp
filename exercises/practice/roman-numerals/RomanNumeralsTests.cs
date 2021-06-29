@@ -1,119 +1,117 @@
-// This file was auto-generated based on version 1.2.0 of the canonical data.
-
 using Xunit;
 
 public class RomanNumeralsTests
 {
     [Fact]
-    public void Number_1_is_a_single_i()
+    public void Number_1_is_i()
     {
         Assert.Equal("I", 1.ToRoman());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Number_2_is_two_is()
+    public void Number_2_is_ii()
     {
         Assert.Equal("II", 2.ToRoman());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Number_3_is_three_is()
+    public void Number_3_is_iii()
     {
         Assert.Equal("III", 3.ToRoman());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Number_4_being_5_1_is_iv()
+    public void Number_4_is_iv()
     {
         Assert.Equal("IV", 4.ToRoman());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Number_5_is_a_single_v()
+    public void Number_5_is_v()
     {
         Assert.Equal("V", 5.ToRoman());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Number_6_being_5_1_is_vi()
+    public void Number_6_is_vi()
     {
         Assert.Equal("VI", 6.ToRoman());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Number_9_being_10_1_is_ix()
+    public void Number_9_is_ix()
     {
         Assert.Equal("IX", 9.ToRoman());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Number_20_is_two_xs()
+    public void Number_27_is_xxvii()
     {
         Assert.Equal("XXVII", 27.ToRoman());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Number_48_is_not_50_2_but_rather_40_8()
+    public void Number_48_is_xlviii()
     {
         Assert.Equal("XLVIII", 48.ToRoman());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Number_49_is_not_40_5_4_but_rather_50_10_10_1()
+    public void Number_49_is_xlix()
     {
         Assert.Equal("XLIX", 49.ToRoman());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Number_50_is_a_single_l()
+    public void Number_59_is_lix()
     {
         Assert.Equal("LIX", 59.ToRoman());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Number_90_being_100_10_is_xc()
+    public void Number_93_is_xciii()
     {
         Assert.Equal("XCIII", 93.ToRoman());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Number_100_is_a_single_c()
+    public void Number_141_is_cxli()
     {
         Assert.Equal("CXLI", 141.ToRoman());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Number_60_being_50_10_is_lx()
+    public void Number_163_is_clxiii()
     {
         Assert.Equal("CLXIII", 163.ToRoman());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Number_400_being_500_100_is_cd()
+    public void Number_402_is_cdii()
     {
         Assert.Equal("CDII", 402.ToRoman());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Number_500_is_a_single_d()
+    public void Number_575_is_dlxxv()
     {
         Assert.Equal("DLXXV", 575.ToRoman());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Number_900_being_1000_100_is_cm()
+    public void Number_911_is_cmxi()
     {
         Assert.Equal("CMXI", 911.ToRoman());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Number_1000_is_a_single_m()
+    public void Number_1024_is_mxxiv()
     {
         Assert.Equal("MXXIV", 1024.ToRoman());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Number_3000_is_three_ms()
+    public void Number_3000_is_mmm()
     {
         Assert.Equal("MMM", 3000.ToRoman());
     }

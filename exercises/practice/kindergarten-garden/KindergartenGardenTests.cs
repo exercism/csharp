@@ -1,5 +1,3 @@
-// This file was auto-generated based on version 1.1.1 of the canonical data.
-
 using Xunit;
 
 public class KindergartenGardenTests
@@ -40,28 +38,28 @@ public class KindergartenGardenTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Full_garden_first_students_garden()
+    public void Full_garden_for_alice_first_students_garden()
     {
         var sut = new KindergartenGarden("VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV");
         Assert.Equal(new[] { Plant.Violets, Plant.Radishes, Plant.Violets, Plant.Radishes }, sut.Plants("Alice"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Full_garden_second_students_garden()
+    public void Full_garden_for_bob_second_students_garden()
     {
         var sut = new KindergartenGarden("VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV");
         Assert.Equal(new[] { Plant.Clover, Plant.Grass, Plant.Clover, Plant.Clover }, sut.Plants("Bob"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Full_garden_second_to_last_students_garden()
+    public void Full_garden_for_kincaid_second_to_last_students_garden()
     {
         var sut = new KindergartenGarden("VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV");
         Assert.Equal(new[] { Plant.Grass, Plant.Clover, Plant.Clover, Plant.Grass }, sut.Plants("Kincaid"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Full_garden_last_students_garden()
+    public void Full_garden_for_larry_last_students_garden()
     {
         var sut = new KindergartenGarden("VRCGVVRVCGGCCGVRGCVCGCGV\nVRCCCGCRRGVCGCRVVCVGCGCV");
         Assert.Equal(new[] { Plant.Grass, Plant.Violets, Plant.Clover, Plant.Violets }, sut.Plants("Larry"));

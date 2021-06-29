@@ -1,15 +1,11 @@
 using System;
 using Exercism.CSharp.Output;
-using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class RationalNumbers : GeneratorExercise
+    internal class RationalNumbers : ExerciseGenerator
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
-            testMethod.Assert = RenderAssert(testMethod);
-        }
+        protected override void UpdateTestMethod(TestMethod testMethod) => testMethod.Assert = RenderAssert(testMethod);
 
         private string RenderAssert(TestMethod testMethod)
         {

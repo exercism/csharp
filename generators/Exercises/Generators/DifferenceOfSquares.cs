@@ -2,11 +2,8 @@ using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class DifferenceOfSquares : GeneratorExercise
+    internal class DifferenceOfSquares : ExerciseGenerator
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
-            testMethod.TestedMethod = $"Calculate{testMethod.TestedMethod}";
-        }
+        protected override void UpdateTestMethod(TestMethod testMethod) => testMethod.TestedMethod = $"Calculate{testMethod.TestedMethod}";
     }
 }

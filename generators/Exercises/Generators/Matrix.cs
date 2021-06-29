@@ -2,7 +2,7 @@
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class Matrix : GeneratorExercise
+    internal class Matrix : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

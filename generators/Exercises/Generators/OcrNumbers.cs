@@ -5,7 +5,7 @@ using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class OcrNumbers : GeneratorExercise
+    internal class OcrNumbers : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
@@ -15,14 +15,11 @@ namespace Exercism.CSharp.Exercises.Generators
             }
 
             testMethod.Input["rows"] = new MultiLineString(testMethod.Input["rows"]);
-            testMethod.Expected = testMethod.Expected.ToString();
+            testMethod.Expected = testMethod.Expected!.ToString();
             testMethod.UseVariableForTested = true;
             testMethod.UseVariablesForInput = true;
         }
 
-        protected override void UpdateNamespaces(ISet<string> namespaces)
-        {
-            namespaces.Add(typeof(Array).Namespace);
-        }
+        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(Array).Namespace!);
     }
 }

@@ -8,7 +8,7 @@ using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class React : GeneratorExercise
+    internal class React : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
@@ -112,7 +112,7 @@ namespace Exercism.CSharp.Exercises.Generators
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {
-            namespaces.Add(typeof(EventHandler).Namespace);
+            namespaces.Add(typeof(EventHandler).Namespace!);
             namespaces.Add("FakeItEasy");
         }
 

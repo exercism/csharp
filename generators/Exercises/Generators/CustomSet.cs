@@ -4,7 +4,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class CustomSet : GeneratorExercise
+    internal class CustomSet : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
@@ -44,17 +44,12 @@ namespace Exercism.CSharp.Exercises.Generators
             }
         }
 
-        private dynamic ConvertToCustomSet(dynamic value)
-        {
-            switch (value)
+        private dynamic ConvertToCustomSet(dynamic value) =>
+            value switch
             {
-                case bool _:
-                    return value;
-                case int[] values when values.Length > 0:
-                    return new UnescapedValue($"new CustomSet({Render.Object(values)})");
-                default:
-                    return new UnescapedValue("new CustomSet()");
-            }
-        }
+                bool _ => value,
+                int[] values when values.Length > 0 => new UnescapedValue($"new CustomSet({Render.Object(values)})"),
+                _ => new UnescapedValue("new CustomSet()")
+            };
     }
 }

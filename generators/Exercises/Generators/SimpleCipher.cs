@@ -6,7 +6,7 @@ using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class SimpleCipher : GeneratorExercise
+    internal class SimpleCipher : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
@@ -31,7 +31,7 @@ namespace Exercism.CSharp.Exercises.Generators
 
         private static void UpdateTestMethodForKeyProperty(TestMethod testMethod)
         {
-            testMethod.Expected = new Regex(testMethod.Expected["match"]);
+            testMethod.Expected = new Regex(testMethod.Expected!["match"]);
             testMethod.TestedMethodType = TestedMethodType.Property;
         }
 
@@ -43,7 +43,7 @@ namespace Exercism.CSharp.Exercises.Generators
             {
                 if (cipherText.StartsWith("cipher.key.substring"))
                 {
-                    testMethod.Input["ciphertext"] = new UnescapedValue($"sut.Key.Substring(0, {testMethod.Expected.Length})");
+                    testMethod.Input["ciphertext"] = new UnescapedValue($"sut.Key.Substring(0, {testMethod.Expected!.Length})");
                 }
                 else if (cipherText == "cipher.encode")
                 {
@@ -59,9 +59,6 @@ namespace Exercism.CSharp.Exercises.Generators
             }
         }
 
-        protected override void UpdateNamespaces(ISet<string> namespaces)
-        {
-            namespaces.Add(typeof(ArgumentException).Namespace);
-        }
+        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(ArgumentException).Namespace!);
     }
 }

@@ -3,6 +3,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>Exercism.CSharp</RootNamespace>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="CommandLineParser" Version="2.8.0" />
@@ -12,6 +13,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="serilog" Version="2.10.0" />
     <PackageReference Include="serilog.sinks.literate" Version="3.0.0" />
+    <PackageReference Include="Tomlyn" Version="0.1.2" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Output\Rendering\Templates\*.liquid" />

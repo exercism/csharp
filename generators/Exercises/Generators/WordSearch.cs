@@ -7,7 +7,7 @@ using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class WordSearch : GeneratorExercise
+    internal class WordSearch : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
@@ -26,13 +26,13 @@ namespace Exercism.CSharp.Exercises.Generators
         }
 
         private static Dictionary<string, ((int, int), (int, int))?> ConvertExpected(TestMethod testMethod) 
-            => ((IDictionary<string, dynamic>)testMethod.Expected).ToDictionary(kv => kv.Key, kv => (((int, int), (int, int))?)ConvertToPosition(kv.Value));
+            => ((IDictionary<string, dynamic>)testMethod.Expected!).ToDictionary(kv => kv.Key, kv => (((int, int), (int, int))?)ConvertToPosition(kv.Value));
 
         private string RenderAssert(TestMethod testMethod)
         {
             var assert = new StringBuilder();
 
-            foreach (var kv in testMethod.Expected)
+            foreach (var kv in testMethod.Expected!)
                 assert.AppendLine(RenderAssertForSearchWord(kv.Key, kv.Value));
 
             return assert.ToString();
@@ -56,8 +56,8 @@ namespace Exercism.CSharp.Exercises.Generators
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {
-            namespaces.Add(typeof(ValueTuple<int, int>).Namespace);
-            namespaces.Add(typeof(Dictionary<string, ValueTuple<int, int>>).Namespace);
+            namespaces.Add(typeof(ValueTuple<int, int>).Namespace!);
+            namespaces.Add(typeof(Dictionary<string, ValueTuple<int, int>>).Namespace!);
         }
     }
 }

@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class RestApi : GeneratorExercise
+    internal class RestApi : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
@@ -17,18 +17,12 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.Input["database"] = JsonConvert.SerializeObject(testMethod.Input["database"]["users"]);
 
             if (testMethod.Input.ContainsKey("payload"))
-            {
                 testMethod.Input["payload"] = JsonConvert.SerializeObject(testMethod.Input["payload"]);
-            }
 
-            if (testMethod.Expected.ContainsKey("users"))
-            {
-                testMethod.Expected = JsonConvert.SerializeObject(testMethod.Expected["users"]);
-            }
-            else
-            {
-                testMethod.Expected = JsonConvert.SerializeObject(testMethod.Expected);
-            }
+            testMethod.Expected =
+                JsonConvert.SerializeObject(testMethod.Expected!.ContainsKey("users")
+                    ? testMethod.Expected["users"]
+                    : testMethod.Expected);
         }
     }
 }

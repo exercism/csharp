@@ -7,7 +7,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class SgfParsing : GeneratorExercise
+    internal class SgfParsing : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
@@ -25,11 +25,11 @@ namespace Exercism.CSharp.Exercises.Generators
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {
-            namespaces.Add(typeof(ArgumentException).Namespace);
-            namespaces.Add(typeof(Dictionary<string, string[]>).Namespace);
+            namespaces.Add(typeof(ArgumentException).Namespace!);
+            namespaces.Add(typeof(Dictionary<string, string[]>).Namespace!);
         }
 
-        private UnescapedValue RenderTree(dynamic tree)
+        private UnescapedValue? RenderTree(dynamic tree)
         {
             if (tree == null)
             {

@@ -5,7 +5,7 @@ using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class Bowling : GeneratorExercise
+    internal class Bowling : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
@@ -35,7 +35,7 @@ namespace Exercism.CSharp.Exercises.Generators
             return builder.ToString();
         }
 
-        private string RenderAssert(TestMethod testMethod)
+        private string? RenderAssert(TestMethod testMethod)
         {
             if (testMethod.ExceptionThrown != null && testMethod.Input.ContainsKey("roll"))
             {
@@ -70,13 +70,9 @@ namespace Exercism.CSharp.Exercises.Generators
             return act.ToString();
         }
 
-        protected override void UpdateTestClass(TestClass testClass)
-        {
-            AddDoRollMethod(testClass);
-        }
+        protected override void UpdateTestClass(TestClass testClass) => AddDoRollMethod(testClass);
 
-        private static void AddDoRollMethod(TestClass testClass)
-        {
+        private static void AddDoRollMethod(TestClass testClass) =>
             testClass.AdditionalMethods.Add(@"
 private void DoRoll(IEnumerable<int> rolls, BowlingGame sut)
 {
@@ -85,12 +81,11 @@ private void DoRoll(IEnumerable<int> rolls, BowlingGame sut)
         sut.Roll(roll);
     }
 }");
-        }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {
-            namespaces.Add(typeof(Array).Namespace);
-            namespaces.Add(typeof(ICollection<>).Namespace);
+            namespaces.Add(typeof(Array).Namespace!);
+            namespaces.Add(typeof(ICollection<>).Namespace!);
         }
     }
 }

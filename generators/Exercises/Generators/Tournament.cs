@@ -7,7 +7,7 @@ using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class Tournament : GeneratorExercise
+    internal class Tournament : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
@@ -23,13 +23,9 @@ namespace Exercism.CSharp.Exercises.Generators
 
         private string RenderAssert() => Render.AssertEqual("expected", "RunTally(rows)");
 
-        protected override void UpdateTestClass(TestClass testClass)
-        {
-            AddRunTallyMethod(testClass);
-        }
+        protected override void UpdateTestClass(TestClass testClass) => AddRunTallyMethod(testClass);
 
-        private static void AddRunTallyMethod(TestClass testClass)
-        {
+        private static void AddRunTallyMethod(TestClass testClass) =>
             testClass.AdditionalMethods.Add(@"
 private string RunTally(string input)
 {
@@ -42,13 +38,12 @@ private string RunTally(string input)
         return encoding.GetString(outStream.ToArray());
     }
 }");
-        }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
         {
-            namespaces.Add(typeof(Array).Namespace);
-            namespaces.Add(typeof(Stream).Namespace);
-            namespaces.Add(typeof(UTF8Encoding).Namespace);
+            namespaces.Add(typeof(Array).Namespace!);
+            namespaces.Add(typeof(Stream).Namespace!);
+            namespaces.Add(typeof(UTF8Encoding).Namespace!);
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class RailFenceCipher : GeneratorExercise
+    internal class RailFenceCipher : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

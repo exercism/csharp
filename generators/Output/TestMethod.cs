@@ -4,36 +4,35 @@ using System.Linq;
 using Exercism.CSharp.Exercises;
 using Exercism.CSharp.Helpers;
 using Exercism.CSharp.Input;
-using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Output
 {
-    public class TestMethod
+    internal class TestMethod
     {
-        private readonly HashSet<string> _inputParameters = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-        private readonly HashSet<string> _constructorInputParameters = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        private readonly HashSet<string> _inputParameters = new(StringComparer.OrdinalIgnoreCase);
+        private readonly HashSet<string> _constructorInputParameters = new(StringComparer.OrdinalIgnoreCase);
         
-        public TestMethod(CanonicalData canonicalData, CanonicalDataCase canonicalDataCase)
+        public TestMethod(Exercise exercise, TestCase testCase)
         {
-            Input = new Dictionary<string, dynamic>(canonicalDataCase.Input, StringComparer.OrdinalIgnoreCase);
-            Expected = canonicalDataCase.Expected;
-            Property = canonicalDataCase.Property;
-            Description = canonicalDataCase.Description;
-            TestMethodName = canonicalDataCase.Description.ToTestMethodName();
-            TestMethodNameWithPath = string.Join(" - ", canonicalDataCase.DescriptionPath).ToTestMethodName();
-            TestedClass = canonicalData.Exercise.ToTestedClassName();
-            TestedMethod = canonicalDataCase.Property.ToTestedMethodName();
-            Skip = canonicalDataCase.Index > 0;
+            Input = new Dictionary<string, dynamic>(testCase.Input, StringComparer.OrdinalIgnoreCase);
+            Expected = testCase.Expected;
+            Property = testCase.Property;
+            Description = testCase.Description;
+            TestMethodName = testCase.Description.ToTestMethodName();
+            TestMethodNameWithPath = string.Join(" - ", testCase.DescriptionPath).ToTestMethodName();
+            TestedClass = exercise.Name.ToTestedClassName();
+            TestedMethod = testCase.Property.ToTestedMethodName();
+            Skip = testCase.Index > 0;
 
-            InputParameters = canonicalDataCase.Input.Keys.ToArray();
+            InputParameters = testCase.Input.Keys.ToArray();
         }
         
-        public string Act { get; set; }
-        public string Arrange { get; set; }
-        public string Assert { get; set; }
+        public string? Act { get; set; }
+        public string? Arrange { get; set; }
+        public string? Assert { get; set; }
 
         public IDictionary<string, dynamic> Input { get; }
-        public dynamic Expected { get; set; }
+        public dynamic? Expected { get; set; }
         public string Property { get; }
         public string Description { get; }
         public bool Skip { get; set; }
@@ -42,16 +41,14 @@ namespace Exercism.CSharp.Output
         public bool UseVariableForExpected { get; set; }
         public bool UseVariablesForConstructorParameters { get; set; }
         public bool UseVariableForTested { get; set; }
-        public bool UseVariableForSut 
-            => TestedMethodType == TestedMethodType.InstanceMethod || 
-               TestedMethodType == TestedMethodType.Property;
+        public bool UseVariableForSut => TestedMethodType is TestedMethodType.InstanceMethod or TestedMethodType.Property;
 
         public string TestMethodName { get; set; }
         public string TestMethodNameWithPath { get; }
         public string TestedClass { get; set; }
         public string TestedMethod { get; set; }
         public TestedMethodType TestedMethodType { get; set; }
-        public Type ExceptionThrown { get; set; }
+        public Type? ExceptionThrown { get; set; }
         public bool ExpectedIsError => Expected is Dictionary<string, object> dict && dict.ContainsKey("error");
         
         public IReadOnlyCollection<string> InputParameters

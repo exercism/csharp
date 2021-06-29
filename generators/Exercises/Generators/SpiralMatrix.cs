@@ -3,7 +3,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class SpiralMatrix : GeneratorExercise
+    internal class SpiralMatrix : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
@@ -12,6 +12,6 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.Expected = ConvertExpected(testMethod.Expected);
         }
 
-        private static int[,] ConvertExpected(JToken jArray) => jArray.ToObject<int[,]>();
+        private static int[,] ConvertExpected(JToken jArray) => jArray.ToObject<int[,]>()!;
     }
 }

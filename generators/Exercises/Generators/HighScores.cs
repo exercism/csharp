@@ -3,7 +3,7 @@ using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class HighScores : GeneratorExercise
+    internal class HighScores : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
@@ -20,7 +20,7 @@ namespace Exercism.CSharp.Exercises.Generators
             => AddTestMethodForPersonalBest(testClass);
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
-            => namespaces.Add(typeof(List<int>).Namespace);
+            => namespaces.Add(typeof(List<int>).Namespace!);
 
         private static void AddTestMethodForPersonalBest(TestClass testClass)
         {

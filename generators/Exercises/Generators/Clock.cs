@@ -3,7 +3,7 @@ using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class Clock : GeneratorExercise
+    internal class Clock : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
@@ -18,8 +18,7 @@ namespace Exercism.CSharp.Exercises.Generators
                 UpdateTestMethodForConsistencyProperty(testMethod);
         }
 
-        protected override void UpdateTestClass(TestClass testClass)
-        {
+        protected override void UpdateTestClass(TestClass testClass) =>
             testClass.AdditionalMethods.Add(@"[Fact(Skip = ""Remove this Skip property to run this test"")]
 public void Clocks_are_immutable()
 {
@@ -27,12 +26,8 @@ public void Clocks_are_immutable()
     var sutPlus1 = sut.Add(1);
     Assert.NotEqual(sutPlus1, sut);
 }");
-        }
 
-        private static void UpdateTestMethodForCreateProperty(TestMethod testMethod)
-        {
-            testMethod.TestedMethod = "ToString";
-        }
+        private static void UpdateTestMethodForCreateProperty(TestMethod testMethod) => testMethod.TestedMethod = "ToString";
 
         private void UpdateTestMethodForEqualProperty(TestMethod testMethod)
         {
@@ -55,10 +50,7 @@ public void Clocks_are_immutable()
                 : Render.AssertNotEqual(expected, "sut");
         }
 
-        private void UpdateTestMethodForConsistencyProperty(TestMethod testMethod)
-        {
-            testMethod.Assert = RenderConsistencyToAssert(testMethod);
-        }
+        private void UpdateTestMethodForConsistencyProperty(TestMethod testMethod) => testMethod.Assert = RenderConsistencyToAssert(testMethod);
 
         private string RenderConsistencyToAssert(TestMethod testMethod)
             => Render.AssertEqual(Render.Object(testMethod.Expected), $"sut.{testMethod.TestedMethod}({testMethod.Input["value"]}).ToString()");

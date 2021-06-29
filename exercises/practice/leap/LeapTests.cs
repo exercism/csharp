@@ -1,5 +1,3 @@
-// This file was auto-generated based on version 1.6.0 of the canonical data.
-
 using Xunit;
 
 public class LeapTests
@@ -41,7 +39,7 @@ public class LeapTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Year_divisible_by_400_in_leap_year()
+    public void Year_divisible_by_400_is_leap_year()
     {
         Assert.True(Leap.IsLeapYear(2000));
     }

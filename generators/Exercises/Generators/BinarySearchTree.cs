@@ -5,12 +5,9 @@ using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class BinarySearchTree : GeneratorExercise
+    internal class BinarySearchTree : ExerciseGenerator
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
-            testMethod.Assert = RenderAssert(testMethod);
-        }
+        protected override void UpdateTestMethod(TestMethod testMethod) => testMethod.Assert = RenderAssert(testMethod);
 
         private string RenderAssert(TestMethod testMethod)
         {
@@ -43,9 +40,6 @@ namespace Exercism.CSharp.Exercises.Generators
             if (tree["right"] != null) foreach (var assert in TestAsserts(tree["right"], $"{traverse}.Right")) yield return assert;
         }
 
-        protected override void UpdateNamespaces(ISet<string> namespaces)
-        {
-            namespaces.Add(typeof(IQueryable).Namespace);
-        }
+        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(IQueryable).Namespace!);
     }
 }

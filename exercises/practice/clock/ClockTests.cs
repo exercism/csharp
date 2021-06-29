@@ -1,5 +1,3 @@
-// This file was auto-generated based on version 2.4.0 of the canonical data.
-
 using Xunit;
 
 public class ClockTests

@@ -8,7 +8,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class ComplexNumbers : GeneratorExercise
+    internal class ComplexNumbers : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
@@ -36,10 +36,9 @@ namespace Exercism.CSharp.Exercises.Generators
         private static string[] GetInputParameters(TestMethod testMethod, string constructorParamName)
             => testMethod.Input.Keys.Where(x => x != constructorParamName).ToArray();
 
-        private string RenderAssert(TestMethod testMethod) 
-            => testMethod.UseVariableForExpected
-                ? RenderComplexNumberAssert(testMethod)
-                : testMethod.Assert;
+        private string? RenderAssert(TestMethod testMethod) => testMethod.UseVariableForExpected
+            ? RenderComplexNumberAssert(testMethod)
+            : testMethod.Assert;
 
         private string RenderComplexNumberAssert(TestMethod testMethod)
         {
@@ -59,28 +58,19 @@ namespace Exercism.CSharp.Exercises.Generators
                 : rawValue;
 
         private UnescapedValue RenderComplexNumber(dynamic rawValue) 
-            => new UnescapedValue($"new ComplexNumber({Render.Object(ConvertToDouble(rawValue[0]))}, {Render.Object(ConvertToDouble(rawValue[1]))})");
+            => new($"new ComplexNumber({Render.Object(ConvertToDouble(rawValue[0]))}, {Render.Object(ConvertToDouble(rawValue[1]))})");
 
         private static bool IsComplexNumber(object rawValue) => rawValue is int[] || rawValue is double[] || rawValue is float[] || rawValue is JArray;
 
-        private static object ConvertToDouble(dynamic value)
-        {
-            switch (value.ToString())
+        private static object ConvertToDouble(dynamic value) =>
+            value.ToString() switch
             {
-                case "e":
-                    return new UnescapedValue("Math.E");
-                case "pi":
-                    return new UnescapedValue("Math.PI");
-                case "ln(2)":
-                    return new UnescapedValue("Math.Log(2.0)");
-                default:
-                    return double.Parse(value.ToString());
-            }
-        }
+                "e" => new UnescapedValue("Math.E"),
+                "pi" => new UnescapedValue("Math.PI"),
+                "ln(2)" => new UnescapedValue("Math.Log(2.0)"),
+                _ => double.Parse(value.ToString())
+            };
 
-        protected override void UpdateNamespaces(ISet<string> namespaces)
-        {
-            namespaces.Add(typeof(Math).Namespace);
-        }
+        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(Math).Namespace!);
     }
 }

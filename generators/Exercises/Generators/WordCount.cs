@@ -5,7 +5,7 @@ using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class WordCount : GeneratorExercise
+    internal class WordCount : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
@@ -17,9 +17,6 @@ namespace Exercism.CSharp.Exercises.Generators
         private static dynamic ConvertExpected(dynamic expected)
             => ((Dictionary<string, object>)expected).ToDictionary(kv => kv.Key, kv => Convert.ToInt32(kv.Value));
 
-        protected override void UpdateNamespaces(ISet<string> namespaces)
-        {
-            namespaces.Add(typeof(Dictionary<string, int>).Namespace);
-        }
+        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(Dictionary<string, int>).Namespace!);
     }
 }

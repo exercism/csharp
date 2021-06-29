@@ -2,7 +2,7 @@
 
 namespace Exercism.CSharp.Helpers
 {
-    public static class ArrayExtensions
+    internal static class ArrayExtensions
     {
         public static T[][] Rows<T>(this T[,] array)
         {

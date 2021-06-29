@@ -3,7 +3,7 @@ using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class PrimeFactors : GeneratorExercise
+    internal class PrimeFactors : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

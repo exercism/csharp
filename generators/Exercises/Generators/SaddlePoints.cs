@@ -6,7 +6,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class SaddlePoints : GeneratorExercise
+    internal class SaddlePoints : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
@@ -24,12 +24,9 @@ namespace Exercism.CSharp.Exercises.Generators
             }
         }
 
-        protected override void UpdateNamespaces(ISet<string> namespaces)
-        {
-            namespaces.Add(typeof(string).Namespace);
-        }
+        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(string).Namespace!);
 
-        private static dynamic ToMultiDimensionalArray(JToken jArray) => jArray.ToObject<int[,]>();
+        private static dynamic ToMultiDimensionalArray(JToken jArray) => jArray.ToObject<int[,]>()!;
 
         private static (string, object)[] ToTupleCollection(Array array)
         {
@@ -37,8 +34,8 @@ namespace Exercism.CSharp.Exercises.Generators
             
             for (var x = 0; x < array.GetLength(0); x++)
             {
-                var current = (Dictionary<string, object>)array.GetValue(x);
-                tuples.Add((current["row"].ToString(), current["column"].ToString()));
+                var current = (Dictionary<string, object>)array.GetValue(x)!;
+                tuples.Add((current["row"].ToString()!, current["column"].ToString()!));
             }
 
             return tuples.OrderBy(x => x).ToArray();

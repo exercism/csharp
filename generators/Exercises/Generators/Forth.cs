@@ -1,10 +1,9 @@
 ﻿using Exercism.CSharp.Output;
 using System;
-using System.Collections.Generic;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class Forth : GeneratorExercise
+    internal class Forth : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

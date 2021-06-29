@@ -1,5 +1,3 @@
-// This file was auto-generated based on version 1.1.0 of the canonical data.
-
 using Xunit;
 
 public class RunLengthEncodingTests
@@ -71,7 +69,7 @@ public class RunLengthEncodingTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Run_length_decode_a_string_lower_case_string()
+    public void Run_length_decode_a_string_lowercase_string()
     {
         Assert.Equal("aabbbcccc", RunLengthEncoding.Decode("2a3b4c"));
     }

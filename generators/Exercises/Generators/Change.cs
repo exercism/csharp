@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
+
 using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class Change : GeneratorExercise
+    internal class Change : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

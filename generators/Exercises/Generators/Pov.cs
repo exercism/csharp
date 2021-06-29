@@ -5,7 +5,7 @@ using Exercism.CSharp.Output.Rendering;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class Pov : GeneratorExercise
+    internal class Pov : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
@@ -23,7 +23,7 @@ namespace Exercism.CSharp.Exercises.Generators
             }
         }
 
-        private UnescapedValue RenderTree(dynamic tree)
+        private UnescapedValue? RenderTree(dynamic tree)
         {
             if (tree == null)
             {

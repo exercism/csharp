@@ -6,9 +6,9 @@ using Humanizer;
 
 namespace Exercism.CSharp.Helpers
 {
-    public static class NameExtensions
+    internal static class NameExtensions
     {
-        private static readonly HashSet<Type> ValueTupleTypes = new HashSet<Type>(new[]
+        private static readonly HashSet<Type> ValueTupleTypes = new(new[]
         {
             typeof(ValueTuple<>),
             typeof(ValueTuple<,>),
@@ -20,9 +20,7 @@ namespace Exercism.CSharp.Helpers
             typeof(ValueTuple<,,,,,,,>)
         });
         
-        public static string ToExerciseName(this Type exerciseType) => exerciseType.Name.ToExerciseName();
-
-        public static string ToExerciseName(this string input) => input.Kebaberize();
+        public static string ToExerciseName(this Type exerciseType) => exerciseType.Name.Kebaberize();
 
         public static string ToTestClassName(this string input) => $"{input.Dehumanize()}Tests";
 
@@ -80,7 +78,7 @@ namespace Exercism.CSharp.Helpers
             if (type.IsGenericType)
                 return $"{type.Name.Split('`')[0]}<{string.Join(", ", type.GetGenericArguments().Select(ToFriendlyName))}>";
             if (type.IsArray)
-                return $"{type.GetElementType().ToFriendlyName()}[]";
+                return $"{type.GetElementType()!.ToFriendlyName()}[]";
             return type.Name;
         }
     }

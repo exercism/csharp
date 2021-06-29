@@ -1,5 +1,3 @@
-// This file was auto-generated based on version 1.7.1 of the canonical data.
-
 using System;
 using Xunit;
 
@@ -234,7 +232,7 @@ public class ForthTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void User_defined_words_cannot_redefine_numbers()
+    public void User_defined_words_cannot_redefine_non_negative_numbers()
     {
         Assert.Throws<InvalidOperationException>(() => Forth.Evaluate(new[] { ": 1 2 ;" }));
     }

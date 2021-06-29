@@ -3,7 +3,7 @@ using System.Numerics;
 
 namespace Exercism.CSharp.Output.Rendering
 {
-    public partial class Render
+    internal partial class Render
     {
         public string Decimal(decimal dec) => $"{dec.ToString(CultureInfo.InvariantCulture)}m";
 

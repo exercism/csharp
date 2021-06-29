@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class FlattenArray : GeneratorExercise
+    internal class FlattenArray : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
@@ -16,7 +16,7 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.Input["array"] = new UnescapedValue(renderedArray.Replace("new[]", "new object[]"));
         }
 
-        private static dynamic ConvertToObjectArray(dynamic input)
+        private static dynamic? ConvertToObjectArray(dynamic input)
         {   
             if (input is int[] ints)
                 return ints;

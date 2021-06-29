@@ -3,7 +3,7 @@ using Exercism.CSharp.Helpers;
 
 namespace Exercism.CSharp.Output.Rendering
 {
-    public partial class Render
+    internal partial class Render
     {   
         public string Dictionary<TKey, TValue>(IDictionary<TKey, TValue> dict) =>
             dict.Count == 0

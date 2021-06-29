@@ -1,10 +1,10 @@
 using System;
-using System.Collections.Generic;
+
 using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class NthPrime : GeneratorExercise
+    internal class NthPrime : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

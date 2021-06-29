@@ -8,7 +8,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class GoCounting : GeneratorExercise
+    internal class GoCounting : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
@@ -38,7 +38,7 @@ namespace Exercism.CSharp.Exercises.Generators
             }
             else
             {
-                var owner = RenderOwner(testMethod.Expected["owner"]);
+                var owner = RenderOwner(testMethod.Expected!["owner"]!);
                 var territory = RenderTerritory(testMethod.Expected["territory"]);
                 testMethod.Expected = (owner, territory);
                 testMethod.Assert = RenderTerritoryAssert();
@@ -51,9 +51,9 @@ namespace Exercism.CSharp.Exercises.Generators
             {
                 "new Dictionary<Owner, (int, int)[]>",
                 "{",
-                $"    [Owner.Black] = {RenderTerritory(testMethod.Expected["territoryBlack"])},",
-                $"    [Owner.White] = {RenderTerritory(testMethod.Expected["territoryWhite"])},",
-                $"    [Owner.None] = {RenderTerritory(testMethod.Expected["territoryNone"])}",
+                $"    [Owner.Black] = {RenderTerritory(testMethod.Expected!["territoryBlack"])},",
+                $"    [Owner.White] = {RenderTerritory(testMethod.Expected!["territoryWhite"])},",
+                $"    [Owner.None] = {RenderTerritory(testMethod.Expected!["territoryNone"])}",
                 "}"
             };
 
@@ -82,11 +82,8 @@ namespace Exercism.CSharp.Exercises.Generators
         private UnescapedValue RenderOwner(dynamic owner) => Render.Enum("Owner", owner);
 
         private string RenderTerritory(dynamic territory)
-            => Render.Object(((JArray)territory).Select(coordinate => (coordinate[0].ToObject<int>(), coordinate[1].ToObject<int>())).ToArray());
+            => Render.Object(((JArray)territory).Select(coordinate => (coordinate[0]!.ToObject<int>(), coordinate[1]!.ToObject<int>())).ToArray());
 
-        protected override void UpdateNamespaces(ISet<string> namespaces)
-        {
-            namespaces.Add(typeof(Dictionary<int, int>).Namespace);
-        }
+        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(Dictionary<int, int>).Namespace!);
     }
 }

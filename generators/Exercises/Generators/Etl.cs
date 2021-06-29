@@ -5,7 +5,7 @@ using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class Etl : GeneratorExercise
+    internal class Etl : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {
@@ -25,9 +25,6 @@ namespace Exercism.CSharp.Exercises.Generators
         private static IDictionary<int, string[]> ConvertInput(IDictionary<string, dynamic> input)
             => input.ToDictionary(kv => Convert.ToInt32(kv.Key), kv => (string[]) kv.Value);
 
-        protected override void UpdateNamespaces(ISet<string> namespaces)
-        {
-            namespaces.Add(typeof(Dictionary<string, int>).Namespace);
-        }
+        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(Dictionary<string, int>).Namespace!);
     }
 }

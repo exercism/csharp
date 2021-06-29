@@ -2,11 +2,8 @@
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class ScaleGenerator : GeneratorExercise
+    internal class ScaleGenerator : ExerciseGenerator
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
-            testMethod.UseVariableForExpected = true;
-        }
+        protected override void UpdateTestMethod(TestMethod testMethod) => testMethod.UseVariableForExpected = true;
     }
 }

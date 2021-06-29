@@ -1,5 +1,3 @@
-// This file was auto-generated based on version 1.0.0 of the canonical data.
-
 using System.Linq;
 using System.Numerics;
 using Xunit;
@@ -7,7 +5,7 @@ using Xunit;
 public class DiffieHellmanTests
 {
     [Fact]
-    public void Private_key_is_in_range_1_p()
+    public void Private_key_is_greater_than_1_and_less_than_p()
     {
         var p = new BigInteger(7919);
         var privateKeys = Enumerable.Range(0, 10).Select(_ => DiffieHellman.PrivateKey(p)).ToArray();

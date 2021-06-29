@@ -2,7 +2,7 @@
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class CryptoSquare : GeneratorExercise
+    internal class CryptoSquare : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
         {

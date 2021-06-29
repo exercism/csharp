@@ -2,7 +2,7 @@
 
 namespace Exercism.CSharp.Output.Rendering
 {
-    public partial class Render
+    internal partial class Render
     {
         public string AssertNull(string actual) 
             => RenderTemplate("AssertNull", new { actual });

@@ -2,11 +2,8 @@
 
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class ZebraPuzzle : GeneratorExercise
+    internal class ZebraPuzzle : ExerciseGenerator
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
-            testMethod.Expected = Render.Enum("Nationality", testMethod.Expected);
-        }
+        protected override void UpdateTestMethod(TestMethod testMethod) => testMethod.Expected = Render.Enum("Nationality", testMethod.Expected);
     }
 }

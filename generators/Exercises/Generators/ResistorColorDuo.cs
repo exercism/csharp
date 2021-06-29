@@ -1,6 +1,6 @@
 namespace Exercism.CSharp.Exercises.Generators
 {
-    public class ResistorColorDuo : GeneratorExercise
+    internal class ResistorColorDuo : ExerciseGenerator
     {
     }
 }

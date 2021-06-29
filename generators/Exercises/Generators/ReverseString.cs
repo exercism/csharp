@@ -1,6 +1,6 @@
 ﻿namespace Exercism.CSharp.Exercises.Generators
 {
-    public class ReverseString : GeneratorExercise
+    internal class ReverseString : ExerciseGenerator
     {
     }
 }
