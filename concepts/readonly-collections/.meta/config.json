@@ -1,9 +1,10 @@
 {
-  "blurb": "TODO: add blurb for readonly-collections concept",
+  "blurb": "The readonly modifier prevents the value or reference in a field from being overwritten.",
   "authors": [
     "mikedamay"
   ],
   "contributors": [
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ]
 }

@@ -1,7 +1,9 @@
 {
-  "blurb": "TODO: add blurb for strings concept",
+  "blurb": "Strings are immutable objects representing text as a sequence of Unicode characters.",
   "authors": [
     "ErikSchierboom"
   ],
-  "contributors": []
+  "contributors": [
+    "yzAlvin"
+  ]
 }

@@ -1,9 +1,10 @@
 {
-  "blurb": "TODO: add blurb for string-builder concept",
+  "blurb": "StringBuilder is seen as preferable over building up strings with repeated concatenations.",
   "authors": [
     "mikedamay"
   ],
   "contributors": [
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ]
 }

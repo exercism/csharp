@@ -1,5 +1,5 @@
 {
-  "blurb": "TODO: add blurb for overflow concept",
+  "blurb": "Numeric types when overflowed can wrap around to their lowest value or throw an OverflowException.",
   "authors": [
     "mikedamay"
   ],
@@ -7,6 +7,7 @@
     "ihid",
     "sleeplessbyte",
     "saschamann",
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ]
 }

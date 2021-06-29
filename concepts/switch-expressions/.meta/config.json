@@ -1,9 +1,10 @@
 {
-  "blurb": "TODO: add blurb for switch-expressions concept",
+  "blurb": "Switch expressions behave in a similar manner to switch statements, allowing for pattern matching.",
   "authors": [
     "mikedamay"
   ],
   "contributors": [
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ]
 }

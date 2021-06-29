@@ -1,7 +1,9 @@
 {
-  "blurb": "TODO: add blurb for numbers concept",
+  "blurb": "The two most commonly used number types in C# are 'int' and 'double'.",
   "authors": [
     "ErikSchierboom"
   ],
-  "contributors": []
+  "contributors": [
+    "yzAlvin"
+  ]
 }
