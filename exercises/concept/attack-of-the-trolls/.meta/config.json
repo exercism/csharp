@@ -1,7 +1,8 @@
 {
-  "blurb": "TODO: add blurb for attack-of-the-trolls exercise",
+  "blurb": "Learn about flag enumerations by checking permissions of user accounts on an internet forum.",
   "contributors": [
-    "valentin-p"
+    "valentin-p",
+    "yzAlvin"
   ],
   "authors": [
     "ErikSchierboom"
