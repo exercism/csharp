@@ -1,7 +1,8 @@
 {
-  "blurb": "TODO: add blurb for authentication-system exercise",
+  "blurb": "Learn about the const and readonly keywords by refactoring an authentication system.",
   "contributors": [
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ],
   "authors": [
     "mikedamay"
