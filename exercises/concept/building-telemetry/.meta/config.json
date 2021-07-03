@@ -1,7 +1,8 @@
 {
-  "blurb": "TODO: add blurb for building-telemetry exercise",
+  "blurb": "Learn about parameter modifiers by adding telemetry to a car.",
   "contributors": [
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ],
   "authors": [
     "mikedamay"
