@@ -1,7 +1,8 @@
 {
-  "blurb": "TODO: add blurb for calculator-conundrum exercise",
+  "blurb": "Learn about error handling by working on a simple calculator.",
   "contributors": [
-    "valentin-p"
+    "valentin-p",
+    "yzAlvin"
   ],
   "authors": [
     "archrisV"
