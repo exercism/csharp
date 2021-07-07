@@ -1,7 +1,8 @@
 {
-  "blurb": "TODO: add blurb for interest-is-interesting exercise",
+  "blurb": "Learn about floating point numbers by adding interest to savings accounts.",
   "authors": [
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ],
   "files": {
     "solution": [

@@ -1,7 +1,8 @@
 {
-  "blurb": "TODO: add blurb for faceid-2 exercise",
+  "blurb": "Learn about equality by adding face recognition to a login process.",
   "contributors": [
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ],
   "authors": [
     "mikedamay"

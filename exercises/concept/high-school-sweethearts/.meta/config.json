@@ -1,7 +1,8 @@
 {
-  "blurb": "TODO: add blurb for high-school-sweethearts exercise",
+  "blurb": "Learn about string formatting by helping high school sweethearts profess their love on social media.",
   "contributors": [
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ],
   "authors": [
     "mikedamay"

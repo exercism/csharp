@@ -1,7 +1,8 @@
 {
-  "blurb": "TODO: add blurb for hyper-optimized-telemetry exercise",
+  "blurb": "Learn about bit conversion by implementing a message protocol.",
   "contributors": [
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ],
   "authors": [
     "mikedamay"
