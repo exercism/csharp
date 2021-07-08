@@ -1,7 +1,8 @@
 {
-  "blurb": "TODO: add blurb for beauty-salon-goes-global exercise",
+  "blurb": "Learn about the DateTime class by helping a salon deal with timezones.",
   "contributors": [
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ],
   "authors": [
     "mikedamay"

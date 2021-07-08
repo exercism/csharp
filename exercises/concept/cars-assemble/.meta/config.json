@@ -1,5 +1,8 @@
 {
-  "blurb": "TODO: add blurb for cars-assemble exercise",
+  "blurb": "Learn about numbers by analyzing the production of an assembly line.",
+  "contributors": [
+    "yzAlvin"
+  ],
   "authors": [
     "ErikSchierboom"
   ],

@@ -1,10 +1,11 @@
 {
-  "blurb": "TODO: add blurb for hyperinflation-hits-hyperia exercise",
+  "blurb": "Learn about arithmetic overflow by dealing with hyperinflation.",
   "contributors": [
     "ihid",
     "sleeplessbyte",
     "saschamann",
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ],
   "authors": [
     "mikedamay"

@@ -1,7 +1,8 @@
 {
-  "blurb": "TODO: add blurb for booking-up-for-beauty exercise",
+  "blurb": "Learn about the DateTime class by working on an appointment scheduler for a beauty salon.",
   "contributors": [
-    "valentin-p"
+    "valentin-p",
+    "yzAlvin"
   ],
   "authors": [
     "ErikSchierboom"

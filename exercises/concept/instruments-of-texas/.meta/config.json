@@ -1,7 +1,8 @@
 {
-  "blurb": "TODO: add blurb for instruments-of-texas exercise",
+  "blurb": "Learn about exceptions by handling adding multiplication to a calculator.",
   "contributors": [
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ],
   "authors": [
     "mikedamay"

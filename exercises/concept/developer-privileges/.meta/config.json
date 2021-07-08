@@ -1,7 +1,8 @@
 {
-  "blurb": "TODO: add blurb for developer-privileges exercise",
+  "blurb": "Learn about object initialisers by adding functionality to an authentication system.",
   "contributors": [
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ],
   "authors": [
     "mikedamay"

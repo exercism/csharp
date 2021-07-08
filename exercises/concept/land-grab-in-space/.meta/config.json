@@ -1,9 +1,10 @@
 {
-  "blurb": "TODO: add blurb for land-grab-in-space exercise",
+  "blurb": "Learn about structs by improving the performance of a land claim system.",
   "contributors": [
     "efx",
     "jrr",
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ],
   "authors": [
     "mikedamay"

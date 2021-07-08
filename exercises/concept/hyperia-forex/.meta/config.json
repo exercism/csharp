@@ -1,7 +1,8 @@
 {
-  "blurb": "TODO: add blurb for hyperia-forex exercise",
+  "blurb": "Learn about operator overloading by introducing a new currency to a bank.",
   "contributors": [
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ],
   "authors": [
     "mikedamay"
