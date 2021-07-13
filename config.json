@@ -48,7 +48,7 @@
           "classes",
           "if-statements"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "lucians-luscious-lasagna",
@@ -58,7 +58,7 @@
           "basics"
         ],
         "prerequisites": [],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "annalyns-infiltration",
@@ -70,7 +70,7 @@
         "prerequisites": [
           "basics"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "secure-munchester-united",
@@ -84,7 +84,7 @@
           "inheritance",
           "numbers"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "squeaky-clean",
@@ -99,7 +99,7 @@
           "for-loops",
           "strings"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "elons-toys",
@@ -113,7 +113,7 @@
           "numbers",
           "strings"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "authentication-system",
@@ -133,7 +133,7 @@
           "object-initializers",
           "properties"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "need-for-speed",
@@ -148,7 +148,7 @@
           "numbers",
           "while-loops"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "booking-up-for-beauty",
@@ -162,7 +162,7 @@
           "numbers",
           "strings"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "international-calling-connoisseur",
@@ -177,7 +177,7 @@
           "strings",
           "indexers"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "logs-logs-logs",
@@ -190,7 +190,7 @@
           "strings",
           "switch-statements"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "faceid-2",
@@ -208,7 +208,7 @@
           "interfaces",
           "lists"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "calculator-conundrum",
@@ -222,7 +222,7 @@
           "nullability",
           "switch-statements"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "the-weather-in-deather",
@@ -244,7 +244,7 @@
           "properties",
           "switch-statements"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "attack-of-the-trolls",
@@ -259,7 +259,7 @@
           "enums",
           "integral-numbers"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "interest-is-interesting",
@@ -274,7 +274,7 @@
           "if-statements",
           "numbers"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "wizards-and-warriors",
@@ -290,7 +290,7 @@
           "constructors",
           "strings"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "hyper-optimized-telemetry",
@@ -303,7 +303,7 @@
           "arrays",
           "numbers"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "remote-control-competition",
@@ -318,7 +318,7 @@
           "lists",
           "properties"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "tracks-on-tracks-on-tracks",
@@ -332,7 +332,7 @@
           "arrays",
           "for-loops"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "wizards-and-warriors-2",
@@ -350,7 +350,7 @@
           "properties",
           "strings"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "red-vs-blue-darwin-style",
@@ -364,7 +364,7 @@
           "inheritance",
           "nested-types"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "remote-control-cleanup",
@@ -380,7 +380,7 @@
           "properties",
           "structs"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "tim-from-marketing",
@@ -394,7 +394,7 @@
           "memory-allocation",
           "strings"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "cars-assemble",
@@ -407,7 +407,7 @@
         "prerequisites": [
           "basics"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "developer-privileges",
@@ -421,7 +421,7 @@
           "dictionaries",
           "properties"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "hyperia-forex",
@@ -435,7 +435,7 @@
           "floating-point-numbers",
           "method-overloading"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "hyperinflation-hits-hyperia",
@@ -450,7 +450,7 @@
           "integral-numbers",
           "strings"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "building-telemetry",
@@ -466,7 +466,7 @@
           "numbers",
           "strings"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "weighing-machine",
@@ -482,7 +482,7 @@
           "floating-point-numbers",
           "numbers"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "roll-the-die",
@@ -494,7 +494,7 @@
         "prerequisites": [
           "numbers"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "parsing-log-files",
@@ -510,7 +510,7 @@
           "string-interpolation",
           "verbatim-strings"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "object-relational-mapping",
@@ -523,7 +523,7 @@
           "exceptions",
           "inheritance"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "orm-in-one-go",
@@ -535,7 +535,7 @@
         "prerequisites": [
           "resource-cleanup"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "high-school-sweethearts",
@@ -553,7 +553,7 @@
           "time",
           "varargs"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "log-levels",
@@ -565,7 +565,7 @@
         "prerequisites": [
           "basics"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "land-grab-in-space",
@@ -581,7 +581,7 @@
           "sets",
           "integral-numbers"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "football-match-reports",
@@ -594,7 +594,7 @@
           "classes",
           "inheritance"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "beauty-salon-goes-global",
@@ -610,7 +610,7 @@
           "strings",
           "switch-statements"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "phone-number-analysis",
@@ -622,7 +622,7 @@
         "prerequisites": [
           "strings"
         ],
-        "status": "wip"
+        "status": "active"
       },
       {
         "slug": "instruments-of-texas",
@@ -640,7 +640,7 @@
           "overflow",
           "integral-numbers"
         ],
-        "status": "wip"
+        "status": "active"
       }
     ],
     "practice": [
