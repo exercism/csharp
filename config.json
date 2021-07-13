@@ -47,9 +47,7 @@
           "booleans",
           "classes",
           "if-statements"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "lucians-luscious-lasagna",
         "name": "Lucian's Luscious Lasagna",
@@ -57,9 +55,7 @@
         "concepts": [
           "basics"
         ],
-        "prerequisites": [],
-        "status": "active"
-      },
+        "prerequisites": []      },
       {
         "slug": "annalyns-infiltration",
         "name": "Annalyn's Infiltration",
@@ -69,9 +65,7 @@
         ],
         "prerequisites": [
           "basics"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "secure-munchester-united",
         "name": "Secure Munchester United",
@@ -83,9 +77,7 @@
           "exceptions",
           "inheritance",
           "numbers"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "squeaky-clean",
         "name": "Squeaky Clean",
@@ -98,9 +90,7 @@
           "if-statements",
           "for-loops",
           "strings"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "elons-toys",
         "name": "Elon's Toys",
@@ -112,9 +102,7 @@
           "if-statements",
           "numbers",
           "strings"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "authentication-system",
         "name": "Authentication System",
@@ -132,9 +120,7 @@
           "nested-types",
           "object-initializers",
           "properties"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "need-for-speed",
         "name": "Need for Speed",
@@ -147,9 +133,7 @@
           "if-statements",
           "numbers",
           "while-loops"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "booking-up-for-beauty",
         "name": "Booking up for Beauty",
@@ -161,9 +145,7 @@
           "classes",
           "numbers",
           "strings"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "international-calling-connoisseur",
         "name": "International Calling Connoisseur",
@@ -176,9 +158,7 @@
           "generic-types",
           "strings",
           "indexers"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "logs-logs-logs",
         "name": "Logs, Logs, Logs!",
@@ -189,9 +169,7 @@
         "prerequisites": [
           "strings",
           "switch-statements"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "faceid-2",
         "name": "Face ID 2.0",
@@ -207,9 +185,7 @@
           "inheritance",
           "interfaces",
           "lists"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "calculator-conundrum",
         "name": "Calculator Conundrum",
@@ -221,9 +197,7 @@
           "inheritance",
           "nullability",
           "switch-statements"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "the-weather-in-deather",
         "name": "The Weather in Deather",
@@ -243,9 +217,7 @@
           "exceptions",
           "properties",
           "switch-statements"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "attack-of-the-trolls",
         "name": "Attack of the Trolls",
@@ -258,9 +230,7 @@
           "bit-manipulation",
           "enums",
           "integral-numbers"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "interest-is-interesting",
         "name": "Interest is Interesting",
@@ -273,9 +243,7 @@
         "prerequisites": [
           "if-statements",
           "numbers"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "wizards-and-warriors",
         "name": "Wizards and Warriors",
@@ -289,9 +257,7 @@
           "if-statements",
           "constructors",
           "strings"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "hyper-optimized-telemetry",
         "name": "Hyper-optimized Telemetry",
@@ -302,9 +268,7 @@
         "prerequisites": [
           "arrays",
           "numbers"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "remote-control-competition",
         "name": "Remote Control Competition",
@@ -317,9 +281,7 @@
           "classes",
           "lists",
           "properties"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "tracks-on-tracks-on-tracks",
         "name": "Tracks on Tracks on Tracks",
@@ -331,9 +293,7 @@
         "prerequisites": [
           "arrays",
           "for-loops"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "wizards-and-warriors-2",
         "name": "Wizards and Warriors 2.0",
@@ -349,9 +309,7 @@
           "enums",
           "properties",
           "strings"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "red-vs-blue-darwin-style",
         "name": "Red vs. Blue: Darwin Style",
@@ -363,9 +321,7 @@
           "classes",
           "inheritance",
           "nested-types"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "remote-control-cleanup",
         "name": "Remote Control Cleanup",
@@ -379,9 +335,7 @@
           "interfaces",
           "properties",
           "structs"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "tim-from-marketing",
         "name": "Tim from Marketing",
@@ -393,9 +347,7 @@
           "if-statements",
           "memory-allocation",
           "strings"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "cars-assemble",
         "name": "Cars, Assemble!",
@@ -406,9 +358,7 @@
         ],
         "prerequisites": [
           "basics"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "developer-privileges",
         "name": "Developer Privileges",
@@ -420,9 +370,7 @@
           "constructors",
           "dictionaries",
           "properties"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "hyperia-forex",
         "name": "Hyperia Forex",
@@ -434,9 +382,7 @@
           "equality",
           "floating-point-numbers",
           "method-overloading"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "hyperinflation-hits-hyperia",
         "name": "Hyperinflation Hits Hyperia",
@@ -449,9 +395,7 @@
           "floating-point-numbers",
           "integral-numbers",
           "strings"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "building-telemetry",
         "name": "Building Telemetry",
@@ -465,9 +409,7 @@
           "named-arguments",
           "numbers",
           "strings"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "weighing-machine",
         "name": "Weighing Machine",
@@ -481,9 +423,7 @@
           "exceptions",
           "floating-point-numbers",
           "numbers"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "roll-the-die",
         "name": "Roll the Die!",
@@ -493,9 +433,7 @@
         ],
         "prerequisites": [
           "numbers"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "parsing-log-files",
         "name": "Parsing Log Files",
@@ -509,9 +447,7 @@
           "strings",
           "string-interpolation",
           "verbatim-strings"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "object-relational-mapping",
         "name": "Object Relational Mapping",
@@ -522,9 +458,7 @@
         "prerequisites": [
           "exceptions",
           "inheritance"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "orm-in-one-go",
         "name": "Orm in One Go",
@@ -534,9 +468,7 @@
         ],
         "prerequisites": [
           "resource-cleanup"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "high-school-sweethearts",
         "name": "High School Sweethearts",
@@ -552,9 +484,7 @@
           "strings",
           "time",
           "varargs"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "log-levels",
         "name": "Log Levels",
@@ -564,9 +494,7 @@
         ],
         "prerequisites": [
           "basics"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "land-grab-in-space",
         "name": "Land Grab in Space",
@@ -580,9 +508,7 @@
           "numbers",
           "sets",
           "integral-numbers"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "football-match-reports",
         "name": "Football Match Reports",
@@ -593,9 +519,7 @@
         "prerequisites": [
           "classes",
           "inheritance"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "beauty-salon-goes-global",
         "name": "Beauty Salon Goes Global",
@@ -609,9 +533,7 @@
           "datetimes",
           "strings",
           "switch-statements"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "phone-number-analysis",
         "name": "Phone Number Analysis",
@@ -621,9 +543,7 @@
         ],
         "prerequisites": [
           "strings"
-        ],
-        "status": "active"
-      },
+        ]      },
       {
         "slug": "instruments-of-texas",
         "name": "Instruments of Texas",
@@ -639,9 +559,7 @@
           "if-statements",
           "overflow",
           "integral-numbers"
-        ],
-        "status": "active"
-      }
+        ]      }
     ],
     "practice": [
       {
