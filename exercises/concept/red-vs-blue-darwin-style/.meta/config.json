@@ -1,8 +1,9 @@
 {
-  "blurb": "TODO: add blurb for red-vs-blue-darwin-style exercise",
+  "blurb": "Learn about namespaces by managing car development teams.",
   "contributors": [
     "ErikSchierboom",
-    "valentin-p"
+    "valentin-p",
+    "yzAlvin"
   ],
   "authors": [
     "mikedamay"

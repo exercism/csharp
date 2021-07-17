@@ -1,7 +1,8 @@
 {
-  "blurb": "TODO: add blurb for squeaky-clean exercise",
+  "blurb": "Learn about Chars and StringBuilder by cleaning strings.",
   "contributors": [
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ],
   "authors": [
     "mikedamay"

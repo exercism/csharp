@@ -1,7 +1,8 @@
 {
-  "blurb": "TODO: add blurb for phone-number-analysis exercise",
+  "blurb": "Learn about tuples by analysing phone numbers.",
   "contributors": [
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ],
   "authors": [
     "mikedamay"

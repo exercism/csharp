@@ -1,7 +1,8 @@
 {
-  "blurb": "TODO: add blurb for object-relational-mapping exercise",
+  "blurb": "Learn about the IDisposable interface by implementing an ORM system.",
   "contributors": [
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ],
   "authors": [
     "mikedamay"

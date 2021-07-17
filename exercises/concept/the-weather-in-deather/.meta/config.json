@@ -1,7 +1,8 @@
 {
-  "blurb": "TODO: add blurb for the-weather-in-deather exercise",
+  "blurb": "Learn about expressions by improving legacy code.",
   "contributors": [
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ],
   "authors": [
     "mikedamay"

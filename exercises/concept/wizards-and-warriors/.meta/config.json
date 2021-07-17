@@ -1,5 +1,8 @@
 {
-  "blurb": "TODO: add blurb for wizards-and-warriors exercise",
+  "blurb": "Learn about inheritance by creating an RPG.",
+  "contributors": [
+    "yzAlvin"
+  ],
   "authors": [
     "ErikSchierboom"
   ],

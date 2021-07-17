@@ -1,5 +1,8 @@
 {
-  "blurb": "TODO: add blurb for wizards-and-warriors-2 exercise",
+  "blurb": "Learn about classes by extending an RPG.",
+  "contributors": [
+    "yzAlvin"
+  ],
   "authors": [
     "ErikSchierboom"
   ],

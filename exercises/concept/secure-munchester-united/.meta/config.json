@@ -1,7 +1,8 @@
 {
-  "blurb": "TODO: add blurb for secure-munchester-united exercise",
+  "blurb": "Learn about casting by creating security passes.",
   "contributors": [
-    "ErikSchierboom"
+    "ErikSchierboom", 
+    "yzAlvin"
   ],
   "authors": [
     "mikedamay"

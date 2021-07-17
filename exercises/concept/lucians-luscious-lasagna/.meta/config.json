@@ -1,6 +1,9 @@
 {
-  "blurb": "TODO: add blurb for lucians-luscious-lasagna exercise",
+  "blurb": "Learn about methods by helping cook lasagna.",
   "icon": "lasagna",
+  "contributors": [
+    "yzAlvin"
+  ],
   "authors": [
     "ErikSchierboom"
   ],

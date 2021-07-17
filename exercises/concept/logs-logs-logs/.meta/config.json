@@ -1,7 +1,8 @@
 {
-  "blurb": "TODO: add blurb for logs-logs-logs exercise",
+  "blurb": "Learn about enums by processing logs.",
   "contributors": [
-    "valentin-p"
+    "valentin-p",
+    "yzAlvin"
   ],
   "authors": [
     "ErikSchierboom"

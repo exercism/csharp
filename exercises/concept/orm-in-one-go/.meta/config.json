@@ -1,7 +1,8 @@
 {
-  "blurb": "TODO: add blurb for orm-in-one-go exercise",
+  "blurb": "Learn about the using block by implementing an ORM system.",
   "contributors": [
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ],
   "authors": [
     "mikedamay"
