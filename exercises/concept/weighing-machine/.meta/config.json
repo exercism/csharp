@@ -1,7 +1,8 @@
 {
-  "blurb": "TODO: add blurb for weighing-machine exercise",
+  "blurb": "Learn about properties by modelling a weighing machine.",
   "contributors": [
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ],
   "authors": [
     "mikedamay"

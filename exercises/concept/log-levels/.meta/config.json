@@ -1,5 +1,8 @@
 {
-  "blurb": "TODO: add blurb for log-levels exercise",
+  "blurb": "Learn about strings by processing logs.",
+  "contributors": [
+    "yzAlvin"
+  ],
   "authors": [
     "ErikSchierboom"
   ],
