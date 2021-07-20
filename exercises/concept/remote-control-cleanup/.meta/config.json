@@ -1,5 +1,5 @@
 {
-  "blurb": "Learn about composition by refactoring a car class.",
+  "blurb": "Learn about nested types by refactoring a car class.",
   "contributors": [
     "ErikSchierboom",
     "yzAlvin"
