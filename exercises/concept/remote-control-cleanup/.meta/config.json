@@ -1,7 +1,8 @@
 {
-  "blurb": "TODO: add blurb for remote-control-cleanup exercise",
+  "blurb": "Learn about nested types by refactoring a car class.",
   "contributors": [
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ],
   "authors": [
     "mikedamay"

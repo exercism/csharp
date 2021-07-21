@@ -1,6 +1,9 @@
 {
-  "blurb": "TODO: add blurb for lucians-luscious-lasagna exercise",
+  "blurb": "Learn about the basics of C# by following a lasagna recipe.",
   "icon": "lasagna",
+  "contributors": [
+    "yzAlvin"
+  ],
   "authors": [
     "ErikSchierboom"
   ],

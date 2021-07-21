@@ -1,7 +1,8 @@
 {
-  "blurb": "TODO: add blurb for roll-the-die exercise",
+  "blurb": "Learn about randomness by generating numbers in a game.",
   "contributors": [
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ],
   "authors": [
     "mikedamay"

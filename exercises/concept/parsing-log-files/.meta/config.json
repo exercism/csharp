@@ -1,7 +1,8 @@
 {
-  "blurb": "TODO: add blurb for parsing-log-files exercise",
+  "blurb": "Learn about regular expressions by parsing logs.",
   "contributors": [
-    "ErikSchierboom"
+    "ErikSchierboom",
+    "yzAlvin"
   ],
   "authors": [
     "mikedamay"
