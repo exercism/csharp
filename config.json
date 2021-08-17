@@ -2507,32 +2507,32 @@
   ],
   "key_features": [
     {
-      "icon": "features-oop",
+      "icon": "evolving",
       "title": "Modern",
       "content": "C# is a modern, fast-evolving language."
     },
     {
-      "icon": "features-strongly-typed",
+      "icon": "cross-platform",
       "title": "Cross-platform",
       "content": "C# runs on almost any platform and chipset."
     },
     {
-      "icon": "features-functional",
+      "icon": "multi-paradigm",
       "title": "Multi-paradigm",
       "content": "C# is primarily an object-oriented language, but also has lots of functional features."
     },
     {
-      "icon": "features-lazy",
+      "icon": "general-purpose",
       "title": "General purpose",
       "content": "C# can be used for a wide variety of workloads, like websites, console applications, and even games."
     },
     {
-      "icon": "features-declarative",
+      "icon": "tooling",
       "title": "Tooling",
       "content": "C# has excellent tooling, with linting and advanced refactoring options built-in."
     },
     {
-      "icon": "features-generic",
+      "icon": "documentation",
       "title": "Documentation",
       "content": "Documentation is excellent and exhaustive, making it easy to get started with C#."
     }
