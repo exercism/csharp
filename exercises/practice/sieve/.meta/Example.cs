@@ -11,13 +11,15 @@ public class Sieve
 
     private static int[] InitializePrimes(int limit)
     {
-        if (limit < 2)
+        if (limit < 0)
         {
             throw new ArgumentOutOfRangeException(nameof(limit));
         }
 
-        var candidates = new Queue<int>(Enumerable.Range(2, limit - 1));
         var primes = new List<int>();
+        if (limit == 0 || limit == 1) return primes.ToArray();
+
+        var candidates = new Queue<int>(Enumerable.Range(2, limit - 1));
         do
         {
             var prime = candidates.Dequeue();
