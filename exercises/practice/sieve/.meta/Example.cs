@@ -16,8 +16,8 @@ public class Sieve
             throw new ArgumentOutOfRangeException(nameof(limit));
         }
 
+        if (limit == 0 || limit == 1) return Array.Empty<int>();
         var primes = new List<int>();
-        if (limit == 0 || limit == 1) return primes.ToArray();
 
         var candidates = new Queue<int>(Enumerable.Range(2, limit - 1));
         do
