@@ -14,6 +14,6 @@ This [article][passing-parameters] discusses how to implement a method which tak
 
 To perform this task you need to know how to deal with both [out][out-parameter] and [ref][ref-parameter] parameters.
 
-[passing-parameters]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-references/passing-parameters
+[passing-parameters]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/passing-parameters
 [ref-parameter]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/ref#passing-an-argument-by-reference
 [out-parameter]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/out-parameter-modifier
