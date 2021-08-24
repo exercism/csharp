@@ -1,4 +1,4 @@
 # Hints
 
 To be able to compare data, the IComparable interface is used.
-For more information, see [this page](<https://msdn.microsoft.com/en-us/library/system.icomparable(v=vs.110).aspx>).
+For more information, see [this page](https://docs.microsoft.com/en-us/dotnet/api/system.icomparable?view=net-5.0).
