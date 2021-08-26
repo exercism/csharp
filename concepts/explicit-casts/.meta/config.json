@@ -1,5 +1,5 @@
 {
-  "blurb": "TODO: add blurb for explicit-casts concept",
+  "blurb": "When there is no built-in implicit conversion between two types, an explicit cast has to be used.",
   "authors": ["TODO: add author"],
   "contributors": []
 }

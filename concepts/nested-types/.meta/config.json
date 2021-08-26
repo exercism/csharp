@@ -1,9 +1,5 @@
 {
-  "blurb": "TODO: add blurb for nested-types concept",
-  "authors": [
-    "mikedamay"
-  ],
-  "contributors": [
-    "ErikSchierboom"
-  ]
+  "blurb": "C# types can be defined within the scope of a class or struct. The enclosing type provides a kind of namespace. Access to the type is through the enclosing type with dot syntax.",
+  "authors": ["mikedamay"],
+  "contributors": ["ErikSchierboom"]
 }
