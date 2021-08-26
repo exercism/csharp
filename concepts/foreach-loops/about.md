@@ -1,34 +1,6 @@
 # About
 
-TODO: about.md files and links.json files are the same for arrays, for-loops and foreach. Consider how to prise these apart of otherwise treat these closely coupled concepts.
-Data structures that can hold zero or more elements are known as _collections_. An **array** is a collection that has a fixed size/length and whose elements must all be of the same type. Elements can be assigned to an array or retrieved from it using an index. C# arrays are zero-based, meaning that the first element's index is always zero:
-
-```csharp
-// Declare array with explicit size (size is 2)
-int[] twoInts = new int[2];
-
-// Assign second element by index
-twoInts[1] = 8;
-
-// Retrieve the second element by index
-twoInts[1] == 8; // => true
-
-// Check the length of the array
-twoInts.Length == 2; // => true
-```
-
-Arrays can also be defined using a shortcut notation that allows you to both create the array and set its value. As the compiler can now tell how many elements the array will have, the length can be omitted:
-
-```csharp
-// Three equivalent ways to declare and initialize an array (size is 3)
-int[] threeIntsV1 = new int[] { 4, 9, 7 };
-int[] threeIntsV2 = new[] { 4, 9, 7 };
-int[] threeIntsV3 = { 4, 9, 7 };
-```
-
-Arrays can be manipulated by either calling an array instance's [methods][array-methods] or [properties][array-properties], or by using the static methods defined in the [`Array` class][array-class].
-
-An array is also a _collection_, which means that you can iterate over _all_ its values using a [`foreach` loop][foreach-statement]:
+[concept:csharp/enumerables]() can be iterated over using a [`foreach` loop][foreach-statement]:
 
 ```csharp
 char[] vowels = new [] { 'a', 'e', 'i', 'o', 'u' };
@@ -42,19 +14,13 @@ foreach (char vowel in vowels)
 // => aeiou
 ```
 
-One could use a [`for` loop][for-statement] to iterate over an array:
+A `foreach` loop consists of three parts:
 
-```csharp
-char[] vowels = new [] { 'a', 'e', 'i', 'o', 'u' };
+1. The declaration: define the variable that will contain the iterated value. This variable can (only) be used inside the loop.
+2. The iterable object: the object that can be iterated over.
+3. The loop body.
 
-for (int i = 0; i < vowels.Length; i++)
-{
-    // Output the vowel
-    System.Console.Write(vowels[i]);
-}
-
-// => aeiou
-```
+## for vs foreach loops
 
 However, generally a `foreach` loop is preferrable over a `for` loop for the following reasons:
 

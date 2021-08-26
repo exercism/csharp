@@ -54,7 +54,7 @@ One thing to note about `TimeSpan` is that it implements a number of interfaces 
 
 ## Equality
 
-Equality testing for `struct`s can often be much simpler than that for `class`s as it simply compares fields for equality by default. There is no need to override `object.Equals()` (or `GetHashCode()`). Remember that if you are relying on `Object.GetHashCode()` you must still ensure that the fields involved in generating the hash code (i.e. all the fields) must not change while a hashed collection is use. Effectively, this means that structs used in this way should be immutable. See (TODO cross-ref-tba).
+Equality testing for `struct`s can often be much simpler than that for `class`s as it simply compares fields for equality by default. There is no need to override `object.Equals()` (or `GetHashCode()`). Remember that if you are relying on `Object.GetHashCode()` you must still ensure that the fields involved in generating the hash code (i.e. all the fields) must not change while a hashed collection is use. Effectively, this means that structs used in this way should be immutable.
 
 In contrast to the method, `Equals()`, there is no default implementation of the equality operators, `==` and `!=`. If your `struct` needs them then you will have to implement them.
 

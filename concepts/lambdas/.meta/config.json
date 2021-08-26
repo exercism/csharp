@@ -1,5 +1,5 @@
 {
   "blurb": "Lambdas are functions without a name. LINQ uses lambdas extensively.",
-  "authors": ["TODO: add author"],
+  "authors": ["erikschierboom"],
   "contributors": []
 }
