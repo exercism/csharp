@@ -1,6 +1,6 @@
 # Instructions
 
-You are back working on the ORM (Object Relationship Mapping) system introduced in (TODO cross-reference-tba).
+You are back working on the ORM (Object Relationship Mapping) system introduced in [exercise:csharp/object-relational-mapping]().
 
 Our ORM usage analysis shows that 95% of transactions are executed from within one calling method, and it has been decided that it would be more appropriate to have a single ORM method that opened, wrote and committed a transaction.
 
