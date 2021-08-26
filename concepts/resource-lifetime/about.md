@@ -1,6 +1,6 @@
 # About
 
-We discussed in (TODO cross-ref-tba) how the `IDispoable` interface helps signal to callers of a class that there are resources or program state that need releasing or resetting in a timely fashion when the object in question is no longer required. In this exercise we have introduced some syntactic sugar, with the `using` keyword, that makes the code less verbose and less likely that significant calls will be omitted.
+[concept:csharp/resource-cleanup]() uses the `IDispose` interface to signal to callers of a class that there are resources or program state that need releasing or resetting in a timely fashion when the object in question is no longer required. In this exercise we have introduced some syntactic sugar, with the `using` keyword, that makes the code less verbose and less likely that significant calls will be omitted.
 
 `using` can be seen as replacing [`try/finally`][try-finally] for some use cases.
 

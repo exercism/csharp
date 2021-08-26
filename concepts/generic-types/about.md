@@ -1,8 +1,6 @@
 # About
 
-Lists are an example of generic classes. You will also see `HashSet<T>` and `Dictionary<T>` in early exercises.
-
-More [advanced generic techniques][generics] are discussed in (TODO cross-ref-tba) including creating your own generics.
+Lists are an example of [generic classes][generics]. You will also see `HashSet<T>` and `Dictionary<T>` in early exercises.
 
 If you need a list of different types then you can use `List<Object>` but you will need to [down cast][casting] elements that you access in from the list.
 

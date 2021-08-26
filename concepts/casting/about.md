@@ -6,7 +6,7 @@ The [C# documentation][type-testing-and-cast-operators] classifies type conversi
 
 In C# very often, outside of the realm of numeric values and class hierarchies, you will have to make a conversion by calling some member of the "to" type such as [`Int32.Parse()`][int32-parse] which converts a string to an integer or by calling a member of the "from" type e.g. `object.ToString()`. Javascript and developers in other dynamic languages should be aware.
 
-Note that implicit an explicit cast [operators][operator-overloading] (discussed in (TODO cross-ref-tba)) are available which can bring fairly arbitrary casting to your own types.
+Note that implicit an explicit cast [operators][operator-overloading] (discussed in [concept:csharp/operator-overloading]()) are available which can bring fairly arbitrary casting to your own types.
 
 ## Casting Primitive Types - Implicit
 
@@ -114,7 +114,7 @@ The [`as`][as-operator] keyword fulfills a similar function to `is` e.g. `var fo
 
 ## Custom Cast Operator
 
-Types can define their own custom explicit and implicit [cast operators][custom-casts]. See (TODO cross-ref-tba) for coverage of this..
+Types can define their own custom explicit and implicit [cast operators][custom-casts].
 
 Examples of [explicit][big-integer-explicit] and [implicit][big-integer-implicit] casts in the BCL is conversions from the `BigInteger` struct to and from other numeric types
 

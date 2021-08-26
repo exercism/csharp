@@ -39,11 +39,11 @@ short s = 42;
 ui = (uint)s;
 ```
 
-In the above example, if the value lay instead outside the range of the assignee then an overflow would occur. See (TODO cross-ref-tba).
+In the above example, if the value lay instead outside the range of the assignee then an overflow would occur. See [concept:csharp/overflow]().
 
 The requirement for casting is determined by the two types involved rather than a particular value.
 
-The following paragraphs discuss the casting of integral types. (TODO cross-ref-tba casting) provides a broader discussion of casting and type conversion. See that documentation for a discussion of conversion between integral types and floating-point numbers, `char` and `bool`.
+The following paragraphs discuss the casting of integral types. (see [concept:csharp/casting]()) provides a broader discussion of casting and type conversion. See that documentation for a discussion of conversion between integral types and floating-point numbers, `char` and `bool`.
 
 ### Casting Primitive Types - Implicit
 

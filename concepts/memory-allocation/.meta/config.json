@@ -1,5 +1,5 @@
 {
   "blurb": "Memory in C# is (usually) allocated automatically; there is no need to manually allocate memory. To allow the automatic memory to also be deallocated when it is no longer used, C# uses a garbage collector.",
-  "authors": ["TODO: add author"],
+  "authors": ["erikschierboom"],
   "contributors": []
 }

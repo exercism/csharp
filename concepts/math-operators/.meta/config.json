@@ -1,5 +1,5 @@
 {
-  "blurb": "C# has built-in operators for the usual math operations: addition, subtraction, division and multiplication.",
-  "authors": ["TODO: add author"],
+  "blurb": "C# has built-in operators for the usual math operations: addition, subtraction, division, multiplication and remainder.",
+  "authors": ["erikschierboom"],
   "contributors": []
 }
