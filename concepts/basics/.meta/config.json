@@ -1,7 +1,5 @@
 {
-  "blurb": "TODO: add blurb for basics concept",
-  "authors": [
-    "ErikSchierboom"
-  ],
+  "blurb": "C# is a statically-typed language, which means that everything has a type at compile-time. C# allows one to use an Object-Oriented, Functional and Imperative coding style.",
+  "authors": ["ErikSchierboom"],
   "contributors": []
 }

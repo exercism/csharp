@@ -1,6 +1,6 @@
 # Introduction
 
-C# types can be defined within the scope of a class or struct. The enclosing type provides a kind of name space. Access to the type is through the enclosing type with dot syntax.
+C# types can be defined within the scope of a class or struct. The enclosing type provides a kind of namespace. Access to the type is through the enclosing type with dot syntax.
 
 ```csharp
 class Outer

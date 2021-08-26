@@ -1,9 +1,5 @@
 {
-  "blurb": "TODO: add blurb for time concept",
-  "authors": [
-    "mikedamay"
-  ],
-  "contributors": [
-    "ErikSchierboom"
-  ]
+  "blurb": "The concept of time is dealt with in .NET using the DateTime struct. There are routines to convert between local time and UTC. Arithmetic can be performed with the help of TimeSpan.",
+  "authors": ["mikedamay"],
+  "contributors": ["ErikSchierboom"]
 }

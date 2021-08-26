@@ -1,9 +1,5 @@
 {
-  "blurb": "TODO: add blurb for user-defined-exceptions concept",
-  "authors": [
-    "mikedamay"
-  ],
-  "contributors": [
-    "ErikSchierboom"
-  ]
+  "blurb": "A user-defined exception is any class defined in your code that is derived from System.Exception and can be thrown and caught like built-in exceptions. User-defined exceptions are often used to carry extra information such as a message and other relevant data to be made available to the catching routines.",
+  "authors": ["mikedamay"],
+  "contributors": ["ErikSchierboom"]
 }

@@ -1,9 +1,5 @@
 {
-  "blurb": "TODO: add blurb for timezone concept",
-  "authors": [
-    "mikedamay"
-  ],
-  "contributors": [
-    "ErikSchierboom"
-  ]
+  "blurb": "The TimeZoneInfo class provides routines for handling the differences between time zones. The TimeZoneInfo class also contains methods that facilitate dealing with daylight saving time.",
+  "authors": ["mikedamay"],
+  "contributors": ["ErikSchierboom"]
 }

@@ -1,9 +1,5 @@
 {
-  "blurb": "TODO: add blurb for resource-cleanup concept",
-  "authors": [
-    "mikedamay"
-  ],
-  "contributors": [
-    "ErikSchierboom"
-  ]
+  "blurb": "Classes can implement the IDisposable interface's Dispose() method to allow cleanup of its resources.",
+  "authors": ["mikedamay"],
+  "contributors": ["ErikSchierboom"]
 }
