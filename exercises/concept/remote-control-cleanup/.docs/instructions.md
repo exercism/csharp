@@ -1,6 +1,6 @@
 # Instructions
 
-Some "other" developers have been working on the remote control car project (TODO cross-ref-tba). You have been called in to clean up the code.
+Some "other" developers have been working on the remote control car project [exercise:csharp/remote-control-competition](). You have been called in to clean up the code.
 
 ## 1. Separate concerns between the car itself and the telemetry system
 
