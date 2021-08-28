@@ -1,9 +1,5 @@
 {
-  "blurb": "TODO: add blurb for randomness concept",
-  "authors": [
-    "mikedamay"
-  ],
-  "contributors": [
-    "ErikSchierboom"
-  ]
+  "blurb": "The System.Random class can be used to generate pseudo-random integral or floating-point numbers.",
+  "authors": ["mikedamay"],
+  "contributors": ["ErikSchierboom"]
 }

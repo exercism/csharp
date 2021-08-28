@@ -1,5 +1,5 @@
 {
-  "blurb": "TODO: add blurb for lambdas concept",
-  "authors": ["TODO: add author"],
+  "blurb": "Lambdas are functions without a name. LINQ uses lambdas extensively.",
+  "authors": ["erikschierboom"],
   "contributors": []
 }

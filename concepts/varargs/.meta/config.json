@@ -1,5 +1,5 @@
 {
-  "blurb": "TODO: add blurb for varargs concept",
-  "authors": ["TODO: add author"],
+  "blurb": "Methods can take a varargs parameter which allows the caller to specify zero or more arguments like they were regular parameters. The method will receive these arguments in a single array.",
+  "authors": ["erikschierboom"],
   "contributors": []
 }

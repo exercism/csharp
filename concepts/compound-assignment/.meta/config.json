@@ -1,7 +1,5 @@
 {
   "blurb": "C# allows compound assignment in the form x op= y.",
-  "authors": ["TODO: add author"],
-  "contributors": [
-    "yzAlvin"
-  ]
+  "authors": ["mikedamay"],
+  "contributors": ["yzAlvin"]
 }

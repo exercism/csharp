@@ -1,5 +1,5 @@
 {
-  "blurb": "TODO: add blurb for bit-manipulation concept",
-  "authors": ["TODO: add author"],
+  "blurb": "C# supports bit manipulation using operators for bitwise AND, OR, COMPLEMENT, left shift and right shift operations.",
+  "authors": ["erikschierboom"],
   "contributors": []
 }

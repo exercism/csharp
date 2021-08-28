@@ -1,5 +1,5 @@
 {
-  "blurb": "TODO: add blurb for indexers concept",
-  "authors": ["TODO: add author"],
+  "blurb": "Indexers allow an object's values to be get or set via the indexing operator ([]).",
+  "authors": ["erikschierboom"],
   "contributors": []
 }

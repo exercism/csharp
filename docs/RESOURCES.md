@@ -5,7 +5,8 @@
 - The official [.NET blog](https://blogs.msdn.microsoft.com/dotnet/) has lots of interesting C# articles, ranging from beginner to expert difficulty.
 - Scott Hanselman's [blog](http://www.hanselman.com/blog/) is an active, well written blog on a wide variety of C# and .NET related subjects.
 - Eric Lippert's [Fabulous adventures in coding](https://ericlippert.com/) is a brilliant C# blog, although his subjects are usually quite advanced.
-- The [C#/.NET Little Wonders & Little Pitfalls](http://geekswithblogs.net/BlackRabbitCoder/archive/2015/04/02/c.net-little-wonders-amp-little-pitfalls-the-complete-collection.aspx) posts by James Michael Hare contains some fantastic posts on less known C# features.
+- The [C#/.NET Little Wonders](https://www.slideshare.net/BlackRabbitCoder/little-wonders-5747749) slides by James Michael Hare on less known C# features.
+- The [C#/.NET Little Pitfalls](https://www.slideshare.net/BlackRabbitCoder/cnet-little-pitfalls) slides by James Michael Hare on avoiding C# misassumptions.
 
 ## Social media
 

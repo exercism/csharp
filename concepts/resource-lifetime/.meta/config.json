@@ -1,9 +1,5 @@
 {
-  "blurb": "TODO: add blurb for resource-lifetime concept",
-  "authors": [
-    "mikedamay"
-  ],
-  "contributors": [
-    "ErikSchierboom"
-  ]
+  "blurb": "The using statement can be used to ensure that objects implementing IDisposable are automatically cleaned up.",
+  "authors": ["mikedamay"],
+  "contributors": ["ErikSchierboom"]
 }

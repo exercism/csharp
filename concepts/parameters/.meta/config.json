@@ -1,9 +1,5 @@
 {
-  "blurb": "TODO: add blurb for parameters concept",
-  "authors": [
-    "mikedamay"
-  ],
-  "contributors": [
-    "ErikSchierboom"
-  ]
+  "blurb": "Parameters convey information from a calling method to a called method. The behavior of parameters can be modified by the use of modifies such as ref and out.",
+  "authors": ["mikedamay"],
+  "contributors": ["ErikSchierboom"]
 }

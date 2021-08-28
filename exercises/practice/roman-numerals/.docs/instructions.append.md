@@ -1,3 +1,3 @@
 # Hints
 
-This exercise requires you to write an extension method. For more information, see [this page](https://msdn.microsoft.com/en-us//library/bb383977.aspx).
+This exercise requires you to write an extension method. For more information, see [this page](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods).

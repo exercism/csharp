@@ -1,6 +1,5 @@
 # About
 
-TODO: about.md files and links.json files are the same for arrays, for-loops and foreach. Consider how to prise these apart of otherwise treat these closely coupled concepts.
 Data structures that can hold zero or more elements are known as _collections_. An **array** is a collection that has a fixed size/length and whose elements must all be of the same type. Elements can be assigned to an array or retrieved from it using an index. C# arrays are zero-based, meaning that the first element's index is always zero:
 
 ```csharp
@@ -27,6 +26,8 @@ int[] threeIntsV3 = { 4, 9, 7 };
 ```
 
 Arrays can be manipulated by either calling an array instance's [methods][array-methods] or [properties][array-properties], or by using the static methods defined in the [`Array` class][array-class].
+
+## Iteration
 
 An array is also a _collection_, which means that you can iterate over _all_ its values using a [`foreach` loop][foreach-statement]:
 

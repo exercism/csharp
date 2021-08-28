@@ -1,5 +1,5 @@
 {
-  "blurb": "TODO: add blurb for enumerables concept",
-  "authors": ["TODO: add author"],
+  "blurb": "Enumerables are values that can be iterated over.",
+  "authors": ["erikschierboom"],
   "contributors": []
 }

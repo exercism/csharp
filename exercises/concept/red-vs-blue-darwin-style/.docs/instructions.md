@@ -1,6 +1,6 @@
 # Instructions
 
-Management are starting to apply Darwinian principles to the Remote Control Car project (TODO cross-ref-tba). The developers have been split into two teams, _Red_ and _Blue_, and are tasked with improving the design independently of each other. They don't need to concern themselves with design decisions of the other team.
+Management are starting to apply Darwinian principles to the Remote Control Car project [exercise:csharp/remote-control-competition](). The developers have been split into two teams, _Red_ and _Blue_, and are tasked with improving the design independently of each other. They don't need to concern themselves with design decisions of the other team.
 
 You have been asked to take a look at the code and see how you can best combine the two efforts for testing purposes.
 

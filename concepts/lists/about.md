@@ -11,11 +11,11 @@ var listOfBigIntegers = new List<BigInteger>();
 
 A collection definition typically includes a place holder in angle brackets, often `T` by convention. This allows the collection user to specify what type of items to store in the collection.
 
-Unlike arrays (TODO cross-ref-tba) lists can resize themselves dynamically.
+Unlike [concept:csharp/arrays](), lists can resize themselves dynamically.
 
 ## LINQ
 
-Although the built-in API of `List<T>` is rich (including mappings and filters such as `ConvertAll`, `FindAll` and `Foreach`) and its [looping syntax][for-each] is very clear, and you definitely need to be familiar with this API, Language Integrated Query ([LINQ][linq]) is available for many tasks, is even more powerful and widely used and has the advantage of providing a consistent interface across library collections, third-party collections and your own classes. See (TODO cross-ref-tba).
+Although the built-in API of `List<T>` is rich (including mappings and filters such as `ConvertAll`, `FindAll` and `Foreach`) and its [looping syntax][for-each] is very clear, and you definitely need to be familiar with this API, Language Integrated Query ([LINQ][linq]) is available for many tasks, is even more powerful and widely used and has the advantage of providing a consistent interface across library collections, third-party collections and your own classes.
 
 [lists-docs]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1?view=netcore-3.1
 [lists-tutorial]: https://csharp.net-tutorials.com/collections/lists/

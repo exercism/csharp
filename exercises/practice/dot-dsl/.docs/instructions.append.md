@@ -1,3 +1,3 @@
 # Hints
 
-This exercise requires you to implement classes with a custom equality check. For more information, see [this page](<https://msdn.microsoft.com/en-us/library/bsc2ak47(v=vs.110).aspx>).
+This exercise requires you to implement classes with a custom equality check. For more information, see [this page](https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=net-5.0#System_Object_Equals_System_Object_).
