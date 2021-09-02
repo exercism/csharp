@@ -61,12 +61,12 @@ car.BatteryDrained();
 
 The best-selling remote control car is the Nitro, which has a stunning top speed of 50 meters with a battery drain of 4%. Implement the (static) `RemoteControlCar.Nitro()` method to return this type of car:
 
-````csharp
+```csharp
 var car = RemoteControlCar.Nitro();
 car.Drive();
 car.DistanceDriven();
 // => 50
-
+```
 ## 6. Check if a remote control car can finish a race
 
 To finish a race, a car has to be able to drive the race's distance. This means not draining its battery before having crossed the finish line. Implement the `Race.CarCanFinish()` method that takes a `RemoteControlCar` instance as its parameter and returns `true` if the car can finish the race; otherwise, return `false`:
@@ -81,4 +81,4 @@ var race = new Race(distance);
 
 race.CarCanFinish(car);
 // => true
-````
+```
