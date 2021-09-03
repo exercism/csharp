@@ -255,7 +255,7 @@
         "name": "Cars, Assemble!",
         "uuid": "93fbc7cf-3a7e-4450-ad22-e30129c36bb9",
         "concepts": ["if-statements", "numbers"],
-        "prerequisites": ["basics"]
+        "prerequisites": ["booleans"]
       },
       {
         "slug": "developer-privileges",
