@@ -19,7 +19,7 @@ class RemoteControlCar
         throw new NotImplementedException("Please implement the RemoteControlCar.Drive() method");
     }
 
-    public static RemoteControlCar TopModel()
+    public static RemoteControlCar Nitro()
     {
         throw new NotImplementedException("Please implement the (static) RemoteControlCar.TopModel() method");
     }

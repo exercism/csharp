@@ -87,21 +87,21 @@ public class RemoteControlCarTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Top_of_the_line_car_has_not_driven_any_distance()
     {
-        var car = RemoteControlCar.TopOfTheLine();
+        var car = RemoteControlCar.Nitro();
         Assert.Equal(0, car.DistanceDriven());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Top_of_the_line_car_has_battery_not_drained()
     {
-        var car = RemoteControlCar.TopOfTheLine();
+        var car = RemoteControlCar.Nitro();
         Assert.False(car.BatteryDrained());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Top_of_the_line_car_has_correct_speed()
     {
-        var car = RemoteControlCar.TopOfTheLine();
+        var car = RemoteControlCar.Nitro();
         car.Drive();
         Assert.Equal(50, car.DistanceDriven());
     }
@@ -109,7 +109,7 @@ public class RemoteControlCarTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Top_of_the_line_has_correct_battery_drain()
     {
-        var car = RemoteControlCar.TopOfTheLine();
+        var car = RemoteControlCar.Nitro();
 
         // The battery is almost drained
         for (var i = 0; i < 24; i++)
