@@ -52,5 +52,4 @@ public class RobotNameTests
             Assert.Matches(@"^[A-Z]{2}\d{3}$", robot.Name);
         }
     }
-    
 }
