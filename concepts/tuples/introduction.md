@@ -3,7 +3,7 @@
 In C#, a tuple is a data structure which organizes data, holding two or more fields
 of any type.
 
-A tuple is typically created by placing 2 or more expressions separated by comas,
+A tuple is typically created by placing 2 or more expressions separated by commas,
 within a set of parentheses.
 
 ```csharp
