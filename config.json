@@ -102,12 +102,7 @@
         "name": "International Calling Connoisseur",
         "uuid": "ea01c7d9-a387-451b-9a69-f1b48f00d7a5",
         "concepts": ["dictionaries"],
-        "prerequisites": [
-          "foreach-loops",
-          "generic-types",
-          "strings",
-          "indexers"
-        ]
+        "prerequisites": ["foreach-loops", "generic-types", "strings"]
       },
       {
         "slug": "logs-logs-logs",
@@ -123,7 +118,6 @@
         "concepts": ["equality", "sets"],
         "prerequisites": [
           "classes",
-          "explicit-casts",
           "generic-types",
           "inheritance",
           "interfaces",
@@ -163,7 +157,7 @@
         "name": "Attack of the Trolls",
         "uuid": "ad240550-d732-4125-b00b-b852027a2db7",
         "concepts": ["attributes", "flag-enums"],
-        "prerequisites": ["bit-manipulation", "enums", "integral-numbers"]
+        "prerequisites": ["enums", "integral-numbers"]
       },
       {
         "slug": "interest-is-interesting",
@@ -248,7 +242,7 @@
         "name": "Tim from Marketing",
         "uuid": "a66821d2-356d-43f5-ab83-8060c4b38a44",
         "concepts": ["nullability"],
-        "prerequisites": ["if-statements", "memory-allocation", "strings"]
+        "prerequisites": ["if-statements", "strings"]
       },
       {
         "slug": "cars-assemble",
@@ -352,14 +346,7 @@
         "name": "High School Sweethearts",
         "uuid": "eb435600-f983-4d55-a2c8-ef8b122334a0",
         "concepts": ["string-formatting", "verbatim-strings"],
-        "prerequisites": [
-          "const-readonly",
-          "inheritance",
-          "string-builder",
-          "strings",
-          "time",
-          "varargs"
-        ]
+        "prerequisites": ["inheritance", "string-builder", "strings", "time"]
       },
       {
         "slug": "log-levels",
