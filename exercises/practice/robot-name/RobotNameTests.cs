@@ -43,7 +43,7 @@ public class RobotNameTests
     public void Robot_names_are_unique()
     {
         const int robotsCount = 10_000;
-        var robots = new List<Robot>(robotsCount); //Needed to keep a reference to the robots as IDs of recycled robots may be re-issued
+        var robots = new List<Robot>(robotsCount); // Needed to keep a reference to the robots as IDs of recycled robots may be re-issued
         var names = new HashSet<string>(robotsCount);
         for (int i = 0; i < robotsCount; i++) {
             var robot = new Robot();
