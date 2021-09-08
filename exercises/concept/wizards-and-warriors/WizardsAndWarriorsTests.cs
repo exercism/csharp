@@ -65,4 +65,23 @@ public class RolePlayingGameTests
 
         Assert.Equal(3, wizard.DamagePoints(otherWizard));
     }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Attack_points_for_warrior_with_vulnerable_target()
+    {
+        var warrior = new Warrior();
+        var wizard = new Wizard();
+
+        Assert.Equal(10, warrior.DamagePoints(wizard));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Attack_points_for_warrior_with_non_vulnerable_target()
+    {
+        var warrior = new Warrior();
+        var wizard = new Wizard();
+        wizard.PrepareSpell();
+
+        Assert.Equal(6, warrior.DamagePoints(wizard));
+    }
 }
