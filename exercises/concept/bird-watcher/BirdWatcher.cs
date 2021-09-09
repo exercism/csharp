@@ -19,7 +19,7 @@ class BirdCount
         throw new NotImplementedException("Please implement the BirdCount.Today() method");
     }
 
-    public int IncrementTodaysCount()
+    public void IncrementTodaysCount()
     {
         throw new NotImplementedException("Please implement the BirdCount.IncrementTodaysCount() method");
     }
