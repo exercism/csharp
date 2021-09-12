@@ -24,7 +24,7 @@ class WeighingMachine
         {
             if (value < 0)
             {
-                throw new ArgumentException("weight cannot be negative");
+                throw new ArgumentOutOfRangeException("weight cannot be negative");
             }
 
             inputWeight = value;
