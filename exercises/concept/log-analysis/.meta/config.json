@@ -1,0 +1,17 @@
+{
+  "blurb": "Learn about extension-methods by analysing logs.",
+  "authors": [
+    "yzAlvin"
+  ],
+  "files": {
+    "solution": [
+      "LogAnalysis.cs"
+    ],
+    "test": [
+      "LogAnalysisTests.cs"
+    ],
+    "exemplar": [
+      ".meta/Exemplar.cs"
+    ]
+  }
+}

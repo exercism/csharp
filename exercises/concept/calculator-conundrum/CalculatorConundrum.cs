@@ -15,7 +15,7 @@ public static class SimpleOperation
     {
         return operand1 / operand2;
     }
-
+    
     public static int Multiplication(int operand1, int operand2)
     {
         return operand1 * operand2;
