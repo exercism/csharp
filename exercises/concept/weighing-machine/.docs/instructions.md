@@ -48,7 +48,7 @@ Add validation to the `WeighingMachine.InputWeight` property to throw an `Argume
 
 ```csharp
 var wm = new WeighingMachine();
-wm.InputWeight = -10m; // Throws an ArgumentException
+wm.InputWeight = -10m; // Throws an ArgumentOutOfRangeException
 ```
 
 ## 3. Allow the US weight to be retrieved

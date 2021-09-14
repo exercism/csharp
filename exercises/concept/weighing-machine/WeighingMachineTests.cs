@@ -16,7 +16,7 @@ public class WeighingMachineTests
     public void Negative_weight_is_invalid()
     {
         var wm = new WeighingMachine();
-        Assert.Throws<ArgumentException>(() => wm.InputWeight = -10);
+        Assert.Throws<ArgumentOutOfRangeException>(() => wm.InputWeight = -10);
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
