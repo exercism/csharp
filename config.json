@@ -422,14 +422,14 @@
         ]
       },
       {
-        "slug": "calculator-extensions",
-        "name": "Calculator Extensions",
+        "slug": "log-analysis",
+        "name": "Log Analysis",
         "uuid": "4a940e54-eda8-4500-bcb2-25d83af01fb1",
         "concepts": ["extension-methods"],
         "prerequisites": [
           "collections",
-          "integral-numbers",
-          "for-loops"
+          "strings",
+          "booleans"
         ]
       }
     ],
