@@ -9,6 +9,7 @@ public static int WordCount(this string str)
 {
     return str.Split().Length;
 }
+
 "Hello World".WordCount();
 // => 2
 ```
