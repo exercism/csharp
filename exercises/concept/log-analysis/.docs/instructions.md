@@ -20,7 +20,7 @@ log.Truncate(5); // => returns "Error - 20"
 
 ## 1. Implement the extension method WordCount
 
-Implement the `.Word()` method to return the total of all words in the string. A 'word' in this case is just any string separated by a space.
+Implement the (_static_) (`LogAnalysis.Word()` extension method to return the total of all words in the string. A 'word' in this case is just any string separated by a space.
 
 ## 2. Implement the extension method LogLevel
 
