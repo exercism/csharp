@@ -12,19 +12,6 @@ There are three different log levels:
 
 You have three tasks, each of which will take a log line and ask you to do something with it.
 
-```csharp
-var log = "[Error]: {Line 20} - 'Critical error found'";
-
-log.WordCount(); // => returns 7
-
-log.LogLevel(); // => returns "Error"
-
-log.LogLine(); // => returns "20"
-
-log.Truncate(10); // => returns "[Error]: {Line 20} - 'Critical error found'"
-
-log.Truncate(5); // => returns "Error - 20"
-```
 
 ## 1. Implement the extension method WordCount
 
