@@ -61,14 +61,14 @@ public class TuplesTest
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void AnalyzeOffField_anonymous_manager()
     {
-        Assert.Equal("the manager", PlayAnalyzer.AnalyzeOffField(new Manager(string.Empty, string.Empty)));
+        Assert.Equal("the manager", PlayAnalyzer.AnalyzeOffField(new Manager(string.Empty)));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void AnalyzeOffField_named_manager()
     {
         Assert.Equal("José Mário dos Santos Mourinho Félix",
-            PlayAnalyzer.AnalyzeOffField(new Manager("José Mário dos Santos Mourinho Félix", string.Empty)));
+            PlayAnalyzer.AnalyzeOffField(new Manager("José Mário dos Santos Mourinho Félix")));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
