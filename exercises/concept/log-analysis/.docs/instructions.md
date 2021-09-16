@@ -1,8 +1,16 @@
 # Instructions
 
-In this exercise you will be adding extension-methods on the string type to make it easier to deal with logs. Extension-methods express intent of the code, make code more readable, and add common functionality.
+In this exercise you'll be processing log-lines.
 
-The goal is to add extension-methods that abstract away the logic of finding out certain things about the log messages.
+Each log line is a string formatted as follows: `"[<LEVEL>]: <MESSAGE>"`.
+
+There are three different log levels:
+
+- `INFO`
+- `WARNING`
+- `ERROR`
+
+You have three tasks, each of which will take a log line and ask you to do something with it.
 
 ```csharp
 var log = "[Error]: {Line 20} - 'Critical error found'";
