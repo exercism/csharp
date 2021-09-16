@@ -42,9 +42,12 @@ public class RobotNameTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Robot_names_are_unique()
     {
-        var names = new HashSet<string>();
-        for (int i = 0; i < 10_000; i++) {
+        const int robotsCount = 10_000;
+        var robots = new List<Robot>(robotsCount); // Needed to keep a reference to the robots as IDs of recycled robots may be re-issued
+        var names = new HashSet<string>(robotsCount);
+        for (int i = 0; i < robotsCount; i++) {
             var robot = new Robot();
+            robots.Add(robot);
             Assert.True(names.Add(robot.Name));
             Assert.Matches(@"^[A-Z]{2}\d{3}$", robot.Name);
         }
