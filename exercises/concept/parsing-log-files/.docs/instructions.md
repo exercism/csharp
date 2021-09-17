@@ -21,11 +21,11 @@ Implement the `LogParser.IsValidLine()` method to return `false` if a string is 
 
 ```csharp
 var lp = new LogParser();
-lp.IsMatch("[ERR] A good error here");
+lp.IsValidLine("[ERR] A good error here");
 // => true
-lp.IsMatch("Any old [ERR] text");
+lp.IsValidLine("Any old [ERR] text");
 // => false
-lp.IsMatch("[BOB] Any old text");
+lp.IsValidLine("[BOB] Any old text");
 // => false
 ```
 
