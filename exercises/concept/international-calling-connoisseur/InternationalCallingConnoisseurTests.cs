@@ -157,11 +157,11 @@ public class DialingCodesTest
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Update_country_name_in_dictionary_for_non_existent_country_count_is_3()
+    public void Update_country_name_in_dictionary_for_non_existent_country_count_is_4()
     {
         var countryCodes = DialingCodes.UpdateDictionary(
             DialingCodes.GetExistingDictionary(), 999, "Newlands");
-        Assert.Equal(3, countryCodes.Count);
+        Assert.Equal(4, countryCodes.Count);
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
