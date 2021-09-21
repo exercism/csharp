@@ -18,7 +18,7 @@ Each value should be represented in the smallest possible integral type (types o
 
 The value should be converted to the appropriate number of bytes for its assigned type. The complete buffer comprises a byte indicating the number of additional bytes in the buffer (_prefix byte_) followed by the bytes holding the integer (_payload bytes_).
 
-If the payload bytes represent a signed type (`short`, `int` or `long`) then the prefix byte should contain the length as a negative number.
+Some of the types use an identical number of bytes (e.g. the `uint` and `int` types). Normally, they would have the same _prefix byte_, but that would make decoding problematic. To counter this, the protocol introduces a little trick: for signed types, their _prefix byte_ value is `256` minus the number of additional bytes in the buffer.
 
 Only the prefix byte and the number of following bytes indicated by the prefix will be sent in the communication. Internally a 9 byte buffer is used (with trailing zeroes, as necessary) both by sending and receiving routines.
 
@@ -27,12 +27,13 @@ Only the prefix byte and the number of following bytes indicated by the prefix w
 Please implement the static method `TelemetryBuffer.ToBuffer()` to encode a buffer taking the parameter passed to the method.
 
 ```csharp
+// Type: ushort, bytes: 2, signed: no, prefix byte: 2
 TelemetryBuffer.ToBuffer(5)
 // => {0x2, 0x5, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0 };
+
+// Type: int, bytes: 4, signed: yes, prefix byte: 256 - 4
 TelemetryBuffer.ToBuffer(Int32.MaxValue)
 // => {0xfc, 0xff, 0xff, 0xff, 0x7f, 0x0, 0x0, 0x0, 0x0 };
-TelemetryBuffer.ToBuffer(-1)
-// => {0xfe, 0xff, 0xff, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0 };
 ```
 
 ## 2. Decode a received buffer
@@ -44,4 +45,4 @@ TelemetryBuffer.FromBuffer(new byte[] {0xfc, 0xff, 0xff, 0xff, 0x7f, 0x0, 0x0, 0
 // => 2147483647
 ```
 
-If the prefix byte is not one of -8, -4, -2, 2, 4 then 0 should be returned.
+If the prefix byte is not one of `-8`, `-4`, `-2`, `2` or `4` then `0` should be returned.
