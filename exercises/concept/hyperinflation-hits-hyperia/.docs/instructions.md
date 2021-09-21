@@ -17,7 +17,7 @@ By the time this system was introduced the minimum bank note already had a denom
 | 100,000 | 1,000      | 100,000,000  |
 | ...     | 1,000      | ...          |
 
-In summary, this means that _denomination_ = _base_ \* _multiplier_.
+In summary, this means that _denomination_ = _base_ * _multiplier_.
 
 Please implement the method `CentralBank.DisplayDenomination()` which takes the base and multiplier and returns a string of their product (base \* multiplier). The numeric string returned should not be formatted.
 
