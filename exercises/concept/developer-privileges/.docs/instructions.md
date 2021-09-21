@@ -10,14 +10,14 @@ The admin's details are as follows:
 
 | Email        | Eye Color | Philtrum Width | Name     | Address 1 | Address 2 |
 | ------------ | --------- | -------------- | -------- | --------- | --------- |
-| admin@ex.ism | greeen    | 0.9            | Chanakya | Mombai    | India     |
+| admin@ex.ism | green     | 0.9            | Chanakya | Mumbai    | India     |
 
 Implement the `Authenticator.Admin` property to return the system admin's identity details. The name and each part of the address should be in a separate element of the `NameAndAddress` list.
 
 ```csharp
 var authenticator = new Authenticator();
 authenticator.Admin;
-// => {"admin@ex.ism", {"green", 0.9m}, ["Chanakya", "Mombai", "India"]}
+// => {"admin@ex.ism", {"green", 0.9m}, ["Chanakya", "Mumbai", "India"]}
 ```
 
 ## 2 Store the developers' details hard-coded in the system and make them available in the form of a dictionary
