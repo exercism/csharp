@@ -27,7 +27,7 @@ public abstract class Staff : TeamSupport { public abstract string Title { get; 
 
 public class Manager : TeamSupport { public string Title { get; } = "The Manager"; }
 
-public class Chairman : TeamSupport { public string Title { get; } = "The Manager"; }
+public class Chairman : TeamSupport { public string Title { get; } = "The Chairman"; }
 
 public class Physio : Staff { public override string Title { get; } = "The Physio"; }
 
