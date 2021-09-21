@@ -6,7 +6,7 @@ Data is transmitted in a buffer (byte array). When integers are sent, the size o
 
 Each value should be represented in the smallest possible integral type (types of `byte` and `sbyte` are not included as the saving would be trivial):
 
-| Min Value                  | Max Value                 | Type     |
+| From                       | To                        | Type     |
 | -------------------------- | ------------------------- | -------- |
 | 4,294,967,296              | 9,223,372,036,854,775,807 | `long`   |
 | 2,147,483,648              | 4,294,967,295             | `uint`   |
