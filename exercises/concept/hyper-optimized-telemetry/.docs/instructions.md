@@ -9,12 +9,12 @@ Each value should be represented in the smallest possible integral type (types o
 | Min Value                  | Max Value                 | Type     |
 | -------------------------- | ------------------------- | -------- |
 | 4,294,967,296              | 9,223,372,036,854,775,807 | `long`   |
-| -9,223,372,036,854,775,808 | -2,147,483,649            | `long`   |
 | 2,147,483,648              | 4,294,967,295             | `uint`   |
 | 65,536                     | 2,147,483,647             | `int`    |
-| -2,147,483,648             | -32,769                   | `int`    |
 | 0                          | 65,535                    | `ushort` |
 | -32,768                    | -1                        | `short`  |
+| -2,147,483,648             | -32,769                   | `int`    |
+| -9,223,372,036,854,775,808 | -2,147,483,649            | `long`   |
 
 The value should be converted to the appropriate number of bytes for its assigned type. The complete buffer comprises a byte indicating the number of additional bytes in the buffer (_prefix byte_) followed by the bytes holding the integer (_payload bytes_).
 
