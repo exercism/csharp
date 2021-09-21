@@ -8,13 +8,13 @@ Each value should be represented in the smallest possible integral type (types o
 
 | From                       | To                        | Type     |
 | -------------------------- | ------------------------- | -------- |
-| 4,294,967,296              | 9,223,372,036,854,775,807 | `long`   |
-| 2,147,483,648              | 4,294,967,295             | `uint`   |
-| 65,536                     | 2,147,483,647             | `int`    |
-| 0                          | 65,535                    | `ushort` |
-| -32,768                    | -1                        | `short`  |
-| -2,147,483,648             | -32,769                   | `int`    |
-| -9,223,372,036,854,775,808 | -2,147,483,649            | `long`   |
+| 4_294_967_296              | 9_223_372_036_854_775_807 | `long`   |
+| 2_147_483_648              | 4_294_967_295             | `uint`   |
+| 65_536                     | 2_147_483_647             | `int`    |
+| 0                          | 65_535                    | `ushort` |
+| -32_768                    | -1                        | `short`  |
+| -2_147_483_648             | -32_769                   | `int`    |
+| -9_223_372_036_854_775_808 | -2_147_483_649            | `long`   |
 
 The value should be converted to the appropriate number of bytes for its assigned type. The complete buffer comprises a byte indicating the number of additional bytes in the buffer (_prefix byte_) followed by the bytes holding the integer (_payload bytes_).
 
