@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 public class Authenticator
 {
-    // TODO: Impleent the Authenticator.Admin property
+    // TODO: Implement the Authenticator.Admin property
     public Identity Admin { get; }
 
-    // TODO: Impleent the Authenticator.Developers property
+    // TODO: Implement the Authenticator.Developers property
     public IDictionary<string, Identity> Developers { get; }
 }
 

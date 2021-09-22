@@ -11,7 +11,7 @@ public class Authenticator
             EyeColor = "green",
             PhiltrumWidth = 0.9m
         },
-        NameAndAddress = new List<string> { "Chanakya", "Mombai", "India" }
+        NameAndAddress = new List<string> { "Chanakya", "Mumbai", "India" }
     };
 
     public IDictionary<string, Identity> Developers { get; }
