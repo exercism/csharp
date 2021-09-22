@@ -12,19 +12,38 @@ There are three different log levels:
 
 You have three tasks, each of which will take a log line and ask you to do something with it.
 
+## 1. Implement the extension method SubstringAfter
 
-## 1. Implement the extension method WordCount
+Implement the (_static_) `LogAnalysis.SubstringAfter()` extension method, that takes in some string delimeter and returns the substring after the delimiter.
 
-Implement the (_static_) (`LogAnalysis.Word()` extension method to return the total of all words in the string. A 'word' in this case is just any string separated by a space.
+```csharp
+var log = "[INFO]: File Deleted.";
+log.SubstringAfter(": "); // => returns "File Deleted."
+```
 
-## 2. Implement the extension method LogLevel
+## 2. Implement the extension method SubstringBetween
 
-Implement the `.LogLevel()` method to return the log level of the log string.
+Implement the (_static_) `LogAnalysis.SubstringBetween()` extension method that takes in two string delimeters, and returns the substring that lies between the two delimeters.
 
-## 3. Implement the extension method LogLine
+```csharp
+var log = "[INFO]: File Deleted.";
+log.SubstringBetween("[", "]"); // => returns "INFO"
+```
 
-Implement the `.LogLine()` method to return the line the log occured at of the log string.
+## 3. Parse message in a log
 
-## 4. Implement the extension method Truncate
+Implement the (_static_) `LogAnalysis.Message()` extension method to return the message contained in a log.
 
-Implement the `.Truncate(int maxSize)` method to return the log message truncated to "loglevel - logline" if the message exceeds the maximum word count specified, otherwise return the original log message.
+```csharp
+var log = "[ERROR]: Missing ; on line 20.";
+log.Message("[", "]"); // => returns "Missing ; on line 20."
+```
+
+## 4. Parse log level in a log
+
+Implement the (_static_) `LogAnalysis.LogLevel()` extension method to return the log level of a log.
+
+```csharp
+var log = "[ERROR]: Missing ; on line 20.";
+log.LogLevel(); // => returns "ERROR"
+```
