@@ -29,7 +29,7 @@ Implement the `CalculatorTestHarness.TestMultiplication()` method which takes tw
 
 ```csharp
 var cth = new CalculatorTestHarness(new Calculator());
-cth.Multiply(6, 7);
+cth.TestMultiplication(6, 7);
 // => "Multiply succeeded"
 ```
 
