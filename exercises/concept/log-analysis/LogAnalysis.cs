@@ -2,23 +2,23 @@ using System;
 
 public static class LogAnalysis 
 {
-    public static int WordCount(this string log)
+    public static string SubstringAfter(this string str, string delimiter)
     {
-        throw new NotImplementedException("Please implement the WordCount() extension method for strings");
+        throw new NotImplementedException("Please implement the SubstringAfter() extension method for strings");
+    }
+
+    public static string SubstringBetween(this string str, string start, string stop)
+    {
+        throw new NotImplementedException("Please implement the SubstringBetween() extension method for strings");
+    }
+
+    public static string Message(this string log)
+    {
+        throw new NotImplementedException("Please implement the Message() extension method for strings");
     }
 
     public static string LogLevel(this string log)
     {
         throw new NotImplementedException("Please implement the LogLevel() extension method for strings");
-    }
-
-    public static string LogLine(this string log)
-    {
-        throw new NotImplementedException("Please implement the LogLine() extension method for strings");
-    }
-
-    public static string Truncate(this string log, int maxSize)
-    {
-        throw new NotImplementedException("Please implement the Truncate() extension method for strings");
     }
 }
