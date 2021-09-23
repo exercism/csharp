@@ -14,6 +14,8 @@ You have several tasks, each of which will take a log line and ask you to do som
 
 ## 1. Allow retrieving the string after a specific substring
 
+Looking at the logs of the last month, you see that the test message is always located after a specific substring. As you're anticipating having to extract the test message sometime in the near future, you decide to create a helper method to help you with that.
+
 Implement the (_static_) `LogAnalysis.SubstringAfter()` extension method, that takes in some string delimeter and returns the substring after the delimiter.
 
 ```csharp
