@@ -19,6 +19,6 @@
 
 ## 4. Parse log level in a log
 
-- We could re-use the SubstringBetween extension method we have defined for strings
+- You can re-use the `SubstringBetween()` extension method here.
 
 [tutorial-csharp.net-strings]: https://csharp.net-tutorials.com/data-types/strings/
