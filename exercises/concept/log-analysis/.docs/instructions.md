@@ -36,7 +36,7 @@ Implement the (_static_) `LogAnalysis.Message()` extension method to return the 
 
 ```csharp
 var log = "[ERROR]: Missing ; on line 20.";
-log.Message("[", "]"); // => returns "Missing ; on line 20."
+log.Message(); // => returns "Missing ; on line 20."
 ```
 
 ## 4. Parse log level in a log
