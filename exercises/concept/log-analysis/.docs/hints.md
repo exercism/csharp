@@ -15,7 +15,7 @@
 
 ## 3. Parse message in a log
 
-- We could re-use the SubstringAfter extension method we have defined for strings
+- You can re-use the `SubstringAfter()` extension method here.
 
 ## 4. Parse log level in a log
 
