@@ -23,7 +23,9 @@ var log = "[INFO]: File Deleted.";
 log.SubstringAfter(": "); // => returns "File Deleted."
 ```
 
-## 2. Implement the extension method SubstringBetween
+## 2. Allow retrieving the string in between two substrings
+
+On further inspection, you see that the log level is always located between two substrings. As you're also anticipating having to extract the log level sometime in the near future, you decide to create a another helper method to help you with that.
 
 Implement the (_static_) `LogAnalysis.SubstringBetween()` extension method that takes in two string delimeters, and returns the substring that lies between the two delimeters.
 
