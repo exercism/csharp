@@ -10,7 +10,7 @@ There are three different log levels:
 - `WARNING`
 - `ERROR`
 
-You have three tasks, each of which will take a log line and ask you to do something with it.
+You have several tasks, each of which will take a log line and ask you to do something with it.
 
 ## 1. Implement the extension method SubstringAfter
 
