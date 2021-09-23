@@ -12,7 +12,7 @@ There are three different log levels:
 
 You have several tasks, each of which will take a log line and ask you to do something with it.
 
-## 1. Implement the extension method SubstringAfter
+## 1. Allow retrieving the string after a specific substring
 
 Implement the (_static_) `LogAnalysis.SubstringAfter()` extension method, that takes in some string delimeter and returns the substring after the delimiter.
 
