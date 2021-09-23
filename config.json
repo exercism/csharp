@@ -1941,6 +1941,11 @@
       "name": "Expression Bodied Members"
     },
     {
+      "uuid": "c1e57d81-8965-4e3f-96d1-44ff43b768e4",
+      "slug": "extension-methods",
+      "name": "Extension Methods"
+    },
+    {
       "uuid": "0d0ce715-a7f2-42f4-b97b-54ba99b4df73",
       "slug": "flag-enums",
       "name": "Flag Enums"
