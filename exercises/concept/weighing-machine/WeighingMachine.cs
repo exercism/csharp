@@ -1,6 +1,6 @@
 using System;
 
-enum Units
+enum Unit
 {
     Pounds,
     Kilograms
