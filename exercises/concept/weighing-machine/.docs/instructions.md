@@ -63,14 +63,14 @@ var usw = wm.USDisplayWeight;
 // => usw.Pounds == 132 && usw.Ounces == 4
 ```
 
-## 4. Allow the machine's units to be set to pounds
+## 4. Allow the machine's weighing Unit to be set to pounds
 
-Implement the `WeighingMachine.Units` property:
+Implement the `WeighingMachine.Unit` property:
 
 ```csharp
 var wm = new WeighingMachine();
 wm.InputWeight = 175.5m;
-wm.Units = Units.Pounds;
+wm.Unit = Unit.Pounds;
 
 var usw = wm.USDisplayWeight;
 // => usw.Pounds == 175 && usw.Ounces == 8
