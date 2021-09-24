@@ -79,4 +79,12 @@ public class WeighingMachineTests
         wm.TareAdjustment = 110;
         Assert.Equal(-10, wm.DisplayWeight);
     }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Default_Unit_Is_Kilogram()
+    {
+        var wm = new WeighingMachine();
+        
+        Assert.Equal(wm.Unit, Unit.Kilograms);
+    }
 }
