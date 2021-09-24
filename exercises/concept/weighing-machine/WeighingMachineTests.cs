@@ -22,7 +22,7 @@ public class WeighingMachineTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Default_Unit_Is_Kilogram()
     {
-        var wm = new WeighingMachine(3);
+        var wm = new WeighingMachine();
         
         Assert.Equal(Unit.Kilograms, wm.Unit);
     }
