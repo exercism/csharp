@@ -39,7 +39,7 @@ public class WeighingMachineTests
     public void Input_pounds_and_get_us_display_weight_pounds()
     {
         var wm = new WeighingMachine();
-        wm.Units = Units.Pounds;
+        wm.Unit = Unit.Pounds;
         wm.InputWeight = 175.5m;
         Assert.Equal(175, wm.USDisplayWeight.Pounds);
     }
@@ -48,7 +48,7 @@ public class WeighingMachineTests
     public void Input_pounds_and_get_is_display_weight_ounces()
     {
         var wm = new WeighingMachine();
-        wm.Units = Units.Pounds;
+        wm.Unit = Unit.Pounds;
         wm.InputWeight = 175.5m;
         Assert.Equal(8, wm.USDisplayWeight.Ounces);
     }
