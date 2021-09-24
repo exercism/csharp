@@ -154,19 +154,19 @@ public class DndCharacterTests
             [15] = 131,     [16] = 94,
             [17] = 54,      [18] = 21
         };
-        var actualDistribution = new Dictionary<int, int>();
-        const int times = 100;
+     
+        var actualDistribution = new Dictionary<int, int>(expectedDistribution);
+        foreach (var key in actualDistribution.Keys)
+            actualDistribution[key] = 0;        
+     
+        const int times = 250;
         const int possibleCombinationsCount = 6*6*6*6; // 4d6
-        for (var i = 3; i <= 18; i++)
-            actualDistribution[i] = 0;
         for (var i = 0; i < times * possibleCombinationsCount; i++)
-        {
-            var ability = DndCharacter.Ability();
-            actualDistribution[ability]++;
-        }
-        int min(int expected) => (int)(expected * (times * 0.8));
-        int max(int expected) => (int)(expected * (times * 1.2));
+            actualDistribution[DndCharacter.Ability()]++;
+     
+        const double minTimes = times * 0.8;
+        const double maxTimes = times * 1.2;
         foreach (var k in expectedDistribution.Keys)
-            Assert.InRange(actualDistribution[k], min(expectedDistribution[k]), max(expectedDistribution[k]));
+            Assert.InRange(actualDistribution[k], expectedDistribution[k] * minTimes, expectedDistribution[k] * maxTimes);
     }
 }

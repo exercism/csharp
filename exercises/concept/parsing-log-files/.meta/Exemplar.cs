@@ -2,7 +2,7 @@ using System.Text.RegularExpressions;
 
 public class LogParser
 {
-    public bool IsMatch(string text)
+    public bool IsValidLine(string text)
     {
         const string searchArg = @"^(\[TRC\] | \[DBG\] | \[INF\] | \[ERR\] | \[WRN\] | \[FTL\])";
         return Regex.IsMatch(text, searchArg, RegexOptions.IgnorePatternWhitespace);

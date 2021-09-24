@@ -37,10 +37,9 @@ public class ExperimentalRemoteControlCar : IRemoteControlCar
 
 public static class TestTrack
 {
-    public static decimal Race(IRemoteControlCar car)
+    public static void Race(IRemoteControlCar car)
     {
         car.Drive();
-        return car.DistanceTravelled;
     }
 
     public static List<ProductionRemoteControlCar> GetRankedCars(ProductionRemoteControlCar prc1,

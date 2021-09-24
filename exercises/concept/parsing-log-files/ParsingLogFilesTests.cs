@@ -5,17 +5,17 @@ using Exercism.Tests;
 public class RegularExpressionTests
 {
     [Fact]
-    public void IsMatch_match()
+    public void IsValidLine_match()
     {
         var lp = new LogParser();
-        Assert.True(lp.IsMatch("[INF] My Message"));
+        Assert.True(lp.IsValidLine("[INF] My Message"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void IsMatch_no_match()
+    public void IsValidLine_no_match()
     {
         var lp = new LogParser();
-        Assert.False(lp.IsMatch("bad start to [INF] Message"));
+        Assert.False(lp.IsValidLine("bad start to [INF] Message"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
