@@ -27,6 +27,10 @@ Consider the [`HashSet<T>.Contains()`][hash-set-contains] method.
 
 This [documentation][reference-equality] addresses the issue of comparing instances as opposed to values.
 
+## 6. Potential workaround for failing tests
+
+If you encounter issues with the [test runner][exercism-test-runner] failing, try using instance members rather than `static` members in the `Authenticator` class.
+
 [equality]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/equality-comparisons
 [hash-set]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.hashset-1?view=netcore-3.1
 [hash-code]: https://docs.microsoft.com/en-us/dotnet/api/system.hashcode?view=netcore-3.1
@@ -34,3 +38,4 @@ This [documentation][reference-equality] addresses the issue of comparing instan
 [reference-equality]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/equality-comparisons#reference-equality
 [value-equality]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/how-to-define-value-equality-for-a-type
 [hash-set-contains]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.hashset-1.contains?view=netcore-3.1
+[exercism-test-runner]: https://exercism.org/docs/building/tooling/test-runners
