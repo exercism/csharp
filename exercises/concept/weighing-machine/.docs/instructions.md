@@ -42,7 +42,18 @@ wm.InputWeight = 60m;
 //  => wm.InputWeight == 60m
 ```
 
-## 2. Ensure that a negative input weight is rejected
+## 2. Ensure that a Default unit is kilograms
+
+Implement the `WeigingMachine.Unit` property to allow the unit to be Kilograms by default:
+
+
+```csharp
+var wm = new WeighingMachine();
+
+//  => wm.Unit == Kilograms
+```
+
+## 3. Ensure that a negative input weight is rejected
 
 Add validation to the `WeighingMachine.InputWeight` property to throw an `ArgumentOutOfRangeException` when trying to set it to a negative weight:
 
@@ -51,7 +62,7 @@ var wm = new WeighingMachine();
 wm.InputWeight = -10m; // Throws an ArgumentOutOfRangeException
 ```
 
-## 3. Allow the US weight to be retrieved
+## 4. Allow the US weight to be retrieved
 
 Implement the `WeighingMachine.USDisplayWeight` property and the `USWeight` class:
 
@@ -63,7 +74,7 @@ var usw = wm.USDisplayWeight;
 // => usw.Pounds == 132 && usw.Ounces == 4
 ```
 
-## 4. Allow the machine's unit to be set to pounds
+## 5. Allow the machine's unit to be set to pounds
 
 Implement the `WeighingMachine.Unit` property:
 
@@ -76,7 +87,7 @@ var usw = wm.USDisplayWeight;
 // => usw.Pounds == 175 && usw.Ounces == 8
 ```
 
-## 5. Allow a tare adjustment to be applied to the weighing machine
+## 6. Allow a tare adjustment to be applied to the weighing machine
 
 Implement the `WeighingMachine.TareAdjustment` and `WeighingMachine.DisplayWeight` properties:
 
