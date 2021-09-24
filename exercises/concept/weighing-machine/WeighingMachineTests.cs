@@ -20,6 +20,14 @@ public class WeighingMachineTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Default_Unit_Is_Kilogram()
+    {
+        var wm = new WeighingMachine();
+        
+        Assert.Equal(wm.Unit, Unit.Kilograms);
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Get_us_display_weight_pounds()
     {
         var wm = new WeighingMachine();
@@ -80,11 +88,5 @@ public class WeighingMachineTests
         Assert.Equal(-10, wm.DisplayWeight);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Default_Unit_Is_Kilogram()
-    {
-        var wm = new WeighingMachine();
-        
-        Assert.Equal(wm.Unit, Unit.Kilograms);
-    }
+   
 }
