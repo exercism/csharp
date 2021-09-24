@@ -42,9 +42,9 @@ wm.InputWeight = 60m;
 //  => wm.InputWeight == 60m
 ```
 
-## 2. Ensure that a Default unit is kilograms
+## 2. Allow specifying the unit used by the weighing machine
 
-Implement the `WeigingMachine.Unit` property to allow the unit to be Kilograms by default:
+Implement the `WeigingMachine.Unit` property to allow the unit to be set. `Unit.Kilograms` should be the default value:
 
 
 ```csharp
