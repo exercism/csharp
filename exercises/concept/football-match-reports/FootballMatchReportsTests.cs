@@ -31,7 +31,7 @@ public class TuplesTest
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void AnalyzeOnField_throws_unknown_shirt_number()
     {
-        Assert.Throws<ArgumentException>(() => PlayAnalyzer.AnalyzeOnField(1729));
+        Assert.Throws<ArgumentOutOfRangeException>(() => PlayAnalyzer.AnalyzeOnField(1729));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
