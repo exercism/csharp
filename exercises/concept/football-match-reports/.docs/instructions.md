@@ -28,7 +28,7 @@ PlayAnalyzer.AnalyzeOnField(10);
 
 ## 2. Raise an alert if an unknown shirt number is encountered.
 
-Modify the `PlayAnalyzer.AnalyzeOnField()` method to throw an `ArgumentException` when a shirt number outside the range 1-11 is processed.
+Modify the `PlayAnalyzer.AnalyzeOnField()` method to throw an `ArgumentOutOfRangeException` when a shirt number outside the range 1-11 is processed.
 
 ## 3. Extend the coverage to include off field activity
 
