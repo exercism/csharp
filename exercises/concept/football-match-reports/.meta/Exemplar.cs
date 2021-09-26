@@ -35,7 +35,7 @@ public static class PlayAnalyzer
                 playerDescription = "striker";
                 break;
             default:
-                throw new ArgumentException();
+                throw new ArgumentOutOfRangeException();
         }
 
         return playerDescription;
