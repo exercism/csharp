@@ -87,6 +87,4 @@ public class WeighingMachineTests
         wm.TareAdjustment = 110;
         Assert.Equal(-10, wm.DisplayWeight);
     }
-
-   
 }
