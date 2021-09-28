@@ -1,10 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-public interface IRemoteControlCar
-{
-    // TODO implement the IRemoteControlCar interface
-}
+// TODO implement the IRemoteControlCar interface
 
 public class ProductionRemoteControlCar
 {
