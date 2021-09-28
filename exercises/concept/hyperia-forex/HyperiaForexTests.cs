@@ -22,8 +22,6 @@ public class OperatorOverloadingTests
         Assert.Throws<ArgumentException>(() => Eq(new CurrencyAmount(55, "HD"), new CurrencyAmount(60, "USD")));
     }
 
-    private bool Eq(CurrencyAmount amountA, CurrencyAmount amountB)
-    {
-        return amountA == amountB;
-    }
+    private bool Eq(CurrencyAmount amountA, CurrencyAmount amountB) => amountA == amountB;
+
 }
