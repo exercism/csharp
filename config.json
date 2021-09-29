@@ -407,6 +407,15 @@
           "overflow",
           "integral-numbers"
         ]
+      },
+      {
+        "slug": "log-analysis",
+        "name": "Log Analysis",
+        "uuid": "4a940e54-eda8-4500-bcb2-25d83af01fb1",
+        "concepts": ["extension-methods"],
+        "prerequisites": [
+          "strings"
+        ]
       }
     ],
     "practice": [
@@ -1917,6 +1926,11 @@
       "uuid": "8e69833b-9668-4ed1-bfdd-d3c90fe4d9a4",
       "slug": "expression-bodied-members",
       "name": "Expression Bodied Members"
+    },
+    {
+      "uuid": "c1e57d81-8965-4e3f-96d1-44ff43b768e4",
+      "slug": "extension-methods",
+      "name": "Extension Methods"
     },
     {
       "uuid": "0d0ce715-a7f2-42f4-b97b-54ba99b4df73",
