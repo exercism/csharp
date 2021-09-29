@@ -13,7 +13,7 @@ public class OperatorOverloadingTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Equality_false()
     {
-        Assert.False(new CurrencyAmount(55, "HD") == new CurrencyAmount(60, "USD"));
+        Assert.False(new CurrencyAmount(55, "HD") == new CurrencyAmount(60, "HD"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
