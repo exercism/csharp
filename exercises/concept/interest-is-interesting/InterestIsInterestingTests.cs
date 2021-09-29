@@ -7,91 +7,91 @@ public class SavingsAccountTests
     [Task(1)]
     public void Minimal_first_interest_rate()
     {
-        Assert.Equal(0.5f, SavingsAccount.InterestRate(0m));
+        Assert.Equal(0.005f, SavingsAccount.InterestRate(0m));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     [Task(1)]
     public void Tiny_first_interest_rate()
     {
-        Assert.Equal(0.5f, SavingsAccount.InterestRate(0.000001m));
+        Assert.Equal(0.005f, SavingsAccount.InterestRate(0.000001m));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     [Task(1)]
     public void Maximum_first_interest_rate()
     {
-        Assert.Equal(0.5f, SavingsAccount.InterestRate(999.9999m));
+        Assert.Equal(0.005f, SavingsAccount.InterestRate(999.9999m));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     [Task(1)]
     public void Minimal_second_interest_rate()
     {
-        Assert.Equal(1.621f, SavingsAccount.InterestRate(1_000.0m));
+        Assert.Equal(0.01621f, SavingsAccount.InterestRate(1_000.0m));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     [Task(1)]
     public void Tiny_second_interest_rate()
     {
-        Assert.Equal(1.621f, SavingsAccount.InterestRate(1_000.0001m));
+        Assert.Equal(0.01621f, SavingsAccount.InterestRate(1_000.0001m));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     [Task(1)]
     public void Maximum_second_interest_rate()
     {
-        Assert.Equal(1.621f, SavingsAccount.InterestRate(4_999.9990m));
+        Assert.Equal(0.01621f, SavingsAccount.InterestRate(4_999.9990m));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     [Task(1)]
     public void Minimal_third_interest_rate()
     {
-        Assert.Equal(2.475f, SavingsAccount.InterestRate(5_000.0000m));
+        Assert.Equal(0.02475f, SavingsAccount.InterestRate(5_000.0000m));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     [Task(1)]
     public void Tiny_third_interest_rate()
     {
-        Assert.Equal(2.475f, SavingsAccount.InterestRate(5_000.0001m));
+        Assert.Equal(0.02475f, SavingsAccount.InterestRate(5_000.0001m));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     [Task(1)]
     public void Large_third_interest_rate()
     {
-        Assert.Equal(2.475f, SavingsAccount.InterestRate(5_639_998.742909m));
+        Assert.Equal(0.02475f, SavingsAccount.InterestRate(5_639_998.742909m));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     [Task(1)]
     public void Minimal_negative_interest_rate()
     {
-        Assert.Equal(-3.213f, SavingsAccount.InterestRate(-0.000001m));
+        Assert.Equal(-0.03213f, SavingsAccount.InterestRate(-0.000001m));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     [Task(1)]
     public void Small_negative_interest_rate()
     {
-        Assert.Equal(-3.213f, SavingsAccount.InterestRate(-0.123m));
+        Assert.Equal(-0.03213f, SavingsAccount.InterestRate(-0.123m));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     [Task(1)]
     public void Regular_negative_interest_rate()
     {
-        Assert.Equal(-3.213f, SavingsAccount.InterestRate(-300.0m));
+        Assert.Equal(-0.03213f, SavingsAccount.InterestRate(-300.0m));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     [Task(1)]
     public void Large_negative_interest_rate()
     {
-        Assert.Equal(-3.213f, SavingsAccount.InterestRate(-152964.231m));
+        Assert.Equal(-0.03213f, SavingsAccount.InterestRate(-152964.231m));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
