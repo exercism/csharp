@@ -4,7 +4,7 @@ In this exercise you'll be writing code to print name badges for factory employe
 
 ## 1. Print a badge for an employee
 
-Employees have an ID, name and department name. Employee badge labels are formatted as follows: `"[id] - [name] - [DEPARTMENT]"`. Implement the (_static_) `Badge.Print()` method to return an employee's badge label:
+Employees have an ID, name and department name. Employee badge labels are formatted as follows: `"[id] - name - DEPARTMENT"`. Implement the (_static_) `Badge.Print()` method to return an employee's badge label:
 
 ```csharp
 Badge.Print(734, "Ernest Johnny Payne", "Strategic Communication");
