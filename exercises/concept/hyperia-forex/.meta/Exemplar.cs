@@ -24,7 +24,12 @@ public struct CurrencyAmount
 
     public static bool operator !=(CurrencyAmount @this, CurrencyAmount other)
     {
-        return @this != other;
+        if (@this.currency != other.currency)
+        {
+            throw new ArgumentException();
+        }
+
+        return @this.amount != other.amount;
     }
 
     public static bool operator >(CurrencyAmount @this, CurrencyAmount other)
