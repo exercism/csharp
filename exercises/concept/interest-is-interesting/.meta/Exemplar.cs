@@ -22,10 +22,14 @@ static class SavingsAccount
         return 2.475f;
     }
 
+    public static decimal Interest(decimal balance)
+    {
+        return Math.Abs(balance) * ((decimal)InterestRate(balance) / 100);
+    }
+
     private static decimal AnnualYield(decimal balance)
     {
-        var multiplier = (decimal)InterestRate(balance) / 100;
-        return Math.Abs(balance) * multiplier;
+        return balance + Interest(balance);
     }
 
     public static decimal AnnualBalanceUpdate(decimal balance)
