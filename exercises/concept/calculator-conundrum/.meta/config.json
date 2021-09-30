@@ -1,6 +1,6 @@
 {
   "blurb": "Learn about error handling by working on a simple calculator.",
-  "contributors": ["valentin-p", "yzAlvin"],
+  "contributors": ["valentin-p", "yzAlvin", "sanderploegsma"],
   "authors": ["archrisV"],
   "files": {
     "solution": ["CalculatorConundrum.cs"],
