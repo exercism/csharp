@@ -32,9 +32,9 @@ SimpleCalculator.Calculate(8, 2, ""); // => throws ArgumentException
 SimpleCalculator.Calculate(58, 6, null); // => throws ArgumentNullException
 ```
 
-## 3. Handle the thrown DivideByZero exceptions
+## 3. Handle errors when dividing by zero
 
-When a `DivideByZeroException` exception gets thrown, the handling code should return the string with the content `Division by zero is not allowed.`. Any other exception should not be handled by the `SimpleCalculator.Calculate()` method.
+When attempting to divide by `0`, the calculator should return a string with the content `Division by zero is not allowed.`. Any other exception should not be handled by the `SimpleCalculator.Calculate()` method.
 
 ```csharp
 SimpleCalculator.Calculate(512, 0, "/"); // => returns "Division by zero is not allowed."
