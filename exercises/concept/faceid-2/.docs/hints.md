@@ -21,7 +21,7 @@ The most performant, and "natural", way to handle a collection of unique values 
 
 ## 4. Prevent invalid identities being authenticated
 
-Consider the [`HashSet<T>.Contains()`][hash-set-contains] method. If you encounter issues with the [test runner][exercism-test-runner] failing, try using instance members rather than `static` members in the `Authenticator` class.
+Consider the [`HashSet<T>.Contains()`][hash-set-contains] method. If you encounter issues with the tests passing locally but failing on the website, try using instance members rather than `static` members in the `Authenticator` class.
 
 ## 5. Add diagnostics to detect multiple attempts to authenticate
 
