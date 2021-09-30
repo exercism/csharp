@@ -60,4 +60,12 @@ public class RobotNameTests
         var robots = Enumerable.Range(0,robotsCount).Select( x => new Robot());
         Assert.Contains(robots, robot => robot.Name.Contains('A'));
     }
+    
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Robot_names_should_generate_edge_case_z()
+    {
+        const int robotsCount = 10_000;
+        var robots = Enumerable.Range(0,robotsCount).Select( x => new Robot());
+        Assert.Contains(robots, robot => robot.Name.Contains('Z'));
+    }
 }
