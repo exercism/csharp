@@ -17,7 +17,7 @@ This is simply a case of applying the lessons learnt in task 1 in a trivially re
 
 ## 3. Register new identities
 
-The most performant, and "natural", way to handle a collection of unique values is by using a [hash set][hash-set]. If you encounter issues with the [test runner][exercism-test-runner] failing, try using instance members rather than `static` members in the `Authenticator` class.
+The most performant, and "natural", way to handle a collection of unique values is by using a [hash set][hash-set]. If you encounter issues with the tests passing locally but failing on the website, try using instance members rather than `static` members in the `Authenticator` class.
 
 ## 4. Prevent invalid identities being authenticated
 
