@@ -1,6 +1,6 @@
 using System;
 
-enum Units
+enum Unit
 {
     Pounds,
     Kilograms
@@ -12,7 +12,7 @@ class WeighingMachine
 
     private decimal inputWeight;
 
-    public Units Units { get; set; } = Units.Kilograms;
+    public Unit Unit { get; set; } = Unit.Kilograms;
 
     public decimal InputWeight
     {
@@ -24,7 +24,7 @@ class WeighingMachine
         {
             if (value < 0)
             {
-                throw new ArgumentException("weight cannot be negative");
+                throw new ArgumentOutOfRangeException("weight cannot be negative");
             }
 
             inputWeight = value;
@@ -56,7 +56,7 @@ class WeighingMachine
 
     private decimal WeightInPounds(decimal weight)
     {
-        if (Units == Units.Kilograms)
+        if (Unit == Unit.Kilograms)
         {
             return weight * POUNDS_PER_KILOGRAM;
         }

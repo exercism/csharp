@@ -30,7 +30,7 @@ class RemoteControlCar
         }
     }
 
-    public static RemoteControlCar TopOfTheLine()
+    public static RemoteControlCar Nitro()
     {
         return new RemoteControlCar(50, 4);
     }

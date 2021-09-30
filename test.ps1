@@ -26,13 +26,6 @@ param (
 # Import shared functionality
 . ./shared.ps1
 
-
-function Invoke-Configlet-Lint {
-    Write-Output "Linting config.json"
-    Invoke-CallScriptExitOnError { ./bin/fetch-configlet }
-    Invoke-CallScriptExitOnError { ./bin/configlet lint }
-}
-
 function Invoke-Build-Generators {
     Write-Output "Building generators"
     Invoke-CallScriptExitOnError { dotnet build ./generators }
@@ -112,8 +105,6 @@ $practiceExercisesDir = Join-Path $buildDir "practice"
 $conceptExercisesDir = Join-Path $buildDir "concept"
 $sourceDir = Resolve-Path "exercises"
 
-
-Invoke-Configlet-Lint
 Clean $buildDir
 Copy-Exercise $sourceDir $buildDir
 Enable-All-UnitTests $buildDir

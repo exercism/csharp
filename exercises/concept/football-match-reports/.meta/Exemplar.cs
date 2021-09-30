@@ -35,7 +35,7 @@ public static class PlayAnalyzer
                 playerDescription = "striker";
                 break;
             default:
-                throw new ArgumentException();
+                throw new ArgumentOutOfRangeException();
         }
 
         return playerDescription;
@@ -76,12 +76,10 @@ public static class PlayAnalyzer
 public class Manager
 {
     public string Name { get; }
-    public string Activity { get; }
 
-    public Manager(string name, string activity)
+    public Manager(string name)
     {
         this.Name = name;
-        this.Activity = activity;
     }
 }
 

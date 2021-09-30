@@ -9,6 +9,6 @@ static class Badge
             return $"{name} - {worksAt}";
         }
 
-        return $"[{id}] {name} - {worksAt}";
+        return $"[{id}] - {name} - {worksAt}";
     }
 }

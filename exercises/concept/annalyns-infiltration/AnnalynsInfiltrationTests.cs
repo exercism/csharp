@@ -103,7 +103,7 @@ public class QuestLogicTests
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     [Task(3)]
-    public void Can_signal_prisoner_ifarcher_is_sleeping_and_prisoner_is_awake()
+    public void Can_signal_prisoner_if_archer_is_sleeping_and_prisoner_is_awake()
     {
         var archerIsAwake = false;
         var prisonerIsAwake = true;
@@ -112,7 +112,7 @@ public class QuestLogicTests
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     [Task(3)]
-    public void Cannot_signal_prisoner_ifarcher_is_awake_and_prisoner_is_sleeping()
+    public void Cannot_signal_prisoner_if_archer_is_awake_and_prisoner_is_sleeping()
     {
         var archerIsAwake = true;
         var prisonerIsAwake = false;
@@ -121,7 +121,7 @@ public class QuestLogicTests
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     [Task(3)]
-    public void Cannot_signal_prisoner_ifarcher_and_prisoner_are_both_sleeping()
+    public void Cannot_signal_prisoner_if_archer_and_prisoner_are_both_sleeping()
     {
         var archerIsAwake = false;
         var prisonerIsAwake = false;
@@ -130,7 +130,7 @@ public class QuestLogicTests
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     [Task(3)]
-    public void Cannot_signal_prisoner_ifarcher_and_prisoner_are_both_awake()
+    public void Cannot_signal_prisoner_if_archer_and_prisoner_are_both_awake()
     {
         var archerIsAwake = true;
         var prisonerIsAwake = true;

@@ -102,12 +102,7 @@
         "name": "International Calling Connoisseur",
         "uuid": "ea01c7d9-a387-451b-9a69-f1b48f00d7a5",
         "concepts": ["dictionaries"],
-        "prerequisites": [
-          "foreach-loops",
-          "generic-types",
-          "strings",
-          "indexers"
-        ]
+        "prerequisites": ["foreach-loops", "generic-types", "strings"]
       },
       {
         "slug": "logs-logs-logs",
@@ -123,7 +118,6 @@
         "concepts": ["equality", "sets"],
         "prerequisites": [
           "classes",
-          "explicit-casts",
           "generic-types",
           "inheritance",
           "interfaces",
@@ -163,7 +157,7 @@
         "name": "Attack of the Trolls",
         "uuid": "ad240550-d732-4125-b00b-b852027a2db7",
         "concepts": ["attributes", "flag-enums"],
-        "prerequisites": ["bit-manipulation", "enums", "integral-numbers"]
+        "prerequisites": ["enums", "integral-numbers"]
       },
       {
         "slug": "interest-is-interesting",
@@ -248,14 +242,14 @@
         "name": "Tim from Marketing",
         "uuid": "a66821d2-356d-43f5-ab83-8060c4b38a44",
         "concepts": ["nullability"],
-        "prerequisites": ["if-statements", "memory-allocation", "strings"]
+        "prerequisites": ["if-statements", "strings"]
       },
       {
         "slug": "cars-assemble",
         "name": "Cars, Assemble!",
         "uuid": "93fbc7cf-3a7e-4450-ad22-e30129c36bb9",
         "concepts": ["if-statements", "numbers"],
-        "prerequisites": ["basics"]
+        "prerequisites": ["booleans"]
       },
       {
         "slug": "developer-privileges",
@@ -352,14 +346,7 @@
         "name": "High School Sweethearts",
         "uuid": "eb435600-f983-4d55-a2c8-ef8b122334a0",
         "concepts": ["string-formatting", "verbatim-strings"],
-        "prerequisites": [
-          "const-readonly",
-          "inheritance",
-          "string-builder",
-          "strings",
-          "time",
-          "varargs"
-        ]
+        "prerequisites": ["inheritance", "string-builder", "strings", "time"]
       },
       {
         "slug": "log-levels",
@@ -419,6 +406,15 @@
           "if-statements",
           "overflow",
           "integral-numbers"
+        ]
+      },
+      {
+        "slug": "log-analysis",
+        "name": "Log Analysis",
+        "uuid": "4a940e54-eda8-4500-bcb2-25d83af01fb1",
+        "concepts": ["extension-methods"],
+        "prerequisites": [
+          "strings"
         ]
       }
     ],
@@ -1930,6 +1926,11 @@
       "uuid": "8e69833b-9668-4ed1-bfdd-d3c90fe4d9a4",
       "slug": "expression-bodied-members",
       "name": "Expression Bodied Members"
+    },
+    {
+      "uuid": "c1e57d81-8965-4e3f-96d1-44ff43b768e4",
+      "slug": "extension-methods",
+      "name": "Extension Methods"
     },
     {
       "uuid": "0d0ce715-a7f2-42f4-b97b-54ba99b4df73",

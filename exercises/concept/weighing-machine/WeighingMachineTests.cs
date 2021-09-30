@@ -16,7 +16,15 @@ public class WeighingMachineTests
     public void Negative_weight_is_invalid()
     {
         var wm = new WeighingMachine();
-        Assert.Throws<ArgumentException>(() => wm.InputWeight = -10);
+        Assert.Throws<ArgumentOutOfRangeException>(() => wm.InputWeight = -10);
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Default_Unit_Is_Kilogram()
+    {
+        var wm = new WeighingMachine();
+        
+        Assert.Equal(Unit.Kilograms, wm.Unit);
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
@@ -39,7 +47,7 @@ public class WeighingMachineTests
     public void Input_pounds_and_get_us_display_weight_pounds()
     {
         var wm = new WeighingMachine();
-        wm.Units = Units.Pounds;
+        wm.Unit = Unit.Pounds;
         wm.InputWeight = 175.5m;
         Assert.Equal(175, wm.USDisplayWeight.Pounds);
     }
@@ -48,7 +56,7 @@ public class WeighingMachineTests
     public void Input_pounds_and_get_is_display_weight_ounces()
     {
         var wm = new WeighingMachine();
-        wm.Units = Units.Pounds;
+        wm.Unit = Unit.Pounds;
         wm.InputWeight = 175.5m;
         Assert.Equal(8, wm.USDisplayWeight.Ounces);
     }

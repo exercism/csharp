@@ -8,7 +8,7 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.3" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3" />
-    <PackageReference Include="Exercism.Tests" Version="0.1.0-alpha" />
+    <PackageReference Include="Exercism.Tests" Version="0.1.0-beta1" />
   </ItemGroup>
 
 </Project>

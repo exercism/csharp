@@ -1,10 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-public interface IRemoteControlCar
-{
-    // TODO implement the IRemoteControlCar interface
-}
+// TODO implement the IRemoteControlCar interface
 
 public class ProductionRemoteControlCar
 {
@@ -29,7 +26,7 @@ public class ExperimentalRemoteControlCar
 
 public static class TestTrack
 {
-    public static int Race(IRemoteControlCar car)
+    public static void Race(IRemoteControlCar car)
     {
         throw new NotImplementedException($"Please implement the (static) TestTrack.Race() method");
     }
