@@ -17,19 +17,15 @@ This is simply a case of applying the lessons learnt in task 1 in a trivially re
 
 ## 3. Register new identities
 
-The most performant, and "natural", way to handle a collection of unique values is by using a [hash set][hash-set].
+The most performant, and "natural", way to handle a collection of unique values is by using a [hash set][hash-set]. If you encounter issues with the [test runner][exercism-test-runner] failing, try using instance members rather than `static` members in the `Authenticator` class.
 
 ## 4. Prevent invalid identities being authenticated
 
-Consider the [`HashSet<T>.Contains()`][hash-set-contains] method.
+Consider the [`HashSet<T>.Contains()`][hash-set-contains] method. If you encounter issues with the [test runner][exercism-test-runner] failing, try using instance members rather than `static` members in the `Authenticator` class.
 
 ## 5. Add diagnostics to detect multiple attempts to authenticate
 
 This [documentation][reference-equality] addresses the issue of comparing instances as opposed to values.
-
-## 6. Potential workaround for failing tests
-
-If you encounter issues with the [test runner][exercism-test-runner] failing, try using instance members rather than `static` members in the `Authenticator` class.
 
 [equality]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/equality-comparisons
 [hash-set]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.hashset-1?view=netcore-3.1
