@@ -4,8 +4,14 @@
 
 - [Exceptions][exceptions]: basic introduction to exceptions.
 - [Using exceptions][using-exceptions]: how to use exceptions.
-- [Exception handling][exception-handling]: how to catch exceptions.
-- [Creating and throwing exceptions][creating-and-throwing-exceptions]: how to create and throw exceptions.
+
+## 2. Handle illegal operations
+
+- You need to [throw an exception][creating-and-throwing-exceptions] here.
+
+## 3. Handle the thrown DivideByZero exceptions
+
+- You need to [catch an exception][exception-handling] here.
 
 [exceptions]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/exceptions/
 [using-exceptions]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/exceptions/using-exceptions
