@@ -14,7 +14,7 @@
 
 ## 3. Calculate the annual balance update
 
-- When calculating the annual yield, we can use methods we have defined in previous steps.
+- When calculating the annual balance update, we can use methods we have defined in previous steps.
 
 ## 4. Calculate the years before reaching the desired balance
 
