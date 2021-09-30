@@ -127,6 +127,7 @@ public class HyperiaForexTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Cast_to_decimal()
     {
-        Assert.Equal(55.5m, (decimal)new CurrencyAmount(55.5m, "HD"));
+        decimal actual = new CurrencyAmount(55.5m, "HD");
+        Assert.Equal(55.5m, actual);
     }
 }
