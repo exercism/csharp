@@ -38,7 +38,7 @@ public static class Languages
         return languages;
     }
 
-    public static bool ContainsStar(List<string> languages)
+    public static bool IsExciting(List<string> languages)
     {
         if (languages.Count > 0 && languages[0] == "C#")
         {
@@ -60,7 +60,7 @@ public static class Languages
     }
 
     // guaranteed not empty
-    public static bool EnsureUnique(List<string> languages)
+    public static bool IsUnique(List<string> languages)
     {
         languages.Sort();
         for (int i = 1; i < languages.Count; i++)

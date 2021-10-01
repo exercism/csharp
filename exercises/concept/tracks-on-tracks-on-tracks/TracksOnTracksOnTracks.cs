@@ -33,9 +33,9 @@ public static class Languages
         throw new NotImplementedException("Please implement the static Languages.ReverseList() method");
     }
 
-    public static bool ContainsStar(List<string> languages)
+    public static bool IsExciting(List<string> languages)
     {
-        throw new NotImplementedException("Please implement the static Languages.ContainsStar() method");
+        throw new NotImplementedException("Please implement the static Languages.IsExciting() method");
     }
 
     public static List<string> RemoveLanguage(List<string> languages, string language)
@@ -43,8 +43,8 @@ public static class Languages
         throw new NotImplementedException("Please implement the static Languages.RemoveLanguage() method");
     }
 
-    public static bool EnsureUnique(List<string> languages)
+    public static bool IsUnique(List<string> languages)
     {
-        throw new NotImplementedException("Please implement the static Languages.EnsureUnique() method");
+        throw new NotImplementedException("Please implement the static Languages.IsUnique() method");
     }
 }
