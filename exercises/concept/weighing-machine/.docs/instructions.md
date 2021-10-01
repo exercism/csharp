@@ -36,18 +36,7 @@ var wm = new WeighingMachine(precision:3);
 wm.Weight = -10m; // Throws an ArgumentOutOfRangeException
 ```
 
-## 4. Ensure that the weighing machine has a default tare Adjustment.
-
-A tare adjustment can be applied to the weight they usually have a bias towards overestimating the weight.
-Implement the `WeighingMachine.TareAdjustment` property to have the default value as 5.
-
-```csharp
-var wm = new WeighingMachine(precision:3);
-
-// => wm.TareAdjustment == 5
-```
-
-## 5. Allow a tare adjustment to be applied to the weighing machine
+## 4. Allow a tare adjustment to be applied to the weighing machine
 
 The tare adjustment can be any value (even negative or a value that makes the display weight negative)
 Implement the `WeighingMachine.TareAdjustment` property to allow the tare adjustment to also be set:
@@ -57,6 +46,17 @@ var wm = new WeighingMachine();
 wm.TareAdjustment = -10;
 
 // => wm.TareAdjustment == -10
+```
+
+## 5. Ensure that the weighing machine has a default tare Adjustment.
+
+A tare adjustment can be applied to the weight they usually have a bias towards overestimating the weight.
+Implement the `WeighingMachine.TareAdjustment` property to have the default value as 5.
+
+```csharp
+var wm = new WeighingMachine(precision:3);
+
+// => wm.TareAdjustment == 5
 ```
 
 ## 6. Allow the weight to be retrieved
