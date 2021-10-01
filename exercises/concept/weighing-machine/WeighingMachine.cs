@@ -1,11 +1,5 @@
 using System;
 
-enum Unit
-{
-    Pounds,
-    Kilograms
-}
-
 class WeighingMachine
 {
    // TODO: define the 'Precision' property
