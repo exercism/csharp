@@ -17,6 +17,9 @@
     ],
     "exemplar": [
       ".meta/Exemplar.cs"
+    ],
+    "editor": [
+      "OffFieldActivitiesAndCharacters.cs"
     ]
   }
 }
