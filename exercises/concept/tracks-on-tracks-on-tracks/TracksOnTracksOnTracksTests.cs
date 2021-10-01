@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Xunit;
 using Exercism.Tests;
 
-public class ListsTests
+public class LanguagesTests
 {
     [Fact]
     public void NewList()
@@ -63,33 +63,33 @@ public class ListsTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void ContainsStar_yes()
+    public void IsExciting_yes()
     {
-        Assert.True(Languages.ContainsStar(Languages.GetExistingLanguages()));
+        Assert.True(Languages.IsExciting(Languages.GetExistingLanguages()));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void ContainsStar_too_many()
+    public void IsExciting_too_many()
     {
         var languages = Languages.GetExistingLanguages();
         languages.Insert(0, "VBA");
-        Assert.False(Languages.ContainsStar(languages));
+        Assert.False(Languages.IsExciting(languages));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void ContainsStar_empty()
+    public void IsExciting_empty()
     {
         var languages = Languages.NewList();
-        Assert.False(Languages.ContainsStar(languages));
+        Assert.False(Languages.IsExciting(languages));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void ContainsStar_single_star()
+    public void IsExciting_single_star()
     {
         var languages = Languages.GetExistingLanguages();
         languages.RemoveAt(2);
         languages.RemoveAt(1);
-        Assert.True(Languages.ContainsStar(languages));
+        Assert.True(Languages.IsExciting(languages));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
@@ -114,17 +114,17 @@ public class ListsTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void EnsureUnique_yes()
+    public void IsUnique_yes()
     {
         var languages = Languages.GetExistingLanguages();
-        Assert.True(Languages.EnsureUnique(languages));
+        Assert.True(Languages.IsUnique(languages));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void EnsureUnique_no()
+    public void IsUnique_no()
     {
         var languages = Languages.GetExistingLanguages();
         languages.Add("C#");
-        Assert.False(Languages.EnsureUnique(languages));
+        Assert.False(Languages.IsUnique(languages));
     }
 }
