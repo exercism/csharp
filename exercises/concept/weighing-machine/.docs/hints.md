@@ -5,25 +5,29 @@
 - [Properties][docs.microsoft.com-properties]
 - [Using Properties][docs.microsoft.com-using-properties]
 
-## 1. Allow the weight to be set on the weighing machine
+## 1. Allow the weighing machine to have a precision.
 
-A property with a private [backing field][docs.microsoft.com-properties-with-backing-fields] is appropriate here.
+A get only property that can be intialised only from the constructor.
 
-## 2. Ensure that a negative input weight is rejected.
+## 2. Allow the weight to be set on the weighing machine
 
-Add [validation][stackoverflow.com-validating-properties] to the `InputWeight`'s `set` accessor to throw an exception.
+A property with a private [backing field][docs.microsoft.com-properties-with-backing-fields] is appropriate here
 
-## 3. Allow the US weight to be retrieved
+## 3. Ensure that a negative input weight is rejected
 
-A property can return a reference to an object.
+Add [validation][stackoverflow.com-validating-properties] to the `Weight`'s `set` accessor to throw an exception.
 
-## 4. Allow the machine's units to be set to pounds
+## 4. Allow a tare adjustment to be applied to the weighing machine
 
-`Units` is a good candidate for an [auto-implemented property][docs.microsoft.com-auto-implemented-properties].
+`TareAdjustment ` is a good candidate for an [auto-implemented property][docs.microsoft.com-auto-implemented-properties].
 
-## 5. Allow a tare adjustment to be applied to the weighing machine
+## 5. Ensure that the weighing machine has a default tare Adjustment.
 
-Accessors can have [different access levels][docs.microsoft.com-properties-and-restricted-access] to each other.
+You can initialize [auto-implemented property][docs.microsoft.com-auto-implemented-properties] similarly to fields.
+
+## 6. Allow the weight to be retrieved
+
+Perform the right calculation in the `DisplayWeight`'s `get` acessor.
 
 [docs.microsoft.com-properties]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties
 [docs.microsoft.com-using-properties]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/using-properties
