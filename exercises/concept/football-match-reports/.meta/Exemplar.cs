@@ -35,7 +35,7 @@ public static class PlayAnalyzer
         switch (report)
         {
             case int supporters:
-                return $"There are {supporters} supporters at the match."
+                return $"There are {supporters} supporters at the match.";
             case string announcement:
                 return announcement;
             case Injury injury:
