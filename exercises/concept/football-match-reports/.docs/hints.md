@@ -13,7 +13,7 @@
 ## 3. Extend the coverage to include off field activity
 
 - [Pattern matching on types][switch-pattern-matching] is the key to this task.
-- Use the [`default`][default] statement to match any other type
+- Use the [`default`][default] statement to match any other type.
 
 ## 5. Report on club managers
 
