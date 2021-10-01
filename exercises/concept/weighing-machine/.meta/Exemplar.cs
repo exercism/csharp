@@ -1,80 +1,40 @@
 using System;
 
-enum Unit
-{
-    Pounds,
-    Kilograms
-}
-
 class WeighingMachine
 {
-    private const decimal POUNDS_PER_KILOGRAM = 2.20462m;
+    private int _weight;
 
-    private decimal inputWeight;
+    public WeighingMachine(int precision)
+    {
+        Precision = precision;
+    }
 
-    public Unit Unit { get; set; } = Unit.Kilograms;
+    // Goal: getter-only property initialized in constructor
+    public int Precision { get; }
 
-    public decimal InputWeight
+    // Goal: auto-implemented get/set property with initial value
+    public int TareAdjustment { get; set; } = 5;
+
+    // Goal: explicit get/set property
+    public int Weight
     {
         get
         {
-            return inputWeight;
+            return _weight;
         }
         set
         {
-            if (value < 0)
-            {
-                throw new ArgumentOutOfRangeException("weight cannot be negative");
-            }
-
-            inputWeight = value;
+            if (value < 0) throw new ArgumentOutOfRangeException();
+            _weight = value;
         }
     }
 
-    public decimal DisplayWeight
+    // Goal: getter-only property with logic 
+    public int DisplayWeight
     {
         get
         {
-            return ApplyTareAdjustment(inputWeight);
+            return Weight - TareAdjustment;
         }
     }
-
-    public USWeight USDisplayWeight
-    {
-        get
-        {
-            return new USWeight(WeightInPounds(DisplayWeight));
-        }
-    }
-
-    public decimal TareAdjustment { set; private get; }
-
-    private decimal ApplyTareAdjustment(decimal weight)
-    {
-        return weight - TareAdjustment;
-    }
-
-    private decimal WeightInPounds(decimal weight)
-    {
-        if (Unit == Unit.Kilograms)
-        {
-            return weight * POUNDS_PER_KILOGRAM;
-        }
-
-        return weight;
-    }
-}
-
-class USWeight
-{
-    private const decimal OUNCES_PER_POUND = 16m;
-
-    public USWeight(decimal displayWeightInPounds)
-    {
-        Pounds = (int)displayWeightInPounds;
-        Ounces = (int)(OUNCES_PER_POUND * (displayWeightInPounds - (int)displayWeightInPounds));
-    }
-
-    public int Pounds { get; }
-    public int Ounces { get; }
 }
