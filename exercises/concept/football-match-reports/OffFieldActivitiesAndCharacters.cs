@@ -2,9 +2,12 @@
 {
     public string Name { get; }
 
-    public Manager(string name)
+    public string? Club { get; }
+
+    public Manager(string name, string? club)
     {
         this.Name = name;
+        this.Club = club;
     }
 }
 
@@ -20,5 +23,12 @@ public class Foul : Incident
 
 public class Injury : Incident
 {
-    public override string GetDescription() => "A player is injured.";
+    private readonly int player;
+
+    public Injury(int player)
+    {
+        this.player = player;
+    }
+
+    public override string GetDescription() => $"Player {player} is injured.";
 }
