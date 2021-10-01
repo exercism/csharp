@@ -11,7 +11,7 @@
 
 ## 3. Handle errors when dividing by zero
 
-- You need to [catch an exception][exception-handling] here to handle the [`DivideByZeroException`][divide-by-zero-exception].
+- You need to [catch an exception][exception-handling] here to handle the [`DivideByZeroException`][divide-by-zero-exception] that is thrown when dividing by zero.
 
 [exceptions]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/exceptions/
 [using-exceptions]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/exceptions/using-exceptions
