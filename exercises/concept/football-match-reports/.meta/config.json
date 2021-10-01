@@ -3,7 +3,8 @@
   "contributors": [
     "ErikSchierboom",
     "valentin-p",
-    "yzAlvin"
+    "yzAlvin",
+    "sanderploegsma"
   ],
   "authors": [
     "mikedamay"
@@ -17,6 +18,9 @@
     ],
     "exemplar": [
       ".meta/Exemplar.cs"
+    ],
+    "editor": [
+      "OffFieldActivitiesAndCharacters.cs"
     ]
   }
 }
