@@ -6,15 +6,16 @@
 
 - The [`break`][break] statement is useful.
 
-## 2. Raise an alert if an unknown shirt number is encountered.
+## 2. Raise an alert if an unknown shirt number is encountered
 
 - The [`default`][default] statement is useful.
 
 ## 3. Extend the coverage to include off field activity
 
 - [Pattern matching on types][switch-pattern-matching] is the key to this task.
+- Use the [`default`][default] statement to match any other type.
 
-## 4. Where the manager has a name available we want that output instead of "the manager"
+## 5. Report on club managers
 
 - See this [documentation][switch-when] for the `when` keyword.
 

@@ -1,24 +1,163 @@
 using System;
 using Xunit;
-using Exercism.Tests;
+using FsCheck.Xunit;
+using FsCheck;
 
-public class OperatorOverloadingTests
+public class HyperiaForexTests
 {
-    [Fact]
-    public void Equality_true()
+    [Property]
+    public void Equality_with_same_currency(decimal value)
     {
-        Assert.True(new CurrencyAmount(55, "HD") == new CurrencyAmount(55, "HD"));
+        var amount1 = new CurrencyAmount(value, "HD");
+        var amount2 = new CurrencyAmount(value, "HD");
+
+        Assert.True(amount1 == amount2);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Equality_false()
+    [Property(Skip = "Remove this Skip property to run this test")]
+    public void Equality_with_different_currency(decimal value)
     {
-        Assert.False(new CurrencyAmount(55, "HD") == new CurrencyAmount(60, "HD"));
+        var amount1 = new CurrencyAmount(value, "HD");
+        var amount2 = new CurrencyAmount(value, "USD");
+
+        Assert.Throws<ArgumentException>(() => amount1 == amount2);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Equality_bad()
+    [Property(Skip = "Remove this Skip property to run this test")]
+    public Property Inequality_with_same_currency(decimal value1, decimal value2)
     {
-        Assert.Throws<ArgumentException>(() => new CurrencyAmount(55, "HD") == new CurrencyAmount(60, "USD"));
+        var amount1 = new CurrencyAmount(value1, "HD");
+        var amount2 = new CurrencyAmount(value2, "HD");
+
+        return Prop.When(value1 != value2, () => Assert.True(amount1 != amount2));
+    }
+
+    [Property(Skip = "Remove this Skip property to run this test")]
+    public void Inequality_with_different_currency(decimal value1, decimal value2)
+    {
+        var amount1 = new CurrencyAmount(value1, "HD");
+        var amount2 = new CurrencyAmount(value2, "USD");
+
+        Assert.Throws<ArgumentException>(() => amount1 != amount2);
+    }
+
+    [Property(Skip = "Remove this Skip property to run this test")]
+    public Property LessThan_with_same_currency(decimal value1, decimal value2)
+    {
+        var amount1 = new CurrencyAmount(value1, "HD");
+        var amount2 = new CurrencyAmount(value2, "HD");
+
+        return Prop.When(value1 < value2, () => Assert.True(amount1 < amount2));
+    }
+
+    [Property(Skip = "Remove this Skip property to run this test")]
+    public void LessThan_with_different_currency(decimal value1, decimal value2)
+    {
+        var amount1 = new CurrencyAmount(value1, "HD");
+        var amount2 = new CurrencyAmount(value2, "USD");
+
+        Assert.Throws<ArgumentException>(() => amount1 < amount2);
+    }
+
+    [Property(Skip = "Remove this Skip property to run this test")]
+    public Property GreaterThan_with_same_currency(decimal value1, decimal value2)
+    {
+        var amount1 = new CurrencyAmount(value1, "HD");
+        var amount2 = new CurrencyAmount(value2, "HD");
+
+        return Prop.When(value1 > value2, () => Assert.True(amount1 > amount2));
+    }
+
+    [Property(Skip = "Remove this Skip property to run this test")]
+    public void GreaterThan_with_different_currency(decimal value1, decimal value2)
+    {
+        var amount1 = new CurrencyAmount(value1, "HD");
+        var amount2 = new CurrencyAmount(value2, "USD");
+
+        Assert.Throws<ArgumentException>(() => amount1 > amount2);
+    }
+
+    [Property(Skip = "Remove this Skip property to run this test")]
+    public void Addition_with_same_currency(decimal value1, decimal value2)
+    {
+        var amount1 = new CurrencyAmount(value1, "HD");
+        var amount2 = new CurrencyAmount(value2, "HD");
+        var expected = new CurrencyAmount(value1 + value2, "HD");
+
+        Assert.Equal(expected, amount1 + amount2);
+    }
+
+    [Property(Skip = "Remove this Skip property to run this test")]
+    public void Addition_is_commutative(decimal value1, decimal value2)
+    {
+        var amount1 = new CurrencyAmount(value1, "HD");
+        var amount2 = new CurrencyAmount(value2, "HD");
+
+        Assert.Equal(amount1 + amount2, amount2 + amount1);
+    }
+
+    [Property(Skip = "Remove this Skip property to run this test")]
+    public void Addition_with_different_currency(decimal value1, decimal value2)
+    {
+        var amount1 = new CurrencyAmount(value1, "HD");
+        var amount2 = new CurrencyAmount(value2, "USD");
+
+        Assert.Throws<ArgumentException>(() => amount1 + amount2);
+    }
+
+    [Property(Skip = "Remove this Skip property to run this test")]
+    public void Subtraction_with_same_currency(decimal value1, decimal value2)
+    {
+        var amount1 = new CurrencyAmount(value1, "HD");
+        var amount2 = new CurrencyAmount(value2, "HD");
+        var expected = new CurrencyAmount(value1 - value2, "HD");
+
+        Assert.Equal(expected, amount1 - amount2);
+    }
+
+    [Property(Skip = "Remove this Skip property to run this test")]
+    public void Subtraction_with_different_currency(decimal value1, decimal value2)
+    {
+        var amount1 = new CurrencyAmount(value1, "HD");
+        var amount2 = new CurrencyAmount(value2, "USD");
+
+        Assert.Throws<ArgumentException>(() => amount1 - amount2);
+    }
+
+    [Property(Skip = "Remove this Skip property to run this test")]
+    public void Multiplication(decimal value, decimal factor)
+    {
+        Assert.Equal(new CurrencyAmount(factor * value, "HD"),
+                     factor * new CurrencyAmount(value, "HD"));
+    }
+
+    [Property(Skip = "Remove this Skip property to run this test")]
+    public void Multiplication_is_commutative(decimal value, decimal factor)
+    {
+        var amount = new CurrencyAmount(value, "HD");
+
+        Assert.Equal(amount * factor, factor * amount);
+    }
+
+    [Property(Skip = "Remove this Skip property to run this test")]
+    public Property Division(decimal value, decimal divisor)
+    {
+        return Prop.When(
+            divisor != 0,
+            () => Assert.True(new CurrencyAmount(value, "HD") / divisor ==
+                              new CurrencyAmount(value / divisor, "HD")));
+    }
+
+    [Property(Skip = "Remove this Skip property to run this test")]
+    public void Cast_to_double(decimal value)
+    {
+        Assert.Equal(Convert.ToDouble(value), (double)new CurrencyAmount(value, "HD"));
+    }
+
+    [Property(Skip = "Remove this Skip property to run this test")]
+    public void Cast_to_decimal(decimal value)
+    {
+        decimal actual = new CurrencyAmount(value, "HD");
+        Assert.Equal(value, actual);
     }
 }
