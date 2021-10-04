@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Collections.Generic;
 using Xunit;
 
@@ -51,5 +52,21 @@ public class RobotNameTests
             Assert.True(names.Add(robot.Name));
             Assert.Matches(@"^[A-Z]{2}\d{3}$", robot.Name);
         }
+    }
+    
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Robot_names_should_generate_edge_case_a()
+    {
+        const int robotsCount = 10_000;
+        var robots = Enumerable.Range(0,robotsCount).Select( x => new Robot());
+        Assert.Contains(robots, robot => robot.Name.Contains('A'));
+    }
+    
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Robot_names_should_generate_edge_case_z()
+    {
+        const int robotsCount = 10_000;
+        var robots = Enumerable.Range(0,robotsCount).Select( x => new Robot());
+        Assert.Contains(robots, robot => robot.Name.Contains('Z'));
     }
 }

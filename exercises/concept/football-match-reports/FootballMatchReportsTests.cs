@@ -1,8 +1,7 @@
 using System;
 using Xunit;
-using Exercism.Tests;
 
-public class TuplesTest
+public class FootballMatchReportsTests
 {
     [Fact]
     public void AnalyzeOnField_1()
@@ -31,7 +30,13 @@ public class TuplesTest
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void AnalyzeOnField_throws_unknown_shirt_number()
     {
-        Assert.Throws<ArgumentException>(() => PlayAnalyzer.AnalyzeOnField(1729));
+        Assert.Throws<ArgumentOutOfRangeException>(() => PlayAnalyzer.AnalyzeOnField(1729));
+    }
+    
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void AnalyzeOffField_number()
+    {
+        Assert.Equal("There are 4200 supporters at the match.", PlayAnalyzer.AnalyzeOffField(4200));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
@@ -55,24 +60,23 @@ public class TuplesTest
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void AnalyzeOffField_injury()
     {
-        Assert.Equal("A player is injured. Medics are on the field.", PlayAnalyzer.AnalyzeOffField(new Injury()));
+        Assert.Equal("Oh no! Player 3 is injured. Medics are on the field.", PlayAnalyzer.AnalyzeOffField(new Injury(3)));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void AnalyzeOffField_anonymous_manager()
+    public void AnalyzeOffField_manager_no_club()
     {
-        Assert.Equal("the manager", PlayAnalyzer.AnalyzeOffField(new Manager(string.Empty)));
+        Assert.Equal("David Moyes", PlayAnalyzer.AnalyzeOffField(new Manager("David Moyes", null)));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void AnalyzeOffField_named_manager()
+    public void AnalyzeOffField_manager_with_club()
     {
-        Assert.Equal("José Mário dos Santos Mourinho Félix",
-            PlayAnalyzer.AnalyzeOffField(new Manager("José Mário dos Santos Mourinho Félix")));
+        Assert.Equal("Thomas Tuchel (Chelsea)", PlayAnalyzer.AnalyzeOffField(new Manager("Thomas Tuchel", "Chelsea")));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void AnalyzeOffField_throws_type_single()
+    public void AnalyzeOffField_throws_unknown_type()
     {
         Assert.Throws<ArgumentException>(() => PlayAnalyzer.AnalyzeOffField(90.0f));
     }

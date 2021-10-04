@@ -48,13 +48,13 @@ The log level of a log line is quite verbose. To reduce the disk space needed to
 
 The encoded log level is a simple mapping of a log level to a number:
 
-- `Trace` - `0`
-- `Debug` - `1`
+- `Unknown` - `0`
+- `Trace` - `1`
+- `Debug` - `2`
 - `Info` - `4`
 - `Warning` - `5`
 - `Error` - `6`
-- `Fatal` - `7`
-- `Unknown` - `42`
+- `Fatal` - `42`
 
 Implement the (_static_) `LogLine.OutputForShortLog()` method that can output the shortened log line format:
 

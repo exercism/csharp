@@ -6,7 +6,7 @@ processed independently. Their literals have single quotes e.g. `'A'`.
 
 C# `char`s support UTF-16 Unicode encoding so in addition to the latin character set
 pretty much all the writing systems in use world can be represented,
-e.g. ancient greek `'β'`.
+e.g. the Greek letter `'β'`.
 
 There are many builtin library methods to inspect and manipulate `char`s. These
 can be found as static methods of the `System.Char` class.

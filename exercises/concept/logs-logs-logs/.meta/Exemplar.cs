@@ -1,12 +1,12 @@
 enum LogLevel
 {
-    Trace = 0,
-    Debug = 1,
+    Unknown = 0, 
+    Trace = 1,
+    Debug = 2,
     Info = 4,
     Warning = 5,
     Error = 6,
-    Fatal = 7,
-    Unknown = 42
+    Fatal = 42
 }
 
 static class LogLine

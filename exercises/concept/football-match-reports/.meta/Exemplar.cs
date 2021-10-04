@@ -4,99 +4,50 @@ public static class PlayAnalyzer
 {
     public static string AnalyzeOnField(int shirtNum)
     {
-        string playerDescription;
         switch (shirtNum)
         {
             case 1:
-                playerDescription = "goalie";
-                break;
+                return "goalie";
             case 2:
-                playerDescription = "left back";
-                break;
+                return "left back";
             case 5:
-                playerDescription = "right back";
-                break;
+                return "right back";
             case 3:
             case 4:
-                playerDescription = "center back";
-                break;
+                return "center back";
             case 6:
             case 7:
             case 8:
-                playerDescription = "midfielder";
-                break;
+                return "midfielder";
             case 9:
-                playerDescription = "left wing";
-                break;
+                return "left wing";
             case 11:
-                playerDescription = "right wing";
-                break;
+                return "right wing";
             case 10:
-                playerDescription = "striker";
-                break;
+                return "striker";
             default:
-                throw new ArgumentException();
+                throw new ArgumentOutOfRangeException();
         }
-
-        return playerDescription;
     }
 
     public static string AnalyzeOffField(object report)
     {
-        string description;
         switch (report)
         {
-            case int shirtNum:
-                description = AnalyzeOnField(shirtNum);
-                break;
-            case string freeFormText:
-                description = freeFormText;
-                break;
+            case int supporters:
+                return $"There are {supporters} supporters at the match.";
+            case string announcement:
+                return announcement;
             case Injury injury:
-                description = $"{injury.GetDescription()} Medics are on the field.";
-                break;
+                return $"Oh no! {injury.GetDescription()} Medics are on the field.";
             case Incident incident:
-                description = incident.GetDescription();
-                break;
-            case Manager manager when !string.IsNullOrWhiteSpace(manager.Name):
-                description = manager.Name;
-                break;
+                return incident.GetDescription();
+            case Manager manager when manager.Club != null:
+                return $"{manager.Name} ({manager.Club})";
             case Manager manager:
-                description = "the manager";
-                break;
+                return manager.Name;
             default:
                 throw new ArgumentException();
         }
-
-        return description;
     }
-}
-
-// **** please do not modify the Manager class ****
-public class Manager
-{
-    public string Name { get; }
-
-    public Manager(string name)
-    {
-        this.Name = name;
-    }
-}
-
-// **** please do not modify the Incident class or any subclasses ****
-public class Incident
-{
-    public virtual string GetDescription() => "An incident happened.";
-}
-
-// **** please do not modify the Foul class ****
-public class Foul : Incident
-{
-    public override string GetDescription() => "The referee deemed a foul.";
-}
-
-// **** please do not modify the Injury class ****
-public class Injury : Incident
-{
-    public override string GetDescription() => "A player is injured.";
 }
