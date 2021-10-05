@@ -21,7 +21,8 @@ public class ParametersTests
         car.Drive();
         car.Drive();
         int serialNum = 1;
-        car.GetTelemetryData(ref serialNum, out int batteryPercentage, out int distanceDrivenInMeters);
+        var result = car.GetTelemetryData(ref serialNum, out int batteryPercentage, out int distanceDrivenInMeters);
+        Assert.True(result);
         Assert.Equal((1, 80, 4), (serialNum, batteryPercentage, distanceDrivenInMeters));
     }
 
@@ -35,7 +36,8 @@ public class ParametersTests
         int serialNum = 4;
         car.GetTelemetryData(ref serialNum, out batteryPercentage, out distanceDrivenInMeters);
         serialNum = 1;
-        car.GetTelemetryData(ref serialNum, out batteryPercentage, out distanceDrivenInMeters);
+        bool result = car.GetTelemetryData(ref serialNum, out batteryPercentage, out distanceDrivenInMeters);
+        Assert.False(result);
         Assert.Equal((4, -1, -1), (serialNum, batteryPercentage, distanceDrivenInMeters));
     }
 
