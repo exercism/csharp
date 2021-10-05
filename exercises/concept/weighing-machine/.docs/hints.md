@@ -7,7 +7,7 @@
 
 ## 1. Allow the weighing machine to have a precision
 
-A get only property that can be intialised only from the constructor.
+- A get only property that can be intialised only from the constructor.
 
 ## 2. Allow the weight to be set on the weighing machine
 
@@ -20,15 +20,15 @@ A get only property that can be intialised only from the constructor.
 
 ## 4. Allow a tare adjustment to be applied to the weighing machine
 
-`TareAdjustment ` is a good candidate for an [auto-implemented property][docs.microsoft.com-auto-implemented-properties].
+- `TareAdjustment ` is a good candidate for an [auto-implemented property][docs.microsoft.com-auto-implemented-properties].
 
 ## 5. Ensure that the weighing machine has a default tare adjustment
 
-You can initialize [auto-implemented property][docs.microsoft.com-auto-implemented-properties] similarly to fields.
+- You can initialize [auto-implemented property][docs.microsoft.com-auto-implemented-properties] similarly to fields.
 
 ## 6. Allow the weight to be retrieved
 
-Perform the right calculation in the `DisplayWeight`'s `get` acessor.
+- Perform the right calculation in the `DisplayWeight`'s `get` acessor.
 
 [docs.microsoft.com-properties]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties
 [docs.microsoft.com-using-properties]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/using-properties
