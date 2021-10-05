@@ -15,7 +15,8 @@ A get only property that can be intialised only from the constructor.
 
 ## 3. Ensure that a negative input weight is rejected
 
-Add [validation][stackoverflow.com-validating-properties] to the `Weight`'s `set` accessor to throw an exception.
+- The `value` keyword is used to refer to the value the caller wants the property to have.
+- Add [validation][stackoverflow.com-validating-properties] to the `Weight`'s `set` accessor to throw an exception when the value is invalid.
 
 ## 4. Allow a tare adjustment to be applied to the weighing machine
 
