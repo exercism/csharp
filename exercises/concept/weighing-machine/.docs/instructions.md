@@ -28,7 +28,7 @@ wm.Weight = 60m;
 
 ## 3. Ensure that a negative input weight is rejected
 
-The weight can be set and retrieved, but it can't be negative.
+Clearly, someone cannot have a negative weight. 
 Add validation to the `WeighingMachine.Weight` property to throw an `ArgumentOutOfRangeException` when trying to set it to a negative weight:
 
 ```csharp
