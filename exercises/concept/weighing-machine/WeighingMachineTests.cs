@@ -35,7 +35,7 @@ public class WeighingMachineTests
         Assert.Equal(90, wm.DisplayWeight);
     }
 
-     [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Apply_Default_tare_adjustment_and_get_display_weight()
     {
         var wm = new WeighingMachine();
