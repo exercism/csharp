@@ -7,7 +7,8 @@
 
 ## 1. Allow the weighing machine to have a precision
 
-- A get only property that can be intialised only from the constructor.
+- You need to add a `get`-only property to store the precision in.
+- You can initialize the `get`-only property from the constructor (and only from the constructor).
 
 ## 2. Allow the weight to be set on the weighing machine
 
