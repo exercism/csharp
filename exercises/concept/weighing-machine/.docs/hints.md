@@ -5,7 +5,7 @@
 - [Properties][docs.microsoft.com-properties]
 - [Using Properties][docs.microsoft.com-using-properties]
 
-## 1. Allow the weighing machine to have a precision.
+## 1. Allow the weighing machine to have a precision
 
 A get only property that can be intialised only from the constructor.
 
