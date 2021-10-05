@@ -9,3 +9,4 @@ public static int WordCount(this string str)
 }
 "Hello World".WordCount();
 // => 2
+```
