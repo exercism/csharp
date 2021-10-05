@@ -39,7 +39,7 @@ wm.Weight = -10m; // Throws an ArgumentOutOfRangeException
 ## 4. Allow a tare adjustment to be applied to the weighing machine
 
 The tare adjustment can be any value (even negative or a value that makes the display weight negative)
-Implement the `WeighingMachine.TareAdjustment` property to allow the tare adjustment to also be set:
+Implement the `WeighingMachine.TareAdjustment` property to allow the tare adjustment to be set:
 
 ```csharp
 var wm = new WeighingMachine();
