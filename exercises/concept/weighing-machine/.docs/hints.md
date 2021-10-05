@@ -11,7 +11,7 @@ A get only property that can be intialised only from the constructor.
 
 ## 2. Allow the weight to be set on the weighing machine
 
-A property with a private [backing field][docs.microsoft.com-properties-with-backing-fields] is appropriate here
+- You should add a property with a private [backing field][docs.microsoft.com-properties-with-backing-fields].
 
 ## 3. Ensure that a negative input weight is rejected
 
