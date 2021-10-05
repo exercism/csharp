@@ -88,8 +88,12 @@ public class Database : IDisposable
     public static State DbState { get; private set; } = State.Closed;
     public static string lastData = string.Empty;
 
-    public Database()
+    public void BeginTransaction()
     {
+        if (DbState != State.Closed)
+        {
+            throw new InvalidOperationException();
+        }
         DbState = State.TransactionStarted;
     }
 
