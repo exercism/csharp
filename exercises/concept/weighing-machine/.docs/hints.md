@@ -21,7 +21,7 @@ Add [validation][stackoverflow.com-validating-properties] to the `Weight`'s `set
 
 `TareAdjustment ` is a good candidate for an [auto-implemented property][docs.microsoft.com-auto-implemented-properties].
 
-## 5. Ensure that the weighing machine has a default tare Adjustment.
+## 5. Ensure that the weighing machine has a default tare adjustment
 
 You can initialize [auto-implemented property][docs.microsoft.com-auto-implemented-properties] similarly to fields.
 
