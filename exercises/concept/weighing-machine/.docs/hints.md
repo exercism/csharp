@@ -20,7 +20,7 @@
 
 ## 4. Allow a tare adjustment to be applied to the weighing machine
 
-`TareAdjustment ` is a good candidate for an [auto-implemented property][docs.microsoft.com-auto-implemented-properties].
+- You should add an [auto-implemented property][docs.microsoft.com-auto-implemented-properties] for the tare adjustment.
 
 ## 5. Ensure that the weighing machine has a default tare adjustment
 
