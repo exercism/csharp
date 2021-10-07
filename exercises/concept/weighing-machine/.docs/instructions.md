@@ -4,7 +4,7 @@ In this exercise you'll be modelling a weighing machine.
 
 You have 6 tasks each of which requires you to implement one or more properties:
 
-## 1. Allow the weighing machine to have a precision.
+## 1. Allow the weighing machine to have a precision
 
 It important to ensure that our weighing machine is precise.
 Implement the `WeigingMachine` class to have a precision property set only from the constructor:
