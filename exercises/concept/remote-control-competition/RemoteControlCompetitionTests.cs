@@ -15,6 +15,14 @@ public class InterfacesTests
         TestTrack.Race((IRemoteControlCar)experimentalCar);
         Assert.Equal(20, experimentalCar.DistanceTravelled - productionCar.DistanceTravelled);
     }
+    
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void EnsureInterfaceExposesDistanceTravelled()
+    {
+        var car = Assert.IsAssignableFrom<IRemoteControlCar>(new ProductionRemoteControlCar());
+        car.Drive();
+        Assert.Equal(10, car.DistanceTravelled);
+    }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void RankCars()
