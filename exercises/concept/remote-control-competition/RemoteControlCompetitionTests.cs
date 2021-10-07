@@ -21,7 +21,7 @@ public class InterfacesTests
     {
         var car = Assert.IsAssignableFrom<IRemoteControlCar>(new ProductionRemoteControlCar());
         car.Drive();
-        Assert.Equal(car.DistanceTravelled, 10);
+        Assert.Equal(10, car.DistanceTravelled);
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
