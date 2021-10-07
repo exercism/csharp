@@ -19,7 +19,7 @@ public class InterfacesTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void EnsureInterfaceExposesDistanceTravelled()
     {
-        var car = new ProductionRemoteControlCar() as IRemoteControlCar;
+        var car = Assert.IsAssignableFrom<IRemoteControlCar>(new ProductionRemoteControlCar());
         car.Drive();
         Assert.Equal(car.DistanceTravelled, 10);
     }
