@@ -24,7 +24,7 @@
 
 ## 5. Ensure that the weighing machine has a default tare adjustment
 
-You can initialize [auto-implemented property][docs.microsoft.com-auto-implemented-properties] similarly to fields.
+- You can initialize an [auto-implemented property][docs.microsoft.com-auto-implemented-properties] like you can initialize a field.
 
 ## 6. Allow the weight to be retrieved
 
