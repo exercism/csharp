@@ -51,7 +51,7 @@ wm.TareAdjustment = -10;
 ## 5. Ensure that the weighing machine has a default tare adjustment
 
 After some thorough testing, it appears that due to a manifacturing issue all weighing machines have a bias towards overestimating the weight by `5`.
-Implement the `WeighingMachine.TareAdjustment` property to have the default value as 5.
+Change the `WeighingMachine.TareAdjustment` property to `5` as its default value.
 
 ```csharp
 var wm = new WeighingMachine(precision:3);
