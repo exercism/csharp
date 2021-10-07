@@ -50,7 +50,7 @@ wm.TareAdjustment = -10;
 
 ## 5. Ensure that the weighing machine has a default tare adjustment
 
-A tare adjustment can be applied to the weight they usually have a bias towards overestimating the weight.
+After some thorough testing, it appears that due to a manifacturing issue all weighing machines have a bias towards overestimating the weight by `5`.
 Implement the `WeighingMachine.TareAdjustment` property to have the default value as 5.
 
 ```csharp
