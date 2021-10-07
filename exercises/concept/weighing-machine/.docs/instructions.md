@@ -4,7 +4,7 @@ In this exercise you'll be modelling a weighing machine.
 
 You have 6 tasks each of which requires you to implement one or more properties:
 
-## 1. Allow the weighing machine to have a precision.
+## 1. Allow the weighing machine to have a precision
 
 It important to ensure that our weighing machine is precise.
 Implement the `WeigingMachine` class to have a precision property set only from the constructor:
@@ -20,7 +20,7 @@ var wm = new WeighingMachine(precision:3);
 Implement the `WeigingMachine.Weight` property to allow the weight to be get and set:
 
 ```csharp
-var wm = new WeighingMachine(precision:3);
+var wm = new WeighingMachine(precision: 3);
 wm.Weight = 60m;
 
 //  => wm.Weight == 60m
@@ -48,10 +48,10 @@ wm.TareAdjustment = -10;
 // => wm.TareAdjustment == -10
 ```
 
-## 5. Ensure that the weighing machine has a default tare Adjustment.
+## 5. Ensure that the weighing machine has a default tare adjustment
 
-A tare adjustment can be applied to the weight they usually have a bias towards overestimating the weight.
-Implement the `WeighingMachine.TareAdjustment` property to have the default value as 5.
+After some thorough testing, it appears that due to a manifacturing issue all weighing machines have a bias towards overestimating the weight by `5`.
+Change the `WeighingMachine.TareAdjustment` property to `5` as its default value.
 
 ```csharp
 var wm = new WeighingMachine(precision:3);

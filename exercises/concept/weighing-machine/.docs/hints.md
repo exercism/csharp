@@ -21,15 +21,15 @@
 
 ## 4. Allow a tare adjustment to be applied to the weighing machine
 
-- `TareAdjustment ` is a good candidate for an [auto-implemented property][docs.microsoft.com-auto-implemented-properties].
+- You should add an [auto-implemented property][docs.microsoft.com-auto-implemented-properties] for the tare adjustment.
 
 ## 5. Ensure that the weighing machine has a default tare adjustment
 
-- You can initialize [auto-implemented property][docs.microsoft.com-auto-implemented-properties] similarly to fields.
+- You can initialize an [auto-implemented property][docs.microsoft.com-auto-implemented-properties] like you can initialize a field.
 
 ## 6. Allow the weight to be retrieved
 
-- Perform the right calculation in the `DisplayWeight`'s `get` acessor.
+- You should add a `get`-only property in which the correct display weight is calculated.
 
 [docs.microsoft.com-properties]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties
 [docs.microsoft.com-using-properties]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/using-properties
