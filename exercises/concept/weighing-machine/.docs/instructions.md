@@ -20,7 +20,7 @@ var wm = new WeighingMachine(precision:3);
 Implement the `WeigingMachine.Weight` property to allow the weight to be get and set:
 
 ```csharp
-var wm = new WeighingMachine(precision:3);
+var wm = new WeighingMachine(precision: 3);
 wm.Weight = 60m;
 
 //  => wm.Weight == 60m
