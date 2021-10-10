@@ -14,7 +14,7 @@ public class HyperiaForexTests
         Assert.True(amount1 == amount2);
     }
 
-    [Property(Skip = "Remove this Skip property to run this test")]
+    [Property]
     public void Equality_with_different_currency(decimal value)
     {
         var amount1 = new CurrencyAmount(value, "HD");
@@ -23,7 +23,7 @@ public class HyperiaForexTests
         Assert.Throws<ArgumentException>(() => amount1 == amount2);
     }
 
-    [Property(Skip = "Remove this Skip property to run this test")]
+    [Property]
     public Property Inequality_with_same_currency(decimal value1, decimal value2)
     {
         var amount1 = new CurrencyAmount(value1, "HD");
@@ -32,7 +32,7 @@ public class HyperiaForexTests
         return Prop.When(value1 != value2, () => Assert.True(amount1 != amount2));
     }
 
-    [Property(Skip = "Remove this Skip property to run this test")]
+    [Property]
     public void Inequality_with_different_currency(decimal value1, decimal value2)
     {
         var amount1 = new CurrencyAmount(value1, "HD");
@@ -41,7 +41,7 @@ public class HyperiaForexTests
         Assert.Throws<ArgumentException>(() => amount1 != amount2);
     }
 
-    [Property(Skip = "Remove this Skip property to run this test")]
+    [Property]
     public Property LessThan_with_same_currency(decimal value1, decimal value2)
     {
         var amount1 = new CurrencyAmount(value1, "HD");
@@ -50,7 +50,7 @@ public class HyperiaForexTests
         return Prop.When(value1 < value2, () => Assert.True(amount1 < amount2));
     }
 
-    [Property(Skip = "Remove this Skip property to run this test")]
+    [Property]
     public void LessThan_with_different_currency(decimal value1, decimal value2)
     {
         var amount1 = new CurrencyAmount(value1, "HD");
@@ -59,7 +59,7 @@ public class HyperiaForexTests
         Assert.Throws<ArgumentException>(() => amount1 < amount2);
     }
 
-    [Property(Skip = "Remove this Skip property to run this test")]
+    [Property]
     public Property GreaterThan_with_same_currency(decimal value1, decimal value2)
     {
         var amount1 = new CurrencyAmount(value1, "HD");
@@ -68,7 +68,7 @@ public class HyperiaForexTests
         return Prop.When(value1 > value2, () => Assert.True(amount1 > amount2));
     }
 
-    [Property(Skip = "Remove this Skip property to run this test")]
+    [Property]
     public void GreaterThan_with_different_currency(decimal value1, decimal value2)
     {
         var amount1 = new CurrencyAmount(value1, "HD");
@@ -77,7 +77,7 @@ public class HyperiaForexTests
         Assert.Throws<ArgumentException>(() => amount1 > amount2);
     }
 
-    [Property(Skip = "Remove this Skip property to run this test")]
+    [Property]
     public void Addition_with_same_currency(decimal value1, decimal value2)
     {
         var amount1 = new CurrencyAmount(value1, "HD");
@@ -87,7 +87,7 @@ public class HyperiaForexTests
         Assert.Equal(expected, amount1 + amount2);
     }
 
-    [Property(Skip = "Remove this Skip property to run this test")]
+    [Property]
     public void Addition_is_commutative(decimal value1, decimal value2)
     {
         var amount1 = new CurrencyAmount(value1, "HD");
@@ -96,7 +96,7 @@ public class HyperiaForexTests
         Assert.Equal(amount1 + amount2, amount2 + amount1);
     }
 
-    [Property(Skip = "Remove this Skip property to run this test")]
+    [Property]
     public void Addition_with_different_currency(decimal value1, decimal value2)
     {
         var amount1 = new CurrencyAmount(value1, "HD");
@@ -105,7 +105,7 @@ public class HyperiaForexTests
         Assert.Throws<ArgumentException>(() => amount1 + amount2);
     }
 
-    [Property(Skip = "Remove this Skip property to run this test")]
+    [Property]
     public void Subtraction_with_same_currency(decimal value1, decimal value2)
     {
         var amount1 = new CurrencyAmount(value1, "HD");
@@ -115,7 +115,7 @@ public class HyperiaForexTests
         Assert.Equal(expected, amount1 - amount2);
     }
 
-    [Property(Skip = "Remove this Skip property to run this test")]
+    [Property]
     public void Subtraction_with_different_currency(decimal value1, decimal value2)
     {
         var amount1 = new CurrencyAmount(value1, "HD");
@@ -124,14 +124,14 @@ public class HyperiaForexTests
         Assert.Throws<ArgumentException>(() => amount1 - amount2);
     }
 
-    [Property(Skip = "Remove this Skip property to run this test")]
+    [Property]
     public void Multiplication(decimal value, decimal factor)
     {
         Assert.Equal(new CurrencyAmount(factor * value, "HD"),
                      factor * new CurrencyAmount(value, "HD"));
     }
 
-    [Property(Skip = "Remove this Skip property to run this test")]
+    [Property]
     public void Multiplication_is_commutative(decimal value, decimal factor)
     {
         var amount = new CurrencyAmount(value, "HD");
@@ -139,7 +139,7 @@ public class HyperiaForexTests
         Assert.Equal(amount * factor, factor * amount);
     }
 
-    [Property(Skip = "Remove this Skip property to run this test")]
+    [Property]
     public Property Division(decimal value, decimal divisor)
     {
         return Prop.When(
@@ -148,13 +148,13 @@ public class HyperiaForexTests
                               new CurrencyAmount(value / divisor, "HD")));
     }
 
-    [Property(Skip = "Remove this Skip property to run this test")]
+    [Property]
     public void Cast_to_double(decimal value)
     {
         Assert.Equal(Convert.ToDouble(value), (double)new CurrencyAmount(value, "HD"));
     }
 
-    [Property(Skip = "Remove this Skip property to run this test")]
+    [Property]
     public void Cast_to_decimal(decimal value)
     {
         decimal actual = new CurrencyAmount(value, "HD");

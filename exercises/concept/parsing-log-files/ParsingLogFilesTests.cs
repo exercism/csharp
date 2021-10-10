@@ -11,21 +11,21 @@ public class RegularExpressionTests
         Assert.True(lp.IsValidLine("[INF] My Message"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void IsValidLine_no_match()
     {
         var lp = new LogParser();
         Assert.False(lp.IsValidLine("bad start to [INF] Message"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void SplitLogLine()
     {
         var lp = new LogParser();
         Assert.Equal(new string[] { "section 1", "section 2", "section 3" }, lp.SplitLogLine("section 1<^>section 2<--->section 3"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void SplitLogLine_Empty()
     {
         var lp = new LogParser();
@@ -33,7 +33,7 @@ public class RegularExpressionTests
     }
 
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void AreQuotedPasswords()
     {
         var lp = new LogParser();
@@ -47,7 +47,7 @@ public class RegularExpressionTests
         Assert.Equal(2, lp.CountQuotedPasswords(string.Join(Environment.NewLine, lines)));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void RemoveEndOfLineText()
     {
         var lp = new LogParser();
@@ -55,7 +55,7 @@ public class RegularExpressionTests
         Assert.Equal("[INF]  Network Falure ", lp.RemoveEndOfLineText(input));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void ListLinesWithPasswords()
     {
         var lp = new LogParser();

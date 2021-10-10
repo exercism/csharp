@@ -11,21 +11,21 @@ public class NamespacesTests
         Assert.NotNull(carBuilderType);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Namespace_for_CarBuilder_has_method_BuildBlue()
     {
         var carBuilderType = Type.GetType("Combined.CarBuilder");
         Assert.NotNull(carBuilderType?.GetMethod("BuildBlue"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Namespace_for_CarBuilder_has_method_BuildRed()
     {
         var carBuilderType = Type.GetType("Combined.CarBuilder");
         Assert.NotNull(carBuilderType?.GetMethod("BuildRed"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Namespace_for_CarBuilder_returns_Blue_Type()
     {
         var carBuilderType = Type.GetType("Combined.CarBuilder");
@@ -33,7 +33,7 @@ public class NamespacesTests
         Assert.Equal("BlueRemoteControlCarTeam.RemoteControlCar", returnType?.FullName);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Namespace_for_CarBuilder_returns_Red_Type()
     {
         var carBuilderType = Type.GetType("Combined.CarBuilder");
@@ -41,7 +41,7 @@ public class NamespacesTests
         Assert.Equal("RedRemoteControlCarTeam.RemoteControlCar", returnType?.FullName);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Namespace_for_CarBuilder_can_BuildBlue_car()
     {
         var carBuilderType = Type.GetType("Combined.CarBuilder");
@@ -49,7 +49,7 @@ public class NamespacesTests
         Assert.NotNull(blueRemoteControlCar);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Namespace_for_CarBuilder_can_BuildRed_car()
     {
         var carBuilderType = Type.GetType("Combined.CarBuilder");
