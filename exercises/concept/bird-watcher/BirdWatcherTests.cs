@@ -60,7 +60,7 @@ public class BirdCountTests
     }
 
     [Fact]
-    public void Count_for_first_two_days_of_disappointing_week()
+    public void Count_for_first_three_days_of_disappointing_week()
     {
         var counts = new int[] { 0, 0, 1, 0, 0, 1, 0 };
         var birdCount = new BirdCount(counts);
