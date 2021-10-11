@@ -26,7 +26,7 @@ public class ObjectInitializationTests
         Assert.Equal(expected, actual);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void GetDevelopers()
     {
         var authenticator = new Authenticator();
