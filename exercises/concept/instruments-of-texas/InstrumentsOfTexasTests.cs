@@ -12,7 +12,7 @@ public class UserDefinedExceptionsTests
         Assert.Throws<CalculationException>(() => cth.Multiply(Int32.MaxValue, Int32.MaxValue));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void TestMultiplication_with_negative_overflow()
     {
         var cth = new CalculatorTestHarness(new Calculator());
@@ -20,7 +20,7 @@ public class UserDefinedExceptionsTests
             cth.TestMultiplication(-2, -Int32.MaxValue));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void TestMultiplication_with_positive_overflow()
     {
         var cth = new CalculatorTestHarness(new Calculator());
@@ -28,7 +28,7 @@ public class UserDefinedExceptionsTests
             cth.TestMultiplication(Int32.MaxValue, Int32.MaxValue));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Call_TestMultiplication_with_success()
     {
         var cth = new CalculatorTestHarness(new Calculator());
