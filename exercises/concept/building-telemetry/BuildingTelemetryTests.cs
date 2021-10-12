@@ -14,18 +14,19 @@ public class ParametersTests
         Assert.Equal((sp1, sp2, sp3), ("Exercism", "Walker Industries", "Acme Co."));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void GetTelmetryData_good()
     {
         var car = RemoteControlCar.Buy();
         car.Drive();
         car.Drive();
         int serialNum = 1;
-        car.GetTelemetryData(ref serialNum, out int batteryPercentage, out int distanceDrivenInMeters);
+        var result = car.GetTelemetryData(ref serialNum, out int batteryPercentage, out int distanceDrivenInMeters);
+        Assert.True(result);
         Assert.Equal((1, 80, 4), (serialNum, batteryPercentage, distanceDrivenInMeters));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void GetTelmetryData_bad()
     {
         var car = RemoteControlCar.Buy();
@@ -35,11 +36,12 @@ public class ParametersTests
         int serialNum = 4;
         car.GetTelemetryData(ref serialNum, out batteryPercentage, out distanceDrivenInMeters);
         serialNum = 1;
-        car.GetTelemetryData(ref serialNum, out batteryPercentage, out distanceDrivenInMeters);
+        bool result = car.GetTelemetryData(ref serialNum, out batteryPercentage, out distanceDrivenInMeters);
+        Assert.False(result);
         Assert.Equal((4, -1, -1), (serialNum, batteryPercentage, distanceDrivenInMeters));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void GetUsagePerMeter_good()
     {
         var car = RemoteControlCar.Buy();
@@ -48,7 +50,7 @@ public class ParametersTests
         Assert.Equal("usage-per-meter=5", tc.GetBatteryUsagePerMeter(serialNum: 1));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void GetUsagePerMeter_not_started()
     {
         var car = RemoteControlCar.Buy();

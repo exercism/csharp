@@ -14,7 +14,7 @@ public class GameMasterTests
         Assert.Equal("You're a level 16 Warrior with 89 hit points.", GameMaster.Describe(character));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Describe_wizard_character()
     {
         var character = new Character();
@@ -25,7 +25,7 @@ public class GameMasterTests
         Assert.Equal("You're a level 7 Wizard with 33 hit points.", GameMaster.Describe(character));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Describe_small_town_destination()
     {
         var destination = new Destination();
@@ -35,7 +35,7 @@ public class GameMasterTests
         Assert.Equal("You've arrived at Tol Honeth, which has 41 inhabitants.", GameMaster.Describe(destination));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Describe_large_town_destination()
     {
         var destination = new Destination();
@@ -45,19 +45,19 @@ public class GameMasterTests
         Assert.Equal("You've arrived at Ashaba, which has 1500 inhabitants.", GameMaster.Describe(destination));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Describe_walking_travel_method()
     {
         Assert.Equal("You're traveling to your destination by walking.", GameMaster.Describe(TravelMethod.Walking));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Describe_horse_travel_method()
     {
         Assert.Equal("You're traveling to your destination on horseback.", GameMaster.Describe(TravelMethod.Horseback));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Describe_character_traveling_to_destination_without_explicit_travel_method()
     {
         var character = new Character();
@@ -72,7 +72,7 @@ public class GameMasterTests
         Assert.Equal("You're a level 1 Warrior with 30 hit points. You're traveling to your destination by walking. You've arrived at Vo Mimbre, which has 332 inhabitants.", GameMaster.Describe(character, destination));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Describe_character_traveling_to_destination_with_explicit_travel_method()
     {
         var character = new Character();

@@ -43,7 +43,7 @@ public class WeighingMachineTests
         Assert.Equal(95.500, wm.DisplayWeight, precision: 3);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Apply_negative_tare_adjustment()
     {
         var wm = new WeighingMachine(precision:"3");
@@ -52,7 +52,7 @@ public class WeighingMachineTests
         Assert.Equal(110.0, wm.DisplayWeight, precision: 3);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Apply_large_tare_adjustment_to_allow_negative_display_weight()
     {
         var wm = new WeighingMachine(precision:"3");

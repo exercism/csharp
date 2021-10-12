@@ -13,6 +13,7 @@ public class Orm
     {
         using (database)
         {
+            database.BeginTransaction();
             database.Write(data);
             database.EndTransaction();
         }
@@ -23,6 +24,7 @@ public class Orm
         using var db = database;
         try
         {
+            db.BeginTransaction();
             db.Write(data);
             db.EndTransaction();
 

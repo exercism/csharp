@@ -19,7 +19,7 @@ public class ResourceLifetimeTests
             (Database.DbState, Database.lastData));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Write_bad()
     {
         Exception result = Exception.NoInvalidOperationExceptionThrown;
@@ -37,7 +37,7 @@ public class ResourceLifetimeTests
             (result, Database.DbState, Database.lastData));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Commit_bad()
     {
         Exception result = Exception.NoInvalidOperationExceptionThrown;
@@ -55,7 +55,7 @@ public class ResourceLifetimeTests
             (result, Database.DbState, Database.lastData));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void CommitSafely_good()
     {
         var db = new Database();
@@ -63,7 +63,7 @@ public class ResourceLifetimeTests
         Assert.True(orm.WriteSafely("good write"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void CommitSafely_bad_write()
     {
         var db = new Database();
@@ -71,7 +71,7 @@ public class ResourceLifetimeTests
         Assert.False(orm.WriteSafely("bad write"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void CommitSafely_bad_commit()
     {
         var db = new Database();
@@ -88,8 +88,12 @@ public class Database : IDisposable
     public static State DbState { get; private set; } = State.Closed;
     public static string lastData = string.Empty;
 
-    public Database()
+    public void BeginTransaction()
     {
+        if (DbState != State.Closed)
+        {
+            throw new InvalidOperationException();
+        }
         DbState = State.TransactionStarted;
     }
 
