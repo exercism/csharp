@@ -1,12 +1,12 @@
 # Instructions
 
-In this exercise you'll be modelling a weighing machine.
+In this exercise you'll be modelling a weighing machine with Kilograms as a Unit.
 
 You have 6 tasks each of which requires you to implement one or more properties:
 
 ## 1. Allow the weighing machine to have a precision
 
-It important to ensure that our weighing machine is precise.
+To cater to different demands, we allow each weighing machine to be customized with a precision (the number of digits after the decimal separator).
 Implement the `WeigingMachine` class to have a precision property set only from the constructor:
 
 ```csharp
@@ -21,9 +21,9 @@ Implement the `WeigingMachine.Weight` property to allow the weight to be get and
 
 ```csharp
 var wm = new WeighingMachine(precision: 3);
-wm.Weight = 60m;
+wm.Weight = 60;
 
-//  => wm.Weight == 60m
+//  => wm.Weight == 60
 ```
 
 ## 3. Ensure that a negative input weight is rejected
