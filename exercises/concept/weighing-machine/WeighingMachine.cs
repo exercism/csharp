@@ -9,5 +9,4 @@ class WeighingMachine
     // TODO: define the 'DisplayWeight' property
 
     // TODO: define the 'TareAdjustment' property
-
 }

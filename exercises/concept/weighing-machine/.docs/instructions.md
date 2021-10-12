@@ -21,9 +21,9 @@ Implement the `WeigingMachine.Weight` property to allow the weight to be get and
 
 ```csharp
 var wm = new WeighingMachine(precision:"3");
-wm.Weight = 60;
+wm.Weight = 60.5;
 
-//  => wm.Weight == 60
+//  => wm.Weight == 60.5
 ```
 
 ## 3. Ensure that a negative input weight is rejected
@@ -33,7 +33,7 @@ Add validation to the `WeighingMachine.Weight` property to throw an `ArgumentOut
 
 ```csharp
 var wm = new WeighingMachine(precision:"3");
-wm.Weight = -10m; // Throws an ArgumentOutOfRangeException
+wm.Weight = -10; // Throws an ArgumentOutOfRangeException
 ```
 
 ## 4. Allow a tare adjustment to be applied to the weighing machine
@@ -67,7 +67,8 @@ Note that:
 
 ```csharp
 var wm = new WeighingMachine(precision:"3");
-wm.Weight = 60m;
+wm.TareAdjustment = 10;
+wm.Weight = 60.5;
 
-// => wm.DisplayWeight == 55m
+// => wm.DisplayWeight == 50.5
 ```
