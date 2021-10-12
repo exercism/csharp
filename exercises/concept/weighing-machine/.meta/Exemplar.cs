@@ -4,12 +4,12 @@ class WeighingMachine
 {
     private int _weight;
 
-    public WeighingMachine(int precision)
+    public WeighingMachine(string precision)
     {
         Precision = precision;
     }
 
-    public int Precision { get; }
+    public string Precision { get; }
 
     public int TareAdjustment { get; set; } = 5;
 
@@ -17,7 +17,7 @@ class WeighingMachine
     {
         get
         {
-            return _weight;
+            return Math.Round(_weight,Precision);
         }
         set
         {
@@ -30,7 +30,7 @@ class WeighingMachine
     {
         get
         {
-            return Weight - TareAdjustment;
+            return Weight - TareAdjustment
         }
     }
 }

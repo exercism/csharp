@@ -7,14 +7,14 @@ public class WeighingMachineTests
     [Fact]
     public void Get_Precision()
     {
-        var wm = new WeighingMachine(precision:2);
+        var wm = new WeighingMachine(precision:"3");
         Assert.Equal(2, wm.Precision);
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Set_weight_and_get_weight()
     {
-        var wm = new WeighingMachine();
+        var wm = new WeighingMachine(precision:"3");
         wm.Weight = 60m;
         Assert.Equal(60m, wm.Weight, precision: 3);
     }
@@ -22,14 +22,14 @@ public class WeighingMachineTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Negative_weight_is_invalid()
     {
-        var wm = new WeighingMachine();
+        var wm = new WeighingMachine(precision:"3");
         Assert.Throws<ArgumentOutOfRangeException>(() => wm.Weight = -10);
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Apply_tare_adjustment_and_get_display_weight()
     {
-        var wm = new WeighingMachine();
+        var wm = new WeighingMachine(precision:"3");
         wm.Weight = 100;
         wm.TareAdjustment = 10;
         Assert.Equal(90, wm.DisplayWeight);
@@ -38,7 +38,7 @@ public class WeighingMachineTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Apply_Default_tare_adjustment_and_get_display_weight()
     {
-        var wm = new WeighingMachine();
+        var wm = new WeighingMachine(precision:"3");
         wm.Weight = 100;
         Assert.Equal(95, wm.DisplayWeight);
     }
@@ -46,7 +46,7 @@ public class WeighingMachineTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Apply_negative_tare_adjustment()
     {
-        var wm = new WeighingMachine();
+        var wm = new WeighingMachine(precision:"3");
         wm.Weight = 100;
         wm.TareAdjustment = -10;
         Assert.Equal(110, wm.DisplayWeight);
@@ -55,7 +55,7 @@ public class WeighingMachineTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Apply_large_tare_adjustment_to_allow_negative_display_weight()
     {
-        var wm = new WeighingMachine();
+        var wm = new WeighingMachine(precision:"3");
         wm.Weight = 100;
         wm.TareAdjustment = 110;
         Assert.Equal(-10, wm.DisplayWeight);
