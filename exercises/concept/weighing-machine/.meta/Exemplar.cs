@@ -2,22 +2,22 @@ using System;
 
 class WeighingMachine
 {
-    private int _weight;
+    private double _weight;
 
-    public WeighingMachine(string precision)
+    public WeighingMachine(int precision)
     {
         Precision = precision;
     }
 
-    public string Precision { get; }
+    public int Precision { get; }
 
-    public int TareAdjustment { get; set; } = 5;
+    public double TareAdjustment { get; set; } = 5.0;
 
-    public int Weight
+    public double Weight
     {
         get
         {
-            return Math.Round(_weight, int.Parse(Precision));
+            return Math.Round(_weight, Precision);
         }
         set
         {
@@ -26,7 +26,7 @@ class WeighingMachine
         }
     }
 
-    public int DisplayWeight
+    public double DisplayWeight
     {
         get
         {

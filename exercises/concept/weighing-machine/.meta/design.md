@@ -29,7 +29,7 @@ Note that students may choose to implement expression-bodied members.
 ## Prerequisites
 
 - `numbers`: using the `int` type and using mathematical operators and number conversions.
-- `floating-point-numbers`: using the `decimal` type.
+- `floating-point-numbers`: using the `double` type.
 - `classes`: defining classes and working with members.
 - `enums`: working with enums.
 - `exceptions`: throwing an exception.

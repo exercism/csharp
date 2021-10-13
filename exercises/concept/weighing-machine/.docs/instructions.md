@@ -10,9 +10,9 @@ To cater to different demands, we allow each weighing machine to be customized w
 Implement the `WeigingMachine` class to have a precision property set only from the constructor:
 
 ```csharp
-var wm = new WeighingMachine(precision:"3");
+var wm = new WeighingMachine(precision: 3);
 
-//  => wm.Precision == "3"
+//  => wm.Precision == 3
 ```
 
 ## 2. Allow the weight to be set on the weighing machine
@@ -20,7 +20,7 @@ var wm = new WeighingMachine(precision:"3");
 Implement the `WeigingMachine.Weight` property to allow the weight to be get and set:
 
 ```csharp
-var wm = new WeighingMachine(precision:"3");
+var wm = new WeighingMachine(precision: 3);
 wm.Weight = 60.5;
 
 //  => wm.Weight == 60.5
@@ -32,7 +32,7 @@ Clearly, someone cannot have a negative weight.
 Add validation to the `WeighingMachine.Weight` property to throw an `ArgumentOutOfRangeException` when trying to set it to a negative weight:
 
 ```csharp
-var wm = new WeighingMachine(precision:"3");
+var wm = new WeighingMachine(precision: 3);
 wm.Weight = -10; // Throws an ArgumentOutOfRangeException
 ```
 
@@ -42,10 +42,10 @@ The tare adjustment can be any value (even negative or a value that makes the di
 Implement the `WeighingMachine.TareAdjustment` property to allow the tare adjustment to be set:
 
 ```csharp
-var wm = new WeighingMachine(precision:"3");
-wm.TareAdjustment = -10;
+var wm = new WeighingMachine(precision: 3);
+wm.TareAdjustment = -10.6;
 
-// => wm.TareAdjustment == -10
+// => wm.TareAdjustment == -10.6
 ```
 
 ## 5. Ensure that the weighing machine has a default tare adjustment
@@ -54,9 +54,9 @@ After some thorough testing, it appears that due to a manifacturing issue all we
 Change the `WeighingMachine.TareAdjustment` property to `5` as its default value.
 
 ```csharp
-var wm = new WeighingMachine(precision:"3");
+var wm = new WeighingMachine(precision: 3);
 
-// => wm.TareAdjustment == 5
+// => wm.TareAdjustment == 5.0
 ```
 
 ## 6. Allow the weight to be retrieved
@@ -66,7 +66,7 @@ Note that:
 ``` display-weight = input-weight - tare-adjustment ```
 
 ```csharp
-var wm = new WeighingMachine(precision:"3");
+var wm = new WeighingMachine(precision: 3);
 wm.TareAdjustment = 10;
 wm.Weight = 60.5;
 
