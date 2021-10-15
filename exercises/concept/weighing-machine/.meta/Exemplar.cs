@@ -26,11 +26,11 @@ class WeighingMachine
         }
     }
 
-    public double DisplayWeight
+    public string DisplayWeight
     {
         get
         {
-            return Weight - TareAdjustment
+            return $"{Math.Round(Weight - TareAdjustment, Precision).ToString($"F{Precision}")} kg";
         }
     }
 }

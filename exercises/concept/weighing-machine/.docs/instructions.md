@@ -70,5 +70,5 @@ var wm = new WeighingMachine(precision: 3);
 wm.TareAdjustment = 10;
 wm.Weight = 60.5;
 
-// => wm.DisplayWeight == 50.5
+// => wm.DisplayWeight == "50.500 kg"
 ```

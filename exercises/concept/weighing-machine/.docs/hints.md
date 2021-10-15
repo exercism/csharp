@@ -31,6 +31,10 @@
 
 - You should add a `get`-only property in which the correct display weight is calculated.
 
+## 7. Show the Display weight string properly
+
+- You should [format-string][stackoverflow.com-format-string] appropriately.
+
 [docs.microsoft.com-properties]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties
 [docs.microsoft.com-using-properties]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/using-properties
 [docs.microsoft.com-properties-with-backing-fields]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties#properties-with-backing-fields
@@ -38,3 +42,4 @@
 [docs.microsoft.com-auto-implemented-properties]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/auto-implemented-properties
 [docs.microsoft.com-properties-and-restricted-access]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/restricting-accessor-accessibility
 [stackoverflow.com-get-only-properties]: https://stackoverflow.com/questions/2719699/when-should-use-readonly-and-get-only-properties
+[stackoverflow.com-format-string]: https://stackoverflow.com/questions/7108850/variable-decimal-places-in-net-string-formatters
