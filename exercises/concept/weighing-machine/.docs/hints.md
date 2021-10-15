@@ -7,8 +7,8 @@
 
 ## 1. Allow the weighing machine to have a precision
 
-- You should add a `get`-only property.
-- The `get`-only property can be intialised from the constructor.
+- You need to add a [get-only property][stackoverflow.com-get-only-properties] to store the precision in.
+- You can initialize the `get`-only property from the constructor (and only from the constructor).
 
 ## 2. Allow the weight to be set on the weighing machine
 
@@ -37,3 +37,4 @@
 [stackoverflow.com-validating-properties]: https://stackoverflow.com/questions/4946227/validating-properties-in-c-sharp
 [docs.microsoft.com-auto-implemented-properties]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/auto-implemented-properties
 [docs.microsoft.com-properties-and-restricted-access]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/restricting-accessor-accessibility
+[stackoverflow.com-get-only-properties]: https://stackoverflow.com/questions/2719699/when-should-use-readonly-and-get-only-properties
