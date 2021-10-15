@@ -15,8 +15,8 @@ public class WeighingMachineTests
     public void Set_weight_and_get_weight()
     {
         var wm = new WeighingMachine(precision: 3);
-        wm.Weight = 60.5;
-        Assert.Equal(60.500, wm.Weight, precision: 3);
+        wm.Weight = 60.567;
+        Assert.Equal(60.567, wm.Weight, precision: 3);
     }
 
     [Fact]
@@ -39,8 +39,8 @@ public class WeighingMachineTests
     public void Apply_Default_tare_adjustment_and_get_display_weight()
     {
         var wm = new WeighingMachine(precision: 3);
-        wm.Weight = 100.5;
-        Assert.Equal("95.500 kg", wm.DisplayWeight);
+        wm.Weight = 100.567;
+        Assert.Equal("95.567 kg", wm.DisplayWeight);
     }
 
     [Fact]
@@ -48,8 +48,8 @@ public class WeighingMachineTests
     {
         var wm = new WeighingMachine(precision: 3);
         wm.Weight = 100;
-        wm.TareAdjustment = -10.5;
-        Assert.Equal("110.500 kg", wm.DisplayWeight);
+        wm.TareAdjustment = -10.567;
+        Assert.Equal("110.567 kg", wm.DisplayWeight);
     }
 
     [Fact]
@@ -57,7 +57,7 @@ public class WeighingMachineTests
     {
         var wm = new WeighingMachine(precision: 3);
         wm.Weight = 100;
-        wm.TareAdjustment = 110.5;
-        Assert.Equal("-10.500 kg", wm.DisplayWeight);
+        wm.TareAdjustment = 110.567;
+        Assert.Equal("-10.567 kg", wm.DisplayWeight);
     }
 }
