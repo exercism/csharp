@@ -11,7 +11,7 @@ public class WeighingMachineTests
         Assert.Equal(3, wm.Precision);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Set_weight_and_get_weight()
     {
         var wm = new WeighingMachine(precision: 3);
@@ -19,14 +19,14 @@ public class WeighingMachineTests
         Assert.Equal(60.500, wm.Weight, precision: 3);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Negative_weight_is_invalid()
     {
         var wm = new WeighingMachine(precision: 3);
         Assert.Throws<ArgumentOutOfRangeException>(() => wm.Weight = -10);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Apply_tare_adjustment_and_get_display_weight()
     {
         var wm = new WeighingMachine(precision: 3);
@@ -35,7 +35,7 @@ public class WeighingMachineTests
         Assert.Equal("90.770 kg", wm.DisplayWeight);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Apply_Default_tare_adjustment_and_get_display_weight()
     {
         var wm = new WeighingMachine(precision: 3);
@@ -43,7 +43,7 @@ public class WeighingMachineTests
         Assert.Equal("95.500 kg", wm.DisplayWeight);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Apply_negative_tare_adjustment_and_get_display_weight()
     {
         var wm = new WeighingMachine(precision: 3);
@@ -52,7 +52,7 @@ public class WeighingMachineTests
         Assert.Equal("110.500 kg", wm.DisplayWeight);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
     public void Apply_large_tare_adjustment_to_allow_negative_display_weight()
     {
         var wm = new WeighingMachine(precision: 3);
