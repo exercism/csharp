@@ -61,14 +61,14 @@ var wm = new WeighingMachine(precision: 3);
 
 ## 6. Allow the weight to be retrieved
 
-Implement the `WeighingMachine.DisplayWeight` property which shows weight after tare adjustment:
+Implement the `WeighingMachine.DisplayWeight` property which shows weight after tare adjustment and with the correct precision applied:
 Note that:
 ``` display-weight = input-weight - tare-adjustment ```
 
 ```csharp
 var wm = new WeighingMachine(precision: 3);
 wm.TareAdjustment = 10;
-wm.Weight = 60.5;
+wm.Weight = 60.567;
 
-// => wm.DisplayWeight == "50.500 kg"
+// => wm.DisplayWeight == "50.567 kg"
 ```
