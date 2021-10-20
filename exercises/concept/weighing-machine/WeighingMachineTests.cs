@@ -12,11 +12,11 @@ public class WeighingMachineTests
     }
 
     [Fact]
-    public void Set_weight_and_get_weight_with_some_tolerance()
+    public void Set_weight_and_get_weight()
     {
         var wm = new WeighingMachine(precision: 3);
         wm.Weight = 60.567;
-        Assert.Equal(60.5, wm.Weight, precision: 1);
+        Assert.Equal(60.567, wm.Weight, precision:3);
     }
 
     [Fact]
