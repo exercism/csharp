@@ -68,30 +68,30 @@ public class SavingsAccountTests
 
     [Fact]
     [Task(1)]
-    public void Minimal_negative_interest_rate()
+    public void Rate_on_minimal_negative_balance()
     {
-        Assert.Equal(-3.213f, SavingsAccount.InterestRate(-0.000001m));
+        Assert.Equal(3.213f, SavingsAccount.InterestRate(-0.000001m));
     }
 
     [Fact]
     [Task(1)]
-    public void Small_negative_interest_rate()
+    public void Rate_on_small_negative_balance()
     {
-        Assert.Equal(-3.213f, SavingsAccount.InterestRate(-0.123m));
+        Assert.Equal(3.213f, SavingsAccount.InterestRate(-0.123m));
     }
 
     [Fact]
     [Task(1)]
-    public void Regular_negative_interest_rate()
+    public void Rate_on_regular_negative_balance()
     {
-        Assert.Equal(-3.213f, SavingsAccount.InterestRate(-300.0m));
+        Assert.Equal(3.213f, SavingsAccount.InterestRate(-300.0m));
     }
 
     [Fact]
     [Task(1)]
-    public void Large_negative_interest_rate()
+    public void Rate_on_large_negative_balance()
     {
-        Assert.Equal(-3.213f, SavingsAccount.InterestRate(-152964.231m));
+        Assert.Equal(3.213f, SavingsAccount.InterestRate(-152964.231m));
     }
 
     [Fact]
