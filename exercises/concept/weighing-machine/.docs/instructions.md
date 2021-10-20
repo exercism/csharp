@@ -17,7 +17,7 @@ var wm = new WeighingMachine(precision: 3);
 
 ## 2. Allow the weight to be set on the weighing machine
 
-Implement the `WeigingMachine.Weight` property to allow the weight to be get and set:
+Implement the `WeigingMachine.Weight` property to allow the weight to be get _and_ set:
 
 ```csharp
 var wm = new WeighingMachine(precision: 3);
