@@ -7,7 +7,7 @@ You have 6 tasks each of which requires you to implement one or more properties:
 ## 1. Allow the weighing machine to have a precision
 
 To cater to different demands, we allow each weighing machine to be customized with a precision (the number of digits after the decimal separator).
-Implement the `WeigingMachine` class to have a precision property set only from the constructor:
+Implement the `WeigingMachine` class to have a get-only `Precision` property set to the constructor's `precision` argument:
 
 ```csharp
 var wm = new WeighingMachine(precision: 3);
