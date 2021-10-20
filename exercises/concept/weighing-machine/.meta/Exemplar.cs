@@ -17,7 +17,7 @@ class WeighingMachine
     {
         get
         {
-            return Math.Round(_weight, Precision);
+            return _weight;
         }
         set
         {
