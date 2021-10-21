@@ -6,7 +6,7 @@ static class SavingsAccount
     {
         if (balance < 0.0m)
         {
-            return -3.213f;
+            return 3.213f;
         }
 
         if (balance < 1000.0m)
@@ -24,7 +24,7 @@ static class SavingsAccount
 
     public static decimal Interest(decimal balance)
     {
-        return Math.Abs(balance) * ((decimal)InterestRate(balance) / 100);
+        return balance * ((decimal)InterestRate(balance) / 100);
     }
 
     public static decimal AnnualBalanceUpdate(decimal balance)
