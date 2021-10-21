@@ -23,6 +23,12 @@ public class LogAnalysisTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void SubstringBetweenLongerDelimiters()
+    {
+        Assert.Equal("SOMETHING", "FIND >>> SOMETHING <===< HERE".SubstringBetween(">>> ", " <===<"));
+    }
+    
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Message()
     {
         var log = "[WARNING]: Library is deprecated.";
