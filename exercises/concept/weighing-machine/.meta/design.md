@@ -29,7 +29,6 @@ Note that students may choose to implement expression-bodied members.
 ## Prerequisites
 
 - `numbers`: using the `int` type and using mathematical operators and number conversions.
-- `floating-point-numbers`: using the `decimal` type.
 - `classes`: defining classes and working with members.
 - `enums`: working with enums.
 - `exceptions`: throwing an exception.
@@ -65,41 +64,24 @@ It is difficult to get the student to exercise all different aspects of
 properties through tests alone. We need comments to address the following
 practices:
 
-1. If `WeighingMachine.Units` is not auto-implemented
-   then the following comment should be made: "The appropriate form
-   for a property such as `WeighingMachine.Units` which has no validation or other processing required is
-   that for an auto-implemented property". - Approved with comment.
+1. If `WeighingMachine.Precision` is auto-implemented property set in constructor then  the following comment       should be made: "It is not appropriate
+   for a property such as `WeighingMachine.Precision` to simply intializes a value with a
+   set accessor. That should be removed.". - Approved with comment.
 
-2. If `WeighingMachine.DisplayWeight` has a non-private set accessor
-   then the following comment should be made: "It is not approprirate
+2. If `WeighingMachine.Precision` has a set accessor
+   then the following comment should be made: "It is not appropriate
+   for a property such as `WeighingMachine.Precision` which simply returns a value
+   to have a set accessor. That should be removed.". - Approved with comment.
+
+3. If `WeighingMachine.DisplayWeight` has a non-private set accessor
+   then the following comment should be made: "It is not appropriate
    for a property such as `WeighingMachine.DisplayWeight` which simply returns a value
    to have a set accessor. That should be removed.". - Approved with comment.
-
-3. If `WeighingMachine.USDisplayWeight` has a non-private set accessor
-   then the following comment should be made: "It is not approprirate
-   for a property such as `USWeighingMachine.DisplayWeight` which simply returns a value
-   to have a set accessor. That should be removed.". - Approved with comment.
-
-4. If `USDisplayWeight.Pounds` has a non-private set accessor
-   then the following comment should be made: "It is not approprirate
-   for a property such as `USDisplayWeight.Pounds` which simply returns a value
-   to have a set accessor. That should be removed.". - Approved with comment.
-
-5. If `USDisplayWeight.Ounces` has a non-private set accessor
-   then the following comment should be made: "It is not approprirate
-   for a property such as `USDisplayWeight.Ounces` which simply returns a value
-   to have a set accessor. That should be removed.". - Approved with comment.
-
-6. If `WeighingMachine.TareAdjustement` is not an auto-implemented property
-   then the following commen should be made: "A succinct way of implementing
-   `WeighingMachine.TareAdjustment` is as an auto-implemented property with a
-   `private` get accessor". - Approved with comment.
-
-7. If `WeighingMachine.TareAdjustment` is an auto-implemented property
-   but the get accessor is non-private then the following comment should be made:
-   "A non-private set accessor is not appropriate for `WeighingMachine.TareAdjustment`
-   as the instructions stipulate that the value must not be available outside the
-   class". - Disapproved.
+    
+4. If `WeighingMachine.TareAdjustement` is not an auto-implemented property with initial value
+   then the following comment should be made: "A succinct way of implementing
+   `WeighingMachine.TareAdjustment` is as an auto-implemented property initialized with a 
+   value". - Approved with comment.
 
 ## Implementing
 
