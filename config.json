@@ -1896,6 +1896,11 @@
       "name": "Do While Loops"
     },
     {
+      "uuid": "3996a8a9-6bde-4e79-beeb-7ae5d29f9065",
+      "slug": "enumerables",
+      "name": "Enumerables"
+    },
+    {
       "uuid": "d5b628d9-ac64-4eeb-91c7-f2dcff798b31",
       "slug": "enums",
       "name": "Enums"
@@ -1981,9 +1986,19 @@
       "name": "Interfaces"
     },
     {
+      "uuid": "af24ee71-e561-4e5b-a505-e1a9ec04987d",
+      "slug": "lambdas",
+      "name": "Lambdas"
+    },
+    {
       "uuid": "dd7bf404-59af-4ae6-895b-5d04cdc8ecaa",
       "slug": "lists",
       "name": "Lists"
+    },
+    {
+      "uuid": "5001a8f1-de6a-44ce-bfc0-24a533f3b793",
+      "slug": "math-operators",
+      "name": "Math Operators"
     },
     {
       "uuid": "a93a154c-4706-4c01-8ece-b5504ba3378d",
