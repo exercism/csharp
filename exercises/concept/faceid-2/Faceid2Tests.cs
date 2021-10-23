@@ -4,6 +4,7 @@ using Exercism.Tests;
 public class EqualityTests
 {
     [Fact]
+    [Task(2)]
     public void IsAdmin_with_admin()
     {
         var authenticator = new Authenticator();
@@ -11,6 +12,7 @@ public class EqualityTests
     }
 
     [Fact]
+    [Task(2)]
     public void IsAdmin_with_wrong_email()
     {
         var authenticator = new Authenticator();
@@ -18,6 +20,7 @@ public class EqualityTests
     }
 
     [Fact]
+    [Task(1)]
     public void AreSameFace_yes()
     {
         Assert.True(Authenticator.AreSameFace(new FacialFeatures("green", 0.9m),
@@ -25,6 +28,7 @@ public class EqualityTests
     }
 
     [Fact]
+    [Task(1)]
     public void AreSameFace_no()
     {
         Assert.False(Authenticator.AreSameFace(new FacialFeatures("green", 0.9m),
@@ -32,6 +36,7 @@ public class EqualityTests
     }
 
     [Fact]
+    [Task(2)]
     public void IsAdmin_with_wrong_face()
     {
         var authenticator = new Authenticator();
@@ -39,6 +44,7 @@ public class EqualityTests
     }
 
     [Fact]
+    [Task(3)]
     public void Register_new_identity()
     {
         var authenticator = new Authenticator();
@@ -46,6 +52,7 @@ public class EqualityTests
     }
 
     [Fact]
+    [Task(3)]
     public void Register_existing_identity()
     {
         var authenticator = new Authenticator();
@@ -54,6 +61,7 @@ public class EqualityTests
     }
 
     [Fact]
+    [Task(3)]
     public void IsRegistered_existing_identity()
     {
         var authenticator = new Authenticator();
@@ -62,6 +70,7 @@ public class EqualityTests
     }
 
     [Fact]
+    [Task(4)]
     public void IsRegistered_non_existent_identity()
     {
         var authenticator = new Authenticator();
@@ -70,6 +79,7 @@ public class EqualityTests
     }
 
     [Fact]
+    [Task(5)]
     public void AreSameObject_same_objects()
     {
         var identityA = new Identity("alice@thecompetition.com", new FacialFeatures("blue", 0.9m));
@@ -77,6 +87,7 @@ public class EqualityTests
     }
 
     [Fact]
+    [Task(5)]
     public void AreSameObject_different_objects()
     {
         var identityA = new Identity("alice@thecompetition.com", new FacialFeatures("blue", 0.9m));
