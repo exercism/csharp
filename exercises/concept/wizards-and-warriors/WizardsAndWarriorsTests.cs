@@ -4,6 +4,7 @@ using Exercism.Tests;
 public class RolePlayingGameTests
 {
     [Fact]
+    [Task(1)]
     public void Describe_wizard()
     {
         var wizard = new Wizard();
@@ -11,6 +12,7 @@ public class RolePlayingGameTests
     }
 
     [Fact]
+    [Task(1)]
     public void Describe_warrior()
     {
         var warrior = new Warrior();
@@ -18,6 +20,7 @@ public class RolePlayingGameTests
     }
 
     [Fact]
+    [Task(2)]
     public void Warrior_is_not_vulnerable()
     {
         var warrior = new Warrior();
@@ -25,6 +28,7 @@ public class RolePlayingGameTests
     }
 
     [Fact]
+    [Task(4)]
     public void Wizard_is_vulnerable()
     {
         var wizard = new Wizard();
@@ -32,6 +36,7 @@ public class RolePlayingGameTests
     }
 
     [Fact]
+    [Task(4)]
     public void Wizard_with_prepared_spell_is_not_vulnerable()
     {
         var wizard = new Wizard();
@@ -40,6 +45,7 @@ public class RolePlayingGameTests
     }
 
     [Fact]
+    [Task(4)]
     public void Wizard_with_no_prepared_spell_is_vulnerable()
     {
         var wizard = new Wizard();
@@ -47,6 +53,7 @@ public class RolePlayingGameTests
     }
 
     [Fact]
+    [Task(5)]
     public void Attack_points_for_wizard_with_prepared_spell()
     {
         var wizard = new Wizard();
@@ -58,6 +65,7 @@ public class RolePlayingGameTests
     }
 
     [Fact]
+    [Task(5)]
     public void Attack_points_for_wizard_with_no_prepared_spell()
     {
         var wizard = new Wizard();
@@ -67,6 +75,7 @@ public class RolePlayingGameTests
     }
 
     [Fact]
+    [Task(6)]
     public void Attack_points_for_warrior_with_vulnerable_target()
     {
         var warrior = new Warrior();
@@ -76,6 +85,7 @@ public class RolePlayingGameTests
     }
 
     [Fact]
+    [Task(6)]
     public void Attack_points_for_warrior_with_non_vulnerable_target()
     {
         var warrior = new Warrior();
