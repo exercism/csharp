@@ -35,16 +35,6 @@ authenticator.IsAdmin(new Identity("admin@thecompetition.com", new FacialFeature
 // => false
 ```
 
-## 2. Prevent invalid identities being authenticated
-
-Implement the `Authenticator.IsRegistered()` method and ensure it returns false when no matching identity has been registered.
-
-```csharp
-var authenticator = new Authenticator();
-authenticator.IsRegistered(new Identity("alice@thecompetition.com", new FacialFeatures("blue", 0.8m)));
-// => false
-```
-
 ## 3. Register new identities
 
 Implement the `Authenticator.Register()` method which stores an identity on the authenticator itself such that calls to `IsRegistered()` will return `true` for this identity: otherwise `IsRegistered()` returns `false`.
