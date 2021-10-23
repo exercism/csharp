@@ -5,6 +5,7 @@ using System;
 public class RandomnessTests
 {
     [Fact]
+    [Task(1)]
     public void RollDie()
     {
         var player = new Player();
@@ -15,6 +16,7 @@ public class RandomnessTests
     }
 
     [Fact]
+    [Task(2)]
     public void GenerateSpellStrength()
     {
         var player = new Player();
