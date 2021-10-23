@@ -1,100 +1,74 @@
 # Instructions
 
-In this exercise you'll be modelling a weighing machine.
+In this exercise you'll be modelling a weighing machine with Kilograms as a Unit.
 
-The weight can be set and retrieved in pounds or kilograms and cannot be negative.
+You have 6 tasks each of which requires you to implement one or more properties:
 
-The weight can be displayed in SI units or US units
-, pounds and ounces.
+## 1. Allow the weighing machine to have a precision
 
-A tare adjustment can be applied to the weight (for instance to deduct the
-weight of a container). This can be any value (even negative or a value that makes the display weight negative)
-as there are doubts about the accuracy
-of the weighing machine. For security reasons this value cannot be retrieved.
-
-Note that:
-
-```
-display-weight = input-weight - tare-adjustment
-```
-
-Conversion ratios are as follows:
-
-- 16 ounces to a pound
-- 2.20462 kg to a pound
-
-For Example:
-
-- 60 kilograms == 132.2772 ponds
-- 132.2772 pounds == 132 pounds 4 ounces
-
-You have 5 tasks each of which requires you to implement one or
-more properties:
-
-## 1. Allow the weight to be set on the weighing machine
-
-Implement the `WeigingMachine.InputWeight` property to allow the weight to be get and set:
+To cater to different demands, we allow each weighing machine to be customized with a precision (the number of digits after the decimal separator).
+Implement the `WeigingMachine` class to have a get-only `Precision` property set to the constructor's `precision` argument:
 
 ```csharp
-var wm = new WeighingMachine();
-wm.InputWeight = 60m;
+var wm = new WeighingMachine(precision: 3);
 
-//  => wm.InputWeight == 60m
+//  => wm.Precision == 3
 ```
 
-## 2. Allow specifying the unit used by the weighing machine
+## 2. Allow the weight to be set on the weighing machine
 
-Implement the `WeigingMachine.Unit` property to allow the unit to be set. `Unit.Kilograms` should be the default value:
-
+Implement the `WeigingMachine.Weight` property to allow the weight to be get _and_ set:
 
 ```csharp
-var wm = new WeighingMachine();
+var wm = new WeighingMachine(precision: 3);
+wm.Weight = 60.5;
 
-//  => wm.Unit == Kilograms
+//  => wm.Weight == 60.5
 ```
 
 ## 3. Ensure that a negative input weight is rejected
 
-Add validation to the `WeighingMachine.InputWeight` property to throw an `ArgumentOutOfRangeException` when trying to set it to a negative weight:
+Clearly, someone cannot have a negative weight. 
+Add validation to the `WeighingMachine.Weight` property to throw an `ArgumentOutOfRangeException` when trying to set it to a negative weight:
 
 ```csharp
-var wm = new WeighingMachine();
-wm.InputWeight = -10m; // Throws an ArgumentOutOfRangeException
+var wm = new WeighingMachine(precision: 3);
+wm.Weight = -10; // Throws an ArgumentOutOfRangeException
 ```
 
-## 4. Allow the US weight to be retrieved
+## 4. Allow a tare adjustment to be applied to the weighing machine
 
-Implement the `WeighingMachine.USDisplayWeight` property and the `USWeight` class:
+The tare adjustment can be any value (even negative or a value that makes the display weight negative)
+Implement the `WeighingMachine.TareAdjustment` property to allow the tare adjustment to be set:
 
 ```csharp
-var wm = new WeighingMachine();
-wm.InputWeight = 60m;
+var wm = new WeighingMachine(precision: 3);
+wm.TareAdjustment = -10.6;
 
-var usw = wm.USDisplayWeight;
-// => usw.Pounds == 132 && usw.Ounces == 4
+// => wm.TareAdjustment == -10.6
 ```
 
-## 5. Allow the machine's unit to be set to pounds
+## 5. Ensure that the weighing machine has a default tare adjustment
 
-Implement the `WeighingMachine.Unit` property:
+After some thorough testing, it appears that due to a manifacturing issue all weighing machines have a bias towards overestimating the weight by `5`.
+Change the `WeighingMachine.TareAdjustment` property to `5` as its default value.
 
 ```csharp
-var wm = new WeighingMachine();
-wm.InputWeight = 175.5m;
-wm.Unit = Unit.Pounds;
+var wm = new WeighingMachine(precision: 3);
 
-var usw = wm.USDisplayWeight;
-// => usw.Pounds == 175 && usw.Ounces == 8
+// => wm.TareAdjustment == 5.0
 ```
 
-## 6. Allow a tare adjustment to be applied to the weighing machine
+## 6. Allow the weight to be retrieved
 
-Implement the `WeighingMachine.TareAdjustment` and `WeighingMachine.DisplayWeight` properties:
+Implement the `WeighingMachine.DisplayWeight` property which shows weight after tare adjustment and with the correct precision applied:
+Note that:
+``` display-weight = input-weight - tare-adjustment ```
 
 ```csharp
-var wm = new WeighingMachine();
-wm.InputWeight = 100m;
-wm.TareAdjustment = 10m;
+var wm = new WeighingMachine(precision: 3);
+wm.TareAdjustment = 10;
+wm.Weight = 60.567;
 
-// => wm.DisplayWeight == 90m
+// => wm.DisplayWeight == "50.567 kg"
 ```
