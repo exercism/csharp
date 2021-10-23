@@ -4,22 +4,6 @@ using Exercism.Tests;
 public class EqualityTests
 {
     [Fact]
-    [Task(2)]
-    public void IsAdmin_with_admin()
-    {
-        var authenticator = new Authenticator();
-        Assert.True(authenticator.IsAdmin(new Identity("admin@exerc.ism", new FacialFeatures("green", 0.9m))));
-    }
-
-    [Fact]
-    [Task(2)]
-    public void IsAdmin_with_wrong_email()
-    {
-        var authenticator = new Authenticator();
-        Assert.False(authenticator.IsAdmin(new Identity("admin@thecompetition.com", new FacialFeatures("green", 0.9m))));
-    }
-
-    [Fact]
     [Task(1)]
     public void AreSameFace_yes()
     {
@@ -33,6 +17,22 @@ public class EqualityTests
     {
         Assert.False(Authenticator.AreSameFace(new FacialFeatures("green", 0.9m),
             new FacialFeatures("blue", 0.9m)));
+    }
+
+    [Fact]
+    [Task(2)]
+    public void IsAdmin_with_admin()
+    {
+        var authenticator = new Authenticator();
+        Assert.True(authenticator.IsAdmin(new Identity("admin@exerc.ism", new FacialFeatures("green", 0.9m))));
+    }
+
+    [Fact]
+    [Task(2)]
+    public void IsAdmin_with_wrong_email()
+    {
+        var authenticator = new Authenticator();
+        Assert.False(authenticator.IsAdmin(new Identity("admin@thecompetition.com", new FacialFeatures("green", 0.9m))));
     }
 
     [Fact]
