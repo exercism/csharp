@@ -5,6 +5,7 @@ using Exercism.Tests;
 public class ObjectInitializationTests
 {
     [Fact]
+    [Task(1)]
     public void GetAdmin()
     {
         var authenticator = new Authenticator();
@@ -27,6 +28,7 @@ public class ObjectInitializationTests
     }
 
     [Fact]
+    [Task(2)]
     public void GetDevelopers()
     {
         var authenticator = new Authenticator();
