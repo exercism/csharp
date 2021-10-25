@@ -9,10 +9,10 @@
   ],
   "files": {
     "solution": [
-      "WhyCantIPushToMain.cs"
+      "DeveloperPrivileges.cs"
     ],
     "test": [
-      "WhyCantIPushToMainTests.cs"
+      "DeveloperPrivilegesTests.cs"
     ],
     "exemplar": [
       ".meta/Exemplar.cs"
