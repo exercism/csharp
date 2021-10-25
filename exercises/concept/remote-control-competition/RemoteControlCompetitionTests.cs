@@ -5,6 +5,7 @@ using Exercism.Tests;
 public class InterfacesTests
 {
     [Fact]
+    [Task(1)]
     public void Race()
     {
         var productionCar = new ProductionRemoteControlCar();
@@ -17,6 +18,7 @@ public class InterfacesTests
     }
     
     [Fact]
+    [Task(2)]
     public void EnsureInterfaceExposesDistanceTravelled()
     {
         var car = Assert.IsAssignableFrom<IRemoteControlCar>(new ProductionRemoteControlCar());
@@ -25,6 +27,7 @@ public class InterfacesTests
     }
 
     [Fact]
+    [Task(3)]
     public void RankCars()
     {
         var prc1 = new ProductionRemoteControlCar();
@@ -36,6 +39,7 @@ public class InterfacesTests
     }
 
     [Fact]
+    [Task(2)]
     public void EnsureCarsAreComparable()
     {
         var fast = new ProductionRemoteControlCar();
