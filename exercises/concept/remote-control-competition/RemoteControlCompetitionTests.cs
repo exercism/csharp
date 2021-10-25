@@ -27,18 +27,6 @@ public class InterfacesTests
     }
 
     [Fact]
-    [Task(3)]
-    public void RankCars()
-    {
-        var prc1 = new ProductionRemoteControlCar();
-        var prc2 = new ProductionRemoteControlCar();
-        prc1.NumberOfVictories = 3;
-        prc2.NumberOfVictories = 2;
-        var rankings = TestTrack.GetRankedCars(prc1, prc2);
-        Assert.Same(prc1, rankings[1]);
-    }
-
-    [Fact]
     [Task(2)]
     public void EnsureCarsAreComparable()
     {
@@ -51,5 +39,17 @@ public class InterfacesTests
         var cars = new List<ProductionRemoteControlCar> { fast, slow, medium };
         cars.Sort();
         Assert.Equal(new ProductionRemoteControlCar[] { slow, medium, fast }, cars);
+    }
+
+    [Fact]
+    [Task(3)]
+    public void RankCars()
+    {
+        var prc1 = new ProductionRemoteControlCar();
+        var prc2 = new ProductionRemoteControlCar();
+        prc1.NumberOfVictories = 3;
+        prc2.NumberOfVictories = 2;
+        var rankings = TestTrack.GetRankedCars(prc1, prc2);
+        Assert.Same(prc1, rankings[1]);
     }
 }
