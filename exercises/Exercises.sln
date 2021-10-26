@@ -23,7 +23,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorConundrum", "conc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarsAssemble", "concept\cars-assemble\CarsAssemble.csproj", "{1C829A36-C841-4BD6-993D-1F6EA3998B12}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhyCantIPushToMain", "concept\developer-privileges\WhyCantIPushToMain.csproj", "{AF9F84FA-7B8E-4B6A-AD7F-3BF1579F3AFD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeveloperPrivileges", "concept\developer-privileges\DeveloperPrivileges.csproj", "{AF9F84FA-7B8E-4B6A-AD7F-3BF1579F3AFD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElonsToys", "concept\elons-toys\ElonsToys.csproj", "{D8B7C7FD-5A31-4D8E-82AB-9D0C97BBEBDB}"
 EndProject
