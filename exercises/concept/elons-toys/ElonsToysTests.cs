@@ -4,6 +4,7 @@ using Exercism.Tests;
 public class RemoteControlCarTests
 {
     [Fact]
+    [Task(1)]
     public void Buy_new_car_returns_instance()
     {
         var car = RemoteControlCar.Buy();
@@ -11,6 +12,7 @@ public class RemoteControlCarTests
     }
 
     [Fact]
+    [Task(1)]
     public void Buy_new_car_returns_new_car_each_time()
     {
         var car1 = RemoteControlCar.Buy();
@@ -19,6 +21,7 @@ public class RemoteControlCarTests
     }
 
     [Fact]
+    [Task(2)]
     public void New_car_distance_display()
     {
         var car = new RemoteControlCar();
@@ -26,6 +29,7 @@ public class RemoteControlCarTests
     }
 
     [Fact]
+    [Task(3)]
     public void New_car_battery_display()
     {
         var car = new RemoteControlCar();
@@ -33,6 +37,7 @@ public class RemoteControlCarTests
     }
 
     [Fact]
+    [Task(4)]
     public void Distance_display_after_driving_once()
     {
         var car = new RemoteControlCar();
@@ -41,6 +46,7 @@ public class RemoteControlCarTests
     }
 
     [Fact]
+    [Task(4)]
     public void Distance_display_after_driving_multiple_times()
     {
         var car = new RemoteControlCar();
@@ -54,6 +60,7 @@ public class RemoteControlCarTests
     }
 
     [Fact]
+    [Task(5)]
     public void Battery_display_after_driving_once()
     {
         var car = new RemoteControlCar();
@@ -62,6 +69,7 @@ public class RemoteControlCarTests
     }
 
     [Fact]
+    [Task(5)]
     public void Battery_display_after_driving_multiple_times()
     {
         var car = new RemoteControlCar();
@@ -75,6 +83,7 @@ public class RemoteControlCarTests
     }
 
     [Fact]
+    [Task(6)]
     public void Battery_display_when_battery_empty()
     {
         var car = new RemoteControlCar();
@@ -92,6 +101,7 @@ public class RemoteControlCarTests
     }
 
     [Fact]
+    [Task(6)]
     public void Distance_display_when_battery_empty()
     {
         var car = new RemoteControlCar();
