@@ -10,6 +10,7 @@ You have three tasks.
 
 Implement the (_static_) `AssemblyLine.SuccessRate()` method to calculate the ratio of an item being created without error for a given speed. The following table shows how speed influences the success rate:
 
+- `0`: 0% success rate.
 - `1` to `4`: 100% success rate.
 - `5` to `8`: 90% success rate.
 - `9`: 80% success rate.
