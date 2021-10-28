@@ -5,30 +5,35 @@ using System;
 public class LogAnalysisTests
 {
     [Fact]
+    [Task(1)]
     public void SubstringAfter_WithDelimeterOfLength1()
     {
         Assert.Equal(" am the 1st test", "I am the 1st test".SubstringAfter("I"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    [Task(1)]
     public void SubstringAfter_WithDelimeterOfLengthLongerThan1()
     {
         Assert.Equal(" test", "I am the 2nd test".SubstringAfter("2nd"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    [Task(2)]
     public void SubstringBetween()
     {
         Assert.Equal("INFO", "[INFO]: File Deleted.".SubstringBetween("[", "]"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    [Task(2)]
     public void SubstringBetweenLongerDelimiters()
     {
         Assert.Equal("SOMETHING", "FIND >>> SOMETHING <===< HERE".SubstringBetween(">>> ", " <===<"));
     }
     
     [Fact(Skip = "Remove this Skip property to run this test")]
+    [Task(3)]
     public void Message()
     {
         var log = "[WARNING]: Library is deprecated.";
@@ -36,6 +41,7 @@ public class LogAnalysisTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    [Task(4)]
     public void LogLevel()
     {
         var log = "[WARNING]: Library is deprecated.";
