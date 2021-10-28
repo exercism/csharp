@@ -14,6 +14,14 @@ public class UserDefinedExceptionsTests
     }
 
     [Fact]
+    [Task(3)]
+    public void Call_TestMultiplication_with_success()
+    {
+        var cth = new CalculatorTestHarness(new Calculator());
+        Assert.Equal("Multiply succeeded", cth.TestMultiplication(6, 7));
+    }
+
+    [Fact]
     [Task(4)]
     public void TestMultiplication_with_negative_overflow()
     {
@@ -29,13 +37,5 @@ public class UserDefinedExceptionsTests
         var cth = new CalculatorTestHarness(new Calculator());
         Assert.Equal("Multiply failed for mixed or positive operands. Arithmetic operation resulted in an overflow.",
             cth.TestMultiplication(Int32.MaxValue, Int32.MaxValue));
-    }
-
-    [Fact]
-    [Task(3)]
-    public void Call_TestMultiplication_with_success()
-    {
-        var cth = new CalculatorTestHarness(new Calculator());
-        Assert.Equal("Multiply succeeded", cth.TestMultiplication(6, 7));
     }
 }
