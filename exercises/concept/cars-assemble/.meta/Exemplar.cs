@@ -17,7 +17,7 @@ static class AssemblyLine
         return (int)(ProductionRatePerHour(speed) / 60);
     }
 
-    private static double SuccessRate(int speed)
+    public static double SuccessRate(int speed)
     {
         if (speed == 10)
         {
@@ -32,6 +32,11 @@ static class AssemblyLine
         if (speed >= 5)
         {
             return 0.9;
+        }
+
+        if (speed <= 0)
+        {
+            return 0.0;
         }
 
         return 1;
