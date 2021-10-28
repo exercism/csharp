@@ -5,12 +5,14 @@ using Exercism.Tests;
 public class TracksOnTracksOnTracksTests
 {
     [Fact]
+    [Task(1)]
     public void NewList()
     {
         Assert.Empty(Languages.NewList());
     }
 
     [Fact]
+    [Task(2)]
     public void ExistingList()
     {
         var expected = new List<string>();
@@ -21,6 +23,7 @@ public class TracksOnTracksOnTracksTests
     }
 
     [Fact]
+    [Task(3)]
     public void AddLanguage()
     {
         var expected = new List<string>();
@@ -33,6 +36,7 @@ public class TracksOnTracksOnTracksTests
     }
 
     [Fact]
+    [Task(4)]
     public void CountLanguages()
     {
         Assert.Equal(3,
@@ -40,18 +44,21 @@ public class TracksOnTracksOnTracksTests
     }
 
     [Fact]
+    [Task(5)]
     public void HasLanguage_yes()
     {
         Assert.True(Languages.HasLanguage(Languages.GetExistingLanguages(), "Elm"));
     }
 
     [Fact]
+    [Task(5)]
     public void HasLanguage_no()
     {
         Assert.False(Languages.HasLanguage(Languages.GetExistingLanguages(), "D"));
     }
 
     [Fact]
+    [Task(6)]
     public void ReverseList()
     {
         var expected = new List<string>();
@@ -63,12 +70,14 @@ public class TracksOnTracksOnTracksTests
     }
 
     [Fact]
+    [Task(7)]
     public void IsExciting_yes()
     {
         Assert.True(Languages.IsExciting(Languages.GetExistingLanguages()));
     }
 
     [Fact]
+    [Task(7)]
     public void IsExciting_too_many()
     {
         var languages = Languages.GetExistingLanguages();
@@ -77,6 +86,7 @@ public class TracksOnTracksOnTracksTests
     }
 
     [Fact]
+    [Task(7)]
     public void IsExciting_empty()
     {
         var languages = Languages.NewList();
@@ -84,6 +94,7 @@ public class TracksOnTracksOnTracksTests
     }
 
     [Fact]
+    [Task(7)]
     public void IsExciting_single_star()
     {
         var languages = Languages.GetExistingLanguages();
@@ -93,6 +104,7 @@ public class TracksOnTracksOnTracksTests
     }
 
     [Fact]
+    [Task(8)]
     public void RemoveLanguage_yes()
     {
         var expected = new List<string>();
@@ -103,6 +115,7 @@ public class TracksOnTracksOnTracksTests
     }
 
     [Fact]
+    [Task(8)]
     public void RemoveLanguage_no()
     {
         var expected = new List<string>();
@@ -114,6 +127,7 @@ public class TracksOnTracksOnTracksTests
     }
 
     [Fact]
+    [Task(9)]
     public void IsUnique_yes()
     {
         var languages = Languages.GetExistingLanguages();
@@ -121,6 +135,7 @@ public class TracksOnTracksOnTracksTests
     }
 
     [Fact]
+    [Task(9)]
     public void IsUnique_no()
     {
         var languages = Languages.GetExistingLanguages();

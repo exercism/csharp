@@ -6,6 +6,7 @@ using Exercism.Tests;
 public class AuthenticationSystemTests
 {
     [Fact]
+    [Task(4)]
     public void GetAdmin()
     {
         var admin = new Identity { EyeColor = "green", Email = "admin@ex.ism" };
@@ -14,6 +15,7 @@ public class AuthenticationSystemTests
     }
 
     [Fact]
+    [Task(5)]
     public void GetDevelopers()
     {
         var authenticator = new Authenticator(new Identity { EyeColor = "green", Email = "admin@ex.ism" });

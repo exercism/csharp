@@ -14,6 +14,7 @@ public class BeautySalonGoesGlobalTests
     }
 
     [Fact]
+    [Task(1)]
     public void ShowLocalTime()
     {
         var dt = new DateTime(2030, 07, 25, 13, 45, 0);
@@ -23,6 +24,7 @@ public class BeautySalonGoesGlobalTests
     }
 
     [Fact]
+    [Task(2)]
     public void Schedule_newyork()
     {
         Assert.Equal(new DateTime(2019, 07, 25, 12, 45, 0),
@@ -30,6 +32,7 @@ public class BeautySalonGoesGlobalTests
     }
 
     [Fact]
+    [Task(2)]
     public void Schedule_london()
     {
         Assert.Equal(new DateTime(2019, 07, 25, 12, 45, 0),
@@ -37,6 +40,7 @@ public class BeautySalonGoesGlobalTests
     }
 
     [Fact]
+    [Task(2)]
     public void Schedule_paris()
     {
         Assert.Equal(new DateTime(2019, 07, 25, 12, 45, 0),
@@ -44,6 +48,7 @@ public class BeautySalonGoesGlobalTests
     }
 
     [Fact]
+    [Task(3)]
     public void GetAlertTime_early()
     {
         Assert.Equal(new DateTime(2019, 07, 24, 16, 0, 0),
@@ -52,6 +57,7 @@ public class BeautySalonGoesGlobalTests
     }
 
     [Fact]
+    [Task(3)]
     public void GetAlertTime_standard()
     {
         Assert.Equal(new DateTime(2019, 07, 25, 14, 15, 0),
@@ -60,6 +66,7 @@ public class BeautySalonGoesGlobalTests
     }
 
     [Fact]
+    [Task(3)]
     public void GetAlertTime_late()
     {
         Assert.Equal(new DateTime(2019, 07, 25, 15, 30, 0),
@@ -68,7 +75,8 @@ public class BeautySalonGoesGlobalTests
     }
 
     [Fact]
-    public void DalylightSavingChanged_newyork_active()
+    [Task(4)]
+    public void DaylightSavingChanged_newyork_active()
     {
         Assert.True(
             Appointment.HasDaylightSavingChanged(new DateTime(2019, 3, 13, 0, 0, 0),
@@ -76,7 +84,8 @@ public class BeautySalonGoesGlobalTests
     }
 
     [Fact]
-    public void DalylightSavingChanged_newyork_inactive()
+    [Task(4)]
+    public void DaylightSavingChanged_newyork_inactive()
     {
         Assert.True(
             Appointment.HasDaylightSavingChanged(new DateTime(2019, 11, 7, 0, 0, 0),
@@ -84,7 +93,8 @@ public class BeautySalonGoesGlobalTests
     }
 
     [Fact]
-    public void DalylightSavingChanged_newyork_no_change()
+    [Task(4)]
+    public void DaylightSavingChanged_newyork_no_change()
     {
         Assert.False(
             Appointment.HasDaylightSavingChanged(new DateTime(2019, 12, 25, 0, 0, 0),
@@ -92,7 +102,8 @@ public class BeautySalonGoesGlobalTests
     }
 
     [Fact]
-    public void DalylightSavingChanged_london_active()
+    [Task(4)]
+    public void DaylightSavingChanged_london_active()
     {
         Assert.True(
             Appointment.HasDaylightSavingChanged(new DateTime(2019, 4, 1, 0, 0, 0),
@@ -100,7 +111,8 @@ public class BeautySalonGoesGlobalTests
     }
 
     [Fact]
-    public void DalylightSavingChanged_london_inactive()
+    [Task(4)]
+    public void DaylightSavingChanged_london_inactive()
     {
         Assert.True(
             Appointment.HasDaylightSavingChanged(new DateTime(2019, 10, 29, 0, 0, 0),
@@ -108,7 +120,8 @@ public class BeautySalonGoesGlobalTests
     }
 
     [Fact]
-    public void DalylightSavingChanged_london_no_change()
+    [Task(4)]
+    public void DaylightSavingChanged_london_no_change()
     {
         Assert.False(
             Appointment.HasDaylightSavingChanged(new DateTime(2019, 12, 25, 0, 0, 0),
@@ -116,7 +129,8 @@ public class BeautySalonGoesGlobalTests
     }
 
     [Fact]
-    public void DalylightSavingChanged_paris_active()
+    [Task(4)]
+    public void DaylightSavingChanged_paris_active()
     {
         Assert.True(
             Appointment.HasDaylightSavingChanged(new DateTime(2019, 4, 1, 0, 0, 0),
@@ -124,7 +138,8 @@ public class BeautySalonGoesGlobalTests
     }
 
     [Fact]
-    public void DalylightSavingChanged_paris_inactive()
+    [Task(4)]
+    public void DaylightSavingChanged_paris_inactive()
     {
         Assert.True(
             Appointment.HasDaylightSavingChanged(new DateTime(2019, 10, 29, 0, 0, 0),
@@ -132,7 +147,8 @@ public class BeautySalonGoesGlobalTests
     }
 
     [Fact]
-    public void DalylightSavingChanged_paris_no_change()
+    [Task(4)]
+    public void DaylightSavingChanged_paris_no_change()
     {
         Assert.False(
             Appointment.HasDaylightSavingChanged(new DateTime(2019, 12, 25, 0, 0, 0),
@@ -140,6 +156,7 @@ public class BeautySalonGoesGlobalTests
     }
 
     [Fact]
+    [Task(5)]
     public void NormalizeDateTime_newyork()
     {
         Assert.Equal(new DateTime(2019, 11, 25, 13, 45, 0),
@@ -148,6 +165,7 @@ public class BeautySalonGoesGlobalTests
     }
 
     [Fact]
+    [Task(5)]
     public void NormalizeDateTime_london()
     {
         Assert.Equal(new DateTime(2019, 11, 25, 13, 45, 0),
@@ -156,6 +174,7 @@ public class BeautySalonGoesGlobalTests
     }
 
     [Fact]
+    [Task(5)]
     public void NormalizeDateTime_paris()
     {
         Assert.Equal(new DateTime(2019, 11, 25, 13, 45, 0),
@@ -164,6 +183,7 @@ public class BeautySalonGoesGlobalTests
     }
 
     [Fact]
+    [Task(5)]
     public void NormalizeDateTime_bad()
     {
         Assert.Equal(DateTime.MinValue,

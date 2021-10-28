@@ -22,6 +22,7 @@ public class HighSchoolSweetheartsTests
               *
 ";
     [Fact]
+    [Task(1)]
     public void DisplaySingleLine()
     {
         const string expected = "                  Lance Green ♡ Pat Riley                    ";
@@ -29,6 +30,7 @@ public class HighSchoolSweetheartsTests
     }
 
     [Fact]
+    [Task(2)]
     public void DisplayBanner()
     {
         string actualBanner = HighSchoolSweethearts.DisplayBanner("L. G. ", "P. R. ");
@@ -36,6 +38,7 @@ public class HighSchoolSweetheartsTests
     }
 
     [Fact]
+    [Task(3)]
     public void DisplayGermanExchangeStudents()
     {
         string actual = HighSchoolSweethearts.DisplayGermanExchangeStudents("Norbert", "Heidi",
