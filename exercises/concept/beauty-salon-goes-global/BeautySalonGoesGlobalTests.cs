@@ -76,7 +76,7 @@ public class TimeTests
 
     [Fact]
     [Task(4)]
-    public void DalylightSavingChanged_newyork_active()
+    public void DaylightSavingChanged_newyork_active()
     {
         Assert.True(
             Appointment.HasDaylightSavingChanged(new DateTime(2019, 3, 13, 0, 0, 0),
@@ -85,7 +85,7 @@ public class TimeTests
 
     [Fact]
     [Task(4)]
-    public void DalylightSavingChanged_newyork_inactive()
+    public void DaylightSavingChanged_newyork_inactive()
     {
         Assert.True(
             Appointment.HasDaylightSavingChanged(new DateTime(2019, 11, 7, 0, 0, 0),
@@ -94,7 +94,7 @@ public class TimeTests
 
     [Fact]
     [Task(4)]
-    public void DalylightSavingChanged_newyork_no_change()
+    public void DaylightSavingChanged_newyork_no_change()
     {
         Assert.False(
             Appointment.HasDaylightSavingChanged(new DateTime(2019, 12, 25, 0, 0, 0),
@@ -103,7 +103,7 @@ public class TimeTests
 
     [Fact]
     [Task(4)]
-    public void DalylightSavingChanged_london_active()
+    public void DaylightSavingChanged_london_active()
     {
         Assert.True(
             Appointment.HasDaylightSavingChanged(new DateTime(2019, 4, 1, 0, 0, 0),
@@ -112,7 +112,7 @@ public class TimeTests
 
     [Fact]
     [Task(4)]
-    public void DalylightSavingChanged_london_inactive()
+    public void DaylightSavingChanged_london_inactive()
     {
         Assert.True(
             Appointment.HasDaylightSavingChanged(new DateTime(2019, 10, 29, 0, 0, 0),
@@ -121,7 +121,7 @@ public class TimeTests
 
     [Fact]
     [Task(4)]
-    public void DalylightSavingChanged_london_no_change()
+    public void DaylightSavingChanged_london_no_change()
     {
         Assert.False(
             Appointment.HasDaylightSavingChanged(new DateTime(2019, 12, 25, 0, 0, 0),
@@ -130,7 +130,7 @@ public class TimeTests
 
     [Fact]
     [Task(4)]
-    public void DalylightSavingChanged_paris_active()
+    public void DaylightSavingChanged_paris_active()
     {
         Assert.True(
             Appointment.HasDaylightSavingChanged(new DateTime(2019, 4, 1, 0, 0, 0),
@@ -139,7 +139,7 @@ public class TimeTests
 
     [Fact]
     [Task(4)]
-    public void DalylightSavingChanged_paris_inactive()
+    public void DaylightSavingChanged_paris_inactive()
     {
         Assert.True(
             Appointment.HasDaylightSavingChanged(new DateTime(2019, 10, 29, 0, 0, 0),
@@ -148,7 +148,7 @@ public class TimeTests
 
     [Fact]
     [Task(4)]
-    public void DalylightSavingChanged_paris_no_change()
+    public void DaylightSavingChanged_paris_no_change()
     {
         Assert.False(
             Appointment.HasDaylightSavingChanged(new DateTime(2019, 12, 25, 0, 0, 0),
