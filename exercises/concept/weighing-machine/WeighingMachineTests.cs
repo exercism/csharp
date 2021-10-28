@@ -5,6 +5,7 @@ using Exercism.Tests;
 public class WeighingMachineTests
 {
     [Fact]
+    [Task(1)]
     public void Get_Precision()
     {
         var wm = new WeighingMachine(precision: 3);
@@ -12,6 +13,7 @@ public class WeighingMachineTests
     }
 
     [Fact]
+    [Task(2)]
     public void Set_weight_and_get_weight()
     {
         var wm = new WeighingMachine(precision: 3);
@@ -20,6 +22,7 @@ public class WeighingMachineTests
     }
 
     [Fact]
+    [Task(3)]
     public void Negative_weight_is_invalid()
     {
         var wm = new WeighingMachine(precision: 3);
@@ -27,6 +30,7 @@ public class WeighingMachineTests
     }
 
     [Fact]
+    [Task(4)]
     public void Apply_tare_adjustment_and_get_display_weight()
     {
         var wm = new WeighingMachine(precision: 3);
@@ -36,6 +40,7 @@ public class WeighingMachineTests
     }
 
     [Fact]
+    [Task(5)]
     public void Apply_Default_tare_adjustment_and_get_display_weight()
     {
         var wm = new WeighingMachine(precision: 3);
@@ -44,6 +49,7 @@ public class WeighingMachineTests
     }
 
     [Fact]
+    [Task(6)]
     public void Apply_negative_tare_adjustment_and_get_display_weight()
     {
         var wm = new WeighingMachine(precision: 3);
@@ -53,6 +59,7 @@ public class WeighingMachineTests
     }
 
     [Fact]
+    [Task(6)]
     public void Apply_large_tare_adjustment_to_allow_negative_display_weight()
     {
         var wm = new WeighingMachine(precision: 3);
