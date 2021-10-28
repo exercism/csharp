@@ -64,22 +64,6 @@ public class GameMasterTests
     }
 
     [Fact]
-    [Task(5)]
-    public void Describe_character_traveling_to_destination_without_explicit_travel_method()
-    {
-        var character = new Character();
-        character.Class = "Warrior";
-        character.Level = 1;
-        character.HitPoints = 30;
-
-        var destination = new Destination();
-        destination.Name = "Vo Mimbre";
-        destination.Inhabitants = 332;
-
-        Assert.Equal("You're a level 1 Warrior with 30 hit points. You're traveling to your destination by walking. You've arrived at Vo Mimbre, which has 332 inhabitants.", GameMaster.Describe(character, destination));
-    }
-
-    [Fact]
     [Task(4)]
     public void Describe_character_traveling_to_destination_with_explicit_travel_method()
     {
@@ -93,5 +77,21 @@ public class GameMasterTests
         destination.Inhabitants = 999;
 
         Assert.Equal("You're a level 20 Wizard with 120 hit points. You're traveling to your destination on horseback. You've arrived at Camaar, which has 999 inhabitants.", GameMaster.Describe(character, destination, TravelMethod.Horseback));
+    }
+
+    [Fact]
+    [Task(5)]
+    public void Describe_character_traveling_to_destination_without_explicit_travel_method()
+    {
+        var character = new Character();
+        character.Class = "Warrior";
+        character.Level = 1;
+        character.HitPoints = 30;
+
+        var destination = new Destination();
+        destination.Name = "Vo Mimbre";
+        destination.Inhabitants = 332;
+
+        Assert.Equal("You're a level 1 Warrior with 30 hit points. You're traveling to your destination by walking. You've arrived at Vo Mimbre, which has 332 inhabitants.", GameMaster.Describe(character, destination));
     }
 }
