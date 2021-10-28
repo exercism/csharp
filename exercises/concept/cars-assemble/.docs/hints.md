@@ -7,6 +7,7 @@
 ## 1. Calculate the success rate
 
 - Determining the success rate can be done through a [conditional statement][if-statement].
+- Use the `AssemblyLine.SuccessRate()` method you wrote earlier to determine the success rate.
 - C# allows for multiplication to be applied to two different number types (such as an `int` and a `double`). It will automatically return the "largest" data type.
 - Numbers can be compared using the built-in [comparison-][comparison-operators] and [equality operators][equality-operators].
 
