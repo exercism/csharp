@@ -22,14 +22,6 @@ public class CastingTests
 
     [Fact]
     [Task(2)]
-    public void DisplaySecurityPass_physio_with_alert()
-    {
-        var spm = new SecurityPassMaker();
-        Assert.Equal("The Physio", spm.GetDisplayName(new Physio()));
-    }
-
-    [Fact]
-    [Task(2)]
     public void DisplaySecurityPass_security()
     {
         var spm = new SecurityPassMaker();
