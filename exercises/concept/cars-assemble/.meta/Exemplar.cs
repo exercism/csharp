@@ -36,7 +36,7 @@ static class AssemblyLine
 
         if (speed <= 0)
         {
-            return 0;
+            return 0.0;
         }
 
         return 1;

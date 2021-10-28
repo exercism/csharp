@@ -7,7 +7,7 @@ public class AssemblyLineTests
     [Task(1)]
     public void Success_rate_for_speed_zero()
     {
-        Assert.Equal(0, AssemblyLine.SuccessRate(0));
+        Assert.Equal(0.0, AssemblyLine.SuccessRate(0), precision:1);
     }
     
     [Fact]
