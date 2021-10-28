@@ -1,7 +1,7 @@
 using Xunit;
 using Exercism.Tests;
 
-public class PermissionsTests
+public class AttackOfTheTrollsTests
 {
     [Fact]
     public void Permissions_read_write_can_be_combined_as_flags()

@@ -1,7 +1,7 @@
 using Xunit;
 using Exercism.Tests;
 
-public class QuestLogicTests
+public class AnnalynsInfiltrationTests
 {
     [Fact]
     [Task(1)]

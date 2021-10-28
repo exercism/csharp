@@ -1,7 +1,7 @@
 using Xunit;
 using Exercism.Tests;
 
-public class CharsTest
+public class SqueakyCleanTests
 {
     [Fact]
     public void Clean_single_letter()

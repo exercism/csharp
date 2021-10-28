@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Xunit;
 using Exercism.Tests;
 
-public class InterfacesTests
+public class RemoteControlCompetitionTests
 {
     [Fact]
     [Task(1)]

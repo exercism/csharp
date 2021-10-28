@@ -1,7 +1,7 @@
 using Xunit;
 using Exercism.Tests;
 
-public class AssemblyLineTests
+public class CarsAssembleTests
 {
     [Fact]
     public void Production_rate_per_hour_for_speed_zero()

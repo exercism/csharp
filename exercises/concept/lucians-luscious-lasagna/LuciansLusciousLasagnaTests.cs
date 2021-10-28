@@ -1,7 +1,7 @@
 using Xunit;
 using Exercism.Tests;
 
-public class LasagnaTests
+public class LuciansLusciousLasagnaTests
 {
     [Fact]
     [Task(1)]

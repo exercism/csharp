@@ -1,7 +1,7 @@
 using Xunit;
 using Exercism.Tests;
 
-public class RemoteControlCarTests
+public class ElonsToysTests
 {
     [Fact]
     public void Buy_new_car_returns_instance()

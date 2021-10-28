@@ -2,7 +2,7 @@ using System;
 using Xunit;
 using Exercism.Tests;
 
-public class RegularExpressionTests
+public class ParsingLogFilesTests
 {
     [Fact]
     public void IsValidLine_match()

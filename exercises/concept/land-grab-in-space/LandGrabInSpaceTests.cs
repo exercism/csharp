@@ -3,7 +3,7 @@ using System.Reflection;
 using Xunit;
 using Exercism.Tests;
 
-public class StructsTests
+public class LandGrabInSpaceTests
 {
     [Fact]
     public void IsClaimed_yes()

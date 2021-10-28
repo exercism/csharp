@@ -6,9 +6,9 @@ using System.Threading;
 using Xunit;
 using Exercism.Tests;
 
-public class TimeTests
+public class BeautySalonGoesGlobalTests
 {
-    public TimeTests()
+    public BeautySalonGoesGlobalTests()
     {
         Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
     }

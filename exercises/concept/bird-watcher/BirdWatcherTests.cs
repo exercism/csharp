@@ -1,7 +1,7 @@
 using Xunit;
 using Exercism.Tests;
 
-public class BirdCountTests
+public class BirdWatcherTests
 {
     [Fact]
     public void Last_week()

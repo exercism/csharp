@@ -2,7 +2,7 @@ using Xunit;
 using Exercism.Tests;
 using System;
 
-public class RandomnessTests
+public class RollTheDieTests
 {
     [Fact]
     [Task(1)]

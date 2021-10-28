@@ -1,7 +1,7 @@
 using Xunit;
 using Exercism.Tests;
 
-public class LogLineTests
+public class LogsLogsLogsTests
 {
     [Fact]
     public void Parse_trace()
