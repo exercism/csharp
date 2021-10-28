@@ -12,14 +12,14 @@ public class CastingTests
     }
 
     [Fact]
-    public void DisplaySecurityPass_pysio()
+    public void DisplaySecurityPass_physio()
     {
         var spm = new SecurityPassMaker();
         Assert.Equal("The Physio", spm.GetDisplayName(new Physio()));
     }
 
     [Fact]
-    public void DisplaySecurityPass_pysio_with_alert()
+    public void DisplaySecurityPass_physio_with_alert()
     {
         var spm = new SecurityPassMaker();
         Assert.Equal("The Physio", spm.GetDisplayName(new Physio()));
