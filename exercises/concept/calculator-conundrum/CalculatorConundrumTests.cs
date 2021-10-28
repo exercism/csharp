@@ -49,13 +49,6 @@ public class SimpleCalculatorTests
         Assert.Equal("1338800 / 83675 = 16", SimpleCalculator.Calculate(1_338_800, 83_675, "/"));
     }
 
-    [Fact]
-    [Task(3)]
-    public void Calculate_throws_exception_for_division_with_0()
-    {
-        Assert.Equal("Division by zero is not allowed.", SimpleCalculator.Calculate(33, 0, "/"));
-    }
-
     // Invalid operator
     [Fact]
     [Task(2)]
@@ -76,5 +69,12 @@ public class SimpleCalculatorTests
     public void Calculate_throws_exception_for_empty_string_as_operation()
     {
         Assert.Throws<ArgumentException>(() => SimpleCalculator.Calculate(1, 2, ""));
+    }
+
+    [Fact]
+    [Task(3)]
+    public void Calculate_throws_exception_for_division_with_0()
+    {
+        Assert.Equal("Division by zero is not allowed.", SimpleCalculator.Calculate(33, 0, "/"));
     }
 }
