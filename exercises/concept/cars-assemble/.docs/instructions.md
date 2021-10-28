@@ -20,7 +20,7 @@ AssemblyLine.SuccessRate(10)
 // => 0.77
 ```
 
-## 1. Calculate the production rate per hour
+## 2. Calculate the production rate per hour
 
 Implement the (_static_) `AssemblyLine.ProductionRatePerHour()` method to calculate the assembly line's production rate per hour, taking into account its success rate:
 
@@ -31,7 +31,7 @@ AssemblyLine.ProductionRatePerHour(6)
 
 Note that the value returned is a `double`.
 
-## 2. Calculate the number of working items produced per minute
+## 3. Calculate the number of working items produced per minute
 
 Implement the (_static_) `AssemblyLine.WorkingItemsPerMinute()` method to calculate how many working cars are produced per minute:
 
