@@ -4,7 +4,7 @@
 
 - [Numbers tutorial][numbers].
 
-## 1. Calculate the production rate per second
+## 1. Calculate the success rate
 
 - Determining the success rate can be done through a [conditional statement][if-statement].
 - C# allows for multiplication to be applied to two different number types (such as an `int` and a `double`). It will automatically return the "largest" data type.
