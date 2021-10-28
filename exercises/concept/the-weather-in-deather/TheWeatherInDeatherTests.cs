@@ -5,6 +5,7 @@ using Exercism.Tests;
 public class ExpressionBodiedMembersTests
 {
     [Fact]
+    [Task(1)]
     public void GetReading()
     {
         var ws = new WeatherStation();
@@ -15,6 +16,7 @@ public class ExpressionBodiedMembersTests
     }
 
     [Fact]
+    [Task(1)]
     public void HasHistory_no()
     {
         var ws = new WeatherStation();
@@ -23,6 +25,7 @@ public class ExpressionBodiedMembersTests
     }
 
     [Fact]
+    [Task(1)]
     public void HasHistory_yes()
     {
         var ws = new WeatherStation();
@@ -32,6 +35,7 @@ public class ExpressionBodiedMembersTests
     }
 
     [Fact]
+    [Task(1)]
     public void ClearAll()
     {
         var ws = new WeatherStation();
@@ -44,6 +48,7 @@ public class ExpressionBodiedMembersTests
     }
 
     [Fact]
+    [Task(1)]
     public void ShortTermOutlook_exception()
     {
         var ws = new WeatherStation();
@@ -51,6 +56,7 @@ public class ExpressionBodiedMembersTests
     }
 
     [Fact]
+    [Task(1)]
     public void ShortTermOutlook_cool()
     {
         var ws = new WeatherStation();
@@ -59,6 +65,7 @@ public class ExpressionBodiedMembersTests
     }
 
     [Fact]
+    [Task(1)]
     public void ShortTermOutlook_good()
     {
         var ws = new WeatherStation();
@@ -67,6 +74,7 @@ public class ExpressionBodiedMembersTests
     }
 
     [Fact]
+    [Task(1)]
     public void ShortTermOutlook_warm()
     {
         var ws = new WeatherStation();
@@ -75,6 +83,7 @@ public class ExpressionBodiedMembersTests
     }
 
     [Fact]
+    [Task(1)]
     public void RunSelfTest_good()
     {
         var ws = new WeatherStation();
@@ -83,6 +92,7 @@ public class ExpressionBodiedMembersTests
     }
 
     [Fact]
+    [Task(1)]
     public void RunSelfTest_bad()
     {
         var ws = new WeatherStation();
@@ -90,6 +100,7 @@ public class ExpressionBodiedMembersTests
     }
 
     [Fact]
+    [Task(1)]
     public void LongTermOutlook_exception()
     {
         var ws = new WeatherStation();
@@ -97,6 +108,7 @@ public class ExpressionBodiedMembersTests
     }
 
     [Fact]
+    [Task(1)]
     public void LongTermOutlook_cool()
     {
         var ws = new WeatherStation();
@@ -105,6 +117,7 @@ public class ExpressionBodiedMembersTests
     }
 
     [Fact]
+    [Task(1)]
     public void LongTermOutlook_good()
     {
         var ws = new WeatherStation();
@@ -113,6 +126,7 @@ public class ExpressionBodiedMembersTests
     }
 
     [Fact]
+    [Task(1)]
     public void LongTermOutlook_good2()
     {
         var ws = new WeatherStation();
@@ -121,6 +135,7 @@ public class ExpressionBodiedMembersTests
     }
 
     [Fact]
+    [Task(1)]
     public void LongTermOutlook_warm()
     {
         var ws = new WeatherStation();
@@ -129,6 +144,7 @@ public class ExpressionBodiedMembersTests
     }
 
     [Fact]
+    [Task(1)]
     public void LongTermOutlook_rainy()
     {
         var ws = new WeatherStation();
