@@ -4,6 +4,7 @@ using Exercism.Tests;
 public class GameMasterTests
 {
     [Fact]
+    [Task(1)]
     public void Describe_warrior_character()
     {
         var character = new Character();
@@ -15,6 +16,7 @@ public class GameMasterTests
     }
 
     [Fact]
+    [Task(1)]
     public void Describe_wizard_character()
     {
         var character = new Character();
@@ -26,6 +28,7 @@ public class GameMasterTests
     }
 
     [Fact]
+    [Task(2)]
     public void Describe_small_town_destination()
     {
         var destination = new Destination();
@@ -36,6 +39,7 @@ public class GameMasterTests
     }
 
     [Fact]
+    [Task(2)]
     public void Describe_large_town_destination()
     {
         var destination = new Destination();
@@ -46,18 +50,21 @@ public class GameMasterTests
     }
 
     [Fact]
+    [Task(3)]
     public void Describe_walking_travel_method()
     {
         Assert.Equal("You're traveling to your destination by walking.", GameMaster.Describe(TravelMethod.Walking));
     }
 
     [Fact]
+    [Task(3)]
     public void Describe_horse_travel_method()
     {
         Assert.Equal("You're traveling to your destination on horseback.", GameMaster.Describe(TravelMethod.Horseback));
     }
 
     [Fact]
+    [Task(5)]
     public void Describe_character_traveling_to_destination_without_explicit_travel_method()
     {
         var character = new Character();
@@ -73,6 +80,7 @@ public class GameMasterTests
     }
 
     [Fact]
+    [Task(4)]
     public void Describe_character_traveling_to_destination_with_explicit_travel_method()
     {
         var character = new Character();
