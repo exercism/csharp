@@ -6,6 +6,7 @@ using Exercism.Tests;
 public class StructsTests
 {
     [Fact]
+    [Task(2)]
     public void IsClaimed_yes()
     {
         var ch = new ClaimsHandler();
@@ -15,6 +16,7 @@ public class StructsTests
     }
 
     [Fact]
+    [Task(2)]
     public void IsClaimed_no()
     {
         var ch = new ClaimsHandler();
@@ -24,6 +26,7 @@ public class StructsTests
     }
 
     [Fact]
+    [Task(3)]
     public void IsLastClaim_yes()
     {
         var ch = new ClaimsHandler();
@@ -34,6 +37,7 @@ public class StructsTests
     }
 
     [Fact]
+    [Task(3)]
     public void IsLastClaim_no()
     {
         var ch = new ClaimsHandler();
@@ -44,6 +48,7 @@ public class StructsTests
     }
 
     [Fact]
+    [Task(4)]
     public void GetLongestSide()
     {
         var ch = new ClaimsHandler();
