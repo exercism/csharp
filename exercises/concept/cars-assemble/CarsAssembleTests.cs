@@ -114,7 +114,6 @@ public class AssemblyLineTests
     {
         Assert.Equal(26, AssemblyLine.WorkingItemsPerMinute(8));
     }
-    
     [Fact]
     [Task(3)]
     public void Working_items_per_minute_for_speed_nine()
