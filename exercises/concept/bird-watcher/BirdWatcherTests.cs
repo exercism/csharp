@@ -29,24 +29,6 @@ public class BirdCountTests
     }
 
     [Fact]
-    [Task(4)]
-    public void Has_day_without_birds_with_day_without_birds()
-    {
-        var counts = new int[] { 5, 5, 4, 0, 7, 6, 7 };
-        var birdCount = new BirdCount(counts);
-        Assert.True(birdCount.HasDayWithoutBirds());
-    }
-
-    [Fact]
-    [Task(4)]
-    public void Has_day_without_birds_with_no_day_without_birds()
-    {
-        var counts = new int[] { 4, 5, 9, 10, 9, 4, 3 };
-        var birdCount = new BirdCount(counts);
-        Assert.False(birdCount.HasDayWithoutBirds());
-    }
-
-    [Fact]
     [Task(3)]
     public void Increment_todays_count_with_no_previous_visits()
     {
@@ -64,6 +46,24 @@ public class BirdCountTests
         var birdCount = new BirdCount(counts);
         birdCount.IncrementTodaysCount();
         Assert.Equal(5, birdCount.Today());
+    }
+
+    [Fact]
+    [Task(4)]
+    public void Has_day_without_birds_with_day_without_birds()
+    {
+        var counts = new int[] { 5, 5, 4, 0, 7, 6, 7 };
+        var birdCount = new BirdCount(counts);
+        Assert.True(birdCount.HasDayWithoutBirds());
+    }
+
+    [Fact]
+    [Task(4)]
+    public void Has_day_without_birds_with_no_day_without_birds()
+    {
+        var counts = new int[] { 4, 5, 9, 10, 9, 4, 3 };
+        var birdCount = new BirdCount(counts);
+        Assert.False(birdCount.HasDayWithoutBirds());
     }
 
     [Fact]
