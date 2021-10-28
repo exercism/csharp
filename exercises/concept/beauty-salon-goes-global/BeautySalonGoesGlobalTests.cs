@@ -14,6 +14,7 @@ public class TimeTests
     }
 
     [Fact]
+    [Task(1)]
     public void ShowLocalTime()
     {
         var dt = new DateTime(2030, 07, 25, 13, 45, 0);
@@ -23,6 +24,7 @@ public class TimeTests
     }
 
     [Fact]
+    [Task(2)]
     public void Schedule_newyork()
     {
         Assert.Equal(new DateTime(2019, 07, 25, 12, 45, 0),
@@ -30,6 +32,7 @@ public class TimeTests
     }
 
     [Fact]
+    [Task(2)]
     public void Schedule_london()
     {
         Assert.Equal(new DateTime(2019, 07, 25, 12, 45, 0),
@@ -37,6 +40,7 @@ public class TimeTests
     }
 
     [Fact]
+    [Task(2)]
     public void Schedule_paris()
     {
         Assert.Equal(new DateTime(2019, 07, 25, 12, 45, 0),
@@ -44,6 +48,7 @@ public class TimeTests
     }
 
     [Fact]
+    [Task(3)]
     public void GetAlertTime_early()
     {
         Assert.Equal(new DateTime(2019, 07, 24, 16, 0, 0),
@@ -52,6 +57,7 @@ public class TimeTests
     }
 
     [Fact]
+    [Task(3)]
     public void GetAlertTime_standard()
     {
         Assert.Equal(new DateTime(2019, 07, 25, 14, 15, 0),
@@ -60,6 +66,7 @@ public class TimeTests
     }
 
     [Fact]
+    [Task(3)]
     public void GetAlertTime_late()
     {
         Assert.Equal(new DateTime(2019, 07, 25, 15, 30, 0),
@@ -68,6 +75,7 @@ public class TimeTests
     }
 
     [Fact]
+    [Task(4)]
     public void DalylightSavingChanged_newyork_active()
     {
         Assert.True(
@@ -76,6 +84,7 @@ public class TimeTests
     }
 
     [Fact]
+    [Task(4)]
     public void DalylightSavingChanged_newyork_inactive()
     {
         Assert.True(
@@ -84,6 +93,7 @@ public class TimeTests
     }
 
     [Fact]
+    [Task(4)]
     public void DalylightSavingChanged_newyork_no_change()
     {
         Assert.False(
@@ -92,6 +102,7 @@ public class TimeTests
     }
 
     [Fact]
+    [Task(4)]
     public void DalylightSavingChanged_london_active()
     {
         Assert.True(
@@ -100,6 +111,7 @@ public class TimeTests
     }
 
     [Fact]
+    [Task(4)]
     public void DalylightSavingChanged_london_inactive()
     {
         Assert.True(
@@ -108,6 +120,7 @@ public class TimeTests
     }
 
     [Fact]
+    [Task(4)]
     public void DalylightSavingChanged_london_no_change()
     {
         Assert.False(
@@ -116,6 +129,7 @@ public class TimeTests
     }
 
     [Fact]
+    [Task(4)]
     public void DalylightSavingChanged_paris_active()
     {
         Assert.True(
@@ -124,6 +138,7 @@ public class TimeTests
     }
 
     [Fact]
+    [Task(4)]
     public void DalylightSavingChanged_paris_inactive()
     {
         Assert.True(
@@ -132,6 +147,7 @@ public class TimeTests
     }
 
     [Fact]
+    [Task(4)]
     public void DalylightSavingChanged_paris_no_change()
     {
         Assert.False(
@@ -140,6 +156,7 @@ public class TimeTests
     }
 
     [Fact]
+    [Task(5)]
     public void NormalizeDateTime_newyork()
     {
         Assert.Equal(new DateTime(2019, 11, 25, 13, 45, 0),
@@ -148,6 +165,7 @@ public class TimeTests
     }
 
     [Fact]
+    [Task(5)]
     public void NormalizeDateTime_london()
     {
         Assert.Equal(new DateTime(2019, 11, 25, 13, 45, 0),
@@ -156,6 +174,7 @@ public class TimeTests
     }
 
     [Fact]
+    [Task(5)]
     public void NormalizeDateTime_paris()
     {
         Assert.Equal(new DateTime(2019, 11, 25, 13, 45, 0),
@@ -164,6 +183,7 @@ public class TimeTests
     }
 
     [Fact]
+    [Task(5)]
     public void NormalizeDateTime_bad()
     {
         Assert.Equal(DateTime.MinValue,
