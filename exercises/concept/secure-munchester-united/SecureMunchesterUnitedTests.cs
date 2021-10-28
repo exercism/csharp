@@ -5,6 +5,7 @@ using Exercism.Tests;
 public class CastingTests
 {
     [Fact]
+    [Task(1)]
     public void DisplaySecurityPass_manager()
     {
         var spm = new SecurityPassMaker();
@@ -12,6 +13,7 @@ public class CastingTests
     }
 
     [Fact]
+    [Task(1)]
     public void DisplaySecurityPass_physio()
     {
         var spm = new SecurityPassMaker();
@@ -19,6 +21,7 @@ public class CastingTests
     }
 
     [Fact]
+    [Task(2)]
     public void DisplaySecurityPass_physio_with_alert()
     {
         var spm = new SecurityPassMaker();
@@ -26,6 +29,7 @@ public class CastingTests
     }
 
     [Fact]
+    [Task(2)]
     public void DisplaySecurityPass_security()
     {
         var spm = new SecurityPassMaker();
@@ -33,6 +37,7 @@ public class CastingTests
     }
 
     [Fact]
+    [Task(3)]
     public void DisplaySecurityPass_security_junior()
     {
         var spm = new SecurityPassMaker();
@@ -40,6 +45,7 @@ public class CastingTests
     }
 
     [Fact]
+    [Task(3)]
     public void DisplaySecurityPass_security_police_liaison()
     {
         var spm = new SecurityPassMaker();
@@ -47,6 +53,7 @@ public class CastingTests
     }
 
     [Fact]
+    [Task(3)]
     public void DisplaySecurityPass_security_intern()
     {
         var spm = new SecurityPassMaker();
