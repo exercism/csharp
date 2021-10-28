@@ -9,7 +9,7 @@ public static class LogAnalysis
     
     public static string SubstringBetween(this string str, string start, string stop)
     {
-        return str.SubstringAfter(start).Substring(0, str.IndexOf(stop) - 1);
+        return str.Substring(0, str.IndexOf(stop)).SubstringAfter(start);
     }
     
     public static string Message(this string log)
