@@ -104,6 +104,26 @@ public class LanguagesTests
     }
 
     [Fact]
+    [Task(7)]
+    public void IsExciting_star_on_second_place_size2()
+    {
+        var languages = Languages.NewList();
+        languages.Add("F#");
+        languages.Add("C#");
+        Assert.True(Languages.IsExciting(languages));
+    }
+
+    [Fact]
+    [Task(7)]
+    public void IsExciting_star_on_second_place_size3()
+    {
+        var languages = Languages.GetExistingLanguages();
+        languages.RemoveAt(2);
+        languages.Insert(0, "Go");
+        Assert.True(Languages.IsExciting(languages));
+    }
+
+    [Fact]
     [Task(8)]
     public void RemoveLanguage_yes()
     {
