@@ -4,6 +4,7 @@ using Exercism.Tests;
 public class RemoteControlCleanupTests
 {
     [Fact]
+    [Task(1)]
     public void ShowSponsor()
     {
         var car = new RemoteControlCar();
@@ -13,6 +14,7 @@ public class RemoteControlCleanupTests
     }
 
     [Fact]
+    [Task(1)]
     public void ShowSpeed()
     {
         var car = new RemoteControlCar();
