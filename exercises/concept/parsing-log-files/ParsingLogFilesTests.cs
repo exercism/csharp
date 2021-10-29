@@ -5,6 +5,7 @@ using Exercism.Tests;
 public class ParsingLogFilesTests
 {
     [Fact]
+    [Task(1)]
     public void IsValidLine_match()
     {
         var lp = new LogParser();
@@ -12,6 +13,7 @@ public class ParsingLogFilesTests
     }
 
     [Fact]
+    [Task(1)]
     public void IsValidLine_no_match()
     {
         var lp = new LogParser();
@@ -19,6 +21,7 @@ public class ParsingLogFilesTests
     }
 
     [Fact]
+    [Task(2)]
     public void SplitLogLine()
     {
         var lp = new LogParser();
@@ -26,6 +29,7 @@ public class ParsingLogFilesTests
     }
 
     [Fact]
+    [Task(2)]
     public void SplitLogLine_Empty()
     {
         var lp = new LogParser();
@@ -34,6 +38,7 @@ public class ParsingLogFilesTests
 
 
     [Fact]
+    [Task(3)]
     public void AreQuotedPasswords()
     {
         var lp = new LogParser();
@@ -48,6 +53,7 @@ public class ParsingLogFilesTests
     }
 
     [Fact]
+    [Task(4)]
     public void RemoveEndOfLineText()
     {
         var lp = new LogParser();
@@ -56,6 +62,7 @@ public class ParsingLogFilesTests
     }
 
     [Fact]
+    [Task(5)]
     public void ListLinesWithPasswords()
     {
         var lp = new LogParser();
