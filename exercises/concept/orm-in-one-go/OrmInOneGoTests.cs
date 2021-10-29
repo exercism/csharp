@@ -10,6 +10,7 @@ public class OrmInOneGoTests
         NoInvalidOperationExceptionThrown
     }
     [Fact]
+    [Task(1)]
     public void Write_good()
     {
         var db = new Database();
@@ -20,6 +21,7 @@ public class OrmInOneGoTests
     }
 
     [Fact]
+    [Task(1)]
     public void Write_bad()
     {
         Exception result = Exception.NoInvalidOperationExceptionThrown;
@@ -38,6 +40,7 @@ public class OrmInOneGoTests
     }
 
     [Fact]
+    [Task(1)]
     public void Commit_bad()
     {
         Exception result = Exception.NoInvalidOperationExceptionThrown;
@@ -56,6 +59,7 @@ public class OrmInOneGoTests
     }
 
     [Fact]
+    [Task(2)]
     public void CommitSafely_good()
     {
         var db = new Database();
@@ -64,6 +68,7 @@ public class OrmInOneGoTests
     }
 
     [Fact]
+    [Task(2)]
     public void CommitSafely_bad_write()
     {
         var db = new Database();
@@ -72,6 +77,7 @@ public class OrmInOneGoTests
     }
 
     [Fact]
+    [Task(2)]
     public void CommitSafely_bad_commit()
     {
         var db = new Database();
