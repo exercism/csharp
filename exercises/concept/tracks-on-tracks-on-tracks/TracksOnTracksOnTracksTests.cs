@@ -19,11 +19,7 @@ public class LanguagesTests
         expected.Add("C#");
         expected.Add("Clojure");
         expected.Add("Elm");
-        var languages = new List<string>();
-        languages.Add("C#");
-        languages.Add("Clojure");
-        languages.Add("Elm");
-        Assert.Equal(expected, languages);
+        Assert.Equal(expected, Languages.GetExistingLanguages());
     }
 
     [Fact]
