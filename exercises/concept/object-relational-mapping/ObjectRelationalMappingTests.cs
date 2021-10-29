@@ -6,6 +6,7 @@ using Exercism.Tests;
 public class ResourceCleanupTests
 {
     [Fact]
+    [Task(2)]
     public void Write_good()
     {
         var db = new Database();
@@ -17,6 +18,7 @@ public class ResourceCleanupTests
     }
 
     [Fact]
+    [Task(2)]
     public void Write_bad()
     {
         var db = new Database();
@@ -28,6 +30,7 @@ public class ResourceCleanupTests
     }
 
     [Fact]
+    [Task(3)]
     public void Commit_good()
     {
         var db = new Database();
@@ -40,6 +43,7 @@ public class ResourceCleanupTests
     }
 
     [Fact]
+    [Task(3)]
     public void Commit_bad()
     {
         var db = new Database();
@@ -52,6 +56,7 @@ public class ResourceCleanupTests
     }
 
     [Fact]
+    [Task(3)]
     public void Out_of_order()
     {
         var db = new Database();
@@ -63,6 +68,7 @@ public class ResourceCleanupTests
     }
 
     [Fact]
+    [Task(4)]
     public void Disposable()
     {
         var db = new Database();
