@@ -6,6 +6,7 @@ using FsCheck;
 public class HyperiaForexTests
 {
     [Property]
+    [Task(1)]
     public void Equality_with_same_currency(decimal value)
     {
         var amount1 = new CurrencyAmount(value, "HD");
@@ -15,6 +16,7 @@ public class HyperiaForexTests
     }
 
     [Property]
+    [Task(1)]
     public void Equality_with_different_currency(decimal value)
     {
         var amount1 = new CurrencyAmount(value, "HD");
@@ -24,6 +26,7 @@ public class HyperiaForexTests
     }
 
     [Property]
+    [Task(1)]
     public Property Inequality_with_same_currency(decimal value1, decimal value2)
     {
         var amount1 = new CurrencyAmount(value1, "HD");
@@ -33,6 +36,7 @@ public class HyperiaForexTests
     }
 
     [Property]
+    [Task(1)]
     public void Inequality_with_different_currency(decimal value1, decimal value2)
     {
         var amount1 = new CurrencyAmount(value1, "HD");
@@ -42,6 +46,7 @@ public class HyperiaForexTests
     }
 
     [Property]
+    [Task(2)]
     public Property LessThan_with_same_currency(decimal value1, decimal value2)
     {
         var amount1 = new CurrencyAmount(value1, "HD");
@@ -51,6 +56,7 @@ public class HyperiaForexTests
     }
 
     [Property]
+    [Task(2)]
     public void LessThan_with_different_currency(decimal value1, decimal value2)
     {
         var amount1 = new CurrencyAmount(value1, "HD");
@@ -60,6 +66,7 @@ public class HyperiaForexTests
     }
 
     [Property]
+    [Task(2)]
     public Property GreaterThan_with_same_currency(decimal value1, decimal value2)
     {
         var amount1 = new CurrencyAmount(value1, "HD");
@@ -69,6 +76,7 @@ public class HyperiaForexTests
     }
 
     [Property]
+    [Task(2)]
     public void GreaterThan_with_different_currency(decimal value1, decimal value2)
     {
         var amount1 = new CurrencyAmount(value1, "HD");
@@ -78,6 +86,7 @@ public class HyperiaForexTests
     }
 
     [Property]
+    [Task(3)]
     public void Addition_with_same_currency(decimal value1, decimal value2)
     {
         var amount1 = new CurrencyAmount(value1, "HD");
@@ -88,6 +97,7 @@ public class HyperiaForexTests
     }
 
     [Property]
+    [Task(3)]
     public void Addition_is_commutative(decimal value1, decimal value2)
     {
         var amount1 = new CurrencyAmount(value1, "HD");
@@ -97,6 +107,7 @@ public class HyperiaForexTests
     }
 
     [Property]
+    [Task(3)]
     public void Addition_with_different_currency(decimal value1, decimal value2)
     {
         var amount1 = new CurrencyAmount(value1, "HD");
@@ -106,6 +117,7 @@ public class HyperiaForexTests
     }
 
     [Property]
+    [Task(3)]
     public void Subtraction_with_same_currency(decimal value1, decimal value2)
     {
         var amount1 = new CurrencyAmount(value1, "HD");
@@ -116,6 +128,7 @@ public class HyperiaForexTests
     }
 
     [Property]
+    [Task(3)]
     public void Subtraction_with_different_currency(decimal value1, decimal value2)
     {
         var amount1 = new CurrencyAmount(value1, "HD");
@@ -125,6 +138,7 @@ public class HyperiaForexTests
     }
 
     [Property]
+    [Task(4)]
     public void Multiplication(decimal value, decimal factor)
     {
         Assert.Equal(new CurrencyAmount(factor * value, "HD"),
@@ -132,6 +146,7 @@ public class HyperiaForexTests
     }
 
     [Property]
+    [Task(4)]
     public void Multiplication_is_commutative(decimal value, decimal factor)
     {
         var amount = new CurrencyAmount(value, "HD");
@@ -140,6 +155,7 @@ public class HyperiaForexTests
     }
 
     [Property]
+    [Task(4)]
     public Property Division(decimal value, decimal divisor)
     {
         return Prop.When(
@@ -149,12 +165,14 @@ public class HyperiaForexTests
     }
 
     [Property]
+    [Task(5)]
     public void Cast_to_double(decimal value)
     {
         Assert.Equal(Convert.ToDouble(value), (double)new CurrencyAmount(value, "HD"));
     }
 
     [Property]
+    [Task(6)]
     public void Cast_to_decimal(decimal value)
     {
         decimal actual = new CurrencyAmount(value, "HD");
