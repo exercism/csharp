@@ -1,7 +1,7 @@
 using Xunit;
 using Exercism.Tests;
 
-public class ParametersTests
+public class BuildingTelemetryTests
 {
     [Fact]
     public void DisplayNextSponsor_for_3_sponsors()

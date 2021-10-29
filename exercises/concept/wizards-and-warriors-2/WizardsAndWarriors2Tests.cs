@@ -1,7 +1,7 @@
 using Xunit;
 using Exercism.Tests;
 
-public class GameMasterTests
+public class WizardsAndWarriors2Tests
 {
     [Fact]
     [Task(1)]

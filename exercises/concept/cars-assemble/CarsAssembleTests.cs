@@ -1,7 +1,7 @@
 using Xunit;
 using Exercism.Tests;
 
-public class AssemblyLineTests
+public class CarsAssembleTests
 {
     [Fact]
     [Task(1)]

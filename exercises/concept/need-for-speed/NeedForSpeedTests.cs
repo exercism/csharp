@@ -1,7 +1,7 @@
 using Xunit;
 using Exercism.Tests;
 
-public class RemoteControlCarTests
+public class NeedForSpeedTests
 {
     [Fact]
     [Task(3)]
@@ -134,10 +134,7 @@ public class RemoteControlCarTests
 
         Assert.True(car.BatteryDrained());
     }
-}
 
-public class RaceTrackTests
-{
     [Fact]
     [Task(6)]
     public void Car_can_finish_with_car_that_can_easily_finish()

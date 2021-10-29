@@ -1,7 +1,7 @@
 using Xunit;
 using Exercism.Tests;
 
-public class NestedTypeTests
+public class RemoteControlCleanupTests
 {
     [Fact]
     public void ShowSponsor()

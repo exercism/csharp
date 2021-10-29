@@ -4,9 +4,9 @@ using System;
 using System.Globalization;
 using System.Threading;
 
-public class AppointmentTests
+public class BookingUpForBeautyTests
 {
-    public AppointmentTests()
+    public BookingUpForBeautyTests()
     {
         var enUsCulture = new CultureInfo("en-US");
         Thread.CurrentThread.CurrentCulture = enUsCulture;

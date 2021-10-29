@@ -3,7 +3,7 @@ using System;
 using Xunit;
 using Exercism.Tests;
 
-public class ResourceCleanupTests
+public class ObjectRelationalMappingTests
 {
     [Fact]
     public void Write_good()

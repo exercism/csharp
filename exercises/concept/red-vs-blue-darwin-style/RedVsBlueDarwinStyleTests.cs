@@ -2,7 +2,7 @@ using System;
 using Xunit;
 using Exercism.Tests;
 
-public class NamespacesTests
+public class RedVsBlueDarwinStyleTests
 {
     [Fact]
     public void Namespace_for_CarBuilder_is_Combined()

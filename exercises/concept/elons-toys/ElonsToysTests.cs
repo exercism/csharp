@@ -1,7 +1,7 @@
 using Xunit;
 using Exercism.Tests;
 
-public class RemoteControlCarTests
+public class ElonsToysTests
 {
     [Fact]
     [Task(1)]

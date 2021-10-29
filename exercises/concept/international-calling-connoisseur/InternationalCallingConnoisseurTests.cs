@@ -1,7 +1,7 @@
 using Xunit;
 using Exercism.Tests;
 
-public class DialingCodesTest
+public class InternationalCallingConnoisseurTests
 {
     [Fact]
     [Task(1)]

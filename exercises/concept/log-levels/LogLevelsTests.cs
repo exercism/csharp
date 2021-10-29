@@ -1,7 +1,7 @@
 using Xunit;
 using Exercism.Tests;
 
-public class LogLineTests
+public class LogLevelsTests
 {
     [Fact]
     [Task(1)]

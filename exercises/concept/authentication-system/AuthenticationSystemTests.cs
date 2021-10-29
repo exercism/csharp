@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Xunit;
 using Exercism.Tests;
 
-public class ObjectInitializationTests
+public class AuthenticationSystemTests
 {
     [Fact]
     [Task(4)]
