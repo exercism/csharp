@@ -2,7 +2,7 @@ using System;
 using Xunit;
 using Exercism.Tests;
 
-public class ResourceLifetimeTests
+public class OrmInOneGoTests
 {
     enum Exception
     {

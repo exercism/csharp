@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Xunit;
 using Exercism.Tests;
 
-public class LanguagesTests
+public class TracksOnTracksOnTracksTests
 {
     [Fact]
     [Task(1)]

@@ -1,7 +1,7 @@
 using Xunit;
 using Exercism.Tests;
 
-public class NullabilityTests
+public class TimFromMarketingTests
 {
     [Fact]
     [Task(1)]

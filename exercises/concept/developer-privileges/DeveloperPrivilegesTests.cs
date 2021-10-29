@@ -2,7 +2,7 @@ using System;
 using Xunit;
 using Exercism.Tests;
 
-public class ObjectInitializationTests
+public class DeveloperPrivilegesTests
 {
     [Fact]
     [Task(1)]

@@ -2,7 +2,7 @@ using System;
 using Xunit;
 using Exercism.Tests;
 
-public class TelemetryBufferTests
+public class HyperOptimizedTelemetryTests
 {
     [Fact]
     [Task(1)]

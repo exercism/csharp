@@ -1,7 +1,7 @@
 using Xunit;
 using Exercism.Tests;
 
-public class EqualityTests
+public class Faceid2Tests
 {
     [Fact]
     [Task(1)]

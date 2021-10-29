@@ -1,7 +1,7 @@
 using Xunit;
 using Exercism.Tests;
 
-public class CharsTest
+public class SqueakyCleanTests
 {
     [Fact]
     public void Clean_single_letter()
@@ -16,12 +16,14 @@ public class CharsTest
     }
 
     [Fact]
+    [Task(1)]
     public void Clean_string_with_spaces()
     {
         Assert.Equal("my___Id", Identifier.Clean("my   Id"));
     }
 
     [Fact]
+    [Task(2)]
     public void Clean_string_with_control_char()
     {
         Assert.Equal("myCTRLId", Identifier.Clean("my\0Id"));
@@ -40,12 +42,14 @@ public class CharsTest
     }
 
     [Fact]
+    [Task(3)]
     public void Convert_kebab_to_camel_case()
     {
         Assert.Equal("àḂç", Identifier.Clean("à-ḃç"));
     }
 
     [Fact]
+    [Task(4)]
     public void Omit_lower_case_greek_letters()
     {
         Assert.Equal("MyΟFinder", Identifier.Clean("MyΟβιεγτFinder"));

@@ -1,9 +1,10 @@
 using Xunit;
 using Exercism.Tests;
 
-public class ParametersTests
+public class BuildingTelemetryTests
 {
     [Fact]
+    [Task(1)]
     public void DisplayNextSponsor_for_3_sponsors()
     {
         var car = RemoteControlCar.Buy();
@@ -15,6 +16,7 @@ public class ParametersTests
     }
 
     [Fact]
+    [Task(2)]
     public void GetTelmetryData_good()
     {
         var car = RemoteControlCar.Buy();
@@ -27,6 +29,7 @@ public class ParametersTests
     }
 
     [Fact]
+    [Task(2)]
     public void GetTelmetryData_bad()
     {
         var car = RemoteControlCar.Buy();
@@ -42,6 +45,7 @@ public class ParametersTests
     }
 
     [Fact]
+    [Task(3)]
     public void GetUsagePerMeter_good()
     {
         var car = RemoteControlCar.Buy();
@@ -51,6 +55,7 @@ public class ParametersTests
     }
 
     [Fact]
+    [Task(3)]
     public void GetUsagePerMeter_not_started()
     {
         var car = RemoteControlCar.Buy();

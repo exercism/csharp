@@ -2,7 +2,7 @@ using System;
 using Xunit;
 using Exercism.Tests;
 
-public class StringFormattingTests
+public class HighSchoolSweetheartsTests
 {
     private const string expectedBanner =
 @"

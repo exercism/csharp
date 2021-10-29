@@ -2,7 +2,7 @@ using System;
 using Xunit;
 using Exercism.Tests;
 
-public class CastingTests
+public class SecureMunchesterUnitedTests
 {
     [Fact]
     [Task(1)]

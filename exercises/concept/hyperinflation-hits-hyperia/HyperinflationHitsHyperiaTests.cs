@@ -2,7 +2,7 @@ using System;
 using Xunit;
 using Exercism.Tests;
 
-public class OverflowTests
+public class HyperinflationHitsHyperiaTests
 {
     [Fact]
     [Task(1)]

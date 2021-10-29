@@ -2,7 +2,7 @@ using System;
 using Xunit;
 using Exercism.Tests;
 
-public class UserDefinedExceptionsTests
+public class InstrumentsOfTexasTests
 {
     [Fact]
     [Task(2)]

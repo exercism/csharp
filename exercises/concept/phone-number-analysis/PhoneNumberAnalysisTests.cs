@@ -1,7 +1,7 @@
 using Xunit;
 using Exercism.Tests;
 
-public class TuplesTest
+public class PhoneNumberAnalysisTests
 {
     [Fact]
     [Task(1)]

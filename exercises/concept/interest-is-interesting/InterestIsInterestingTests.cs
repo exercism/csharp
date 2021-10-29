@@ -1,7 +1,7 @@
 using Xunit;
 using Exercism.Tests;
 
-public class SavingsAccountTests
+public class InterestIsInterestingTests
 {
     [Fact]
     [Task(1)]
