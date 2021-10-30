@@ -94,6 +94,4 @@ public class FootballMatchReportsTests
     {
         Assert.Equal("Thomas Tuchel (Chelsea)", PlayAnalyzer.AnalyzeOffField(new Manager("Thomas Tuchel", "Chelsea")));
     }
-
-
 }
