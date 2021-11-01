@@ -26,12 +26,12 @@ birdCount.Today();
 
 ## 3. Increment today's count
 
-Implement the `BirdCount.IncrementDayCount()` method to increment today's count:
+Implement the `BirdCount.IncrementTodaysCount()` method to increment today's count:
 
 ```csharp
 int[] birdsPerDay = { 2, 5, 0, 7, 4, 1 };
 var birdCount = new BirdCount(birdsPerDay);
-birdCount.IncrementDayCount();
+birdCount.IncrementTodaysCount();
 birdCount.Today();
 // => 2
 ```
