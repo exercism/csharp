@@ -511,8 +511,8 @@
         "slug": "robot-name",
         "name": "Robot Name",
         "uuid": "46b8aea8-1528-43cb-a754-495ec2790ce2",
-        "practices": ["randomness", "classes"],
-        "prerequisites": ["randomness", "strings", "classes"],
+        "practices": ["randomness", "classes", "sets"],
+        "prerequisites": ["randomness", "strings", "classes", "generic-types"],
         "difficulty": 3
       },
       {
