@@ -45,6 +45,13 @@ public class FootballMatchReportsTests
     {
         Assert.Equal("There are 4200 supporters at the match.", PlayAnalyzer.AnalyzeOffField(4200));
     }
+    
+    [Fact]
+    [Task(3)]
+    public void AnalyzeOffField_throws_unknown_type()
+    {
+        Assert.Throws<ArgumentException>(() => PlayAnalyzer.AnalyzeOffField(90.0f));
+    }
 
     [Fact]
     [Task(3)]
@@ -86,12 +93,5 @@ public class FootballMatchReportsTests
     public void AnalyzeOffField_manager_with_club()
     {
         Assert.Equal("Thomas Tuchel (Chelsea)", PlayAnalyzer.AnalyzeOffField(new Manager("Thomas Tuchel", "Chelsea")));
-    }
-
-    [Fact]
-    [Task(5)]
-    public void AnalyzeOffField_throws_unknown_type()
-    {
-        Assert.Throws<ArgumentException>(() => PlayAnalyzer.AnalyzeOffField(90.0f));
     }
 }
