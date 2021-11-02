@@ -91,6 +91,30 @@ public class NeedForSpeedTests
     }
 
     [Fact]
+    [Task(4)]
+    public void Super_hungry_car_after_one_drive_is_drained()
+    {
+        int speed = 100;
+        int batteryDrain = 60;
+        var car = new RemoteControlCar(speed, batteryDrain);
+        car.Drive();
+        Assert.True(car.BatteryDrained());
+    }
+
+    [Fact]
+    [Task(4)]
+    public void Super_hungry_car_can_try_driving_but_is_drained()
+    {
+        int speed = 100;
+        int batteryDrain = 60;
+        var car = new RemoteControlCar(speed, batteryDrain);
+        car.Drive();
+        car.Drive();
+        Assert.True(car.BatteryDrained());
+        Assert.Equal(100, car.DistanceDriven());
+    }
+
+    [Fact]
     [Task(5)]
     public void Nitro_car_has_not_driven_any_distance()
     {
