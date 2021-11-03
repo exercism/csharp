@@ -25,15 +25,9 @@ public static class TelemetryBuffer
             bytes = BitConverter.GetBytes((int)reading);
             bytes.CopyTo(allBytes, 1);
         }
-        else if (reading > Int16.MaxValue)
-        {
-            allBytes[0] = 0x2;
-            bytes = BitConverter.GetBytes((ushort)reading);
-            bytes.CopyTo(allBytes, 1);
-        }
         else if (reading >= 0)
         {
-            allBytes[0] = 0xfe;
+            allBytes[0] = 0x2;
             bytes = BitConverter.GetBytes((ushort)reading);
             bytes.CopyTo(allBytes, 1);
         }
