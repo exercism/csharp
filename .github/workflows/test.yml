@@ -6,7 +6,7 @@ jobs:
   test:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@1e204e9a9253d643386038d443f96446fa156a97 # 2.3.5
+      - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # 2.3.5
       - uses: actions/setup-dotnet@5a3fa01c67e60dba8f95e2878436c7151c4b5f01 # 1.7.2
         with:
           dotnet-version: "5.0.102"
