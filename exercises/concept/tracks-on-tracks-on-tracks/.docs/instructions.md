@@ -73,7 +73,7 @@ Languages.ReverseList(Languages.GetExistingLanguages())
 While you love all languages, C# has a special place in your heart. As such, you're really excited about a list of languages if:
 
 - The first on the list is C#.
-- The second item on the list is C# and the list contain either two or three languages.
+- The second item on the list is C# and the list contains either two or three languages.
 
 Implement the static `Languages.IsExciting()` method to check if a list of languages is exciting:
 
@@ -84,7 +84,7 @@ Languages.IsExciting(Languages.GetExistingLanguages())
 
 ## 8.Remove Language
 
-Please implement the static `Languages.RemoveLangage()` method to remove a specified language from the list.
+Please implement the static `Languages.RemoveLanguage()` method to remove a specified language from the list.
 
 ```csharp
 Languages.RemoveLanguage(Languages.GetExistingLanguages(), "Clojure")
