@@ -41,23 +41,23 @@ lp.SplitLogLine("Section 1<===>Section 2<^-^>Section 3");
 // => {"Section 1", "Section 2", "Section 3"}
 ```
 
-## 3. Count the number of lines containing a password
+## 3. Count the number of lines containing a quoted password
 
-A log line is considered to contain a password if it contains the literal string "password" followed by a space and then a word (the actual password).
+The team needs to know about passwords occurring in quoted text so that they can be examined manually.
 
-It is important to find any passwords included in a file. These will be dealt with automatically, but the team needs to know how about passwords occurred in quoted text so that they can be examined manually.
+Implement the `LogParser.CountQuotedPasswords()` method to provide an indication of the likely scale of the manual exercise.
 
-Implement the `LogParser.CountQuotedPasswords()`method to provide an indication of the likely scale of the manual exercise.
-
-The literal string "password" may be in upper or lower case or any combination.
+Identify log lines where the literal string "password", which may be in any combination of upper or lower case, is surrounded by quotation marks.
+You should account for the possibility of additional content between the quotation marks before and after "password".
 
 Lines passed to the routine may or may not be valid as defined in task 1. We process them in the same way, whether or not they are valid.
 
 ```csharp
 string lines =
-    "[INF] passWord " + Environment.NewLine +
-    "\"passWord\"" + Environment.NewLine +
-    "[INF] \"The secret password was added by the user\"";
+    "[INF] passWord " + Environment.NewLine + // contains 'password' but not surrounded by quotation marks
+    "\"passWord\"" + Environment.NewLine + // count this one
+    "[INF] User saw error message \"Unexpected Error\" on page load." + Environment.NewLine + //does not contain 'password'
+    "[INF] \"The secret password was added by the user\""; // count this one
 
 var lp = new LogParser();
 lp.CountQuotedPasswords(lines);

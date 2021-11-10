@@ -47,6 +47,7 @@ public class ParsingLogFilesTests
             string.Empty,
             "[INF] passWord",
             "\"passWord\"",
+            "[INF] User saw error message \"Unexpected Error\" on page load.",
             "[INF] The message \"Please reset your password\" was ignored by the user"
         };
         Assert.Equal(2, lp.CountQuotedPasswords(string.Join(Environment.NewLine, lines)));
