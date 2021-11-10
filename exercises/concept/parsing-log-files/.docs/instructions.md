@@ -54,10 +54,10 @@ Lines passed to the routine may or may not be valid as defined in task 1. We pro
 
 ```csharp
 string lines =
-    "[INF] passWord " + Environment.NewLine +
-    "\"passWord\"" + Environment.NewLine +
-    "[INF] User saw error message \"Unexpected Error\" on page load." + Environment.NewLine +
-    "[INF] \"The secret password was added by the user\"";
+    "[INF] passWord " + Environment.NewLine + // contains 'password' but not surrounded by quotation marks
+    "\"passWord\"" + Environment.NewLine + // count this one
+    "[INF] User saw error message \"Unexpected Error\" on page load." + Environment.NewLine + //does not contain 'password'
+    "[INF] \"The secret password was added by the user\""; // count this one
 
 var lp = new LogParser();
 lp.CountQuotedPasswords(lines);
