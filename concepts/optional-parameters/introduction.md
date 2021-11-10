@@ -13,6 +13,6 @@ class Card
     }
 }
 
-Card.NewYear();  // => "Happy 2020!"
-Card.Card(1999); // => "Happy 1999!"
+Card.NewYear();     // => "Happy 2020!"
+Card.NewYear(1999); // => "Happy 1999!"
 ```
