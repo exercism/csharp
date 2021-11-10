@@ -48,7 +48,7 @@ The team needs to know about passwords occurring in quoted text so that they can
 Implement the `LogParser.CountQuotedPasswords()` method to provide an indication of the likely scale of the manual exercise.
 
 Identify log lines where the literal string "password", which may be in any combination of upper or lower case, is surrounded by quotation marks.
-You should account for the possibility of additional content between the quotatoin marks before and after "password".
+You should account for the possibility of additional content between the quotation marks before and after "password".
 
 Lines passed to the routine may or may not be valid as defined in task 1. We process them in the same way, whether or not they are valid.
 
