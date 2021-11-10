@@ -43,7 +43,7 @@ lp.SplitLogLine("Section 1<===>Section 2<^-^>Section 3");
 
 ## 3. Count the number of lines containing a quoted password
 
-The team needs to know how about passwords occurring in quoted text so that they can be examined manually.
+The team needs to know about passwords occurring in quoted text so that they can be examined manually.
 
 Implement the `LogParser.CountQuotedPasswords()` method to provide an indication of the likely scale of the manual exercise.
 
