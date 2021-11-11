@@ -1,5 +1,4 @@
 {
-  "blurb": "Implement various kinds of error handling and resource management",
   "authors": [
     "robkeim"
   ],
@@ -20,5 +19,6 @@
     "example": [
       ".meta/Example.cs"
     ]
-  }
+  },
+  "blurb": "Implement various kinds of error handling and resource management."
 }

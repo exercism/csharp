@@ -1,5 +1,4 @@
 {
-  "blurb": "Create a sentence of the form \"One for X, one for me.\"",
   "authors": [
     "jpreese"
   ],
@@ -24,5 +23,6 @@
       ".meta/Example.cs"
     ]
   },
+  "blurb": "Create a sentence of the form \"One for X, one for me.\".",
   "source_url": "https://github.com/exercism/problem-specifications/issues/757"
 }
