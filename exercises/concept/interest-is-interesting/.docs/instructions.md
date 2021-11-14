@@ -44,7 +44,7 @@ Note that the value returned is a `decimal`.
 
 ## 4. Calculate the years before reaching the desired balance
 
-Implement the (_static_) `SavingsAccount.YearsBeforeDesiredBalance()` method to calculate the minimum number of years required to reach the desired balance:
+Implement the (_static_) `SavingsAccount.YearsBeforeDesiredBalance()` method to calculate the minimum number of years required to reach the desired balance given annually compounding interest:
 
 ```csharp
 SavingsAccount.YearsBeforeDesiredBalance(balance: 200.75m, targetBalance: 214.88m)
