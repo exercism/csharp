@@ -41,10 +41,3 @@ do
     x = x - 2;
 } while (x > 10)
 ```
-
-## Simple Interest & Compounding Interest
-
-When applying simple interest to a principle balance, the balance is multipled by the interest rate and the product of the two is the interest amount.
-
-Compound interest on the other hand is done by applying interest on a reocurring bases.
-On each application the interest amount is computed and added to the principle balance so that subesquent interest calculations are subject to a greater principle balance.

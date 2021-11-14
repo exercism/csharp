@@ -52,3 +52,10 @@ SavingsAccount.YearsBeforeDesiredBalance(balance: 200.75m, targetBalance: 214.88
 ```
 
 Note that the value returned is an `int`.
+
+~~~~exercism/note
+When applying simple interest to a principle balance, the balance is multipled by the interest rate and the product of the two is the interest amount.
+
+Compound interest on the other hand is done by applying interest on a reocurring bases.
+On each application the interest amount is computed and added to the principle balance so that subesquent interest calculations are subject to a greater principle balance.
+~~~~
