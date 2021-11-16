@@ -47,3 +47,24 @@ Non-diatonic scales can contain other intervals.  An "augmented second"
 interval, written "A", has two interceding notes (e.g., from A to C or Db to E)
 or a "whole step" plus a "half step". There are also smaller and larger
 intervals, but they will not figure into this exercise.
+
+## 1.
+
+Implement the (_static_) `ScaleGenerator.Chromatic()` method to generate the 12
+note chromatic scale for the given tonic (starting note).
+
+- Shift the base scale appropriately so that all 12 notes are returned starting
+with the given tonic.
+- For the given tonic, determine if the scale is to be returned with flats or
+sharps.
+- Return the major scale (i.e. uppercase notes) irrespective of if the given
+tonic is a major or minor note (i.e. uppercase or lowercase respectively).
+
+## 2.
+
+Implement the (_static_) `ScaleGenerator.Interval()` method to generate the
+diatonic scale for the given tonic and interval pattern.
+
+This is similar to `ScaleGenerator.Chromatic()` except that instead of returning
+12 notes you will return one note for each interval in the given pattern
+skipping the number of notes indicated by the intervals in the pattern.
