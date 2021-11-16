@@ -44,7 +44,7 @@ Note that the value returned is a `decimal`.
 
 ## 4. Calculate the years before reaching the desired balance
 
-Implement the (_static_) `SavingsAccount.YearsBeforeDesiredBalance()` method to calculate the minimum number of years required to reach the desired balance:
+Implement the (_static_) `SavingsAccount.YearsBeforeDesiredBalance()` method to calculate the minimum number of years required to reach the desired balance given annually compounding interest:
 
 ```csharp
 SavingsAccount.YearsBeforeDesiredBalance(balance: 200.75m, targetBalance: 214.88m)
@@ -52,3 +52,10 @@ SavingsAccount.YearsBeforeDesiredBalance(balance: 200.75m, targetBalance: 214.88
 ```
 
 Note that the value returned is an `int`.
+
+~~~~exercism/note
+When applying simple interest to a principal balance, the balance is multiplied by the interest rate and the product of the two is the interest amount.
+
+Compound interest on the other hand is done by applying interest on a recurring basis.
+On each application the interest amount is computed and added to the principal balance so that subsequent interest calculations are subject to a greater principal balance.
+~~~~
