@@ -26,7 +26,7 @@ Implement the (_static_) `SavingsAccount.Interest()` method to calculate the int
 
 ```csharp
 SavingsAccount.Interest(balance: 200.75m)
-// 9.0375m
+// 1.00375m
 ```
 
 Note that the value returned is a `decimal`.
