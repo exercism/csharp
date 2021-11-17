@@ -18,19 +18,19 @@ A, Bb, B, C, Db, D, Eb, E, F, Gb, G, Ab
 The major and minor scale and modes are subsets of this twelve-pitch
 collection. They have seven pitches, and are called diatonic scales.
 The collection of notes in these scales is written with either sharps or
-flats, depending on the tonic. Here is a list of which are which:
+flats, depending on the tonic. Here is a table indicating whether the 
+flat expression or sharp expression of the scale would be used for a given
+note:
 
-No Sharps or Flats:
-C major
-a minor
+| Key Signature | Major                 | Minor                |
+| ------------- | --------------------- | -------------------- |
+| Natural       | C                     | a                    |
+| Sharp         | G, D, A, E, B, F#     | e, b, f#, c#, g#, d# |
+| Flat          | F, Bb, Eb, Ab, Db, Gb | d, g, c, f, bb, eb   |
 
-Use Sharps:
-G, D, A, E, B, F# major
-e, b, f#, c#, g#, d# minor
-
-Use Flats:
-F, Bb, Eb, Ab, Db, Gb major
-d, g, c, f, bb, eb minor
+Note that by common music theory convention the natural notes "C" and "a" 
+follow the sharps scale when ascending and the flats scale when descending. 
+For the scope of this exercise the scale is only ascending.
 
 The diatonic scales, and all other scales that derive from the
 chromatic scale, are built upon intervals. An interval is the space
