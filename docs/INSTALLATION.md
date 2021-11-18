@@ -2,7 +2,7 @@
 
 ## Installing .NET
 
-The C# track is built on top of the [.NET](https://dotnet.microsoft.com/learn/dotnet/what-is-dotnet) platform, which runs on Windows, Linux and macOS. To build .NET projects, you can use the .NET Command Line Interface (CLI). This CLI is part of the .NET SDK, which you can install by following the [installation instructions](https://dotnet.microsoft.com/download/dotnet/5.0). Note: the C# track requires SDK version 5.0 or greater.
+The C# track is built on top of the [.NET](https://dotnet.microsoft.com/learn/dotnet/what-is-dotnet) platform, which runs on Windows, Linux and macOS. To build .NET projects, you can use the .NET Command Line Interface (CLI). This CLI is part of the .NET SDK, which you can install by following the [installation instructions](https://dotnet.microsoft.com/download/dotnet/6.0). Note: the C# track requires SDK version 6.0 or greater.
 
 After completing the installation, you can verify if the CLI was installed succesfully by running this command in a terminal:
 
@@ -10,7 +10,7 @@ After completing the installation, you can verify if the CLI was installed succe
 dotnet --version
 ```
 
-It the output is a version greater than or equal to `5.0.100`, the .NET SDK has been installed succesfully.
+If the output is a version greater than or equal to `6.0.100`, the .NET SDK has been installed succesfully.
 
 ## Using an IDE
 

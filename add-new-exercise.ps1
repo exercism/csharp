@@ -51,7 +51,7 @@ function Add-Project {
 
     $csProj = "$exerciseDir/$ExerciseName.csproj"
 
-    Invoke-CallScriptExitOnError { dotnet new xunit -lang "C#" --target-framework-override net5.0 -o $exerciseDir -n $ExerciseName }
+    Invoke-CallScriptExitOnError { dotnet new xunit -lang "C#" --target-framework-override net6.0 -o $exerciseDir -n $ExerciseName }
     Invoke-CallScriptExitOnError { dotnet sln "$exercisesDir/Exercises.sln" add $csProj }
 
     Remove-Item -Path "$exerciseDir/UnitTest1.cs"

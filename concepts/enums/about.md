@@ -82,7 +82,7 @@ More examples and best practices are available [here][enum examples].
 
 [enumeration types]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/enum
 [integral numeric]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types
-[enum parse]: https://docs.microsoft.com/en-us/dotnet/api/system.enum.parse?view=net-5.0
-[enum tryparse]: https://docs.microsoft.com/en-us/dotnet/api/system.enum.tryparse?view=net-5.0
-[enum isdefined]: https://docs.microsoft.com/en-us/dotnet/api/system.enum.isdefined?view=net-5.0
-[enum examples]: https://docs.microsoft.com/en-us/dotnet/api/system.enum?view=net-5.0#examples
+[enum parse]: https://docs.microsoft.com/en-us/dotnet/api/system.enum.parse?view=net-6.0
+[enum tryparse]: https://docs.microsoft.com/en-us/dotnet/api/system.enum.tryparse?view=net-6.0
+[enum isdefined]: https://docs.microsoft.com/en-us/dotnet/api/system.enum.isdefined?view=net-6.0
+[enum examples]: https://docs.microsoft.com/en-us/dotnet/api/system.enum?view=net-6.0#examples

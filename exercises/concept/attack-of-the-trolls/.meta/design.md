@@ -43,6 +43,6 @@ This exercise could benefit from having an [analyzer][analyzer] that can comment
 [docs.microsoft.com-bitwise-and-shift-operators]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/bitwise-and-shift-operators
 [docs.microsoft.com-switch-keyword]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/switch
 [docs.microsoft.com-binary-notation]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types#integer-literals
-[docs.microsoft.com-flagsattribute]: https://docs.microsoft.com/en-us/dotnet/api/system.flagsattribute?view=net-5.0
+[docs.microsoft.com-flagsattribute]: https://docs.microsoft.com/en-us/dotnet/api/system.flagsattribute?view=net-6.0
 [alanzucconi.com-enum-flags-and-bitwise-operators]: https://www.alanzucconi.com/2015/07/26/enum-flags-and-bitwise-operators/
 [concept-bitwise-manipulation]: https://github.com/exercism/v3/blob/main/reference/concepts/bitwise_manipulation.md

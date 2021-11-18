@@ -23,4 +23,4 @@
 
 [docs.microsoft.com-bitwise-and-shift-operators]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/bitwise-and-shift-operators
 [docs.microsoft.com-switch-keyword]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/switch
-[docs-enum-flags]: https://docs.microsoft.com/en-us/dotnet/api/system.flagsattribute?view=net-5.0
+[docs-enum-flags]: https://docs.microsoft.com/en-us/dotnet/api/system.flagsattribute?view=net-6.0
