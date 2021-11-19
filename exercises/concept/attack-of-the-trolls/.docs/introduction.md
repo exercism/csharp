@@ -17,13 +17,13 @@ class MyClass
 
 This declarative metadata only associates additional structured information to the code and does not modify its behavior, but that metadata is used by other part of the code to change how its target would behave or add, change or remove, restrict some its functionalities.
 
-There is many [predefined and reserved attributes](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/attributes/general#conditional-attribute), for example: `Flags`, `Obsolete`, `Conditional`, each has a specific that can be looked up on the C# documentation. Note that the full name of an attribute like [`Flags`](https://docs.microsoft.com/en-us/dotnet/api/system.flagsattribute?view=net-5.0) is `FlagsAttribute` by convention, but the suffix _Attribute_ can be omitted when applied on a declaration.
+There is many [predefined and reserved attributes](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/attributes/general#conditional-attribute), for example: `Flags`, `Obsolete`, `Conditional`, each has a specific that can be looked up on the C# documentation. Note that the full name of an attribute like [`Flags`](https://docs.microsoft.com/en-us/dotnet/api/system.flagsattribute?view=net-6.0) is `FlagsAttribute` by convention, but the suffix _Attribute_ can be omitted when applied on a declaration.
 
 ## Flag Enums
 
 The C# [`enum` type](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/enum) represents a fixed set of named constants (an enumeration).
 
-Normally, one `enum` member can only refer to exactly one of those named constants. However, sometimes it is useful to refer to more than one constant. To do so, one can annotate the `enum` with the [`Flags` attribute](https://docs.microsoft.com/en-us/dotnet/api/system.flagsattribute?view=net-5.0). A _flags_ enum's constants are interpreted as bitwise _flags_ and therefor indicates the enum supports the bitwise operators and additional features like the method `Enum.HasFlag()`.
+Normally, one `enum` member can only refer to exactly one of those named constants. However, sometimes it is useful to refer to more than one constant. To do so, one can annotate the `enum` with the [`Flags` attribute](https://docs.microsoft.com/en-us/dotnet/api/system.flagsattribute?view=net-6.0). A _flags_ enum's constants are interpreted as bitwise _flags_ and therefor indicates the enum supports the bitwise operators and additional features like the method `Enum.HasFlag()`.
 
 A flags enum can be defined as follows (using binary integer notation `0b`):
 

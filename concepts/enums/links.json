@@ -4,11 +4,11 @@
     "description": "Enumeration types"
   },
   {
-    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.enum.parse?view=net-5.0",
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.enum.parse?view=net-6.0",
     "description": "Parsing enums"
   },
   {
-    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.enum?view=net-5.0#examples",
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.enum?view=net-6.0#examples",
     "description": "Enum examples"
   }
 ]
