@@ -10,7 +10,7 @@ After completing the installation, you can verify if the CLI was installed succe
 dotnet --version
 ```
 
-It the output is a version greater than or equal to `6.0.100`, the .NET SDK has been installed succesfully.
+If the output is a version greater than or equal to `6.0.100`, the .NET SDK has been installed succesfully.
 
 ## Using an IDE
 
