@@ -48,7 +48,7 @@ car.GetTelemetryData(ref serialNum, out batteryPercentage, out distanceDrivenInM
 
 Implement the `TelemetryClient.GetBatteryUsagePerMeter()` method.
 
-This will call `RemoteControlCar.GetTelemetryData()`. If `GetTelemetryData()` returns `false` then this routine should return "no data". If `GetTelemetryData()` returns `true` then a message in the following form should be returned "usage-per-meter=BATTERY-USAGE-PER-METER". Where the calculation is (100 - current battery percentage) divided by the distance driven in meters so far.
+This will call `RemoteControlCar.GetTelemetryData()`. If `GetTelemetryData()` returns `false` or the car has not been driven, then this routine should return "no data". If `GetTelemetryData()` returns `true` then a message in the following form should be returned "usage-per-meter=BATTERY-USAGE-PER-METER". Where the calculation is (100 - current battery percentage) divided by the distance driven in meters so far.
 
 ```csharp
 var car = RemoteControlCar.Buy();
