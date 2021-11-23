@@ -72,7 +72,6 @@ namespace Exercism.CSharp.Exercises.Generators
         private string RenderTerritoriesAssert()
         {
             var territoriesAssert = new StringBuilder();
-            territoriesAssert.AppendLine(Render.AssertEqual("expected.Keys.Count", "actual.Keys.Count"));
             territoriesAssert.AppendLine(Render.AssertEqual("expected[Owner.Black]", "actual[Owner.Black]"));
             territoriesAssert.AppendLine(Render.AssertEqual("expected[Owner.White]", "actual[Owner.White]"));
             territoriesAssert.AppendLine(Render.AssertEqual("expected[Owner.None]", "actual[Owner.None]"));

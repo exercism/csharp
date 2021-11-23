@@ -140,7 +140,6 @@ public class GoCountingTests
             [Owner.White] = new HashSet<(int, int)>(),
             [Owner.None] = new HashSet<(int, int)> { (0, 0) }
         };
-        Assert.Equal(expected.Keys.Count, actual.Keys.Count);
         Assert.Equal(expected[Owner.Black], actual[Owner.Black]);
         Assert.Equal(expected[Owner.White], actual[Owner.White]);
         Assert.Equal(expected[Owner.None], actual[Owner.None]);
@@ -160,7 +159,6 @@ public class GoCountingTests
             [Owner.White] = new HashSet<(int, int)> { (3, 0), (3, 1) },
             [Owner.None] = new HashSet<(int, int)>()
         };
-        Assert.Equal(expected.Keys.Count, actual.Keys.Count);
         Assert.Equal(expected[Owner.Black], actual[Owner.Black]);
         Assert.Equal(expected[Owner.White], actual[Owner.White]);
         Assert.Equal(expected[Owner.None], actual[Owner.None]);
@@ -178,7 +176,6 @@ public class GoCountingTests
             [Owner.White] = new HashSet<(int, int)>(),
             [Owner.None] = new HashSet<(int, int)>()
         };
-        Assert.Equal(expected.Keys.Count, actual.Keys.Count);
         Assert.Equal(expected[Owner.Black], actual[Owner.Black]);
         Assert.Equal(expected[Owner.White], actual[Owner.White]);
         Assert.Equal(expected[Owner.None], actual[Owner.None]);
