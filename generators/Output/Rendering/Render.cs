@@ -30,6 +30,9 @@ namespace Exercism.CSharp.Output.Rendering
                     if (IsList(val))
                         return List((dynamic)val);
 
+                    if (IsHashSet(val))
+                        return HashSet((dynamic)val);
+
                     if (IsArray(val))
                         return Array((dynamic)val);
 
@@ -67,6 +70,9 @@ namespace Exercism.CSharp.Output.Rendering
 
         private static bool IsArray(object obj)
             => obj.GetType().IsArray;
+
+        private static bool IsHashSet(object obj)
+            => obj.GetType().IsGenericType && obj.GetType().GetGenericTypeDefinition() == typeof(HashSet<>);
 
         private static bool IsDictionary(object obj)
             => obj.GetType().IsGenericType && obj.GetType().GetGenericTypeDefinition() == typeof(Dictionary<,>);

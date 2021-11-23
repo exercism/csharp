@@ -49,7 +49,7 @@ namespace Exercism.CSharp.Exercises.Generators
         {
             var expected = new[]
             {
-                "new Dictionary<Owner, (int, int)[]>",
+                "new Dictionary<Owner, HashSet<(int, int)>>",
                 "{",
                 $"    [Owner.Black] = {RenderTerritory(testMethod.Expected!["territoryBlack"])},",
                 $"    [Owner.White] = {RenderTerritory(testMethod.Expected!["territoryWhite"])},",
@@ -72,7 +72,6 @@ namespace Exercism.CSharp.Exercises.Generators
         private string RenderTerritoriesAssert()
         {
             var territoriesAssert = new StringBuilder();
-            territoriesAssert.AppendLine(Render.AssertEqual("expected.Keys", "actual.Keys"));
             territoriesAssert.AppendLine(Render.AssertEqual("expected[Owner.Black]", "actual[Owner.Black]"));
             territoriesAssert.AppendLine(Render.AssertEqual("expected[Owner.White]", "actual[Owner.White]"));
             territoriesAssert.AppendLine(Render.AssertEqual("expected[Owner.None]", "actual[Owner.None]"));
@@ -82,7 +81,7 @@ namespace Exercism.CSharp.Exercises.Generators
         private UnescapedValue RenderOwner(dynamic owner) => Render.Enum("Owner", owner);
 
         private string RenderTerritory(dynamic territory)
-            => Render.Object(((JArray)territory).Select(coordinate => (coordinate[0]!.ToObject<int>(), coordinate[1]!.ToObject<int>())).ToArray());
+            => Render.Object(((JArray)territory).Select(coordinate => (coordinate[0]!.ToObject<int>(), coordinate[1]!.ToObject<int>())).ToHashSet());
 
         protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(Dictionary<int, int>).Namespace!);
     }
