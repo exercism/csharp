@@ -34,7 +34,7 @@ Implement the `Authenticator.Developers()` method to return the developers' iden
 ```csharp
 var authenticator = new Authenticator();
 authenticator.Developers;
-// => {"bert" = {"bert@ex.ism", {"blue", 0.8m}, ["Bertrand", "Paris", "France"]},
-// ["anders" = {"bert@ex.ism", {"brown", 0.85m}, ["Anders", "Redmond", "USA"]},
+// => {"Bertrand" = {"bert@ex.ism", {"blue", 0.8m}, ["Bertrand", "Paris", "France"]},
+// ["Anders" = {"anders@ex.ism", {"brown", 0.85m}, ["Anders", "Redmond", "USA"]},
 
 ```
