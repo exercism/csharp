@@ -6,22 +6,6 @@ public class Matrix
     {
     }
 
-    public int Rows
-    {
-        get
-        {
-            throw new NotImplementedException("You need to implement this function.");
-        }
-    }
-
-    public int Cols
-    {
-        get
-        {
-            throw new NotImplementedException("You need to implement this function.");
-        }
-    }
-
     public int[] Row(int row)
     {
         throw new NotImplementedException("You need to implement this function.");
