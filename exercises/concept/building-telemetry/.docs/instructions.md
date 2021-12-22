@@ -35,7 +35,7 @@ Implement the `RemoteControlCar.GetTelemetryData()` method.
 var car = RemoteControlCar.Buy();
 car.Drive();
 car.Drive();
-int serialNum = 0;
+int serialNum = 4;
 car.GetTelemetryData(ref serialNum, out int batteryPercentage, out int distanceDrivenInMeters);
 // => true, 4L, 80, 4
 
@@ -52,13 +52,14 @@ This will call `RemoteControlCar.GetTelemetryData()`. If `GetTelemetryData()` re
 
 ```csharp
 var car = RemoteControlCar.Buy();
-car.Drive(); car.Drive();
+car.Drive();
+car.Drive();
 var tc = new TelemetryClient(car);
-int serialNum = 1;
+int serialNum = 4;
 tc.GetBatteryUsagePerMeter(serialNum);
 // => "usage-per-meter=5"
 
-serialNum = 4;
+serialNum = 1;
 tc.GetBatteryUsagePerMeter(serialNum);
 // => "no data"
 ```
