@@ -1,6 +1,7 @@
 using System;
 using Xunit;
 using Exercism.Tests;
+using System.Globalization;
 
 public class DeveloperPrivilegesTests
 {
@@ -14,7 +15,7 @@ public class DeveloperPrivilegesTests
         {
             admin?.Email,
             admin?.FacialFeatures.EyeColor,
-            admin?.FacialFeatures.PhiltrumWidth.ToString(),
+            admin?.FacialFeatures.PhiltrumWidth.ToString(CultureInfo.InvariantCulture),
             admin?.NameAndAddress[0]
         };
         string[] expected =
@@ -37,7 +38,7 @@ public class DeveloperPrivilegesTests
         {
             developers["Bertrand"]?.Email,
             developers["Bertrand"]?.FacialFeatures.EyeColor,
-            developers["Anders"]?.FacialFeatures.PhiltrumWidth.ToString(),
+            developers["Anders"]?.FacialFeatures.PhiltrumWidth.ToString(CultureInfo.InvariantCulture),
             developers["Anders"]?.NameAndAddress[1]
         };
         string[] expected =
