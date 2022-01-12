@@ -4,7 +4,7 @@ This exercise addresses the parsing of log files.
 
 After a recent security review you have been asked to clean up the organization's archived log files.
 
-All strings passed to the methods are guaranteed to be non-null and leading and without trailing spaces.
+All strings passed to the methods are guaranteed to be non-null and without leading and trailing spaces.
 
 ## 1. Identify garbled log lines
 
