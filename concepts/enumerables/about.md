@@ -1,6 +1,6 @@
 # About
 
-Types that implement the [`IEnumerable<T>`](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-5.0) interface are known as being _enumerable_. All built-in collection types implement this interface.
+Types that implement the [`IEnumerable<T>`](https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1?view=net-6.0) interface are known as being _enumerable_. All built-in collection types implement this interface.
 
 An enumerable type can be iterated over using a `foreach` loop:
 

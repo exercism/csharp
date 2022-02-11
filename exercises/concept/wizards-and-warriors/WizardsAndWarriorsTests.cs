@@ -1,37 +1,42 @@
 using Xunit;
 using Exercism.Tests;
 
-public class RolePlayingGameTests
+public class WizardsAndWarriorsTests
 {
     [Fact]
+    [Task(1)]
     public void Describe_wizard()
     {
         var wizard = new Wizard();
         Assert.Equal("Character is a Wizard", wizard.ToString());
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(1)]
     public void Describe_warrior()
     {
         var warrior = new Warrior();
         Assert.Equal("Character is a Warrior", warrior.ToString());
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(2)]
     public void Warrior_is_not_vulnerable()
     {
         var warrior = new Warrior();
         Assert.False(warrior.Vulnerable());
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(4)]
     public void Wizard_is_vulnerable()
     {
         var wizard = new Wizard();
         Assert.True(wizard.Vulnerable());
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(4)]
     public void Wizard_with_prepared_spell_is_not_vulnerable()
     {
         var wizard = new Wizard();
@@ -39,14 +44,16 @@ public class RolePlayingGameTests
         Assert.False(wizard.Vulnerable());
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(4)]
     public void Wizard_with_no_prepared_spell_is_vulnerable()
     {
         var wizard = new Wizard();
         Assert.True(wizard.Vulnerable());
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(5)]
     public void Attack_points_for_wizard_with_prepared_spell()
     {
         var wizard = new Wizard();
@@ -57,7 +64,8 @@ public class RolePlayingGameTests
         Assert.Equal(12, wizard.DamagePoints(warrior));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(5)]
     public void Attack_points_for_wizard_with_no_prepared_spell()
     {
         var wizard = new Wizard();
@@ -66,7 +74,8 @@ public class RolePlayingGameTests
         Assert.Equal(3, wizard.DamagePoints(otherWizard));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(6)]
     public void Attack_points_for_warrior_with_vulnerable_target()
     {
         var warrior = new Warrior();
@@ -75,7 +84,8 @@ public class RolePlayingGameTests
         Assert.Equal(10, warrior.DamagePoints(wizard));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(6)]
     public void Attack_points_for_warrior_with_non_vulnerable_target()
     {
         var warrior = new Warrior();

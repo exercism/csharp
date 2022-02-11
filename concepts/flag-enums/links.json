@@ -8,7 +8,7 @@
     "description": "Bitwise and shift operators"
   },
   {
-    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.enum.hasflag?view=net-5.0",
+    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.enum.hasflag?view=net-6.0",
     "description": "Enum.HasFlag method"
   },
   {

@@ -1,353 +1,352 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31808.319
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "concept", "concept", "{3303F74B-62AC-47B7-A8AA-F93A52A1C95C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnnalynsInfiltration", "concept\annalyns-infiltration\AnnalynsInfiltration.csproj", "{DBDE9159-2423-4473-9853-4101095D93A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnnalynsInfiltration", "concept\annalyns-infiltration\AnnalynsInfiltration.csproj", "{DBDE9159-2423-4473-9853-4101095D93A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AttackOfTheTrolls", "concept\attack-of-the-trolls\AttackOfTheTrolls.csproj", "{DFEFB3E9-95FB-4D29-9A95-68608B1F3AE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AttackOfTheTrolls", "concept\attack-of-the-trolls\AttackOfTheTrolls.csproj", "{DFEFB3E9-95FB-4D29-9A95-68608B1F3AE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationSystem", "concept\authentication-system\AuthenticationSystem.csproj", "{758FC429-A223-439E-B4C4-3FC5E318468C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenticationSystem", "concept\authentication-system\AuthenticationSystem.csproj", "{758FC429-A223-439E-B4C4-3FC5E318468C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeautySalonGoesGlobal", "concept\beauty-salon-goes-global\BeautySalonGoesGlobal.csproj", "{F185E45E-9806-4617-BF97-635FCEB61680}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeautySalonGoesGlobal", "concept\beauty-salon-goes-global\BeautySalonGoesGlobal.csproj", "{F185E45E-9806-4617-BF97-635FCEB61680}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BirdWatcher", "concept\bird-watcher\BirdWatcher.csproj", "{0F17DA54-D7DA-4EBC-8A4A-63D6ACA43A1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BirdWatcher", "concept\bird-watcher\BirdWatcher.csproj", "{0F17DA54-D7DA-4EBC-8A4A-63D6ACA43A1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingUpForBeauty", "concept\booking-up-for-beauty\BookingUpForBeauty.csproj", "{331F0F1E-6A35-4E22-BBFA-004A1D4EE757}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingUpForBeauty", "concept\booking-up-for-beauty\BookingUpForBeauty.csproj", "{331F0F1E-6A35-4E22-BBFA-004A1D4EE757}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingTelemetry", "concept\building-telemetry\BuildingTelemetry.csproj", "{1B613B04-C002-48F8-B320-EA7BCC8483A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuildingTelemetry", "concept\building-telemetry\BuildingTelemetry.csproj", "{1B613B04-C002-48F8-B320-EA7BCC8483A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorConundrum", "concept\calculator-conundrum\CalculatorConundrum.csproj", "{BA955D45-C36D-4CDC-A0BA-708432C63B3E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatorConundrum", "concept\calculator-conundrum\CalculatorConundrum.csproj", "{BA955D45-C36D-4CDC-A0BA-708432C63B3E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarsAssemble", "concept\cars-assemble\CarsAssemble.csproj", "{1C829A36-C841-4BD6-993D-1F6EA3998B12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarsAssemble", "concept\cars-assemble\CarsAssemble.csproj", "{1C829A36-C841-4BD6-993D-1F6EA3998B12}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhyCantIPushToMain", "concept\developer-privileges\WhyCantIPushToMain.csproj", "{AF9F84FA-7B8E-4B6A-AD7F-3BF1579F3AFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeveloperPrivileges", "concept\developer-privileges\DeveloperPrivileges.csproj", "{AF9F84FA-7B8E-4B6A-AD7F-3BF1579F3AFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElonsToys", "concept\elons-toys\ElonsToys.csproj", "{D8B7C7FD-5A31-4D8E-82AB-9D0C97BBEBDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElonsToys", "concept\elons-toys\ElonsToys.csproj", "{D8B7C7FD-5A31-4D8E-82AB-9D0C97BBEBDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Faceid2", "concept\faceid-2\Faceid2.csproj", "{DB21BFB8-0FCC-4F17-9773-8141B0B4F0D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Faceid2", "concept\faceid-2\Faceid2.csproj", "{DB21BFB8-0FCC-4F17-9773-8141B0B4F0D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FootballMatchReports", "concept\football-match-reports\FootballMatchReports.csproj", "{D1F4D5E0-D4BB-4FED-AFA9-0DDACA1F5A71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FootballMatchReports", "concept\football-match-reports\FootballMatchReports.csproj", "{D1F4D5E0-D4BB-4FED-AFA9-0DDACA1F5A71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighSchoolSweethearts", "concept\high-school-sweethearts\HighSchoolSweethearts.csproj", "{E55BB790-87EC-4C8E-9908-8D0C01E5C215}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HighSchoolSweethearts", "concept\high-school-sweethearts\HighSchoolSweethearts.csproj", "{E55BB790-87EC-4C8E-9908-8D0C01E5C215}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HyperOptimizedTelemetry", "concept\hyper-optimized-telemetry\HyperOptimizedTelemetry.csproj", "{E3D46015-AB12-47AB-AB37-5FFF5B781BD9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HyperOptimizedTelemetry", "concept\hyper-optimized-telemetry\HyperOptimizedTelemetry.csproj", "{E3D46015-AB12-47AB-AB37-5FFF5B781BD9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HyperiaForex", "concept\hyperia-forex\HyperiaForex.csproj", "{62F13963-52BC-4513-B2F5-ED5E07146860}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HyperiaForex", "concept\hyperia-forex\HyperiaForex.csproj", "{62F13963-52BC-4513-B2F5-ED5E07146860}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HyperinflationHitsHyperia", "concept\hyperinflation-hits-hyperia\HyperinflationHitsHyperia.csproj", "{17A5BDBE-C1D1-452E-8627-CE492B3E56BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HyperinflationHitsHyperia", "concept\hyperinflation-hits-hyperia\HyperinflationHitsHyperia.csproj", "{17A5BDBE-C1D1-452E-8627-CE492B3E56BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstrumentsOfTexas", "concept\instruments-of-texas\InstrumentsOfTexas.csproj", "{0CD65A26-E3AC-4D84-9603-4F6E4FA20E20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InstrumentsOfTexas", "concept\instruments-of-texas\InstrumentsOfTexas.csproj", "{0CD65A26-E3AC-4D84-9603-4F6E4FA20E20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterestIsInteresting", "concept\interest-is-interesting\InterestIsInteresting.csproj", "{C4AE5AC9-45E3-43A8-93CF-A7B0853FEA4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InterestIsInteresting", "concept\interest-is-interesting\InterestIsInteresting.csproj", "{C4AE5AC9-45E3-43A8-93CF-A7B0853FEA4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternationalCallingConnoisseur", "concept\international-calling-connoisseur\InternationalCallingConnoisseur.csproj", "{9557D34F-A76C-4A04-92F6-7769676C60B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InternationalCallingConnoisseur", "concept\international-calling-connoisseur\InternationalCallingConnoisseur.csproj", "{9557D34F-A76C-4A04-92F6-7769676C60B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LandGrabInSpace", "concept\land-grab-in-space\LandGrabInSpace.csproj", "{5FDE6E83-C44B-46E1-9453-98A2EF4C52C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LandGrabInSpace", "concept\land-grab-in-space\LandGrabInSpace.csproj", "{5FDE6E83-C44B-46E1-9453-98A2EF4C52C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogLevels", "concept\log-levels\LogLevels.csproj", "{22D6F789-FE96-48DB-ACC1-3A52664B9F9E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogLevels", "concept\log-levels\LogLevels.csproj", "{22D6F789-FE96-48DB-ACC1-3A52664B9F9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogsLogsLogs", "concept\logs-logs-logs\LogsLogsLogs.csproj", "{F72896F4-43E6-4FBC-8D7D-D0306657DE34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogsLogsLogs", "concept\logs-logs-logs\LogsLogsLogs.csproj", "{F72896F4-43E6-4FBC-8D7D-D0306657DE34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuciansLusciousLasagna", "concept\lucians-luscious-lasagna\LuciansLusciousLasagna.csproj", "{B512C62C-677E-4A07-8B96-E973005501E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LuciansLusciousLasagna", "concept\lucians-luscious-lasagna\LuciansLusciousLasagna.csproj", "{B512C62C-677E-4A07-8B96-E973005501E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeedForSpeed", "concept\need-for-speed\NeedForSpeed.csproj", "{3B766FF7-0B73-409C-AC9F-833FA152BD0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeedForSpeed", "concept\need-for-speed\NeedForSpeed.csproj", "{3B766FF7-0B73-409C-AC9F-833FA152BD0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjectRelationalMapping", "concept\object-relational-mapping\ObjectRelationalMapping.csproj", "{FB29A674-B8AC-4A1E-9D64-6DC151E7884E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ObjectRelationalMapping", "concept\object-relational-mapping\ObjectRelationalMapping.csproj", "{FB29A674-B8AC-4A1E-9D64-6DC151E7884E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrmInOneGo", "concept\orm-in-one-go\OrmInOneGo.csproj", "{842EF7A8-F305-42BC-8740-9ABB58202606}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrmInOneGo", "concept\orm-in-one-go\OrmInOneGo.csproj", "{842EF7A8-F305-42BC-8740-9ABB58202606}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParsingLogFiles", "concept\parsing-log-files\ParsingLogFiles.csproj", "{BD7B6827-75A9-4DEE-BF71-3379AD78FA3E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParsingLogFiles", "concept\parsing-log-files\ParsingLogFiles.csproj", "{BD7B6827-75A9-4DEE-BF71-3379AD78FA3E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneNumberAnalysis", "concept\phone-number-analysis\PhoneNumberAnalysis.csproj", "{FADC30C7-4F6D-4C4B-B0C5-53F3424878D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneNumberAnalysis", "concept\phone-number-analysis\PhoneNumberAnalysis.csproj", "{FADC30C7-4F6D-4C4B-B0C5-53F3424878D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedVsBlueDarwinStyle", "concept\red-vs-blue-darwin-style\RedVsBlueDarwinStyle.csproj", "{F67A2623-4C33-46D4-9CE3-827C59240089}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedVsBlueDarwinStyle", "concept\red-vs-blue-darwin-style\RedVsBlueDarwinStyle.csproj", "{F67A2623-4C33-46D4-9CE3-827C59240089}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoteControlCleanup", "concept\remote-control-cleanup\RemoteControlCleanup.csproj", "{86830781-83E7-40D4-AC04-9F8CB730C5CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RemoteControlCleanup", "concept\remote-control-cleanup\RemoteControlCleanup.csproj", "{86830781-83E7-40D4-AC04-9F8CB730C5CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoteControlCompetition", "concept\remote-control-competition\RemoteControlCompetition.csproj", "{19ED9FC4-D6AA-44C6-8B0C-C4B58FFF75AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RemoteControlCompetition", "concept\remote-control-competition\RemoteControlCompetition.csproj", "{19ED9FC4-D6AA-44C6-8B0C-C4B58FFF75AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RollTheDie", "concept\roll-the-die\RollTheDie.csproj", "{42F380C0-9B44-40FD-8F15-19D949CCB2BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RollTheDie", "concept\roll-the-die\RollTheDie.csproj", "{42F380C0-9B44-40FD-8F15-19D949CCB2BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecureMunchesterUnited", "concept\secure-munchester-united\SecureMunchesterUnited.csproj", "{85B57E4B-C0CC-45A2-BA93-A10302AC9080}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecureMunchesterUnited", "concept\secure-munchester-united\SecureMunchesterUnited.csproj", "{85B57E4B-C0CC-45A2-BA93-A10302AC9080}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqueakyClean", "concept\squeaky-clean\SqueakyClean.csproj", "{F85A785C-195A-4B88-9563-6AFED7D8A398}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqueakyClean", "concept\squeaky-clean\SqueakyClean.csproj", "{F85A785C-195A-4B88-9563-6AFED7D8A398}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheWeatherInDeather", "concept\the-weather-in-deather\TheWeatherInDeather.csproj", "{FC58281F-374A-4C48-B00E-BB46D6EE2B89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheWeatherInDeather", "concept\the-weather-in-deather\TheWeatherInDeather.csproj", "{FC58281F-374A-4C48-B00E-BB46D6EE2B89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimFromMarketing", "concept\tim-from-marketing\TimFromMarketing.csproj", "{48E8B6EF-A590-417C-B7B9-A6345FCD70A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimFromMarketing", "concept\tim-from-marketing\TimFromMarketing.csproj", "{48E8B6EF-A590-417C-B7B9-A6345FCD70A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TracksOnTracksOnTracks", "concept\tracks-on-tracks-on-tracks\TracksOnTracksOnTracks.csproj", "{D9D540F8-AEAA-4076-A5A5-5711FC451D99}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TracksOnTracksOnTracks", "concept\tracks-on-tracks-on-tracks\TracksOnTracksOnTracks.csproj", "{D9D540F8-AEAA-4076-A5A5-5711FC451D99}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeighingMachine", "concept\weighing-machine\WeighingMachine.csproj", "{7F321163-AD3F-4F08-83B9-714BDA5FE088}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeighingMachine", "concept\weighing-machine\WeighingMachine.csproj", "{7F321163-AD3F-4F08-83B9-714BDA5FE088}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WizardsAndWarriors", "concept\wizards-and-warriors\WizardsAndWarriors.csproj", "{3329B3ED-C681-4BA4-9947-5F152A38FD0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WizardsAndWarriors", "concept\wizards-and-warriors\WizardsAndWarriors.csproj", "{3329B3ED-C681-4BA4-9947-5F152A38FD0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WizardsAndWarriors2", "concept\wizards-and-warriors-2\WizardsAndWarriors2.csproj", "{5D0FF2A0-BE05-4F07-BB41-8E4A7D0D4442}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WizardsAndWarriors2", "concept\wizards-and-warriors-2\WizardsAndWarriors2.csproj", "{5D0FF2A0-BE05-4F07-BB41-8E4A7D0D4442}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "practice", "practice", "{E276EF69-669A-43E0-88AC-8ABB17A9C026}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accumulate", "practice\accumulate\Accumulate.csproj", "{684FA1FC-5BA3-4089-B6C4-5E6797D463C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accumulate", "practice\accumulate\Accumulate.csproj", "{684FA1FC-5BA3-4089-B6C4-5E6797D463C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acronym", "practice\acronym\Acronym.csproj", "{863F435B-B7C7-4CC8-9A4F-2267385B8487}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acronym", "practice\acronym\Acronym.csproj", "{863F435B-B7C7-4CC8-9A4F-2267385B8487}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AffineCipher", "practice\affine-cipher\AffineCipher.csproj", "{FBDEECDC-AF92-42B3-AE69-3AF91F26F683}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AffineCipher", "practice\affine-cipher\AffineCipher.csproj", "{FBDEECDC-AF92-42B3-AE69-3AF91F26F683}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllYourBase", "practice\all-your-base\AllYourBase.csproj", "{BE366E7A-F7C8-4AB2-9928-04FC68238883}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AllYourBase", "practice\all-your-base\AllYourBase.csproj", "{BE366E7A-F7C8-4AB2-9928-04FC68238883}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Allergies", "practice\allergies\Allergies.csproj", "{A405FB21-249D-4F71-A46E-D943021BA33F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Allergies", "practice\allergies\Allergies.csproj", "{A405FB21-249D-4F71-A46E-D943021BA33F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alphametics", "practice\alphametics\Alphametics.csproj", "{54EBB5D5-B14C-4297-945E-1A3C11B51740}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alphametics", "practice\alphametics\Alphametics.csproj", "{54EBB5D5-B14C-4297-945E-1A3C11B51740}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anagram", "practice\anagram\Anagram.csproj", "{A6CE175A-285A-40C1-ABA8-90A9E483FB70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Anagram", "practice\anagram\Anagram.csproj", "{A6CE175A-285A-40C1-ABA8-90A9E483FB70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArmstrongNumbers", "practice\armstrong-numbers\ArmstrongNumbers.csproj", "{3B0DA602-0415-408E-A3AC-84B3EC23DE13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArmstrongNumbers", "practice\armstrong-numbers\ArmstrongNumbers.csproj", "{3B0DA602-0415-408E-A3AC-84B3EC23DE13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AtbashCipher", "practice\atbash-cipher\AtbashCipher.csproj", "{EB3333ED-3B41-4C2A-A979-C224E4B7C646}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AtbashCipher", "practice\atbash-cipher\AtbashCipher.csproj", "{EB3333ED-3B41-4C2A-A979-C224E4B7C646}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAccount", "practice\bank-account\BankAccount.csproj", "{E6ACD7AB-2E78-4789-855A-F473E8BEAC6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankAccount", "practice\bank-account\BankAccount.csproj", "{E6ACD7AB-2E78-4789-855A-F473E8BEAC6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerSong", "practice\beer-song\BeerSong.csproj", "{B51D51B6-07C4-4A8D-AA08-7BAE69548ED8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeerSong", "practice\beer-song\BeerSong.csproj", "{B51D51B6-07C4-4A8D-AA08-7BAE69548ED8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Binary", "practice\binary\Binary.csproj", "{252C4A30-8AB3-4A5C-AA06-21D49D9E2AA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Binary", "practice\binary\Binary.csproj", "{252C4A30-8AB3-4A5C-AA06-21D49D9E2AA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinarySearch", "practice\binary-search\BinarySearch.csproj", "{1FD342FB-67C0-4A93-8DCE-93180CAF38A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinarySearch", "practice\binary-search\BinarySearch.csproj", "{1FD342FB-67C0-4A93-8DCE-93180CAF38A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinarySearchTree", "practice\binary-search-tree\BinarySearchTree.csproj", "{F74F4279-B424-49A9-A539-909FD5298A04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinarySearchTree", "practice\binary-search-tree\BinarySearchTree.csproj", "{F74F4279-B424-49A9-A539-909FD5298A04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bob", "practice\bob\Bob.csproj", "{5A24CA2C-7E8F-4123-9B2C-9866957A76B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bob", "practice\bob\Bob.csproj", "{5A24CA2C-7E8F-4123-9B2C-9866957A76B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookStore", "practice\book-store\BookStore.csproj", "{B9285667-4EBE-4EF7-AB66-396F8651BDAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookStore", "practice\book-store\BookStore.csproj", "{B9285667-4EBE-4EF7-AB66-396F8651BDAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bowling", "practice\bowling\Bowling.csproj", "{97E48A24-B5CB-478E-AF2A-B8FB2350DB12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bowling", "practice\bowling\Bowling.csproj", "{97E48A24-B5CB-478E-AF2A-B8FB2350DB12}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Change", "practice\change\Change.csproj", "{AC08CDB7-CA75-4A66-AD41-DAB86D6C8435}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Change", "practice\change\Change.csproj", "{AC08CDB7-CA75-4A66-AD41-DAB86D6C8435}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CircularBuffer", "practice\circular-buffer\CircularBuffer.csproj", "{B4F23CFF-7434-4FC9-AD7E-B25012D6AB69}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CircularBuffer", "practice\circular-buffer\CircularBuffer.csproj", "{B4F23CFF-7434-4FC9-AD7E-B25012D6AB69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clock", "practice\clock\Clock.csproj", "{CB9E0567-82A1-4E03-95B9-8397A80A7144}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clock", "practice\clock\Clock.csproj", "{CB9E0567-82A1-4E03-95B9-8397A80A7144}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollatzConjecture", "practice\collatz-conjecture\CollatzConjecture.csproj", "{21BF1A27-D8A6-4C6C-9C2E-9E3C798F25A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollatzConjecture", "practice\collatz-conjecture\CollatzConjecture.csproj", "{21BF1A27-D8A6-4C6C-9C2E-9E3C798F25A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComplexNumbers", "practice\complex-numbers\ComplexNumbers.csproj", "{EC4A3AD2-1923-4816-904F-B49A9B1D1ECB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComplexNumbers", "practice\complex-numbers\ComplexNumbers.csproj", "{EC4A3AD2-1923-4816-904F-B49A9B1D1ECB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Connect", "practice\connect\Connect.csproj", "{7628BE7F-AD0D-4C08-95FF-907E78593169}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Connect", "practice\connect\Connect.csproj", "{7628BE7F-AD0D-4C08-95FF-907E78593169}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoSquare", "practice\crypto-square\CryptoSquare.csproj", "{21C347CC-D097-4B78-8B2D-9763B3FA868E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoSquare", "practice\crypto-square\CryptoSquare.csproj", "{21C347CC-D097-4B78-8B2D-9763B3FA868E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomSet", "practice\custom-set\CustomSet.csproj", "{78FBF12B-FF17-4FAB-A51C-375DFB376A84}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomSet", "practice\custom-set\CustomSet.csproj", "{78FBF12B-FF17-4FAB-A51C-375DFB376A84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Darts", "practice\darts\Darts.csproj", "{6E91AA59-BD05-49EC-8DEA-C69542C8438F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Darts", "practice\darts\Darts.csproj", "{6E91AA59-BD05-49EC-8DEA-C69542C8438F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diamond", "practice\diamond\Diamond.csproj", "{A680BF33-6C6E-4093-84C1-813C51BDA1E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Diamond", "practice\diamond\Diamond.csproj", "{A680BF33-6C6E-4093-84C1-813C51BDA1E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DifferenceOfSquares", "practice\difference-of-squares\DifferenceOfSquares.csproj", "{4BC37EC1-225E-4949-AAE0-44E3DCE0E141}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DifferenceOfSquares", "practice\difference-of-squares\DifferenceOfSquares.csproj", "{4BC37EC1-225E-4949-AAE0-44E3DCE0E141}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiffieHellman", "practice\diffie-hellman\DiffieHellman.csproj", "{4E1525D6-8F38-4599-BA08-C1A3E4BAF50D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiffieHellman", "practice\diffie-hellman\DiffieHellman.csproj", "{4E1525D6-8F38-4599-BA08-C1A3E4BAF50D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DndCharacter", "practice\dnd-character\DndCharacter.csproj", "{C43D0602-7C1C-46BA-B4C4-FBC1C1428859}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DndCharacter", "practice\dnd-character\DndCharacter.csproj", "{C43D0602-7C1C-46BA-B4C4-FBC1C1428859}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominoes", "practice\dominoes\Dominoes.csproj", "{BF12CAF7-F9F8-4B6B-AC94-2EFE2345AAF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dominoes", "practice\dominoes\Dominoes.csproj", "{BF12CAF7-F9F8-4B6B-AC94-2EFE2345AAF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotDsl", "practice\dot-dsl\DotDsl.csproj", "{1D0DEF05-4CBE-4738-AAF0-CC5DEDBE9833}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotDsl", "practice\dot-dsl\DotDsl.csproj", "{1D0DEF05-4CBE-4738-AAF0-CC5DEDBE9833}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErrorHandling", "practice\error-handling\ErrorHandling.csproj", "{53713CF1-576B-480A-B40A-1753A4A90CC3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ErrorHandling", "practice\error-handling\ErrorHandling.csproj", "{53713CF1-576B-480A-B40A-1753A4A90CC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Etl", "practice\etl\Etl.csproj", "{EF104B33-8F43-458A-9533-597CF8389004}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Etl", "practice\etl\Etl.csproj", "{EF104B33-8F43-458A-9533-597CF8389004}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlattenArray", "practice\flatten-array\FlattenArray.csproj", "{BCB6248A-D3A4-4BC5-AF3C-35BAB88009E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlattenArray", "practice\flatten-array\FlattenArray.csproj", "{BCB6248A-D3A4-4BC5-AF3C-35BAB88009E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodChain", "practice\food-chain\FoodChain.csproj", "{802FAF1C-3A5E-44D9-8D0A-ED292579CF00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodChain", "practice\food-chain\FoodChain.csproj", "{802FAF1C-3A5E-44D9-8D0A-ED292579CF00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forth", "practice\forth\Forth.csproj", "{E582C914-C7B0-4812-92DE-7849F485EAD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Forth", "practice\forth\Forth.csproj", "{E582C914-C7B0-4812-92DE-7849F485EAD4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gigasecond", "practice\gigasecond\Gigasecond.csproj", "{FFE3F9EB-D6F9-47EE-AA5F-486053610D80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gigasecond", "practice\gigasecond\Gigasecond.csproj", "{FFE3F9EB-D6F9-47EE-AA5F-486053610D80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoCounting", "practice\go-counting\GoCounting.csproj", "{A901A7DB-5CAC-4245-9920-6BC28DCC94D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoCounting", "practice\go-counting\GoCounting.csproj", "{A901A7DB-5CAC-4245-9920-6BC28DCC94D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GradeSchool", "practice\grade-school\GradeSchool.csproj", "{0DA78D58-5ABC-4C33-B390-A3022E815B36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GradeSchool", "practice\grade-school\GradeSchool.csproj", "{0DA78D58-5ABC-4C33-B390-A3022E815B36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grains", "practice\grains\Grains.csproj", "{89D0A49C-D534-4DE0-8357-75F8AE363994}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Grains", "practice\grains\Grains.csproj", "{89D0A49C-D534-4DE0-8357-75F8AE363994}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grep", "practice\grep\Grep.csproj", "{A340652C-93D8-42AB-8724-08A0BC737A05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Grep", "practice\grep\Grep.csproj", "{A340652C-93D8-42AB-8724-08A0BC737A05}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hamming", "practice\hamming\Hamming.csproj", "{58B4C338-F610-4227-8685-DD04393587A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hamming", "practice\hamming\Hamming.csproj", "{58B4C338-F610-4227-8685-DD04393587A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hangman", "practice\hangman\Hangman.csproj", "{338D09E0-2EEF-4C00-B360-77EDCDEDC3C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hangman", "practice\hangman\Hangman.csproj", "{338D09E0-2EEF-4C00-B360-77EDCDEDC3C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld", "practice\hello-world\HelloWorld.csproj", "{672CEA36-D471-4ECA-9FB4-CE4576835A28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloWorld", "practice\hello-world\HelloWorld.csproj", "{672CEA36-D471-4ECA-9FB4-CE4576835A28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hexadecimal", "practice\hexadecimal\Hexadecimal.csproj", "{DE1B6A83-3B0D-418C-B5AC-FB0BAD2A2D0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexadecimal", "practice\hexadecimal\Hexadecimal.csproj", "{DE1B6A83-3B0D-418C-B5AC-FB0BAD2A2D0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighScores", "practice\high-scores\HighScores.csproj", "{37A064B1-AB4D-4137-B912-B6D358407A26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HighScores", "practice\high-scores\HighScores.csproj", "{37A064B1-AB4D-4137-B912-B6D358407A26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "House", "practice\house\House.csproj", "{DA9C49FF-6215-406D-BD5E-2EA3F8BFE0DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "House", "practice\house\House.csproj", "{DA9C49FF-6215-406D-BD5E-2EA3F8BFE0DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsbnVerifier", "practice\isbn-verifier\IsbnVerifier.csproj", "{D0D3DDF6-5338-4751-BA6E-8D64A77201B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IsbnVerifier", "practice\isbn-verifier\IsbnVerifier.csproj", "{D0D3DDF6-5338-4751-BA6E-8D64A77201B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Isogram", "practice\isogram\Isogram.csproj", "{16711F82-EB7C-4D74-9E4E-ECB8B20BA1ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Isogram", "practice\isogram\Isogram.csproj", "{16711F82-EB7C-4D74-9E4E-ECB8B20BA1ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KindergartenGarden", "practice\kindergarten-garden\KindergartenGarden.csproj", "{E2A8FC3A-9154-4DBC-BF66-FEF6D11DF3E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KindergartenGarden", "practice\kindergarten-garden\KindergartenGarden.csproj", "{E2A8FC3A-9154-4DBC-BF66-FEF6D11DF3E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LargestSeriesProduct", "practice\largest-series-product\LargestSeriesProduct.csproj", "{23101060-4031-4158-92F2-0E4995C24ADE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LargestSeriesProduct", "practice\largest-series-product\LargestSeriesProduct.csproj", "{23101060-4031-4158-92F2-0E4995C24ADE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leap", "practice\leap\Leap.csproj", "{9D5AF8C8-791B-47F1-986D-27900531B594}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leap", "practice\leap\Leap.csproj", "{9D5AF8C8-791B-47F1-986D-27900531B594}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ledger", "practice\ledger\Ledger.csproj", "{EE8DC120-142D-40EE-A846-2BB56BEA4608}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ledger", "practice\ledger\Ledger.csproj", "{EE8DC120-142D-40EE-A846-2BB56BEA4608}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedList", "practice\linked-list\LinkedList.csproj", "{6F459E05-765F-4DBA-82E3-EAD6A4B2874C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinkedList", "practice\linked-list\LinkedList.csproj", "{6F459E05-765F-4DBA-82E3-EAD6A4B2874C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListOps", "practice\list-ops\ListOps.csproj", "{D06A3406-D4CF-4317-BEB6-A631CB3F51DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListOps", "practice\list-ops\ListOps.csproj", "{D06A3406-D4CF-4317-BEB6-A631CB3F51DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Luhn", "practice\luhn\Luhn.csproj", "{B037C0BA-CE27-4C1D-A869-65FF4C4A5689}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Luhn", "practice\luhn\Luhn.csproj", "{B037C0BA-CE27-4C1D-A869-65FF4C4A5689}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Markdown", "practice\markdown\Markdown.csproj", "{CB025E4C-ED1D-4760-8062-CFEA989914FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Markdown", "practice\markdown\Markdown.csproj", "{CB025E4C-ED1D-4760-8062-CFEA989914FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatchingBrackets", "practice\matching-brackets\MatchingBrackets.csproj", "{65EB1B23-8CFB-445A-A9A4-C139B09F372F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MatchingBrackets", "practice\matching-brackets\MatchingBrackets.csproj", "{65EB1B23-8CFB-445A-A9A4-C139B09F372F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Matrix", "practice\matrix\Matrix.csproj", "{4AECB0DD-B4F2-4A00-AAC6-F416EAC44C04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Matrix", "practice\matrix\Matrix.csproj", "{4AECB0DD-B4F2-4A00-AAC6-F416EAC44C04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meetup", "practice\meetup\Meetup.csproj", "{97EF0A86-F251-4FA5-8DAA-DC6C1921E1A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Meetup", "practice\meetup\Meetup.csproj", "{97EF0A86-F251-4FA5-8DAA-DC6C1921E1A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minesweeper", "practice\minesweeper\Minesweeper.csproj", "{3394C204-52AE-4E13-AB87-8BEDC75CEDD0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minesweeper", "practice\minesweeper\Minesweeper.csproj", "{3394C204-52AE-4E13-AB87-8BEDC75CEDD0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NthPrime", "practice\nth-prime\NthPrime.csproj", "{2F966CBF-1BE3-4F07-823E-5CC5DDB1D71F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NthPrime", "practice\nth-prime\NthPrime.csproj", "{2F966CBF-1BE3-4F07-823E-5CC5DDB1D71F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NucleotideCount", "practice\nucleotide-count\NucleotideCount.csproj", "{84182669-486C-43A1-B05B-7BB0CCBC4E6C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NucleotideCount", "practice\nucleotide-count\NucleotideCount.csproj", "{84182669-486C-43A1-B05B-7BB0CCBC4E6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcrNumbers", "practice\ocr-numbers\OcrNumbers.csproj", "{F264C02C-30E7-49B8-9E86-5B2969243109}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OcrNumbers", "practice\ocr-numbers\OcrNumbers.csproj", "{F264C02C-30E7-49B8-9E86-5B2969243109}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Octal", "practice\octal\Octal.csproj", "{3ABC8F86-F0E0-4237-91C3-1F268D266701}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Octal", "practice\octal\Octal.csproj", "{3ABC8F86-F0E0-4237-91C3-1F268D266701}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PalindromeProducts", "practice\palindrome-products\PalindromeProducts.csproj", "{5A19A062-FACD-423D-9D83-A48A836F2568}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PalindromeProducts", "practice\palindrome-products\PalindromeProducts.csproj", "{5A19A062-FACD-423D-9D83-A48A836F2568}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pangram", "practice\pangram\Pangram.csproj", "{D04B70F8-E958-42D2-A3F5-B6E359CD1990}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pangram", "practice\pangram\Pangram.csproj", "{D04B70F8-E958-42D2-A3F5-B6E359CD1990}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParallelLetterFrequency", "practice\parallel-letter-frequency\ParallelLetterFrequency.csproj", "{B8327FD5-E268-4A6E-9092-CE57E4966F08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParallelLetterFrequency", "practice\parallel-letter-frequency\ParallelLetterFrequency.csproj", "{B8327FD5-E268-4A6E-9092-CE57E4966F08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PascalsTriangle", "practice\pascals-triangle\PascalsTriangle.csproj", "{5A32459A-FE82-44D6-BE6C-98421FADBBEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PascalsTriangle", "practice\pascals-triangle\PascalsTriangle.csproj", "{5A32459A-FE82-44D6-BE6C-98421FADBBEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerfectNumbers", "practice\perfect-numbers\PerfectNumbers.csproj", "{A9F9A76D-EA0E-4AD1-98CC-95DB4BE0E0DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PerfectNumbers", "practice\perfect-numbers\PerfectNumbers.csproj", "{A9F9A76D-EA0E-4AD1-98CC-95DB4BE0E0DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoneNumber", "practice\phone-number\PhoneNumber.csproj", "{98A5AA60-E695-449D-A468-9835F3476A98}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhoneNumber", "practice\phone-number\PhoneNumber.csproj", "{98A5AA60-E695-449D-A468-9835F3476A98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PigLatin", "practice\pig-latin\PigLatin.csproj", "{F23D07E8-8AA1-4B71-BDAC-F4233E9C2B97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PigLatin", "practice\pig-latin\PigLatin.csproj", "{F23D07E8-8AA1-4B71-BDAC-F4233E9C2B97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Poker", "practice\poker\Poker.csproj", "{3309FA13-B45B-4A31-B517-C9B54F9B5D5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Poker", "practice\poker\Poker.csproj", "{3309FA13-B45B-4A31-B517-C9B54F9B5D5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pov", "practice\pov\Pov.csproj", "{1328C1EA-6B69-4EE7-A1B9-9C83B83F3988}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pov", "practice\pov\Pov.csproj", "{1328C1EA-6B69-4EE7-A1B9-9C83B83F3988}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimeFactors", "practice\prime-factors\PrimeFactors.csproj", "{9A1B9520-6C5E-4096-9C12-EBA26130DB6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrimeFactors", "practice\prime-factors\PrimeFactors.csproj", "{9A1B9520-6C5E-4096-9C12-EBA26130DB6F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProteinTranslation", "practice\protein-translation\ProteinTranslation.csproj", "{882F9ADC-1317-4DFD-82E6-20DD9E596D6A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProteinTranslation", "practice\protein-translation\ProteinTranslation.csproj", "{882F9ADC-1317-4DFD-82E6-20DD9E596D6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proverb", "practice\proverb\Proverb.csproj", "{AE9614E9-C32D-4D55-A956-E8B965938AFE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Proverb", "practice\proverb\Proverb.csproj", "{AE9614E9-C32D-4D55-A956-E8B965938AFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PythagoreanTriplet", "practice\pythagorean-triplet\PythagoreanTriplet.csproj", "{FF144E37-C3F7-4568-8C8C-BE63EDC78358}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PythagoreanTriplet", "practice\pythagorean-triplet\PythagoreanTriplet.csproj", "{FF144E37-C3F7-4568-8C8C-BE63EDC78358}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueenAttack", "practice\queen-attack\QueenAttack.csproj", "{8C4EDF99-9492-4768-B8F5-B3915D876DF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QueenAttack", "practice\queen-attack\QueenAttack.csproj", "{8C4EDF99-9492-4768-B8F5-B3915D876DF9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RailFenceCipher", "practice\rail-fence-cipher\RailFenceCipher.csproj", "{7B18CDC9-66AD-469A-B847-1B38C57F4647}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RailFenceCipher", "practice\rail-fence-cipher\RailFenceCipher.csproj", "{7B18CDC9-66AD-469A-B847-1B38C57F4647}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raindrops", "practice\raindrops\Raindrops.csproj", "{CBF8AC86-406C-49E5-9261-1A73EACDFF70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Raindrops", "practice\raindrops\Raindrops.csproj", "{CBF8AC86-406C-49E5-9261-1A73EACDFF70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RationalNumbers", "practice\rational-numbers\RationalNumbers.csproj", "{241A462E-9EF2-4AC4-8079-8BF71FE851A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RationalNumbers", "practice\rational-numbers\RationalNumbers.csproj", "{241A462E-9EF2-4AC4-8079-8BF71FE851A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "React", "practice\react\React.csproj", "{8942C4D3-42D1-4A35-A98F-DF2C3F8E5318}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "React", "practice\react\React.csproj", "{8942C4D3-42D1-4A35-A98F-DF2C3F8E5318}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rectangles", "practice\rectangles\Rectangles.csproj", "{A3E05FEF-78DE-4016-A74E-094EB696B616}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rectangles", "practice\rectangles\Rectangles.csproj", "{A3E05FEF-78DE-4016-A74E-094EB696B616}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResistorColor", "practice\resistor-color\ResistorColor.csproj", "{C0501987-3A00-463B-B49E-3AC708B6C4D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ResistorColor", "practice\resistor-color\ResistorColor.csproj", "{C0501987-3A00-463B-B49E-3AC708B6C4D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResistorColorDuo", "practice\resistor-color-duo\ResistorColorDuo.csproj", "{F6F5FC24-C5A6-4C54-AE21-F814CA7D4895}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ResistorColorDuo", "practice\resistor-color-duo\ResistorColorDuo.csproj", "{F6F5FC24-C5A6-4C54-AE21-F814CA7D4895}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResistorColorTrio", "practice\resistor-color-trio\ResistorColorTrio.csproj", "{DB17651A-D7F7-4792-B9A8-90D178CCCAE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ResistorColorTrio", "practice\resistor-color-trio\ResistorColorTrio.csproj", "{DB17651A-D7F7-4792-B9A8-90D178CCCAE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestApi", "practice\rest-api\RestApi.csproj", "{6DFB6C23-0F88-41BA-91D3-61DEDF59359F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestApi", "practice\rest-api\RestApi.csproj", "{6DFB6C23-0F88-41BA-91D3-61DEDF59359F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReverseString", "practice\reverse-string\ReverseString.csproj", "{4016FAEC-445B-421E-B968-B5FD16A23561}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReverseString", "practice\reverse-string\ReverseString.csproj", "{4016FAEC-445B-421E-B968-B5FD16A23561}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RnaTranscription", "practice\rna-transcription\RnaTranscription.csproj", "{AD6BD65C-78F1-491A-86ED-820C948E6A1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RnaTranscription", "practice\rna-transcription\RnaTranscription.csproj", "{AD6BD65C-78F1-491A-86ED-820C948E6A1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobotName", "practice\robot-name\RobotName.csproj", "{DA3D0490-0B26-4722-86A6-F2659E82021E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RobotName", "practice\robot-name\RobotName.csproj", "{DA3D0490-0B26-4722-86A6-F2659E82021E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobotSimulator", "practice\robot-simulator\RobotSimulator.csproj", "{E9C89268-E9B1-4C5C-87C8-E5645E958040}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RobotSimulator", "practice\robot-simulator\RobotSimulator.csproj", "{E9C89268-E9B1-4C5C-87C8-E5645E958040}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanNumerals", "practice\roman-numerals\RomanNumerals.csproj", "{FB091C23-709B-4D45-87EC-88AED35A4C46}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RomanNumerals", "practice\roman-numerals\RomanNumerals.csproj", "{FB091C23-709B-4D45-87EC-88AED35A4C46}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RotationalCipher", "practice\rotational-cipher\RotationalCipher.csproj", "{21BE5954-386A-4A9D-A5E2-9E5E934A3BCA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RotationalCipher", "practice\rotational-cipher\RotationalCipher.csproj", "{21BE5954-386A-4A9D-A5E2-9E5E934A3BCA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunLengthEncoding", "practice\run-length-encoding\RunLengthEncoding.csproj", "{4A5926C5-F481-4167-A380-59F1A97535E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RunLengthEncoding", "practice\run-length-encoding\RunLengthEncoding.csproj", "{4A5926C5-F481-4167-A380-59F1A97535E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaddlePoints", "practice\saddle-points\SaddlePoints.csproj", "{49BF7A70-7280-421A-B6FC-627A967EAEDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SaddlePoints", "practice\saddle-points\SaddlePoints.csproj", "{49BF7A70-7280-421A-B6FC-627A967EAEDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Say", "practice\say\Say.csproj", "{95F44A22-1044-4466-A2CF-F1240F57B3F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Say", "practice\say\Say.csproj", "{95F44A22-1044-4466-A2CF-F1240F57B3F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScaleGenerator", "practice\scale-generator\ScaleGenerator.csproj", "{321F9E9B-8819-4125-BC09-B01B3443BE7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScaleGenerator", "practice\scale-generator\ScaleGenerator.csproj", "{321F9E9B-8819-4125-BC09-B01B3443BE7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrabbleScore", "practice\scrabble-score\ScrabbleScore.csproj", "{7B74F0E7-C0D8-46E3-B6AB-7BBBFCA5A29C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScrabbleScore", "practice\scrabble-score\ScrabbleScore.csproj", "{7B74F0E7-C0D8-46E3-B6AB-7BBBFCA5A29C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecretHandshake", "practice\secret-handshake\SecretHandshake.csproj", "{77B57863-479B-4D86-A579-26C865FC0FE0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecretHandshake", "practice\secret-handshake\SecretHandshake.csproj", "{77B57863-479B-4D86-A579-26C865FC0FE0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Series", "practice\series\Series.csproj", "{8767C756-B325-46FF-B071-8F7DEFF08094}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Series", "practice\series\Series.csproj", "{8767C756-B325-46FF-B071-8F7DEFF08094}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SgfParsing", "practice\sgf-parsing\SgfParsing.csproj", "{5F349082-1993-4BEB-A1D3-473B96776DC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SgfParsing", "practice\sgf-parsing\SgfParsing.csproj", "{5F349082-1993-4BEB-A1D3-473B96776DC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sieve", "practice\sieve\Sieve.csproj", "{B91AFD2E-0C36-4BE9-A252-FFD4A2EF3C8C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sieve", "practice\sieve\Sieve.csproj", "{B91AFD2E-0C36-4BE9-A252-FFD4A2EF3C8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCipher", "practice\simple-cipher\SimpleCipher.csproj", "{6C52BF11-3EB7-4DF6-8B5C-17711BA60A28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleCipher", "practice\simple-cipher\SimpleCipher.csproj", "{6C52BF11-3EB7-4DF6-8B5C-17711BA60A28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleLinkedList", "practice\simple-linked-list\SimpleLinkedList.csproj", "{B7D7FBCB-615A-4553-AA7B-CA6B5DFE5637}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleLinkedList", "practice\simple-linked-list\SimpleLinkedList.csproj", "{B7D7FBCB-615A-4553-AA7B-CA6B5DFE5637}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceAge", "practice\space-age\SpaceAge.csproj", "{06820024-0B20-402C-BF9C-EFEC04325C98}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpaceAge", "practice\space-age\SpaceAge.csproj", "{06820024-0B20-402C-BF9C-EFEC04325C98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpiralMatrix", "practice\spiral-matrix\SpiralMatrix.csproj", "{9B09E998-546C-47A3-9ED9-67309AE32945}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpiralMatrix", "practice\spiral-matrix\SpiralMatrix.csproj", "{9B09E998-546C-47A3-9ED9-67309AE32945}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Strain", "practice\strain\Strain.csproj", "{DF2DAE3E-E816-48B9-B485-AB023A79622B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Strain", "practice\strain\Strain.csproj", "{DF2DAE3E-E816-48B9-B485-AB023A79622B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sublist", "practice\sublist\Sublist.csproj", "{BEEC53E9-6E35-42B7-893A-425A1A9034FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sublist", "practice\sublist\Sublist.csproj", "{BEEC53E9-6E35-42B7-893A-425A1A9034FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SumOfMultiples", "practice\sum-of-multiples\SumOfMultiples.csproj", "{B99E8C6E-2058-4103-B4FA-44FF4003D0EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SumOfMultiples", "practice\sum-of-multiples\SumOfMultiples.csproj", "{B99E8C6E-2058-4103-B4FA-44FF4003D0EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tournament", "practice\tournament\Tournament.csproj", "{97FB9236-C06B-4000-BAB6-5BC649AA3F3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tournament", "practice\tournament\Tournament.csproj", "{97FB9236-C06B-4000-BAB6-5BC649AA3F3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transpose", "practice\transpose\Transpose.csproj", "{D49117D4-43C3-49FF-8DAB-4446543233F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transpose", "practice\transpose\Transpose.csproj", "{D49117D4-43C3-49FF-8DAB-4446543233F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeBuilding", "practice\tree-building\TreeBuilding.csproj", "{63298041-B1A6-4F17-BC1B-F1182BC3D544}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TreeBuilding", "practice\tree-building\TreeBuilding.csproj", "{63298041-B1A6-4F17-BC1B-F1182BC3D544}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Triangle", "practice\triangle\Triangle.csproj", "{884100F6-FF7A-4317-85D9-DE99569422BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Triangle", "practice\triangle\Triangle.csproj", "{884100F6-FF7A-4317-85D9-DE99569422BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trinary", "practice\trinary\Trinary.csproj", "{DD0851A5-CAEB-4564-B69E-4E29ED7E49E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Trinary", "practice\trinary\Trinary.csproj", "{DD0851A5-CAEB-4564-B69E-4E29ED7E49E5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwelveDays", "practice\twelve-days\TwelveDays.csproj", "{3AC218EB-EFD5-42B3-9828-38E46307170A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwelveDays", "practice\twelve-days\TwelveDays.csproj", "{3AC218EB-EFD5-42B3-9828-38E46307170A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwoBucket", "practice\two-bucket\TwoBucket.csproj", "{E336ACFA-EAB1-475B-AD47-1CD6655D43A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwoBucket", "practice\two-bucket\TwoBucket.csproj", "{E336ACFA-EAB1-475B-AD47-1CD6655D43A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwoFer", "practice\two-fer\TwoFer.csproj", "{91E9585D-0547-4246-952E-4E7592510655}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwoFer", "practice\two-fer\TwoFer.csproj", "{91E9585D-0547-4246-952E-4E7592510655}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VariableLengthQuantity", "practice\variable-length-quantity\VariableLengthQuantity.csproj", "{CE8948EE-C87D-46AD-B643-30C5CA86F107}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VariableLengthQuantity", "practice\variable-length-quantity\VariableLengthQuantity.csproj", "{CE8948EE-C87D-46AD-B643-30C5CA86F107}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordCount", "practice\word-count\WordCount.csproj", "{8D0CA149-75ED-4BC0-9AF4-784367BC063B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordCount", "practice\word-count\WordCount.csproj", "{8D0CA149-75ED-4BC0-9AF4-784367BC063B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordSearch", "practice\word-search\WordSearch.csproj", "{1AB54B73-21AF-412F-B5C5-076C39D0C901}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordSearch", "practice\word-search\WordSearch.csproj", "{1AB54B73-21AF-412F-B5C5-076C39D0C901}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wordy", "practice\wordy\Wordy.csproj", "{CDCA2085-1915-4AF1-853A-E1B8A88CAABA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wordy", "practice\wordy\Wordy.csproj", "{CDCA2085-1915-4AF1-853A-E1B8A88CAABA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yacht", "practice\yacht\Yacht.csproj", "{41C422F6-49CA-4EC5-86CB-78D6720FC822}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yacht", "practice\yacht\Yacht.csproj", "{41C422F6-49CA-4EC5-86CB-78D6720FC822}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZebraPuzzle", "practice\zebra-puzzle\ZebraPuzzle.csproj", "{FCB566EA-EDF0-4D97-8436-C101F384EB76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZebraPuzzle", "practice\zebra-puzzle\ZebraPuzzle.csproj", "{FCB566EA-EDF0-4D97-8436-C101F384EB76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zipper", "practice\zipper\Zipper.csproj", "{82C5DF7B-6F86-40D3-8F65-4B63D41E23A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Zipper", "practice\zipper\Zipper.csproj", "{82C5DF7B-6F86-40D3-8F65-4B63D41E23A5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogAnalysis", "concept\log-analysis\LogAnalysis.csproj", "{D66F4A88-0765-4D6B-A8A4-933E5882EC92}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{DBDE9159-2423-4473-9853-4101095D93A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -1018,6 +1017,13 @@ Global
 		{82C5DF7B-6F86-40D3-8F65-4B63D41E23A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82C5DF7B-6F86-40D3-8F65-4B63D41E23A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82C5DF7B-6F86-40D3-8F65-4B63D41E23A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D66F4A88-0765-4D6B-A8A4-933E5882EC92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D66F4A88-0765-4D6B-A8A4-933E5882EC92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D66F4A88-0765-4D6B-A8A4-933E5882EC92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D66F4A88-0765-4D6B-A8A4-933E5882EC92}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{DBDE9159-2423-4473-9853-4101095D93A2} = {3303F74B-62AC-47B7-A8AA-F93A52A1C95C}
@@ -1187,5 +1193,9 @@ Global
 		{41C422F6-49CA-4EC5-86CB-78D6720FC822} = {E276EF69-669A-43E0-88AC-8ABB17A9C026}
 		{FCB566EA-EDF0-4D97-8436-C101F384EB76} = {E276EF69-669A-43E0-88AC-8ABB17A9C026}
 		{82C5DF7B-6F86-40D3-8F65-4B63D41E23A5} = {E276EF69-669A-43E0-88AC-8ABB17A9C026}
+		{D66F4A88-0765-4D6B-A8A4-933E5882EC92} = {3303F74B-62AC-47B7-A8AA-F93A52A1C95C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AB4EA6C9-5461-4024-BDC7-2AE0C3A85CD1}
 	EndGlobalSection
 EndGlobal

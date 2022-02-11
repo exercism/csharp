@@ -511,8 +511,8 @@
         "slug": "robot-name",
         "name": "Robot Name",
         "uuid": "46b8aea8-1528-43cb-a754-495ec2790ce2",
-        "practices": ["randomness", "classes"],
-        "prerequisites": ["randomness", "strings", "classes"],
+        "practices": ["randomness", "classes", "sets"],
+        "prerequisites": ["randomness", "strings", "classes", "generic-types"],
         "difficulty": 3
       },
       {
@@ -1754,7 +1754,7 @@
         "uuid": "cef7deef-54ce-4201-b263-7cd2098533f8",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 0,
+        "difficulty": 1,
         "status": "deprecated"
       },
       {
@@ -1763,7 +1763,7 @@
         "uuid": "5d30c5a0-0f69-4b79-8c7e-3b1fe6a5707f",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 0,
+        "difficulty": 1,
         "status": "deprecated"
       },
       {
@@ -1772,7 +1772,7 @@
         "uuid": "c8555f37-9976-4f52-a5db-6a680ec8d53b",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 0,
+        "difficulty": 1,
         "status": "deprecated"
       },
       {
@@ -1781,7 +1781,7 @@
         "uuid": "c7dd8467-87e2-4997-a96e-a04cb8b891e8",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 0,
+        "difficulty": 1,
         "status": "deprecated"
       },
       {
@@ -1896,6 +1896,11 @@
       "name": "Do While Loops"
     },
     {
+      "uuid": "3996a8a9-6bde-4e79-beeb-7ae5d29f9065",
+      "slug": "enumerables",
+      "name": "Enumerables"
+    },
+    {
       "uuid": "d5b628d9-ac64-4eeb-91c7-f2dcff798b31",
       "slug": "enums",
       "name": "Enums"
@@ -1981,9 +1986,19 @@
       "name": "Interfaces"
     },
     {
+      "uuid": "af24ee71-e561-4e5b-a505-e1a9ec04987d",
+      "slug": "lambdas",
+      "name": "Lambdas"
+    },
+    {
       "uuid": "dd7bf404-59af-4ae6-895b-5d04cdc8ecaa",
       "slug": "lists",
       "name": "Lists"
+    },
+    {
+      "uuid": "5001a8f1-de6a-44ce-bfc0-24a533f3b793",
+      "slug": "math-operators",
+      "name": "Math Operators"
     },
     {
       "uuid": "a93a154c-4706-4c01-8ece-b5504ba3378d",

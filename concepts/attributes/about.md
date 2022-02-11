@@ -26,5 +26,5 @@ The following four predefined attributes are used regularly:
 [attribute-concept]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/attributes/
 [attribute]: https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/attributes
 [attribute-targets]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/attributes/#attribute-targets
-[flags-attribute]: https://docs.microsoft.com/en-us/dotnet/api/system.flagsattribute?view=net-5.0
-[flags-example]: https://docs.microsoft.com/en-us/dotnet/api/system.flagsattribute?view=net-5.0#examples
+[flags-attribute]: https://docs.microsoft.com/en-us/dotnet/api/system.flagsattribute?view=net-6.0
+[flags-example]: https://docs.microsoft.com/en-us/dotnet/api/system.flagsattribute?view=net-6.0#examples

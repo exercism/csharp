@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Newtonsoft.Json;
+using System.Text.Json;
 
 public class User
 {
     public string name { get; }
-    public IDictionary<string, double> owes { get; private set; }
-    public IDictionary<string, double> owed_by { get; private set; }
+    public IDictionary<string, double> owes { get;  set; }
+    public IDictionary<string, double> owed_by { get;  set; }
     public double balance => owed_by.Sum(x => x.Value) - owes.Sum(x => x.Value);
 
     public User(string name)
@@ -84,40 +84,40 @@ public class RestApi
 
     public RestApi(string database)
     {
-        users = JsonConvert.DeserializeObject<List<User>>(database);
+        users = JsonSerializer.Deserialize<List<User>>(database);
     }
 
     public string Get(string url, string payload = null)
     {
         if (payload != null)
         {
-            var values = JsonConvert.DeserializeObject<Dictionary<string, IEnumerable<string>>>(payload);
+            var values = JsonSerializer.Deserialize<Dictionary<string, IEnumerable<string>>>(payload);
             var requestedUsers = values["users"];
-            return JsonConvert.SerializeObject(users.Where(x => requestedUsers.Contains(x.name)));
+            return JsonSerializer.Serialize(users.Where(x => requestedUsers.Contains(x.name)));
         }
 
-        return JsonConvert.SerializeObject(users);
+        return JsonSerializer.Serialize(users);
     }
 
     public string Post(string url, string payload)
     {
         if (url == "/add")
         {
-            var values = JsonConvert.DeserializeObject<Dictionary<string, string>>(payload);
+            var values = JsonSerializer.Deserialize<Dictionary<string, string>>(payload);
             var newUser = new User(values["user"]);
             users.Add(newUser);
-            return JsonConvert.SerializeObject(newUser);
+            return JsonSerializer.Serialize(newUser);
         }
         else if (url == "/iou")
         {
-            var values = JsonConvert.DeserializeObject<Dictionary<string, object>>(payload);
-            var lender = users.First(x => x.name.Equals(values["lender"]));
-            var borrower = users.First(x => x.name.Equals(values["borrower"]));
-            var amount = (double)values["amount"];
+            var values = JsonSerializer.Deserialize<Dictionary<string, object>>(payload);
+            var lender = users.First(x => x.name.Equals(values["lender"].ToString()));
+            var borrower = users.First(x => x.name.Equals(values["borrower"].ToString()));
+            var amount = double.Parse(values["amount"].ToString());
             lender.Lend(borrower, amount);
             borrower.Borrow(lender, amount);
 
-            return JsonConvert.SerializeObject(new[] { lender, borrower }.OrderBy(x => x.name));
+            return JsonSerializer.Serialize(new[] { lender, borrower }.OrderBy(x => x.name));
         }
 
         return String.Empty;

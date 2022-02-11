@@ -2,9 +2,10 @@ using System.Collections.Generic;
 using Xunit;
 using Exercism.Tests;
 
-public class InterfacesTests
+public class RemoteControlCompetitionTests
 {
     [Fact]
+    [Task(1)]
     public void Race()
     {
         var productionCar = new ProductionRemoteControlCar();
@@ -15,19 +16,18 @@ public class InterfacesTests
         TestTrack.Race((IRemoteControlCar)experimentalCar);
         Assert.Equal(20, experimentalCar.DistanceTravelled - productionCar.DistanceTravelled);
     }
-
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void RankCars()
+    
+    [Fact]
+    [Task(2)]
+    public void EnsureInterfaceExposesDistanceTravelled()
     {
-        var prc1 = new ProductionRemoteControlCar();
-        var prc2 = new ProductionRemoteControlCar();
-        prc1.NumberOfVictories = 3;
-        prc2.NumberOfVictories = 2;
-        var rankings = TestTrack.GetRankedCars(prc1, prc2);
-        Assert.Same(prc1, rankings[1]);
+        var car = Assert.IsAssignableFrom<IRemoteControlCar>(new ProductionRemoteControlCar());
+        car.Drive();
+        Assert.Equal(10, car.DistanceTravelled);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(2)]
     public void EnsureCarsAreComparable()
     {
         var fast = new ProductionRemoteControlCar();
@@ -39,5 +39,17 @@ public class InterfacesTests
         var cars = new List<ProductionRemoteControlCar> { fast, slow, medium };
         cars.Sort();
         Assert.Equal(new ProductionRemoteControlCar[] { slow, medium, fast }, cars);
+    }
+
+    [Fact]
+    [Task(3)]
+    public void RankCars()
+    {
+        var prc1 = new ProductionRemoteControlCar();
+        var prc2 = new ProductionRemoteControlCar();
+        prc1.NumberOfVictories = 3;
+        prc2.NumberOfVictories = 2;
+        var rankings = TestTrack.GetRankedCars(prc1, prc2);
+        Assert.Same(prc1, rankings[1]);
     }
 }

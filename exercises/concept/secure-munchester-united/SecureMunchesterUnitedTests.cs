@@ -2,51 +2,50 @@ using System;
 using Xunit;
 using Exercism.Tests;
 
-public class CastingTests
+public class SecureMunchesterUnitedTests
 {
     [Fact]
+    [Task(1)]
     public void DisplaySecurityPass_manager()
     {
         var spm = new SecurityPassMaker();
         Assert.Equal("Too Important for a Security Pass", spm.GetDisplayName(new Manager()));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void DisplaySecurityPass_pysio()
+    [Fact]
+    [Task(1)]
+    public void DisplaySecurityPass_physio()
     {
         var spm = new SecurityPassMaker();
         Assert.Equal("The Physio", spm.GetDisplayName(new Physio()));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void DisplaySecurityPass_pysio_with_alert()
-    {
-        var spm = new SecurityPassMaker();
-        Assert.Equal("The Physio", spm.GetDisplayName(new Physio()));
-    }
-
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(2)]
     public void DisplaySecurityPass_security()
     {
         var spm = new SecurityPassMaker();
         Assert.Equal("Security Team Member Priority Personnel", spm.GetDisplayName(new Security()));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(3)]
     public void DisplaySecurityPass_security_junior()
     {
         var spm = new SecurityPassMaker();
         Assert.Equal("Security Junior", spm.GetDisplayName(new SecurityJunior()));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(3)]
     public void DisplaySecurityPass_security_police_liaison()
     {
         var spm = new SecurityPassMaker();
         Assert.Equal("Police Liaison Officer", spm.GetDisplayName(new PoliceLiaison()));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(3)]
     public void DisplaySecurityPass_security_intern()
     {
         var spm = new SecurityPassMaker();

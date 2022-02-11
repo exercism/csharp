@@ -2,7 +2,7 @@ using System;
 using Xunit;
 using Exercism.Tests;
 
-public class StringFormattingTests
+public class HighSchoolSweetheartsTests
 {
     private const string expectedBanner =
 @"
@@ -22,20 +22,23 @@ public class StringFormattingTests
               *
 ";
     [Fact]
+    [Task(1)]
     public void DisplaySingleLine()
     {
         const string expected = "                  Lance Green ♡ Pat Riley                    ";
         Assert.Equal(expected, HighSchoolSweethearts.DisplaySingleLine("Lance Green", "Pat Riley"));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(2)]
     public void DisplayBanner()
     {
         string actualBanner = HighSchoolSweethearts.DisplayBanner("L. G. ", "P. R. ");
         Assert.Equal(expectedBanner.Trim(), actualBanner.Trim());
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(3)]
     public void DisplayGermanExchangeStudents()
     {
         string actual = HighSchoolSweethearts.DisplayGermanExchangeStudents("Norbert", "Heidi",

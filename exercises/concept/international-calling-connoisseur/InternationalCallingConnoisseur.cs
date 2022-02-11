@@ -13,13 +13,13 @@ public static class DialingCodes
         throw new NotImplementedException($"Please implement the (static) GetExistingDictionary() method");
     }
 
-    public static Dictionary<int, string> AddCountryToEmptyDictionary(int CountryCode, string CountryName)
+    public static Dictionary<int, string> AddCountryToEmptyDictionary(int countryCode, string countryName)
     {
         throw new NotImplementedException($"Please implement the (static) AddCountryToEmptyDictionary() method");
     }
 
     public static Dictionary<int, string> AddCountryToExistingDictionary(
-        Dictionary<int, string> existingDictionary, int countryCode, string CountryName)
+        Dictionary<int, string> existingDictionary, int countryCode, string countryName)
     {
         throw new NotImplementedException($"Please implement the (static) AddCountryToExistingDictionary() method");
     }
@@ -29,6 +29,12 @@ public static class DialingCodes
     {
         throw new NotImplementedException($"Please implement the (static) GetCountryNameFromDictionary() method");
     }
+
+    public static bool CheckCodeExists(Dictionary<int, string> existingDictionary, int countryCode)
+    {
+        throw new NotImplementedException($"Please implement the (static) CheckCodeExists() method");
+    }
+
     public static Dictionary<int, string> UpdateDictionary(
         Dictionary<int, string> existingDictionary, int countryCode, string countryName)
     {
@@ -39,10 +45,6 @@ public static class DialingCodes
         Dictionary<int, string> existingDictionary, int countryCode)
     {
         throw new NotImplementedException($"Please implement the (static) RemoveCountryFromDictionary() method");
-    }
-    public static bool CheckCodeExists(Dictionary<int, string> existingDictionary, int countryCode)
-    {
-        throw new NotImplementedException($"Please implement the (static) CheckCodeExists() method");
     }
 
     public static string FindLongestCountryName(Dictionary<int, string> existingDictionary)

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Xunit.Sdk;
 
 public class WeatherStation
 {
@@ -17,7 +16,7 @@ public class WeatherStation
 
     public void ClearAll()
     {
-        this.reading = new Reading();
+        reading = new Reading();
         recordDates.Clear();
         temperatures.Clear();
     }
@@ -164,7 +163,7 @@ public enum Outlook
 /*** Please do not modify this enum ***/
 public enum WindDirection
 {
-    Unknown = 0,    // default
+    Unknown, // default
     Northerly,
     Easterly,
     Southerly,

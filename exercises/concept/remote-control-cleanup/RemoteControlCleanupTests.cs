@@ -1,9 +1,10 @@
 using Xunit;
 using Exercism.Tests;
 
-public class NestedTypeTests
+public class RemoteControlCleanupTests
 {
     [Fact]
+    [Task(1)]
     public void ShowSponsor()
     {
         var car = new RemoteControlCar();
@@ -12,7 +13,8 @@ public class NestedTypeTests
         Assert.Equal(expected, car.CurrentSponsor);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(1)]
     public void ShowSpeed()
     {
         var car = new RemoteControlCar();

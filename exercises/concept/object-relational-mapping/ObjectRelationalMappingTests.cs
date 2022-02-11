@@ -3,9 +3,10 @@ using System;
 using Xunit;
 using Exercism.Tests;
 
-public class ResourceCleanupTests
+public class ObjectRelationalMappingTests
 {
     [Fact]
+    [Task(2)]
     public void Write_good()
     {
         var db = new Database();
@@ -16,7 +17,8 @@ public class ResourceCleanupTests
         Assert.Equal(new object[] { Database.State.DataWritten, "good write" }, actual);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(2)]
     public void Write_bad()
     {
         var db = new Database();
@@ -27,7 +29,8 @@ public class ResourceCleanupTests
         Assert.Equal(new object[] { Database.State.Closed, "bad write" }, actual);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(3)]
     public void Commit_good()
     {
         var db = new Database();
@@ -39,7 +42,8 @@ public class ResourceCleanupTests
         Assert.Equal(new object[] { Database.State.Closed, "good commit" }, actual);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(3)]
     public void Commit_bad()
     {
         var db = new Database();
@@ -51,7 +55,8 @@ public class ResourceCleanupTests
         Assert.Equal(new object[] { Database.State.Closed, "bad commit" }, actual);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(3)]
     public void Out_of_order()
     {
         var db = new Database();
@@ -62,7 +67,8 @@ public class ResourceCleanupTests
         Assert.Equal(new object[] { Database.State.Closed, string.Empty }, actual);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(4)]
     public void Disposable()
     {
         var db = new Database();

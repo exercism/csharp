@@ -3,8 +3,8 @@
 A property in C# is a member of a class that provides access to data within that class.
 Callers can set or retrieve (get) the data. Properties can be either auto-implemented or
 have a backing field. They comprise a set accessor and/or a get accessor.
-In some other languages a "mutator" is roughly equivalent to a
-a set accessor and an "accessor" is roughly equivalent to a set accessor although
+In some other languages a "mutator" is roughly equivalent to 
+a set accessor and an "accessor" is roughly equivalent to a get accessor although
 the composition of the syntax is completely different.
 
 When setting a property the input value can be validated, formatted
@@ -26,7 +26,7 @@ The basic syntax to express properties can take two forms:
 private int myField;
 public int MyProperty
 {
-    get { return myfField; }
+    get { return myField; }
     set { myField = value; }
 }
 ```

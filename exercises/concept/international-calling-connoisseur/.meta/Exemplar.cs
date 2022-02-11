@@ -18,9 +18,9 @@ public static class DialingCodes
         };
     }
 
-    public static Dictionary<int, string> AddCountryToEmptyDictionary(int CountryCode, string CountryName)
+    public static Dictionary<int, string> AddCountryToEmptyDictionary(int countryCode, string countryName)
     {
-        return new Dictionary<int, string>() { { CountryCode, CountryName } };
+        return new Dictionary<int, string>() { { countryCode, countryName } };
     }
 
     public static Dictionary<int, string> AddCountryToExistingDictionary(

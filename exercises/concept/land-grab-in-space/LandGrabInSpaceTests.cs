@@ -3,9 +3,10 @@ using System.Reflection;
 using Xunit;
 using Exercism.Tests;
 
-public class StructsTests
+public class LandGrabInSpaceTests
 {
     [Fact]
+    [Task(2)]
     public void IsClaimed_yes()
     {
         var ch = new ClaimsHandler();
@@ -14,7 +15,8 @@ public class StructsTests
         Assert.True(claimed);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(2)]
     public void IsClaimed_no()
     {
         var ch = new ClaimsHandler();
@@ -23,7 +25,8 @@ public class StructsTests
         Assert.False(claimed);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(3)]
     public void IsLastClaim_yes()
     {
         var ch = new ClaimsHandler();
@@ -33,7 +36,8 @@ public class StructsTests
         Assert.True(lastClaim);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(3)]
     public void IsLastClaim_no()
     {
         var ch = new ClaimsHandler();
@@ -43,7 +47,8 @@ public class StructsTests
         Assert.False(lastClaim);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(4)]
     public void GetLongestSide()
     {
         var ch = new ClaimsHandler();

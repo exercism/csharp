@@ -64,14 +64,14 @@ namespace Exercism.CSharp.Exercises.Generators
             => RenderRandomPrivateKeysArrange(testMethod);
 
         private string RenderAssertForPrivateKeyIsRandomProperty() 
-            => Render.AssertEqual("privateKeys.Distinct().Count()", "privateKeys.Length");
+            => Render.AssertInRange("privateKeys.Distinct().Count()", "privateKeys.Length - 100", "privateKeys.Length");
 
         private string RenderRandomPrivateKeysArrange(TestMethod testMethod)
         {
             var arrange = new StringBuilder();
 
             arrange.AppendLine(Render.Variable("p", Render.BigInteger(new BigInteger(7919))));
-            arrange.AppendLine(Render.Variable("privateKeys", $"Enumerable.Range(0, 10).Select(_ => {testMethod.TestedClass}.{testMethod.TestedMethod}(p)).ToArray()"));
+            arrange.AppendLine(Render.Variable("privateKeys", $"Enumerable.Range(0, 1000).Select(_ => {testMethod.TestedClass}.{testMethod.TestedMethod}(p)).ToArray()"));
 
             return arrange.ToString();
         }

@@ -1,10 +1,12 @@
 using System;
 using Xunit;
 using Exercism.Tests;
+using System.Globalization;
 
-public class ObjectInitializationTests
+public class DeveloperPrivilegesTests
 {
     [Fact]
+    [Task(1)]
     public void GetAdmin()
     {
         var authenticator = new Authenticator();
@@ -13,7 +15,7 @@ public class ObjectInitializationTests
         {
             admin?.Email,
             admin?.FacialFeatures.EyeColor,
-            admin?.FacialFeatures.PhiltrumWidth.ToString(),
+            admin?.FacialFeatures.PhiltrumWidth.ToString(CultureInfo.InvariantCulture),
             admin?.NameAndAddress[0]
         };
         string[] expected =
@@ -26,7 +28,8 @@ public class ObjectInitializationTests
         Assert.Equal(expected, actual);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(2)]
     public void GetDevelopers()
     {
         var authenticator = new Authenticator();
@@ -35,7 +38,7 @@ public class ObjectInitializationTests
         {
             developers["Bertrand"]?.Email,
             developers["Bertrand"]?.FacialFeatures.EyeColor,
-            developers["Anders"]?.FacialFeatures.PhiltrumWidth.ToString(),
+            developers["Anders"]?.FacialFeatures.PhiltrumWidth.ToString(CultureInfo.InvariantCulture),
             developers["Anders"]?.NameAndAddress[1]
         };
         string[] expected =

@@ -16,7 +16,7 @@ public class LogParser
     public int CountQuotedPasswords(string lines)
     {
         bool[] results = new bool[lines.Length];
-        var regex = new Regex(@"^.*""[^\\""]*password[^\\""]*"".*$",
+        var regex = new Regex(@""".*password.*""",
             RegexOptions.IgnoreCase | RegexOptions.Multiline);
         var matches = regex.Matches(lines);
         return matches.Count;

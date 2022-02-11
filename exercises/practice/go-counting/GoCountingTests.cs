@@ -16,7 +16,7 @@ public class GoCountingTests
             "  W  ";
         var sut = new GoCounting(board);
         var actual = sut.Territory(coordinate);
-        var expected = (Owner.Black, new[] { (0, 0), (0, 1), (1, 0) });
+        var expected = (Owner.Black, new HashSet<(int, int)> { (0, 0), (0, 1), (1, 0) });
         Assert.Equal(expected.Item1, actual.Item1);
         Assert.Equal(expected.Item2, actual.Item2);
     }
@@ -33,7 +33,7 @@ public class GoCountingTests
             "  W  ";
         var sut = new GoCounting(board);
         var actual = sut.Territory(coordinate);
-        var expected = (Owner.White, new[] { (2, 3) });
+        var expected = (Owner.White, new HashSet<(int, int)> { (2, 3) });
         Assert.Equal(expected.Item1, actual.Item1);
         Assert.Equal(expected.Item2, actual.Item2);
     }
@@ -50,7 +50,7 @@ public class GoCountingTests
             "  W  ";
         var sut = new GoCounting(board);
         var actual = sut.Territory(coordinate);
-        var expected = (Owner.None, new[] { (0, 3), (0, 4), (1, 4) });
+        var expected = (Owner.None, new HashSet<(int, int)> { (0, 3), (0, 4), (1, 4) });
         Assert.Equal(expected.Item1, actual.Item1);
         Assert.Equal(expected.Item2, actual.Item2);
     }
@@ -67,7 +67,7 @@ public class GoCountingTests
             "  W  ";
         var sut = new GoCounting(board);
         var actual = sut.Territory(coordinate);
-        var expected = (Owner.None, Array.Empty<(int, int)>());
+        var expected = (Owner.None, new HashSet<(int, int)>());
         Assert.Equal(expected.Item1, actual.Item1);
         Assert.Equal(expected.Item2, actual.Item2);
     }
@@ -134,13 +134,12 @@ public class GoCountingTests
         var board = " ";
         var sut = new GoCounting(board);
         var actual = sut.Territories();
-        var expected = new Dictionary<Owner, (int, int)[]>
+        var expected = new Dictionary<Owner, HashSet<(int, int)>>
         {
-            [Owner.Black] = Array.Empty<(int, int)>(),
-            [Owner.White] = Array.Empty<(int, int)>(),
-            [Owner.None] = new[] { (0, 0) }
+            [Owner.Black] = new HashSet<(int, int)>(),
+            [Owner.White] = new HashSet<(int, int)>(),
+            [Owner.None] = new HashSet<(int, int)> { (0, 0) }
         };
-        Assert.Equal(expected.Keys, actual.Keys);
         Assert.Equal(expected[Owner.Black], actual[Owner.Black]);
         Assert.Equal(expected[Owner.White], actual[Owner.White]);
         Assert.Equal(expected[Owner.None], actual[Owner.None]);
@@ -154,13 +153,12 @@ public class GoCountingTests
             " BW ";
         var sut = new GoCounting(board);
         var actual = sut.Territories();
-        var expected = new Dictionary<Owner, (int, int)[]>
+        var expected = new Dictionary<Owner, HashSet<(int, int)>>
         {
-            [Owner.Black] = new[] { (0, 0), (0, 1) },
-            [Owner.White] = new[] { (3, 0), (3, 1) },
-            [Owner.None] = Array.Empty<(int, int)>()
+            [Owner.Black] = new HashSet<(int, int)> { (0, 0), (0, 1) },
+            [Owner.White] = new HashSet<(int, int)> { (3, 0), (3, 1) },
+            [Owner.None] = new HashSet<(int, int)>()
         };
-        Assert.Equal(expected.Keys, actual.Keys);
         Assert.Equal(expected[Owner.Black], actual[Owner.Black]);
         Assert.Equal(expected[Owner.White], actual[Owner.White]);
         Assert.Equal(expected[Owner.None], actual[Owner.None]);
@@ -172,13 +170,12 @@ public class GoCountingTests
         var board = " B ";
         var sut = new GoCounting(board);
         var actual = sut.Territories();
-        var expected = new Dictionary<Owner, (int, int)[]>
+        var expected = new Dictionary<Owner, HashSet<(int, int)>>
         {
-            [Owner.Black] = new[] { (0, 0), (2, 0) },
-            [Owner.White] = Array.Empty<(int, int)>(),
-            [Owner.None] = Array.Empty<(int, int)>()
+            [Owner.Black] = new HashSet<(int, int)> { (0, 0), (2, 0) },
+            [Owner.White] = new HashSet<(int, int)>(),
+            [Owner.None] = new HashSet<(int, int)>()
         };
-        Assert.Equal(expected.Keys, actual.Keys);
         Assert.Equal(expected[Owner.Black], actual[Owner.Black]);
         Assert.Equal(expected[Owner.White], actual[Owner.White]);
         Assert.Equal(expected[Owner.None], actual[Owner.None]);

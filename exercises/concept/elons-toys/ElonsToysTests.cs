@@ -1,16 +1,18 @@
 using Xunit;
 using Exercism.Tests;
 
-public class RemoteControlCarTests
+public class ElonsToysTests
 {
     [Fact]
+    [Task(1)]
     public void Buy_new_car_returns_instance()
     {
         var car = RemoteControlCar.Buy();
         Assert.NotNull(car);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(1)]
     public void Buy_new_car_returns_new_car_each_time()
     {
         var car1 = RemoteControlCar.Buy();
@@ -18,21 +20,24 @@ public class RemoteControlCarTests
         Assert.NotSame(car2, car1);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(2)]
     public void New_car_distance_display()
     {
         var car = new RemoteControlCar();
         Assert.Equal("Driven 0 meters", car.DistanceDisplay());
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(3)]
     public void New_car_battery_display()
     {
         var car = new RemoteControlCar();
         Assert.Equal("Battery at 100%", car.BatteryDisplay());
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(4)]
     public void Distance_display_after_driving_once()
     {
         var car = new RemoteControlCar();
@@ -40,7 +45,8 @@ public class RemoteControlCarTests
         Assert.Equal("Driven 20 meters", car.DistanceDisplay());
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(4)]
     public void Distance_display_after_driving_multiple_times()
     {
         var car = new RemoteControlCar();
@@ -53,7 +59,8 @@ public class RemoteControlCarTests
         Assert.Equal("Driven 340 meters", car.DistanceDisplay());
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(5)]
     public void Battery_display_after_driving_once()
     {
         var car = new RemoteControlCar();
@@ -61,7 +68,8 @@ public class RemoteControlCarTests
         Assert.Equal("Battery at 99%", car.BatteryDisplay());
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(5)]
     public void Battery_display_after_driving_multiple_times()
     {
         var car = new RemoteControlCar();
@@ -74,7 +82,8 @@ public class RemoteControlCarTests
         Assert.Equal("Battery at 77%", car.BatteryDisplay());
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(6)]
     public void Battery_display_when_battery_empty()
     {
         var car = new RemoteControlCar();
@@ -91,7 +100,8 @@ public class RemoteControlCarTests
         Assert.Equal("Battery empty", car.BatteryDisplay());
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(6)]
     public void Distance_display_when_battery_empty()
     {
         var car = new RemoteControlCar();

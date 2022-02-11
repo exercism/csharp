@@ -6,14 +6,15 @@ using System.Threading;
 using Xunit;
 using Exercism.Tests;
 
-public class TimeTests
+public class BeautySalonGoesGlobalTests
 {
-    public TimeTests()
+    public BeautySalonGoesGlobalTests()
     {
         Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
     }
 
     [Fact]
+    [Task(1)]
     public void ShowLocalTime()
     {
         var dt = new DateTime(2030, 07, 25, 13, 45, 0);
@@ -22,28 +23,32 @@ public class TimeTests
         Assert.Equal(dt + offset, Appointment.ShowLocalTime(dt));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(2)]
     public void Schedule_newyork()
     {
         Assert.Equal(new DateTime(2019, 07, 25, 12, 45, 0),
             Appointment.Schedule("7/25/2019 08:45:00", Location.NewYork));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(2)]
     public void Schedule_london()
     {
         Assert.Equal(new DateTime(2019, 07, 25, 12, 45, 0),
             Appointment.Schedule("7/25/2019 13:45:00", Location.London));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(2)]
     public void Schedule_paris()
     {
         Assert.Equal(new DateTime(2019, 07, 25, 12, 45, 0),
             Appointment.Schedule("7/25/2019 14:45:00", Location.Paris));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(3)]
     public void GetAlertTime_early()
     {
         Assert.Equal(new DateTime(2019, 07, 24, 16, 0, 0),
@@ -51,7 +56,8 @@ public class TimeTests
                 AlertLevel.Early));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(3)]
     public void GetAlertTime_standard()
     {
         Assert.Equal(new DateTime(2019, 07, 25, 14, 15, 0),
@@ -59,7 +65,8 @@ public class TimeTests
                 AlertLevel.Standard));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(3)]
     public void GetAlertTime_late()
     {
         Assert.Equal(new DateTime(2019, 07, 25, 15, 30, 0),
@@ -67,79 +74,89 @@ public class TimeTests
                 AlertLevel.Late));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void DalylightSavingChanged_newyork_active()
+    [Fact]
+    [Task(4)]
+    public void DaylightSavingChanged_newyork_active()
     {
         Assert.True(
             Appointment.HasDaylightSavingChanged(new DateTime(2019, 3, 13, 0, 0, 0),
                 Location.NewYork));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void DalylightSavingChanged_newyork_inactive()
+    [Fact]
+    [Task(4)]
+    public void DaylightSavingChanged_newyork_inactive()
     {
         Assert.True(
             Appointment.HasDaylightSavingChanged(new DateTime(2019, 11, 7, 0, 0, 0),
                 Location.NewYork));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void DalylightSavingChanged_newyork_no_change()
+    [Fact]
+    [Task(4)]
+    public void DaylightSavingChanged_newyork_no_change()
     {
         Assert.False(
             Appointment.HasDaylightSavingChanged(new DateTime(2019, 12, 25, 0, 0, 0),
                 Location.NewYork));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void DalylightSavingChanged_london_active()
+    [Fact]
+    [Task(4)]
+    public void DaylightSavingChanged_london_active()
     {
         Assert.True(
             Appointment.HasDaylightSavingChanged(new DateTime(2019, 4, 1, 0, 0, 0),
                 Location.London));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void DalylightSavingChanged_london_inactive()
+    [Fact]
+    [Task(4)]
+    public void DaylightSavingChanged_london_inactive()
     {
         Assert.True(
             Appointment.HasDaylightSavingChanged(new DateTime(2019, 10, 29, 0, 0, 0),
                 Location.London));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void DalylightSavingChanged_london_no_change()
+    [Fact]
+    [Task(4)]
+    public void DaylightSavingChanged_london_no_change()
     {
         Assert.False(
             Appointment.HasDaylightSavingChanged(new DateTime(2019, 12, 25, 0, 0, 0),
                 Location.London));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void DalylightSavingChanged_paris_active()
+    [Fact]
+    [Task(4)]
+    public void DaylightSavingChanged_paris_active()
     {
         Assert.True(
             Appointment.HasDaylightSavingChanged(new DateTime(2019, 4, 1, 0, 0, 0),
                 Location.Paris));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void DalylightSavingChanged_paris_inactive()
+    [Fact]
+    [Task(4)]
+    public void DaylightSavingChanged_paris_inactive()
     {
         Assert.True(
             Appointment.HasDaylightSavingChanged(new DateTime(2019, 10, 29, 0, 0, 0),
                 Location.Paris));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void DalylightSavingChanged_paris_no_change()
+    [Fact]
+    [Task(4)]
+    public void DaylightSavingChanged_paris_no_change()
     {
         Assert.False(
             Appointment.HasDaylightSavingChanged(new DateTime(2019, 12, 25, 0, 0, 0),
                 Location.Paris));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(5)]
     public void NormalizeDateTime_newyork()
     {
         Assert.Equal(new DateTime(2019, 11, 25, 13, 45, 0),
@@ -147,7 +164,8 @@ public class TimeTests
                 Location.NewYork));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(5)]
     public void NormalizeDateTime_london()
     {
         Assert.Equal(new DateTime(2019, 11, 25, 13, 45, 0),
@@ -155,7 +173,8 @@ public class TimeTests
                 Location.London));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(5)]
     public void NormalizeDateTime_paris()
     {
         Assert.Equal(new DateTime(2019, 11, 25, 13, 45, 0),
@@ -163,7 +182,8 @@ public class TimeTests
                 Location.Paris));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(5)]
     public void NormalizeDateTime_bad()
     {
         Assert.Equal(DateTime.MinValue,

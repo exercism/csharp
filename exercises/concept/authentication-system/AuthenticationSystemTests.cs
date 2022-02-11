@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using Xunit;
 using Exercism.Tests;
 
-public class ObjectInitializationTests
+public class AuthenticationSystemTests
 {
     [Fact]
+    [Task(4)]
     public void GetAdmin()
     {
         var admin = new Identity { EyeColor = "green", Email = "admin@ex.ism" };
@@ -14,6 +15,7 @@ public class ObjectInitializationTests
     }
 
     [Fact]
+    [Task(5)]
     public void GetDevelopers()
     {
         var authenticator = new Authenticator(new Identity { EyeColor = "green", Email = "admin@ex.ism" });

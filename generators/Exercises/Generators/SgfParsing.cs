@@ -14,7 +14,10 @@ namespace Exercism.CSharp.Exercises.Generators
             if (testMethod.ExpectedIsError)
                 testMethod.ExceptionThrown = typeof(ArgumentException);
             else
+            {
                 testMethod.Expected = RenderTree(testMethod.Expected);
+                testMethod.Assert = "AssertEqual(expected, SgfParser.ParseTree(encoded));";
+            }
 
             testMethod.TestedClass = "SgfParser";
             testMethod.TestedMethod = "ParseTree";
@@ -28,6 +31,20 @@ namespace Exercism.CSharp.Exercises.Generators
             namespaces.Add(typeof(ArgumentException).Namespace!);
             namespaces.Add(typeof(Dictionary<string, string[]>).Namespace!);
         }
+
+        protected override void UpdateTestClass(TestClass testClass) => AddAssertEqualMethod(testClass);
+
+        private void AddAssertEqualMethod(TestClass testClass) =>
+            testClass.AdditionalMethods.Add(@"
+    private void AssertEqual(SgfTree expected, SgfTree actual)
+    {
+        Assert.Equal(expected.Data, actual.Data);
+        Assert.Equal(expected.Children.Length, actual.Children.Length);
+        for (var i = 0; i < expected.Children.Length; i++)
+        {
+            AssertEqual(expected.Children[i], actual.Children[i]);
+        }
+    }");
 
         private UnescapedValue? RenderTree(dynamic tree)
         {

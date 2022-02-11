@@ -1,10 +1,10 @@
 using Xunit;
 using Exercism.Tests;
-using System;
 
-public class RandomnessTests
+public class RollTheDieTests
 {
     [Fact]
+    [Task(1)]
     public void RollDie()
     {
         var player = new Player();
@@ -14,7 +14,8 @@ public class RandomnessTests
         }
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(2)]
     public void GenerateSpellStrength()
     {
         var player = new Player();

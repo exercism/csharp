@@ -1,6 +1,6 @@
 # Test generators
 
-Test generators allow tracks to generate tests automatically without having to write them ourselves. Each test generator reads from the exercise's `canonical data`, which defines the name of the test, its inputs, and outputs. You can read more about exercism's approach to test suites [here](https://github.com/exercism/docs/blob/master/language-tracks/exercises/anatomy/test-suites.md).
+Test generators allow tracks to generate tests automatically without having to write them ourselves. Each test generator reads from the exercise's `canonical data`, which defines the name of the test, its inputs, and outputs. You can read more about exercism's approach to test suites [here](https://github.com/exercism/problem-specifications#test-data-canonical-datajson).
 
 Generating tests automatically removes any sort of user error when creating tests. Furthermore, we want the tests to be accurate with respect to its canonical data. Test generation also makes it much easier to keep tests up to date. As the canonical data changes, the tests will be automatically updated when the generator for that test is run.
 
@@ -21,7 +21,7 @@ When looking through the canonical data and the generator code base, we use a lo
 
 Adding a test generator is straightforward. Simply add a new file to the `Exercises/Generators` folder with the name of the exercise (in PascalCase), and create a class that extends the `GeneratorExercise` class.
 
-An example of a simple generator would be the Bob exercise. The source is displayed below, but you can freely view it in the repository [here](https://github.com/exercism/csharp/blob/master/generators/Exercises/Bob.cs).
+An example of a simple generator would be the Bob exercise. The source is displayed below, but you can freely view it in the repository [here](https://github.com/exercism/csharp/blob/main/generators/Exercises/Generators/Bob.cs).
 
 ```csharp
 namespace Exercism.CSharp.Exercises.Generators
@@ -48,7 +48,7 @@ There are many things that can be customized, of which we'll list the more commo
 
 It is not uncommon that a generator has to transform its input data or expected value to a different value/representation.
 
-An example of this is the [bracket-push](https://github.com/exercism/csharp/blob/master/generators/Exercises/Generators/BracketPush.cs) generator, which has a `"value"` input value, which is of type `string`. However, this `string` value contains a backslash, which needs to escaped in order for it to be rendered correctly:
+An example of this is the [matching-brackets](https://github.com/exercism/csharp/blob/main/generators/Exercises/Generators/MatchingBrackets.cs) generator, which has a `"value"` input value, which is of type `string`. However, this `string` value contains a backslash, which needs to escaped in order for it to be rendered correctly:
 
 ```csharp
 protected override void UpdateTestMethod(TestMethod testMethod)
@@ -60,7 +60,7 @@ protected override void UpdateTestMethod(TestMethod testMethod)
 
 Another common use case is to handle empty arrays. If an array is empty, its type will default to `JArray`, which doesn't have any type information. To allow the generator to output a correctly typed array, we have to convert the `JArray` to an array first.
 
-An example of this is the [proverb](https://github.com/exercism/csharp/blob/master/generators/Exercises/Generators/Proverb.cs) generator, which converts the `JArray` to an empty `string` array:
+An example of this is the [proverb](https://github.com/exercism/csharp/blob/main/generators/Exercises/Generators/Proverb.cs) generator, which converts the `JArray` to an empty `string` array:
 
 ```csharp
 protected override void UpdateTestMethod(TestMethod testMethod)
@@ -79,7 +79,7 @@ protected override void UpdateTestMethod(TestMethod testMethod)
 
 Sometimes, it might make sense to not define a test method's data inline, but as variables.
 
-An example of this is the [crypto-square](https://github.com/exercism/csharp/blob/master/generators/Exercises/Generators/CryptoSquare.cs) generator, which indicates that both the test method input as well as the expected value, should be stored in variables:
+An example of this is the [crypto-square](https://github.com/exercism/csharp/blob/main/generators/Exercises/Generators/CryptoSquare.cs) generator, which indicates that both the test method input as well as the expected value, should be stored in variables:
 
 ```csharp
 protected override void UpdateTestMethod(TestMethod testMethod)
@@ -93,7 +93,7 @@ protected override void UpdateTestMethod(TestMethod testMethod)
 
 By default, the generator will test a static method. However, you can also test for instance methods, extension methods, properties and constructors.
 
-An example of this is the [roman-numerals](https://github.com/exercism/csharp/blob/master/generators/Exercises/Generators/RomanNumerals.cs) generator, which indicates that it tests an extensions method:
+An example of this is the [roman-numerals](https://github.com/exercism/csharp/blob/main/generators/Exercises/Generators/RomanNumerals.cs) generator, which indicates that it tests an extensions method:
 
 ```csharp
 protected override void UpdateTestMethod(TestMethod testMethod)
@@ -107,7 +107,7 @@ protected override void UpdateTestMethod(TestMethod testMethod)
 
 As we saw in the previous example, you can also customize the name of the tested method. You are also allowed to customize the tested class' name and the test method name.
 
-An example of this is the [triangle](https://github.com/exercism/csharp/blob/master/generators/Exercises/Generators/Triangle.cs) generator, which by default generates duplicate test method names (which will be a compile-time error), but instead uses the `TestMethodNameWithPath` to use the full path as the test method name (effectively making the test method name unique):
+An example of this is the [triangle](https://github.com/exercism/csharp/blob/main/generators/Exercises/Generators/Triangle.cs) generator, which by default generates duplicate test method names (which will be a compile-time error), but instead uses the `TestMethodNameWithPath` to use the full path as the test method name (effectively making the test method name unique):
 
 ```csharp
 protected override void UpdateTestMethod(TestMethod testMethod)
@@ -122,7 +122,7 @@ protected override void UpdateTestMethod(TestMethod testMethod)
 
 Some test methods want to verify that an exception is being thrown.
 
-An example of this is the [rna-transcription](https://github.com/exercism/csharp/blob/master/generators/Exercises/Generators/RnaTranscription.cs) generator, which defines that some of its test methods should throw an `ArgumentException`:
+An example of this is the [rna-transcription](https://github.com/exercism/csharp/blob/main/generators/Exercises/Generators/RnaTranscription.cs) generator, which defines that some of its test methods should throw an `ArgumentException`:
 
 ```csharp
 protected override void UpdateTestMethod(TestMethod testMethod)
@@ -138,7 +138,7 @@ Note that `ArgumentException` type's namespace will be automatically added to th
 
 In some cases, you might want to override the parameters that are used as input parameters.
 
-An example of this is the [two-fer](https://github.com/exercism/csharp/blob/master/generators/Exercises/Generators/TwoFer.cs) generator, which does not use any input parameters when the `"name"` input parameter is set to `null`:
+An example of this is the [two-fer](https://github.com/exercism/csharp/blob/main/generators/Exercises/Generators/TwoFer.cs) generator, which does not use any input parameters when the `"name"` input parameter is set to `null`:
 
 ```csharp
 protected override void UpdateTestMethod(TestMethod testMethod)
@@ -152,7 +152,7 @@ protected override void UpdateTestMethod(TestMethod testMethod)
 
 If a test method tests an instance method, you can also specify which parameters to use as constructor parameters (the others will be input parameters, unless specified otherwise).
 
-An example of this is the [matrix](https://github.com/exercism/csharp/blob/master/generators/Exercises/Generators/Matrix.cs) generator, which specifies that the `"string"` parameter should be passed as a constructor parameter:
+An example of this is the [matrix](https://github.com/exercism/csharp/blob/main/generators/Exercises/Generators/Matrix.cs) generator, which specifies that the `"string"` parameter should be passed as a constructor parameter:
 
 ```csharp
 protected override void UpdateTestMethod(TestMethod testMethod)
@@ -166,7 +166,7 @@ protected override void UpdateTestMethod(TestMethod testMethod)
 
 Although this should be used as a last resort, some generators might want to skip the default generation completely and control which arrange, act or assert code the test method should contain.
 
-An example of this is the [run-length-encoding](https://github.com/exercism/csharp/blob/master/generators/Exercises/Generators/RunLengthEncoding.cs) generator, which uses a custom assertion for one specific property:
+An example of this is the [run-length-encoding](https://github.com/exercism/csharp/blob/main/generators/Exercises/Generators/RunLengthEncoding.cs) generator, which uses a custom assertion for one specific property:
 
 ```csharp
 protected override void UpdateTestMethod(TestMethod testMethod)
@@ -193,7 +193,7 @@ Allows additional namespaces to be added to the test suite.
 
 All tests use the `Xunit` framework, so each test class will automatically include the `Xunit` namespace. However, some test classes may require additional namespaces.
 
-An example of this is the [gigasecond](https://github.com/exercism/csharp/blob/master/generators/Exercises/Generators/Gigasecond.cs) generator, which uses the `DateTime` class in its test methods, and thus adds its namespace to the list of namespaces:
+An example of this is the [gigasecond](https://github.com/exercism/csharp/blob/main/generators/Exercises/Generators/Gigasecond.cs) generator, which uses the `DateTime` class in its test methods, and thus adds its namespace to the list of namespaces:
 
 ```csharp
 protected override void UpdateNamespaces(ISet<string> namespaces)
@@ -208,7 +208,7 @@ Note that as mentioned before, the namespace of any thrown exception types are a
 
 This method allows you to customize the output of the test class. Only in rare cases would you want to override this method. The most common use case to override this method, is to add additional (helper) methods to the test suite.
 
-An example of this is the [tournament](https://github.com/exercism/csharp/blob/master/generators/Exercises/Generators/Tournament.cs) generator, which adds a helper method to the test suite:
+An example of this is the [tournament](https://github.com/exercism/csharp/blob/main/generators/Exercises/Generators/Tournament.cs) generator, which adds a helper method to the test suite:
 
 ```csharp
 protected override void UpdateTestClass(TestClass testClass)

@@ -1,9 +1,10 @@
 using Xunit;
 using Exercism.Tests;
 
-public class RemoteControlCarTests
+public class NeedForSpeedTests
 {
     [Fact]
+    [Task(3)]
     public void New_remote_control_car_has_not_driven_any_distance()
     {
         int speed = 10;
@@ -13,7 +14,8 @@ public class RemoteControlCarTests
         Assert.Equal(0, car.DistanceDriven());
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(3)]
     public void Drive_increases_distance_driven_with_speed()
     {
         int speed = 5;
@@ -25,7 +27,8 @@ public class RemoteControlCarTests
         Assert.Equal(5, car.DistanceDriven());
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(4)]
     public void Drive_does_not_increase_distance_driven_when_battery_drained()
     {
         int speed = 9;
@@ -42,7 +45,8 @@ public class RemoteControlCarTests
         Assert.Equal(18, car.DistanceDriven());
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(4)]
     public void New_remote_control_car_battery_is_not_drained()
     {
         int speed = 15;
@@ -52,7 +56,8 @@ public class RemoteControlCarTests
         Assert.False(car.BatteryDrained());
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(4)]
     public void Drive_to_almost_drain_battery()
     {
         int speed = 2;
@@ -68,7 +73,8 @@ public class RemoteControlCarTests
         Assert.False(car.BatteryDrained());
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(4)]
     public void Drive_until_battery_is_drained()
     {
         int speed = 2;
@@ -84,21 +90,48 @@ public class RemoteControlCarTests
         Assert.True(car.BatteryDrained());
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(4)]
+    public void Super_hungry_car_after_one_drive_is_drained()
+    {
+        int speed = 100;
+        int batteryDrain = 60;
+        var car = new RemoteControlCar(speed, batteryDrain);
+        car.Drive();
+        Assert.True(car.BatteryDrained());
+    }
+
+    [Fact]
+    [Task(4)]
+    public void Super_hungry_car_can_try_driving_but_is_drained()
+    {
+        int speed = 100;
+        int batteryDrain = 60;
+        var car = new RemoteControlCar(speed, batteryDrain);
+        car.Drive();
+        car.Drive();
+        Assert.True(car.BatteryDrained());
+        Assert.Equal(100, car.DistanceDriven());
+    }
+
+    [Fact]
+    [Task(5)]
     public void Nitro_car_has_not_driven_any_distance()
     {
         var car = RemoteControlCar.Nitro();
         Assert.Equal(0, car.DistanceDriven());
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(5)]
     public void Nitro_car_has_battery_not_drained()
     {
         var car = RemoteControlCar.Nitro();
         Assert.False(car.BatteryDrained());
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(5)]
     public void Nitro_car_has_correct_speed()
     {
         var car = RemoteControlCar.Nitro();
@@ -106,7 +139,8 @@ public class RemoteControlCarTests
         Assert.Equal(50, car.DistanceDriven());
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(5)]
     public void Nitro_car_has_correct_battery_drain()
     {
         var car = RemoteControlCar.Nitro();
@@ -124,11 +158,9 @@ public class RemoteControlCarTests
 
         Assert.True(car.BatteryDrained());
     }
-}
 
-public class RaceTrackTests
-{
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(6)]
     public void Car_can_finish_with_car_that_can_easily_finish()
     {
         int speed = 10;
@@ -141,7 +173,8 @@ public class RaceTrackTests
         Assert.True(race.CarCanFinish(car));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(6)]
     public void Car_can_finish_with_car_that_can_just_finish()
     {
         int speed = 2;
@@ -154,7 +187,8 @@ public class RaceTrackTests
         Assert.True(race.CarCanFinish(car));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(6)]
     public void Car_can_finish_with_car_that_just_cannot_finish()
     {
         int speed = 3;
@@ -167,7 +201,8 @@ public class RaceTrackTests
         Assert.False(race.CarCanFinish(car));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
+    [Fact]
+    [Task(6)]
     public void Car_can_finish_with_car_that_cannot_finish()
     {
         int speed = 1;
