@@ -1,4 +1,4 @@
-﻿public static class BinarySearch
+public static class BinarySearch
 {
     public static int Find(int[] input, int target)
     {

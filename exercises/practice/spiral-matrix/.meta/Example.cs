@@ -1,4 +1,4 @@
-﻿public static class SpiralMatrix
+public static class SpiralMatrix
 {
     public static int[,] GetMatrix(int size)
     {

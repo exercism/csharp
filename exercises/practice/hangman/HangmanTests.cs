@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Xunit;
 using Microsoft.Reactive.Testing;
 using System.Collections.Generic;

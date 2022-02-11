@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 
 public static class Transpose
 {
