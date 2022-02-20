@@ -45,7 +45,7 @@ class RaceTrack
         this.distance = distance;
     }
 
-    public bool CarCanFinish(RemoteControlCar car)
+    public bool TryFinishTrack(RemoteControlCar car)
     {
         while (!car.BatteryDrained())
         {
