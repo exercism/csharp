@@ -167,7 +167,7 @@ public class AnnalynsInfiltrationTests
         var archerIsAwake = false;
         var prisonerIsAwake = false;
         var petDogIsPresent = true;
-        Assert.True(QuestLogic.CanFreePrisoner(knightIsAwake, archerIsAwake, prisonerIsAwake, petDogIsPresent));
+        Assert.False(QuestLogic.CanFreePrisoner(knightIsAwake, archerIsAwake, prisonerIsAwake, petDogIsPresent));
     }
 
     [Fact]
@@ -233,7 +233,7 @@ public class AnnalynsInfiltrationTests
         var archerIsAwake = false;
         var prisonerIsAwake = false;
         var petDogIsPresent = true;
-        Assert.True(QuestLogic.CanFreePrisoner(knightIsAwake, archerIsAwake, prisonerIsAwake, petDogIsPresent));
+        Assert.False(QuestLogic.CanFreePrisoner(knightIsAwake, archerIsAwake, prisonerIsAwake, petDogIsPresent));
     }
 
     [Fact]
