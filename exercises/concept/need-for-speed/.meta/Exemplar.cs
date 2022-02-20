@@ -47,7 +47,7 @@ class RaceTrack
 
     public bool TryFinishTrack(RemoteControlCar car)
     {
-        while (!car.BatteryDrained())
+        while (!car.BatteryDrained() && car.DistanceDriven() < distance)
         {
             car.Drive();
         }
