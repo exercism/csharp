@@ -170,7 +170,7 @@ public class NeedForSpeedTests
         int distance = 100;
         var race = new RaceTrack(distance);
 
-        Assert.True(race.CarCanFinish(car));
+        Assert.True(race.TryFinishTrack(car));
     }
 
     [Fact]
@@ -184,7 +184,7 @@ public class NeedForSpeedTests
         int distance = 20;
         var race = new RaceTrack(distance);
 
-        Assert.True(race.CarCanFinish(car));
+        Assert.True(race.TryFinishTrack(car));
     }
 
     [Fact]
@@ -198,7 +198,7 @@ public class NeedForSpeedTests
         int distance = 16;
         var race = new RaceTrack(distance);
 
-        Assert.False(race.CarCanFinish(car));
+        Assert.False(race.TryFinishTrack(car));
     }
 
     [Fact]
@@ -212,6 +212,6 @@ public class NeedForSpeedTests
         int distance = 678;
         var race = new RaceTrack(distance);
 
-        Assert.False(race.CarCanFinish(car));
+        Assert.False(race.TryFinishTrack(car));
     }
 }

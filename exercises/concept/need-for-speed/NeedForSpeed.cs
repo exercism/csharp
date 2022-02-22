@@ -29,8 +29,8 @@ class RaceTrack
 {
     // TODO: define the constructor for the 'RaceTrack' class
 
-    public bool CarCanFinish(RemoteControlCar car)
+    public bool TryFinishTrack(RemoteControlCar car)
     {
-        throw new NotImplementedException("Please implement the RaceTrack.CarCanFinish() method");
+        throw new NotImplementedException("Please implement the RaceTrack.TryFinishTrack() method");
     }
 }
