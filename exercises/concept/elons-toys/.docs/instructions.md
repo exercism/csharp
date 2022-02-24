@@ -33,7 +33,7 @@ car.DistanceDisplay();
 
 ## 3. Display the battery percentage
 
-Implement the `RemoteControlCar.BatteryDisplay()` method to return the distance as displayed on the LED display:
+Implement the `RemoteControlCar.BatteryDisplay()` method to return the battery percentage as displayed on the LED display:
 
 ```csharp
 var car = RemoteControlCar.Buy();
