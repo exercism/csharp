@@ -41,7 +41,7 @@ Permissions.Grant(current: Permission.None, grant: Permission.Read)
 Implement the (_static_) `Permissions.Revoke()` method that revokes (removes) a permission:
 
 ```csharp
-Permissions.Revoke(current: Permission.Read, grant: Permission.Read)
+Permissions.Revoke(current: Permission.Read, revoke: Permission.Read)
 // => Permission.None
 ```
 
