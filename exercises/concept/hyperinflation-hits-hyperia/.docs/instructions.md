@@ -40,7 +40,7 @@ If the GDP cannot be calculated then `"*** Too Big ***"` is returned.
 
 ```csharp
 CentralBank.DisplayGDP(555f, 10000f);
-// => "555000000"
+// => "5550000"
 CentralBank.DisplayGDP(float.MaxValue / 2, 10000f);
 // => "*** Too Big ***"
 ```
