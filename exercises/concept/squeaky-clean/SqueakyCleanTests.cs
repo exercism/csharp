@@ -4,12 +4,14 @@ using Exercism.Tests;
 public class SqueakyCleanTests
 {
     [Fact]
+    [Task(1)]
     public void Clean_single_letter()
     {
         Assert.Equal("A", Identifier.Clean("A"));
     }
 
     [Fact]
+    [Task(1)]
     public void Clean_clean_string()
     {
         Assert.Equal("àḃç", Identifier.Clean("àḃç"));
@@ -30,12 +32,14 @@ public class SqueakyCleanTests
     }
 
     [Fact]
+    [Task(2)]
     public void Clean_string_with_no_letters()
     {
         Assert.Equal(string.Empty, Identifier.Clean("😀😀😀"));
     }
 
     [Fact]
+    [Task(2)]
     public void Clean_empty_string()
     {
         Assert.Equal(string.Empty, Identifier.Clean(string.Empty));
@@ -56,6 +60,7 @@ public class SqueakyCleanTests
     }
 
     [Fact]
+    [Task(4)]
     public void Combine_conversions()
     {
         Assert.Equal("_AbcĐCTRL", Identifier.Clean("9 -abcĐ😀ω\0"));
