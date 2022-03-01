@@ -1,4 +1,4 @@
-﻿public static class SimpleOperation
+public static class SimpleOperation
 {
     public static int Division(int operand1, int operand2)
     {

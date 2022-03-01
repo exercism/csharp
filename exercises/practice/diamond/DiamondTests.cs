@@ -1,4 +1,4 @@
-﻿using Xunit;
+using Xunit;
 using FsCheck.Xunit;
 using FsCheck;
 using System;
