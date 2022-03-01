@@ -1,10 +1,17 @@
 name: Run PSScriptAnalyzer
 
-on: [push, pull_request, workflow_dispatch]
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
   analyze:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # 2.3.5
+      - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
       - run: pwsh ./powershell-script-analyzer.ps1
