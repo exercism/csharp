@@ -9,6 +9,9 @@ on:
       - main
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   configlet_default:
     uses: ErikSchierboom/github-actions-1/.github/workflows/configlet.yml@configlet-reusable-workflow
@@ -16,10 +19,10 @@ jobs:
   configlet_with_fmt:
     uses: ErikSchierboom/github-actions-1/.github/workflows/configlet.yml@configlet-reusable-workflow
     with:
-      format: true
+      fmt: true
 
   configlet_with_only_fmt:
     uses: ErikSchierboom/github-actions-1/.github/workflows/configlet.yml@configlet-reusable-workflow
     with:
       lint: false
-      format: true
+      fmt: true
