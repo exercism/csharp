@@ -10,10 +10,16 @@ on:
   workflow_dispatch:
 
 jobs:
-  configlet_without_format:
+  configlet_default:
     uses: ErikSchierboom/github-actions-1/.github/workflows/configlet.yml@configlet-reusable-workflow
 
-  configlet_with_format:
+  configlet_with_fmt:
     uses: ErikSchierboom/github-actions-1/.github/workflows/configlet.yml@configlet-reusable-workflow
     with:
+      format: true
+
+  configlet_with_only_fmt:
+    uses: ErikSchierboom/github-actions-1/.github/workflows/configlet.yml@configlet-reusable-workflow
+    with:
+      lint: false
       format: true
