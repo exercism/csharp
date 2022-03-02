@@ -11,4 +11,4 @@ on:
 
 jobs:
   configlet:
-    uses: ErikSchierboom/github-actions-1/.github/workflows/configlet.yml@configlet-reusable-workflow
+    uses: ErikSchierboom/github-actions-1/.github/workflows/configlet.yml@48f4a15d42520be77cbc3fb58c05e26247d69d5a
