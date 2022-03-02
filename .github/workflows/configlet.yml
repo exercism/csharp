@@ -10,7 +10,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  configlet:
+  configlet_without_format:
+    uses: ErikSchierboom/github-actions-1/.github/workflows/configlet.yml@configlet-reusable-workflow
+
+  configlet_with_format:
     uses: ErikSchierboom/github-actions-1/.github/workflows/configlet.yml@configlet-reusable-workflow
     with:
       format: true
