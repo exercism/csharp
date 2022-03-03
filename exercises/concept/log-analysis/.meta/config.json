@@ -1,6 +1,4 @@
 {
-  "blurb": "Learn about extension-methods by analysing logs.",
-  "icon": "log-levels",
   "authors": [
     "yzAlvin"
   ],
@@ -14,5 +12,7 @@
     "exemplar": [
       ".meta/Exemplar.cs"
     ]
-  }
+  },
+  "icon": "log-levels",
+  "blurb": "Learn about extension-methods by analysing logs."
 }

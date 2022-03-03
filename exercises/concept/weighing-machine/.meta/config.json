@@ -1,12 +1,11 @@
 {
-  "blurb": "Learn about properties by modelling a weighing machine.",
+  "authors": [
+    "mikedamay"
+  ],
   "contributors": [
     "ErikSchierboom",
     "yzAlvin",
     "18-F-Cali"
-  ],
-  "authors": [
-    "mikedamay"
   ],
   "files": {
     "solution": [
@@ -18,5 +17,6 @@
     "exemplar": [
       ".meta/Exemplar.cs"
     ]
-  }
+  },
+  "blurb": "Learn about properties by modelling a weighing machine."
 }

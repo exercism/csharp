@@ -1,5 +1,4 @@
 {
-  "blurb": "Translate RNA sequences into proteins.",
   "authors": [
     "robkeim"
   ],
@@ -19,5 +18,6 @@
       ".meta/Example.cs"
     ]
   },
+  "blurb": "Translate RNA sequences into proteins.",
   "source": "Tyler Long"
 }

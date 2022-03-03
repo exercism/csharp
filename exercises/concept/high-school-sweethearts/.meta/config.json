@@ -1,14 +1,10 @@
 {
-  "blurb": "Learn about string formatting by helping high school sweethearts profess their love on social media.",
-  "contributors": [
-    "ErikSchierboom",
-    "yzAlvin"
-  ],
   "authors": [
     "mikedamay"
   ],
-  "forked_from": [
-    "elixir/high-school-sweetheart"
+  "contributors": [
+    "ErikSchierboom",
+    "yzAlvin"
   ],
   "files": {
     "solution": [
@@ -20,5 +16,9 @@
     "exemplar": [
       ".meta/Exemplar.cs"
     ]
-  }
+  },
+  "forked_from": [
+    "elixir/high-school-sweetheart"
+  ],
+  "blurb": "Learn about string formatting by helping high school sweethearts profess their love on social media."
 }

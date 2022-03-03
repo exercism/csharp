@@ -1,5 +1,4 @@
 {
-  "blurb": "Manage robot factory settings.",
   "authors": [
     "bressain"
   ],
@@ -24,5 +23,6 @@
       ".meta/Example.cs"
     ]
   },
+  "blurb": "Manage robot factory settings.",
   "source": "A debugging session with Paul Blackwell at gSchool."
 }

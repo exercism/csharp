@@ -1,11 +1,10 @@
 {
-  "blurb": "Learn about the DateTime class by working on an appointment scheduler for a beauty salon.",
+  "authors": [
+    "ErikSchierboom"
+  ],
   "contributors": [
     "valentin-p",
     "yzAlvin"
-  ],
-  "authors": [
-    "ErikSchierboom"
   ],
   "files": {
     "solution": [
@@ -17,5 +16,6 @@
     "exemplar": [
       ".meta/Exemplar.cs"
     ]
-  }
+  },
+  "blurb": "Learn about the DateTime class by working on an appointment scheduler for a beauty salon."
 }

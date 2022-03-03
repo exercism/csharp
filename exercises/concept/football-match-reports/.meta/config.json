@@ -1,13 +1,12 @@
 {
-  "blurb": "Learn about switches by developing a system to report on soccer matches.",
+  "authors": [
+    "mikedamay"
+  ],
   "contributors": [
     "ErikSchierboom",
     "valentin-p",
     "yzAlvin",
     "sanderploegsma"
-  ],
-  "authors": [
-    "mikedamay"
   ],
   "files": {
     "solution": [
@@ -22,5 +21,6 @@
     "editor": [
       "OffFieldActivitiesAndCharacters.cs"
     ]
-  }
+  },
+  "blurb": "Learn about switches by developing a system to report on soccer matches."
 }

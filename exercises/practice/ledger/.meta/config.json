@@ -1,5 +1,4 @@
 {
-  "blurb": "Refactor a ledger printer.",
   "authors": [
     "ErikSchierboom"
   ],
@@ -19,5 +18,6 @@
     "example": [
       ".meta/Example.cs"
     ]
-  }
+  },
+  "blurb": "Refactor a ledger printer."
 }

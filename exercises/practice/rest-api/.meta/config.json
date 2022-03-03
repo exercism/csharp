@@ -1,5 +1,4 @@
 {
-  "blurb": "Implement a RESTful API for tracking IOUs.",
   "authors": [
     "yvincent"
   ],
@@ -22,5 +21,6 @@
     "example": [
       ".meta/Example.cs"
     ]
-  }
+  },
+  "blurb": "Implement a RESTful API for tracking IOUs."
 }

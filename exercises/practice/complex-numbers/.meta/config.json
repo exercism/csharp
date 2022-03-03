@@ -1,5 +1,4 @@
 {
-  "blurb": "Implement complex numbers.",
   "authors": [
     "robkeim"
   ],
@@ -20,6 +19,7 @@
       ".meta/Example.cs"
     ]
   },
+  "blurb": "Implement complex numbers.",
   "source": "Wikipedia",
   "source_url": "https://en.wikipedia.org/wiki/Complex_number"
 }
