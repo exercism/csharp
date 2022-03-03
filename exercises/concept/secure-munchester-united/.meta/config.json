@@ -1,11 +1,10 @@
 {
-  "blurb": "Learn about casting by creating security passes.",
-  "contributors": [
-    "ErikSchierboom", 
-    "yzAlvin"
-  ],
   "authors": [
     "mikedamay"
+  ],
+  "contributors": [
+    "ErikSchierboom",
+    "yzAlvin"
   ],
   "files": {
     "solution": [
@@ -17,5 +16,6 @@
     "exemplar": [
       ".meta/Exemplar.cs"
     ]
-  }
+  },
+  "blurb": "Learn about casting by creating security passes."
 }

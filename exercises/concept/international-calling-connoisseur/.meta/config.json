@@ -1,12 +1,11 @@
 {
-  "blurb": "Learn about dictionaries by keeping track of international dialling codes.",
+  "authors": [
+    "mikedamay"
+  ],
   "contributors": [
     "ErikSchierboom",
     "valentin-p",
     "yzAlvin"
-  ],
-  "authors": [
-    "mikedamay"
   ],
   "files": {
     "solution": [
@@ -18,5 +17,6 @@
     "exemplar": [
       ".meta/Exemplar.cs"
     ]
-  }
+  },
+  "blurb": "Learn about dictionaries by keeping track of international dialling codes."
 }

@@ -1,10 +1,9 @@
 {
-  "blurb": "Learn about numbers by analyzing the production of an assembly line.",
-  "contributors": [
-    "yzAlvin"
-  ],
   "authors": [
     "ErikSchierboom"
+  ],
+  "contributors": [
+    "yzAlvin"
   ],
   "files": {
     "solution": [
@@ -16,5 +15,6 @@
     "exemplar": [
       ".meta/Exemplar.cs"
     ]
-  }
+  },
+  "blurb": "Learn about numbers by analyzing the production of an assembly line."
 }

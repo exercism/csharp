@@ -1,10 +1,9 @@
 {
-  "blurb": "Learn about arrays by keeping track of how many birds visit your garden.",
-  "contributors": [
-    "yzAlvin"
-  ],
   "authors": [
     "ErikSchierboom"
+  ],
+  "contributors": [
+    "yzAlvin"
   ],
   "files": {
     "solution": [
@@ -16,5 +15,6 @@
     "exemplar": [
       ".meta/Exemplar.cs"
     ]
-  }
+  },
+  "blurb": "Learn about arrays by keeping track of how many birds visit your garden."
 }

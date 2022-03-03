@@ -1,5 +1,4 @@
 {
-  "blurb": "Convert a number, represented as a sequence of digits in one base, to any other base.",
   "authors": [
     "ErikSchierboom"
   ],
@@ -19,5 +18,6 @@
     "example": [
       ".meta/Example.cs"
     ]
-  }
+  },
+  "blurb": "Convert a number, represented as a sequence of digits in one base, to any other base."
 }

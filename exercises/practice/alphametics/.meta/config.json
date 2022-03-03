@@ -1,5 +1,4 @@
 {
-  "blurb": "Write a function to solve alphametics puzzles.",
   "authors": [
     "ErikSchierboom"
   ],
@@ -19,5 +18,6 @@
       ".meta/Example.cs"
     ]
   },
-  "test_runner": false
+  "test_runner": false,
+  "blurb": "Write a function to solve alphametics puzzles."
 }

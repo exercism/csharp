@@ -1,5 +1,4 @@
 {
-  "blurb": "Determine if a word or phrase is an isogram.",
   "authors": [
     "robkeim"
   ],
@@ -21,6 +20,7 @@
       ".meta/Example.cs"
     ]
   },
+  "blurb": "Determine if a word or phrase is an isogram.",
   "source": "Wikipedia",
   "source_url": "https://en.wikipedia.org/wiki/Isogram"
 }

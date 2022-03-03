@@ -1,10 +1,9 @@
 {
-  "blurb": "Learn about nullables by printing name badges.",
-  "contributors": [
-    "yzAlvin"
-  ],
   "authors": [
     "maurelio1234"
+  ],
+  "contributors": [
+    "yzAlvin"
   ],
   "files": {
     "solution": [
@@ -16,5 +15,6 @@
     "exemplar": [
       ".meta/Exemplar.cs"
     ]
-  }
+  },
+  "blurb": "Learn about nullables by printing name badges."
 }

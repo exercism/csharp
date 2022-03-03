@@ -1,5 +1,4 @@
 {
-  "blurb": "Determine if a triangle is equilateral, isosceles, or scalene.",
   "authors": [
     "bressain"
   ],
@@ -23,6 +22,7 @@
       ".meta/Example.cs"
     ]
   },
+  "blurb": "Determine if a triangle is equilateral, isosceles, or scalene.",
   "source": "The Ruby Koans triangle project, parts 1 & 2",
   "source_url": "http://rubykoans.com"
 }

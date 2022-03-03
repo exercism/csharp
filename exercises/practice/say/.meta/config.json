@@ -1,5 +1,4 @@
 {
-  "blurb": "Given a number from 0 to 999,999,999,999, spell out that number in English.",
   "authors": [
     "ErikSchierboom"
   ],
@@ -20,6 +19,7 @@
       ".meta/Example.cs"
     ]
   },
+  "blurb": "Given a number from 0 to 999,999,999,999, spell out that number in English.",
   "source": "A variation on JavaRanch CattleDrive, exercise 4a",
   "source_url": "http://www.javaranch.com/say.jsp"
 }

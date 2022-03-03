@@ -1,5 +1,4 @@
 {
-  "blurb": "Refactor a tree building algorithm.",
   "authors": [
     "ErikSchierboom"
   ],
@@ -18,5 +17,6 @@
     "example": [
       ".meta/Example.cs"
     ]
-  }
+  },
+  "blurb": "Refactor a tree building algorithm."
 }

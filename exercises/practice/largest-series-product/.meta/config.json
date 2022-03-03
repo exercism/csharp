@@ -1,5 +1,4 @@
 {
-  "blurb": "Given a string of digits, calculate the largest product for a contiguous substring of digits of length n.",
   "authors": [
     "bressain"
   ],
@@ -24,6 +23,7 @@
       ".meta/Example.cs"
     ]
   },
+  "blurb": "Given a string of digits, calculate the largest product for a contiguous substring of digits of length n.",
   "source": "A variation on Problem 8 at Project Euler",
   "source_url": "http://projecteuler.net/problem=8"
 }

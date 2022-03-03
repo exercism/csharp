@@ -1,11 +1,10 @@
 {
-  "blurb": "Learn about parameter modifiers by adding telemetry to a car.",
+  "authors": [
+    "mikedamay"
+  ],
   "contributors": [
     "ErikSchierboom",
     "yzAlvin"
-  ],
-  "authors": [
-    "mikedamay"
   ],
   "files": {
     "solution": [
@@ -17,5 +16,6 @@
     "exemplar": [
       ".meta/Exemplar.cs"
     ]
-  }
+  },
+  "blurb": "Learn about parameter modifiers by adding telemetry to a car."
 }

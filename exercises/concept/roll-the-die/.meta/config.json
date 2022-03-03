@@ -1,12 +1,11 @@
 {
-  "blurb": "Learn about randomness by generating numbers in a game.",
+  "authors": [
+    "mikedamay"
+  ],
   "contributors": [
     "ErikSchierboom",
     "yzAlvin",
     "aage"
-  ],
-  "authors": [
-    "mikedamay"
   ],
   "files": {
     "solution": [
@@ -18,5 +17,6 @@
     "exemplar": [
       ".meta/Exemplar.cs"
     ]
-  }
+  },
+  "blurb": "Learn about randomness by generating numbers in a game."
 }

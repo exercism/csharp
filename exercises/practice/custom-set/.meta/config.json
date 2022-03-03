@@ -1,5 +1,4 @@
 {
-  "blurb": "Create a custom set type.",
   "authors": [
     "ErikSchierboom"
   ],
@@ -19,5 +18,6 @@
     "example": [
       ".meta/Example.cs"
     ]
-  }
+  },
+  "blurb": "Create a custom set type."
 }

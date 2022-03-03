@@ -1,5 +1,4 @@
 {
-  "blurb": "Simulate a bank account supporting opening/closing, withdraws, and deposits of money. Watch out for concurrent transactions!",
   "authors": [
     "robkeim"
   ],
@@ -20,5 +19,6 @@
     "example": [
       ".meta/Example.cs"
     ]
-  }
+  },
+  "blurb": "Simulate a bank account supporting opening/closing, withdraws, and deposits of money. Watch out for concurrent transactions!"
 }

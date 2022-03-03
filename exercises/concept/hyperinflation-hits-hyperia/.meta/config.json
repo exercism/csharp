@@ -1,14 +1,13 @@
 {
-  "blurb": "Learn about arithmetic overflow by dealing with hyperinflation.",
+  "authors": [
+    "mikedamay"
+  ],
   "contributors": [
     "ihid",
     "sleeplessbyte",
     "saschamann",
     "ErikSchierboom",
     "yzAlvin"
-  ],
-  "authors": [
-    "mikedamay"
   ],
   "files": {
     "solution": [
@@ -20,5 +19,6 @@
     "exemplar": [
       ".meta/Exemplar.cs"
     ]
-  }
+  },
+  "blurb": "Learn about arithmetic overflow by dealing with hyperinflation."
 }

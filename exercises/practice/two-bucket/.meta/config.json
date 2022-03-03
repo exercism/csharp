@@ -1,5 +1,4 @@
 {
-  "blurb": "Given two buckets of different size, demonstrate how to measure an exact number of liters.",
   "authors": [
     "ErikSchierboom"
   ],
@@ -21,6 +20,7 @@
       ".meta/Example.cs"
     ]
   },
+  "blurb": "Given two buckets of different size, demonstrate how to measure an exact number of liters.",
   "source": "Water Pouring Problem",
   "source_url": "http://demonstrations.wolfram.com/WaterPouringProblem/"
 }

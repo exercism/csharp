@@ -1,5 +1,4 @@
 {
-  "blurb": "Create a program to solve a word search puzzle.",
   "authors": [
     "ErikSchierboom"
   ],
@@ -20,5 +19,6 @@
     "example": [
       ".meta/Example.cs"
     ]
-  }
+  },
+  "blurb": "Create a program to solve a word search puzzle."
 }

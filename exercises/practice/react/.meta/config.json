@@ -1,5 +1,4 @@
 {
-  "blurb": "Implement a basic reactive system.",
   "authors": [
     "ErikSchierboom"
   ],
@@ -18,5 +17,6 @@
     "example": [
       ".meta/Example.cs"
     ]
-  }
+  },
+  "blurb": "Implement a basic reactive system."
 }

@@ -1,11 +1,10 @@
 {
-  "blurb": "Learn about enums by parsing logs.",
+  "authors": [
+    "ErikSchierboom"
+  ],
   "contributors": [
     "valentin-p",
     "yzAlvin"
-  ],
-  "authors": [
-    "ErikSchierboom"
   ],
   "files": {
     "solution": [
@@ -17,5 +16,6 @@
     "exemplar": [
       ".meta/Exemplar.cs"
     ]
-  }
+  },
+  "blurb": "Learn about enums by parsing logs."
 }

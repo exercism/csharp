@@ -1,13 +1,12 @@
 {
-  "blurb": "Learn about structs by improving the performance of a land claim system.",
+  "authors": [
+    "mikedamay"
+  ],
   "contributors": [
     "efx",
     "jrr",
     "ErikSchierboom",
     "yzAlvin"
-  ],
-  "authors": [
-    "mikedamay"
   ],
   "files": {
     "solution": [
@@ -19,5 +18,6 @@
     "exemplar": [
       ".meta/Exemplar.cs"
     ]
-  }
+  },
+  "blurb": "Learn about structs by improving the performance of a land claim system."
 }
