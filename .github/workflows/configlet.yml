@@ -1,4 +1,4 @@
-name: Configlet CI
+name: Configlet
 
 on:
   pull_request:
