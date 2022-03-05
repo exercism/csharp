@@ -59,7 +59,7 @@ public class WeighingMachineTests
     }
 
     [Fact]
-    [Task(6)]
+    [Task(7)]
     public void Apply_large_tare_adjustment_to_allow_negative_display_weight()
     {
         var wm = new WeighingMachine(precision: 3);
