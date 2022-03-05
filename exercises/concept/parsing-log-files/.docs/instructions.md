@@ -82,7 +82,7 @@ lp.RemoveEndOfLineText("[INF] end-of-line23033 Network Failure end-of-line27");
 
 ## 5. List lines with extremely weak passwords so the guilty can be punished
 
-Before expunging the passwords from the file we need to list any instances where passwords begin with the text "password".
+Before expunging the passwords from the file we need to list any instances where the contents begin with the text "password" followed by any alphanumerics in the same word; i.e. an exact match of "password" is not flagged, but "passwordsecret" is - see example.
 
 Implement the `LogParser.ListLinesWithPasswords()` method to print out the offending password followed by the complete line.
 
