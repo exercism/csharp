@@ -1,6 +1,6 @@
 # Introduction
 
-So far we have seen that the arguments passed into a method are matched to the method are matched to the method's declared parameters based on position. An alternative approach, particularly where a routine takes a large number of arguments, the caller can match arguments by specifying the declared parameter's identifier.
+So far we have seen that the arguments passed into a method are matched to the method's declared parameters based on position. An alternative approach, particularly where a routine takes a large number of arguments, the caller can match arguments by specifying the declared parameter's identifier.
 
 The following illustrates the syntax:
 
