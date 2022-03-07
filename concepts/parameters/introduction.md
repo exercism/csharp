@@ -4,7 +4,7 @@ This exercise discusses some details of method parameters and their use in C#.
 
 Parameters convey information from a calling method to a called method.
 
-- The behavior of parameters can be modified by the use of modifies such as `ref` and `out`.
+- The behavior of parameters can be modified by the use of modifiers such as `ref` and `out`.
 
 - A parameter with the `out` modifier conveys a value back from the called method to the caller. The parameter can be passed to the called method without being initialized and in any case it is treated within the called method as if, on entry, it had not been initialized. An understanding of the behavior and rules regarding parameter modifiers can be gained most easily through examples (see below) and compiler messages.
 
