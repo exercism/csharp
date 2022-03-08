@@ -13,7 +13,7 @@ car.Telemetry.SelfTest();
 car.Telemetry.ShowSponsor("Walker Industries Inc.");
 car.CurrentSponsor
 // => "Walker Industries Inc."
-car.Telemetry.SetSpeed(100, "cpm");
+car.Telemetry.SetSpeed(100, "cps");
 car.GetSpeed()
 // => "100 centimeters per second"
 ```
