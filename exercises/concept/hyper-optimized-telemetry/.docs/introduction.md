@@ -4,7 +4,7 @@ C#, like many statically typed languages, provides a number of types that repres
 
 The ranges are determined by the storage width of the type as allocated by the system. For example, a `byte` uses 8 bits and a `long` uses 64 bits.
 
-Each of the above types is paired with an unsigned equivalent: `sbyte`/`byte`, `short`/`ushort`, `int`/`uint` and `long`/`ulong`. In all cases the range of the values is from 0 to the negative signed maximum times 2 plus 1.
+Each of the above types is paired with an unsigned equivalent: `sbyte`/`byte`, `short`/`ushort`, `int`/`uint` and `long`/`ulong`. In all cases the range of the values is from 0 to the positive signed maximum times 2 plus 1.
 
 | Type   | Width  | Minimum                    | Maximum                     |
 | ------ | ------ | -------------------------- | --------------------------- |
