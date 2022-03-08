@@ -45,7 +45,7 @@ To detect duplicated attempts to register an identity, if the identity has alrea
 var authenticator = new Authenticator();
 authenticator.Register(new Identity("tunde@thecompetition.com", new FacialFeatures("blue", 0.9m)));
 // => true
-authenticator.IsRegistered(new Identity("alice@thecompetition.com", new FacialFeatures("blue", 0.9m)));
+authenticator.IsRegistered(new Identity("tunde@thecompetition.com", new FacialFeatures("blue", 0.9m)));
 // => true
 authenticator.Register(new Identity("tunde@thecompetition.com", new FacialFeatures("blue", 0.9m)));
 // => false
