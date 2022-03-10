@@ -64,23 +64,25 @@ public class ParsingLogFilesTests
 
     [Fact]
     [Task(5)]
-    public void ListLinesWithPasswords()
+    public void ListLinesWithSecret()
     {
         var lp = new LogParser();
         string[] lines =
         {
-            "[INF] passWordaa",
-            "passWord mysecret",
-            "[INF] password KeyToTheCastle for nobody",
-            "[INF] password password123 for everybody"
+            "[INF] 5up3rSecr3tC0de1!1",
+            "This is a boring line",
+            "[INF] This is 5up3rSecr3tC0de <- with a space after so we're ok",
+            "[INF] Pssst whispering 5up3rsecr3tc0de...",
+            "[DBG] HEY YELLING 5UP3RSECR3TC0DE!!!"
         };
         string[] expected =
         {
-            "passWordaa: [INF] passWordaa",
-            "--------: passWord mysecret",
-            "--------: [INF] password KeyToTheCastle for nobody",
-            "password123: [INF] password password123 for everybody"
+            "5up3rSecr3tC0de1!1: [INF] 5up3rSecr3tC0de1!1",
+            "--------: This is a boring line",
+            "--------: [INF] This is 5up3rSecr3tC0de <- with a space after so we're ok",
+            "5up3rsecr3tc0de...: [INF] Pssst whispering 5up3rsecr3tc0de...",
+            "5UP3RSECR3TC0DE!!!: [DBG] HEY YELLING 5UP3RSECR3TC0DE!!!"
         };
-        Assert.Equal(expected, lp.ListLinesWithPasswords(lines));
+        Assert.Equal(expected, lp.ListLinesWithSecret(lines, "5up3rSecr3tC0de"));
     }
 }

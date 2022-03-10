@@ -1,3 +1,4 @@
+using System;
 using System.Text.RegularExpressions;
 
 public class LogParser
@@ -30,9 +31,9 @@ public class LogParser
             RegexOptions.IgnoreCase);
     }
 
-    public string[] ListLinesWithPasswords(string[] lines)
+    public string[] ListLinesWithSecret(string[] lines, string secret)
     {
-        var pattern = @".*\s(?<pw>password\S+).*";
+        var pattern = $@".*\s(?<pw>{secret}\S+).*";
 
         string[] outlines = new string[lines.Length];
         var regex = new Regex(pattern, RegexOptions.IgnoreCase);

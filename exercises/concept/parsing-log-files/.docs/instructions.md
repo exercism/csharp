@@ -80,23 +80,25 @@ lp.RemoveEndOfLineText("[INF] end-of-line23033 Network Failure end-of-line27");
 // => "[INF]  Network Failure "
 ```
 
-## 5. List lines with extremely weak passwords so the guilty can be punished
+## 5. Return formatted lines with secret-code
 
-Before expunging the passwords from the file we need to list any instances where the contents begin with the text "password" followed by any alphanumerics in the same word; i.e. an exact match of "password" is not flagged, but "passwordsecret" is - see example.
+We're trying to spot for a secret-code (passed as an alphanumeric `string` parameter). Specifically, we're looking for that secret-code to be present in the lines meeting the following rules:
+1. is preceded by a white-space character; e.g. ` 5up3rSecr3tC0de` - see [here](https://docs.microsoft.com/en-us/dotnet/standard/base-types/character-classes-in-regular-expressions#whitespace-character-s)
+2. is followed by one or more _non_white-space characters ; e.g. ` 5up3rSecr3tC0de123` - see [here](https://docs.microsoft.com/en-us/dotnet/standard/base-types/character-classes-in-regular-expressions#non-whitespace-character-s)
+3. is case-insensitive; e.g. ` 5Up3RSEcr3tC0dE`
 
-Implement the `LogParser.ListLinesWithPasswords()` method to print out the offending password followed by the complete line.
+Then, we want to format the lines in a specific manner to visually communicate the matches:
+* when matched, the line is return prefixed with `secret-code: Loren Ipsum secret-code!`.
+* Lines not containing an offending password should be returned prefixed with `-------: Loren Ipsum no secrets here`.
 
-Lines with quoted passwords have already been removed and you process lines irrespective of whether they are valid (as per task 1).
-
-Lines containing an offending password should be returned prefixed with "<password>: ".
-
-Lines not containing an offending password should be returned prefixed with "-------: ".
+Example: 
 
 ```csharp
 var lp = new LogParser();
-lp.ListLinesWithPasswords(new string[] {"my passwordsecret is great"});
-// => "passwordsecret: my passwordsecret is great"
-lp.ListLinesWithPasswords(new string[] {"my password secret"});
-// => {"--------: my password secret"}
-
+lp.ListLinesWithSecret(new string[] {"This is a boring line"});
+// => {"--------: This is a boring line"} // Meets no rule
+lp.ListLinesWithSecret(new string[] {"[INF] Pssst whispering 5up3rsecr3tc0de..."});
+// => {"5up3rsecr3tc0de...: [INF] Pssst whispering 5up3rsecr3tc0de..."} // Meets all rules
+lp.ListLinesWithSecret(new string[] {"[INF] This is 5up3rSecr3tC0de <- with a space after so we're ok"});
+// => {"--------: [INF] This is 5up3rSecr3tC0de <- with a space after so we're ok"} // Doesn't meet 2
 ```
