@@ -14,7 +14,7 @@ player.RollDie();
 
 ## 2. Players need their strength. Provide a means to generate spell strength
 
-Implement a `GenerateSpellStrength()` method on the player class. The spell strength is between 0.0 and 100.0.
+Implement a `GenerateSpellStrength()` method on the player class. The spell strength is between 0.0 and up to but not including 100.0.
 
 Note that spell strength must be a real number (not an integer) to reduce the possibility of a tie when the strengths of two adversaries are compared.
 
