@@ -45,8 +45,8 @@ public class DeveloperPrivilegesTests
         {
             "bert@ex.ism",
             "blue",
-            "0.85",
-            "Redmond"
+            "0.8",
+            "Paris"
         };
         Assert.Equal(expected, actual);
     }
