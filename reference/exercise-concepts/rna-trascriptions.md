@@ -2,9 +2,9 @@
 
 ## Example implementations
 
-- [Using Linq and Dictionary](https://exercism.io/tracks/csharp/exercises/rna-transcription/solutions/9cd192112635494cbc16743f3877a9c6)
-- [Using a StringBuilder, foreach and a Dictionary](https://exercism.io/tracks/csharp/exercises/rna-transcription/solutions/82fac18e0003494b8639bb80ac2ed0ce)
-- [Using Linq and a switch](https://exercism.io/tracks/csharp/exercises/rna-transcription/solutions/15f7659e6f794051b337cbefa0c10259)
+- [Using Linq and Dictionary](https://exercism.org/tracks/csharp/exercises/rna-transcription/solutions/9cd192112635494cbc16743f3877a9c6)
+- [Using a StringBuilder, foreach and a Dictionary](https://exercism.org/tracks/csharp/exercises/rna-transcription/solutions/82fac18e0003494b8639bb80ac2ed0ce)
+- [Using Linq and a switch](https://exercism.org/tracks/csharp/exercises/rna-transcription/solutions/15f7659e6f794051b337cbefa0c10259)
 
 ## Object-oriented
 

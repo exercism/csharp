@@ -1,6 +1,6 @@
 # Concepts of Resistor Color
 
-[Example implementation](https://exercism.io/tracks/csharp/exercises/resistor-color/solutions)
+[Example implementation](https://exercism.org/tracks/csharp/exercises/resistor-color/solutions)
 
 ## General
 

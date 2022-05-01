@@ -2,8 +2,8 @@
 
 ## Example implementations
 
-- [Using Generic Collections and LINQ](https://exercism.io/tracks/csharp/exercises/high-scores/solutions/aa676c4a13344a5a9c7b7b944b5f3ad6)
-- [Using Generic Collections, Sorted list, and Enumeration loops](https://exercism.io/tracks/csharp/exercises/high-scores/solutions/9f55365ea2bb4bf7b70e038002b54a9e)
+- [Using Generic Collections and LINQ](https://exercism.org/tracks/csharp/exercises/high-scores/solutions/aa676c4a13344a5a9c7b7b944b5f3ad6)
+- [Using Generic Collections, Sorted list, and Enumeration loops](https://exercism.org/tracks/csharp/exercises/high-scores/solutions/9f55365ea2bb4bf7b70e038002b54a9e)
 
 ## Object-oriented
 
