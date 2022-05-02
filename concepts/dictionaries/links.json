@@ -4,10 +4,6 @@
     "description": "gethashcode"
   },
   {
-    "url": "https://docs.microsoft.com/en-gb/dotnet/api/system.collections.concurrent.concurrentdictionary-2?view=netcore-3.1",
-    "description": "concurrent-dictionary"
-  },
-  {
     "url": "https://docs.microsoft.com/en-gb/dotnet/api/system.collections.generic.hashset-1?view=netcore-3.1",
     "description": "hashset"
   },
