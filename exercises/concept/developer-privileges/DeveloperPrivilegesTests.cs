@@ -30,7 +30,7 @@ public class DeveloperPrivilegesTests
 
     [Fact]
     [Task(2)]
-    public void GetDevelopers()
+    public void GetDevelopers_Bertrand()
     {
         var authenticator = new Authenticator();
         var developers = authenticator.Developers;
@@ -38,15 +38,46 @@ public class DeveloperPrivilegesTests
         {
             developers["Bertrand"]?.Email,
             developers["Bertrand"]?.FacialFeatures.EyeColor,
-            developers["Anders"]?.FacialFeatures.PhiltrumWidth.ToString(CultureInfo.InvariantCulture),
-            developers["Anders"]?.NameAndAddress[1]
+            developers["Bertrand"]?.FacialFeatures.PhiltrumWidth.ToString(CultureInfo.InvariantCulture),
+            developers["Bertrand"]?.NameAndAddress[0],
+            developers["Bertrand"]?.NameAndAddress[1],
+            developers["Bertrand"]?.NameAndAddress[2]
         };
         string[] expected =
         {
             "bert@ex.ism",
             "blue",
             "0.8",
-            "Paris"
+            "Bertrand",
+            "Paris",
+            "France"
+        };
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    [Task(3)]
+    public void GetDevelopers_Anders()
+    {
+        var authenticator = new Authenticator();
+        var developers = authenticator.Developers;
+        string[] actual =
+        {
+            developers["Anders"]?.Email,
+            developers["Anders"]?.FacialFeatures.EyeColor,
+            developers["Anders"]?.FacialFeatures.PhiltrumWidth.ToString(CultureInfo.InvariantCulture),
+            developers["Anders"]?.NameAndAddress[0],
+            developers["Anders"]?.NameAndAddress[1],
+            developers["Anders"]?.NameAndAddress[2]
+        };
+        string[] expected =
+        {
+            "anders@ex.ism",
+            "brown",
+            "0.85",
+            "Anders",
+            "Redmond",
+            "USA"
         };
         Assert.Equal(expected, actual);
     }
