@@ -1,7 +1,5 @@
-using System;
 using Xunit;
 using Exercism.Tests;
-using System.Globalization;
 
 public class DeveloperPrivilegesTests
 {
@@ -11,74 +9,45 @@ public class DeveloperPrivilegesTests
     {
         var authenticator = new Authenticator();
         var admin = authenticator.Admin;
-        string[] actual =
-        {
-            admin?.Email,
-            admin?.FacialFeatures.EyeColor,
-            admin?.FacialFeatures.PhiltrumWidth.ToString(CultureInfo.InvariantCulture),
-            admin?.NameAndAddress[0]
-        };
-        string[] expected =
-        {
-            "admin@ex.ism",
-            "green",
-            "0.9",
-            "Chanakya"
-        };
-        Assert.Equal(expected, actual);
+
+        Assert.NotNull(admin);
+        Assert.Equal("admin@ex.ism", admin.Email);
+        Assert.Equal("green", admin.FacialFeatures.EyeColor);
+        Assert.Equal(0.9M, admin.FacialFeatures.PhiltrumWidth, precision: 1);
+        Assert.Equal("Chanakya", admin.NameAndAddress[0]);
+        Assert.Equal("Mumbai", admin.NameAndAddress[1]);
+        Assert.Equal("India", admin.NameAndAddress[2]);
     }
 
     [Fact]
     [Task(2)]
-    public void GetDevelopers_Bertrand()
+    public void GetBertrand()
     {
         var authenticator = new Authenticator();
-        var developers = authenticator.Developers;
-        string[] actual =
-        {
-            developers["Bertrand"]?.Email,
-            developers["Bertrand"]?.FacialFeatures.EyeColor,
-            developers["Bertrand"]?.FacialFeatures.PhiltrumWidth.ToString(CultureInfo.InvariantCulture),
-            developers["Bertrand"]?.NameAndAddress[0],
-            developers["Bertrand"]?.NameAndAddress[1],
-            developers["Bertrand"]?.NameAndAddress[2]
-        };
-        string[] expected =
-        {
-            "bert@ex.ism",
-            "blue",
-            "0.8",
-            "Bertrand",
-            "Paris",
-            "France"
-        };
-        Assert.Equal(expected, actual);
+        var bertrand = authenticator.Developers?["Bertrand"];
+
+        Assert.NotNull(bertrand);
+        Assert.Equal("bert@ex.ism", bertrand.Email);
+        Assert.Equal("blue", bertrand.FacialFeatures.EyeColor);
+        Assert.Equal(0.8M, bertrand.FacialFeatures.PhiltrumWidth, precision: 1);
+        Assert.Equal("Bertrand", bertrand.NameAndAddress[0]);
+        Assert.Equal("Paris", bertrand.NameAndAddress[1]);
+        Assert.Equal("France", bertrand.NameAndAddress[2]);
     }
 
     [Fact]
     [Task(3)]
-    public void GetDevelopers_Anders()
+    public void GetAnders()
     {
         var authenticator = new Authenticator();
-        var developers = authenticator.Developers;
-        string[] actual =
-        {
-            developers["Anders"]?.Email,
-            developers["Anders"]?.FacialFeatures.EyeColor,
-            developers["Anders"]?.FacialFeatures.PhiltrumWidth.ToString(CultureInfo.InvariantCulture),
-            developers["Anders"]?.NameAndAddress[0],
-            developers["Anders"]?.NameAndAddress[1],
-            developers["Anders"]?.NameAndAddress[2]
-        };
-        string[] expected =
-        {
-            "anders@ex.ism",
-            "brown",
-            "0.85",
-            "Anders",
-            "Redmond",
-            "USA"
-        };
-        Assert.Equal(expected, actual);
+        var anders = authenticator.Developers?["Anders"];
+
+        Assert.NotNull(anders);
+        Assert.Equal("anders@ex.ism", anders.Email);
+        Assert.Equal("brown", anders.FacialFeatures.EyeColor);
+        Assert.Equal(0.85M, anders.FacialFeatures.PhiltrumWidth, precision: 2);
+        Assert.Equal("Anders", anders.NameAndAddress[0]);
+        Assert.Equal("Redmond", anders.NameAndAddress[1]);
+        Assert.Equal("USA", anders.NameAndAddress[2]);
     }
 }
