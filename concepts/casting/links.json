@@ -40,10 +40,6 @@
     "description": "checked"
   },
   {
-    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/type-testing-and-cast#as-operator",
-    "description": "as-operator"
-  },
-  {
     "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/user-defined-conversion-operators",
     "description": "custom-casts"
   },
@@ -62,10 +58,6 @@
   {
     "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/type-testing-and-cast#cast-expression",
     "description": "cast-operator"
-  },
-  {
-    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/type-testing-and-cast#as-operator",
-    "description": "as-operator"
   },
   {
     "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/type-testing-and-cast#typeof-operator",
