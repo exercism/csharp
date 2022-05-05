@@ -16,10 +16,6 @@
     "description": "floating-point-numeric-types"
   },
   {
-    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types",
-    "description": "floating-point-numeric-types"
-  },
-  {
     "url": "https://docs.microsoft.com/en-us/dotnet/api/system.numerics.biginteger?view=netcore-3.1",
     "description": "big-integer"
   },
