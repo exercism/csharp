@@ -28,14 +28,6 @@
     "description": "computerphile-gangnam-style"
   },
   {
-    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types",
-    "description": "integral-numeric-types"
-  },
-  {
-    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types",
-    "description": "floating-point-numeric-types"
-  },
-  {
     "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/numeric-conversions",
     "description": "numeric-conversions"
   },
