@@ -28,10 +28,6 @@
     "description": "numeric-conversions"
   },
   {
-    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/checked-and-unchecked",
-    "description": "checked-and-unchecked"
-  },
-  {
     "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/checked",
     "description": "checked-keyword"
   },
