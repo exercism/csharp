@@ -28,10 +28,6 @@
     "description": "sequence-equal"
   },
   {
-    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netcore-3.1",
-    "description": "get-hash-code"
-  },
-  {
     "url": "https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=netcore-3.1",
     "description": "dictionary"
   },
