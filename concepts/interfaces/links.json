@@ -34,9 +34,5 @@
   {
     "url": "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/interfaces/explicit-interface-implementation",
     "description": "explicit-implementation"
-  },
-  {
-    "url": "https://www.talkingdotnet.com/default-implementations-in-interfaces-in-c-sharp-8/",
-    "description": "dt-interfaces"
   }
 ]
