@@ -70,9 +70,5 @@
   {
     "url": "https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netcore-3.1",
     "description": "get-hash-code"
-  },
-  {
-    "url": "https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.hashset-1?view=netcore-3.1",
-    "description": "hash-set"
   }
 ]
