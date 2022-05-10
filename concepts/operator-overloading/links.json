@@ -18,9 +18,5 @@
   {
     "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/operator-overloading#overloadable-operators",
     "description": "overloadable-operators"
-  },
-  {
-    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/operator-overloading",
-    "description": "operator-overloading"
   }
 ]
