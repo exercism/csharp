@@ -4,10 +4,6 @@
     "description": "passing-parameters"
   },
   {
-    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/out-parameter-modifier",
-    "description": "out-parameter"
-  },
-  {
     "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/ref#passing-an-argument-by-reference",
     "description": "ref-parameter"
   },
