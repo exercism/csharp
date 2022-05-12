@@ -20,10 +20,6 @@
     "description": "in-parameter"
   },
   {
-    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/passing-parameters",
-    "description": "passing-parameters"
-  },
-  {
     "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/out-parameter-modifier",
     "description": "out-parameter"
   },
