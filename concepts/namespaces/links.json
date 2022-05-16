@@ -20,10 +20,6 @@
     "description": "dot-dot-operator"
   },
   {
-    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/namespaces/",
-    "description": "namespaces"
-  },
-  {
     "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/accessibility-levels",
     "description": "accessibility-levels"
   }
