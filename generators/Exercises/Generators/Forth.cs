@@ -11,7 +11,7 @@ namespace Exercism.CSharp.Exercises.Generators
 
             if (testMethod.ExpectedIsError)
             {
-                testMethod.ExceptionThrown = typeof(InvalidOperationException);
+                testMethod.ExceptionThrown = testMethod.Expected!["error"] == "divide by zero" ? typeof(DivideByZeroException) : typeof(InvalidOperationException);
             }
             else
             {

@@ -159,7 +159,7 @@ public class Division : BinaryOperation
     public override List<int> operation(int x, int y)
     {
         if (y == 0)
-            throw new InvalidOperationException();
+            throw new DivideByZeroException();
 
         return new List<int> { x / y };
     }
