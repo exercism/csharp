@@ -22,9 +22,5 @@
   {
     "url": "https://docs.microsoft.com/en-us/dotnet/api/system.array.asreadonly?view=netcore-3.1",
     "description": "as-read-only"
-  },
-  {
-    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/readonly#readonly-field-example",
-    "description": "readonly-fields"
   }
 ]
