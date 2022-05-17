@@ -26,9 +26,5 @@
   {
     "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/readonly#readonly-field-example",
     "description": "readonly-fields"
-  },
-  {
-    "url": "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/constants",
-    "description": "constants"
   }
 ]
