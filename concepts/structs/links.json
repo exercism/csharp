@@ -26,9 +26,5 @@
   {
     "url": "https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct",
     "description": "structs"
-  },
-  {
-    "url": "https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/choosing-between-class-and-struct",
-    "description": "class-or-struct"
   }
 ]

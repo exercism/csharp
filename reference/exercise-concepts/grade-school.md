@@ -1,6 +1,6 @@
 # Concepts of grade-school
 
-[Example implementation](https://exercism.io/tracks/csharp/exercises/grade-school/solutions/2fd52e1bbfcecdfaff4075c4)
+[Example implementation](https://exercism.org/tracks/csharp/exercises/grade-school/solutions/2fd52e1bbfcecdfaff4075c4)
 
 ## General
 

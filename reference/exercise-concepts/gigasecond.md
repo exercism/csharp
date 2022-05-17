@@ -1,6 +1,6 @@
 # Concepts of Gigasecond
 
-[Example implementation](https://exercism.io/tracks/csharp/exercises/gigasecond/solutions)
+[Example implementation](https://exercism.org/tracks/csharp/exercises/gigasecond/solutions)
 
 ## General
 
