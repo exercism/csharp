@@ -76,14 +76,6 @@
     "description": "custom-numeric-format-strings"
   },
   {
-    "url": "https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings",
-    "description": "standard-date-and-time-format-strings"
-  },
-  {
-    "url": "https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings",
-    "description": "custom-date-and-time-format-strings"
-  },
-  {
     "url": "https://docs.microsoft.com/en-us/dotnet/standard/base-types/stringbuilder",
     "description": "string-builder"
   },
