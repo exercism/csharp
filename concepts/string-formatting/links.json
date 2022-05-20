@@ -84,10 +84,6 @@
     "description": "custom-date-and-time-format-strings"
   },
   {
-    "url": "https://docs.microsoft.com/en-us/dotnet/standard/base-types/stringbuilder",
-    "description": "string-builder"
-  },
-  {
     "url": "https://weblog.west-wind.com/posts/2016/Dec/27/Back-to-Basics-String-Interpolation-in-C#",
     "description": "string-interpolation-in-depth"
   },
