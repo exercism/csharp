@@ -68,18 +68,6 @@
     "description": "formatting-types"
   },
   {
-    "url": "https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings",
-    "description": "standard-numeric-format-strings"
-  },
-  {
-    "url": "https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-numeric-format-strings",
-    "description": "custom-numeric-format-strings"
-  },
-  {
-    "url": "https://docs.microsoft.com/en-us/dotnet/standard/base-types/stringbuilder",
-    "description": "string-builder"
-  },
-  {
     "url": "https://weblog.west-wind.com/posts/2016/Dec/27/Back-to-Basics-String-Interpolation-in-C#",
     "description": "string-interpolation-in-depth"
   },
