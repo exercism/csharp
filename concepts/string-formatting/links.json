@@ -68,14 +68,6 @@
     "description": "formatting-types"
   },
   {
-    "url": "https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings",
-    "description": "standard-numeric-format-strings"
-  },
-  {
-    "url": "https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-numeric-format-strings",
-    "description": "custom-numeric-format-strings"
-  },
-  {
     "url": "https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings",
     "description": "standard-date-and-time-format-strings"
   },
