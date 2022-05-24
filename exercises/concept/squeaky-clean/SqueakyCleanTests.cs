@@ -33,13 +33,6 @@ public class SqueakyCleanTests
 
     [Fact]
     [Task(2)]
-    public void Clean_string_with_no_letters()
-    {
-        Assert.Equal(string.Empty, Identifier.Clean("😀😀😀"));
-    }
-
-    [Fact]
-    [Task(2)]
     public void Clean_empty_string()
     {
         Assert.Equal(string.Empty, Identifier.Clean(string.Empty));
@@ -54,13 +47,27 @@ public class SqueakyCleanTests
 
     [Fact]
     [Task(4)]
+    public void Clean_string_with_special_characters()
+    {
+        Assert.Equal("MyFinder", Identifier.Clean("My😀😀Finder😀"));
+    }
+
+    [Fact]
+    [Task(4)]
+    public void Clean_string_with_numbers()
+    {
+        Assert.Equal("MyFinder", Identifier.Clean("1My2Finder3"));
+    }
+
+    [Fact]
+    [Task(5)]
     public void Omit_lower_case_greek_letters()
     {
         Assert.Equal("MyΟFinder", Identifier.Clean("MyΟβιεγτFinder"));
     }
 
     [Fact]
-    [Task(4)]
+    [Task(5)]
     public void Combine_conversions()
     {
         Assert.Equal("_AbcĐCTRL", Identifier.Clean("9 -abcĐ😀ω\0"));
