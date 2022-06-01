@@ -7,11 +7,11 @@
 
 ## 1. Implement the extension method SubstringAfter
 
-- Different options to search for text in a string are explored in [this tutorial][tutorial-docs.microsoft.com-search-text-in-string].
+- Different options to search for text in a string are explored in [this tutorial][tutorial-csharp.net-strings].
 
 ## 2. Implement the extension method SubstringBetween
 
-- Different options to search for text in a string are explored in [this tutorial][tutorial-docs.microsoft.com-search-text-in-string].
+- Different options to search for text in a string are explored in [this tutorial][tutorial-csharp.net-strings].
 
 ## 3. Parse message in a log
 
