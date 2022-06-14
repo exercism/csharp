@@ -33,7 +33,7 @@ public class WizardsAndWarriorsTests
     {
         var wizard = new Wizard();
         wizard.PrepareSpell();
-        Assert.False(warrior.Vulnerable());
+        Assert.False(wizard.Vulnerable());
     }
     
     [Fact]
