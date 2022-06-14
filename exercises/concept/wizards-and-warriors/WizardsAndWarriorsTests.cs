@@ -29,7 +29,7 @@ public class WizardsAndWarriorsTests
 
     [Fact]
     [Task(3)]
-    public void Warrior_is_not_vulnerable_after_preparing_spell()
+    public void Wizard_is_not_vulnerable_after_preparing_spell()
     {
         var wizard = new Wizard();
         wizard.PrepareSpell();
