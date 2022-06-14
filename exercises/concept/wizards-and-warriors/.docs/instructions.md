@@ -45,6 +45,8 @@ Implement the `Wizard.PrepareSpell()` method to allow a Wizard to prepare a spel
 ```csharp
 var wizard = new Wizard();
 wizard.PrepareSpell();
+Console.WriteLine(wizard.spellPrepared);
+// => true
 ```
 
 ## 4. Make Wizards vulnerable when not having prepared a spell
