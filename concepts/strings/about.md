@@ -17,6 +17,19 @@ escaped == verbatim;
 // => true
 ```
 
+At some point you might need to separate a string into multiple parts. This might be because you want to concatenate different parts from multiple strings or you 
+need to analyse a specific part more closely but don't need the rest. That happens mostly with application logs.
+
+The easiest way to do this is with the [Substring method][substring] 
+
+```csharp
+string sentence = "Frank chases the bus.";
+string name = sentence.Substring(0,5)
+// => "Frank"
+```
+
+If you need to split the string at a certain character you can use [Substring][substring] in combination with [IndexOf][indexof]. In recent C# versions also the [Split method] has become very powerful. Check this out as well. 
+
 Finally, there are [many ways to concatenate a string][concatenation]. The simplest one is by using the [`+` operator][plus-operator].
 
 ```csharp
@@ -40,3 +53,6 @@ $"Hello {name}!";
 [escaping]: https://devblogs.microsoft.com/csharpfaq/what-character-escape-sequences-are-available/
 [methods]: https://docs.microsoft.com/en-us/dotnet/api/system.string?view=netcore-3.1#methods
 [properties]: https://docs.microsoft.com/en-us/dotnet/api/system.string?view=netcore-3.1#properties
+[substring]: https://docs.microsoft.com/en-us/dotnet/api/system.string.substring?view=netcore-3.1
+[indexof]: https://docs.microsoft.com/en-us/dotnet/api/system.string.indexof?view=netcore-3.1
+[splitting]: https://docs.microsoft.com/en-us/dotnet/api/system.string.split?view=netcore-3.1
