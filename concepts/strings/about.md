@@ -17,10 +17,7 @@ escaped == verbatim;
 // => true
 ```
 
-At some point you might need to separate a string into multiple parts. This might be because you want to concatenate different parts from multiple strings or you 
-need to analyse a specific part more closely but don't need the rest. That happens mostly with application logs.
-
-The easiest way to do this is with the [Substring method][substring] 
+If you only need a part of a string, you can use the [`Substring()` method][substring] to extract just that part:
 
 ```csharp
 string sentence = "Frank chases the bus.";
