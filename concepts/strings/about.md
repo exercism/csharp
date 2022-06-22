@@ -17,6 +17,24 @@ escaped == verbatim;
 // => true
 ```
 
+If you only need a part of a string, you can use the [`Substring()` method][substring] to extract just that part:
+
+```csharp
+string sentence = "Frank chases the bus.";
+string name = sentence.Substring(0, 5);
+// => "Frank"
+```
+
+The [`IndexOf`() method][indexof] can be used to find the index of the first occurence of a `string` within a `string`, returning `-1` if the specified value could not be found:
+
+```csharp
+"continuous-integration".IndexOf("integration")
+// => 11
+
+"continuous-integration".IndexOf("deployment")
+// => -1
+```
+
 Finally, there are [many ways to concatenate a string][concatenation]. The simplest one is by using the [`+` operator][plus-operator].
 
 ```csharp
@@ -40,3 +58,6 @@ $"Hello {name}!";
 [escaping]: https://devblogs.microsoft.com/csharpfaq/what-character-escape-sequences-are-available/
 [methods]: https://docs.microsoft.com/en-us/dotnet/api/system.string?view=netcore-3.1#methods
 [properties]: https://docs.microsoft.com/en-us/dotnet/api/system.string?view=netcore-3.1#properties
+[substring]: https://docs.microsoft.com/en-us/dotnet/api/system.string.substring?view=netcore-3.1
+[indexof]: https://docs.microsoft.com/en-us/dotnet/api/system.string.indexof?view=netcore-3.1
+[splitting]: https://docs.microsoft.com/en-us/dotnet/api/system.string.split?view=netcore-3.1
