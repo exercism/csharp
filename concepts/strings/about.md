@@ -25,7 +25,15 @@ string name = sentence.Substring(0, 5);
 // => "Frank"
 ```
 
-If you need to split the string at a certain character you can use [Substring][substring] in combination with [IndexOf][indexof]. In recent C# versions also the [Split method][splitting] has become very powerful. Check this out as well. 
+The [`IndexOf`() method][indexof] can be used to find the index of the first occurence of a `string` within a `string`, returning `-1` if the specified value could not be found:
+
+```csharp
+"continuous-integration".IndexOf("integration")
+// => 11
+
+"continuous-integration".IndexOf("deployment")
+// => -1
+```
 
 Finally, there are [many ways to concatenate a string][concatenation]. The simplest one is by using the [`+` operator][plus-operator].
 
