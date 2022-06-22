@@ -21,7 +21,7 @@ If you only need a part of a string, you can use the [`Substring()` method][subs
 
 ```csharp
 string sentence = "Frank chases the bus.";
-string name = sentence.Substring(0,5)
+string name = sentence.Substring(0, 5);
 // => "Frank"
 ```
 
