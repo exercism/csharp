@@ -42,7 +42,7 @@ public class WordSearch
                 .FirstOrDefault();
     }
 
-    private IEnumerable<((int, int), (int, int))> Find(string word, (int, int) position, (int, int) direction)
+    private IEnumerable<((int, int), (int, int))?> Find(string word, (int, int) position, (int, int) direction)
     {
         var current = position;
 
