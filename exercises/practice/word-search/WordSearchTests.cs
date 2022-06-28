@@ -15,7 +15,7 @@ public class WordSearchTests
         {
             ["clojure"] = null
         };
-        Assert.Null(expected["clojure"]);
+        Assert.Equal(expected["clojure"], actual["clojure"]);
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
@@ -480,6 +480,6 @@ public class WordSearchTests
         Assert.Equal(expected["lua"], actual["lua"]);
         Assert.Equal(expected["lisp"], actual["lisp"]);
         Assert.Equal(expected["ruby"], actual["ruby"]);
-        Assert.Null(expected["haskell"]);
+        Assert.Equal(expected["haskell"], actual["haskell"]);
     }
 }

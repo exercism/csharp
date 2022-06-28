@@ -33,15 +33,13 @@ namespace Exercism.CSharp.Exercises.Generators
             var assert = new StringBuilder();
 
             foreach (var kv in testMethod.Expected!)
-                assert.AppendLine(RenderAssertForSearchWord(kv.Key, kv.Value));
+                assert.AppendLine(RenderAssertForSearchWord(kv.Key));
 
             return assert.ToString();
         }
 
-        private string RenderAssertForSearchWord(string word, dynamic expected) 
-            => expected is null
-                ? Render.AssertNull($"expected[\"{word}\"]")
-                : Render.AssertEqual($"expected[\"{word}\"]", $"actual[\"{word}\"]");
+        private string RenderAssertForSearchWord(string word) 
+            => Render.AssertEqual($"expected[\"{word}\"]", $"actual[\"{word}\"]");
 
         private static ((int, int), (int, int))? ConvertToPosition(dynamic position)
         {
