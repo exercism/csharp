@@ -21,12 +21,12 @@
 
 ## 5. Calculate the damage points for a Wizard
 
-- Use a [conditional statement][if-else] to return the the damage points, taking into account the value of the prepare spell field.
+- Use a [conditional statement][if-else] to return the damage points, taking into account the value of the prepare spell field.
 
 ## 6. Calculate the damage points for a Warrior
 
 - You can call a method on the passed `Character` instance to determine its vulnerability.
-- Use a [conditional statement][if-else] to return the the damage points, taking into account the vulnerability of the target.
+- Use a [conditional statement][if-else] to return the damage points, taking into account the vulnerability of the target.
 
 [constructor-syntax]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/constructors#constructor-syntax
 [instance-constructors]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/instance-constructors
