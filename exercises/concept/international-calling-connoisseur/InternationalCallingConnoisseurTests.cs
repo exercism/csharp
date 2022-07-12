@@ -279,8 +279,9 @@ public class InternationalCallingConnoisseurTests
     [Task(9)]
     public void Longest_country_name()
     {
-        var longestCountryName = DialingCodes.FindLongestCountryName(
-            DialingCodes.GetExistingDictionary());
+        var countryCodes = DialingCodes.AddCountryToExistingDictionary(
+            DialingCodes.GetExistingDictionary(), 263, "Zimbabwe");
+        var longestCountryName = DialingCodes.FindLongestCountryName(countryCodes);
         Assert.Equal("United States of America", longestCountryName);
     }
 
