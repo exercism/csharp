@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Xunit;
 
 public class PythagoreanTripletTests
@@ -9,7 +10,7 @@ public class PythagoreanTripletTests
         Assert.Equal(new[]
         {
             (3, 4, 5)
-        }, PythagoreanTriplet.TripletsWithSum(12));
+        }, PythagoreanTriplet.TripletsWithSum(12).OrderBy(t => t.a));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
@@ -18,7 +19,7 @@ public class PythagoreanTripletTests
         Assert.Equal(new[]
         {
             (27, 36, 45)
-        }, PythagoreanTriplet.TripletsWithSum(108));
+        }, PythagoreanTriplet.TripletsWithSum(108).OrderBy(t => t.a));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
@@ -27,7 +28,7 @@ public class PythagoreanTripletTests
         Assert.Equal(new[]
         {
             (200, 375, 425)
-        }, PythagoreanTriplet.TripletsWithSum(1000));
+        }, PythagoreanTriplet.TripletsWithSum(1000).OrderBy(t => t.a));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
@@ -43,7 +44,7 @@ public class PythagoreanTripletTests
         {
             (9, 40, 41),
             (15, 36, 39)
-        }, PythagoreanTriplet.TripletsWithSum(90));
+        }, PythagoreanTriplet.TripletsWithSum(90).OrderBy(t => t.a));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
@@ -59,7 +60,7 @@ public class PythagoreanTripletTests
             (168, 315, 357),
             (210, 280, 350),
             (240, 252, 348)
-        }, PythagoreanTriplet.TripletsWithSum(840));
+        }, PythagoreanTriplet.TripletsWithSum(840).OrderBy(t => t.a));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
@@ -72,6 +73,6 @@ public class PythagoreanTripletTests
             (5000, 12000, 13000),
             (6000, 11250, 12750),
             (7500, 10000, 12500)
-        }, PythagoreanTriplet.TripletsWithSum(30000));
+        }, PythagoreanTriplet.TripletsWithSum(30000).OrderBy(t => t.a));
     }
 }
