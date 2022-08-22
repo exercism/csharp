@@ -17,18 +17,4 @@ var inner = new Outer.CInner();
 
 You can set access levels for inner types.
 
-In order to access members of the containing type simply hand over an containing type to the inner type's constructor. Private members of the outer type are in scope for members of the inner type but not vice versa.
-
-```csharp
-public class Outer
-{
-    public class CInner
-    {
-        private Outer parent;
-
-        public CInner(Outer parent) {
-            this.parent = parent
-        }
-    }
-}
-```
+Private members of the outer type are in scope for members of the inner type but not vice versa.
