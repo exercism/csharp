@@ -28,7 +28,7 @@
 
 ## Analyzer
 
-This exercise could benefit from the following rules added to the the [analyzer][analyzer]:
+This exercise could benefit from the following rules added to the [analyzer][analyzer]:
 
 - Verify that the constructor of the `Character` class uses the `protected` modifier.
 - Verify that the various fields used (hit points, spell prepared and potion drunk) use the `private` modifier.
