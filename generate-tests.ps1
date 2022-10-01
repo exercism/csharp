@@ -19,9 +19,7 @@ param (
     [string]$Exercise
 )
 
-# Import shared functionality
 . ./shared.ps1
-. ./update-canonical-data.ps1
 
 function Update-TestFilesForTrack {
     [CmdletBinding(SupportsShouldProcess)]
@@ -39,5 +37,4 @@ function Update-TestFilesForTrack {
     }
 }
 
-Update-CanonicalData
 Update-TestFilesForTrack $Exercise
