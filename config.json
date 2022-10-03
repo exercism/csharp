@@ -22,7 +22,8 @@
     "solution": ["%{pascal_slug}.cs"],
     "test": ["%{pascal_slug}Tests.cs"],
     "example": [".meta/Example.cs"],
-    "exemplar": [".meta/Exemplar.cs"]
+    "exemplar": [".meta/Exemplar.cs"],
+    "invalidator": ["%{pascal_slug}.csproj"]
   },
   "exercises": {
     "concept": [

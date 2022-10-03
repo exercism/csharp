@@ -14,6 +14,9 @@
     ],
     "exemplar": [
       ".meta/Exemplar.cs"
+    ],
+    "invalidator": [
+      "CarsAssemble.csproj"
     ]
   },
   "blurb": "Learn about numbers by analyzing the production of an assembly line."

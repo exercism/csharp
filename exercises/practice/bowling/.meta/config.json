@@ -17,6 +17,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "Bowling.csproj"
     ]
   },
   "blurb": "Score a bowling game.",

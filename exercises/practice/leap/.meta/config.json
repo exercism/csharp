@@ -20,6 +20,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "Leap.csproj"
     ]
   },
   "blurb": "Given a year, report if it is a leap year.",

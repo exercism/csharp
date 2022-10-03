@@ -15,6 +15,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "ResistorColor.csproj"
     ]
   },
   "blurb": "Convert a resistor band's color to its numeric representation.",

@@ -18,6 +18,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "BinarySearch.csproj"
     ]
   },
   "blurb": "Implement a binary search algorithm.",

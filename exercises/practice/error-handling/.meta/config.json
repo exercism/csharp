@@ -18,6 +18,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "ErrorHandling.csproj"
     ]
   },
   "blurb": "Implement various kinds of error handling and resource management."

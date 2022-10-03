@@ -17,6 +17,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "HighScores.csproj"
     ]
   },
   "blurb": "Manage a player's High Score list.",

@@ -16,6 +16,9 @@
     ],
     "exemplar": [
       ".meta/Exemplar.cs"
+    ],
+    "invalidator": [
+      "HyperiaForex.csproj"
     ]
   },
   "blurb": "Learn about operator overloading by introducing a new currency to a bank."

@@ -21,6 +21,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "RobotName.csproj"
     ]
   },
   "blurb": "Manage robot factory settings.",

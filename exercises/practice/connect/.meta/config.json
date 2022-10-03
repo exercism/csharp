@@ -17,6 +17,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "Connect.csproj"
     ]
   },
   "blurb": "Compute the result for a game of Hex / Polygon."

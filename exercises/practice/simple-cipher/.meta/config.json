@@ -20,6 +20,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "SimpleCipher.csproj"
     ]
   },
   "blurb": "Implement a simple shift cipher like Caesar and a more secure substitution cipher.",

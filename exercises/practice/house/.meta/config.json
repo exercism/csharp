@@ -16,6 +16,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "House.csproj"
     ]
   },
   "blurb": "Output the nursery rhyme 'This is the House that Jack Built'.",

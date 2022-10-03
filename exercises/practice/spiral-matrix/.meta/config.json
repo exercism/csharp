@@ -17,6 +17,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "SpiralMatrix.csproj"
     ]
   },
   "blurb": " Given the size, return a square matrix of numbers in spiral order.",

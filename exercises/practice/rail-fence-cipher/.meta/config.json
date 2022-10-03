@@ -16,6 +16,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "RailFenceCipher.csproj"
     ]
   },
   "blurb": "Implement encoding and decoding for the rail fence cipher.",

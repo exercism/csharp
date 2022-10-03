@@ -16,6 +16,9 @@
     ],
     "exemplar": [
       ".meta/Exemplar.cs"
+    ],
+    "invalidator": [
+      "TracksOnTracksOnTracks.csproj"
     ]
   },
   "forked_from": [

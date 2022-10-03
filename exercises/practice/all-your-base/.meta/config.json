@@ -17,6 +17,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "AllYourBase.csproj"
     ]
   },
   "blurb": "Convert a number, represented as a sequence of digits in one base, to any other base."

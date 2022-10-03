@@ -18,6 +18,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "WordSearch.csproj"
     ]
   },
   "blurb": "Create a program to solve a word search puzzle."
