@@ -15,7 +15,7 @@ public class ArmstrongNumbersTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void There_are_no_2_digit_armstrong_numbers()
+    public void There_are_no_two_digit_armstrong_numbers()
     {
         Assert.False(ArmstrongNumbers.IsArmstrongNumber(10));
     }
@@ -54,5 +54,17 @@ public class ArmstrongNumbersTests
     public void Seven_digit_number_that_is_not_an_armstrong_number()
     {
         Assert.False(ArmstrongNumbers.IsArmstrongNumber(9926314));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Armstrong_number_containing_seven_zeroes()
+    {
+        Assert.True(ArmstrongNumbers.IsArmstrongNumber("186709961001538790100634132976990"));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void The_largest_and_last_armstrong_number()
+    {
+        Assert.True(ArmstrongNumbers.IsArmstrongNumber("115132219018763992565095597973971522401"));
     }
 }

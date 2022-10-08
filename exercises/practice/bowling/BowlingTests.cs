@@ -125,6 +125,16 @@ public class BowlingTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Last_two_strikes_followed_by_only_last_bonus_with_non_strike_points()
+    {
+        var sut = new BowlingGame();
+        var previousRolls = new[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 0, 1 };
+        DoRoll(previousRolls, sut);
+        var actual = sut.Score();
+        Assert.Equal(31, actual);
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void A_strike_with_the_one_roll_bonus_after_a_spare_in_the_last_frame_does_not_get_a_bonus()
     {
         var sut = new BowlingGame();

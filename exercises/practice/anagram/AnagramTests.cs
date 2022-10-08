@@ -20,6 +20,15 @@ public class AnagramTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Detects_two_anagrams()
+    {
+        var candidates = new[] { "lemons", "cherry", "melons" };
+        var sut = new Anagram("solemn");
+        var expected = new[] { "lemons", "melons" };
+        Assert.Equal(expected, sut.FindAnagrams(candidates));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Does_not_detect_anagram_subsets()
     {
         var candidates = new[] { "dog", "goody" };
@@ -114,9 +123,42 @@ public class AnagramTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Words_are_not_anagrams_of_themselves()
+    {
+        var candidates = new[] { "BANANA" };
+        var sut = new Anagram("BANANA");
+        Assert.Empty(sut.FindAnagrams(candidates));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Words_are_not_anagrams_of_themselves_even_if_letter_case_is_partially_different()
+    {
+        var candidates = new[] { "Banana" };
+        var sut = new Anagram("BANANA");
+        Assert.Empty(sut.FindAnagrams(candidates));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Words_are_not_anagrams_of_themselves_even_if_letter_case_is_completely_different()
+    {
+        var candidates = new[] { "banana" };
+        var sut = new Anagram("BANANA");
+        Assert.Empty(sut.FindAnagrams(candidates));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Words_other_than_themselves_can_be_anagrams()
     {
         var candidates = new[] { "Listen", "Silent", "LISTEN" };
+        var sut = new Anagram("LISTEN");
+        var expected = new[] { "Silent" };
+        Assert.Equal(expected, sut.FindAnagrams(candidates));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Words_other_than_themselves_can_be_anagrams()
+    {
+        var candidates = new[] { "LISTEN", "Silent" };
         var sut = new Anagram("LISTEN");
         var expected = new[] { "Silent" };
         Assert.Equal(expected, sut.FindAnagrams(candidates));

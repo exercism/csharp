@@ -352,4 +352,12 @@ public class AllergiesTests
         var expected = new[] { Allergen.Eggs, Allergen.Shellfish, Allergen.Strawberries, Allergen.Tomatoes, Allergen.Chocolate, Allergen.Pollen, Allergen.Cats };
         Assert.Equal(expected, sut.List());
     }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void No_allergen_score_parts_without_highest_valid_score()
+    {
+        var sut = new Allergies(257);
+        var expected = new[] { Allergen.Eggs };
+        Assert.Equal(expected, sut.List());
+    }
 }

@@ -34,6 +34,18 @@ public class CollatzConjectureTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Zero_is_an_error()
+    {
+        Assert.Throws<ArgumentOutOfRangeException>(() => CollatzConjecture.Steps(0));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Negative_value_is_an_error()
+    {
+        Assert.Throws<ArgumentOutOfRangeException>(() => CollatzConjecture.Steps(-15));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Negative_value_is_an_error()
     {
         Assert.Throws<ArgumentOutOfRangeException>(() => CollatzConjecture.Steps(-15));
