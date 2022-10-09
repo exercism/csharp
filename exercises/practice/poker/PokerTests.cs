@@ -93,6 +93,24 @@ public class PokerTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Both_hands_have_two_pairs_that_add_to_the_same_value_win_goes_to_highest_pair()
+    {
+        var hands = new[] { "6S 6H 3S 3H AS", "7H 7S 2H 2S AC" };
+        var actual = Poker.BestHands(hands);
+        var expected = new[] { "7H 7S 2H 2S AC" };
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Two_pairs_first_ranked_by_largest_pair()
+    {
+        var hands = new[] { "5C 2S 5S 4H 4C", "6S 2S 6H 7C 2C" };
+        var actual = Poker.BestHands(hands);
+        var expected = new[] { "6S 2S 6H 7C 2C" };
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Three_of_a_kind_beats_two_pair()
     {
         var hands = new[] { "2S 8H 2H 8D JH", "4S 5H 4C 8S 4H" };

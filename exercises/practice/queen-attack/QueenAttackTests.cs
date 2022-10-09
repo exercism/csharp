@@ -88,4 +88,12 @@ public class QueenAttackTests
         var blackQueen = QueenAttack.Create(0,6);
         Assert.True(QueenAttack.CanAttack(whiteQueen, blackQueen));
     }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Cannot_attack_if_falling_diagonals_are_only_the_same_when_reflected_across_the_longest_falling_diagonal()
+    {
+        var whiteQueen = QueenAttack.Create(4,1);
+        var blackQueen = QueenAttack.Create(2,5);
+        Assert.False(QueenAttack.CanAttack(whiteQueen, blackQueen));
+    }
 }

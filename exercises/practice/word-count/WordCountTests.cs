@@ -124,6 +124,24 @@ public class WordCountTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void With_apostrophes()
+    {
+        var actual = WordCount.CountWords("'First: don't laugh. Then: don't cry. You're getting it.'");
+        var expected = new Dictionary<string, int>
+        {
+            ["first"] = 1,
+            ["don't"] = 2,
+            ["laugh"] = 1,
+            ["then"] = 1,
+            ["cry"] = 1,
+            ["you're"] = 1,
+            ["getting"] = 1,
+            ["it"] = 1
+        };
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void With_quotations()
     {
         var actual = WordCount.CountWords("Joe can't tell between 'large' and large.");
@@ -178,6 +196,18 @@ public class WordCountTests
             ["one"] = 1,
             ["two"] = 1,
             ["three"] = 1
+        };
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Quotation_for_word_with_apostrophe()
+    {
+        var actual = WordCount.CountWords("can, can't, 'can't'");
+        var expected = new Dictionary<string, int>
+        {
+            ["can"] = 1,
+            ["can't"] = 2
         };
         Assert.Equal(expected, actual);
     }

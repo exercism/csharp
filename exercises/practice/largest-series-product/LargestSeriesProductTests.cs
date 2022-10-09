@@ -92,4 +92,10 @@ public class LargestSeriesProductTests
     {
         Assert.Throws<ArgumentException>(() => LargestSeriesProduct.GetLargestProduct("12345", -1));
     }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Rejects_negative_span()
+    {
+        Assert.Throws<ArgumentException>(() => LargestSeriesProduct.GetLargestProduct("12345", -1));
+    }
 }

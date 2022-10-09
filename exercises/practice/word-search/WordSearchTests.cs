@@ -482,4 +482,77 @@ public class WordSearchTests
         Assert.Equal(expected["ruby"], actual["ruby"]);
         Assert.Equal(expected["haskell"], actual["haskell"]);
     }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Should_fail_to_locate_words_that_are_not_on_horizontal_vertical_or_diagonal_lines()
+    {
+        var wordsToSearchFor = new[] { "aef", "ced", "abf", "cbd" };
+        var grid = 
+            "abc\n" +
+            "def";
+        var sut = new WordSearch(grid);
+        var actual = sut.Search(wordsToSearchFor);
+        var expected = new Dictionary<string, ((int, int), (int, int))?>
+        {
+            ["aef"] = null,
+            ["ced"] = null,
+            ["abf"] = null,
+            ["cbd"] = null
+        };
+        Assert.Equal(expected["aef"], actual["aef"]);
+        Assert.Equal(expected["ced"], actual["ced"]);
+        Assert.Equal(expected["abf"], actual["abf"]);
+        Assert.Equal(expected["cbd"], actual["cbd"]);
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Should_not_concatenate_different_lines_to_find_a_horizontal_word()
+    {
+        var wordsToSearchFor = new[] { "elixir" };
+        var grid = 
+            "abceli\n" +
+            "xirdfg";
+        var sut = new WordSearch(grid);
+        var actual = sut.Search(wordsToSearchFor);
+        var expected = new Dictionary<string, ((int, int), (int, int))?>
+        {
+            ["elixir"] = null
+        };
+        Assert.Equal(expected["elixir"], actual["elixir"]);
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Should_not_wrap_around_horizontally_to_find_a_word()
+    {
+        var wordsToSearchFor = new[] { "lisp" };
+        var grid = "silabcdefp";
+        var sut = new WordSearch(grid);
+        var actual = sut.Search(wordsToSearchFor);
+        var expected = new Dictionary<string, ((int, int), (int, int))?>
+        {
+            ["lisp"] = null
+        };
+        Assert.Equal(expected["lisp"], actual["lisp"]);
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Should_not_wrap_around_vertically_to_find_a_word()
+    {
+        var wordsToSearchFor = new[] { "rust" };
+        var grid = 
+            "s\n" +
+            "u\n" +
+            "r\n" +
+            "a\n" +
+            "b\n" +
+            "c\n" +
+            "t";
+        var sut = new WordSearch(grid);
+        var actual = sut.Search(wordsToSearchFor);
+        var expected = new Dictionary<string, ((int, int), (int, int))?>
+        {
+            ["rust"] = null
+        };
+        Assert.Equal(expected["rust"], actual["rust"]);
+    }
 }

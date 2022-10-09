@@ -61,6 +61,6 @@ namespace Exercism.CSharp.Input
                 .Select(token => token.Value<string>("description"))
                 .Where(description => !string.IsNullOrWhiteSpace(description))
                 .Reverse()
-                .ToArray();
+                .ToArray()!;
     }
 }

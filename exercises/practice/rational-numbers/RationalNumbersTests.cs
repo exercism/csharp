@@ -141,6 +141,12 @@ public class RationalNumbersTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Absolute_value_of_a_rational_number_is_reduced_to_lowest_terms()
+    {
+        Assert.Equal(new RationalNumber(1, 2), new RationalNumber(2, 4).Abs());
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Raise_a_positive_rational_number_to_a_positive_integer_power()
     {
         Assert.Equal(new RationalNumber(1, 8), new RationalNumber(1, 2).Exprational(3));
@@ -150,6 +156,24 @@ public class RationalNumbersTests
     public void Raise_a_negative_rational_number_to_a_positive_integer_power()
     {
         Assert.Equal(new RationalNumber(-1, 8), new RationalNumber(-1, 2).Exprational(3));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Raise_a_positive_rational_number_to_a_negative_integer_power()
+    {
+        Assert.Equal(new RationalNumber(25, 9), new RationalNumber(3, 5).Exprational(-2));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Raise_a_negative_rational_number_to_an_even_negative_integer_power()
+    {
+        Assert.Equal(new RationalNumber(25, 9), new RationalNumber(-3, 5).Exprational(-2));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Raise_a_negative_rational_number_to_an_odd_negative_integer_power()
+    {
+        Assert.Equal(new RationalNumber(-125, 27), new RationalNumber(-3, 5).Exprational(-3));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
@@ -198,6 +222,12 @@ public class RationalNumbersTests
     public void Reduce_a_positive_rational_number_to_lowest_terms()
     {
         Assert.Equal(new RationalNumber(1, 2), new RationalNumber(2, 4).Reduce());
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Reduce_places_the_minus_sign_on_the_numerator()
+    {
+        Assert.Equal(new RationalNumber(-3, 4), new RationalNumber(3, -4).Reduce());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]

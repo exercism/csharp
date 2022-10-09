@@ -57,4 +57,11 @@ public class SpaceAgeTests
         var sut = new SpaceAge(1821023456);
         Assert.Equal(0.35, sut.OnNeptune(), precision: 2);
     }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Invalid_planet_causes_error()
+    {
+        var sut = new SpaceAge(680804807);
+        Assert.Equal(new Dictionary<string, object> { ["error"] = "not a planet" }, sut.OnSun(), precision: 2);
+    }
 }

@@ -259,4 +259,85 @@ public class ComplexNumbersTests
         Assert.Equal(expected.Real(), sut.Exp().Real(), precision: 7);
         Assert.Equal(expected.Imaginary(), sut.Exp().Imaginary(), precision: 7);
     }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Exponential_resulting_in_a_number_with_real_and_imaginary_part()
+    {
+        var sut = new ComplexNumber(Math.Log(2.0)/2, Math.PI/4);
+        var expected = new ComplexNumber(1, 1);
+        Assert.Equal(expected.Real(), sut.Exp().Real(), precision: 7);
+        Assert.Equal(expected.Imaginary(), sut.Exp().Imaginary(), precision: 7);
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Add_real_number_to_complex_number()
+    {
+        var sut = new ComplexNumber(1, 2);
+        var expected = new ComplexNumber(6, 2);
+        Assert.Equal(expected.Real(), sut.Add(5).Real(), precision: 7);
+        Assert.Equal(expected.Imaginary(), sut.Add(5).Imaginary(), precision: 7);
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Add_complex_number_to_real_number()
+    {
+        var sut = new ComplexNumber(5, 5);
+        var expected = new ComplexNumber(6, 2);
+        Assert.Equal(expected.Real(), sut.Add(new ComplexNumber(1, 2)).Real(), precision: 7);
+        Assert.Equal(expected.Imaginary(), sut.Add(new ComplexNumber(1, 2)).Imaginary(), precision: 7);
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Subtract_real_number_from_complex_number()
+    {
+        var sut = new ComplexNumber(5, 7);
+        var expected = new ComplexNumber(1, 7);
+        Assert.Equal(expected.Real(), sut.Sub(4).Real(), precision: 7);
+        Assert.Equal(expected.Imaginary(), sut.Sub(4).Imaginary(), precision: 7);
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Subtract_complex_number_from_real_number()
+    {
+        var sut = new ComplexNumber(4, 4);
+        var expected = new ComplexNumber(-1, -7);
+        Assert.Equal(expected.Real(), sut.Sub(new ComplexNumber(5, 7)).Real(), precision: 7);
+        Assert.Equal(expected.Imaginary(), sut.Sub(new ComplexNumber(5, 7)).Imaginary(), precision: 7);
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Multiply_complex_number_by_real_number()
+    {
+        var sut = new ComplexNumber(2, 5);
+        var expected = new ComplexNumber(10, 25);
+        Assert.Equal(expected.Real(), sut.Mul(5).Real(), precision: 7);
+        Assert.Equal(expected.Imaginary(), sut.Mul(5).Imaginary(), precision: 7);
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Multiply_real_number_by_complex_number()
+    {
+        var sut = new ComplexNumber(5, 5);
+        var expected = new ComplexNumber(10, 25);
+        Assert.Equal(expected.Real(), sut.Mul(new ComplexNumber(2, 5)).Real(), precision: 7);
+        Assert.Equal(expected.Imaginary(), sut.Mul(new ComplexNumber(2, 5)).Imaginary(), precision: 7);
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Divide_complex_number_by_real_number()
+    {
+        var sut = new ComplexNumber(10, 100);
+        var expected = new ComplexNumber(1, 10);
+        Assert.Equal(expected.Real(), sut.Div(10).Real(), precision: 7);
+        Assert.Equal(expected.Imaginary(), sut.Div(10).Imaginary(), precision: 7);
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Divide_real_number_by_complex_number()
+    {
+        var sut = new ComplexNumber(5, 5);
+        var expected = new ComplexNumber(2.5, -2.5);
+        Assert.Equal(expected.Real(), sut.Div(new ComplexNumber(1, 1)).Real(), precision: 7);
+        Assert.Equal(expected.Imaginary(), sut.Div(new ComplexNumber(1, 1)).Imaginary(), precision: 7);
+    }
 }

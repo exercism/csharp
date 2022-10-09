@@ -3,6 +3,12 @@ using Xunit;
 public class ProteinTranslationTests
 {
     [Fact]
+    public void Empty_rna_sequence_results_in_no_proteins()
+    {
+        Assert.Empty(ProteinTranslation.Proteins(""));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Methionine_rna_sequence()
     {
         Assert.Equal(new[] { "Methionine" }, ProteinTranslation.Proteins("AUG"));
@@ -105,6 +111,18 @@ public class ProteinTranslationTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Sequence_of_two_protein_codons_translates_into_proteins()
+    {
+        Assert.Equal(new[] { "Phenylalanine", "Phenylalanine" }, ProteinTranslation.Proteins("UUUUUU"));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Sequence_of_two_different_protein_codons_translates_into_proteins()
+    {
+        Assert.Equal(new[] { "Leucine", "Leucine" }, ProteinTranslation.Proteins("UUAUUG"));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Translate_rna_strand_into_correct_protein_list()
     {
         Assert.Equal(new[] { "Methionine", "Phenylalanine", "Tryptophan" }, ProteinTranslation.Proteins("AUGUUUUGG"));
@@ -138,5 +156,29 @@ public class ProteinTranslationTests
     public void Translation_stops_if_stop_codon_in_middle_of_six_codon_sequence()
     {
         Assert.Equal(new[] { "Tryptophan", "Cysteine", "Tyrosine" }, ProteinTranslation.Proteins("UGGUGUUAUUAAUGGUUU"));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Non_existing_codon_cant_translate()
+    {
+        Assert.Equal(new Dictionary<string, object> { ["error"] = "Invalid codon" }, ProteinTranslation.Proteins("AAA"));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Unknown_amino_acids_not_part_of_a_codon_cant_translate()
+    {
+        Assert.Equal(new Dictionary<string, object> { ["error"] = "Invalid codon" }, ProteinTranslation.Proteins("XYZ"));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Incomplete_rna_sequence_cant_translate()
+    {
+        Assert.Equal(new Dictionary<string, object> { ["error"] = "Invalid codon" }, ProteinTranslation.Proteins("AUGU"));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Incomplete_rna_sequence_can_translate_if_valid_until_a_stop_codon()
+    {
+        Assert.Equal(new[] { "Phenylalanine", "Phenylalanine" }, ProteinTranslation.Proteins("UUCUUCUAAUGGU"));
     }
 }

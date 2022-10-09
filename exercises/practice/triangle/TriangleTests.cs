@@ -99,9 +99,21 @@ public class TriangleTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Scalene_triangle_two_sides_are_equal()
+    public void Scalene_triangle_first_and_second_sides_are_equal()
     {
         Assert.False(Triangle.IsScalene(4, 4, 3));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Scalene_triangle_first_and_third_sides_are_equal()
+    {
+        Assert.False(Triangle.IsScalene(3, 4, 3));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Scalene_triangle_second_and_third_sides_are_equal()
+    {
+        Assert.False(Triangle.IsScalene(4, 3, 3));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
