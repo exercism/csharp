@@ -115,33 +115,6 @@ public class ListOpsTests
     {
         var list = new List<int>();
         var initial = 2;
-        var function = new Func<int, int, int>((x, y) => x * y);
-        Assert.Equal(2, ListOps.Foldl(list, initial, function));
-    }
-
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Folds_reduces_the_given_list_from_the_left_with_a_function_direction_independent_function_applied_to_non_empty_list()
-    {
-        var list = new List<int> { 1, 2, 3, 4 };
-        var initial = 5;
-        var function = new Func<int, int, int>((x, y) => x + y);
-        Assert.Equal(15, ListOps.Foldl(list, initial, function));
-    }
-
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Folds_reduces_the_given_list_from_the_left_with_a_function_direction_dependent_function_applied_to_non_empty_list()
-    {
-        var list = new List<int> { 2, 5 };
-        var initial = 5;
-        var function = new Func<int, int, int>((x, y) => x / y);
-        Assert.Equal(0, ListOps.Foldl(list, initial, function));
-    }
-
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Folds_reduces_the_given_list_from_the_left_with_a_function_empty_list()
-    {
-        var list = new List<int>();
-        var initial = 2;
         var function = new Func<int, int, int>((acc, el) => el * acc);
         Assert.Equal(2, ListOps.Foldl(list, initial, function));
     }
@@ -162,33 +135,6 @@ public class ListOpsTests
         var initial = 24;
         var function = new Func<int, int, int>((acc, el) => el / acc);
         Assert.Equal(64, ListOps.Foldl(list, initial, function));
-    }
-
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Folds_reduces_the_given_list_from_the_right_with_a_function_empty_list()
-    {
-        var list = new List<int>();
-        var initial = 2;
-        var function = new Func<int, int, int>((x, y) => x * y);
-        Assert.Equal(2, ListOps.Foldr(list, initial, function));
-    }
-
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Folds_reduces_the_given_list_from_the_right_with_a_function_direction_independent_function_applied_to_non_empty_list()
-    {
-        var list = new List<int> { 1, 2, 3, 4 };
-        var initial = 5;
-        var function = new Func<int, int, int>((x, y) => x + y);
-        Assert.Equal(15, ListOps.Foldr(list, initial, function));
-    }
-
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Folds_reduces_the_given_list_from_the_right_with_a_function_direction_dependent_function_applied_to_non_empty_list()
-    {
-        var list = new List<int> { 2, 5 };
-        var initial = 5;
-        var function = new Func<int, int, int>((x, y) => x / y);
-        Assert.Equal(2, ListOps.Foldr(list, initial, function));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]

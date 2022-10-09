@@ -182,14 +182,6 @@ public class SgfParsingTests
         AssertEqual(expected, SgfParser.ParseTree(encoded));
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Escaped_property()
-    {
-        var encoded = "(;A[\\]b\\nc\\nd\\t\\te \\n\\]])";
-        var expected = new SgfTree(new Dictionary<string, string[]> { ["A"] = new[] { "]b\nc\nd  e \n]" } });
-        AssertEqual(expected, SgfParser.ParseTree(encoded));
-    }
-
         private void AssertEqual(SgfTree expected, SgfTree actual)
         {
             Assert.Equal(expected.Data, actual.Data);

@@ -83,14 +83,6 @@ public class MarkdownTests
     }
 
     [Fact]
-    public void With_h7_header_level()
-    {
-        var markdown = "####### This will not be an h7";
-        var expected = "####### This will not be an h7";
-        Assert.Equal(expected, Markdown.Parse(markdown));
-    }
-
-    [Fact]
     public void H7_header_level_is_a_paragraph()
     {
         var markdown = "####### This will not be an h7";

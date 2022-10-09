@@ -64,26 +64,6 @@ public class GradeSchoolTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void A_student_cant_be_in_two_different_grades()
-    {
-        var sut = new GradeSchool();
-        sut.Add("Aimee", 2);
-        sut.Add("Aimee", 1);
-        var expected = Array.Empty<string>();
-        Assert.Empty(sut.Roster(2));
-    }
-
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void A_student_can_only_be_added_to_the_same_grade_in_the_roster_once()
-    {
-        var sut = new GradeSchool();
-        sut.Add("Aimee", 2);
-        sut.Add("Aimee", 2);
-        var expected = new[] { "Aimee" };
-        Assert.Equal(expected, sut.Roster());
-    }
-
-    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Student_not_added_to_same_grade_in_the_roster_more_than_once()
     {
         var sut = new GradeSchool();
@@ -125,16 +105,6 @@ public class GradeSchoolTests
         sut.Add("Paul", 3);
         var expected = Array.Empty<string>();
         Assert.Equal(expected, sut.Add());
-    }
-
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void A_student_cannot_be_added_to_more_than_one_grade_in_the_sorted_roster()
-    {
-        var sut = new GradeSchool();
-        sut.Add("Aimee", 2);
-        sut.Add("Aimee", 1);
-        var expected = new[] { "Aimee" };
-        Assert.Equal(expected, sut.Roster());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]

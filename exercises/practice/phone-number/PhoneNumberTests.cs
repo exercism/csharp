@@ -62,21 +62,7 @@ public class PhoneNumberTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Invalid_with_letters()
     {
-        var phrase = "123-abc-7890";
-        Assert.Throws<ArgumentException>(() => PhoneNumber.Clean(phrase));
-    }
-
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Invalid_with_letters()
-    {
         var phrase = "523-abc-7890";
-        Assert.Throws<ArgumentException>(() => PhoneNumber.Clean(phrase));
-    }
-
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Invalid_with_punctuations()
-    {
-        var phrase = "123-@:!-7890";
         Assert.Throws<ArgumentException>(() => PhoneNumber.Clean(phrase));
     }
 

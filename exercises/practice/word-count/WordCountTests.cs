@@ -111,21 +111,6 @@ public class WordCountTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void With_apostrophes()
     {
-        var actual = WordCount.CountWords("First: don't laugh. Then: don't cry.");
-        var expected = new Dictionary<string, int>
-        {
-            ["first"] = 1,
-            ["don't"] = 2,
-            ["laugh"] = 1,
-            ["then"] = 1,
-            ["cry"] = 1
-        };
-        Assert.Equal(expected, actual);
-    }
-
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void With_apostrophes()
-    {
         var actual = WordCount.CountWords("'First: don't laugh. Then: don't cry. You're getting it.'");
         var expected = new Dictionary<string, int>
         {
