@@ -39,6 +39,12 @@ description = "both hands have two pairs, with the same highest ranked pair, tie
 [15a7a315-0577-47a3-9981-d6cf8e6f387b]
 description = "both hands have two identically ranked pairs, tie goes to remaining card (kicker)"
 
+[f761e21b-2560-4774-a02a-b3e9366a51ce]
+description = "both hands have two pairs that add to the same value, win goes to highest pair"
+
+[fc6277ac-94ac-4078-8d39-9d441bc7a79e]
+description = "two pairs first ranked by largest pair"
+
 [21e9f1e6-2d72-49a1-a930-228e5e0195dc]
 description = "three of a kind beats two pair"
 
