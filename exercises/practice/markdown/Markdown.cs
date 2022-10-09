@@ -48,7 +48,7 @@ public static class Markdown
             }
         }
 
-        if (count == 0)
+        if (count == 0 || count > 6)
         {
             inListAfter = list;
             return null;

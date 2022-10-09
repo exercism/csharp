@@ -46,7 +46,7 @@ public static class Markdown
                 .TakeWhile(c => c == HeaderMarkdown[0])
                 .Count();
 
-        if (headerNumber == 0)
+        if (headerNumber == 0 || headerNumber > 6)
             return null;
 
         var headerTag = $"h{headerNumber}";
