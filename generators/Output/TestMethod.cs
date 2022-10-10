@@ -53,7 +53,7 @@ namespace Exercism.CSharp.Output
         public Type? ExceptionThrown { get; set; }
         public bool ExpectedIsError => Expected is Dictionary<string, object> dict && dict.ContainsKey("error");
         
-        public IReadOnlyCollection<string> InputParameters
+        public ICollection<string> InputParameters
         {
             get => _inputParameters;
             set
@@ -65,7 +65,7 @@ namespace Exercism.CSharp.Output
             }
         }
         
-        public IReadOnlyCollection<string> ConstructorInputParameters
+        public ICollection<string> ConstructorInputParameters
         {
             get => _constructorInputParameters;
             set
