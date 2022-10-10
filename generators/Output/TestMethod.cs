@@ -18,6 +18,7 @@ namespace Exercism.CSharp.Output
             Expected = testCase.Expected;
             Property = testCase.Property;
             Description = testCase.Description;
+            Scenarios = testCase.Scenarios;
             TestMethodName = testCase.Description.ToTestMethodName();
             TestMethodNameWithPath = string.Join(" - ", testCase.DescriptionPath).ToTestMethodName();
             TestedClass = exercise.Name.ToTestedClassName();
@@ -35,6 +36,7 @@ namespace Exercism.CSharp.Output
         public dynamic? Expected { get; set; }
         public string Property { get; }
         public string Description { get; }
+        public string[] Scenarios { get; }
         public bool Skip { get; set; }
 
         public bool UseVariablesForInput { get; set; }
