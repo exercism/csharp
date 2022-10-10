@@ -21,7 +21,7 @@ public class RestApiTests
         var database = "[]";
         var sut = new RestApi(database);
         var actual = sut.Post(url, payload);
-        var expected = "{\"name\":\"Adam\",\"owes\":{},\"owed_by\":{},\"balance\":0.0}";
+        var expected = "{\"name\":\"Adam\",\"owes\":{},\"owed_by\":{},\"balance\":0}";
         Assert.Equal(expected, actual);
     }
 
@@ -33,7 +33,7 @@ public class RestApiTests
         var database = "[{\"name\":\"Adam\",\"owes\":{},\"owed_by\":{},\"balance\":0},{\"name\":\"Bob\",\"owes\":{},\"owed_by\":{},\"balance\":0}]";
         var sut = new RestApi(database);
         var actual = sut.Get(url, payload);
-        var expected = "[{\"name\":\"Bob\",\"owes\":{},\"owed_by\":{},\"balance\":0.0}]";
+        var expected = "[{\"name\":\"Bob\",\"owes\":{},\"owed_by\":{},\"balance\":0}]";
         Assert.Equal(expected, actual);
     }
 
@@ -45,7 +45,7 @@ public class RestApiTests
         var database = "[{\"name\":\"Adam\",\"owes\":{},\"owed_by\":{},\"balance\":0},{\"name\":\"Bob\",\"owes\":{},\"owed_by\":{},\"balance\":0}]";
         var sut = new RestApi(database);
         var actual = sut.Post(url, payload);
-        var expected = "[{\"name\":\"Adam\",\"owes\":{},\"owed_by\":{\"Bob\":3.0},\"balance\":3.0},{\"name\":\"Bob\",\"owes\":{\"Adam\":3.0},\"owed_by\":{},\"balance\":-3.0}]";
+        var expected = "[{\"name\":\"Adam\",\"owes\":{},\"owed_by\":{\"Bob\":3},\"balance\":3},{\"name\":\"Bob\",\"owes\":{\"Adam\":3},\"owed_by\":{},\"balance\":-3}]";
         Assert.Equal(expected, actual);
     }
 
@@ -57,7 +57,7 @@ public class RestApiTests
         var database = "[{\"name\":\"Adam\",\"owes\":{},\"owed_by\":{},\"balance\":0},{\"name\":\"Bob\",\"owes\":{\"Chuck\":3},\"owed_by\":{},\"balance\":-3},{\"name\":\"Chuck\",\"owes\":{},\"owed_by\":{\"Bob\":3},\"balance\":3}]";
         var sut = new RestApi(database);
         var actual = sut.Post(url, payload);
-        var expected = "[{\"name\":\"Adam\",\"owes\":{},\"owed_by\":{\"Bob\":3.0},\"balance\":3.0},{\"name\":\"Bob\",\"owes\":{\"Adam\":3.0,\"Chuck\":3.0},\"owed_by\":{},\"balance\":-6.0}]";
+        var expected = "[{\"name\":\"Adam\",\"owes\":{},\"owed_by\":{\"Bob\":3},\"balance\":3},{\"name\":\"Bob\",\"owes\":{\"Adam\":3,\"Chuck\":3},\"owed_by\":{},\"balance\":-6}]";
         Assert.Equal(expected, actual);
     }
 
@@ -69,7 +69,7 @@ public class RestApiTests
         var database = "[{\"name\":\"Adam\",\"owes\":{},\"owed_by\":{},\"balance\":0},{\"name\":\"Bob\",\"owes\":{\"Chuck\":3},\"owed_by\":{},\"balance\":-3},{\"name\":\"Chuck\",\"owes\":{},\"owed_by\":{\"Bob\":3},\"balance\":3}]";
         var sut = new RestApi(database);
         var actual = sut.Post(url, payload);
-        var expected = "[{\"name\":\"Adam\",\"owes\":{\"Bob\":3.0},\"owed_by\":{},\"balance\":-3.0},{\"name\":\"Bob\",\"owes\":{\"Chuck\":3.0},\"owed_by\":{\"Adam\":3.0},\"balance\":0.0}]";
+        var expected = "[{\"name\":\"Adam\",\"owes\":{\"Bob\":3},\"owed_by\":{},\"balance\":-3},{\"name\":\"Bob\",\"owes\":{\"Chuck\":3},\"owed_by\":{\"Adam\":3},\"balance\":0}]";
         Assert.Equal(expected, actual);
     }
 
@@ -81,7 +81,7 @@ public class RestApiTests
         var database = "[{\"name\":\"Adam\",\"owes\":{\"Bob\":3},\"owed_by\":{},\"balance\":-3},{\"name\":\"Bob\",\"owes\":{},\"owed_by\":{\"Adam\":3},\"balance\":3}]";
         var sut = new RestApi(database);
         var actual = sut.Post(url, payload);
-        var expected = "[{\"name\":\"Adam\",\"owes\":{\"Bob\":1.0},\"owed_by\":{},\"balance\":-1.0},{\"name\":\"Bob\",\"owes\":{},\"owed_by\":{\"Adam\":1.0},\"balance\":1.0}]";
+        var expected = "[{\"name\":\"Adam\",\"owes\":{\"Bob\":1},\"owed_by\":{},\"balance\":-1},{\"name\":\"Bob\",\"owes\":{},\"owed_by\":{\"Adam\":1},\"balance\":1}]";
         Assert.Equal(expected, actual);
     }
 
@@ -93,7 +93,7 @@ public class RestApiTests
         var database = "[{\"name\":\"Adam\",\"owes\":{\"Bob\":3},\"owed_by\":{},\"balance\":-3},{\"name\":\"Bob\",\"owes\":{},\"owed_by\":{\"Adam\":3},\"balance\":3}]";
         var sut = new RestApi(database);
         var actual = sut.Post(url, payload);
-        var expected = "[{\"name\":\"Adam\",\"owes\":{},\"owed_by\":{\"Bob\":1.0},\"balance\":1.0},{\"name\":\"Bob\",\"owes\":{\"Adam\":1.0},\"owed_by\":{},\"balance\":-1.0}]";
+        var expected = "[{\"name\":\"Adam\",\"owes\":{},\"owed_by\":{\"Bob\":1},\"balance\":1},{\"name\":\"Bob\",\"owes\":{\"Adam\":1},\"owed_by\":{},\"balance\":-1}]";
         Assert.Equal(expected, actual);
     }
 
@@ -105,7 +105,7 @@ public class RestApiTests
         var database = "[{\"name\":\"Adam\",\"owes\":{\"Bob\":3},\"owed_by\":{},\"balance\":-3},{\"name\":\"Bob\",\"owes\":{},\"owed_by\":{\"Adam\":3},\"balance\":3}]";
         var sut = new RestApi(database);
         var actual = sut.Post(url, payload);
-        var expected = "[{\"name\":\"Adam\",\"owes\":{},\"owed_by\":{},\"balance\":0.0},{\"name\":\"Bob\",\"owes\":{},\"owed_by\":{},\"balance\":0.0}]";
+        var expected = "[{\"name\":\"Adam\",\"owes\":{},\"owed_by\":{},\"balance\":0},{\"name\":\"Bob\",\"owes\":{},\"owed_by\":{},\"balance\":0}]";
         Assert.Equal(expected, actual);
     }
 }

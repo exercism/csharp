@@ -22,7 +22,7 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.Expected =
                 JsonConvert.SerializeObject(testMethod.Expected!.ContainsKey("users")
                     ? testMethod.Expected["users"]
-                    : testMethod.Expected);
+                    : testMethod.Expected).Replace(".0", "");
         }
     }
 }
