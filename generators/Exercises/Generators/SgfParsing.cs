@@ -23,7 +23,7 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.TestedMethod = "ParseTree";
             testMethod.UseVariablesForInput = true;
             testMethod.UseVariableForExpected = true;
-            testMethod.Input["encoded"] = testMethod.Input.FirstOrDefault().Value.Replace("\\", "\\\\");
+            testMethod.Input["encoded"] = testMethod.Input.FirstOrDefault().Value;
         }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)
@@ -34,17 +34,17 @@ namespace Exercism.CSharp.Exercises.Generators
 
         protected override void UpdateTestClass(TestClass testClass) => AddAssertEqualMethod(testClass);
 
-        private void AddAssertEqualMethod(TestClass testClass) =>
+        private static void AddAssertEqualMethod(TestClass testClass) =>
             testClass.AdditionalMethods.Add(@"
-    private void AssertEqual(SgfTree expected, SgfTree actual)
+private void AssertEqual(SgfTree expected, SgfTree actual)
+{
+    Assert.Equal(expected.Data, actual.Data);
+    Assert.Equal(expected.Children.Length, actual.Children.Length);
+    for (var i = 0; i < expected.Children.Length; i++)
     {
-        Assert.Equal(expected.Data, actual.Data);
-        Assert.Equal(expected.Children.Length, actual.Children.Length);
-        for (var i = 0; i < expected.Children.Length; i++)
-        {
-            AssertEqual(expected.Children[i], actual.Children[i]);
-        }
-    }");
+        AssertEqual(expected.Children[i], actual.Children[i]);
+    }
+}");
 
         private UnescapedValue? RenderTree(dynamic tree)
         {
@@ -53,7 +53,7 @@ namespace Exercism.CSharp.Exercises.Generators
                 return null;
             }
 
-            var label = Render.Object(tree["properties"]).Replace("object", "string[]");
+            var label = Render.Object(tree["properties"]).Replace("object", "string[]").Replace("\\", "\\\\");
             if (tree.ContainsKey("children"))
             {
                 var children = string.Empty;
