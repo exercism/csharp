@@ -110,21 +110,26 @@ description = "Operations between real numbers and complex numbers -> Add real n
 
 [d77dbbdf-b8df-43f6-a58d-3acb96765328]
 description = "Operations between real numbers and complex numbers -> Add complex number to real number"
+include = false
 
 [20432c8e-8960-4c40-ba83-c9d910ff0a0f]
 description = "Operations between real numbers and complex numbers -> Subtract real number from complex number"
+include = false
 
 [b4b38c85-e1bf-437d-b04d-49bba6e55000]
 description = "Operations between real numbers and complex numbers -> Subtract complex number from real number"
+include = false
 
 [dabe1c8c-b8f4-44dd-879d-37d77c4d06bd]
 description = "Operations between real numbers and complex numbers -> Multiply complex number by real number"
 
 [6c81b8c8-9851-46f0-9de5-d96d314c3a28]
 description = "Operations between real numbers and complex numbers -> Multiply real number by complex number"
+include = false
 
 [8a400f75-710e-4d0c-bcb4-5e5a00c78aa0]
 description = "Operations between real numbers and complex numbers -> Divide complex number by real number"
 
 [9a867d1b-d736-4c41-a41e-90bd148e9d5e]
 description = "Operations between real numbers and complex numbers -> Divide real number by complex number"
+include = false
