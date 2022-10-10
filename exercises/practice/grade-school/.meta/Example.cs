@@ -5,12 +5,23 @@ public class GradeSchool
 {
     private readonly Dictionary<int, IList<string>> roster = new Dictionary<int, IList<string>>();
     
-    public void Add(string student, int grade)
+    public bool Add(string student, int grade)
     {
         if (roster.ContainsKey(grade))
+        {
+            if (roster[grade].Contains(student))
+            {
+                return false;
+            }
+
             roster[grade].Add(student);
+            return true;
+        }
         else
+        {
             roster.Add(grade, new SortedList<string> { student });
+            return true;
+        }
     }
 
    public IEnumerable<string> Roster()

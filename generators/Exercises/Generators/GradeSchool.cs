@@ -8,14 +8,15 @@ namespace Exercism.CSharp.Exercises.Generators
     internal class GradeSchool : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
-        {
-            testMethod.UseVariableForExpected = true;
+        {   
             testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
             testMethod.Act = RenderAct(testMethod);
             testMethod.InputParameters.Remove("students");
             
             if (testMethod.Property == "add")
                 testMethod.Assert = "";
+            else
+                testMethod.UseVariableForExpected = true;
         }
 
         private string RenderAct(TestMethod testMethod)

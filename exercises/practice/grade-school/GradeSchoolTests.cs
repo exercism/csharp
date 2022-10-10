@@ -14,7 +14,6 @@ public class GradeSchoolTests
     public void Add_a_student()
     {
         var sut = new GradeSchool();
-        var expected = new[] { True };
         Assert.True(sut.Add("Aimee", 2));
     }
 
@@ -31,7 +30,6 @@ public class GradeSchoolTests
     public void Adding_multiple_students_in_the_same_grade_in_the_roster()
     {
         var sut = new GradeSchool();
-        var expected = new[] { True, True, True };
         Assert.True(sut.Add("Blair", 2));
         Assert.True(sut.Add("James", 2));
         Assert.True(sut.Add("Paul", 2));
@@ -52,7 +50,6 @@ public class GradeSchoolTests
     public void Cannot_add_student_to_same_grade_in_the_roster_more_than_once()
     {
         var sut = new GradeSchool();
-        var expected = new[] { True, True, False, True };
         Assert.True(sut.Add("Blair", 2));
         Assert.True(sut.Add("James", 2));
         Assert.False(sut.Add("James", 2));
@@ -75,7 +72,6 @@ public class GradeSchoolTests
     public void Adding_students_in_multiple_grades()
     {
         var sut = new GradeSchool();
-        var expected = new[] { True, True };
         Assert.True(sut.Add("Chelsea", 3));
         Assert.True(sut.Add("Logan", 7));
     }
@@ -94,7 +90,6 @@ public class GradeSchoolTests
     public void Cannot_add_same_student_to_multiple_grades_in_the_roster()
     {
         var sut = new GradeSchool();
-        var expected = new[] { True, True, False, True };
         Assert.True(sut.Add("Blair", 2));
         Assert.True(sut.Add("James", 2));
         Assert.False(sut.Add("James", 3));
