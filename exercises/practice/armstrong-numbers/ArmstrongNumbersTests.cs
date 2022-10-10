@@ -61,10 +61,4 @@ public class ArmstrongNumbersTests
     {
         Assert.True(ArmstrongNumbers.IsArmstrongNumber("186709961001538790100634132976990"));
     }
-
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void The_largest_and_last_armstrong_number()
-    {
-        Assert.True(ArmstrongNumbers.IsArmstrongNumber("115132219018763992565095597973971522401"));
-    }
 }
