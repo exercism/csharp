@@ -55,10 +55,4 @@ public class ArmstrongNumbersTests
     {
         Assert.False(ArmstrongNumbers.IsArmstrongNumber(9926314));
     }
-
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Armstrong_number_containing_seven_zeroes()
-    {
-        Assert.True(ArmstrongNumbers.IsArmstrongNumber("186709961001538790100634132976990"));
-    }
 }
