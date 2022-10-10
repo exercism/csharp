@@ -264,7 +264,7 @@ public class PokerTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Both_hands_have_straight_flush_tie_goes_to_highest_ranked_card()
+    public void Both_hands_have_a_straight_flush_tie_goes_to_highest_ranked_card()
     {
         var hands = new[] { "4H 6H 7H 8H 5H", "5S 7S 8S 9S 6S" };
         var actual = Poker.BestHands(hands);
