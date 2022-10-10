@@ -14,10 +14,10 @@ namespace Exercism.CSharp.Exercises.Generators
 
             testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
             testMethod.ConstructorInputParameters = new[] { "database" };
-            testMethod.Input["database"] = JsonConvert.SerializeObject(testMethod.Input["database"]["users"]);
+            testMethod.Input["database"] = JsonConvert.SerializeObject(testMethod.Input["database"]["users"]).Replace(".0", "");
 
             if (testMethod.Input.ContainsKey("payload"))
-                testMethod.Input["payload"] = JsonConvert.SerializeObject(testMethod.Input["payload"]);
+                testMethod.Input["payload"] = JsonConvert.SerializeObject(testMethod.Input["payload"]).Replace(".0", "");
 
             testMethod.Expected =
                 JsonConvert.SerializeObject(testMethod.Expected!.ContainsKey("users")
