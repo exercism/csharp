@@ -258,8 +258,8 @@ public class ForthTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void User_defined_words_only_defines_locally()
     {
-        Assert.Equal("[\n  0\n] [\n  2\n]", Forth.Evaluate(new[] { ": + - ;", "1 1 +" }));
-        Assert.Equal("[\n  0\n] [\n  2\n]", Forth.Evaluate(new[] { "1 1 +" }));
+        Assert.Equal("0", Forth.Evaluate(new[] { ": + - ;", "1 1 +" }));
+        Assert.Equal("2", Forth.Evaluate(new[] { "1 1 +" }));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]

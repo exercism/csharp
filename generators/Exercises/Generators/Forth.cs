@@ -31,8 +31,8 @@ namespace Exercism.CSharp.Exercises.Generators
         {
             var instructionsFirst = Render.Object(testMethod.Input["instructionsFirst"]);
             var instructionsSecond = Render.Object(testMethod.Input["instructionsSecond"]);
-            var expectedFirst = Render.Object(string.Join(" ", testMethod.Expected[0].ToObject<string[]>()));
-            var expectedSecond = Render.Object(string.Join(" ", testMethod.Expected[1].ToObject<string[]>()));
+            var expectedFirst = Render.String(string.Join(" ", testMethod.Expected![0]));
+            var expectedSecond = Render.String(string.Join(" ", testMethod.Expected[1]));
             var assert = new StringBuilder();
             assert.AppendLine(Render.AssertEqual(expectedFirst, $"Forth.Evaluate({instructionsFirst})"));
             assert.AppendLine(Render.AssertEqual(expectedSecond, $"Forth.Evaluate({instructionsSecond})"));
