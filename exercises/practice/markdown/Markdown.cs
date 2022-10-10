@@ -96,7 +96,7 @@ public static class Markdown
         if (!list)
         {
             inListAfter = false;
-            return ParseText(markdown, list);
+            return ParseText(markdown, false);
         }
         else
         {

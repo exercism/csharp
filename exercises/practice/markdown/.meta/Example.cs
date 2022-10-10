@@ -74,7 +74,7 @@ public static class Markdown
     private static Tuple<bool, string> ParseParagraph(this string markdown, bool list)
     {
         if (list)
-            return Tuple.Create(false, ClosingTag(ListTag) + markdown.ParseText(list));
+            return Tuple.Create(false, ClosingTag(ListTag) + markdown.ParseText(false));
 
         return Tuple.Create(false, markdown.ParseText(list));
     }
