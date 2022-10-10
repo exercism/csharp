@@ -1,78 +1,34 @@
 using System;
-using System.Diagnostics;
 
-[DebuggerDisplay("{_real} + {_imaginary}i")]
-public struct ComplexNumber
+public record ComplexNumber(double R, double I)
 {
-    private readonly double _real;
-    private readonly double _imaginary;
+    public double Real() => R;
 
-    public ComplexNumber(double real, double imaginary)
-    {
-        _real = real;
-        _imaginary = imaginary;
-    }
-    
-    public double Real()
-    {
-        return _real;
-    }
+    public double Imaginary() => I;
 
-    public double Imaginary()
-    {
-        return _imaginary;
-    }
+    public ComplexNumber Mul(ComplexNumber other) =>
+        new(R * other.R - I * other.I, I * other.R + R * other.I);
 
-    public ComplexNumber Mul(ComplexNumber other)
-    {
-        return new ComplexNumber(
-            _real * other._real - _imaginary * other._imaginary,
-            _imaginary * other._real + _real * other._imaginary);
-    }
+    public ComplexNumber Add(ComplexNumber other) =>
+        new(R + other.R, I + other.I);
 
-    public ComplexNumber Add(ComplexNumber other)
-    {
-        return new ComplexNumber(
-            _real + other._real,
-            _imaginary + other._imaginary);
-    }
-
-    public ComplexNumber Sub(ComplexNumber other)
-    {
-        return new ComplexNumber(
-            _real - other._real,
-            _imaginary - other._imaginary);
-    }
+    public ComplexNumber Sub(ComplexNumber other) =>
+        new(R - other.R, I - other.I);
 
     public ComplexNumber Div(ComplexNumber other)
     {
-        var denominator = other._real * other._real + other._imaginary * other._imaginary;
-        var real = (_real * other._real + _imaginary * other._imaginary) / denominator;
-        var imaginary = (_imaginary * other._real - _real * _real * other._imaginary) / denominator;
+        var numerator = Mul(other.Conjugate());
+        var denominator = other.Mul(other.Conjugate());
 
-        return new ComplexNumber(real, imaginary);
+        return new(numerator.R / denominator.R, numerator.I / denominator.R);
     }
 
-    public double Abs()
-    {
-        return Math.Sqrt(_real * _real + _imaginary * _imaginary);
-    }
+    public ComplexNumber Exp()  =>
+        new(Math.Exp(R) * Math.Cos(I), Math.Exp(R) * Math.Sin(I));
 
-    public ComplexNumber Conjugate()
-    {
-        return new ComplexNumber(
-            _real,
-            -1 * _imaginary);
-    }
+    public ComplexNumber Conjugate() => new(R, -I);
 
-    public ComplexNumber Exp()
-    {
-        var real = Math.Cos(_imaginary);
-        var imaginary = Math.Sin(_imaginary);
-        var factor = Math.Exp(_real);
-
-        return new ComplexNumber(
-            real * factor,
-            imaginary * factor);
-    }
+    public double Abs() => Math.Sqrt(Math.Pow(R, 2) + Math.Pow(I, 2));
+    
+    public static implicit operator ComplexNumber(double d) => new(d, 0.0);
 }
