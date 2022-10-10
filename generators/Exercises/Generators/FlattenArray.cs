@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Collections.Generic;
 using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
 using Newtonsoft.Json.Linq;
@@ -29,5 +30,8 @@ namespace Exercism.CSharp.Exercises.Generators
 
             return input;
         }
+
+        protected override void UpdateNamespaces(ISet<string> namespaces) =>
+            namespaces.Add(typeof(System.Array).Namespace!);
     }
 }
