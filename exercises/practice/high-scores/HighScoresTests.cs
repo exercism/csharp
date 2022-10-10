@@ -63,7 +63,7 @@ public class HighScoresTests
     public void Latest_score_after_personal_top_scores()
     {
         var sut = new HighScores(new List<int> { 70, 50, 20, 30 });
-        var _ = sut.TopThree();
+        var _ = sut.PersonalTopThree();
         Assert.Equal(30, sut.Latest());
     }
 
@@ -71,7 +71,7 @@ public class HighScoresTests
     public void Scores_after_personal_top_scores()
     {
         var sut = new HighScores(new List<int> { 30, 50, 20, 70 });
-        var _ = sut.TopThree();
+        var _ = sut.PersonalTopThree();
         Assert.Equal(new List<int> { 30, 50, 20, 70 }, sut.Scores());
     }
 
@@ -79,7 +79,7 @@ public class HighScoresTests
     public void Latest_score_after_personal_best()
     {
         var sut = new HighScores(new List<int> { 20, 70, 15, 25, 30 });
-        var _ = sut.Best();
+        var _ = sut.PersonalBest();
         Assert.Equal(30, sut.Latest());
     }
 
@@ -87,7 +87,7 @@ public class HighScoresTests
     public void Scores_after_personal_best()
     {
         var sut = new HighScores(new List<int> { 20, 70, 15, 25, 30 });
-        var _ = sut.Best();
+        var _ = sut.PersonalBest();
         Assert.Equal(new List<int> { 20, 70, 15, 25, 30 }, sut.Scores());
     }
 }

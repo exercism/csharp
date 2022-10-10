@@ -23,8 +23,8 @@ namespace Exercism.CSharp.Exercises.Generators
 
             if (testMethod.Scenarios.Contains("immutable"))
             {
-                var beforeProperty = testMethod.Property.Substring(0, testMethod.Property.IndexOf("After", StringComparison.Ordinal)).Pascalize();
-                var afterProperty = testMethod.Property.Substring(testMethod.Property.IndexOf("After", StringComparison.Ordinal) + 5).Pascalize();
+                var beforeProperty = testMethod.Property.Substring(0, testMethod.Property.IndexOf("After", StringComparison.Ordinal)).Replace("Best", "PersonalBest").Replace("TopThree", "PersonalTopThree").Pascalize();
+                var afterProperty = testMethod.Property.Substring(testMethod.Property.IndexOf("After", StringComparison.Ordinal) + 5).Replace("Best", "PersonalBest").Replace("TopThree", "PersonalTopThree").Pascalize();
 
                 testMethod.Act = $"var _ = sut.{afterProperty}();";
                 testMethod.TestedMethod = beforeProperty;
