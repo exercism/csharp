@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
+
 using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
+
 using Newtonsoft.Json.Linq;
 
 namespace Exercism.CSharp.Exercises.Generators
@@ -23,7 +26,7 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.TestedMethod = "ParseTree";
             testMethod.UseVariablesForInput = true;
             testMethod.UseVariableForExpected = true;
-            testMethod.Input["encoded"] = testMethod.Input.FirstOrDefault().Value;
+            testMethod.Input["encoded"] = Regex.Replace(testMethod.Input.FirstOrDefault().Value, @"(?<!\\)(\\\])", @"\\[");
         }
 
         protected override void UpdateNamespaces(ISet<string> namespaces)

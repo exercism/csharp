@@ -113,7 +113,7 @@ public class SgfParsingTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Escaped_closing_bracket_within_property_value_becomes_just_a_closing_bracket()
     {
-        var encoded = "(;A[\]])";
+        var encoded = "(;A[\\[])";
         var expected = new SgfTree(new Dictionary<string, string[]> { ["A"] = new[] { "]" } });
         AssertEqual(expected, SgfParser.ParseTree(encoded));
     }
@@ -129,7 +129,7 @@ public class SgfParsingTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Opening_bracket_within_property_value_doesnt_need_to_be_escaped()
     {
-        var encoded = "(;A[x[y\]z][foo]B[bar];C[baz])";
+        var encoded = "(;A[x[y\\[z][foo]B[bar];C[baz])";
         var expected = new SgfTree(new Dictionary<string, string[]> { ["A"] = new[] { "x[y]z", "foo" }, ["B"] = new[] { "bar" } }, new SgfTree(new Dictionary<string, string[]> { ["C"] = new[] { "baz" } }));
         AssertEqual(expected, SgfParser.ParseTree(encoded));
     }
@@ -177,7 +177,7 @@ public class SgfParsingTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Mixing_various_kinds_of_whitespace_and_escaped_characters_in_property_value()
     {
-        var encoded = "(;A[\]b\nc\\nd\t\te\\ \\n\]])";
+        var encoded = "(;A[\\[b\nc\\nd\t\te\\ \\n\\[])";
         var expected = new SgfTree(new Dictionary<string, string[]> { ["A"] = new[] { "]b\\ncd  e\\ ]" } });
         AssertEqual(expected, SgfParser.ParseTree(encoded));
     }
