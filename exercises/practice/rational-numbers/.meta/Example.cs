@@ -12,7 +12,7 @@ public record RationalNumber(int Numerator, int Denominator)
     public static RationalNumber operator /(RationalNumber r1, RationalNumber r2) =>
         new RationalNumber(r1.Numerator * r2.Denominator, r2.Numerator * r1.Denominator).Reduce();
 
-    public RationalNumber Abs() => new(System.Math.Abs(Numerator), System.Math.Abs(Denominator));
+    public RationalNumber Abs() => new RationalNumber(System.Math.Abs(Numerator), System.Math.Abs(Denominator)).Reduce();
 
     public RationalNumber Reduce()
     {
