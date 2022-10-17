@@ -1,252 +1,86 @@
 using System;
-using System.Linq;
 using System.Collections.Generic;
-using Sprache;
-
-public class ForthState
-{
-    public Stack<int> Stack { get; } = new Stack<int>();
-    public Dictionary<string, IEnumerable<ForthDefinition>> Mapping { get; } = new Dictionary<string, IEnumerable<ForthDefinition>>();
-
-    public override string ToString() => string.Join(" ", Stack.Reverse());
-}
-
-public abstract class ForthDefinition
-{
-    public abstract void Evaluate(ForthState state);
-}
-
-public abstract class TermDefinition : ForthDefinition
-{
-    public TermDefinition(string term)
-    {
-        Term = term;
-    }
-
-    public string Term { get; }
-
-    public override void Evaluate(ForthState state)
-    {
-        if (IsUserTerm(state))
-            EvaluateUserTerm(state);
-        else
-            EvaluateDefaultTerm(state);
-    }
-
-    private bool IsUserTerm(ForthState state) => state.Mapping.ContainsKey(Term);
-
-    public virtual void EvaluateUserTerm(ForthState state)
-    {
-        foreach (var definition in state.Mapping[Term])
-            definition.Evaluate(state);
-    }
-
-    public abstract void EvaluateDefaultTerm(ForthState state);
-}
-
-public abstract class UnaryOperation: TermDefinition
-{
-    public UnaryOperation(string term) : base(term)
-    {
-    }
-
-    public override void EvaluateDefaultTerm(ForthState state)
-    {        
-        if (state.Stack.Count < 1)
-            throw new InvalidOperationException();
-
-        var operand = state.Stack.Pop();
-
-        foreach (var value in operation(operand))
-            state.Stack.Push(value);
-    }
-
-    public abstract List<int> operation(int x);
-}
-
-public abstract class BinaryOperation : TermDefinition
-{
-    public BinaryOperation(string term) : base(term)
-    {
-    }
-
-    public override void EvaluateDefaultTerm(ForthState state)
-    {
-        if (state.Stack.Count <= 1)
-            throw new InvalidOperationException();
-
-        var operand2 = state.Stack.Pop();
-        var operand1 = state.Stack.Pop();
-
-        foreach (var value in operation(operand1, operand2))
-            state.Stack.Push(value);
-    }
-
-    public abstract List<int> operation(int x, int y);
-}
-
-public class Constant : ForthDefinition
-{
-    private readonly int n;
-
-    public Constant(int n)
-    {
-        this.n = n;
-    }
-
-    public override void Evaluate(ForthState state) => state.Stack.Push(n);
-}
-
-public class Word : TermDefinition
-{
-    public Word(string str) : base(str)
-    {
-    }
-
-    public override void EvaluateDefaultTerm(ForthState state)
-    {
-        if (!state.Mapping.ContainsKey(Term))
-            throw new InvalidOperationException();
-    }
-}
-
-public class Dup: UnaryOperation
-{
-    public Dup() : base("dup") {}
-    public override List<int> operation(int x) => new List<int> { x, x };
-}
-
-public class Drop : UnaryOperation
-{
-    public Drop() : base("drop") {}
-    public override List<int> operation(int x) => new List<int>();
-}
-
-public class Swap : BinaryOperation
-{
-    public Swap() : base("swap") {}
-    public override List<int> operation(int x, int y) => new List<int> { y, x };
-}
-
-public class Over : BinaryOperation
-{
-    public Over() : base("over") {}
-    public override List<int> operation(int x, int y) => new List<int> { x, y, x };
-}
-
-public class Plus : BinaryOperation
-{
-    public Plus() : base("+") {}
-    public override List<int> operation(int x, int y) => new List<int> { x + y };
-}
-
-public class Minus : BinaryOperation
-{
-    public Minus() : base("-") {}
-    public override List<int> operation(int x, int y) => new List<int> { x - y };
-}
-
-public class Multiply : BinaryOperation
-{
-    public Multiply() : base("*") {}
-    public override List<int> operation(int x, int y) => new List<int> { x * y };
-}
-
-public class Division : BinaryOperation
-{
-    public Division() : base("/") {}
-
-    public override List<int> operation(int x, int y)
-    {
-        if (y == 0)
-            throw new DivideByZeroException();
-
-        return new List<int> { x / y };
-    }
-}
-
-public class CustomTerm : ForthDefinition
-{
-    private readonly string term;
-    private readonly ForthDefinition[] actions;
-
-    public CustomTerm(string term, IEnumerable<ForthDefinition> actions)
-    {
-        this.term = term;
-        this.actions = actions.ToArray();
-    }
-
-    public override void Evaluate(ForthState state)
-    {
-        if (int.TryParse(term, out _))
-            throw new InvalidOperationException();
-
-        var normalizedActions = new List<ForthDefinition>();
-
-        foreach (var action in actions)
-        {
-            if (action is Word word)
-                normalizedActions.AddRange(state.Mapping[word.Term]);
-            else
-                normalizedActions.Add(action);
-        }
-        
-        state.Mapping[term] = normalizedActions;
-    }
-}
+using System.Linq;
 
 public static class Forth
 {
+    private static Dictionary<string, string[]> defines = new Dictionary<string, string[]>();
     public static string Evaluate(string[] instructions)
     {
-        var state = new ForthState();
-
-        foreach (var instruction in instructions)
+        if (!instructions.Any())
+            return string.Empty;
+        var input = new Stack<string>(string.Join(" ", instructions).ToUpper()
+            .Split(" ").Reverse());
+        var output = new Stack<int>();
+        defines = new Dictionary<string, string[]>();
+        while (input.Any())
         {
-            var expression = Expression.Parse(instruction);
-
-            foreach (var definition in expression)
-                definition.Evaluate(state);
+            switch (input.Pop())
+            {
+                case var st when int.TryParse(st, out int number):
+                    output.Push(number);
+                    break;
+                case var st when defines.ContainsKey(st):
+                    foreach (var define in defines[st].Reverse())
+                        input.Push(define);
+                    break;
+                case "+":
+                    output.Push(Add(output.Pop(), output.Pop()));
+                    break;
+                case "-":
+                    output.Push(Sub(output.Pop(), output.Pop()));
+                    break;
+                case "*":
+                    output.Push(Mul(output.Pop(), output.Pop()));
+                    break;
+                case "/":
+                    output.Push(Div(output.Pop(), output.Pop()));
+                    break;
+                case "DUP":
+                    output.Push(output.Peek());
+                    break;
+                case "DROP":
+                    output.Pop();
+                    break;
+                case "SWAP":
+                    foreach (var item in new[] { output.Pop(), output.Pop() })
+                        output.Push(item);
+                    break;
+                case "OVER":
+                    foreach (var item in new[] { output.Pop(), output.Peek() })
+                        output.Push(item);
+                    break;
+                case ":":
+                    Define(ref input);
+                    break;
+                default:
+                    throw new InvalidOperationException();
+            }
         }
-
-        return state.ToString();
+        return string.Join(" ", output.Reverse());
     }
-    
-    private static readonly Parser<Constant> Constant =
-        from number in Parse.Number
-        from whitespace in Parse.WhiteSpace.Optional()
-        select new Constant(int.Parse(number));
-
-    private static readonly Parser<string> TermIdentifier =
-        from term in Parse.Regex(@"[^\s;]+")
-        from whitespace in Parse.WhiteSpace.Optional()
-        select term.ToLowerInvariant();
-
-    private static readonly Parser<ForthDefinition> Term = TermIdentifier.Select<string, ForthDefinition>(term =>
+    private static int Add(int x, int y)
+        => y + x;
+    private static int Sub(int x, int y)
+        => y - x;
+    private static int Mul(int x, int y)
+        => y * x;
+    private static int Div(int x, int y)
+        => x == 0 ?
+            throw new DivideByZeroException()
+            : y / x;
+    private static void Define(ref Stack<string> input)
     {
-        switch (term)
+        var key = input.Pop();
+        if (int.TryParse(key, out int num))
+            throw new InvalidOperationException();
+        var values = new List<string>();
+        var value = input.Pop();
+        while (!value.Equals(";"))
         {
-            case "+": return new Plus();
-            case "-": return new Minus();
-            case "*": return new Multiply();
-            case "/": return new Division();
-            case "dup": return new Dup();
-            case "drop": return new Drop();
-            case "swap": return new Swap();
-            case "over": return new Over();
-            default: return new Word(term);
+            values.Add(value);
+            value = input.Pop();
         }
-    });
-
-    private static readonly Parser<ForthDefinition> CustomTerm =
-        from a in Parse.Char(':')
-        from b in Parse.WhiteSpace
-        from customTerm in TermIdentifier
-        from definitions in Constant.XOr(Term).AtLeastOnce()            
-        from d in Parse.Char(';')
-        from e in Parse.WhiteSpace.Optional()
-        select new CustomTerm(customTerm, definitions);
-
-    private static readonly Parser<IEnumerable<ForthDefinition>> Expression =
-        (CustomTerm.XOr(Constant).XOr(Term)).Many();
+        defines[key] = values.SelectMany(k => defines.ContainsKey(k) ? defines[k] : new[] { k }).ToArray();
+    }
 }

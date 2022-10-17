@@ -94,6 +94,13 @@ public class MatchingBracketsTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Paired_and_wrong_nested_brackets_but_innermost_are_correct()
+    {
+        var value = "[({}])";
+        Assert.False(MatchingBrackets.IsPaired(value));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Paired_and_incomplete_brackets()
     {
         var value = "{}[";
@@ -104,6 +111,20 @@ public class MatchingBracketsTests
     public void Too_many_closing_brackets()
     {
         var value = "[]]";
+        Assert.False(MatchingBrackets.IsPaired(value));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Early_unexpected_brackets()
+    {
+        var value = ")()";
+        Assert.False(MatchingBrackets.IsPaired(value));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Early_mismatched_brackets()
+    {
+        var value = "{)()";
         Assert.False(MatchingBrackets.IsPaired(value));
     }
 

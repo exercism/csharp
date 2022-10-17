@@ -115,4 +115,46 @@ public class RomanNumeralsTests
     {
         Assert.Equal("MMM", 3000.ToRoman());
     }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Number_16_is_xvi()
+    {
+        Assert.Equal("XVI", 16.ToRoman());
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Number_66_is_lxvi()
+    {
+        Assert.Equal("LXVI", 66.ToRoman());
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Number_166_is_clxvi()
+    {
+        Assert.Equal("CLXVI", 166.ToRoman());
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Number_666_is_dclxvi()
+    {
+        Assert.Equal("DCLXVI", 666.ToRoman());
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Number_1666_is_mdclxvi()
+    {
+        Assert.Equal("MDCLXVI", 1666.ToRoman());
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Number_3001_is_mmmi()
+    {
+        Assert.Equal("MMMI", 3001.ToRoman());
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Number_3999_is_mmmcmxcix()
+    {
+        Assert.Equal("MMMCMXCIX", 3999.ToRoman());
+    }
 }

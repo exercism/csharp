@@ -4,7 +4,7 @@ using Xunit;
 public class MeetupTests
 {
     [Fact]
-    public void Monteenth_of_may_2013()
+    public void When_teenth_monday_is_the_13th_the_first_day_of_the_teenth_week()
     {
         var sut = new Meetup(5, 2013);
         var expected = new DateTime(2013, 5, 13);
@@ -12,7 +12,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Monteenth_of_august_2013()
+    public void When_teenth_monday_is_the_19th_the_last_day_of_the_teenth_week()
     {
         var sut = new Meetup(8, 2013);
         var expected = new DateTime(2013, 8, 19);
@@ -20,7 +20,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Monteenth_of_september_2013()
+    public void When_teenth_monday_is_some_day_in_the_middle_of_the_teenth_week()
     {
         var sut = new Meetup(9, 2013);
         var expected = new DateTime(2013, 9, 16);
@@ -28,7 +28,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Tuesteenth_of_march_2013()
+    public void When_teenth_tuesday_is_the_19th_the_last_day_of_the_teenth_week()
     {
         var sut = new Meetup(3, 2013);
         var expected = new DateTime(2013, 3, 19);
@@ -36,7 +36,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Tuesteenth_of_april_2013()
+    public void When_teenth_tuesday_is_some_day_in_the_middle_of_the_teenth_week()
     {
         var sut = new Meetup(4, 2013);
         var expected = new DateTime(2013, 4, 16);
@@ -44,7 +44,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Tuesteenth_of_august_2013()
+    public void When_teenth_tuesday_is_the_13th_the_first_day_of_the_teenth_week()
     {
         var sut = new Meetup(8, 2013);
         var expected = new DateTime(2013, 8, 13);
@@ -52,7 +52,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Wednesteenth_of_january_2013()
+    public void When_teenth_wednesday_is_some_day_in_the_middle_of_the_teenth_week()
     {
         var sut = new Meetup(1, 2013);
         var expected = new DateTime(2013, 1, 16);
@@ -60,7 +60,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Wednesteenth_of_february_2013()
+    public void When_teenth_wednesday_is_the_13th_the_first_day_of_the_teenth_week()
     {
         var sut = new Meetup(2, 2013);
         var expected = new DateTime(2013, 2, 13);
@@ -68,7 +68,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Wednesteenth_of_june_2013()
+    public void When_teenth_wednesday_is_the_19th_the_last_day_of_the_teenth_week()
     {
         var sut = new Meetup(6, 2013);
         var expected = new DateTime(2013, 6, 19);
@@ -76,7 +76,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Thursteenth_of_may_2013()
+    public void When_teenth_thursday_is_some_day_in_the_middle_of_the_teenth_week()
     {
         var sut = new Meetup(5, 2013);
         var expected = new DateTime(2013, 5, 16);
@@ -84,7 +84,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Thursteenth_of_june_2013()
+    public void When_teenth_thursday_is_the_13th_the_first_day_of_the_teenth_week()
     {
         var sut = new Meetup(6, 2013);
         var expected = new DateTime(2013, 6, 13);
@@ -92,7 +92,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Thursteenth_of_september_2013()
+    public void When_teenth_thursday_is_the_19th_the_last_day_of_the_teenth_week()
     {
         var sut = new Meetup(9, 2013);
         var expected = new DateTime(2013, 9, 19);
@@ -100,7 +100,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Friteenth_of_april_2013()
+    public void When_teenth_friday_is_the_19th_the_last_day_of_the_teenth_week()
     {
         var sut = new Meetup(4, 2013);
         var expected = new DateTime(2013, 4, 19);
@@ -108,7 +108,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Friteenth_of_august_2013()
+    public void When_teenth_friday_is_some_day_in_the_middle_of_the_teenth_week()
     {
         var sut = new Meetup(8, 2013);
         var expected = new DateTime(2013, 8, 16);
@@ -116,7 +116,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Friteenth_of_september_2013()
+    public void When_teenth_friday_is_the_13th_the_first_day_of_the_teenth_week()
     {
         var sut = new Meetup(9, 2013);
         var expected = new DateTime(2013, 9, 13);
@@ -124,7 +124,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Saturteenth_of_february_2013()
+    public void When_teenth_saturday_is_some_day_in_the_middle_of_the_teenth_week()
     {
         var sut = new Meetup(2, 2013);
         var expected = new DateTime(2013, 2, 16);
@@ -132,7 +132,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Saturteenth_of_april_2013()
+    public void When_teenth_saturday_is_the_13th_the_first_day_of_the_teenth_week()
     {
         var sut = new Meetup(4, 2013);
         var expected = new DateTime(2013, 4, 13);
@@ -140,7 +140,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Saturteenth_of_october_2013()
+    public void When_teenth_saturday_is_the_19th_the_last_day_of_the_teenth_week()
     {
         var sut = new Meetup(10, 2013);
         var expected = new DateTime(2013, 10, 19);
@@ -148,7 +148,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Sunteenth_of_may_2013()
+    public void When_teenth_sunday_is_the_19th_the_last_day_of_the_teenth_week()
     {
         var sut = new Meetup(5, 2013);
         var expected = new DateTime(2013, 5, 19);
@@ -156,7 +156,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Sunteenth_of_june_2013()
+    public void When_teenth_sunday_is_some_day_in_the_middle_of_the_teenth_week()
     {
         var sut = new Meetup(6, 2013);
         var expected = new DateTime(2013, 6, 16);
@@ -164,7 +164,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Sunteenth_of_october_2013()
+    public void When_teenth_sunday_is_the_13th_the_first_day_of_the_teenth_week()
     {
         var sut = new Meetup(10, 2013);
         var expected = new DateTime(2013, 10, 13);
@@ -172,7 +172,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void First_monday_of_march_2013()
+    public void When_first_monday_is_some_day_in_the_middle_of_the_first_week()
     {
         var sut = new Meetup(3, 2013);
         var expected = new DateTime(2013, 3, 4);
@@ -180,7 +180,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void First_monday_of_april_2013()
+    public void When_first_monday_is_the_1st_the_first_day_of_the_first_week()
     {
         var sut = new Meetup(4, 2013);
         var expected = new DateTime(2013, 4, 1);
@@ -188,7 +188,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void First_tuesday_of_may_2013()
+    public void When_first_tuesday_is_the_7th_the_last_day_of_the_first_week()
     {
         var sut = new Meetup(5, 2013);
         var expected = new DateTime(2013, 5, 7);
@@ -196,7 +196,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void First_tuesday_of_june_2013()
+    public void When_first_tuesday_is_some_day_in_the_middle_of_the_first_week()
     {
         var sut = new Meetup(6, 2013);
         var expected = new DateTime(2013, 6, 4);
@@ -204,7 +204,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void First_wednesday_of_july_2013()
+    public void When_first_wednesday_is_some_day_in_the_middle_of_the_first_week()
     {
         var sut = new Meetup(7, 2013);
         var expected = new DateTime(2013, 7, 3);
@@ -212,7 +212,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void First_wednesday_of_august_2013()
+    public void When_first_wednesday_is_the_7th_the_last_day_of_the_first_week()
     {
         var sut = new Meetup(8, 2013);
         var expected = new DateTime(2013, 8, 7);
@@ -220,7 +220,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void First_thursday_of_september_2013()
+    public void When_first_thursday_is_some_day_in_the_middle_of_the_first_week()
     {
         var sut = new Meetup(9, 2013);
         var expected = new DateTime(2013, 9, 5);
@@ -228,7 +228,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void First_thursday_of_october_2013()
+    public void When_first_thursday_is_another_day_in_the_middle_of_the_first_week()
     {
         var sut = new Meetup(10, 2013);
         var expected = new DateTime(2013, 10, 3);
@@ -236,7 +236,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void First_friday_of_november_2013()
+    public void When_first_friday_is_the_1st_the_first_day_of_the_first_week()
     {
         var sut = new Meetup(11, 2013);
         var expected = new DateTime(2013, 11, 1);
@@ -244,7 +244,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void First_friday_of_december_2013()
+    public void When_first_friday_is_some_day_in_the_middle_of_the_first_week()
     {
         var sut = new Meetup(12, 2013);
         var expected = new DateTime(2013, 12, 6);
@@ -252,7 +252,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void First_saturday_of_january_2013()
+    public void When_first_saturday_is_some_day_in_the_middle_of_the_first_week()
     {
         var sut = new Meetup(1, 2013);
         var expected = new DateTime(2013, 1, 5);
@@ -260,7 +260,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void First_saturday_of_february_2013()
+    public void When_first_saturday_is_another_day_in_the_middle_of_the_first_week()
     {
         var sut = new Meetup(2, 2013);
         var expected = new DateTime(2013, 2, 2);
@@ -268,7 +268,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void First_sunday_of_march_2013()
+    public void When_first_sunday_is_some_day_in_the_middle_of_the_first_week()
     {
         var sut = new Meetup(3, 2013);
         var expected = new DateTime(2013, 3, 3);
@@ -276,7 +276,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void First_sunday_of_april_2013()
+    public void When_first_sunday_is_the_7th_the_last_day_of_the_first_week()
     {
         var sut = new Meetup(4, 2013);
         var expected = new DateTime(2013, 4, 7);
@@ -284,7 +284,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Second_monday_of_march_2013()
+    public void When_second_monday_is_some_day_in_the_middle_of_the_second_week()
     {
         var sut = new Meetup(3, 2013);
         var expected = new DateTime(2013, 3, 11);
@@ -292,7 +292,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Second_monday_of_april_2013()
+    public void When_second_monday_is_the_8th_the_first_day_of_the_second_week()
     {
         var sut = new Meetup(4, 2013);
         var expected = new DateTime(2013, 4, 8);
@@ -300,7 +300,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Second_tuesday_of_may_2013()
+    public void When_second_tuesday_is_the_14th_the_last_day_of_the_second_week()
     {
         var sut = new Meetup(5, 2013);
         var expected = new DateTime(2013, 5, 14);
@@ -308,7 +308,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Second_tuesday_of_june_2013()
+    public void When_second_tuesday_is_some_day_in_the_middle_of_the_second_week()
     {
         var sut = new Meetup(6, 2013);
         var expected = new DateTime(2013, 6, 11);
@@ -316,7 +316,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Second_wednesday_of_july_2013()
+    public void When_second_wednesday_is_some_day_in_the_middle_of_the_second_week()
     {
         var sut = new Meetup(7, 2013);
         var expected = new DateTime(2013, 7, 10);
@@ -324,7 +324,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Second_wednesday_of_august_2013()
+    public void When_second_wednesday_is_the_14th_the_last_day_of_the_second_week()
     {
         var sut = new Meetup(8, 2013);
         var expected = new DateTime(2013, 8, 14);
@@ -332,7 +332,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Second_thursday_of_september_2013()
+    public void When_second_thursday_is_some_day_in_the_middle_of_the_second_week()
     {
         var sut = new Meetup(9, 2013);
         var expected = new DateTime(2013, 9, 12);
@@ -340,7 +340,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Second_thursday_of_october_2013()
+    public void When_second_thursday_is_another_day_in_the_middle_of_the_second_week()
     {
         var sut = new Meetup(10, 2013);
         var expected = new DateTime(2013, 10, 10);
@@ -348,7 +348,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Second_friday_of_november_2013()
+    public void When_second_friday_is_the_8th_the_first_day_of_the_second_week()
     {
         var sut = new Meetup(11, 2013);
         var expected = new DateTime(2013, 11, 8);
@@ -356,7 +356,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Second_friday_of_december_2013()
+    public void When_second_friday_is_some_day_in_the_middle_of_the_second_week()
     {
         var sut = new Meetup(12, 2013);
         var expected = new DateTime(2013, 12, 13);
@@ -364,7 +364,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Second_saturday_of_january_2013()
+    public void When_second_saturday_is_some_day_in_the_middle_of_the_second_week()
     {
         var sut = new Meetup(1, 2013);
         var expected = new DateTime(2013, 1, 12);
@@ -372,7 +372,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Second_saturday_of_february_2013()
+    public void When_second_saturday_is_another_day_in_the_middle_of_the_second_week()
     {
         var sut = new Meetup(2, 2013);
         var expected = new DateTime(2013, 2, 9);
@@ -380,7 +380,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Second_sunday_of_march_2013()
+    public void When_second_sunday_is_some_day_in_the_middle_of_the_second_week()
     {
         var sut = new Meetup(3, 2013);
         var expected = new DateTime(2013, 3, 10);
@@ -388,7 +388,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Second_sunday_of_april_2013()
+    public void When_second_sunday_is_the_14th_the_last_day_of_the_second_week()
     {
         var sut = new Meetup(4, 2013);
         var expected = new DateTime(2013, 4, 14);
@@ -396,7 +396,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Third_monday_of_march_2013()
+    public void When_third_monday_is_some_day_in_the_middle_of_the_third_week()
     {
         var sut = new Meetup(3, 2013);
         var expected = new DateTime(2013, 3, 18);
@@ -404,7 +404,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Third_monday_of_april_2013()
+    public void When_third_monday_is_the_15th_the_first_day_of_the_third_week()
     {
         var sut = new Meetup(4, 2013);
         var expected = new DateTime(2013, 4, 15);
@@ -412,7 +412,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Third_tuesday_of_may_2013()
+    public void When_third_tuesday_is_the_21st_the_last_day_of_the_third_week()
     {
         var sut = new Meetup(5, 2013);
         var expected = new DateTime(2013, 5, 21);
@@ -420,7 +420,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Third_tuesday_of_june_2013()
+    public void When_third_tuesday_is_some_day_in_the_middle_of_the_third_week()
     {
         var sut = new Meetup(6, 2013);
         var expected = new DateTime(2013, 6, 18);
@@ -428,7 +428,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Third_wednesday_of_july_2013()
+    public void When_third_wednesday_is_some_day_in_the_middle_of_the_third_week()
     {
         var sut = new Meetup(7, 2013);
         var expected = new DateTime(2013, 7, 17);
@@ -436,7 +436,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Third_wednesday_of_august_2013()
+    public void When_third_wednesday_is_the_21st_the_last_day_of_the_third_week()
     {
         var sut = new Meetup(8, 2013);
         var expected = new DateTime(2013, 8, 21);
@@ -444,7 +444,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Third_thursday_of_september_2013()
+    public void When_third_thursday_is_some_day_in_the_middle_of_the_third_week()
     {
         var sut = new Meetup(9, 2013);
         var expected = new DateTime(2013, 9, 19);
@@ -452,7 +452,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Third_thursday_of_october_2013()
+    public void When_third_thursday_is_another_day_in_the_middle_of_the_third_week()
     {
         var sut = new Meetup(10, 2013);
         var expected = new DateTime(2013, 10, 17);
@@ -460,7 +460,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Third_friday_of_november_2013()
+    public void When_third_friday_is_the_15th_the_first_day_of_the_third_week()
     {
         var sut = new Meetup(11, 2013);
         var expected = new DateTime(2013, 11, 15);
@@ -468,7 +468,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Third_friday_of_december_2013()
+    public void When_third_friday_is_some_day_in_the_middle_of_the_third_week()
     {
         var sut = new Meetup(12, 2013);
         var expected = new DateTime(2013, 12, 20);
@@ -476,7 +476,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Third_saturday_of_january_2013()
+    public void When_third_saturday_is_some_day_in_the_middle_of_the_third_week()
     {
         var sut = new Meetup(1, 2013);
         var expected = new DateTime(2013, 1, 19);
@@ -484,7 +484,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Third_saturday_of_february_2013()
+    public void When_third_saturday_is_another_day_in_the_middle_of_the_third_week()
     {
         var sut = new Meetup(2, 2013);
         var expected = new DateTime(2013, 2, 16);
@@ -492,7 +492,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Third_sunday_of_march_2013()
+    public void When_third_sunday_is_some_day_in_the_middle_of_the_third_week()
     {
         var sut = new Meetup(3, 2013);
         var expected = new DateTime(2013, 3, 17);
@@ -500,7 +500,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Third_sunday_of_april_2013()
+    public void When_third_sunday_is_the_21st_the_last_day_of_the_third_week()
     {
         var sut = new Meetup(4, 2013);
         var expected = new DateTime(2013, 4, 21);
@@ -508,7 +508,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Fourth_monday_of_march_2013()
+    public void When_fourth_monday_is_some_day_in_the_middle_of_the_fourth_week()
     {
         var sut = new Meetup(3, 2013);
         var expected = new DateTime(2013, 3, 25);
@@ -516,7 +516,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Fourth_monday_of_april_2013()
+    public void When_fourth_monday_is_the_22nd_the_first_day_of_the_fourth_week()
     {
         var sut = new Meetup(4, 2013);
         var expected = new DateTime(2013, 4, 22);
@@ -524,7 +524,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Fourth_tuesday_of_may_2013()
+    public void When_fourth_tuesday_is_the_28th_the_last_day_of_the_fourth_week()
     {
         var sut = new Meetup(5, 2013);
         var expected = new DateTime(2013, 5, 28);
@@ -532,7 +532,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Fourth_tuesday_of_june_2013()
+    public void When_fourth_tuesday_is_some_day_in_the_middle_of_the_fourth_week()
     {
         var sut = new Meetup(6, 2013);
         var expected = new DateTime(2013, 6, 25);
@@ -540,7 +540,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Fourth_wednesday_of_july_2013()
+    public void When_fourth_wednesday_is_some_day_in_the_middle_of_the_fourth_week()
     {
         var sut = new Meetup(7, 2013);
         var expected = new DateTime(2013, 7, 24);
@@ -548,7 +548,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Fourth_wednesday_of_august_2013()
+    public void When_fourth_wednesday_is_the_28th_the_last_day_of_the_fourth_week()
     {
         var sut = new Meetup(8, 2013);
         var expected = new DateTime(2013, 8, 28);
@@ -556,7 +556,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Fourth_thursday_of_september_2013()
+    public void When_fourth_thursday_is_some_day_in_the_middle_of_the_fourth_week()
     {
         var sut = new Meetup(9, 2013);
         var expected = new DateTime(2013, 9, 26);
@@ -564,7 +564,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Fourth_thursday_of_october_2013()
+    public void When_fourth_thursday_is_another_day_in_the_middle_of_the_fourth_week()
     {
         var sut = new Meetup(10, 2013);
         var expected = new DateTime(2013, 10, 24);
@@ -572,7 +572,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Fourth_friday_of_november_2013()
+    public void When_fourth_friday_is_the_22nd_the_first_day_of_the_fourth_week()
     {
         var sut = new Meetup(11, 2013);
         var expected = new DateTime(2013, 11, 22);
@@ -580,7 +580,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Fourth_friday_of_december_2013()
+    public void When_fourth_friday_is_some_day_in_the_middle_of_the_fourth_week()
     {
         var sut = new Meetup(12, 2013);
         var expected = new DateTime(2013, 12, 27);
@@ -588,7 +588,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Fourth_saturday_of_january_2013()
+    public void When_fourth_saturday_is_some_day_in_the_middle_of_the_fourth_week()
     {
         var sut = new Meetup(1, 2013);
         var expected = new DateTime(2013, 1, 26);
@@ -596,7 +596,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Fourth_saturday_of_february_2013()
+    public void When_fourth_saturday_is_another_day_in_the_middle_of_the_fourth_week()
     {
         var sut = new Meetup(2, 2013);
         var expected = new DateTime(2013, 2, 23);
@@ -604,7 +604,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Fourth_sunday_of_march_2013()
+    public void When_fourth_sunday_is_some_day_in_the_middle_of_the_fourth_week()
     {
         var sut = new Meetup(3, 2013);
         var expected = new DateTime(2013, 3, 24);
@@ -612,7 +612,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Fourth_sunday_of_april_2013()
+    public void When_fourth_sunday_is_the_28th_the_last_day_of_the_fourth_week()
     {
         var sut = new Meetup(4, 2013);
         var expected = new DateTime(2013, 4, 28);
@@ -620,7 +620,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Last_monday_of_march_2013()
+    public void Last_monday_in_a_month_with_four_mondays()
     {
         var sut = new Meetup(3, 2013);
         var expected = new DateTime(2013, 3, 25);
@@ -628,7 +628,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Last_monday_of_april_2013()
+    public void Last_monday_in_a_month_with_five_mondays()
     {
         var sut = new Meetup(4, 2013);
         var expected = new DateTime(2013, 4, 29);
@@ -636,7 +636,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Last_tuesday_of_may_2013()
+    public void Last_tuesday_in_a_month_with_four_tuesdays()
     {
         var sut = new Meetup(5, 2013);
         var expected = new DateTime(2013, 5, 28);
@@ -644,7 +644,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Last_tuesday_of_june_2013()
+    public void Last_tuesday_in_another_month_with_four_tuesdays()
     {
         var sut = new Meetup(6, 2013);
         var expected = new DateTime(2013, 6, 25);
@@ -652,7 +652,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Last_wednesday_of_july_2013()
+    public void Last_wednesday_in_a_month_with_five_wednesdays()
     {
         var sut = new Meetup(7, 2013);
         var expected = new DateTime(2013, 7, 31);
@@ -660,7 +660,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Last_wednesday_of_august_2013()
+    public void Last_wednesday_in_a_month_with_four_wednesdays()
     {
         var sut = new Meetup(8, 2013);
         var expected = new DateTime(2013, 8, 28);
@@ -668,7 +668,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Last_thursday_of_september_2013()
+    public void Last_thursday_in_a_month_with_four_thursdays()
     {
         var sut = new Meetup(9, 2013);
         var expected = new DateTime(2013, 9, 26);
@@ -676,7 +676,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Last_thursday_of_october_2013()
+    public void Last_thursday_in_a_month_with_five_thursdays()
     {
         var sut = new Meetup(10, 2013);
         var expected = new DateTime(2013, 10, 31);
@@ -684,7 +684,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Last_friday_of_november_2013()
+    public void Last_friday_in_a_month_with_five_fridays()
     {
         var sut = new Meetup(11, 2013);
         var expected = new DateTime(2013, 11, 29);
@@ -692,7 +692,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Last_friday_of_december_2013()
+    public void Last_friday_in_a_month_with_four_fridays()
     {
         var sut = new Meetup(12, 2013);
         var expected = new DateTime(2013, 12, 27);
@@ -700,7 +700,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Last_saturday_of_january_2013()
+    public void Last_saturday_in_a_month_with_four_saturdays()
     {
         var sut = new Meetup(1, 2013);
         var expected = new DateTime(2013, 1, 26);
@@ -708,7 +708,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Last_saturday_of_february_2013()
+    public void Last_saturday_in_another_month_with_four_saturdays()
     {
         var sut = new Meetup(2, 2013);
         var expected = new DateTime(2013, 2, 23);
@@ -716,7 +716,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Last_sunday_of_march_2013()
+    public void Last_sunday_in_a_month_with_five_sundays()
     {
         var sut = new Meetup(3, 2013);
         var expected = new DateTime(2013, 3, 31);
@@ -724,7 +724,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Last_sunday_of_april_2013()
+    public void Last_sunday_in_a_month_with_four_sundays()
     {
         var sut = new Meetup(4, 2013);
         var expected = new DateTime(2013, 4, 28);
@@ -732,7 +732,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Last_wednesday_of_february_2012()
+    public void When_last_wednesday_in_february_in_a_leap_year_is_the_29th()
     {
         var sut = new Meetup(2, 2012);
         var expected = new DateTime(2012, 2, 29);
@@ -740,7 +740,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Last_wednesday_of_december_2014()
+    public void Last_wednesday_in_december_that_is_also_the_last_day_of_the_year()
     {
         var sut = new Meetup(12, 2014);
         var expected = new DateTime(2014, 12, 31);
@@ -748,7 +748,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Last_sunday_of_february_2015()
+    public void When_last_sunday_in_february_in_a_non_leap_year_is_not_the_29th()
     {
         var sut = new Meetup(2, 2015);
         var expected = new DateTime(2015, 2, 22);
@@ -756,7 +756,7 @@ public class MeetupTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void First_friday_of_december_2012()
+    public void When_first_friday_is_the_7th_the_last_day_of_the_first_week()
     {
         var sut = new Meetup(12, 2012);
         var expected = new DateTime(2012, 12, 7);

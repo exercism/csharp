@@ -86,4 +86,11 @@ public class DominoesTests
         var dominoes = new[] { (1, 2), (5, 3), (3, 1), (1, 2), (2, 4), (1, 6), (2, 3), (3, 4), (5, 6) };
         Assert.True(Dominoes.CanChain(dominoes));
     }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Separate_three_domino_loops()
+    {
+        var dominoes = new[] { (1, 2), (2, 3), (3, 1), (4, 5), (5, 6), (6, 4) };
+        Assert.False(Dominoes.CanChain(dominoes));
+    }
 }

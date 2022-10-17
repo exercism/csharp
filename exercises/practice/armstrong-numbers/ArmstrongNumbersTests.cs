@@ -15,7 +15,7 @@ public class ArmstrongNumbersTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void There_are_no_2_digit_armstrong_numbers()
+    public void There_are_no_two_digit_armstrong_numbers()
     {
         Assert.False(ArmstrongNumbers.IsArmstrongNumber(10));
     }

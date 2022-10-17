@@ -51,10 +51,42 @@ public class MarkdownTests
     }
 
     [Fact]
+    public void With_h3_header_level()
+    {
+        var markdown = "### This will be an h3";
+        var expected = "<h3>This will be an h3</h3>";
+        Assert.Equal(expected, Markdown.Parse(markdown));
+    }
+
+    [Fact]
+    public void With_h4_header_level()
+    {
+        var markdown = "#### This will be an h4";
+        var expected = "<h4>This will be an h4</h4>";
+        Assert.Equal(expected, Markdown.Parse(markdown));
+    }
+
+    [Fact]
+    public void With_h5_header_level()
+    {
+        var markdown = "##### This will be an h5";
+        var expected = "<h5>This will be an h5</h5>";
+        Assert.Equal(expected, Markdown.Parse(markdown));
+    }
+
+    [Fact]
     public void With_h6_header_level()
     {
         var markdown = "###### This will be an h6";
         var expected = "<h6>This will be an h6</h6>";
+        Assert.Equal(expected, Markdown.Parse(markdown));
+    }
+
+    [Fact]
+    public void H7_header_level_is_a_paragraph()
+    {
+        var markdown = "####### This will not be an h7";
+        var expected = "<p>####### This will not be an h7</p>";
         Assert.Equal(expected, Markdown.Parse(markdown));
     }
 

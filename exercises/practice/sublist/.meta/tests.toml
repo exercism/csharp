@@ -54,6 +54,9 @@ description = "first list missing element from second list"
 [83ffe6d8-a445-4a3c-8795-1e51a95e65c3]
 description = "second list missing element from first list"
 
+[7bc76cb8-5003-49ca-bc47-cdfbe6c2bb89]
+description = "first list missing additional digits from second list"
+
 [0d7ee7c1-0347-45c8-9ef5-b88db152b30b]
 description = "order matters to a list"
 

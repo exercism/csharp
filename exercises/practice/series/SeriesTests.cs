@@ -52,6 +52,12 @@ public class SeriesTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Slice_length_is_way_too_large()
+    {
+        Assert.Throws<ArgumentException>(() => Series.Slices("12345", 42));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Slice_length_cannot_be_zero()
     {
         Assert.Throws<ArgumentException>(() => Series.Slices("12345", 0));

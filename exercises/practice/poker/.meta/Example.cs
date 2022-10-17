@@ -1,145 +1,94 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 public static class Poker
 {
-    private struct Card
-    {
-        public int Rank;
-        public int Suit;
-    }
-
-    private struct Hand
-    {
-        public string Input;
-        public Scores Result;
-    }
-
-    private struct Scores
-    {
-        public int Score;
-        public int TieBreakerScore;
-    }
-
+    private static Dictionary<string, int> combinations = new Dictionary<string, int>
+        {
+           {"1,1", 0},
+           {"2,1", 1},
+           {"2,2", 2},
+           {"3,1", 3},
+           {"3,2", 6},
+           {"4,1", 7}
+        };
+        
     public static IEnumerable<string> BestHands(IEnumerable<string> hands)
     {
-        var scoredHands = hands.Select(ParseHand).ToArray();
-        var maxScore = scoredHands.Max(h => h.Result.Score);
-        var maxHands = scoredHands.Where(h => h.Result.Score == maxScore);
-
-        return maxHands
-            .Where(h => h.Result.TieBreakerScore == maxHands.Max(m => m.Result.TieBreakerScore))
-            .Select(s => s.Input)
-            .ToList();
+        var rankingHands = hands.Select(card => new {Card = card, Rank = HandRank(card)})
+                                .ToArray();
+        var maxRank = rankingHands.Max(hand => hand.Rank);
+        return rankingHands.Where(pair => pair.Rank.Equals(maxRank))
+                           .Select(pair => pair.Card)
+                           .ToArray();
     }
 
-    private static Hand ParseHand(string hand) => new Hand { Input = hand, Result = ScoreHand(ParseCards(hand)) };
-
-    private static Card[] ParseCards(string hand) => hand
-        .Replace("10", "T")
-        .Split(' ')
-        .Select(ParseCard)
-        .OrderByDescending(c => c.Rank)
-        .ToArray();
-
-    private static Card ParseCard(string card) => new Card { Rank = ParseRank(card), Suit = ParseSuit(card) };
-
-    private static int ParseRank(string card) => "..23456789TJQKA".IndexOf(card[0]);
-
-    private static int ParseSuit(string card) => ".HSDC".IndexOf(card[1]);
-
-    private static Scores ScoreHand(Card[] cards)
+    private static Tuple<int, int> HandRank(string hand)
     {
-        var cardsByRank = cards
-            .GroupBy(c => c.Rank)
-            .OrderByDescending(c => c.Count())
-            .Select(g => g.Max(c => c.Rank))
-            .ToArray();
-
-        var rankCounts = cards
-            .GroupBy(c => c.Rank)
-            .Select(g => g.Count())
-            .OrderByDescending(c => c)
-            .ToArray();
-
-        var ranks = cards.Select(c => c.Rank).ToArray();
-        var suits = cards.Select(c => c.Suit).ToArray();
-
-        if (ranks.SequenceEqual(new[] { 14, 5, 4, 3, 2 }))
-        {
-            ranks = new[] { 5, 4, 3, 2, 1 };
-        }
-
-        var flush = suits.Distinct().Count() == 1;
-        var straight = ranks.Distinct().Count() == 5 && ranks[0] - ranks[4] == 4;
-
-        if (straight && flush)
-        {
-            return new Scores
-            {
-                Score = 800 + ranks.First()
-            };
-        }
-        if (rankCounts.SequenceEqual(new[] { 4, 1 }))
-        {
-            return new Scores
-            {
-                Score = 700 + cardsByRank[0],
-                TieBreakerScore = cardsByRank[1]
-            };
-        }
-        if (rankCounts.SequenceEqual(new[] { 3, 2 }))
-        {
-            return new Scores
-            {
-                Score = 600 + cardsByRank[0],
-                TieBreakerScore = cardsByRank[1]
-            };
-        }
-        if (flush)
-        {
-            return new Scores
-            {
-                Score = 500 + ranks.First()
-            };
-        }
-        if (straight)
-        {
-            return new Scores
-            {
-                Score = 400 + ranks.First()
-            };
-        }
-        if (rankCounts.SequenceEqual(new[] { 3, 1, 1 }))
-        {
-            return new Scores
-            {
-                Score = 300 + cardsByRank[0],
-                TieBreakerScore = cardsByRank[1]
-            };
-        }
-        if (rankCounts.SequenceEqual(new[] { 2, 2, 1 }))
-        {
-            return new Scores
-            {
-                Score = 200 + cardsByRank[0] + cardsByRank[1],
-                TieBreakerScore = cardsByRank[2]
-            };
-        }
-        if (rankCounts.SequenceEqual(new[] { 2, 1, 1, 1 }))
-        {
-            return new Scores
-            {
-                Score = 100 + cardsByRank[0],
-                TieBreakerScore = 0
-            };
-        }
-
-        return new Scores
-        {
-            Score = ranks.Max(),
-            TieBreakerScore = cardsByRank[4]
-        };
+       var cards = hand.Split()
+                       .Select(card => new Card(card))
+                       .ToArray();
+       var ranks = HandRanks(cards);
+       var results = ranks
+                        .GroupBy(z => z)
+                        .Select(gr => new {Rank = gr.Key, Count = gr.Count()})
+                        .OrderByDescending(x => x.Count)
+                        .ThenByDescending(x => x.Rank)
+                        .ToArray();
+        var combination =  string.Join(",", results.Take(2).Select(x => x.Count));
+        var rest    =   results.Select(x => x.Rank).Aggregate((acc, x) => acc * 14 + x);
+        var first = combinations[combination];
+        if (IsFlash(cards))
+            first += 5;
+        
+        if (IsStraight(ranks))
+            first += 4;
+    
+        return Tuple.Create(first, rest);
     }
+
+    private static bool IsStraight(int[] ranks)
+    {
+        return new HashSet<int>(ranks).Count == 5 && ranks.Max() - ranks.Min() == 4;
+    }    
+
+    private static bool IsFlash(Card[] cards)
+    {
+        return new HashSet<string>(cards.Select(card => card.Suit)).Count == 1;
+    }
+
+    private static int[] HandRanks(Card[] cards)
+    {
+        var ranks = cards.Select(card => card.Rank)
+                         .OrderByDescending(x => x)
+                         .ToArray();
+        if (Enumerable.SequenceEqual(ranks, new[] {14, 5, 4, 3, 2 }))
+            return new []{1, 2, 3, 4, 5};
+        return ranks;
+    }
+
+    private static int Rank(char rank)  => "--23456789TJQKA".IndexOf(rank);
+
+    private class Card
+    {
+        private static Regex cardPattern = new Regex(@"(?<rank>\d+|[JQKA])(?<suit>[HSCD])");
+
+        public int Rank { get; set; }
+        public string Suit { get; set; }
+
+        public Card(string card)
+        {
+            var match = cardPattern.Match(card);
+            if (!match.Success)
+                throw new ArgumentOutOfRangeException("Wrong card {0}", card);
+
+            var rank = match.Groups["rank"].Value;
+            Rank = int.TryParse(rank, out int result) ? result :"--23456789TJQKA".IndexOf(rank);
+            Suit = match.Groups["suit"].Value;
+        }
+
+        public override string ToString() => $"Rank = {this.Rank}, Suit = {this.Suit}";
+    }   
 }

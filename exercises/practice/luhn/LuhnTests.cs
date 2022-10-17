@@ -51,6 +51,12 @@ public class LuhnTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Invalid_long_number_with_a_remainder_divisible_by_5()
+    {
+        Assert.False(Luhn.IsValid("1 2345 6789 1234 5678 9013"));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Valid_number_with_an_even_number_of_digits()
     {
         Assert.True(Luhn.IsValid("095 245 88"));
@@ -99,6 +105,12 @@ public class LuhnTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Very_long_input_is_valid()
+    {
+        Assert.True(Luhn.IsValid("9999999999 9999999999 9999999999 9999999999"));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Valid_luhn_with_an_odd_number_of_digits_and_non_zero_first_digit()
     {
         Assert.True(Luhn.IsValid("109"));
@@ -114,5 +126,11 @@ public class LuhnTests
     public void Using_ascii_value_for_doubled_non_digit_isnt_allowed()
     {
         Assert.False(Luhn.IsValid(":9"));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Non_numeric_non_space_char_in_the_middle_with_a_sum_thats_divisible_by_10_isnt_allowed()
+    {
+        Assert.False(Luhn.IsValid("59%59"));
     }
 }

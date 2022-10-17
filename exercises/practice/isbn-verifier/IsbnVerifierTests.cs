@@ -27,7 +27,13 @@ public class IsbnVerifierTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Invalid_character_in_isbn()
+    public void Invalid_check_digit_in_isbn_is_not_treated_as_zero()
+    {
+        Assert.False(IsbnVerifier.IsValid("4-598-21507-B"));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Invalid_character_in_isbn_is_not_treated_as_zero()
     {
         Assert.False(IsbnVerifier.IsValid("3-598-P1581-X"));
     }
@@ -93,9 +99,15 @@ public class IsbnVerifierTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Invalid_characters_are_not_ignored()
+    public void Invalid_characters_are_not_ignored_after_checking_length()
     {
         Assert.False(IsbnVerifier.IsValid("3132P34035"));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Invalid_characters_are_not_ignored_before_checking_length()
+    {
+        Assert.False(IsbnVerifier.IsValid("3598P215088"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]

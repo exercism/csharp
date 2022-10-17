@@ -21,6 +21,12 @@ public class ResistorColorDuoTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void White_and_red()
+    {
+        Assert.Equal(92, ResistorColorDuo.Value(new[] { "white", "red" }));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Orange_and_orange()
     {
         Assert.Equal(33, ResistorColorDuo.Value(new[] { "orange", "orange" }));
@@ -30,5 +36,11 @@ public class ResistorColorDuoTests
     public void Ignore_additional_colors()
     {
         Assert.Equal(51, ResistorColorDuo.Value(new[] { "green", "brown", "orange" }));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Black_and_brown_one_digit()
+    {
+        Assert.Equal(1, ResistorColorDuo.Value(new[] { "black", "brown" }));
     }
 }

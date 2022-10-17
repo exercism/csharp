@@ -10,6 +10,12 @@ public class ForthTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Parsing_and_numbers_pushes_negative_numbers_onto_the_stack()
+    {
+        Assert.Equal("-1 -2 -3 -4 -5", Forth.Evaluate(new[] { "-1 -2 -3 -4 -5" }));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Addition_can_add_two_numbers()
     {
         Assert.Equal("3", Forth.Evaluate(new[] { "1 2 +" }));
@@ -238,9 +244,22 @@ public class ForthTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void User_defined_words_cannot_redefine_negative_numbers()
+    {
+        Assert.Throws<InvalidOperationException>(() => Forth.Evaluate(new[] { ": -1 2 ;" }));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void User_defined_words_errors_if_executing_a_non_existent_word()
     {
         Assert.Throws<InvalidOperationException>(() => Forth.Evaluate(new[] { "foo" }));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void User_defined_words_only_defines_locally()
+    {
+        Assert.Equal("0", Forth.Evaluate(new[] { ": + - ;", "1 1 +" }));
+        Assert.Equal("2", Forth.Evaluate(new[] { "1 1 +" }));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]

@@ -6,7 +6,7 @@ namespace Exercism.CSharp.Input
     internal record Exercise(string Name, IReadOnlyCollection<TestCase> TestCases);
     
     internal record TestCase(int Index, string Uuid, string Property, IReadOnlyDictionary<string, dynamic> Input,
-        dynamic Expected, string Description, IReadOnlyCollection<string> DescriptionPath);
+        dynamic Expected, string Description, IReadOnlyCollection<string> DescriptionPath, string[] Scenarios);
     
     internal class ExerciseParser
     {

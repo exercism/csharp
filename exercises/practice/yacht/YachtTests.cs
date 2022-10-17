@@ -57,6 +57,12 @@ public class YachtTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Fives()
+    {
+        Assert.Equal(10, YachtGame.Score(new[] { 1, 5, 3, 5, 3 }, YachtCategory.Fives));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Sixes()
     {
         Assert.Equal(6, YachtGame.Score(new[] { 2, 3, 4, 5, 6 }, YachtCategory.Sixes));

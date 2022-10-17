@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -53,7 +54,8 @@ namespace Exercism.CSharp.Input
                 JTokenHelper.ConvertJToken(canonicalDataCaseJToken["input"]!),
                 JTokenHelper.ConvertJToken(canonicalDataCaseJToken["expected"]!),
                 canonicalDataCaseJToken.Value<string>("description"),
-                GetDescriptionPath(canonicalDataCaseJToken));
+                GetDescriptionPath(canonicalDataCaseJToken),
+                canonicalDataCaseJToken["scenarios"]?.ToObject<string[]>() ?? Array.Empty<string>());
 
         private static string[] GetDescriptionPath(JToken canonicalDataCaseJToken) =>
             canonicalDataCaseJToken.ParentsAndSelf()
@@ -61,6 +63,6 @@ namespace Exercism.CSharp.Input
                 .Select(token => token.Value<string>("description"))
                 .Where(description => !string.IsNullOrWhiteSpace(description))
                 .Reverse()
-                .ToArray();
+                .ToArray()!;
     }
 }

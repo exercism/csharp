@@ -4,7 +4,7 @@ using Xunit;
 public class PalindromeProductsTests
 {
     [Fact]
-    public void Finds_the_smallest_palindrome_from_single_digit_factors()
+    public void Find_the_smallest_palindrome_from_single_digit_factors()
     {
         var actual = PalindromeProducts.Smallest(1, 9);
         var expected = (1, new[] { (1, 1) });
@@ -13,7 +13,7 @@ public class PalindromeProductsTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Finds_the_largest_palindrome_from_single_digit_factors()
+    public void Find_the_largest_palindrome_from_single_digit_factors()
     {
         var actual = PalindromeProducts.Largest(1, 9);
         var expected = (9, new[] { (1, 9), (3, 3) });
@@ -40,7 +40,7 @@ public class PalindromeProductsTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Find_smallest_palindrome_from_triple_digit_factors()
+    public void Find_the_smallest_palindrome_from_triple_digit_factors()
     {
         var actual = PalindromeProducts.Smallest(100, 999);
         var expected = (10201, new[] { (101, 101) });
@@ -58,7 +58,7 @@ public class PalindromeProductsTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Find_smallest_palindrome_from_four_digit_factors()
+    public void Find_the_smallest_palindrome_from_four_digit_factors()
     {
         var actual = PalindromeProducts.Smallest(1000, 9999);
         var expected = (1002001, new[] { (1001, 1001) });

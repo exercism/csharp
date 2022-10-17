@@ -94,6 +94,12 @@ public class SublistTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void First_list_missing_additional_digits_from_second_list()
+    {
+        Assert.Equal(SublistType.Unequal, Sublist.Classify(new List<int> { 1, 2 }, new List<int> { 1, 22 }));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Order_matters_to_a_list()
     {
         Assert.Equal(SublistType.Unequal, Sublist.Classify(new List<int> { 1, 2, 3 }, new List<int> { 3, 2, 1 }));

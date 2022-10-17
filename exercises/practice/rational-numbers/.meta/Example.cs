@@ -1,147 +1,53 @@
-using System;
-using System.Diagnostics;
-
-public static class RealNumberExtension
+public record RationalNumber(int Numerator, int Denominator)
 {
-    // exponentiate real number to the rational number power
-    public static double Expreal(this int realNumber, RationalNumber r)
-    {
-        return r.Expreal(realNumber);
-    }
-}
+    public static RationalNumber operator +(RationalNumber r1, RationalNumber r2) =>
+        new RationalNumber(r1.Numerator * r2.Denominator + r2.Numerator * r1.Denominator, r1.Denominator * r2.Denominator).Reduce();
 
-[DebuggerDisplay("{Numerator} / {Denominator}")]
-public struct RationalNumber
-{
-    public RationalNumber(int numerator, int denominator)
-    {
-        this.Numerator = numerator;
-        this.Denominator = denominator;
-    }
+    public static RationalNumber operator -(RationalNumber r1, RationalNumber r2) =>
+        new RationalNumber(r1.Numerator * r2.Denominator - r2.Numerator * r1.Denominator, r1.Denominator * r2.Denominator).Reduce();
 
-    public int Numerator { get; }
-    public int Denominator { get; }
+    public static RationalNumber operator *(RationalNumber r1, RationalNumber r2) =>
+        new RationalNumber(r1.Numerator * r2.Numerator, r1.Denominator * r2.Denominator).Reduce();
 
-    public static RationalNumber operator+ (RationalNumber r1, RationalNumber r2)
-    {
-        return ReducedRationalNumber(r1.Numerator * r2.Denominator + r1.Denominator * r2.Numerator, r1.Denominator * r2.Denominator);
-    }
+    public static RationalNumber operator /(RationalNumber r1, RationalNumber r2) =>
+        new RationalNumber(r1.Numerator * r2.Denominator, r2.Numerator * r1.Denominator).Reduce();
 
-    public static RationalNumber operator -(RationalNumber r1, RationalNumber r2)
-    {
-        return ReducedRationalNumber(r1.Numerator * r2.Denominator - r1.Denominator * r2.Numerator, r1.Denominator * r2.Denominator);
-    }
-
-    public static RationalNumber operator *(RationalNumber r1, RationalNumber r2)
-    {
-        if (r1.Numerator == 0) return new RationalNumber(0, 1);
-        return ReducedRationalNumber(r1.Numerator * r2.Numerator, r1.Denominator * r2.Denominator);
-    }
-
-    public static RationalNumber operator /(RationalNumber r1, RationalNumber r2)
-    {
-        return ReducedRationalNumber(r1.Numerator * r2.Denominator, r1.Denominator * r2.Numerator);
-    }
-
-    public RationalNumber Abs()
-    {
-        return new RationalNumber(Abs(this.Numerator), Abs(this.Denominator));
-    }
+    public RationalNumber Abs() => new RationalNumber(System.Math.Abs(Numerator), System.Math.Abs(Denominator)).Reduce();
 
     public RationalNumber Reduce()
     {
-        if (this.Denominator == 0) return new RationalNumber(this.Numerator, this.Denominator);
-        else if (this.Numerator == 0) return new RationalNumber(0, 1);
-
-        var a = Abs(this.Numerator);
-        var b = Abs(this.Denominator);
-
-        var sign = Sign(this.Numerator) * Sign(this.Denominator);
-
-        return new RationalNumber(sign * a / GreatestCommonDenominator(a, b), b / GreatestCommonDenominator(a, b));
+        var divisor = Math.Gcd(System.Math.Abs(Numerator), System.Math.Abs(Denominator));
+        return Denominator >= 0
+            ? new RationalNumber(Numerator / divisor, Denominator / divisor)
+            : new RationalNumber(Numerator * -1 / divisor, Denominator * -1 / divisor);
     }
+    public RationalNumber Exprational(int power) =>
+        power >= 0
+            ? new RationalNumber((int)System.Math.Pow(Numerator, power), (int)System.Math.Pow(Denominator, power)).Reduce()
+            : new RationalNumber((int)System.Math.Pow(Denominator, System.Math.Abs(power)), (int)System.Math.Pow(Numerator, System.Math.Abs(power))).Reduce();
 
-    public RationalNumber Exprational(int power)
+    public double Expreal(int baseNumber) => Math.NthRoot(System.Math.Pow(baseNumber, Numerator), Denominator, 1e-9);
+}
+
+public static class IntExtensions
+{
+    public static double Expreal(this int realNumber, RationalNumber r) => r.Expreal(realNumber);
+}
+
+public static class Math
+{
+    public static int Gcd(int x, int y) => y == 0 ? x : Gcd(y, x % y);
+
+    public static double NthRoot(double A, double n, double p)
     {
-        if (power == 0) return new RationalNumber(1, 1);
-
-        return ReducedRationalNumber
-            (
-                (Sign(this.Numerator) / Sign(this.Denominator)) *
-                Abs((int)Pow(this.Numerator, power)),
-                Abs((int)Pow(this.Denominator, power))
-            );
-    }
-
-    public double Expreal(int baseNumber)
-    {
-        if (this.Numerator == 0)
-            return 1;
-        else
-            return Pow(baseNumber);
-    }
-
-    private static RationalNumber ReducedRationalNumber(int numerator, int denominator)
-    {
-        return new RationalNumber(numerator, denominator).Reduce();
-    }
-
-    private double Pow(int baseNumber)
-    {
-        return NthRoot((Sign(this.Numerator) == Sign(this.Denominator) ?
-                        Pow(baseNumber, Abs(this.Numerator)) :
-                        1d / Pow(baseNumber, Abs(this.Numerator))),
-                        Abs(this.Denominator));
-    }
-
-    private int Abs(int value)
-    {
-        return (value > 0) ? value : -value;
-    }
-
-    private double Abs(double value)
-    {
-        return (value > 0) ? value : -value;
-    }
-
-    private int Sign(int value)
-    {
-        return (value > 0) ? 1 : -1;
-    }
-
-    private int GreatestCommonDenominator(int a, int b)
-    {
-        var x = Abs(a);
-        var y = Abs(b);
-
-        while (x != 0 && y != 0)
-            if (x > y) x %= y; else y %= x;
-        return x == 0 ? y : x;
-    }
-
-    private double Pow(double baseValue, int exp)
-    {
-        double result = 1.0;
-        while (exp != 0)
+        var x = new double[2];
+        x[0] = A;
+        x[1] = A / n;
+        while (System.Math.Abs(x[0] - x[1]) > p)
         {
-            if ((exp & 1) != 0) result *= baseValue;
-            baseValue *= baseValue;
-            exp >>= 1;
+            x[1] = x[0];
+            x[0] = (1 / n) * (((n - 1) * x[1]) + (A / System.Math.Pow(x[1], n - 1)));
         }
-        return result;
-    }
-
-    private double NthRoot(double baseValue, int n)
-    {
-        if (n == 1) return baseValue;
-        double deltaX;
-        double x = 0.1;
-        do
-        {
-            deltaX = ((double)baseValue / Pow(x, (n - 1)) - x) / n;
-            x = x + deltaX;
-        }
-        while (Abs(deltaX) > 0);
-        return x;
+        return x[0];
     }
 }

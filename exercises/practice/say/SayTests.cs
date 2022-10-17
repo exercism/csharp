@@ -34,6 +34,18 @@ public class SayTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Thirty()
+    {
+        Assert.Equal("thirty", Say.InEnglish(30L));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Ninety_nine()
+    {
+        Assert.Equal("ninety-nine", Say.InEnglish(99L));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void One_hundred()
     {
         Assert.Equal("one hundred", Say.InEnglish(100L));
@@ -43,6 +55,18 @@ public class SayTests
     public void One_hundred_twenty_three()
     {
         Assert.Equal("one hundred twenty-three", Say.InEnglish(123L));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Two_hundred()
+    {
+        Assert.Equal("two hundred", Say.InEnglish(200L));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Nine_hundred_ninety_nine()
+    {
+        Assert.Equal("nine hundred ninety-nine", Say.InEnglish(999L));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]

@@ -19,11 +19,8 @@ param (
     [string]$Exercise
 )
 
-# TODO: replace with configlet sync functionality
-
 # Import shared functionality
 . ./shared.ps1
-. ./update-canonical-data.ps1
 
 function Update-Documentation {
     [CmdletBinding(SupportsShouldProcess)]
@@ -37,11 +34,10 @@ function Update-Documentation {
         Invoke-CallScriptExitOnError { ./bin/fetch-configlet }
 
         $configletArgs = if ($Exercise) { @("-e", $Exercise) } else { @() }
-        Invoke-CallScriptExitOnError { ./bin/configlet sync -p problem-specifications -o $configletArgs }
+        Invoke-CallScriptExitOnError { ./bin/configlet sync --docs --update --yes $configletArgs }
     }
 }
 
-Update-CanonicalData
 Update-Documentation -Exercise $Exercise
 
 exit $LastExitCode

@@ -8,28 +8,32 @@ namespace Exercism.CSharp.Exercises.Generators
     internal class GradeSchool : ExerciseGenerator
     {
         protected override void UpdateTestMethod(TestMethod testMethod)
-        {
-            testMethod.UseVariableForExpected = true;
+        {   
             testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
-            testMethod.InputParameters = testMethod.Input.ContainsKey("desiredGrade")
-                ? new[] { "desiredGrade" }
-                : Array.Empty<string>();
-
-            testMethod.Arrange = RenderArrange(testMethod);
+            testMethod.Act = RenderAct(testMethod);
+            testMethod.InputParameters.Remove("students");
+            
+            if (testMethod.Property == "add")
+                testMethod.Assert = "";
+            else
+                testMethod.UseVariableForExpected = true;
         }
 
-        private string RenderArrange(TestMethod testMethod)
+        private string RenderAct(TestMethod testMethod)
         {
-            var arrange = new StringBuilder();
+            var act = new StringBuilder();
 
-            arrange.AppendLine(Render.Variable("sut", "new GradeSchool()"));
-
-            foreach (var student in testMethod.Input["students"])
-                arrange.AppendLine($"sut.Add({Render.Object((string)student[0])}, {Render.Object(student[1])});");
-
-            arrange.AppendLine(Render.Variable("expected", Render.ObjectMultiLine(testMethod.Expected as string[] ?? Array.Empty<string>())));
+            for (var i = 0; i < testMethod.Input["students"].Count; i++)
+            {
+                var student = testMethod.Input["students"][i];
+                var add = $"sut.Add({Render.Object((string)student[0])}, {Render.Object(student[1])})";
+                if (testMethod.Property == "add")
+                    act.AppendLine(Render.AssertBoolean(testMethod.Expected![i], add));
+                else
+                    act.AppendLine($"{add};");
+            }
             
-            return arrange.ToString();
+            return act.ToString();
         }
 
         protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(Array).Namespace!);

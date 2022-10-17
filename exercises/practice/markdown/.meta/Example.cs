@@ -46,7 +46,7 @@ public static class Markdown
                 .TakeWhile(c => c == HeaderMarkdown[0])
                 .Count();
 
-        if (headerNumber == 0)
+        if (headerNumber == 0 || headerNumber > 6)
             return null;
 
         var headerTag = $"h{headerNumber}";
@@ -74,7 +74,7 @@ public static class Markdown
     private static Tuple<bool, string> ParseParagraph(this string markdown, bool list)
     {
         if (list)
-            return Tuple.Create(false, ClosingTag(ListTag) + markdown.ParseText(list));
+            return Tuple.Create(false, ClosingTag(ListTag) + markdown.ParseText(false));
 
         return Tuple.Create(false, markdown.ParseText(list));
     }
