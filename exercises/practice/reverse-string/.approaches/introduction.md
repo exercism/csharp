@@ -80,12 +80,10 @@ public static class ReverseString
     public static string Reverse(string input)
     {
         var chars = new StringBuilder();
-
         for (var i = input.Length - 1; i >= 0; i--)
         {
             chars.Append(input[i]);
         }
-
         return chars.ToString();
     }
 }
@@ -98,15 +96,21 @@ The purpose of this class is to efficiently and incrementally build a `string`.
 A `StringBuilder` is often overkill when used to create short strings, but can be very useful to create larger strings.
 ```
 
-The first step is to create a `StringBuilder`:
-
-```csharp
-var chars = new StringBuilder();
-```
-
+The first step is to create a `StringBuilder`.
 We then use a `for`-loop to walk through the string's characters in reverse order, appending them to the `StringBuilder` via its [`Append()`][string-builder-append] method.
 
 Finally, we return the reversed `string` by calling the `ToString()` method on the `StringBuilder` instance.
+
+## Which approach to use?
+
+The above three approaches are all valid approaches, but the first two are:
+
+- Arguably more readable
+- Less error-prone (they don't have to deal with upper and lower bounds as the `for`-loop does)
+
+If readability is your primary concern (and it usually should be), the first approach is hard to beat.
+However, if you care about performance, the second option is preferrable, especially when dealing with longer strings.
+For a more detailed analysis on the performance, check out the [performance approach][performance-approach] page.
 
 [string-builder]: https://learn.microsoft.com/en-us/dotnet/api/system.text.stringbuilder?view=net-7.0
 [linq-reverse]: https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.reverse?view=net-7.0
@@ -118,3 +122,4 @@ Finally, we return the reversed `string` by calling the `ToString()` method on t
 [array-reverse]: https://learn.microsoft.com/en-us/dotnet/api/system.array.reverse?view=net-6.0
 [target-typed-new]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-9.0/target-typed-new
 [string-builder-append]: https://learn.microsoft.com/en-us/dotnet/api/system.text.stringbuilder.append?view=net-7.0#system-text-stringbuilder-append(system-char)
+[performance-approach]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches/performance
