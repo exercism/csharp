@@ -108,8 +108,8 @@ The above three approaches are all valid approaches, but the first two are:
 - Arguably more readable
 - Less error-prone (they don't have to deal with upper and lower bounds as the `for`-loop does)
 
-If readability is your primary concern (and it usually should be), the first approach is hard to beat.
-However, if you care about performance, the second option is preferrable, especially when dealing with longer strings.
+If readability is your primary concern (and it usually should be), the LINQ-based approach is hard to beat.
+However, if you care about performance, the `Array`-based option is preferrable, especially when dealing with longer strings.
 For a more detailed analysis on the performance, check out the [performance approach][performance-approach] page.
 
 [string-builder]: https://learn.microsoft.com/en-us/dotnet/api/system.text.stringbuilder?view=net-7.0
