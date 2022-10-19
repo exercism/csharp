@@ -1,5 +1,14 @@
 {
   "introduction": {
     "authors": ["erikschierboom"]
-  }
+  },
+  "approaches": [
+    {
+      "uuid": "448fb2b4-18ab-4e55-aa54-ad4ed6d5f7f6",
+      "slug": "performance",
+      "title": "Optimizing performance",
+      "blurb": "Explore how to most efficiently reverse a string and what the trade-offs are.",
+      "authors": ["erikschierboom"]
+    }
+  ]
 }
