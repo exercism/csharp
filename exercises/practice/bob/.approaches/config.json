@@ -5,8 +5,8 @@
   "approaches": [
     {
       "uuid": "c0bab2cf-3304-480c-a454-f8dfd274883e",
-      "slug": "if-else",
-      "title": "If/Else",
+      "slug": "if",
+      "title": "If",
       "blurb": "Use if and else to return the answer.",
       "authors": ["bobahop"]
     },
