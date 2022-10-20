@@ -25,5 +25,10 @@ We then pass the `char[]` to the [`Array.Reverse()`][array-reverse] method, whic
 
 Finally, we return the reversed `string` by calling its constructor with the (reversed) `char[]`.
 
+## Performance
+
+If you're interested in how this approach's performance compares to other approaches, check the [performance approach][approach-performance].
+
 [to-char-array]: https://learn.microsoft.com/en-us/dotnet/api/system.string.tochararray?view=net-6.0
 [array-reverse]: https://learn.microsoft.com/en-us/dotnet/api/system.array.reverse?view=net-6.0
+[approach-performance]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches/performance

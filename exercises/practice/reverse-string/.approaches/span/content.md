@@ -39,7 +39,12 @@ So what is the limit for the amount of memory we can allocate?
 Well, this depends on how memory has already been allocated on the stack.
 That said, a small test program successfully stack-allocated memory for `750_000` characters, so you might be fine.
 
+## Performance
+
+If you're interested in how this approach's performance compares to other approaches, check the [performance approach][approach-performance].
+
 [stackalloc]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/stackalloc
 [using-span-t]: https://learn.microsoft.com/en-us/archive/msdn-magazine/2018/january/csharp-all-about-span-exploring-a-new-net-mainstay
 [span-t]: https://learn.microsoft.com/en-us/dotnet/api/system.span-1?view=net-6.0
 [string-as-span]: https://learn.microsoft.com/en-us/dotnet/api/system.memoryextensions.asspan?view=net-6.0#system-memoryextensions-asspan(system-string)
+[approach-performance]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches/performance

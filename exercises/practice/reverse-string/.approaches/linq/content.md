@@ -31,8 +31,13 @@ Using this, we end up with:
 public static string Reverse(string input) => new(input.Reverse().ToArray());
 ```
 
+## Performance
+
+If you're interested in how this approach's performance compares to other approaches, check the [performance approach][approach-performance].
+
 [linq-reverse]: https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.reverse?view=net-7.0
 [linq-to-array]: https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.toarray?view=net-7.0
 [expression-bodied-method]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members#methods
 [linq]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/
 [target-typed-new]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-9.0/target-typed-new
+[approach-performance]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches/performance
