@@ -67,9 +67,14 @@ For more information, check the [`StringBuilder` approach][approach-string-build
 
 ## Which approach to use?
 
+### Readability
+
 If readability is your primary concern (and it usually should be), the LINQ-based approach is hard to beat.
 
-If you care about performance, the `Array.Reverse()` approach is your best option, as shown on the [performance approach][approach-performance] page.
+### Performance
+
+The `Array.Reverse()` approach is the best performing apporach.
+For a more detailed breakdown, check the [performance approach][approach-performance].
 
 The `StringBuilder` approach has the worst performance of the listed approach, and is more error-prone to write as it has to deal with lower and upper bounds checking.
 
