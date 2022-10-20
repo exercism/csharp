@@ -13,14 +13,9 @@ This means that you don't have to worry about multi-byte Unicode characters, as 
 ## Approach: LINQ
 
 ```csharp
-using System.Linq;
-
-public static class ReverseString
+public static string Reverse(string input)
 {
-    public static string Reverse(string input)
-    {
-        return new string(input.Reverse().ToArray());
-    }
+    return new string(input.Reverse().ToArray());
 }
 ```
 
@@ -29,16 +24,11 @@ For more information, check the [LINQ approach][approach-linq].
 ## Approach: `Array.Reverse()`
 
 ```csharp
-using System;
-
-public static class ReverseString
+public static string Reverse(string input)
 {
-    public static string Reverse(string input)
-    {
-        var chars = input.ToCharArray();
-        Array.Reverse(chars);
-        return new string(chars);
-    }
+    var chars = input.ToCharArray();
+    Array.Reverse(chars);
+    return new string(chars);
 }
 ```
 
@@ -47,19 +37,14 @@ For more information, check the [`Array.Reverse()` approach][approach-array-reve
 ## Approach: `StringBuilder`
 
 ```csharp
-using System.Text;
-
-public static class ReverseString
+public static string Reverse(string input)
 {
-    public static string Reverse(string input)
+    var chars = new StringBuilder();
+    for (var i = input.Length - 1; i >= 0; i--)
     {
-        var chars = new StringBuilder();
-        for (var i = input.Length - 1; i >= 0; i--)
-        {
-            chars.Append(input[i]);
-        }
-        return chars.ToString();
+        chars.Append(input[i]);
     }
+    return chars.ToString();
 }
 ```
 
