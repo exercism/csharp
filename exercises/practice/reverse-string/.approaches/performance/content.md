@@ -1,57 +1,14 @@
 # Performance
 
-On the [approaches page][approaches], we described several approaches:
+In this approach, we'll find out how to most efficiently reverse a string in C#.
 
-1. Using LINQ
-2. Using `Array.Reverse()`
-3. Using a `StringBuilder`
+The [approaches page][approaches] lists three idiomatic approaches to this exercise:
 
-In this document, we'll find out which of these approaches is the most performant one.
+1. [Using LINQ][approach-linq]
+2. [Using `Array.Reverse()`][approach-array-reverse]
+3. [Using `StringBuilder`][approach-string-builder]
 
-Before we look at the numbers, let us look at another, less idiomatic approach.
-
-## `Span<T>`
-
-```exercism/note
-C# 7.2. introduced the [`Span<T>`][span-t] class, which was specifically designed to allow performant iteration/mutation of _array-like_ objects.
-The `Span<T>` class helps improve performance by always being allocated on the _stack_, and not the _heap_.
-As objects on the stack don't need to be garbage collected, this can help improve performance (check [this blog post][using-span-t] for more information).
-```
-
-How can we leverage `Span<T>` to reverse our `string`?
-The `string` class has an [`AsSpan()`][string-as-span] method, but that returns a `ReadOnlySpan<char>`, which doesn't allow mutation (otherwise we'd be able to indirectly modify the `string`).
-We can work around this by manually allocating a `char[]` and assigning to a `Span<char>`:
-
-```csharp
-Span<char> chars = new char[input.Length];
-for (var i = 0; i < input.Length; i++)
-{
-    chars[input.Length - 1 - i] = input[i];
-}
-return new string(chars);
-```
-
-After creating `Span<char>`, we use a regular `for`-loop to iterate over the string's characters and assign them to the right position in the span.
-Finally, we can use the `string` constructor overload that takes a `Span<char>` to create the `string`.
-
-However, this is basically the same approach as the `Array.Reverse()` approach, but with us also having to manually write a `for`-loop.
-We _can_ do one better though, and that is to use [`stackalloc`][stackalloc].
-With `stackalloc`, we can assign a block of memory _on the stack_ (whereas the array would be stored on the heap).
-
-```csharp
-Span<char> chars = stackalloc char[input.Length];
-```
-
-With this version, the memory allocated for the `Span<char>` is all on the stack and no garbage collection is needed for that data.
-
-```exercism/caution
-The stack has a finite amount of memory.
-This means that for large strings, the above code will result in a `StackOverflowException` being thrown.
-
-So what is the limit for the amount of memory we can allocate?
-Well, this depends on how memory has already been allocated on the stack.
-That said, a small test program successfully stack-allocated memory for `750_000` characters, so you might be fine.
-```
+For our performance investigation, we'll also include a fourth approach that [uses `Span<T>`][approach-span].
 
 ## Benchmarks
 
@@ -82,28 +39,82 @@ These are the results:
 
 The final rankings are:
 
-1. `Span<T>`
-2. `Array.Reverse()`
-3. `StringBuilder`
-4. LINQ
+1. [Using `Span<T>`][approach-span]
+2. [Using `Array.Reverse()`][approach-array-reverse]
+3. [Using `StringBuilder`][approach-string-builder]
+4. [Using LINQ][approach-linq]
 
-As can be seen, the LINQ-based approach is the slowest _and_ allocates the most memory.
+### Span&lt;T&gt;
+
+The top performing approach is the `Span<T>` approach.
+This is due to us allocating the `char []` on the stack and not on the heap.
+Stack access is both faster than heap access and does not require garbage collection.
+
+The main downside is that the stack has a relatively small amount of memory, so for very large strings you'll get a `StackOverflowException`.
+
+### Array.Reverse
+
+The `Array.Reverse()` call has very similar performance characteristics to the `Span<T>` approach.
+This is not coincidental, as `Array.Reverse()` actually [uses `Span<T>` internally][src-array-reverse]:
+
+```csharp
+case CorElementType.ELEMENT_TYPE_CHAR:
+    UnsafeArrayAsSpan<short>(array, adjustedIndex, length).Reverse();
+    return;
+```
+
+The main reason why it is slower than the `Span<T>` approach, is that the `ToCharArray()` call [allocates a `char[]` on the heap][src-to-char-array], which is slower to access and needs to be garbage collected:
+
+```csharp
+char[] chars = new char[Length];
+```
+
+### LINQ
+
+The LINQ-based approach is the slowest _and_ allocates the most memory.
 In general, LINQ makes for highly readable code, but is usually not the most performance.
 
-Using a `StringBuilder` is slightly better, but still quite a bit slower than the two top-performing approaches.
+### StringBuilder
+
+The `StringBuilder` approach is slightly better, but still quite a bit slower than the two top-performing approaches.
+It also allocates the most memory of all the approaches.
+
+One common way to optimize performance when using a `StringBuilder` is to set its internal buffer's capacity to a value that won't be exceeded:
+
+```csharp
+var chars = new StringBuilder(capacity: input.Length);
+```
+
+Unfortunately, in this case this does not give us any performance benefit:
+
+|                Method | Length |     Mean |    Error |   StdDev |   Gen0 | Allocated |
+| --------------------: | -----: | -------: | -------: | -------: | -----: | --------: |
+|         StringBuilder |      0 | 13.00 ns | 0.311 ns | 0.635 ns | 0.0080 |     104 B |
+| StringBuilderCapacity |      0 | 15.18 ns | 0.354 ns | 0.664 ns | 0.0080 |     104 B |
+|         StringBuilder |     10 | 13.75 ns | 0.323 ns | 0.331 ns | 0.0080 |     104 B |
+| StringBuilderCapacity |     10 | 15.28 ns | 0.354 ns | 0.508 ns | 0.0080 |     104 B |
+|         StringBuilder |    100 | 13.00 ns | 0.307 ns | 0.545 ns | 0.0080 |     104 B |
+| StringBuilderCapacity |    100 | 15.13 ns | 0.352 ns | 0.844 ns | 0.0080 |     104 B |
+|         StringBuilder | 100000 | 13.25 ns | 0.311 ns | 0.656 ns | 0.0080 |     104 B |
+| StringBuilderCapacity | 100000 | 14.99 ns | 0.345 ns | 0.631 ns | 0.0080 |     104 B |
+
+## Conclusion
+
+The top performing approaches are the `Span<T>` and `Array.Reverse()` approaches.
+The `Span<T>` approach has the downside of being more error-prone to write and from not working for all inputs, but it is the fastest approach. 🏆
+
+The two slowest approaches, LINQ and `StringBuilder`, are also the ones that allocate (the most) memory.
 
 ```exercism/note
-It is worth noting, that the two slowest approachs (LINQ and `StringBuilder`) are also the ones that allocate (the most) memory.
 Reducing memory allocation is often a great way to improve performance.
 ```
 
-Clearly, the two top approaches are the `Array.Reverse()` and `Span<char>` approaches, with the latter being the best option.
-The main difference between these two is heap vs stack memory allocation, which gives the `Span<char>` the slight edge. 🏆
-
 [approaches]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches
+[approach-linq]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches/linq
+[approach-array-reverse]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches/array-reverse
+[approach-span]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches/span
+[approach-string-builder]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches/string-builder
 [benchmark-dotnet]: https://benchmarkdotnet.org/index.html
 [benchmark-dotnet-project]: https://github.com/exercism/csharp/tree/main/exercises/practice/reverse-string/.approaches/performance/benchmark
-[stackalloc]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/stackalloc
-[using-span-t]: https://learn.microsoft.com/en-us/archive/msdn-magazine/2018/january/csharp-all-about-span-exploring-a-new-net-mainstay
-[span-t]: https://learn.microsoft.com/en-us/dotnet/api/system.span-1?view=net-6.0
-[string-as-span]: https://learn.microsoft.com/en-us/dotnet/api/system.memoryextensions.asspan?view=net-6.0#system-memoryextensions-asspan(system-string)
+[src-array-reverse]: https://cs.github.com/dotnet/runtime/blob/12f9f91031224a45c146812a7f4a41e8cdb87e1c/src/libraries/System.Private.CoreLib/src/System/Array.cs#L1663-L1698
+[src-to-char-array]: https://cs.github.com/dotnet/runtime/blob/12f9f91031224a45c146812a7f4a41e8cdb87e1c/src/libraries/System.Private.CoreLib/src/System/String.cs?q=path%3A%2F%5Esrc%5C%2Flibraries%5C%2FSystem.Private.CoreLib%5C%2Fsrc%5C%2FSystem%2F+string#L451

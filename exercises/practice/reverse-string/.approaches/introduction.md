@@ -10,7 +10,7 @@ C# strings represent text as a sequence of UTF-16 code units.
 This means that you don't have to worry about multi-byte Unicode characters, as those are treated as one character.
 ```
 
-## Using LINQ
+## Approach: LINQ
 
 ```csharp
 using System.Linq;
@@ -24,26 +24,9 @@ public static class ReverseString
 }
 ```
 
-The `string` class implements the `IEnumerable<char>` interface, which allows us to call [LINQ][linq]'s [`Reverse()`][linq-reverse] extension method on it.
+For more information, check the [LINQ approach][approach-linq].
 
-To convert the `IEnumerable<char>` returned by `Reverse()` back to a `string`, we first use [`ToArray()`][linq-to-array] to convert it to a `char[]`.
-
-Finally, we return the reversed `string` by calling its constructor with the (reversed) `char[]`.
-
-### Shortening
-
-There are two things we can do to further shorten this method:
-
-1. Remove the curly braces by converting to an [expression-bodied method][expression-bodied-method]
-1. Use a [target-typed new][target-typed-new] expression to replace `new string` with just `new` (the compiler can figure out the type from the method's return type)
-
-Using this, we end up with:
-
-```csharp
-public static string Reverse(string input) => new(input.Reverse().ToArray());
-```
-
-## Using `Array.Reverse`
+## Approach: `Array.Reverse()`
 
 ```csharp
 using System;
@@ -59,18 +42,9 @@ public static class ReverseString
 }
 ```
 
-The `string` class' [`ToCharArray()`][to-char-array] method returns the string's characters as a `char[]`.
+For more information, check the [`Array.Reverse()` approach][approach-array-revervse].
 
-```exercism/caution
-The `char[]` returned by `ToCharArray()` is a **copy** of the `string`'s characters.
-Modifying the values in the `char[]` does not update the `string` it was created from.
-```
-
-We then pass the `char[]` to the [`Array.Reverse()`][array-reverse] method, which will reverse the array's content _in-place_ (meaning the argument is modified).
-
-Finally, we return the reversed `string` by calling its constructor with the (reversed) `char[]`.
-
-## Using `StringBuilder`
+## Approach: `StringBuilder`
 
 ```csharp
 using System.Text;
@@ -89,37 +63,19 @@ public static class ReverseString
 }
 ```
 
-Strings can also be created using the [`StringBuilder`][string-builder] class.
-The purpose of this class is to efficiently and incrementally build a `string`.
-
-```exercism/note
-A `StringBuilder` is often overkill when used to create short strings, but can be very useful to create larger strings.
-```
-
-The first step is to create a `StringBuilder`.
-We then use a `for`-loop to walk through the string's characters in reverse order, appending them to the `StringBuilder` via its [`Append()`][string-builder-append] method.
-
-Finally, we return the reversed `string` by calling the `ToString()` method on the `StringBuilder` instance.
+For more information, check the [`StringBuilder` approach][approach-string-builder].
 
 ## Which approach to use?
 
-The above three approaches are all valid approaches, but the first two are:
-
-- Arguably more readable
-- Less error-prone (they don't have to deal with upper and lower bounds as the `for`-loop does)
-
 If readability is your primary concern (and it usually should be), the LINQ-based approach is hard to beat.
-However, if you care about performance, the `Array`-based option is preferrable, especially when dealing with longer strings.
-For a more detailed analysis on the performance, check out the [performance approach][performance-approach] page.
 
-[string-builder]: https://learn.microsoft.com/en-us/dotnet/api/system.text.stringbuilder?view=net-7.0
-[linq-reverse]: https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.reverse?view=net-7.0
-[linq-to-array]: https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.toarray?view=net-7.0
-[expression-bodied-method]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members#methods
+If you care about performance, the `Array.Reverse()` approach is your best option, as shown on the [performance approach][approach-performance] page.
+
+The `StringBuilder` approach has the worst performance of the listed approach, and is more error-prone to write as it has to deal with lower and upper bounds checking.
+
 [constructor-array-chars]: https://learn.microsoft.com/en-us/dotnet/api/system.string.-ctor?view=net-7.0#system-string-ctor(system-char())
-[linq]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/
-[to-char-array]: https://learn.microsoft.com/en-us/dotnet/api/system.string.tochararray?view=net-6.0
-[array-reverse]: https://learn.microsoft.com/en-us/dotnet/api/system.array.reverse?view=net-6.0
-[target-typed-new]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-9.0/target-typed-new
-[string-builder-append]: https://learn.microsoft.com/en-us/dotnet/api/system.text.stringbuilder.append?view=net-7.0#system-text-stringbuilder-append(system-char)
-[performance-approach]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches/performance
+[approach-performance]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches/performance
+[approach-linq]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches/linq
+[approach-array-reverse]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches/array-reverse
+[approach-span]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches/span
+[approach-string-builder]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches/string-builder

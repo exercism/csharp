@@ -4,10 +4,38 @@
   },
   "approaches": [
     {
-      "uuid": "448fb2b4-18ab-4e55-aa54-ad4ed6d5f7f6",
+      "uuid": "fee41ba1-3d2f-4872-ace0-a0b5caf4af6e",
+      "slug": "array-reverse",
+      "title": "Array.Reverse",
+      "blurb": "Convert a string to an array of characters, reverse those and then convert them back to a string.",
+      "authors": ["erikschierboom"]
+    },
+    {
+      "uuid": "581af3cf-5218-41cc-84ff-50fbb2d9601a",
+      "slug": "linq",
+      "title": "LINQ",
+      "blurb": "Use LINQ to concisely reverse a string.",
+      "authors": ["erikschierboom"]
+    },
+    {
+      "uuid": "1b510e11-6579-44b7-8739-b62bafe25f9c",
       "slug": "performance",
-      "title": "Optimizing performance",
-      "blurb": "Explore how to most efficiently reverse a string and what the trade-offs are.",
+      "title": "Performance deep dive",
+      "blurb": "Find out which approach most efficiently reverses a string and what the trade-offs are.",
+      "authors": ["erikschierboom"]
+    },
+    {
+      "uuid": "448fb2b4-18ab-4e55-aa54-ad4ed6d5f7f6",
+      "slug": "span",
+      "title": "Span<T>",
+      "blurb": "Use Span<T> and stack allocation for hyper-optimized string reversal.",
+      "authors": ["erikschierboom"]
+    },
+    {
+      "uuid": "053bd627-c362-4f2e-8e2f-01bd279b0ef6",
+      "slug": "string-builder",
+      "title": "StringBuilder",
+      "blurb": "Reverse a string using the StringBuilder class.",
       "authors": ["erikschierboom"]
     }
   ]
