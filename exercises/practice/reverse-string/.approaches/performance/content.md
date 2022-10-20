@@ -12,7 +12,7 @@ For our performance investigation, we'll also include a fourth approach that [us
 
 ## Benchmarks
 
-To benchmark these approaches, we wrote a [small benchmark application][benchmark-dotnet-project] using [BenchmarkDotNet library][benchmark-dotnet].
+To benchmark these approaches, we wrote a [small benchmark application][benchmark-application] using [BenchmarkDotNet library][benchmark-dotnet].
 The benchmark checks the various approaches against strings of length `0`, `10`, `100` and `100_000`.
 Besides the regular CPU-time columns, the amount of memory used was also tracked.
 
@@ -115,6 +115,6 @@ Reducing memory allocation is often a great way to improve performance.
 [approach-span]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches/span
 [approach-string-builder]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches/string-builder
 [benchmark-dotnet]: https://benchmarkdotnet.org/index.html
-[benchmark-dotnet-project]: https://github.com/exercism/csharp/tree/main/exercises/practice/reverse-string/.approaches/performance/benchmark
+[benchmark-application]: https://github.com/exercism/csharp/tree/main/exercises/practice/reverse-string/.approaches/performance/benchmark/code/Program.cs
 [src-array-reverse]: https://cs.github.com/dotnet/runtime/blob/12f9f91031224a45c146812a7f4a41e8cdb87e1c/src/libraries/System.Private.CoreLib/src/System/Array.cs#L1663-L1698
 [src-to-char-array]: https://cs.github.com/dotnet/runtime/blob/12f9f91031224a45c146812a7f4a41e8cdb87e1c/src/libraries/System.Private.CoreLib/src/System/String.cs?q=path%3A%2F%5Esrc%5C%2Flibraries%5C%2FSystem.Private.CoreLib%5C%2Fsrc%5C%2FSystem%2F+string#L451
