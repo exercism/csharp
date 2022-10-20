@@ -1,0 +1,28 @@
+{
+  "introduction": {
+    "authors": ["bobahop"]
+  },
+  "approaches": [
+    {
+      "uuid": "c0bab2cf-3304-480c-a454-f8dfd274883e",
+      "slug": "if-else",
+      "title": "If/Else",
+      "blurb": "Use if and else to return the answer.",
+      "authors": ["bobahop"]
+    },
+    {
+      "uuid": "567f04d3-368e-4874-9fde-07ce1f7b199f",
+      "slug": "switch-on-tuple",
+      "title": "Switch on a tuple",
+      "blurb": "Use switch on a tuple to return the answer.",
+      "authors": ["bobahop"]
+    },
+    {
+      "uuid": "8b31fcf5-229e-474a-aaf5-b00dc5d977c5",
+      "slug": "answer-array",
+      "title": "Answer array",
+      "blurb": "Index into an array to return the answer.",
+      "authors": ["erikschierboom"]
+    }
+  ]
+}
