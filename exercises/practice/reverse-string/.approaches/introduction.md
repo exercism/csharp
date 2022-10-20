@@ -32,7 +32,7 @@ public static string Reverse(string input)
 }
 ```
 
-For more information, check the [`Array.Reverse()` approach][approach-array-revervse].
+For more information, check the [`Array.Reverse()` approach][approach-array-reverse].
 
 ## Approach: `StringBuilder`
 
@@ -52,11 +52,7 @@ For more information, check the [`StringBuilder` approach][approach-string-build
 
 ## Which approach to use?
 
-### Readability
-
 If readability is your primary concern (and it usually should be), the LINQ-based approach is hard to beat.
-
-### Performance
 
 The `Array.Reverse()` approach is the best performing apporach.
 For a more detailed breakdown, check the [performance approach][approach-performance].
