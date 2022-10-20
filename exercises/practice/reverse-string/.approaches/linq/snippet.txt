@@ -1,4 +1,1 @@
-public static string Reverse(string input)
-{
-    return new string(input.Reverse().ToArray());
-}
+return new string(input.Reverse().ToArray());
