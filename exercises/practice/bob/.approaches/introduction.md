@@ -5,7 +5,7 @@ A basic approach can use a series of `if` statements to test the conditions.
 Or a [switch][switch] on a [tuple][tuple] of the conditions can be used.
 An array can contain answers from which the right response is selected by an index calculated from scores given to the conditions.
 
-## Approach: if statements
+## Approach: `if` statements
 
 ```csharp
 using System.Linq;
@@ -42,7 +42,7 @@ public static class Bob
 
 For more information, check the .
 
-## Approach: Switch on a tuple
+## Approach: `switch` on a `tuple`
 
 ```csharp
 using System.Linq;
