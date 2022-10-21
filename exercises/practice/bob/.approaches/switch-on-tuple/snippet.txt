@@ -1,7 +1,4 @@
-using System.Linq;
-
-public static class Bob
-{
+    // uses System.Linq;
     private static bool isShout(string input) => input.Any(c => char.IsLetter(c)) && input.ToUpper() == input;
 
     public static string Response(string statement)
@@ -17,4 +14,3 @@ public static class Bob
             default: return "Whatever.";
         }
     }
-}
