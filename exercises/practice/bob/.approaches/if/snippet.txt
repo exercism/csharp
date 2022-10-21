@@ -1,7 +1,4 @@
-using System.Linq;
-
-public static class Bob
-{
+    // uses System.Linq;
     public static string Response(string message)
     {
         if (message.IsSilence())
@@ -27,4 +24,3 @@ public static class Bob
 
     private static bool IsQuestion(this string message) =>
         message.TrimEnd().EndsWith("?");
-}
