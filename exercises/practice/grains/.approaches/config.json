@@ -1,0 +1,28 @@
+{
+  "introduction": {
+    "authors": ["bobahop", "erikschierboom"]
+  },
+  "approaches": [
+    {
+      "uuid": "b6bb556e-880a-455b-ae1b-f96f74be4beb",
+      "slug": "pow",
+      "title": "Pow",
+      "blurb": "Use Math.Pow to raise by a power of 2.",
+      "authors": ["erikschierboom", "bobahop"]
+    },
+    {
+      "uuid": "71f823dc-c667-46ee-875f-6e73918d0336",
+      "slug": "bit-shifting",
+      "title": "Bit-shifting",
+      "blurb": "Use bit-shifting to raise by a power of 2.",
+      "authors": ["bobahop"]
+    },
+    {
+      "uuid": "076f430a-3779-4249-a190-b75110da455b",
+      "slug": "max-value",
+      "title": "Max value",
+      "blurb": "Use UInt64.MaxValue for total.",
+      "authors": ["bobahop"]
+    }
+  ]
+}
