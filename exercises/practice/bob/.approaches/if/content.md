@@ -1,10 +1,7 @@
 # `if` statements
 
 ```csharp
-using System.Linq;
-
-public static class Bob
-{
+    // uses System.Linq;
     public static string Response(string message)
     {
         if (message.IsSilence())
@@ -30,7 +27,6 @@ public static class Bob
 
     private static bool IsQuestion(this string message) =>
         message.TrimEnd().EndsWith("?");
-}
 ```
 
 [Extension methods][extension-methods] have been used in this solution to add behavior to the `String` type.
