@@ -5,30 +5,23 @@ There are several idiomatic approaches to solve Grains.
 ## Approach: `Math.Pow`
 
 ```csharp
-using System;
-using System.Linq;
-public static class Grains
-{
+    // uses System.Linq;
     public static double Square(int i)
     {
         if (i is <= 0 or > 64) throw new ArgumentOutOfRangeException(nameof(i));
         
         return Math.Pow(2, i - 1);
     }
+    
     public static double Total() => Enumerable.Range(1, 64).Sum(Square);
-}
 ```
 
-For more information, check the .
+For more information, check the [Pow approach][approach-pow].
 
 ## Approach: Bit-shifting
 
 ```csharp
-using System;
-using System.Numerics; // for use with BigInteger
-
-public static class Grains
-{
+    // uses System.Numerics for BigInteger
     public static ulong Square(int n)
     {
         switch (n)
@@ -39,17 +32,17 @@ public static class Grains
     }
     
     public static ulong Total() => (ulong)((BigInteger.One << 64) - 1);
-}
 ```
 
-For more information, check the .
+For more information, check the [Bit-shifting approach][approach-bit-shifting].
 
-## Approach: `System.UInt64.MaxValue` for Total
+## Other approaches 
 
-```csharp
-public static ulong Total() => System.UInt64.MaxValue;
-```
-
-For more information, check the .
+- The maximum value for an unsigned integer gives the total number of grains on all sixty-four squares.
+For more information, check the [`System.UInt64.MaxValue` for Total Approach][approach-max-value].
 
 ## Which approach to use?
+
+[approach-pow]: https://exercism.org/tracks/csharp/exercises/grains/approaches/pow
+[approach-bit-shifting]: https://exercism.org/tracks/csharp/exercises/grains/approaches/bit-shifting
+[approach-max-value]: https://exercism.org/tracks/csharp/exercises/grains/approaches/max-value
