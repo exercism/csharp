@@ -1,7 +1,11 @@
 # Introduction
 
+There are several idiomatic approaches to solve Bob.
+A basic approach can use a series of `if` statements to test the conditions.
+Or a [switch][switch] on a [tuple][tuple] of the conditions can be used.
+An array can contain answers from which the right response is selected by an index calculated from scores given to the conditions.
 
-## Approach: if/else
+## Approach: if statements
 
 ```csharp
 using System.Linq;
@@ -90,18 +94,28 @@ public static class Bob
 
 For more information, check the .
 
-Things to look for
+## Which approach to use?
+
+Which to use is pretty much a matter of personal preference.
+
+Regardless of the approach used, some things to look for include
 
 - If the input is trimmed, [Trim][trim] only once.
 
-- Use [EndsWith][endswith] `String` method instead of checking the last character by index for `?`.
+- Use the [EndsWith][endswith] `String` method instead of checking the last character by index for `?`.
 
 - If an `if` statement can return, then an `else if` or `else` is not needed.
-It will either return or execution will continue to the next statement anyway.
+Execution will either return or will continue to the next statement anyway.
 
 - If the body of an `if` statement is only one line, curly braces aren't needed.
 Some teams may still require them in their style guidelines, though.
 
+- Don't copy/paste the logic for determining a shout and for determing a question into determing a shouted question.
+Combine the two determinations instead of copying them.
+Not duplicating the code will keep the code [DRY][dry].
 
 [trim]: https://learn.microsoft.com/en-us/dotnet/api/system.string.trim?view=net-7.0
 [endswith]: https://learn.microsoft.com/en-us/dotnet/api/system.string.endswith?view=net-6.0
+[switch]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements#the-switch-statement
+[tuple]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples
+[dry]: https://en.wikipedia.org/wiki/Don%27t_repeat_yourself
