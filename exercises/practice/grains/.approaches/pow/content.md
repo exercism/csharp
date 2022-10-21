@@ -1,10 +1,7 @@
 ## `Math.Pow`
 
 ```csharp
-using System;
-using System.Linq;
-public static class Grains
-{
+    // uses System.Linq;
     public static double Square(int i)
     {
         if (i is <= 0 or > 64) throw new ArgumentOutOfRangeException(nameof(i));
