@@ -8,7 +8,7 @@
       "slug": "if",
       "title": "If",
       "blurb": "Use if and else to return the answer.",
-      "authors": ["bobahop"]
+      "authors": ["erikschierboom", "bobahop"]
     },
     {
       "uuid": "567f04d3-368e-4874-9fde-07ce1f7b199f",
@@ -22,7 +22,7 @@
       "slug": "answer-array",
       "title": "Answer array",
       "blurb": "Index into an array to return the answer.",
-      "authors": ["erikschierboom"]
+      "authors": ["bobahop"]
     }
   ]
 }
