@@ -1,7 +1,4 @@
-using System.Linq;
-
-public static class Bob
-{
+    // uses System.Linq;
     private static readonly string[] answers = {"Whatever.", "Sure.", "Whoa, chill out!", "Calm down, I know what I'm doing!"};
     
     public static string Response(string statement)
@@ -15,4 +12,3 @@ public static class Bob
         
         return answers[isShout + isQuestion];
     }
-}
