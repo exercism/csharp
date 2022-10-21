@@ -1,4 +1,4 @@
-# if
+# `if` statements
 
 ```csharp
 using System.Linq;
@@ -32,3 +32,13 @@ public static class Bob
         message.TrimEnd().EndsWith("?");
 }
 ```
+
+[Extension methods][extension-methods] have been used in this solution to add behavior to the `String` type.
+Those methods are then used for determing the conditions in a series of `if` statements.
+Note that there are no `else if` or `else` statements.
+If an `if` statement can return, then an `else if` or `else` is not needed.
+Execution will either return or will continue to the next statement anyway.
+
+[extension-methods]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods
+
+
