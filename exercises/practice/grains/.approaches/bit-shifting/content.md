@@ -1,11 +1,7 @@
 # Bit-shifting
 
 ```csharp
-using System;
-using System.Numerics; // for use with BigInteger
-
-public static class Grains
-{
+    // uses System.Numerics for BigInteger
     public static ulong Square(int n)
     {
         switch (n)
@@ -16,5 +12,4 @@ public static class Grains
     }
     
     public static ulong Total() => (ulong)((BigInteger.One << 64) - 1);
-}
 ```
