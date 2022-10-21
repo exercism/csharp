@@ -8,6 +8,6 @@
         
         return Math.Pow(2, i - 1);
     }
+    
     public static double Total() => Enumerable.Range(1, 64).Sum(Square);
-}
 ```
