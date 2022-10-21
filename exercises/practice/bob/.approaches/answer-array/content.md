@@ -1,10 +1,7 @@
 # Answer array
 
 ```csharp
-using System.Linq;
-
-public static class Bob
-{
+    // uses System.Linq;
     private static readonly string[] answers = {"Whatever.", "Sure.", "Whoa, chill out!", "Calm down, I know what I'm doing!"};
     
     public static string Response(string statement)
@@ -18,7 +15,6 @@ public static class Bob
         
         return answers[isShout + isQuestion];
     }
-}
 ```
 
 An array can be defined that contains answers from which the right response is selected by an index calculated from scores given to the conditions.
