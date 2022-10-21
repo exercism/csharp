@@ -27,7 +27,7 @@ The `String` [TrimEnd][trimend] method is applied to the input to eliminate any 
 If the string has no characters left, it returns the response for saying nothing.
 Note that a `null` `string` would be different from a `string` of all whitespace.
 A `null` `string` would throw an `Exception` if `TrimEnd` were applied to it.
-To test a string that might be `null` or only whitespace, the [IsNullOrWhiteSpace][isnullorwhitespace] method of `String` would be used.
+To test a `string` that might be `null` or only whitespace, the [IsNullOrWhiteSpace][isnullorwhitespace] method of `String` would be used.
 
 Next a [tuple][tuple] is made from the conditions for a queston and a shout.
 The first half of the shout condition is constructed from the [Any][any] LINQ method and the [IsLetter][isletter] `Char` method to ensure there is at least one letter character in the `String`.
