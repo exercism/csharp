@@ -21,7 +21,7 @@
       "uuid": "076f430a-3779-4249-a190-b75110da455b",
       "slug": "max-value",
       "title": "Max value",
-      "blurb": "Use UInt64.MaxValue for total.",
+      "blurb": "Use UInt64.MaxValue for Total.",
       "authors": ["bobahop"]
     }
   ]
