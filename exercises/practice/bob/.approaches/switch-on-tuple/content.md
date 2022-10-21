@@ -1,10 +1,7 @@
 # `switch` on a `tuple`
 
 ```csharp
-using System.Linq;
-
-public static class Bob
-{
+    // uses System.Linq;
     private static bool isShout(string input) => input.Any(c => char.IsLetter(c)) && input.ToUpper() == input;
 
     public static string Response(string statement)
@@ -20,7 +17,6 @@ public static class Bob
             default: return "Whatever.";
         }
     }
-}
 ```
 
 The `String` [TrimEnd][trimend] method is applied to the input to eliminate any whitespace at the end of the input.
