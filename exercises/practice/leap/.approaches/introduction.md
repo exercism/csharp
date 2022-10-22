@@ -47,6 +47,13 @@ For more information, check the [`switch` on a `tuple` approach][approach-switch
 
 ## Which approach to use?
 
+- The chain of boolean expressions is most efficient, as it proceeds from the most likely to least likely conditions.
+It has a maximum of three checks.
+- The ternary operator has a maximum of only two checks, but it starts from a less likely condition.
+- The `switch` on a `tuple` may be considered more "functional", but it is more verbose and may be considered less readable.
+- Using DateTime addition or using the built-in `IsLeapYear` method may be considered "cheats" for the exercise,
+but `IsLeapYear` would be the idiomatic way to check if a year is a leap year in C#.
+
 [approach-boolean-chain]: https://exercism.org/tracks/csharp/exercises/leap/approaches/boolean-chain
 [approach-ternary-operator]: https://exercism.org/tracks/csharp/exercises/leap/approaches/ternary-operator
 [approach-switch-on-a-tuple]: https://exercism.org/tracks/csharp/exercises/leap/approaches/switch-on-a-tuple
