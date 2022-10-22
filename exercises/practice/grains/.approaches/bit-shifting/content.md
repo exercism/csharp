@@ -33,7 +33,7 @@ The easy way to do this is to set the 65th bit to `1` and then subtract `1`.
 However, we can't do this with a `ulong` which has only `64` bits, so we need to use a [BigInteger][biginteger].
 To go back to our two-square example, if we can grow to three squares, then we can set the third position from the right to `1` like so: `100`,
 which is decimal `4`.
-Bu subtracting `1` we get `3`, which is `11` in binary.
+By subtracting `1` we get `3`, which is `11` in binary.
 
 
 [left-shift-operator]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/bitwise-and-shift-operators#left-shift-operator-
