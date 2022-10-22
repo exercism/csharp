@@ -1,6 +1,8 @@
 # Introduction
 
-There are several idiomatic approaches to solve Grains.
+There are various idiomatic approaches to solve Grains.
+A basic approach can use `Math.Pow` to calculate the number on grains on a square.
+Or bit-shifting can be used.
 
 ## Approach: `Math.Pow`
 
