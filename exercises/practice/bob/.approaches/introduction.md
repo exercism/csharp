@@ -1,6 +1,6 @@
 # Introduction
 
-There are several idiomatic approaches to solve Bob.
+There are various idiomatic approaches to solve Bob.
 A basic approach can use a series of `if` statements to test the conditions.
 Or a [switch][switch] on a [tuple][tuple] of the conditions can be used.
 An array can contain answers from which the right response is selected by an index calculated from scores given to the conditions.
