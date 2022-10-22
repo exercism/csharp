@@ -12,6 +12,9 @@ since the next operator is a [logical OR][logical-or] (`||`).
 
 The chain of boolean expressions is efficient, as it proceeds from testing the most likely to least likely conditions.
 
+Since the chain of boolean expressions is itself one expression, the function can be implemented as an [expression-bodied member][expression-bodied-member].
+
 [remainder-operator]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators#remainder-operator-
 [logical-and]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/boolean-logical-operators#conditional-logical-and-operator-
 [logical-or]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/boolean-logical-operators#conditional-logical-or-operator-
+[expression-bodied-member]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members
