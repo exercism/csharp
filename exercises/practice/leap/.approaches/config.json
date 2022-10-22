@@ -19,7 +19,7 @@
     },
     {
       "uuid": "cb7c88a6-49f3-4744-a3e8-fcc7acc0770d",
-      "slug": "switch",
+      "slug": "switch-of-tuples",
       "title": "switch of tuples",
       "blurb": "Use a switch of tuples made from boolean expressions.",
       "authors": ["bobahop"]
