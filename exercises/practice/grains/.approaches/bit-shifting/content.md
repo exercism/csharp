@@ -16,17 +16,17 @@
 
 Instead of using math to calculate the number of grains on a square, we can simply set a bit in the correct position of a `ulong` value.
 
-To understand how this works, consider just two squares that are represented in bits as `00`.
+To understand how this works, consider just two squares that are represented in binary bits as `00`.
 - To get the one grain on square One, we set the first bit (on the right) to `1` like so: `01`, which is the decimal value of `1`.
 - To get the two grains on square Two, we set the second bit (from the right) to `1` like so: `10`, which is the decimal value of `2`.
 
 We use the [left-shift operator][left-shift-operator] to set `1` at the position needed to make the correct decimal value.
 - To set the one grain on Square One we shift `1` for `0` positions to the left.
 So, if `n` is `1` for square One, we subtract `n` by `1` to get `0`, which will not move it any positions to the left.
-The result is `01`, which is decimal `1`.
+The result is binary `01`, which is decimal `1`.
 - To set the two grains on Square Two we shift `1` for `1` position to the left.
 So, if `n` is `2` for square Two, we subtract `n` by `1` to get `1`, which will move it `1` position to the left.
-The result is `10`, which is decimal `2`.
+The result is binary `10`, which is decimal `2`.
 
 For `Total` we want all of the 64 bits set to `1` to get the sum of grains on all sixty-four squares.
 The easy way to do this is to set the 65th bit to `1` and then subtract `1`.
