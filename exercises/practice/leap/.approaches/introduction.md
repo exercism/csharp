@@ -1,6 +1,9 @@
 # Introduction
 
-There are several idiomatic approaches to solve Leap.
+There are various idiomatic approaches to solve Leap.
+A basic approach can use a chain of boolean expressions to test the conditions.
+Another approach can use a [ternary operator][ternary-operator].
+Or a [switch][switch] on a [tuple][tuple] of the conditions can be used.
 
 ## Approach: Chain of Boolean expressions
 
@@ -54,6 +57,9 @@ It has a maximum of three checks.
 - Using DateTime addition or using the built-in `IsLeapYear` method may be considered "cheats" for the exercise,
 but `IsLeapYear` would be the idiomatic way to check if a year is a leap year in C#.
 
+[switch]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements#the-switch-statement
+[tuple]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples
+[ternary-operator]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/conditional-operator
 [approach-boolean-chain]: https://exercism.org/tracks/csharp/exercises/leap/approaches/boolean-chain
 [approach-ternary-operator]: https://exercism.org/tracks/csharp/exercises/leap/approaches/ternary-operator
 [approach-switch-on-a-tuple]: https://exercism.org/tracks/csharp/exercises/leap/approaches/switch-on-a-tuple
