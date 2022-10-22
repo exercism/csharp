@@ -20,7 +20,7 @@ To understand how this works, consider just two squares that are represented in 
 - To get the one grain on square One, we set the first bit (on the right) to `1` like so: `01`, which is the decimal value of `1`.
 - To get the two grains on square Two, we set the second bit (from the right) to `1` like so: `10`, which is the decimal value of `2`.
 
-We use the [left-shift operator][left-shift-operator] to set `1` at the position needed to make the right decimal value.
+We use the [left-shift operator][left-shift-operator] to set `1` at the position needed to make the correct decimal value.
 - To set the one grain on Square One we shift `1` for `0` positions to the left.
 So, if `n` is `1` for square One, we subtract `n` by `1` to get `0`, which will not move it any positions to the left.
 The result is `01`, which is decimal `1`.
