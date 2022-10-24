@@ -30,6 +30,7 @@ For more information, check the [Bit Field approach][approach-bitfield].
 The `GroupBy` approach is an idiomatic "one-liner", but it is more than twice as slow as the `Distinct` approach, which is also idiomatic and perhaps more readable.
 
 The fastest is the `Bit Field` approach, but it may be considered more C language idiomatic than C# idiomatic.
+Also, it depends on all of the letters being [ASCII][ascii].
 
 To compare performance of the approaches, check the [Performance approach][approach-performance].
 
@@ -37,3 +38,4 @@ To compare performance of the approaches, check the [Performance approach][appro
 [approach-groupby]: https://exercism.org/tracks/csharp/exercises/isogram/approaches/groupby
 [approach-bitfield]: https://exercism.org/tracks/csharp/exercises/isogram/approaches/bitfield
 [approach-performance]: https://exercism.org/tracks/csharp/exercises/isogram/approaches/performance
+[ascii]: https://www.asciitable.com/
