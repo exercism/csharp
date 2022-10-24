@@ -88,6 +88,8 @@ Execution will either return or will continue to the next statement anyway.
 - If the body of an `if` statement is only one line, curly braces aren't needed.
 Some teams may still require them in their style guidelines, though.
 
+- To compare the performance of the approaches, check out the [Performance approach][approach-performance].
+
 [trim]: https://learn.microsoft.com/en-us/dotnet/api/system.string.trim?view=net-7.0
 [endswith]: https://learn.microsoft.com/en-us/dotnet/api/system.string.endswith?view=net-6.0
 [switch]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements#the-switch-statement
@@ -96,3 +98,4 @@ Some teams may still require them in their style guidelines, though.
 [approach-if]: https://exercism.org/tracks/csharp/exercises/bob/approaches/if
 [approach-switch]: https://exercism.org/tracks/csharp/exercises/bob/approaches/switch-on-tuple
 [approach-answer-array]: https://exercism.org/tracks/csharp/exercises/bob/approaches/answer-array
+[approach-performance]: https://exercism.org/tracks/csharp/exercises/bob/approaches/performance
