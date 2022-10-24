@@ -47,8 +47,10 @@ For more information, check the [`System.UInt64.MaxValue` for Total Approach][ap
 
 `Pow` may be considered the most readable solution.
 
-Bit-shifting should be more performant, but may be considered less readable.
+Bit-shifting is more performant, but may be considered less readable.
+For more information, check the [Performance approach][approach-performance].
 
 [approach-pow]: https://exercism.org/tracks/csharp/exercises/grains/approaches/pow
 [approach-bit-shifting]: https://exercism.org/tracks/csharp/exercises/grains/approaches/bit-shifting
 [approach-max-value]: https://exercism.org/tracks/csharp/exercises/grains/approaches/max-value
+[approach-performance]: https://exercism.org/tracks/csharp/exercises/grains/approaches/performance
