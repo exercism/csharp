@@ -5,6 +5,7 @@ There are various idiomatic ways to solve Isogram.
 ## Approach: `Distinct` with `Count`
 
 ```csharp
+// uses System.Linq
 var lowerLetters = word.ToLower().Where(char.IsLetter).ToList();
 return lowerLetters.Distinct().Count() == lowerLetters.Count;
 ```
@@ -15,6 +16,7 @@ For more information, check the [`Distinct` approach][approach-distinct].
 ## Approach: `GroupBy` with `All` and `Count`
 
 ```csharp
+// uses System.Linq
 return word.ToLower().Where(Char.IsLetter).GroupBy(ltr => ltr).All(ltr_grp => ltr_grp.Count() == 1);
 ```
 
