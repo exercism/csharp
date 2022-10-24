@@ -14,14 +14,14 @@
       "uuid": "78bc9485-94b7-4bac-8ce6-d577e85670a1",
       "slug": "groupby",
       "title": "GroupBy",
-      "blurb": "Use GroupBy with Count to return the answer.",
+      "blurb": "Use GroupBy with All and Count to return the answer.",
       "authors": ["bobahop"]
     },
     {
       "uuid": "5a77a3ff-8474-4238-bf23-c7c657f27e34",
       "slug": "bitfield",
       "title": "Bit field",
-      "blurb": "Use a bit field to return the answer.",
+      "blurb": "Use a bit field to keep track of used letters.",
       "authors": ["bobahop"]
     }
   ]
