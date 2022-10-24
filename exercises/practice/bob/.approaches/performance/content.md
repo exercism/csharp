@@ -5,6 +5,7 @@
 |  ResponseWithArray |  51.07 ns | 0.262 ns | 0.245 ns | 0.0153 |      72 B |
 
 For the purpose of benchmarking the `string` extension methods for the [`if` statements approach][approach-if] were refactored to regular methods that take a `string`.
+For all approaches, all other `static` functions were refactored to instance functions.
 The `if statements` approach was over two times slower than the other two approaches.
 Given that the [`switch` approach][approach-switch] and [answer array approach][approach-answer-array] were equivalent for performance,
 the `switch` approach might be prefered for performance as considered the more idiomatic approach for C#.
