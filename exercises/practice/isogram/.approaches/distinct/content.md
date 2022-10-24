@@ -1,4 +1,5 @@
 ```csharp
+// uses System.Linq
 var lowerLetters = word.ToLower().Where(char.IsLetter).ToList();
 return lowerLetters.Distinct().Count() == lowerLetters.Count;
 ```
