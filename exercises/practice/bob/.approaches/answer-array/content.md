@@ -17,7 +17,8 @@
     }
 ```
 
-An array can be defined that contains answers from which the right response is selected by an index calculated from scores given to the conditions.
+In this approach you define an array that contains Bob’s answers, and each condition is given a score.
+The correct answer is selected from the array by using the score as the array index.
 
 The `String` [TrimEnd][trimend] method is applied to the input to eliminate any whitespace at the end of the input.
 If the string has no characters left, it returns the response for saying nothing.
