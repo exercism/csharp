@@ -1,3 +1,18 @@
+# Performance
+
+In this approach, we'll find out how to most efficiently determine the response for Bob in C#.
+
+The [approaches page][approaches] lists two idiomatic approaches to this exercise:
+
+1. [Using `if` statements][approach-if].
+2. [Using `switch` on a `tuple`][approach-switch].
+
+For our performance investigation, we'll also include a third approach that [uses an answer array][approach-answer-array].
+
+## Benchmarks
+
+To benchmark the approaches, we wrote a [small benchmark application][benchmark-application] using [BenchmarkDotNet library][benchmark-dotnet].
+
 |             Method |      Mean |    Error |   StdDev |   Gen0 | Allocated |
 |------------------- |----------:|---------:|---------:|-------:|----------:|
 |    ResponseIfChain | 124.07 ns | 1.306 ns | 1.158 ns | 0.0577 |     272 B |
@@ -10,6 +25,9 @@ The `if statements` approach was over two times slower than the other two approa
 Given that the [`switch` approach][approach-switch] and [answer array approach][approach-answer-array] were equivalent for performance,
 the `switch` approach might be prefered for performance as considered the more idiomatic approach for C#.
 
+[approaches]: https://exercism.org/tracks/csharp/exercises/bob/approaches
 [approach-if]: https://exercism.org/tracks/csharp/exercises/bob/approaches/if
 [approach-switch]: https://exercism.org/tracks/csharp/exercises/bob/approaches/switch-on-tuple
 [approach-answer-array]: https://exercism.org/tracks/csharp/exercises/bob/approaches/answer-array
+[benchmark-dotnet]: https://benchmarkdotnet.org/index.html
+[benchmark-application]: https://github.com/exercism/csharp/tree/main/exercises/practice/bob/.approaches/performance/benchmark/code/Program.cs
