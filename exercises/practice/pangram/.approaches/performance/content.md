@@ -1,5 +1,5 @@
 
-# Introduction
+# Performance
 
 Each approach was benchmarked individually.
 
