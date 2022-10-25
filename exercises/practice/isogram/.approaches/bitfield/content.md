@@ -1,3 +1,5 @@
+# Bit field
+
 ```csharp
         int letter_flags = 0;
         foreach (char letter in word)
