@@ -1,3 +1,5 @@
+# `Distinct`
+
 ```csharp
 // uses System.Linq
 var lowerLetters = word.ToLower().Where(char.IsLetter).ToList();
