@@ -1,3 +1,5 @@
+# Bit field
+
 ```csharp
         int phrasemask = 0;
         foreach (char letter in input)
