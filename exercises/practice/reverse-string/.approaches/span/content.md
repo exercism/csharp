@@ -1,5 +1,14 @@
 # Span&lt;T&gt;
 
+```csharp
+Span<char> chars = stackalloc[input.Length];
+for (var i = 0; i < input.Length; i++)
+{
+    chars[input.Length - 1 - i] = input[i];
+}
+return new string(chars);
+```
+
 C# 7.2. introduced the [`Span<T>`][span-t] class, which was specifically designed to allow performant iteration/mutation of _array-like_ objects.
 The `Span<T>` class helps improve performance by always being allocated on the _stack_, and not the _heap_.
 As objects on the stack don't need to be garbage collected, this can help improve performance (check [this blog post][using-span-t] for more information).
