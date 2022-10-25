@@ -1,6 +1,6 @@
 # Performance
 
-In this approach, we'll find out how to most efficiently determine if a string is an Isogram in C#.
+In this approach, we'll find out how to most efficiently calculate the value for Grains in C#.
 
 The [approaches page][approaches] lists two idiomatic approaches to this exercise:
 
@@ -8,6 +8,8 @@ The [approaches page][approaches] lists two idiomatic approaches to this exercis
 2. [Using bit shifting][approach-bit-shifting]
 
 ## Benchmarks
+
+To benchmark the approaches, we wrote a [small benchmark application][benchmark-application] using [BenchmarkDotNet library][benchmark-dotnet].
 
 |         Method |        Mean |     Error |    StdDev |   Gen0 | Allocated |
 |--------------- |------------:|----------:|----------:|-------:|----------:|
@@ -19,3 +21,5 @@ Enumerating a `Range` from `1` to `64` to sum each call of `Square` (which uses 
 [approaches]: https://exercism.org/tracks/csharp/exercises/grains/approaches
 [approach-pow]: https://exercism.org/tracks/csharp/exercises/grains/approaches/pow
 [approach-bit-shifting]: https://exercism.org/tracks/csharp/exercises/grains/approaches/bit-shifting
+[benchmark-dotnet]: https://benchmarkdotnet.org/index.html
+[benchmark-application]: https://github.com/exercism/csharp/tree/main/exercises/practice/grains/.approaches/performance/benchmark/code/Program.cs
