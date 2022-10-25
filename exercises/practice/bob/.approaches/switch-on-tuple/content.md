@@ -19,6 +19,9 @@
     }
 ```
 
+In this approach you use a [`switch`][switch] to test if there is a question or a shout.
+The `switch` returns the right response for a question, shout, shouted question, or for not being a shout or question.
+
 The `String` [TrimEnd][trimend] method is applied to the input to eliminate any whitespace at the end of the input.
 If the string has no characters left, it returns the response for saying nothing.
 Note that a `null` `string` would be different from a `string` of all whitespace.
