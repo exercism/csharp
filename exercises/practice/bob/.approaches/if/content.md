@@ -29,8 +29,10 @@
         message.TrimEnd().EndsWith("?");
 ```
 
-[Extension methods][extension-methods] have been used in this solution to add behavior to the `String` type.
-Those methods are then used for determing the conditions in a series of `if` statements.
+In this approach you add behavior to the String type using [Extension methods][extension-methods].
+A series of `if` statements use the added methods to evaluate the conditions.
+As soon as the right condition is found, the correct response is returned.
+
 Note that there are no `else if` or `else` statements.
 If an `if` statement can return, then an `else if` or `else` is not needed.
 Execution will either return or will continue to the next statement anyway.
