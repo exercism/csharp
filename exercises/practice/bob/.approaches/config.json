@@ -7,7 +7,7 @@
       "uuid": "c0bab2cf-3304-480c-a454-f8dfd274883e",
       "slug": "if",
       "title": "If",
-      "blurb": "Use if and else to return the answer.",
+      "blurb": "Use if statements to return the answer.",
       "authors": ["erikschierboom", "bobahop"]
     },
     {
