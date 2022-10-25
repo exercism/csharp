@@ -1,3 +1,5 @@
+# `All` with `Contains` using case-insensitive comparison
+
 ```csharp
     // uses System.Linq
     private static readonly StringComparison xcase = StringComparison.CurrentCultureIgnoreCase;
