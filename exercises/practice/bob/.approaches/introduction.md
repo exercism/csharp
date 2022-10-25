@@ -63,7 +63,8 @@ For more information, check the [`switch` on a `tuple`][approach-switch].
 
 ## Other approaches
 
-- An array can be defined that contains answers from which the right response is selected by an index calculated from scores given to the conditions.
+- An array can be defined that contains Bob’s answers, and each condition is given a score.
+The correct answer is selected from the array by using the score as the array index.
 For more information, check the [Answer array approach][approach-answer-array].
 
 ## Which approach to use?
