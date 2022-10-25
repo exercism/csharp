@@ -1,3 +1,5 @@
+# `All` with `Contains` on lowercased letters
+
 ```csharp
     // uses System.Linq
     private const string Letters = "abcdefghijklmnopqrstuvwxyz";
