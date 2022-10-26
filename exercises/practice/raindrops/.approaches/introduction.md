@@ -33,9 +33,9 @@ public static class Raindrops
 {
     public static string Convert(int number)
     {
-        var drops =  (new List<(int, string)>{(3, "Pling"), (5, "Plang"), (7, "Plong")})
-            .Aggregate("", (acc, drop) => number % drop.Item1 == 0 ? acc + drop.Item2: acc);
-        return drops.Length > 0 ? drops: number.ToString();
+        var drops = (new (int, string)[] { (3, "Pling"), (5, "Plang"), (7, "Plong") })
+            .Aggregate("", (acc, drop) => number % drop.Item1 == 0 ? acc + drop.Item2 : acc);
+        return drops.Length > 0 ? drops : number.ToString();
     }
 }
 ```
@@ -50,8 +50,9 @@ For more information, check the [`Aggregate` approach][approach-aggregate].
 |--------------------- |----------:|---------:|---------:|-------:|----------:|
 |  ConvertWithIfConcat |  24.78 ns | 0.154 ns | 0.144 ns | 0.0221 |     104 B |
 | ConvertWithIfBuilder |  36.93 ns | 0.292 ns | 0.244 ns | 0.0340 |     160 B |
-|     ConvertAggConcat | 129.85 ns | 1.430 ns | 1.194 ns | 0.0713 |     336 B |
-|    ConvertAggBuilder | 130.75 ns | 1.209 ns | 1.072 ns | 0.0832 |     392 B |
+|      ConvertAggArray |  85.58 ns | 0.467 ns | 0.414 ns | 0.0577 |     272 B |
+|     ConvertAggConcat | 129.85 ns | 1.430 ns | 1.194 ns | 0.0713 |     336 B | //uses List
+|    ConvertAggBuilder | 130.75 ns | 1.209 ns | 1.072 ns | 0.0832 |     392 B | //uses List
 
 [approach-if-statements]: https://exercism.org/tracks/csharp/exercises/raindrops/approaches/if-statements
 [approach-aggregate]: https://exercism.org/tracks/csharp/exercises/raindrops/approaches/aggregate
