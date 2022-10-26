@@ -10,7 +10,8 @@ public static class Bob
     public static string Response(string statement)
     {
         var input = statement.TrimEnd();
-        if (input == "") return "Fine. Be that way!";
+        if (input == "")
+            return "Fine. Be that way!";
 
         var isShout = input.Any(c => char.IsLetter(c)) && input.ToUpper() == input ? 2: 0;
         
@@ -54,8 +55,23 @@ For example, giving a question a score of `1` would use an index of `1` to get t
 | `true`  | `false`    | 2 + 0 = 2 | `"Whoa, chill out!"`                  |
 | `true`  | `true`     | 2 + 1 = 3 | `"Calm down, I know what I'm doing!"` |
 
+
+## Shortening
+
+When the body of an `if` statement is a single line, both the test expression and the body could be put on the same line, like so
+
+```csharp
+if (input == "") return "Fine. Be that way!";
+```
+
+The [C# Coding Conventions][coding-conventions] advise to write only one statement per line in the [layout conventions][layout-conventions] section,
+but the conventions begin by saying you can use them or adapt them to your needs.
+Your team may choose to overrule them.
+
 [trimend]: https://learn.microsoft.com/en-us/dotnet/api/system.string.trimend
 [isnullorwhitespace]: https://learn.microsoft.com/en-us/dotnet/api/system.string.isnullorwhitespace
 [any]: https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.any
 [isletter]: https://learn.microsoft.com/en-us/dotnet/api/system.char.isletter
 [ternary]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/conditional-operator
+[coding-conventions]: https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions
+[layout-conventions]: https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions#layout-conventions
