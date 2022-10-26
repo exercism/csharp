@@ -32,8 +32,7 @@ public static class Bob
 }
 ```
 
-In this approach you add behavior to the String type using [Extension methods][extension-methods].
-A series of `if` statements use the added methods to evaluate the conditions.
+In this approach you have a series of `if` statements using the private methods to evaluate the conditions.
 As soon as the right condition is found, the correct response is returned.
 
 Note that there are no `else if` or `else` statements.
@@ -60,6 +59,23 @@ The invariant culture represents a culture that is culture-insensitive.
 It is associated with the English language but not with a specific country or region.
 For more information, see the [CultureInfo.InvariantCulture](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.cultureinfo.invariantculture) property.
 ```
+
+## Extension methods
+
+For this exercise you could add behavior to the `String` type using [Extension methods][extension-methods], like so
+
+```csharp
+private static bool IsSilence(this string message) =>
+    string.IsNullOrWhiteSpace(message);
+```
+
+which would be called like so
+
+```csharp
+if (message.IsSilence())
+    return "Fine. Be that way!";
+```
+
 
 [extension-methods]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods
 [linq]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/
