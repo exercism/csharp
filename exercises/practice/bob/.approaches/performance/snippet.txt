@@ -1,16 +1,5 @@
-    // uses System.Linq;
-    private static bool isShout(string input) => input.Any(c => char.IsLetter(c)) && input.ToUpper() == input;
-
-    public static string Response(string statement)
-    {
-        var input = statement.TrimEnd();
-        if (input == "") return "Fine. Be that way!";
-
-        switch ((input.EndsWith('?'), isShout(input)))
-        {
-            case (true, true): return "Calm down, I know what I'm doing!";
-            case (_, true): return "Whoa, chill out!";
-            case (true, _): return "Sure.";
-            default: return "Whatever.";
-        }
-    }
+|             Method |      Mean |    Error |   StdDev |   Gen0 | Allocated |
+|------------------- |----------:|---------:|---------:|-------:|----------:|
+|    ResponseIfChain | 124.07 ns | 1.306 ns | 1.158 ns | 0.0577 |     272 B |
+| ResponseWithSwitch |  51.65 ns | 0.377 ns | 0.315 ns | 0.0153 |      72 B |
+|  ResponseWithArray |  51.07 ns | 0.262 ns | 0.245 ns | 0.0153 |      72 B |
