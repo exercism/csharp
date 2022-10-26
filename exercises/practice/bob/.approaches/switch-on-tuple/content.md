@@ -10,7 +10,8 @@ public static class Bob
     public static string Response(string statement)
     {
         var input = statement.TrimEnd();
-        if (input == "") return "Fine. Be that way!";
+        if (input == "")
+            return "Fine. Be that way!";
 
         switch ((input.EndsWith('?'), isShout(input)))
         {
