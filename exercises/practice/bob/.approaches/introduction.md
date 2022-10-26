@@ -48,14 +48,17 @@ public static class Bob
         return "Whatever.";
     }
 
-    private bool IsSilence(string message) =>
-        string.IsNullOrWhiteSpace(message);
+    private bool IsSilence(string message) {
+        return string.IsNullOrWhiteSpace(message);
+    }
 
-    private bool IsYell(string message) =>
-        message.Any(char.IsLetter) && message.ToUpperInvariant() == message;
+    private bool IsYell(string message) {
+        return message.Any(char.IsLetter) && message.ToUpperInvariant() == message;
+    }
 
-    private bool IsQuestion(string message) =>
-        message.TrimEnd().EndsWith("?");
+    private bool IsQuestion(string message) {
+        return message.TrimEnd().EndsWith("?");
+    }
 }
 ```
 
