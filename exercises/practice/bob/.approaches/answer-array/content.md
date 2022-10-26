@@ -22,9 +22,11 @@ The correct answer is selected from the array by using the score as the array in
 
 The `String` [TrimEnd][trimend] method is applied to the input to eliminate any whitespace at the end of the input.
 If the string has no characters left, it returns the response for saying nothing.
+```exercism/caution
 Note that a `null` `string` would be different from a `string` of all whitespace.
 A `null` `string` would throw an `Exception` if `TrimEnd` were applied to it.
 To test a string that might be `null` or only whitespace, the [IsNullOrWhiteSpace][isnullorwhitespace] method of `String` would be used.
+```
 
 The first half of the shout condition is constructed from the [Any][any] LINQ method and the [IsLetter][isletter] `Char` method to ensure there is at least one letter character in the `String`.
 This is because the second half of the condition tests that the uppercased input is the same as the input.
