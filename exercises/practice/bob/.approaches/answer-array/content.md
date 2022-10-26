@@ -30,7 +30,7 @@ If the string has no characters left, it returns the response for saying nothing
 ```exercism/caution
 Note that a `null` `string` would be different from a `string` of all whitespace.
 A `null` `string` would throw an `Exception` if `TrimEnd` were applied to it.
-To test a string that might be `null` or only whitespace, the [IsNullOrWhiteSpace][isnullorwhitespace] method of `String` would be used.
+To test a string that might be `null` or only whitespace, the [IsNullOrWhiteSpace](https://learn.microsoft.com/en-us/dotnet/api/system.string.isnullorwhitespace) method of `String` would be used.
 ```
 
 The first half of the shout condition 
@@ -54,8 +54,8 @@ For example, giving a question a score of `1` would use an index of `1` to get t
 | `true`  | `false`    | 2 + 0 = 2 | `"Whoa, chill out!"`                  |
 | `true`  | `true`     | 2 + 1 = 3 | `"Calm down, I know what I'm doing!"` |
 
-[trimend]: https://learn.microsoft.com/en-us/dotnet/api/system.string.trimend?view=net-7.0
-[isnullorwhitespace]: https://learn.microsoft.com/en-us/dotnet/api/system.string.isnullorwhitespace?view=net-7.0
-[any]: https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.any?view=net-7.0
-[isletter]: https://learn.microsoft.com/en-us/dotnet/api/system.char.isletter?view=net-6.0
+[trimend]: https://learn.microsoft.com/en-us/dotnet/api/system.string.trimend
+[isnullorwhitespace]: https://learn.microsoft.com/en-us/dotnet/api/system.string.isnullorwhitespace
+[any]: https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.any
+[isletter]: https://learn.microsoft.com/en-us/dotnet/api/system.char.isletter
 [ternary]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/conditional-operator
