@@ -58,8 +58,8 @@ The uppercasing is done by using the `String` method [ToUpperInvariant][toupperi
 ```exercism/note
 The invariant culture represents a culture that is culture-insensitive.
 It is associated with the English language but not with a specific country or region.
+For more information, see the [CultureInfo.InvariantCulture](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.cultureinfo.invariantculture) property.
 ```
-For more information, see the [CultureInfo.InvariantCulture][invariantculture] property.
 
 [extension-methods]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods
 [linq]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/
