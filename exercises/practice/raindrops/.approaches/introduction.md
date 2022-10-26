@@ -27,7 +27,6 @@ For more information, check the [`if` statements approach][approach-if-statement
 
 ```csharp
 using System.Linq;
-using System.Collections.Generic;
 
 public static class Raindrops
 {
