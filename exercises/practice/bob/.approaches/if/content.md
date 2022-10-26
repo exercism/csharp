@@ -8,21 +8,6 @@ public static class Bob
     {
         if (IsSilence(message))
             return "Fine. Be that way!";
-            
-        if (IsYell(message) && IsQuestion(message))
-            return "Calm down, I know what I'm doing!";
-            
-        if (IsYell(message))
-            return "Whoa, chill out!";
-            
-        if (IsQuestion(message))
-            return "Sure.";
-            
-        return "Whatever.";
-    }
-
-        if (IsSilence(message))
-            return "Fine. Be that way!";
 
         if (IsYell(message) && IsQuestion(message))
             return "Calm down, I know what I'm doing!";
