@@ -1,7 +1,10 @@
 # `switch` on a `tuple`
 
 ```csharp
-    // uses System.Linq;
+using System.Linq;
+
+public static class Bob
+{
     private static bool isShout(string input) => input.Any(c => char.IsLetter(c)) && input.ToUpper() == input;
 
     public static string Response(string statement)
@@ -14,9 +17,10 @@
             case (true, true): return "Calm down, I know what I'm doing!";
             case (_, true): return "Whoa, chill out!";
             case (true, _): return "Sure.";
-            default: return "Whatever.";
+            default: return "Whatever."; 
         }
     }
+}
 ```
 
 In this approach you use a [`switch`][switch] to test if there is a question or a shout.
@@ -24,12 +28,22 @@ The `switch` returns the right response for a question, shout, shouted question,
 
 The `String` [TrimEnd][trimend] method is applied to the input to eliminate any whitespace at the end of the input.
 If the string has no characters left, it returns the response for saying nothing.
+
+```exercism/caution
 Note that a `null` `string` would be different from a `string` of all whitespace.
 A `null` `string` would throw an `Exception` if `TrimEnd` were applied to it.
+```
+
 To test a `string` that might be `null` or only whitespace, the [IsNullOrWhiteSpace][isnullorwhitespace] method of `String` would be used.
 
 Next a [tuple][tuple] is made from the conditions for a queston and a shout.
-The first half of the shout condition is constructed from the [Any][any] LINQ method and the [IsLetter][isletter] `Char` method to ensure there is at least one letter character in the `String`.
+The first half of the shout condition
+
+```csharp
+input.Any(c => char.IsLetter(c)) && input.ToUpper() == input
+```
+
+is constructed from the [Any][any] LINQ method and the [IsLetter][isletter] `Char` method to ensure there is at least one letter character in the `String`.
 This is because the second half of the condition tests that the uppercased input is the same as the input.
 If the input were only `"123"` it would equal itself uppercased, but without letters it would not be a shout.
 
