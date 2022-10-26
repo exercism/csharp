@@ -30,4 +30,4 @@ the `switch` approach might be prefered for performance as considered the more i
 [approach-switch]: https://exercism.org/tracks/csharp/exercises/bob/approaches/switch-on-tuple
 [approach-answer-array]: https://exercism.org/tracks/csharp/exercises/bob/approaches/answer-array
 [benchmark-dotnet]: https://benchmarkdotnet.org/index.html
-[benchmark-application]: https://github.com/exercism/csharp/tree/main/exercises/practice/bob/.approaches/performance/benchmark/code/Program.cs
+[benchmark-application]: https://github.com/exercism/csharp/blob/main/exercises/practice/bob/.approaches/performance/code/Program.cs
