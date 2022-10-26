@@ -101,8 +101,8 @@ Which to use is pretty much a matter of personal preference.
 
 - To compare the performance of the approaches, check out the [Performance approach][approach-performance].
 
-[trim]: https://learn.microsoft.com/en-us/dotnet/api/system.string.trim?view=net-7.0
-[endswith]: https://learn.microsoft.com/en-us/dotnet/api/system.string.endswith?view=net-6.0
+[trim]: https://learn.microsoft.com/en-us/dotnet/api/system.string.trim
+[endswith]: https://learn.microsoft.com/en-us/dotnet/api/system.string.endswith
 [switch]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements#the-switch-statement
 [tuple]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples
 [dry]: https://en.wikipedia.org/wiki/Don%27t_repeat_yourself
