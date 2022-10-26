@@ -33,7 +33,7 @@ This is because the second half of the condition tests that the uppercased input
 If the input were only `"123"` it would equal itself uppercased, but without letters it would not be a shout.
 
 The conditions of being a question and being a shout are assigned scores through the use of the [ternary operator][ternary].
-For example, giving a queston a score of `1` would use an index of `1` to get the element from the answers array, which is `"Sure."`.
+For example, giving a question a score of `1` would use an index of `1` to get the element from the answers array, which is `"Sure."`.
 
 
 [trimend]: https://learn.microsoft.com/en-us/dotnet/api/system.string.trimend?view=net-7.0
