@@ -20,6 +20,7 @@ public static class Bob
             
         return "Whatever.";
     }
+
     private static bool IsSilence(this string message) =>
         string.IsNullOrWhiteSpace(message);
         
