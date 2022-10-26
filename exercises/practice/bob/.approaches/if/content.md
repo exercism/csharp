@@ -21,14 +21,17 @@ public static class Bob
         return "Whatever.";
     }
 
-    private bool IsSilence(string message) =>
-        string.IsNullOrWhiteSpace(message);
+    private bool IsSilence(string message) {
+        return string.IsNullOrWhiteSpace(message);
+    }
 
-    private bool IsYell(string message) =>
-        message.Any(char.IsLetter) && message.ToUpperInvariant() == message;
+    private bool IsYell(string message) {
+        return message.Any(char.IsLetter) && message.ToUpperInvariant() == message;
+    }
 
-    private bool IsQuestion(string message) =>
-        message.TrimEnd().EndsWith("?");
+    private bool IsQuestion(string message) {
+        return message.TrimEnd().EndsWith("?");
+    }
 }
 ```
 
@@ -76,6 +79,30 @@ if (message.IsSilence())
     return "Fine. Be that way!";
 ```
 
+## Shortening
+
+When the body of an `if` statement is a single line, both the test expression and the body could be put on the same line, like so
+
+```csharp
+if (IsSilence(message)) return "Fine. Be that way!";
+```
+
+The [C# Coding Conventions][coding-conventions] advise to write only one statement per line in the [layout conventions][layout-conventions] section,
+but the conventions begin by saying you can use them or adapt them to your needs.
+Your team may choose to overrule them.
+
+When the body of a function is a single expression, the function can be implemented as a [member-bodied expression][member-bodied-expressions], like so
+
+```csharp
+private bool IsSilence(string message) =>
+    string.IsNullOrWhiteSpace(message);
+```
+
+or
+
+```csharp
+private bool IsSilence(string message) => string.IsNullOrWhiteSpace(message);
+```
 
 [extension-methods]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods
 [linq]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/
@@ -86,3 +113,6 @@ if (message.IsSilence())
 [isletter]: https://learn.microsoft.com/en-us/dotnet/api/system.char.isletter
 [toupperinvariant]: https://learn.microsoft.com/en-us/dotnet/api/system.string.toupperinvariant
 [invariantculture]: https://learn.microsoft.com/en-us/dotnet/api/system.globalization.cultureinfo.invariantculture
+[coding-conventions]: https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions
+[layout-conventions]: https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions#layout-conventions
+[member-bodied-expressions]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members
