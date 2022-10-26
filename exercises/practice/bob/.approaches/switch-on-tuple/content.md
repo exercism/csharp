@@ -50,6 +50,18 @@ If the input were only `"123"` it would equal itself uppercased, but without let
 The `tuple` is tested in a [switch][switch].
 It checks the values of the expressions in the `tuple`, and uses the `_` [discard pattern][discardpattern] to disregard a value.
 If none of the patterns match, the `default` arm of the `switch` returns the response when the input is neither a question nor a shout.
+
+## Shortening
+
+When the body of an `if` statement is a single line, both the test expression and the body could be put on the same line, like so
+
+```csharp
+if (input == "") return "Fine. Be that way!";
+```
+
+The [C# Coding Conventions][coding-conventions] advise to write only one statement per line in the [layout conventions][layout-conventions] section,
+but the conventions begin by saying you can use them or adapt them to your needs.
+Your team may choose to overrule them.
  
 
 [trimend]: https://learn.microsoft.com/en-us/dotnet/api/system.string.trimend
@@ -59,3 +71,5 @@ If none of the patterns match, the `default` arm of the `switch` returns the res
 [isletter]: https://learn.microsoft.com/en-us/dotnet/api/system.char.isletter
 [discardpattern]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/patterns#discard-pattern
 [switch]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements#the-switch-statement
+[coding-conventions]: https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions
+[layout-conventions]: https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions#layout-conventions
