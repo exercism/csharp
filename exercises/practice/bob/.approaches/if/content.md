@@ -6,28 +6,43 @@ public static class Bob
 {
     public static string Response(string message)
     {
-        if (message.IsSilence())
+        if (IsSilence(message))
             return "Fine. Be that way!";
             
-        if (message.IsYell() && message.IsQuestion())
+        if (IsYell(message) && IsQuestion(message))
             return "Calm down, I know what I'm doing!";
             
-        if (message.IsYell())
+        if (IsYell(message))
             return "Whoa, chill out!";
             
-        if (message.IsQuestion())
+        if (IsQuestion(message))
             return "Sure.";
             
         return "Whatever.";
     }
 
-    private static bool IsSilence(this string message) =>
+        if (IsSilence(message))
+            return "Fine. Be that way!";
+
+        if (IsYell(message) && IsQuestion(message))
+            return "Calm down, I know what I'm doing!";
+
+        if (IsYell(message))
+            return "Whoa, chill out!";
+
+        if (IsQuestion(message))
+            return "Sure.";
+
+        return "Whatever.";
+    }
+
+    private bool IsSilence(string message) =>
         string.IsNullOrWhiteSpace(message);
-        
-    private static bool IsYell(this string message) =>
+
+    private bool IsYell(string message) =>
         message.Any(char.IsLetter) && message.ToUpperInvariant() == message;
-        
-    private static bool IsQuestion(this string message) =>
+
+    private bool IsQuestion(string message) =>
         message.TrimEnd().EndsWith("?");
 }
 ```
