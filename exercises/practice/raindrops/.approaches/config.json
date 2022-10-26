@@ -1,0 +1,21 @@
+{
+  "introduction": {
+    "authors": ["bobahop"]
+  },
+  "approaches": [
+    {
+      "uuid": "13d6ac91-7de0-4392-9771-674440024667",
+      "slug": "if-statements",
+      "title": "if statements",
+      "blurb": "Use a chain of if statements.",
+      "authors": ["bobahop"]
+    },
+    {
+      "uuid": "dc8fca24-1a44-4bb6-a08b-50d47de757c4",
+      "slug": "aggregate",
+      "title": "Aggregate",
+      "blurb": "Use the LINQ Aggregate method.",
+      "authors": ["bobahop"]
+    }
+  ]
+}
