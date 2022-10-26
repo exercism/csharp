@@ -8,7 +8,7 @@ public static class Raindrops
     {
         var drops =  (new List<(int, string)>{(3, "Pling"), (5, "Plang"), (7, "Plong")})
             .Aggregate("", (acc, drop) => number % drop.Item1 == 0 ? acc + drop.Item2: acc);
-        return drops != "" ? drops: number.ToString();
+        return drops.Length > 0 ? drops: number.ToString();
     }
 }
 ```
