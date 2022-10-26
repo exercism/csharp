@@ -33,9 +33,8 @@ If the string has no characters left, it returns the response for saying nothing
 ```exercism/caution
 Note that a `null` `string` would be different from a `string` of all whitespace.
 A `null` `string` would throw an `Exception` if `TrimEnd` were applied to it.
+To test a `string` that might be `null` or only whitespace, the [IsNullOrWhiteSpace](https://learn.microsoft.com/en-us/dotnet/api/system.string.isnullorwhitespace) method of `String` would be used.
 ```
-
-To test a `string` that might be `null` or only whitespace, the [IsNullOrWhiteSpace][isnullorwhitespace] method of `String` would be used.
 
 Next a [tuple][tuple] is made from the conditions for a queston and a shout.
 The first half of the shout condition
@@ -53,10 +52,10 @@ It checks the values of the expressions in the `tuple`, and uses the `_` [discar
 If none of the patterns match, the `default` arm of the `switch` returns the response when the input is neither a question nor a shout.
  
 
-[trimend]: https://learn.microsoft.com/en-us/dotnet/api/system.string.trimend?view=net-7.0
-[isnullorwhitespace]: https://learn.microsoft.com/en-us/dotnet/api/system.string.isnullorwhitespace?view=net-7.0
+[trimend]: https://learn.microsoft.com/en-us/dotnet/api/system.string.trimend
+[isnullorwhitespace]: https://learn.microsoft.com/en-us/dotnet/api/system.string.isnullorwhitespace
 [tuple]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples
-[any]: https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.any?view=net-7.0
-[isletter]: https://learn.microsoft.com/en-us/dotnet/api/system.char.isletter?view=net-6.0
+[any]: https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.any
+[isletter]: https://learn.microsoft.com/en-us/dotnet/api/system.char.isletter
 [discardpattern]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/patterns#discard-pattern
 [switch]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements#the-switch-statement
