@@ -19,14 +19,20 @@
         return "Whatever.";
     }
 
-    private static bool IsSilence(this string message) =>
-        string.IsNullOrWhiteSpace(message);
+    private static bool IsSilence(this string message)
+    {
+        return string.IsNullOrWhiteSpace(message);
+    }
 
-    private static bool IsYell(this string message) =>
-        message.Any(char.IsLetter) && message.ToUpperInvariant() == message;
+    private static bool IsYell(this string message)
+    {
+        return message.Any(char.IsLetter) && message.ToUpperInvariant() == message;
+    }
 
-    private static bool IsQuestion(this string message) =>
-        message.TrimEnd().EndsWith("?");
+    private static bool IsQuestion(this string message)
+    {
+        return message.TrimEnd().EndsWith("?");
+    }
 ```
 
 In this approach you add behavior to the String type using [Extension methods][extension-methods].
