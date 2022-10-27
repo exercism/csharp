@@ -30,7 +30,7 @@ using System.Linq;
 
 public static class Raindrops
 {
-    private readonly (int, string)[]  drips = { (3, "Pling"), (5, "Plang"), (7, "Plong") };
+    private static readonly (int, string)[]  drips = { (3, "Pling"), (5, "Plang"), (7, "Plong") };
 
     public static string Convert(int number)
     {
