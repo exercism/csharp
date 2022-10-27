@@ -97,7 +97,11 @@ For more information, check the [`switch` on a `tuple`][approach-switch].
 
 ## Other approaches
 
-- An array can be defined that contains Bob’s answers, and each condition is given a score.
+Besides the aforementioned, idiomatic approaches, you could also approach the exercise as follows:
+
+### Other approach: answer array
+
+An array can be defined that contains Bob’s answers, and each condition is given a score.
 The correct answer is selected from the array by using the score as the array index.
 For more information, check the [Answer array approach][approach-answer-array].
 
