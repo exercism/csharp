@@ -63,7 +63,7 @@ The [C# Coding Conventions][coding-conventions] advise to write only one stateme
 but the conventions begin by saying you can use them or adapt them to your needs.
 Your team may choose to overrule them.
 
-For `Any`, the lambda expression of `c => char.IsLetter(c)` can be shortened to just the method call of `IsLetter` like so
+For `Any`, the lambda expression of `c => char.IsLetter(c)` can be shortened to just the method call of `char.IsLetter` like so
 
 ```csharp
 input.Any(char.IsLetter)
