@@ -3,6 +3,8 @@
 The key to this exercise is to deal with C# strings being immutable, which means that a `string`'s value cannot be changed.
 Therefore, to reverse a string you'll need to create a _new_ `string`.
 
+## General guidance
+
 The most common way to create a new `string` (apart from hardcoding a string literal) is to call the [constructor that takes an array of characters][constructor-array-chars] (`char []`).
 
 ```exercism/note
