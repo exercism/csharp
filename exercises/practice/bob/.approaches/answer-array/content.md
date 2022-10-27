@@ -64,6 +64,15 @@ When the body of an `if` statement is a single line, both the test expression an
 if (input == "") return "Fine. Be that way!";
 ```
 
+For `Any`, the lambda expression of `c => char.IsLetter(c)` can be shortened to just the method call of `IsLetter` like so
+
+```csharp
+input.Any(IsLetter)
+```
+
+`Any` passes a single character in each iteration, and the `Char.IsLetter` method is called on that character implicitly.
+
+
 The [C# Coding Conventions][coding-conventions] advise to write only one statement per line in the [layout conventions][layout-conventions] section,
 but the conventions begin by saying you can use them or adapt them to your needs.
 Your team may choose to overrule them.
