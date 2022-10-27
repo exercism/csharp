@@ -109,6 +109,23 @@ or
 private bool IsSilence(string message) => string.IsNullOrWhiteSpace(message);
 ```
 
+A [ternary operator][ternary operator] can be used to shorten the code and make the logic more efficient, like so
+
+```csharp
+if (IsSilence(message))
+      return "Fine. Be that way!";
+if (IsQuestion(message))
+    return IsYell(message) ? "Calm down, I know what I'm doing!": "Sure.";
+if (IsYell(message))
+    return "Whoa, chill out!";
+return "Whatever.";
+```
+
+If the input is a question, then the the ternary operator returns the response for a yelled question or just a question.
+If the input is not a question, then the function tests if it is a yell.
+If the input is a yell, then it can simply return the response for a yell, since it is already known that it is not a question.
+The ternary operator makes the code more efficient while reducing the number of lines.
+
 [extension-methods]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods
 [linq]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/
 [endswith]: https://learn.microsoft.com/en-us/dotnet/api/system.string.endswith
@@ -121,3 +138,4 @@ private bool IsSilence(string message) => string.IsNullOrWhiteSpace(message);
 [coding-conventions]: https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions
 [layout-conventions]: https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions#layout-conventions
 [member-bodied-expressions]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members
+[ternary operator]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/conditional-operator
