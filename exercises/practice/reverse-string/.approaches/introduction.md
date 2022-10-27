@@ -62,7 +62,7 @@ For a more detailed breakdown, check the [performance approach][approach-perform
 The `StringBuilder` approach has the worst performance of the listed approach, and is more error-prone to write as it has to deal with lower and upper bounds checking.
 
 [constructor-array-chars]: https://learn.microsoft.com/en-us/dotnet/api/system.string.-ctor?view=net-7.0#system-string-ctor(system-char())
-[approach-performance]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches/performance
+[approach-performance]: https://exercism.org/tracks/csharp/exercises/reverse-string/articles/performance
 [approach-linq]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches/linq
 [approach-array-reverse]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches/array-reverse
 [approach-span]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches/span

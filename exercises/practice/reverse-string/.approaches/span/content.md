@@ -56,4 +56,4 @@ If you're interested in how this approach's performance compares to other approa
 [using-span-t]: https://learn.microsoft.com/en-us/archive/msdn-magazine/2018/january/csharp-all-about-span-exploring-a-new-net-mainstay
 [span-t]: https://learn.microsoft.com/en-us/dotnet/api/system.span-1?view=net-6.0
 [string-as-span]: https://learn.microsoft.com/en-us/dotnet/api/system.memoryextensions.asspan?view=net-6.0#system-memoryextensions-asspan(system-string)
-[approach-performance]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches/performance
+[approach-performance]: https://exercism.org/tracks/csharp/exercises/reverse-string/articles/performance

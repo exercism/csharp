@@ -31,4 +31,4 @@ If you're interested in how this approach's performance compares to other approa
 
 [to-char-array]: https://learn.microsoft.com/en-us/dotnet/api/system.string.tochararray?view=net-6.0
 [array-reverse]: https://learn.microsoft.com/en-us/dotnet/api/system.array.reverse?view=net-6.0
-[approach-performance]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches/performance
+[approach-performance]: https://exercism.org/tracks/csharp/exercises/reverse-string/articles/performance
