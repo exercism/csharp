@@ -1,6 +1,7 @@
 {
   "introduction": {
-    "authors": ["bobahop", "erikschierboom"]
+    "authors": ["bobahop"],
+    "contributors": ["erikschierboom"]
   },
   "approaches": [
     {
