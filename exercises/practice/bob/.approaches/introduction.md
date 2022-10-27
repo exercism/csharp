@@ -7,7 +7,7 @@ An array can contain answers from which the right response is selected by an ind
 
 ## General guidance
 
-Regardless of the approach used, some things to look for include
+Regardless of the approach used, some things you could look out for include
 
 - If the input is trimmed, [Trim][trim] only once.
 
