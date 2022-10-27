@@ -64,7 +64,7 @@ When the body of an `if` statement is a single line, both the test expression an
 if (input == "") return "Fine. Be that way!";
 ```
 
-For `Any`, the lambda expression of `c => char.IsLetter(c)` can be shortened to just the method call of `IsLetter` like so
+For `Any`, the lambda expression of `c => char.IsLetter(c)` can be shortened to just the method call of `char.IsLetter` like so
 
 ```csharp
 input.Any(char.IsLetter)
