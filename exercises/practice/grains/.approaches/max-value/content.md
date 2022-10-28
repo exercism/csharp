@@ -1,7 +1,8 @@
 # `System.UInt64.MaxValue` for Total
 
 ```csharp
-public static ulong Total() {
+public static ulong Total()
+{
   return System.UInt64.MaxValue;
 }
 ```
