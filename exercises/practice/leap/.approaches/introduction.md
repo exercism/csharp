@@ -68,6 +68,8 @@ It has a maximum of three checks.
 - Using DateTime addition or using the built-in `IsLeapYear` method may be considered "cheats" for the exercise,
 but `IsLeapYear` would be the idiomatic way to check if a year is a leap year in C#.
 
+For more information, check the [Performance article][article-performance].
+
 [switch]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements#the-switch-statement
 [tuple]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples
 [ternary-operator]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/conditional-operator
@@ -76,3 +78,4 @@ but `IsLeapYear` would be the idiomatic way to check if a year is a leap year in
 [approach-switch-on-a-tuple]: https://exercism.org/tracks/csharp/exercises/leap/approaches/switch-on-a-tuple
 [approach-datetime-add]: https://exercism.org/tracks/csharp/exercises/leap/approaches/datetime-addition
 [approach-datetime-isleapyear]: https://exercism.org/tracks/csharp/exercises/leap/approaches/built-in-method
+[article-performance]: https://exercism.org/tracks/csharp/exercises/leap/articles/performance
