@@ -109,7 +109,7 @@ For more information, check the [Answer array approach][approach-answer-array].
 
 Which to use is pretty much a matter of personal preference.
 
-- To compare the performance of the approaches, check out the [Performance approach][approach-performance].
+- To compare the performance of the approaches, check out the [Performance article][article-performance].
 
 [trim]: https://learn.microsoft.com/en-us/dotnet/api/system.string.trim
 [endswith]: https://learn.microsoft.com/en-us/dotnet/api/system.string.endswith
@@ -119,4 +119,4 @@ Which to use is pretty much a matter of personal preference.
 [approach-if]: https://exercism.org/tracks/csharp/exercises/bob/approaches/if
 [approach-switch]: https://exercism.org/tracks/csharp/exercises/bob/approaches/switch-on-tuple
 [approach-answer-array]: https://exercism.org/tracks/csharp/exercises/bob/approaches/answer-array
-[approach-performance]: https://exercism.org/tracks/csharp/exercises/bob/approaches/performance
+[article-performance]: https://exercism.org/tracks/csharp/exercises/bob/articles/performance
