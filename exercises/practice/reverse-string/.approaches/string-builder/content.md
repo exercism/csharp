@@ -35,4 +35,4 @@ If you're interested in how this approach's performance compares to other approa
 
 [string-builder]: https://learn.microsoft.com/en-us/dotnet/api/system.text.stringbuilder?view=net-7.0
 [string-builder-append]: https://learn.microsoft.com/en-us/dotnet/api/system.text.stringbuilder.append?view=net-7.0#system-text-stringbuilder-append(system-char)
-[approach-performance]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches/performance
+[approach-performance]: https://exercism.org/tracks/csharp/exercises/reverse-string/articles/performance
