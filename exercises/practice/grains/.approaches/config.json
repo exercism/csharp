@@ -1,6 +1,6 @@
 {
   "introduction": {
-    "authors": ["bobahop", "erikschierboom"]
+    "authors": ["bobahop"]
   },
   "approaches": [
     {
@@ -8,7 +8,7 @@
       "slug": "pow",
       "title": "Pow",
       "blurb": "Use Math.Pow to raise 2 by a specified power.",
-      "authors": ["erikschierboom", "bobahop"]
+      "authors": ["bobahop"]
     },
     {
       "uuid": "71f823dc-c667-46ee-875f-6e73918d0336",
