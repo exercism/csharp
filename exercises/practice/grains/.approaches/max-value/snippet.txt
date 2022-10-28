@@ -1,1 +1,4 @@
-public static ulong Total() => System.UInt64.MaxValue;
+public static ulong Total()
+{
+  return System.UInt64.MaxValue;
+}
