@@ -1,0 +1,42 @@
+{
+  "introduction": {
+    "authors": ["bobahop", "erikschierboom"]
+  },
+  "approaches": [
+    {
+      "uuid": "54148cc8-e3bf-4981-95c9-cb584c658c76",
+      "slug": "boolean-chain",
+      "title": "Boolean chain",
+      "blurb": "Use a chain of boolean expressions.",
+      "authors": ["erikschierboom", "bobahop"]
+    },
+    {
+      "uuid": "eebe5a57-7e58-44c2-92e6-50f46f1251ac",
+      "slug": "ternary-operator",
+      "title": "Ternary operator",
+      "blurb": "Use a ternary operator of boolean expressions.",
+      "authors": ["bobahop"]
+    },
+    {
+      "uuid": "cb7c88a6-49f3-4744-a3e8-fcc7acc0770d",
+      "slug": "switch-on-a-tuple",
+      "title": "switch on a tuple",
+      "blurb": "Use a switch on a tuple made from boolean expressions.",
+      "authors": ["bobahop"]
+    },
+    {
+      "uuid": "1691a675-03a5-47da-a878-f76cfb895dc6",
+      "slug": "datetime-addition",
+      "title": "DateTime addition",
+      "blurb": "Use DateTime addition.",
+      "authors": ["bobahop"]
+    },
+    {
+      "uuid": "28483396-da67-4f59-8388-4c63065dab00",
+      "slug": "built-in-method",
+      "title": "Built-in method",
+      "blurb": "Use the built-in method.",
+      "authors": ["bobahop"]
+    }
+  ]
+}
