@@ -20,6 +20,9 @@
     ],
     "editor": [
       "OffFieldActivitiesAndCharacters.cs"
+    ],
+    "invalidator": [
+      "FootballMatchReports.csproj"
     ]
   },
   "blurb": "Learn about switches by developing a system to report on soccer matches."

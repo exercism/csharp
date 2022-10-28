@@ -15,6 +15,9 @@
     ],
     "exemplar": [
       ".meta/Exemplar.cs"
+    ],
+    "invalidator": [
+      "TheWeatherInDeather.csproj"
     ]
   },
   "blurb": "Learn about expressions by improving legacy code."

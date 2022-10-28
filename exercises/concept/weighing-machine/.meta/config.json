@@ -16,6 +16,9 @@
     ],
     "exemplar": [
       ".meta/Exemplar.cs"
+    ],
+    "invalidator": [
+      "WeighingMachine.csproj"
     ]
   },
   "blurb": "Learn about properties by modelling a weighing machine."

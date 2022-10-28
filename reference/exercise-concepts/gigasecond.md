@@ -6,7 +6,7 @@
 
 - functions: used as the main entry point for the exercise
 - static function: the static keyword is the modifier that makes the method static, and enables it to be called without instantiation. The static method can access the variables passed in as arguments, global, and only other static members of the class.
-- function arguments: input 'moment' is passed as an arguments
+- function arguments: input 'moment' is passed as an argument
 - return values: returning a value from a method
 - scoping: use `{` and `}` to denote scoping
 - type inference: using `var` to define the seconds

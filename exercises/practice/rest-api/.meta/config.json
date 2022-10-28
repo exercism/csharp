@@ -20,6 +20,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "RestApi.csproj"
     ]
   },
   "blurb": "Implement a RESTful API for tracking IOUs."

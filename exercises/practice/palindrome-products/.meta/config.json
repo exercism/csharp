@@ -18,6 +18,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "PalindromeProducts.csproj"
     ]
   },
   "test_runner": false,

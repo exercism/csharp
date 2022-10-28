@@ -16,6 +16,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "TreeBuilding.csproj"
     ]
   },
   "blurb": "Refactor a tree building algorithm."

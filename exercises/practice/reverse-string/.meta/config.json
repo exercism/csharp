@@ -16,6 +16,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "ReverseString.csproj"
     ]
   },
   "blurb": "Reverse a string.",

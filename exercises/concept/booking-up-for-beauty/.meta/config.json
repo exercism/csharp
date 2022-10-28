@@ -15,6 +15,9 @@
     ],
     "exemplar": [
       ".meta/Exemplar.cs"
+    ],
+    "invalidator": [
+      "BookingUpForBeauty.csproj"
     ]
   },
   "blurb": "Learn about the DateTime class by working on an appointment scheduler for a beauty salon."

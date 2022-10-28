@@ -18,6 +18,9 @@
     ],
     "exemplar": [
       ".meta/Exemplar.cs"
+    ],
+    "invalidator": [
+      "HyperinflationHitsHyperia.csproj"
     ]
   },
   "blurb": "Learn about arithmetic overflow by dealing with hyperinflation."

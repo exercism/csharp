@@ -15,6 +15,9 @@
     ],
     "exemplar": [
       ".meta/Exemplar.cs"
+    ],
+    "invalidator": [
+      "BeautySalonGoesGlobal.csproj"
     ]
   },
   "blurb": "Learn about the DateTime class by helping a salon deal with timezones."

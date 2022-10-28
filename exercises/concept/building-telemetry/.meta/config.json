@@ -15,6 +15,9 @@
     ],
     "exemplar": [
       ".meta/Exemplar.cs"
+    ],
+    "invalidator": [
+      "BuildingTelemetry.csproj"
     ]
   },
   "blurb": "Learn about parameter modifiers by adding telemetry to a car."

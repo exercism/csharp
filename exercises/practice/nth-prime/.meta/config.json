@@ -18,6 +18,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "NthPrime.csproj"
     ]
   },
   "blurb": "Given a number n, determine what the nth prime is.",

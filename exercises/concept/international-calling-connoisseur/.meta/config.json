@@ -16,6 +16,9 @@
     ],
     "exemplar": [
       ".meta/Exemplar.cs"
+    ],
+    "invalidator": [
+      "InternationalCallingConnoisseur.csproj"
     ]
   },
   "blurb": "Learn about dictionaries by keeping track of international dialling codes."

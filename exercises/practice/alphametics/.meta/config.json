@@ -16,6 +16,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "Alphametics.csproj"
     ]
   },
   "test_runner": false,

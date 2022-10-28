@@ -21,6 +21,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "SecretHandshake.csproj"
     ]
   },
   "blurb": "Given a decimal number, convert it to the appropriate sequence of events for a secret handshake.",

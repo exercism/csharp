@@ -19,6 +19,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "PrimeFactors.csproj"
     ]
   },
   "blurb": "Compute the prime factors of a given natural number.",

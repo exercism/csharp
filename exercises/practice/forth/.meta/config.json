@@ -17,6 +17,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "Forth.csproj"
     ]
   },
   "blurb": "Implement an evaluator for a very simple subset of Forth."
