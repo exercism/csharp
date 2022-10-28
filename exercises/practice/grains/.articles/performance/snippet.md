@@ -1,11 +1,4 @@
-// uses System.Numerics for BigInteger
-    public static ulong Square(int n)
-    {
-        switch (n)
-        {
-            case int num when num > 0 && num < 65: return (ulong)1 << (num - 1);
-            default: throw new ArgumentOutOfRangeException("n must be 1 through 64");
-        }
-    }
-    
-    public static ulong Total() => (ulong)((BigInteger.One << 64) - 1);
+|         Method |        Mean |     Error |    StdDev |   Gen0 | Allocated |
+|--------------- |------------:|----------:|----------:|-------:|----------:|
+| TotalWithRange | 2,060.88 ns | 21.030 ns | 17.561 ns | 0.0191 |     104 B |
+|    TotalByBits |    59.15 ns |  0.446 ns |  0.417 ns | 0.0237 |     112 B |
