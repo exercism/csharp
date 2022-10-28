@@ -1,15 +1,17 @@
 # Introduction
 
 There are various idiomatic approaches to solve Leap.
-A basic approach can use a chain of boolean expressions to test the conditions.
-Another approach can use a [ternary operator][ternary-operator].
-Or a [switch][switch] on a [tuple][tuple] of the conditions can be used.
+You can use a chain of boolean expressions to test the conditions.
+Or you can use a [ternary operator][ternary-operator].
+Another approach you can use is a [switch][switch] on a [tuple][tuple].
 
 ## Approach: Chain of Boolean expressions
 
 ```csharp
-public static bool IsLeapYear(int year) =>
-        year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
+public static bool IsLeapYear(int year)
+{
+        return year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
+}
 ```
 
 For more information, check the [Boolean chain approach][approach-boolean-chain].
@@ -17,7 +19,10 @@ For more information, check the [Boolean chain approach][approach-boolean-chain]
 ## Approach: Ternary operator of Boolean expressions
 
 ```csharp
-public static bool IsLeapYear(int year) => year % 100 == 0 ? year % 400 == 0 : year % 4 == 0;
+public static bool IsLeapYear(int year)
+{
+        return year % 100 == 0 ? year % 400 == 0 : year % 4 == 0;
+}
 ```
 
 For more information, check the [Ternary operator approach][approach-ternary-operator].
@@ -44,9 +49,15 @@ For more information, check the [`switch` on a `tuple` approach][approach-switch
 
 ## Other approaches
 
-- Add a day to February 28th for the year and see if the new day is the 29th. For more information, see the [`DateTime.Add` approach][approach-datetime-add].
-- Use the built-in method for the year. For more information, see the [`DateTime.IsLeapYear` approach][approach-datetime-isleapyear].
+Besides the aforementioned, idiomatic approaches, you could also approach the exercise as follows:
 
+## DateTime.Add approach:
+
+Add a day to February 28th for the year and see if the new day is the 29th. For more information, see the [`DateTime.Add` approach][approach-datetime-add].
+
+## Built-in method approach:
+
+Use the built-in method for the year. For more information, see the [`DateTime.IsLeapYear` approach][approach-datetime-isleapyear].
 
 ## Which approach to use?
 
