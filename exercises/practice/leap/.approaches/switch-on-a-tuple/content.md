@@ -1,24 +1,24 @@
 # `switch` on a `tuple`
 
 ```csharp
-    public static bool IsLeapYear(int year) {
-        switch ((year % 4, year % 100, year % 400))
+public static class Leap
+{
+    public static bool IsLeapYear(int year)
+    {
+        return (year % 4, year % 100, year % 400) switch
         {
-            case (_, 0, 0):
-                return true;
-            case (_, 0, _):
-                return false;
-            case (0, _, _):
-                return true;
-            default:
-                return false;
-        }
+            (_, 0, 0) => true,
+            (_, 0, _) => false,
+            (0, _, _) => true,
+            _ => false,
+        };
     }
+}
 ```
 
 A [tuple][tuple] is made from the conditions for the year being evenly divisible by `4`, `100` and `400`.
 
-The `tuple` is tested in a [switch][switch].
+The `tuple` is tested in a [switch expression][switch-expression].
 It checks the values of the expressions in the `tuple`, and uses the `_` [discard pattern][discard-pattern] to disregard a value.
 The `default` arm of the `switch` returns `false` when none of the previous ams match.
 
@@ -33,5 +33,5 @@ Although some may consider it to be a more "functional" approach, the `switch` o
 and may also be considered less readable.
  
 [tuple]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples
-[switch]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements#the-switch-statement
+[switch-expression]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/switch-expression
 [discard-pattern]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/patterns#discard-pattern
