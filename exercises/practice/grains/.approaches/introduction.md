@@ -35,7 +35,10 @@ public static class Grains
         return Math.Pow(2, i - 1);
     }
     
-    public static double Total() => Enumerable.Range(1, 64).Sum(Square);
+    public static double Total()
+    {
+        return Enumerable.Range(1, 64).Sum(Square);
+    }
 }
 ```
 
@@ -58,7 +61,10 @@ public static class Grains
         }
     }
 
-    public static ulong Total() => (ulong)((BigInteger.One << 64) - 1);
+    public static ulong Total()
+    {
+        return (ulong)((BigInteger.One << 64) - 1);
+    }
 }
 ```
 
