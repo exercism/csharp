@@ -18,7 +18,7 @@ When the body of a function is a single expression, the function can be implemen
 
 ```csharp
 public static bool IsLeapYear(int year) =>
-  DateTime.IsLeapYear(year);
+    DateTime.IsLeapYear(year);
 ```
 
 or
