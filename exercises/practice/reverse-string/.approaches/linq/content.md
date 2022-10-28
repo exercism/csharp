@@ -40,4 +40,4 @@ If you're interested in how this approach's performance compares to other approa
 [expression-bodied-method]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members#methods
 [linq]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/
 [target-typed-new]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-9.0/target-typed-new
-[approach-performance]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches/performance
+[approach-performance]: https://exercism.org/tracks/csharp/exercises/reverse-string/articles/performance

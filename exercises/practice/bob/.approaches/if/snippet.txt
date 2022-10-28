@@ -1,0 +1,7 @@
+if (IsSilence(message))
+      return "Fine. Be that way!";
+if (IsQuestion(message))
+    return IsYell(message) ? "Calm down, I know what I'm doing!": "Sure.";
+if (IsYell(message))
+    return "Whoa, chill out!";
+return "Whatever.";
