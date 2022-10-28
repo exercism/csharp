@@ -23,13 +23,6 @@
       "title": "Max value",
       "blurb": "Use UInt64.MaxValue for Total.",
       "authors": ["bobahop"]
-    },
-    {
-      "uuid": "398acaf9-a4d7-4957-8f18-f81df6510757",
-      "slug": "performance",
-      "title": "Performance deep dive",
-      "blurb": "Deep dive to find out the most performant approach to calculating Grains.",
-      "authors": ["bobahop"]
     }
   ]
 }
