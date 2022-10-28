@@ -20,7 +20,7 @@ into stone tablets).
  7  => VII
 ```
 
-There is no need to be able to convert numbers larger than about 3000.
+The maximum number supported by this notation is 3,999.
 (The Romans themselves didn't tend to go any higher)
 
 Wikipedia says: Modern Roman numerals ... are written by expressing each
@@ -40,4 +40,4 @@ In Roman numerals 1990 is MCMXC:
 2000=MM
 8=VIII
 
-See also: [http://www.novaroma.org/via_romana/numbers.html](http://www.novaroma.org/via_romana/numbers.html)
+See also: [https://wiki.imperivm-romanvm.com/wiki/Roman_Numerals](https://wiki.imperivm-romanvm.com/wiki/Roman_Numerals)
