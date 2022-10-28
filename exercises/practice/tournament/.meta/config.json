@@ -20,6 +20,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "Tournament.csproj"
     ]
   },
   "blurb": "Tally the results of a small football competition."

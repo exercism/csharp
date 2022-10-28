@@ -18,6 +18,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "KindergartenGarden.csproj"
     ]
   },
   "blurb": "Given a diagram, determine which plants each child in the kindergarten class is responsible for.",

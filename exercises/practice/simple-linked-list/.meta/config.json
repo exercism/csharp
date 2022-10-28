@@ -17,6 +17,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "SimpleLinkedList.csproj"
     ]
   },
   "blurb": "Write a simple linked list implementation that uses Elements and a List.",

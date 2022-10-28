@@ -17,6 +17,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "IsbnVerifier.csproj"
     ]
   },
   "blurb": "Check if a given string is a valid ISBN-10 number.",

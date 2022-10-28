@@ -18,6 +18,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "BinarySearchTree.csproj"
     ]
   },
   "blurb": "Insert and search for numbers in a binary tree.",

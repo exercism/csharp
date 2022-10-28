@@ -15,6 +15,9 @@
     ],
     "exemplar": [
       ".meta/Exemplar.cs"
+    ],
+    "invalidator": [
+      "HighSchoolSweethearts.csproj"
     ]
   },
   "forked_from": [

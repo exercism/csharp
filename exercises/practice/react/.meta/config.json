@@ -16,6 +16,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "React.csproj"
     ]
   },
   "blurb": "Implement a basic reactive system."

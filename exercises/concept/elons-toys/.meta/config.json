@@ -14,6 +14,9 @@
     ],
     "exemplar": [
       ".meta/Exemplar.cs"
+    ],
+    "invalidator": [
+      "ElonsToys.csproj"
     ]
   },
   "blurb": "Learn about classes by working on a remote controlled car."

@@ -16,6 +16,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "ProteinTranslation.csproj"
     ]
   },
   "blurb": "Translate RNA sequences into proteins.",

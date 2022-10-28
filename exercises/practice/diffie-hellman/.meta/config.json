@@ -16,6 +16,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "DiffieHellman.csproj"
     ]
   },
   "blurb": "Diffie-Hellman key exchange.",

@@ -18,6 +18,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "ScrabbleScore.csproj"
     ]
   },
   "blurb": "Given a word, compute the Scrabble score for that word.",
