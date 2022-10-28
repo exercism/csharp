@@ -19,6 +19,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "RnaTranscription.csproj"
     ]
   },
   "blurb": "Given a DNA strand, return its RNA Complement Transcription.",

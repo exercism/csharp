@@ -21,6 +21,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "TwelveDays.csproj"
     ]
   },
   "blurb": "Output the lyrics to 'The Twelve Days of Christmas'.",

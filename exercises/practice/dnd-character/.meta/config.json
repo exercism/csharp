@@ -16,6 +16,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "DndCharacter.csproj"
     ]
   },
   "blurb": "Randomly generate Dungeons & Dragons characters.",

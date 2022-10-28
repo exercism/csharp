@@ -1,0 +1,11 @@
+{
+  "articles": [
+    {
+      "uuid": "5c3e97a8-0d08-40a9-9bca-a1002c0d56f1",
+      "slug": "performance",
+      "title": "Performance deep dive",
+      "blurb": "Deep dive to find out the most performant approach for Bob's response.",
+      "authors": ["bobahop"]
+    }
+  ]
+}

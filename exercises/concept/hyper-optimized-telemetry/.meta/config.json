@@ -15,6 +15,9 @@
     ],
     "exemplar": [
       ".meta/Exemplar.cs"
+    ],
+    "invalidator": [
+      "HyperOptimizedTelemetry.csproj"
     ]
   },
   "blurb": "Learn about bit conversion by implementing a message protocol."

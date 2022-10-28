@@ -15,6 +15,9 @@
     ],
     "exemplar": [
       ".meta/Exemplar.cs"
+    ],
+    "invalidator": [
+      "DeveloperPrivileges.csproj"
     ]
   },
   "blurb": "Learn about object initialisers by adding functionality to an authentication system."

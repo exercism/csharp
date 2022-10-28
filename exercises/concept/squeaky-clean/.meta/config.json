@@ -15,6 +15,9 @@
     ],
     "exemplar": [
       ".meta/Exemplar.cs"
+    ],
+    "invalidator": [
+      "SqueakyClean.csproj"
     ]
   },
   "blurb": "Learn about characters and StringBuilder by cleaning strings."

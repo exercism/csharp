@@ -18,6 +18,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "Isogram.csproj"
     ]
   },
   "blurb": "Determine if a word or phrase is an isogram.",

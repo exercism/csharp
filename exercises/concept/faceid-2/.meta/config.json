@@ -15,6 +15,9 @@
     ],
     "exemplar": [
       ".meta/Exemplar.cs"
+    ],
+    "invalidator": [
+      "Faceid2.csproj"
     ]
   },
   "blurb": "Learn about equality by adding face recognition to a login process."

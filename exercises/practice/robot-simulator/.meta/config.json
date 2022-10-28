@@ -19,6 +19,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "RobotSimulator.csproj"
     ]
   },
   "blurb": "Write a robot simulator.",

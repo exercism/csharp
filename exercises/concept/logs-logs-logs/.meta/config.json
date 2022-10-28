@@ -15,6 +15,9 @@
     ],
     "exemplar": [
       ".meta/Exemplar.cs"
+    ],
+    "invalidator": [
+      "LogsLogsLogs.csproj"
     ]
   },
   "blurb": "Learn about enums by parsing logs."

@@ -17,6 +17,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "Poker.csproj"
     ]
   },
   "blurb": "Pick the best hand(s) from a list of poker hands.",

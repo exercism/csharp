@@ -11,6 +11,9 @@
     ],
     "exemplar": [
       ".meta/Exemplar.cs"
+    ],
+    "invalidator": [
+      "LogAnalysis.csproj"
     ]
   },
   "icon": "log-levels",
