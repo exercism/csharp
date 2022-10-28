@@ -22,4 +22,4 @@ Enumerating a `Range` from `1` to `64` to sum each call of `Square` (which uses 
 [approach-pow]: https://exercism.org/tracks/csharp/exercises/grains/approaches/pow
 [approach-bit-shifting]: https://exercism.org/tracks/csharp/exercises/grains/approaches/bit-shifting
 [benchmark-dotnet]: https://benchmarkdotnet.org/index.html
-[benchmark-application]: https://github.com/exercism/csharp/tree/main/exercises/practice/grains/.approaches/performance/benchmark/code/Program.cs
+[benchmark-application]: https://github.com/exercism/csharp/blob/main/exercises/practice/grains/.articles/performance/code/Program.cs
