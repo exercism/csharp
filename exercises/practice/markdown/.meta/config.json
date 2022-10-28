@@ -17,6 +17,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "Markdown.csproj"
     ]
   },
   "blurb": "Refactor a Markdown parser."

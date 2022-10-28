@@ -14,6 +14,9 @@
     ],
     "exemplar": [
       ".meta/Exemplar.cs"
+    ],
+    "invalidator": [
+      "TimFromMarketing.csproj"
     ]
   },
   "blurb": "Learn about nullables by printing name badges."

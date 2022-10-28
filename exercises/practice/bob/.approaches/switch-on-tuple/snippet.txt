@@ -1,0 +1,7 @@
+switch ((input.EndsWith('?'), IsShout(input)))
+{
+    case (true, true): return "Calm down, I know what I'm doing!";
+    case (_, true): return "Whoa, chill out!";
+    case (true, _): return "Sure.";
+    default: return "Whatever.";
+}

@@ -16,6 +16,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "ZebraPuzzle.csproj"
     ]
   },
   "blurb": "Solve the zebra puzzle.",

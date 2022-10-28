@@ -17,6 +17,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "ComplexNumbers.csproj"
     ]
   },
   "blurb": "Implement complex numbers.",

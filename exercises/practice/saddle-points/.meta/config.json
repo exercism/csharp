@@ -21,6 +21,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "SaddlePoints.csproj"
     ]
   },
   "blurb": "Detect saddle points in a matrix.",

@@ -15,6 +15,9 @@
     ],
     "exemplar": [
       ".meta/Exemplar.cs"
+    ],
+    "invalidator": [
+      "SecureMunchesterUnited.csproj"
     ]
   },
   "blurb": "Learn about casting by creating security passes."

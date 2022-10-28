@@ -15,6 +15,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "HelloWorld.csproj"
     ]
   },
   "blurb": "The classical introductory exercise. Just say \"Hello, World!\".",

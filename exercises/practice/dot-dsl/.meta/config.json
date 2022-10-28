@@ -16,6 +16,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "DotDsl.csproj"
     ]
   },
   "blurb": "Write a Domain Specific Language similar to the Graphviz dot language.",

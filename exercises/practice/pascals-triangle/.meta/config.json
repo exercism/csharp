@@ -19,6 +19,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "PascalsTriangle.csproj"
     ]
   },
   "blurb": "Compute Pascal's triangle up to a given number of rows.",

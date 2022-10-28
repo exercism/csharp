@@ -16,6 +16,9 @@
     ],
     "exemplar": [
       ".meta/Exemplar.cs"
+    ],
+    "invalidator": [
+      "RedVsBlueDarwinStyle.csproj"
     ]
   },
   "blurb": "Learn about namespaces by managing car development teams."

@@ -19,6 +19,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "Meetup.csproj"
     ]
   },
   "blurb": "Calculate the date of meetups.",

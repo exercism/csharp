@@ -14,6 +14,9 @@
     ],
     "exemplar": [
       ".meta/Exemplar.cs"
+    ],
+    "invalidator": [
+      "WizardsAndWarriors2.csproj"
     ]
   },
   "blurb": "Learn about classes by extending an RPG."
