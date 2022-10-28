@@ -5,7 +5,7 @@
 ## General
 
 - functions: used as the main entry point for the exercise
-- function arguments: input strand is passed as an arguments
+- function arguments: input strand is passed as an argument
 - return values: returning a value from a method
 - conditionals using if: conditionally execute logic using an `if` statement
 - exceptions: throw an exception in the event of invalid input
