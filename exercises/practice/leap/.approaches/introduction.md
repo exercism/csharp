@@ -5,6 +5,11 @@ You can use a chain of boolean expressions to test the conditions.
 Or you can use a [ternary operator][ternary-operator].
 Another approach you can use is a [switch][switch] on a [tuple][tuple].
 
+## General guidance
+
+The key to solving  Leap is to know if the year is divisible by `4`, `100` and `400`.
+For determining that, you will use the the [remainder operator][remainder-operator].
+
 ## Approach: Chain of Boolean expressions
 
 ```csharp
@@ -70,6 +75,7 @@ but `IsLeapYear` would be the idiomatic way to check if a year is a leap year in
 
 For more information, check the [Performance article][article-performance].
 
+[remainder-operator]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators#remainder-operator-
 [switch]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements#the-switch-statement
 [tuple]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples
 [ternary-operator]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/conditional-operator
