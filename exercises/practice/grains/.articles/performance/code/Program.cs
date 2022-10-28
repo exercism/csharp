@@ -6,7 +6,6 @@ using System.Numerics;
 [MemoryDiagnoser]
 public class BenchMe
 {
-    // private readonly string word = "Thumbscrew-Japingly";
     public double Square(int i)
     {
         if (i is <= 0 or > 64) throw new ArgumentOutOfRangeException(nameof(i));
