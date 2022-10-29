@@ -17,6 +17,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "Sublist.csproj"
     ]
   },
   "blurb": "Write a function to determine if a list is a sublist of another list."

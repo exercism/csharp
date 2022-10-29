@@ -14,4 +14,7 @@ To add a new exercise you can run the `add-new-exercise.ps1` PowerShell script. 
 
 ## Support
 
-Need assistance? Check out our Gitter Channel at https://gitter.im/exercism/xcsharp where you can get support and ask questions related to the C# track.
+Need assistance? Check out the [Building Exercism][building-exercism] subcategory on the [Exercism forum][forum] where you can get support and ask questions.
+
+[building-exercism]: https://forum.exercism.org/c/exercism/building-exercism/125
+[forum]: https://forum.exercism.org/

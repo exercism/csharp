@@ -20,6 +20,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "Luhn.csproj"
     ]
   },
   "blurb": "Given a number determine whether or not it is valid per the Luhn formula.",

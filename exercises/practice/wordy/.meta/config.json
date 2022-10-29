@@ -20,6 +20,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "Wordy.csproj"
     ]
   },
   "blurb": "Parse and evaluate simple math word problems returning the answer as an integer.",

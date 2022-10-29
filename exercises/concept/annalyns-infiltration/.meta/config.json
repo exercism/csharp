@@ -14,6 +14,9 @@
     ],
     "exemplar": [
       ".meta/Exemplar.cs"
+    ],
+    "invalidator": [
+      "AnnalynsInfiltration.csproj"
     ]
   },
   "forked_from": [

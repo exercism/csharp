@@ -21,6 +21,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "Acronym.csproj"
     ]
   },
   "blurb": "Convert a long phrase to its acronym.",

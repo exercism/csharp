@@ -15,6 +15,9 @@
     ],
     "exemplar": [
       ".meta/Exemplar.cs"
+    ],
+    "invalidator": [
+      "PhoneNumberAnalysis.csproj"
     ]
   },
   "blurb": "Learn about tuples by analysing phone numbers."

@@ -19,6 +19,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "MatchingBrackets.csproj"
     ]
   },
   "blurb": "Make sure the brackets and braces all match.",

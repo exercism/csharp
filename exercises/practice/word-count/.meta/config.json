@@ -20,6 +20,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "WordCount.csproj"
     ]
   },
   "blurb": "Given a phrase, count the occurrences of each word in that phrase.",

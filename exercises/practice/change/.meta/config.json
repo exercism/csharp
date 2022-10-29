@@ -19,6 +19,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "Change.csproj"
     ]
   },
   "blurb": "Correctly determine change to be given using the least number of coins.",
