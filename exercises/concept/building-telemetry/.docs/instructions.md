@@ -23,7 +23,7 @@ var sp2 = car.DisplaySponsor(sponsorNum: 1);
 // => "Walker Industries"
 ```
 
-## 2 Get the car's telemetry data
+## 2. Get the car's telemetry data
 
 Implement the `RemoteControlCar.GetTelemetryData()` method.
 
@@ -44,7 +44,7 @@ car.GetTelemetryData(ref serialNum, out batteryPercentage, out distanceDrivenInM
 // => false, 4L, -1, -1
 ```
 
-## 3 Add functionality so that the telemetry system can get battery usage per meter
+## 3. Add functionality so that the telemetry system can get battery usage per meter
 
 Implement the `TelemetryClient.GetBatteryUsagePerMeter()` method.
 

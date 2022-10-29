@@ -1,0 +1,8 @@
+public static ulong Square(int n)
+{
+    switch (n)
+    {
+        case int num when num > 0 && num < 65: return (ulong)1 << (num - 1);
+        default: throw new ArgumentOutOfRangeException("n must be 1 through 64");
+    }
+}
