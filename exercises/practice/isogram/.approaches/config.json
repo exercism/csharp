@@ -1,6 +1,6 @@
 {
   "introduction": {
-    "authors": ["bobahop", "erikschierboom"]
+    "authors": ["bobahop"]
   },
   "approaches": [
     {
@@ -8,7 +8,7 @@
       "slug": "distinct",
       "title": "Distinct",
       "blurb": "Use Distinct with Count to return the answer.",
-      "authors": ["erikschierboom", "bobahop"]
+      "authors": ["bobahop"]
     },
     {
       "uuid": "78bc9485-94b7-4bac-8ce6-d577e85670a1",
