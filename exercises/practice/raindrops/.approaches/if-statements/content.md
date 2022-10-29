@@ -3,7 +3,7 @@
 ```csharp
 public static class Raindrops
 {
-    public string ConvertWithIfConcat(int number)
+    public static string ConvertWithIfConcat(int number)
     {
         var drops = "";
         if (number % 3 == 0)
