@@ -25,9 +25,9 @@ The `GroupBy` approach is an idiomatic "one-liner", but it is more than twice as
 The fastest is the `Bitfeld` approach, but it may be considered more idiomatic of the C language than of C#.
 Also, it depends on all of the letters being [ASCII][ascii].
 
-[approaches]: https://exercism.org/tracks/csharp/exercises/pangram/approaches
+[approaches]: https://exercism.org/tracks/csharp/exercises/isogram/approaches
 [approach-distinct]: https://exercism.org/tracks/csharp/exercises/isogram/approaches/distinct
 [approach-groupby]: https://exercism.org/tracks/csharp/exercises/isogram/approaches/groupby
 [approach-bitfield]: https://exercism.org/tracks/csharp/exercises/isogram/approaches/bitfield
 [benchmark-dotnet]: https://benchmarkdotnet.org/index.html
-[benchmark-application]: https://github.com/exercism/csharp/tree/main/exercises/practice/isogram/.approaches/performance/benchmark/code/Program.cs
+[benchmark-application]: https://github.com/exercism/csharp/blob/main/exercises/practice/isogram/.articles/performance/code/Program.cs
