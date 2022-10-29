@@ -23,13 +23,6 @@
       "title": "Bit field",
       "blurb": "Use a bit field to keep track of used letters.",
       "authors": ["bobahop"]
-    },
-    {
-      "uuid": "71c2fbe1-6831-4289-80e1-02fe63611cce",
-      "slug": "performance",
-      "title": "Performance deep dive",
-      "blurb": "Deep dive to find out the most performant approach to determining an isogram.",
-      "authors": ["bobahop"]
-    }    
+    }
   ]
 }
