@@ -1,0 +1,21 @@
+{
+  "introduction": {
+    "authors": ["erikschierboom"]
+  },
+  "approaches": [
+    {
+      "uuid": "f567dfff-0f68-4226-b924-c6baf19babbf",
+      "slug": "optional-parameter",
+      "title": "Optional parameter",
+      "blurb": "Use an optional parameter and its default value.",
+      "authors": ["erikschierboom"]
+    },
+    {
+      "uuid": "e3999368-f13c-42e9-a814-e385356fd640",
+      "slug": "method-overloading",
+      "title": "Method overloading",
+      "blurb": "Use method overloading.",
+      "authors": ["erikschierboom"]
+    }
+  ]
+}
