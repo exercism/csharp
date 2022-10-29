@@ -26,6 +26,8 @@ If any group has a count of more than `1` for its letter, the word is not an iso
 - The word `Alpha` is not an isogram because `a` is considered to repeat `A`, so it has only four groups of letters,
 and the group for `a` has a count of `2`.
 
+## Shortening
+
 When the body of a function is a single expression, the function can be implemented as an [expression-bodied member][expression-bodied-member], like so
 
 ```csharp
