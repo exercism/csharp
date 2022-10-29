@@ -1,6 +1,6 @@
 {
   "introduction": {
-    "authors": ["bobahop", "erikschierboom"]
+    "authors": ["bobahop"]
   },
   "approaches": [
     {
@@ -8,7 +8,7 @@
       "slug": "all-contains-tolower",
       "title": "All with Contains on lower case",
       "blurb": "Use All with Contains on lowercased letters.",
-      "authors": ["erikschierboom", "bobahop"]
+      "authors": ["bobahop"]
     },
     {
       "uuid": "8886e091-72bf-40c7-9e86-fdde96bbbae2",
@@ -22,13 +22,6 @@
       "slug": "bitfield",
       "title": "Bit field",
       "blurb": "Use a bit field to keep track of used letters.",
-      "authors": ["bobahop"]
-    },
-    {
-      "uuid": "dca4f693-14d1-4639-a40b-734951655c69",
-      "slug": "performance",
-      "title": "Performance deep dive",
-      "blurb": "Deep dive to find out the most performant approach to determining a pangram.",
       "authors": ["bobahop"]
     }
   ]
