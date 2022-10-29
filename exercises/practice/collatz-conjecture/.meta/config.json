@@ -19,6 +19,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "CollatzConjecture.csproj"
     ]
   },
   "blurb": "Calculate the number of steps to reach 1 using the Collatz conjecture.",

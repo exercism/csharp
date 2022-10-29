@@ -22,6 +22,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "NucleotideCount.csproj"
     ]
   },
   "blurb": "Given a DNA string, compute how many times each nucleotide occurs in the string.",

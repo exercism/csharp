@@ -12,6 +12,9 @@
     ],
     "exemplar": [
       ".meta/Exemplar.cs"
+    ],
+    "invalidator": [
+      "InterestIsInteresting.csproj"
     ]
   },
   "blurb": "Learn about floating point numbers by adding interest to savings accounts."

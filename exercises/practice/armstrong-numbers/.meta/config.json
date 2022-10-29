@@ -16,6 +16,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "ArmstrongNumbers.csproj"
     ]
   },
   "blurb": "Determine if a number is an Armstrong number.",

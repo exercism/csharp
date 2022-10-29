@@ -3,6 +3,8 @@
 The key to this exercise is to deal with C# strings being immutable, which means that a `string`'s value cannot be changed.
 Therefore, to reverse a string you'll need to create a _new_ `string`.
 
+## General guidance
+
 The most common way to create a new `string` (apart from hardcoding a string literal) is to call the [constructor that takes an array of characters][constructor-array-chars] (`char []`).
 
 ```exercism/note
@@ -60,7 +62,7 @@ For a more detailed breakdown, check the [performance approach][approach-perform
 The `StringBuilder` approach has the worst performance of the listed approach, and is more error-prone to write as it has to deal with lower and upper bounds checking.
 
 [constructor-array-chars]: https://learn.microsoft.com/en-us/dotnet/api/system.string.-ctor?view=net-7.0#system-string-ctor(system-char())
-[approach-performance]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches/performance
+[approach-performance]: https://exercism.org/tracks/csharp/exercises/reverse-string/articles/performance
 [approach-linq]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches/linq
 [approach-array-reverse]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches/array-reverse
 [approach-span]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches/span

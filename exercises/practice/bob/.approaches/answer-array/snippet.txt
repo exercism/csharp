@@ -1,0 +1,8 @@
+var input = statement.TrimEnd();
+if (input == "") return "Fine. Be that way!"; 
+
+var isShout = input.Any(char.IsLetter) && input.ToUpper() == input ? 2: 0;    
+var isQuestion = input.EndsWith('?') ? 1: 0;    
+
+string[] answers = {"Whatever.", "Sure.", "Whoa, chill out!", "Calm down, I know what I'm doing!"};
+return answers[isShout + isQuestion];

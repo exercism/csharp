@@ -19,6 +19,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "Hamming.csproj"
     ]
   },
   "blurb": "Calculate the Hamming difference between two DNA strands.",

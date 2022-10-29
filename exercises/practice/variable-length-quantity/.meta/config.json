@@ -17,6 +17,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "VariableLengthQuantity.csproj"
     ]
   },
   "blurb": "Implement variable length quantity encoding and decoding.",

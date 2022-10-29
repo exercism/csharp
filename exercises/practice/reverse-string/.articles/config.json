@@ -1,0 +1,11 @@
+{
+  "articles": [
+    {
+      "uuid": "1b510e11-6579-44b7-8739-b62bafe25f9c",
+      "slug": "performance",
+      "title": "Performance deep dive",
+      "blurb": "Deep dive to find out the most performant approach to reversing a string.",
+      "authors": ["erikschierboom"]
+    }
+  ]
+}

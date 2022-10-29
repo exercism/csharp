@@ -26,6 +26,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "Clock.csproj"
     ]
   },
   "blurb": "Implement a clock that handles times without dates.",

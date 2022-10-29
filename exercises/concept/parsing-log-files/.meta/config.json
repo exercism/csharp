@@ -15,6 +15,9 @@
     ],
     "exemplar": [
       ".meta/Exemplar.cs"
+    ],
+    "invalidator": [
+      "ParsingLogFiles.csproj"
     ]
   },
   "blurb": "Learn about regular expressions by parsing logs."

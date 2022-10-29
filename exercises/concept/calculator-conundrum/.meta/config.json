@@ -19,6 +19,9 @@
     ],
     "editor": [
       "SimpleOperation.cs"
+    ],
+    "invalidator": [
+      "CalculatorConundrum.csproj"
     ]
   },
   "blurb": "Learn about error handling by working on a simple calculator."

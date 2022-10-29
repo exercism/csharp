@@ -15,6 +15,9 @@
     ],
     "exemplar": [
       ".meta/Exemplar.cs"
+    ],
+    "invalidator": [
+      "RemoteControlCleanup.csproj"
     ]
   },
   "blurb": "Learn about nested types by refactoring a car class."

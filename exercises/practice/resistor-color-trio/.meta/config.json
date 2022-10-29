@@ -14,6 +14,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "ResistorColorTrio.csproj"
     ]
   },
   "blurb": "Convert color codes, as used on resistors, to a human-readable label.",

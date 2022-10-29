@@ -16,6 +16,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "Pov.csproj"
     ]
   },
   "blurb": "Reparent a graph on a selected node.",
