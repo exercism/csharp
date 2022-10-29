@@ -12,52 +12,18 @@ For our performance investigation, we'll also include a third approach: [using a
 
 ## Benchmarks
 
-To benchmark the approaches, we wrote a small benchmark application using [BenchmarkDotNet library][benchmark-dotnet].
+To benchmark the approaches, we wrote a [small benchmark application][benchmark-application] using [BenchmarkDotNet library][benchmark-dotnet].
 
-Each approach was benchmarked individually.
+|               Method |        Mean |     Error |   StdDev |   Gen0 | Allocated |
+|--------------------- |------------:|----------:|---------:|-------:|----------:|
+|     IsPangramLowered |   358.89 ns |  2.771 ns | 2.456 ns | 0.0253 |     120 B |
+| IsPangramInsensitive | 2,355.36 ns | 11.867 ns | 9.910 ns | 0.0191 |      96 B |
+|    IsPangramBitfield |    54.71 ns |  0.543 ns | 0.508 ns |      - |         - |
 
-The first benchmarks were used to determine if there is a significant change between using the alpahbet inline, like so
+Comparing the lower-cased characters is over six times faster than doing a case-insensitive comparison.
+Using a bit field is more than six times faster than using `ToLower`, but it may be considered to be more idiomatic of the C language than C#.
 
-```csharp
-"abcdefghijklmnopqrstuvwxyz".All(c => input.Contains(c, xcase));
-```
-
-and defining the alphabet as a separate `const`, like so
-
-```csharp
-private const string Letters = "abcdefghijklmnopqrstuvwxyz";
-// code snipped
-Letters.All(c => input.Contains(c, xcase));
-```
-
-For case insenstive Contains:
-- The top has the alphabet inline.
-- The bottom has the alphabet defined as `const`.
-
-|    Method |     Mean |     Error |    StdDev |   Gen0 | Allocated |
-|---------- |---------:|----------:|----------:|-------:|----------:|
-| IsPangram | 2.379 us | 0.0217 us | 0.0169 us | 0.0191 |      96 B |
-| IsPangram | 2.392 us | 0.0079 us | 0.0066 us | 0.0191 |      96 B |
-
-The two are essentially equivalent for performance.
-
-This is the benchmark for `All` with `Contains` using `ToLower`
-
-|    Method |     Mean |   Error |  StdDev |   Gen0 | Allocated |
-|---------- |---------:|--------:|--------:|-------:|----------:|
-| IsPangram | 348.3 ns | 1.51 ns | 1.26 ns | 0.0253 |     120 B |
-
-`ToLower` is about seven times faster than using a case insensitive comparison.
-
-Using a bit field
-
-|    Method |     Mean |    Error |   StdDev | Allocated |
-|---------- |---------:|---------:|---------:|----------:|
-| IsPangram | 55.05 ns | 1.130 ns | 1.160 ns |         - |
-
-Using a bit field is about six times faster than using `ToLower`, but it may be considered to be more idiomatic of the C language than C#.
-Also, it depends on all of the letters being [ASCII][ascii].
-
+[benchmark-application]: https://github.com/exercism/csharp/blob/main/exercises/practice/pangram/.articles/performance/code/Program.cs
 [benchmark-dotnet]: https://benchmarkdotnet.org/index.html
 [approaches]: https://exercism.org/tracks/csharp/exercises/pangram/approaches
 [approach-all-contains-tolower]: https://exercism.org/tracks/csharp/exercises/pangram/approaches/all-contains-tolower
