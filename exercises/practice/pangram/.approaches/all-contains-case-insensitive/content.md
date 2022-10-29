@@ -1,10 +1,17 @@
 # `All` with `Contains` using case-insensitive comparison
 
 ```csharp
-    // uses System.Linq
+using System.Linq;
+
+public static class Pangram
+{
     private static readonly StringComparison xcase = StringComparison.CurrentCultureIgnoreCase;
-    public static bool IsPangram(string input) =>
-        "abcdefghijklmnopqrstuvwxyz".All(c => input.Contains(c, xcase));
+    
+    public static bool IsPangram(string input)
+    {
+        return "abcdefghijklmnopqrstuvwxyz".All(c => input.Contains(c, xcase));
+    }
+}
 ```
 
 - This begins by setting a variable for a case-insensitive `string` comparison.
@@ -13,7 +20,20 @@ using the [LINQ][linq] method [`All`][all] with the `String` method [`Contains`]
 - `Contains` takes the optional [`StringComparison`][stringcomparison] argument,
 but a case-insensitive comparison is about seven times slower than if the input were lowercased and then an exact comparison were done.
 
-Since the body of the function is only a single expression, it can be implemented as an [expression-bodied member][expression-bodied-member].
+## Shortening
+
+When the body of a function is a single expression, the function can be implemented as an [expression-bodied member][expression-bodied-member], like so
+
+```csharp
+public static bool IsPangram(string input) =>
+    "abcdefghijklmnopqrstuvwxyz".All(c => input.Contains(c, xcase));
+```
+
+or
+
+```csharp
+public static bool IsPangram(string input) => "abcdefghijklmnopqrstuvwxyz".All(c => input.Contains(c, xcase));
+```
 
 [linq]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/
 [all]: https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.all
