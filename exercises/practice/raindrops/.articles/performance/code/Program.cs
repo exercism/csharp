@@ -3,8 +3,6 @@ using BenchmarkDotNet.Running;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Numerics;
-using System.Text;
 
 [MemoryDiagnoser]
 public class BenchMe
