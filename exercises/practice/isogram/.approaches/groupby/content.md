@@ -26,6 +26,19 @@ If any group has a count of more than `1` for its letter, the word is not an iso
 - The word `Alpha` is not an isogram because `a` is considered to repeat `A`, so it has only four groups of letters,
 and the group for `a` has a count of `2`.
 
+When the body of a function is a single expression, the function can be implemented as an [expression-bodied member][expression-bodied-member], like so
+
+```csharp
+public static bool IsIsogram(string word) =>
+    word.ToLower().Where(Char.IsLetter).GroupBy(ltr => ltr).All(ltr_grp => ltr_grp.Count() == 1);
+```
+
+or
+
+```csharp
+public static bool IsIsogram(string word) => word.ToLower().Where(Char.IsLetter).GroupBy(ltr => ltr).All(ltr_grp => ltr_grp.Count() == 1);
+```
+
 [tolower]: https://learn.microsoft.com/en-us/dotnet/api/system.string.tolower
 [where]: https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.where
 [isletter]: https://learn.microsoft.com/en-us/dotnet/api/system.char.isletter
@@ -33,3 +46,4 @@ and the group for `a` has a count of `2`.
 [groupby]: https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.groupby
 [all]: https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.all
 [count]: https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.count
+[expression-bodied-member]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members
