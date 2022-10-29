@@ -31,3 +31,4 @@ Also, it depends on all of the letters being [ASCII][ascii].
 [approach-bitfield]: https://exercism.org/tracks/csharp/exercises/isogram/approaches/bitfield
 [benchmark-dotnet]: https://benchmarkdotnet.org/index.html
 [benchmark-application]: https://github.com/exercism/csharp/blob/main/exercises/practice/isogram/.articles/performance/code/Program.cs
+[ascii]: https://www.asciitable.com/
