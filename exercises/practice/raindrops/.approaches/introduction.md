@@ -1,6 +1,11 @@
 # Introduction
 
+There are various idioomatic ways to solve Raindrops.
+
 ## General guidance
+
+The key to solving Raindrops is to know if the input is evenly divisible by `3`, `5` and/or `7`.
+For determining that, you will use the the [remainder operator][remainder-operator].
 
 ## Approach: `if` statements
 
@@ -44,5 +49,8 @@ For more information, check the [`Aggregate` approach][approach-aggregate].
 
 ## Which approach to use?
 
+Although the `Aggregate` approach may be considered moe "functional", it is about three times slower than the `if` statements approach.
+
+[remainder-operator]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators#remainder-operator-
 [approach-if-statements]: https://exercism.org/tracks/csharp/exercises/raindrops/approaches/if-statements
 [approach-aggregate]: https://exercism.org/tracks/csharp/exercises/raindrops/approaches/aggregate
