@@ -1,6 +1,7 @@
 {
   "introduction": {
-    "authors": ["bobahop", "erikschierboom"]
+    "authors": ["bobahop"],
+    "contributors": ["erikschierboom"]
   },
   "approaches": [
     {
@@ -8,7 +9,7 @@
       "slug": "boolean-chain",
       "title": "Boolean chain",
       "blurb": "Use a chain of boolean expressions.",
-      "authors": ["erikschierboom", "bobahop"]
+      "authors": ["bobahop"]
     },
     {
       "uuid": "eebe5a57-7e58-44c2-92e6-50f46f1251ac",
