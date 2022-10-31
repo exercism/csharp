@@ -3,7 +3,6 @@
 ```csharp
 public static class Pangram
 {
-
     public static bool IsPangram(string input) {
         int phrasemask = 0;
         foreach (char letter in input)
