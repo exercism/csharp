@@ -1,0 +1,8 @@
+private static int Steps(int number, int stepCount)
+{
+    if (number == 1)
+        return stepCount;
+
+    var currentNumber = number % 2 == 0 ? number / 2 : number * 3 + 1;
+    return Steps(currentNumber, stepCount + 1);
+}
