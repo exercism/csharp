@@ -20,7 +20,7 @@ namespace Exercism.CSharp.Output
 
         public TestMethodOutput(TestMethod testMethod) => _testMethod = testMethod;
 
-        private IEnumerable<string> Variables
+        public IEnumerable<string> Variables
         {
             get
             {
@@ -45,22 +45,29 @@ namespace Exercism.CSharp.Output
             }
         }
         
-        private IEnumerable<string> InputVariables => Renderer.Variables(_testMethod.InputParameters.ToDictionary(key => key, key => _testMethod.Input[key]));
-        private string InputValues => string.Join(", ", _testMethod.InputParameters.Select(key => _testMethod.UseVariablesForInput ? key.ToVariableName() : Renderer.Object(_testMethod.Input[key])));
+        public IEnumerable<string> InputVariables => Renderer.Variables(_testMethod.InputParameters.ToDictionary(key => key, key => _testMethod.Input[key]));
+        public string InputValues => string.Join(", ", _testMethod.InputParameters.Select(key => _testMethod.UseVariablesForInput ? key.ToVariableName() : Renderer.Object(_testMethod.Input[key])));
         
-        private IEnumerable<string> ConstructorVariables => Renderer.Variables(_testMethod.ConstructorInputParameters.ToDictionary(key => key, key => _testMethod.Input[key]));
-        private string ConstructorValues => string.Join(", ", _testMethod.ConstructorInputParameters.Select(key => _testMethod.UseVariablesForConstructorParameters ? key.ToVariableName() : Renderer.Object(_testMethod.Input[key])));
+        public IEnumerable<string> ConstructorVariables => Renderer.Variables(_testMethod.ConstructorInputParameters.ToDictionary(key => key, key => _testMethod.Input[key]));
+        public string ConstructorValues => string.Join(", ", _testMethod.ConstructorInputParameters.Select(key => _testMethod.UseVariablesForConstructorParameters ? key.ToVariableName() : Renderer.Object(_testMethod.Input[key])));
         
-        private string SutVariableDeclaration => Renderer.Variable(SutVariableName, SutParameter);
-        private string SutParameter => _testMethod.UseVariableForSut ? $"new {_testMethod.TestedClass}({ConstructorValues})" : SutVariableName;
+        public string SutVariableDeclaration => Renderer.Variable(SutVariableName, SutParameter);
+        public string SutParameter => _testMethod.UseVariableForSut ? $"new {_testMethod.TestedClass}({ConstructorValues})" : SutVariableName;
         
-        private string TestedVariable => Renderer.Variable(TestedVariableName, TestedMethodInvocation);
-        private string TestedValue => _testMethod.UseVariableForTested ? TestedVariableName : TestedMethodInvocation;
+        public string TestedVariable => Renderer.Variable(TestedVariableName, TestedMethodInvocation);
+        public string TestedValue
+        {
+            get
+            {
+                var value = _testMethod.UseVariableForTested ? TestedVariableName : TestedMethodInvocation;
+                return _testMethod.ForceEvaluation ? $"{value}.ToArray()" : value;
+            }
+        }
+
+        public string ExpectedVariable => Renderer.Variable(ExpectedVariableName, Renderer.ObjectMultiLine(_testMethod.Expected));
+        public string ExpectedValue => _testMethod.UseVariableForExpected ? ExpectedVariableName : Renderer.Object(_testMethod.Expected);
         
-        private string ExpectedVariable => Renderer.Variable(ExpectedVariableName, Renderer.ObjectMultiLine(_testMethod.Expected));
-        private string ExpectedValue => _testMethod.UseVariableForExpected ? ExpectedVariableName : Renderer.Object(_testMethod.Expected);
-        
-        private string TestedMethodInvocation =>
+        public string TestedMethodInvocation =>
             _testMethod.TestedMethodType switch
             {
                 TestedMethodType.StaticMethod => $"{_testMethod.TestedClass}.{_testMethod.TestedMethod}({InputValues})",
@@ -82,11 +89,11 @@ namespace Exercism.CSharp.Output
             return Template.Render("TestMethod", RenderValues);
         }
 
-        private string RenderArrange() => Template.Render("Arrange", new { Variables });
+        public string RenderArrange() => Template.Render("Arrange", new { Variables });
 
-        private string RenderAct() => Template.Render("Act", new { });
+        public string RenderAct() => Template.Render("Act", new { });
 
-        private string RenderAssert() =>
+        public string RenderAssert() =>
             CurrentAssertType switch
             {
                 AssertType.Equal => Renderer.AssertEqual(ExpectedValue, TestedValue),
