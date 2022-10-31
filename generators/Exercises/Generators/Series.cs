@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
 using Exercism.CSharp.Output;
 
 namespace Exercism.CSharp.Exercises.Generators
@@ -11,6 +14,11 @@ namespace Exercism.CSharp.Exercises.Generators
 
             if (!(testMethod.Expected is string[]))
                 testMethod.ExceptionThrown = typeof(ArgumentException);
+            
+            testMethod.ForceEvaluation = true;
         }
+
+        protected override void UpdateNamespaces(ISet<string> namespaces) => 
+            namespaces.Add(typeof(Enumerable).Namespace!);
     }
 }
