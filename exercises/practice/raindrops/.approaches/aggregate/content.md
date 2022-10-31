@@ -1,4 +1,4 @@
-# Aggregate
+# `Aggregate`
 
 ```csharp
 using System.Linq;
