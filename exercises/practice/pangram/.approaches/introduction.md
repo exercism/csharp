@@ -1,12 +1,13 @@
 # Introduction
 
 There are various idomatic approaches to Pangram.
+You can use the LINQ method `All` with the `String` method `Contains` on lower-cased letters.
+Or you can use the LINQ method `All` with the `String` method `Contains` using case-insensitive comparison.
 
 ## General guidance
 
 The key to solving Pangram is determining if all of the letters in the alphabet are in the `string` being tested.
-You can use the LINQ method `All` with the `String` method `Contains` on lower-cased letters.
-Or you can use the LINQ method `All` with the `String` method `Contains` using case-insensitive comparison.
+The occurrence of either the letter `a` or the letter `A` would count as the same letter.
 
 ## Approach: `All` with `Contains` on lowercased letters
 
