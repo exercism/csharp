@@ -42,7 +42,7 @@ So `A` would have `1` [shifted left][shift-left] 0 places (so not shifted at all
 
 In that way, both a lower-cased `z` and an upper-cased `Z` can share the same position in the bit field.
 
-So, for an unsigned thirty-two bit integer, if the values from `a` and `Z` were set, the bits would look like
+So, for an unsigned thirty-two bit integer, if the values for `a` and `Z` were both set, the bits would look like
 
 ```
       zyxwvutsrqponmlkjihgfedcba
