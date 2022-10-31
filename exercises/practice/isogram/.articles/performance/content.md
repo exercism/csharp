@@ -1,4 +1,3 @@
-
 # Performance
 
 In this approach, we'll find out how to most efficiently determine if a string is an Isogram in C#.
