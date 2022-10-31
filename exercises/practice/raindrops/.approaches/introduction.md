@@ -1,6 +1,8 @@
 # Introduction
 
 There are various idioomatic ways to solve Raindrops.
+You can use a series of `if` statements.
+Or you can use the LINQ method `Aggregate`.
 
 ## General guidance
 
