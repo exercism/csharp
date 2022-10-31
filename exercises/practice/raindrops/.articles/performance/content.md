@@ -5,7 +5,7 @@ In this approach, we'll find out how to most efficiently calculate Raindrops in 
 The [approaches page][approaches] lists two idiomatic approaches to this exercise:
 
 1. [Using if statements][approach-if-statements]
-2. [Using the ternary operator][approach-aggregate]
+2. [Using the Aggregate method][approach-aggregate]
 
 ## Benchmarks
 
@@ -26,7 +26,7 @@ When that time is divided by many multiple appends, the `StringBuilder` can be m
 For Raindrops, the most concatenations you'll have will be three.
 So, while another solution is setting up the `StringBuilder` you can be well on your way to concatenating just three values.
 
-For the `Aggregate` approach iterating on a `List`, it takes so long to set up the `List` that the set up time for `StringBuilder`
+For the [`Aggregate`][aggregate] method iterating on a [List][list], it takes so long to set up the `List` that the set up time for `StringBuilder`
 has no significant impact on the performance.
 Since the `Aggregate` approach  is about five times slower than the `if` statements approach,
 the choice of concatenation or `StringBuilder` for `Aggregate` makes little difference anyway.
@@ -36,7 +36,7 @@ That's better than being five times slower, but it is still significantly slower
 
 The `Aggregate` approach using an [Array][arrays] which is defined outside of the function as [readonly][readonly]
 is just about three times slower than the `if` statements approach.
-So even through the `Aggregate` approach with an `Array` is almost twice as fast as the `Aggregate` approach with a `List`,
+So even though the `Aggregate` approach with an `Array` is almost twice as fast as the `Aggregate` approach with a `List`,
 it is still significantly slower than the `if` statements approach.
 
 [approaches]: https://exercism.org/tracks/csharp/exercises/raindrops/approaches
@@ -45,6 +45,7 @@ it is still significantly slower than the `if` statements approach.
 [benchmark-dotnet]: https://benchmarkdotnet.org/index.html
 [benchmark-application]: https://github.com/exercism/csharp/blob/main/exercises/practice/raindrops/.articles/performance/code/Program.cs
 [stringbuilder]: https://learn.microsoft.com/en-us/dotnet/api/system.text.stringbuilder
+[aggregate]: https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.aggregate
 [list]: https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1
 [arrays]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/arrays/
 [readonly]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/readonly
