@@ -4,7 +4,7 @@
 public static class Isogram
 {
     public static bool IsIsogram(string word) {
-    int letter_flags = 0;
+        int letter_flags = 0;
         foreach (char letter in word)
         {
             if (letter >= 'a' && letter <= 'z')
