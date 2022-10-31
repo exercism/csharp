@@ -26,7 +26,7 @@ If `number` is not evenly divisble by the `int` in the tuple, it simply returns 
 That value is set to the `drops` `string`.
 - A [ternary operator][ternary] is used to test the `drops` `string`.
 If the length of `drops` is greater than `0`, then `drops` is returned from the function.
-Otherwise `number`.[`ToString`][tostring]() is returned from the function.
+Otherwise `number`.[`ToString()`][tostring] is returned from the function.
 
 [tuples]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples
 [tuple]: https://learn.microsoft.com/en-us/dotnet/api/system.tuple-2
