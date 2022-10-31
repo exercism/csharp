@@ -46,7 +46,7 @@ public static class Pangram
 
 Besides the aforementioned, idiomatic approaches, you could also approach the exercise as follows:
 
-## Bit field approach:
+### Other approach: Bit field
 
 A fast approach can use a bit field to keep track of used letters.
 For more information, check the [Bit field approach][approach-bitfield].
