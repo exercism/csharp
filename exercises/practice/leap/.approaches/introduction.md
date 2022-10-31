@@ -7,7 +7,7 @@ Another approach you can use is a [switch][switch] on a [tuple][tuple].
 
 ## General guidance
 
-The key to solving  Leap is to know if the year is divisible by `4`, `100` and `400`.
+The key to solving Leap is to know if the year is evenly divisible by `4`, `100` and `400`.
 For determining that, you will use the [remainder operator][remainder-operator].
 
 ## Approach: Chain of Boolean expressions

@@ -10,6 +10,9 @@ The [approaches page][approaches] lists three idiomatic approaches to this exerc
 
 ## Benchmarks
 
+To benchmark the approaches, we wrote a [small benchmark application][benchmark-application] using [BenchmarkDotNet library][benchmark-dotnet].
+
+
 |            Method | testYear |      Mean |     Error |    StdDev | Allocated |
 |------------------ |--------- |----------:|----------:|----------:|----------:|
 |   IsLeapYearChain |     1900 | 1.0503 ns | 0.0127 ns | 0.0106 ns |         - |

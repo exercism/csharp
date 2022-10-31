@@ -5,7 +5,7 @@ Creating an instance of a _class_ is done by calling its _constructor_ through t
 ```csharp
 class Library
 {
-    private books;
+    private int books;
 
     public Library()
     {

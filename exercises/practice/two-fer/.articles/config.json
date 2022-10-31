@@ -1,0 +1,18 @@
+{
+  "articles": [
+    {
+      "uuid": "9c9b759e-43c8-46ea-893d-59c310b84e21",
+      "slug": "optional-parameters-vs-method-overloading",
+      "title": "Optional parameters vs. method overloading",
+      "blurb": "Find out how optional parameters compare to method overloading.",
+      "authors": ["erikschierboom"]
+    },
+    {
+      "uuid": "bc651e10-b512-442c-a568-559867d31c91",
+      "slug": "string-formatting",
+      "title": "Formatting the return string",
+      "blurb": "Show the different ways in which the return string can be formatted.",
+      "authors": ["erikschierboom"]
+    }
+  ]
+}

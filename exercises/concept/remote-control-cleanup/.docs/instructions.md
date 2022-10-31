@@ -4,7 +4,7 @@ Some "other" developers have been working on the remote control car project [exe
 
 ## 1. Separate concerns between the car itself and the telemetry system
 
-Refactor the `RemoteControlCar` class to move to separate out telemetry methods and properties.
+Refactor the `RemoteControlCar` class to move to separate out telemetry methods and properties accessed via a `Telemetry` property.
 
 ```csharp
 var car = new RemoteControlCar();
