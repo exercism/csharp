@@ -1,0 +1,11 @@
+{
+  "articles": [
+    {
+      "uuid": "aa5e9338-36be-492b-b45e-952b7dfdadd0",
+      "slug": "performance",
+      "title": "Performance deep dive",
+      "blurb": "Deep dive to find out the most performant approach to calculating Raindrops.",
+      "authors": ["bobahop"]
+    },
+  ]
+}
