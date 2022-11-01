@@ -28,7 +28,7 @@ public static class CollatzConjecture
 }
 ```
 
-The first step is to check the `number` parameter for its validity:
+The first step is to check the `number` parameter for validity:
 
 ```csharp
 if (number <= 0)
@@ -36,8 +36,8 @@ if (number <= 0)
 ```
 
 In the second step, the `Sequence()` method is called with `number` as its argument.
-This method returns a sequence of numbers (`IEnumerable<int>`), which are the numbers one gets by repeated application of the algorithm (excluding the number we start with).
-Then, we count the amount of numbers within the sequence to get the right answer:
+This method returns the sequence of numbers (`IEnumerable<int>`) one gets by repeated application of the algorithm (excluding the number we start with).
+Then, we count the amount of numbers within that sequence to get the right answer:
 
 | Number | Sequence               | Count |
 | ------ | ---------------------- | ----- |
@@ -45,7 +45,7 @@ Then, we count the amount of numbers within the sequence to get the right answer
 | 4      | 2, 1                   | 2     |
 | 12     | 6, 3, 10, 5,16,8,4,2,1 | 9     |
 
-Let's look at the `Sequence()` method to see how it is implemented.
+Let's examine the `Sequence()` method more closely.
 As a reminder, this is what the method looks like:
 
 ```csharp
@@ -67,7 +67,7 @@ First, we start out with assigning the `number` parameter to a `currentNumber` v
 Re-assiging values to a parameter _is_ possible, but it is considered good practice to not do that.
 ```
 
-Then a `while` loop start with checking whether the current number is not equal to `1`; if it is, the methods terminates.
+Then a `while` loop start with checking whether the current number is not equal to `1`; if it is, the method terminates.
 
 ```csharp
 while (currentNumber != 1)
@@ -77,7 +77,7 @@ while (currentNumber != 1)
 }
 ```
 
-Then, we update the `currentNumber` based on the algorithm, re-assigning its value with its next value in the sequence.
+Within the loop, we update the `currentNumber` based on the algorithm, re-assigning its value with its next value in the sequence.
 
 ````exercism/note
 If you don't like using a ternary operator, a regular `if` statement would do fine:
@@ -91,3 +91,5 @@ else
 ````
 
 Finally, we use a `yield return` statement to _yield_ the current number.
+When a yield statement is written, the compiler transforms the method into a state machine that is suspended after each yield statement.
+It resumes execution 
