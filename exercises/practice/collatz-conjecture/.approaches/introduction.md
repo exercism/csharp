@@ -79,13 +79,13 @@ private static IEnumerable<int> Sequence(int number)
 }
 ```
 
-This approach creates a (lazy) sequence of the numeric values that one gets by repeated application of the algorithm.
+This approach creates a (lazy) sequence of the numeric values that one gets by repeated application of the algorithm (using a while loop).
 It then counts that sequence to get the number of steps.
 For more information, check the [sequence approach][approach-sequence].
 
 ## Which approach to use?
 
-The difference between the three approaches is mostly cosmetic, so what approach you prefer is most personal preference.
+The difference between the three approaches is mostly cosmetic, so what approach you prefer comes down to personal preference.
 
 [approach-recursion]: https://exercism.org/tracks/csharp/exercises/collatz-conjecture/approaches/recursion
 [approach-while-loop]: https://exercism.org/tracks/csharp/exercises/collatz-conjecture/approaches/while-loop
