@@ -6,6 +6,6 @@
       "title": "Performance deep dive",
       "blurb": "Deep dive to find out the most performant approach to calculating Raindrops.",
       "authors": ["bobahop"]
-    },
+    }
   ]
 }
