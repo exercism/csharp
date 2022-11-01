@@ -6,6 +6,7 @@ The key to this exercise is to repeatedly apply an algorithm to a number and the
 
 - Make sure you return when the number is `1`, otherwise you'll end up in an endless loop
 - You can use a [`nameof` expression][nameof] when throwing the `ArgumentOutOfRangeException` to refer to the name of the parameter
+- It is good practice to not re-assign to the parameter, but to introduce a new variable instead
 
 ## Approach: `while` loop
 
@@ -28,7 +29,7 @@ public static int Steps(int number)
 }
 ```
 
-This approach uses a [`while` loop][while] to store the
+This approach uses a [`while` loop][while] to check and update the current number after applying the algorithm to it.
 For more information, check the [recursion approach][approach-recursion].
 
 ## Approach: recursion
@@ -52,6 +53,7 @@ private static int Steps(int number, int stepCount)
 }
 ```
 
+This approach uses a recursion to calculate the steps, with each call to `Steps(int number, int stepCount)` representing a single application of the algorithm.
 For more information, check the [recursion approach][approach-recursion].
 
 ### Approach: sequence
@@ -77,16 +79,13 @@ private static IEnumerable<int> Sequence(int number)
 }
 ```
 
-TODO
-An array can be defined that contains Bob’s answers, and each condition is given a score.
-The correct answer is selected from the array by using the score as the array index.
+This approach creates a (lazy) sequence of the numeric values that one gets by repeated application of the algorithm.
+It then counts that sequence to get the number of steps.
 For more information, check the [sequence approach][approach-sequence].
 
 ## Which approach to use?
 
-Which to use is pretty much a matter of personal preference.
-
-TODO
+The difference between the three approaches is mostly cosmetic, so what approach you prefer is most personal preference.
 
 [approach-recursion]: https://exercism.org/tracks/csharp/exercises/collatz-conjecture/approaches/recursion
 [approach-while-loop]: https://exercism.org/tracks/csharp/exercises/collatz-conjecture/approaches/while-loop

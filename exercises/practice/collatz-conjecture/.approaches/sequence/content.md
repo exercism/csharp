@@ -28,65 +28,66 @@ public static class CollatzConjecture
 }
 ```
 
-In this approach you define an array that contains Bob’s answers, and each condition is given a score.
-The correct answer is selected from the array by using the score as the array index.
-
-The `String` [TrimEnd][trimend] method is applied to the input to eliminate any whitespace at the end of the input.
-If the string has no characters left, it returns the response for saying nothing.
-
-```exercism/caution
-Note that a `null` `string` would be different from a `string` of all whitespace.
-A `null` `string` would throw an `Exception` if `TrimEnd` were applied to it.
-To test a string that might be `null` or only whitespace, the [IsNullOrWhiteSpace](https://learn.microsoft.com/en-us/dotnet/api/system.string.isnullorwhitespace) method of `String` would be used.
-```
-
-The first half of the shout condition
+The first step is to check the `number` parameter for its validity:
 
 ```csharp
-
-input.Any(c => char.IsLetter(c)) && input.ToUpper() == input
+if (number <= 0)
+    throw new ArgumentOutOfRangeException(nameof(number));
 ```
 
-is constructed from the [Any][any] LINQ method and the [IsLetter][isletter] `Char` method to ensure there is at least one letter character in the `String`.
-This is because the second half of the condition tests that the uppercased input is the same as the input.
-If the input were only `"123"` it would equal itself uppercased, but without letters it would not be a shout.
+In the second step, the `Sequence()` method is called with `number` as its argument.
+This method returns a sequence of numbers (`IEnumerable<int>`), which are the numbers one gets by repeated application of the algorithm (excluding the number we start with).
+Then, we count the amount of numbers within the sequence to get the right answer:
 
-The conditions of being a question and being a shout are assigned scores through the use of the [ternary operator][ternary].
-For example, giving a question a score of `1` would use an index of `1` to get the element from the answers array, which is `"Sure."`.
+| Number | Sequence               | Count |
+| ------ | ---------------------- | ----- |
+| 2      | 1                      | 1     |
+| 4      | 2, 1                   | 2     |
+| 12     | 6, 3, 10, 5,16,8,4,2,1 | 9     |
 
-| isShout | isQuestion | Index     | Answer                                |
-| ------- | ---------- | --------- | ------------------------------------- |
-| `false` | `false`    | 0 + 0 = 0 | `"Whatever."`                         |
-| `false` | `true`     | 0 + 1 = 1 | `"Sure."`                             |
-| `true`  | `false`    | 2 + 0 = 2 | `"Whoa, chill out!"`                  |
-| `true`  | `true`     | 2 + 1 = 3 | `"Calm down, I know what I'm doing!"` |
-
-## Shortening
-
-When the body of an `if` statement is a single line, both the test expression and the body could be put on the same line, like so
+Let's look at the `Sequence()` method to see how it is implemented.
+As a reminder, this is what the method looks like:
 
 ```csharp
-if (input == "") return "Fine. Be that way!";
+private static IEnumerable<int> Sequence(int number)
+{
+    var currentNumber = number;
+
+    while (currentNumber != 1)
+    {
+        currentNumber = currentNumber % 2 == 0 ? currentNumber / 2 : currentNumber * 3 + 1;
+        yield return currentNumber;
+    }
+}
 ```
 
-The [C# Coding Conventions][coding-conventions] advise to write only one statement per line in the [layout conventions][layout-conventions] section,
-but the conventions begin by saying you can use them or adapt them to your needs.
-Your team may choose to overrule them.
+First, we start out with assigning the `number` parameter to a `currentNumber` variable, which we'll use to keep track of where in the collatz conjecture sequence we currently are.
 
-For `Any`, the lambda expression of `c => char.IsLetter(c)` can be shortened to just the method call of `char.IsLetter` like so
+```exercism/note
+Re-assiging values to a parameter _is_ possible, but it is considered good practice to not do that.
+```
+
+Then a `while` loop start with checking whether the current number is not equal to `1`; if it is, the methods terminates.
 
 ```csharp
-input.Any(char.IsLetter)
+while (currentNumber != 1)
+{
+    currentNumber = currentNumber % 2 == 0 ? currentNumber / 2 : currentNumber * 3 + 1;
+    yield return currentNumber;
+}
 ```
 
-`Any` passes a single character in each iteration, and the `char.IsLetter` method is called on that character implicitly.
-There is a detailed description of how it works in the accepted answer for this [StackOverflow question][method-group].
+Then, we update the `currentNumber` based on the algorithm, re-assigning its value with its next value in the sequence.
 
-[trimend]: https://learn.microsoft.com/en-us/dotnet/api/system.string.trimend
-[isnullorwhitespace]: https://learn.microsoft.com/en-us/dotnet/api/system.string.isnullorwhitespace
-[any]: https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.any
-[isletter]: https://learn.microsoft.com/en-us/dotnet/api/system.char.isletter
-[ternary]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/conditional-operator
-[coding-conventions]: https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions
-[layout-conventions]: https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions#layout-conventions
-[method-group]: https://stackoverflow.com/questions/35420610/passing-a-method-to-a-linq-query
+````exercism/note
+If you don't like using a ternary operator, a regular `if` statement would do fine:
+
+```csharp
+if (currentNumber % 2 == 0)
+    currentNumber = currentNumber / 2
+else
+    currentNumber * 3 + 1;
+```
+````
+
+Finally, we use a `yield return` statement to _yield_ the current number.
