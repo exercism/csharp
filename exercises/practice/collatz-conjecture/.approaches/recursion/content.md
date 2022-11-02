@@ -31,5 +31,12 @@ public static class CollatzConjecture
 A ternary operator can be used instead of an `if` statement:
 
 ```csharp
-currentNumber = currentNumber % 2 == 0 ? currentNumber / 2 : currentNumber * 3 + 1;
+var nextNumer = number % 2 == 0 ? number / 2 : number * 3 + 1;
+return Steps(nextNumer, stepCount + 1);
+```
+
+or just inline it:
+
+```csharp
+return Steps(number % 2 == 0 ? number / 2 : number * 3 + 1, stepCount + 1);
 ```
