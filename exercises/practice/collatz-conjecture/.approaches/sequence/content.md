@@ -21,7 +21,11 @@ public static class CollatzConjecture
 
         while (currentNumber != 1)
         {
-            currentNumber = currentNumber % 2 == 0 ? currentNumber / 2 : currentNumber * 3 + 1;
+            if (currentNumber % 2 == 0)
+                currentNumber = currentNumber / 2
+            else
+                currentNumber= currentNumber * 3 + 1;
+
             yield return currentNumber;
         }
     }
@@ -39,11 +43,11 @@ In the second step, the `Sequence()` method is called with `number` as its argum
 This method returns the sequence of numbers (`IEnumerable<int>`) one gets by repeated application of the algorithm (excluding the number we start with).
 Then, we count the amount of numbers within that sequence to get the right answer:
 
-| Number | Sequence               | Count |
-| ------ | ---------------------- | ----- |
-| 2      | 1                      | 1     |
-| 4      | 2, 1                   | 2     |
-| 12     | 6, 3, 10, 5,16,8,4,2,1 | 9     |
+| Number | Sequence                    | Count |
+| ------ | --------------------------- | ----- |
+| 2      | 1                           | 1     |
+| 4      | 2, 1                        | 2     |
+| 12     | 6, 3, 10, 5, 16, 8, 4, 2, 1 | 9     |
 
 Let's examine the `Sequence()` method more closely.
 As a reminder, this is what the method looks like:
@@ -67,7 +71,7 @@ First, we start out with assigning the `number` parameter to a `currentNumber` v
 Re-assiging values to a parameter _is_ possible, but it is considered good practice to not do that.
 ```
 
-Then a `while` loop start with checking whether the current number is not equal to `1`; if it is, the method terminates.
+Then a `while` loop starts by checking whether the current number is not equal to `1`; if it is, the method terminates.
 
 ```csharp
 while (currentNumber != 1)
@@ -92,4 +96,12 @@ else
 
 Finally, we use a `yield return` statement to _yield_ the current number.
 When a yield statement is written, the compiler transforms the method into a state machine that is suspended after each yield statement.
-It resumes execution 
+It resumes execution
+
+## Shortening
+
+A ternary operator can be used instead of an `if/else` statement:
+
+```csharp
+currentNumber = currentNumber % 2 == 0 ? currentNumber / 2 : currentNumber * 3 + 1;
+```

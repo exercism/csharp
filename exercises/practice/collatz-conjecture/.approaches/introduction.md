@@ -21,7 +21,11 @@ public static int Steps(int number)
 
     while (currentNumber != 1)
     {
-        currentNumber = currentNumber % 2 == 0 ? currentNumber / 2 : currentNumber * 3 + 1;
+        if (currentNumber % 2 == 0)
+            currentNumber = currentNumber / 2
+        else
+            currentNumber= currentNumber * 3 + 1;
+
         stepCount++;
     }
 
@@ -48,8 +52,10 @@ private static int Steps(int number, int stepCount)
     if (number == 1)
         return stepCount;
 
-    var currentNumber = number % 2 == 0 ? number / 2 : number * 3 + 1;
-    return Steps(currentNumber, stepCount + 1);
+    if (number % 2 == 0)
+        return Steps(number / 2, stepCount + 1);
+
+    return Steps(number * 3 + 1, stepCount + 1);
 }
 ```
 
