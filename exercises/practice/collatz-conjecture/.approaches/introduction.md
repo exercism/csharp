@@ -22,9 +22,9 @@ public static int Steps(int number)
     while (currentNumber != 1)
     {
         if (currentNumber % 2 == 0)
-            currentNumber = currentNumber / 2
+            currentNumber = currentNumber / 2;
         else
-            currentNumber= currentNumber * 3 + 1;
+            currentNumber = currentNumber * 3 + 1;
 
         stepCount++;
     }
@@ -79,7 +79,11 @@ private static IEnumerable<int> Sequence(int number)
 
     while (currentNumber != 1)
     {
-        currentNumber = currentNumber % 2 == 0 ? currentNumber / 2 : currentNumber * 3 + 1;
+        if (currentNumber % 2 == 0)
+            currentNumber = currentNumber / 2;
+        else
+            currentNumber = currentNumber * 3 + 1;
+
         yield return currentNumber;
     }
 }
