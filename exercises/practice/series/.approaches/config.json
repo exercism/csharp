@@ -1,0 +1,21 @@
+{
+  "introduction": {
+    "authors": ["erikschierboom"]
+  },
+  "approaches": [
+    {
+      "uuid": "037f3e0c-1c23-49f2-b1a5-6c0b0631a66e",
+      "slug": "sequence",
+      "title": "Sequence",
+      "blurb": "Use a for-loop to iterate over the slices.",
+      "authors": ["erikschierboom"]
+    },
+    {
+      "uuid": "3857e426-8dac-41f2-bea0-4c8a0b8cd7bc",
+      "slug": "linq",
+      "title": "LINQ",
+      "blurb": "Use LINQ to iterate over the slices.",
+      "authors": ["erikschierboom"]
+    }
+  ]
+}
