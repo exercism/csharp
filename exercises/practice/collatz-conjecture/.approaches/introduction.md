@@ -34,7 +34,7 @@ public static int Steps(int number)
 ```
 
 This approach uses a [`while` loop][while] to check and update the current number after applying the algorithm to it.
-For more information, check the [recursion approach][approach-recursion].
+For more information, check the [`while` loop approach][approach-while-loop].
 
 ## Approach: recursion
 
