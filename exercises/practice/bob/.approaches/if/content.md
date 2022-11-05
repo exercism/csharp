@@ -6,8 +6,6 @@ public static class Bob
 {
     public static string Response(string message)
     {
-    public static string Response(string message)
-    {
         if (IsSilence(message))
             return "Fine. Be that way!";
 
