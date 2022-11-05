@@ -1,0 +1,8 @@
+private static bool IsSilence(this string message) =>
+    Regex.IsMatch(message, @"^\s*$");
+
+private static bool IsYell(this string message) =>
+    Regex.IsMatch(message, @"^[^\p{Ll}]*\p{Lu}[^\p{Ll}]*$");
+
+private static bool IsQuestion(this string message) =>
+    Regex.IsMatch(message, @"\?\s*$");

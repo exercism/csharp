@@ -14,16 +14,16 @@ Regardless of the approach used, some things you could look out for include
 - Use the [EndsWith][endswith] `String` method instead of checking the last character by index for `?`.
 
 - Don't copy/paste the logic for determining a shout and for determing a question into determing a shouted question.
-Combine the two determinations instead of copying them.
-Not duplicating the code will keep the code [DRY][dry].
+  Combine the two determinations instead of copying them.
+  Not duplicating the code will keep the code [DRY][dry].
 
 - Perhaps consider making `IsQuestion` and `IsShout` values set once instead of functions that are possibly called twice.
 
 - If an `if` statement can return, then an `else if` or `else` is not needed.
-Execution will either return or will continue to the next statement anyway.
+  Execution will either return or will continue to the next statement anyway.
 
 - If the body of an `if` statement is only one line, curly braces aren't needed.
-Some teams may still require them in their style guidelines, though.
+  Some teams may still require them in their style guidelines, though.
 
 ## Approach: `if` statements
 
@@ -87,7 +87,7 @@ public static class Bob
             case (true, true): return "Calm down, I know what I'm doing!";
             case (_, true): return "Whoa, chill out!";
             case (true, _): return "Sure.";
-            default: return "Whatever."; 
+            default: return "Whatever.";
         }
     }
 }
@@ -105,6 +105,11 @@ An array can be defined that contains Bob’s answers, and each condition is giv
 The correct answer is selected from the array by using the score as the array index.
 For more information, check the [Answer array approach][approach-answer-array].
 
+### Other approach: regular expressions
+
+Regular expressions can be constructed to classify Bob's answers.
+For more information, check the [regular expressions approach][approach-regular-expressions].
+
 ## Which approach to use?
 
 Which to use is pretty much a matter of personal preference.
@@ -119,4 +124,5 @@ Which to use is pretty much a matter of personal preference.
 [approach-if]: https://exercism.org/tracks/csharp/exercises/bob/approaches/if
 [approach-switch]: https://exercism.org/tracks/csharp/exercises/bob/approaches/switch-on-tuple
 [approach-answer-array]: https://exercism.org/tracks/csharp/exercises/bob/approaches/answer-array
+[approach-regular-expressions]: https://exercism.org/tracks/csharp/exercises/bob/approaches/regular-expressions
 [article-performance]: https://exercism.org/tracks/csharp/exercises/bob/articles/performance
