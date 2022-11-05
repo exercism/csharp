@@ -2,6 +2,7 @@ using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
 using System.Linq;
 using System.Numerics;
+using System.Text.RegularExpressions;
 
 [MemoryDiagnoser]
 public class BenchMe
@@ -67,7 +68,35 @@ public class BenchMe
 
         return answers[isShout + isQuestion];
     }
+
+    [Benchmark]
+    public string ResponseRegex()
+    {
+        if (IsSilenceRegex(message))
+            return "Fine. Be that way!";
+
+        if (IsYellRegex(message) && IsQuestionRegex(message))
+            return "Calm down, I know what I'm doing!";
+
+        if (IsYellRegex(message))
+            return "Whoa, chill out!";
+
+        if (IsQuestionRegex(message))
+            return "Sure.";
+
+        return "Whatever.";
+    }
+
+    private static bool IsSilenceRegex(string message) =>
+        Regex.IsMatch(message, @"^\s*$");
+
+    private static bool IsYellRegex(string message) =>
+        Regex.IsMatch(message, @"^[^\p{Ll}]*\p{Lu}+[^\p{Ll}]*$");
+
+    private static bool IsQuestionRegex(string message) =>
+        Regex.IsMatch(message, @"\?\s*$");
 }
+
 static class Program
 {
     public static void Main()
