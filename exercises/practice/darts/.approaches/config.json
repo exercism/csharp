@@ -1,0 +1,21 @@
+{
+  "introduction": {
+    "authors": ["erikschierboom"]
+  },
+  "approaches": [
+    {
+      "uuid": "25b82542-a019-4d57-9f7d-0ac9725c5939",
+      "slug": "if-statements",
+      "title": "if-statements",
+      "blurb": "Use if-statements.",
+      "authors": ["erikschierboom"]
+    },
+    {
+      "uuid": "5f0878ae-8faf-4db9-b3d5-775e2d9bff37",
+      "slug": "switch-expression",
+      "title": "switch expression",
+      "blurb": "Use a switch expression.",
+      "authors": ["erikschierboom"]
+    }
+  ]
+}
