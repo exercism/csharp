@@ -1,0 +1,8 @@
+var primeMultiples = new HashSet<int>();
+for (var i = 2; i <= max; i++) {
+    if (primeMultiples.Contains(i))
+        continue;
+    for (var j = i * 2; j <= max; j += i)
+        primeMultiples.Add(j);
+    yield return i;
+}
