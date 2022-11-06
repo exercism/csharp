@@ -1,0 +1,21 @@
+{
+  "introduction": {
+    "authors": ["erikschierboom"]
+  },
+  "approaches": [
+    {
+      "uuid": "233458d4-8a6a-46aa-80d4-b5d4c4f38c15",
+      "slug": "linq",
+      "title": "Use LINQ",
+      "blurb": "Calculate the hamming distance via LINQ.",
+      "authors": ["erikschierboom"]
+    },
+    {
+      "uuid": "d210b47c-b61d-4a73-be55-23c68ce1b600",
+      "slug": "for-loop",
+      "title": "Use a for-loop",
+      "blurb": "Calculate the hamming distance using a for-loop.",
+      "authors": ["erikschierboom"]
+    }
+  ]
+}
