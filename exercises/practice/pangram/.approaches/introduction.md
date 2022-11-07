@@ -62,9 +62,9 @@ and is about seven times faster than the `All/Contains` using a case-insensitive
 
 The fastest is the `Bit field` approach, but it may be considered more idiomatic of the C language than C#.
 
-To compare performance of the approaches, check the [Performance approach][approach-performance].
+To compare performance of the approaches, check the [Performance article][article-performance].
 
 [approach-all-contains-tolower]: https://exercism.org/tracks/csharp/exercises/pangram/approaches/all-contains-tolower
 [approach-all-contains-case-insensitive]: https://exercism.org/tracks/csharp/exercises/pangram/approaches/all-contains-case-insensitive
 [approach-bitfield]: https://exercism.org/tracks/csharp/exercises/pangram/approaches/bitfield
-[approach-performance]: https://exercism.org/tracks/csharp/exercises/pangram/approaches/performance
+[article-performance]: https://exercism.org/tracks/csharp/exercises/pangram/articles/performance
