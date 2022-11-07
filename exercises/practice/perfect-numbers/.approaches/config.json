@@ -1,0 +1,14 @@
+{
+  "introduction": {
+    "authors": ["erikschierboom"]
+  },
+  "approaches": [
+    {
+      "uuid": "877dbf59-c01e-47c9-84ef-f54b48f78733",
+      "slug": "if-statements",
+      "title": "Use if statements",
+      "blurb": "Use if statements to check for a perfect number.",
+      "authors": ["erikschierboom"]
+    }
+  ]
+}
