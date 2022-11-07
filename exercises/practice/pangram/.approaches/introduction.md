@@ -26,6 +26,8 @@ public static class Pangram
 }
 ```
 
+For more information, check the [`All` with `Contains` on lowercase approach][approach-all-contains-tolower].
+
 ## Approach: `All` with `Contains` using case-insensitive comparison
 
 ```csharp
@@ -41,6 +43,8 @@ public static class Pangram
     }
 }
 ```
+
+For more information, check the [`All` with `Contains` case-insensitive approach][approach-all-contains-case-insensitive]
 
 ## Other approaches
 
