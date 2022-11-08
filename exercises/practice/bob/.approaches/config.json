@@ -24,6 +24,13 @@
       "title": "Answer array",
       "blurb": "Index into an array to return the answer.",
       "authors": ["bobahop"]
+    },
+    {
+      "uuid": "4fb2cc1b-197f-458f-80fb-cdc6746ff0d6",
+      "slug": "regular-expressions",
+      "title": "Regular expressions",
+      "blurb": "Use regular expressions to return the answer.",
+      "authors": ["erikschierboom"]
     }
   ]
 }
