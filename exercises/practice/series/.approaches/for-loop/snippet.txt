@@ -1,0 +1,5 @@
+if (length < 1 || length > input.Length)
+    throw new ArgumentException("Invalid length");
+
+for (var i = 0; i <= input.Length - length; i++)
+    yield return input.Substring(i, length);
