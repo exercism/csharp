@@ -1,0 +1,21 @@
+{
+  "introduction": {
+    "authors": ["erikschierboom"]
+  },
+  "approaches": [
+    {
+      "uuid": "2fc3ce11-42fa-4b32-abb3-7da60547badd",
+      "slug": "bit-array",
+      "title": "BitArray",
+      "blurb": "Use a BitArray to sieve out primes.",
+      "authors": ["erikschierboom"]
+    },
+    {
+      "uuid": "4d367233-9bd4-45f9-9b33-b08cb78e15fa",
+      "slug": "hash-set",
+      "title": "HashSet",
+      "blurb": "Use a HashSet to sieve out primes.",
+      "authors": ["erikschierboom"]
+    }
+  ]
+}
