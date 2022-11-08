@@ -20,6 +20,7 @@ public static string Speak(string name = "you")
 }
 ```
 
+This approach uses an optional parameter to allow the method to be called both with and without a name.
 For more information, check the [optional-parameter approach][approach-optional-parameter].
 
 ## Approach: method overloading
@@ -36,6 +37,7 @@ public static string Speak(string name)
 }
 ```
 
+This approach uses method overloading to allow the method to be called both with and without a name.
 For more information, check the [method overloading][approach-method-overloading].
 
 ## Which approach to use?
