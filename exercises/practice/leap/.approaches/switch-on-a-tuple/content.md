@@ -20,7 +20,7 @@ A [tuple][tuple] is made from the conditions for the year being evenly divisible
 
 The `tuple` is tested in a [switch expression][switch-expression].
 It checks the values of the expressions in the `tuple`, and uses the `_` [discard pattern][discard-pattern] to disregard a value.
-The `default` arm of the `switch` returns `false` when none of the previous ams match.
+The `default` arm of the `switch` returns `false` when none of the previous arms match.
 
 | year | year % 4 | year % 100 | year % 400 == 0 | is leap year |
 | ---- | -------- | ---------- | --------------- | ------------ |
