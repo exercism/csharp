@@ -5,8 +5,8 @@
   "approaches": [
     {
       "uuid": "037f3e0c-1c23-49f2-b1a5-6c0b0631a66e",
-      "slug": "sequence",
-      "title": "Sequence",
+      "slug": "for-loop",
+      "title": "For loop",
       "blurb": "Use a for-loop to iterate over the slices.",
       "authors": ["erikschierboom"]
     },
