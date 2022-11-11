@@ -61,12 +61,12 @@ For more information, check the [`StringBuilder` approach][approach-string-build
 If readability is your primary concern (and it usually should be), the LINQ-based approach is hard to beat.
 
 The `Array.Reverse()` approach is the best performing apporach.
-For a more detailed breakdown, check the [performance approach][approach-performance].
+For a more detailed breakdown, check the [performance article][article-performance].
 
 The `StringBuilder` approach has the worst performance of the listed approach, and is more error-prone to write as it has to deal with lower and upper bounds checking.
 
 [constructor-array-chars]: https://learn.microsoft.com/en-us/dotnet/api/system.string.-ctor?view=net-7.0#system-string-ctor(system-char())
-[approach-performance]: https://exercism.org/tracks/csharp/exercises/reverse-string/articles/performance
+[article-performance]: https://exercism.org/tracks/csharp/exercises/reverse-string/articles/performance
 [approach-linq]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches/linq
 [approach-array-reverse]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches/array-reverse
 [approach-span]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches/span
