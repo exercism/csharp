@@ -14,7 +14,7 @@ For determining that, you will use the the [remainder operator][remainder-operat
 ```csharp
 public static class Raindrops
 {
-    public string ConvertWithIfConcat()
+    public static string Convert()
     {
         var drops = "";
         if (number % 3 == 0)
@@ -23,7 +23,7 @@ public static class Raindrops
             drops += "Plang";
         if (number % 7 == 0)
             drops += "Plong";
-        return drops.Length > 0 ? drops.ToString() : number.ToString();
+        return drops.Length > 0 ? drops : number.ToString();
     }
 }
 ```
