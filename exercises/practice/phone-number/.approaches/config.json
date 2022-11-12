@@ -1,0 +1,14 @@
+{
+  "introduction": {
+    "authors": ["erikschierboom"]
+  },
+  "approaches": [
+    {
+      "uuid": "bb647596-676c-40e3-9a3e-4ddd288c9aa2",
+      "slug": "regular-expression",
+      "title": "Use a regular expression",
+      "blurb": "Use a regular expression to check and parse the phone number.",
+      "authors": ["erikschierboom"]
+    }
+  ]
+}
