@@ -13,32 +13,27 @@ The second square has two grains, which is `2` to the power of `1`.
 The third square has four grains, which is `2` to the power of `2`.
 You can see that the exponent, or power, that `2` is raised by is always one less than the square number.
 
-| Square  | Power      | Value                   |
-| ------- | ---------- | ----------------------- |
-|       1 |          0 | 2 to the power of 0 = 1 |
-|       2 |          1 | 2 to the power of 1 = 2 |
-|       3 |          2 | 2 to the power of 2 = 4 |
-|       4 |          3 | 2 to the power of 4 = 8 |
+| Square | Power | Value                   |
+| ------ | ----- | ----------------------- |
+| 1      | 0     | 2 to the power of 0 = 1 |
+| 2      | 1     | 2 to the power of 1 = 2 |
+| 3      | 2     | 2 to the power of 2 = 4 |
+| 4      | 3     | 2 to the power of 4 = 8 |
 
 ## Approach: `Math.Pow`
 
 ```csharp
-using System;
-
-public static class Grains
+public static double Square(int i)
 {
-    public static double Square(int i)
-    {
-        if (i is <= 0 or > 64)
-            throw new ArgumentOutOfRangeException(nameof(i));
-        
-        return Math.Pow(2, i - 1);
-    }
-    
-    public static double Total()
-    {
-        return Enumerable.Range(1, 64).Sum(Square);
-    }
+    if (i is <= 0 or > 64)
+        throw new ArgumentOutOfRangeException(nameof(i));
+
+    return Math.Pow(2, i - 1);
+}
+
+public static double Total()
+{
+    return Enumerable.Range(1, 64).Sum(Square);
 }
 ```
 
@@ -47,24 +42,18 @@ For more information, check the [Pow approach][approach-pow].
 ## Approach: Bit-shifting
 
 ```csharp
-using System;
-using System.Numerics; // for use with BigInteger
-
-public static class Grains
+public static ulong Square(int n)
 {
-    public static ulong Square(int n)
+    switch (n)
     {
-        switch (n)
-        {
-            case int num when num > 0 && num < 65: return (ulong)1 << (num - 1);
-            default: throw new ArgumentOutOfRangeException("n must be 1 through 64");
-        }
+        case int num when num > 0 && num < 65: return (ulong)1 << (num - 1);
+        default: throw new ArgumentOutOfRangeException("n must be 1 through 64");
     }
+}
 
-    public static ulong Total()
-    {
-        return (ulong)((BigInteger.One << 64) - 1);
-    }
+public static ulong Total()
+{
+    return (ulong)((BigInteger.One << 64) - 1);
 }
 ```
 

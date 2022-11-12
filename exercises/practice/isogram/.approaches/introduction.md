@@ -1,7 +1,7 @@
 # Introduction
 
 There are various idiomatic ways to solve Isogram.
-You can use the LINQ method `Distinct` with the `String` method `Count`. 
+You can use the LINQ method `Distinct` with the `String` method `Count`.
 Or you could use is the LINQ methods `GroupBy` and `All` with `Count`.
 
 ## General guidance
@@ -13,32 +13,24 @@ The occurrence of the letter `a` and the letter `A` count as a repeated letter, 
 ## Approach: `Distinct` with `Count`
 
 ```csharp
-using System.Linq;
-
-public static class Isogram
+public static bool IsIsogram(string word)
 {
-    public static bool IsIsogram(string word)
-    {
-        var lowerLetters = word.ToLower().Where(char.IsLetter).ToList();
-        return lowerLetters.Distinct().Count() == lowerLetters.Count;
-    }
+    var lowerLetters = word.ToLower().Where(char.IsLetter).ToList();
+    return lowerLetters.Distinct().Count() == lowerLetters.Count;
 }
 ```
 
 For more information, check the [`Distinct` approach][approach-distinct].
 
-
 ## Approach: `GroupBy` with `All` and `Count`
 
 ```csharp
-using System.Linq;
-
-public static class Isogram
+public static bool IsIsogram(string word)
 {
-    public static bool IsIsogram(string word)
-    {
-        return word.ToLower().Where(Char.IsLetter).GroupBy(ltr => ltr).All(ltr_grp => ltr_grp.Count() == 1);
-    }
+    return word.ToLower()
+        .Where(Char.IsLetter)
+        .GroupBy(ltr => ltr)
+        .All(ltr_grp => ltr_grp.Count() == 1);
 }
 ```
 

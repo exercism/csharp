@@ -9,16 +9,13 @@ The key to this exercise is to iterate over a string and return slices (_substri
 ## Approach: `for` loop
 
 ```csharp
-public static class Series
+public static IEnumerable<string> Slices(string input, int length)
 {
-    public static IEnumerable<string> Slices(string input, int length)
-    {
-        if (length < 1 || length > input.Length)
-            throw new ArgumentException("Invalid length");
+    if (length < 1 || length > input.Length)
+        throw new ArgumentException("Invalid length");
 
-        for (var i = 0; i <= input.Length - length; i++)
-            yield return input.Substring(i, length);
-    }
+    for (var i = 0; i <= input.Length - length; i++)
+        yield return input.Substring(i, length);
 }
 ```
 
@@ -28,16 +25,13 @@ For more information, check the [for-loop approach][approach-for-loop].
 ## Approach: LINQ
 
 ```csharp
-public static class Series
+public static IEnumerable<string> Slices(string input, int length)
 {
-    public static IEnumerable<string> Slices(string input, int length)
-    {
-        if (length < 1 || length > input.Length)
-            throw new ArgumentException("Invalid length");
+    if (length < 1 || length > input.Length)
+        throw new ArgumentException("Invalid length");
 
-        return Enumerable.Range(0, input.Length - length + 1)
-            .Select(i => input.Substring(i, length));
-    }
+    return Enumerable.Range(0, input.Length - length + 1)
+        .Select(i => input.Substring(i, length));
 }
 ```
 
