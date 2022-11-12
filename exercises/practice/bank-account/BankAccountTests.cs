@@ -11,7 +11,7 @@ public class BankAccountTests
         var account = new BankAccount();
         account.Open();
 
-        Assert.Equal(0, account.Balance);
+        Assert.Equal(0m, account.Balance);
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
@@ -22,11 +22,11 @@ public class BankAccountTests
 
         var openingBalance = account.Balance;
 
-        account.UpdateBalance(10);
+        account.UpdateBalance(10m);
         var updatedBalance = account.Balance;
 
-        Assert.Equal(0, openingBalance);
-        Assert.Equal(10, updatedBalance);
+        Assert.Equal(0m, openingBalance);
+        Assert.Equal(10m, updatedBalance);
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
@@ -36,15 +36,15 @@ public class BankAccountTests
         account.Open();
         var openingBalance = account.Balance;
 
-        account.UpdateBalance(10);
+        account.UpdateBalance(10m);
         var addedBalance = account.Balance;
 
-        account.UpdateBalance(-15);
+        account.UpdateBalance(-15m);
         var subtractedBalance = account.Balance;
 
-        Assert.Equal(0, openingBalance);
-        Assert.Equal(10, addedBalance);
-        Assert.Equal(-5, subtractedBalance);
+        Assert.Equal(0m, openingBalance);
+        Assert.Equal(10m, addedBalance);
+        Assert.Equal(-5m, subtractedBalance);
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
@@ -73,13 +73,13 @@ public class BankAccountTests
             {
                 for (int j = 0; j < iterations; j++)
                 {
-                    account.UpdateBalance(1);
-                    account.UpdateBalance(-1);
+                    account.UpdateBalance(1m);
+                    account.UpdateBalance(-1m);
                 }
             }));
         }
         Task.WaitAll(tasks.ToArray());
 
-        Assert.Equal(0, account.Balance);
+        Assert.Equal(0m, account.Balance);
     }
 }
