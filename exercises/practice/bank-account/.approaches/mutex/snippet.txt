@@ -1,0 +1,8 @@
+_mutex.WaitOne();
+try
+{
+    _balance += change;
+}
+finally {
+    _mutex.ReleaseMutex();
+}

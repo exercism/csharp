@@ -1,0 +1,8 @@
+private readonly object _lock = new();
+private decimal _balance;
+
+public void UpdateBalance(decimal change)
+{
+    lock (_lock)
+        _balance += change;
+}
