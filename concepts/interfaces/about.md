@@ -175,7 +175,7 @@ This [article][dt-interfaces] is an excellent primer on interfaces and focuses o
 [interface-polymorphism]: https://www.cs.utexas.edu/~mitra/csSummer2013/cs312/lectures/interfaces.html
 [explicit-implementation]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/interfaces/explicit-interface-implementation
 [so-mocking-interfaces]: https://stackoverflow.com/a/9226437/96167
-[icomparable]: https://docs.microsoft.com/en-us/dotnet/api/system.icomparable-1?view=netcore-3.1
+[icomparable]: https://docs.microsoft.com/en-us/dotnet/api/system.icomparable-1
 [wiki-test-double]: https://en.wikipedia.org/wiki/Test_double
 [wiki-polymorphism]: https://en.wikipedia.org/wiki/Polymorphism_(computer_science)
 [wiki-namespaces]: https://en.wikipedia.org/wiki/Namespace

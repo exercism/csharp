@@ -33,6 +33,6 @@ Finally, we return the reversed `string` by calling the `ToString()` method on t
 
 If you're interested in how this approach's performance compares to other approaches, check the [performance approach][approach-performance].
 
-[string-builder]: https://learn.microsoft.com/en-us/dotnet/api/system.text.stringbuilder?view=net-7.0
-[string-builder-append]: https://learn.microsoft.com/en-us/dotnet/api/system.text.stringbuilder.append?view=net-7.0#system-text-stringbuilder-append(system-char)
+[string-builder]: https://learn.microsoft.com/en-us/dotnet/api/system.text.stringbuilder
+[string-builder-append]: https://learn.microsoft.com/en-us/dotnet/api/system.text.stringbuilder.append
 [approach-performance]: https://exercism.org/tracks/csharp/exercises/reverse-string/articles/performance

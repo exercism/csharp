@@ -25,9 +25,9 @@ nums["some-number"]++;
 
 ```
 
-[concurrent-dictionary]: https://docs.microsoft.com/en-gb/dotnet/api/system.collections.concurrent.concurrentdictionary-2?view=netcore-3.1
-[hashset]: https://docs.microsoft.com/en-gb/dotnet/api/system.collections.generic.hashset-1?view=netcore-3.1
-[gethashcode]: https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netcore-3.1
-[sorted-dictionary]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.sorteddictionary-2?view=netcore-3.1
-[idictionary]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.idictionary-2?view=netcore-3.1
+[concurrent-dictionary]: https://docs.microsoft.com/en-gb/dotnet/api/system.collections.concurrent.concurrentdictionary-2
+[hashset]: https://docs.microsoft.com/en-gb/dotnet/api/system.collections.generic.hashset-1
+[gethashcode]: https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode
+[sorted-dictionary]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.sorteddictionary-2
+[idictionary]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.idictionary-2
 [indexer-properties]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/indexers/

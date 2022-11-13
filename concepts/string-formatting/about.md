@@ -101,11 +101,11 @@ Each thread of execution has a default culture `Thread.CurrentThread.CurrentCult
 [standard-date-and-time-format-strings]: https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings
 [custom-date-and-time-format-strings]: https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings
 [string-builder]: https://docs.microsoft.com/en-us/dotnet/standard/base-types/stringbuilder
-[format-provider]: https://docs.microsoft.com/en-us/dotnet/api/system.iformatprovider?view=netcore-3.1
-[custom-formatter]: https://docs.microsoft.com/en-us/dotnet/api/system.icustomformatter?view=netcore-3.1
-[string-format]: https://docs.microsoft.com/en-us/dotnet/api/system.string.format?view=netcore-3.1#System_String_Format_System_String_System_Object_System_Object_System_Object_
-[culture-info]: https://docs.microsoft.com/en-us/dotnet/api/system.globalization.cultureinfo?view=netcore-3.1
+[format-provider]: https://docs.microsoft.com/en-us/dotnet/api/system.iformatprovider
+[custom-formatter]: https://docs.microsoft.com/en-us/dotnet/api/system.icustomformatter
+[string-format]: https://docs.microsoft.com/en-us/dotnet/api/system.string.format
+[culture-info]: https://docs.microsoft.com/en-us/dotnet/api/system.globalization.cultureinfo
 [composite-formatting]: https://docs.microsoft.com/en-us/dotnet/standard/base-types/composite-formatting
 [custom-string-interpolation]: https://thomaslevesque.com/2015/02/24/customizing-string-interpolation-in-c-6/
 [enum-format-strings]: https://docs.microsoft.com/en-us/dotnet/standard/base-types/enumeration-format-strings
-[guid-format-strings]: https://docs.microsoft.com/en-us/dotnet/api/system.guid.tostring?view=netcore-3.1
+[guid-format-strings]: https://docs.microsoft.com/en-us/dotnet/api/system.guid.tostring

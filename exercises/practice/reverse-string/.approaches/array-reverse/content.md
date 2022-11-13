@@ -29,6 +29,6 @@ Finally, we return the reversed `string` by calling its constructor with the (re
 
 If you're interested in how this approach's performance compares to other approaches, check the [performance approach][approach-performance].
 
-[to-char-array]: https://learn.microsoft.com/en-us/dotnet/api/system.string.tochararray?view=net-6.0
-[array-reverse]: https://learn.microsoft.com/en-us/dotnet/api/system.array.reverse?view=net-6.0
+[to-char-array]: https://learn.microsoft.com/en-us/dotnet/api/system.string.tochararray
+[array-reverse]: https://learn.microsoft.com/en-us/dotnet/api/system.array.reverse
 [approach-performance]: https://exercism.org/tracks/csharp/exercises/reverse-string/articles/performance

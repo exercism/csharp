@@ -1,6 +1,6 @@
 # Instructions append
 
-To be more specific, you are not allowed to use any of the built-in [LINQ methods](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable?view=netcore-2.1#methods).
+To be more specific, you are not allowed to use any of the built-in [LINQ methods](https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable
 
 ## Laziness test
 

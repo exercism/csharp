@@ -18,7 +18,7 @@
 
 - There are several ways to [concatenate strings][tutorial-docs.microsoft.com-concatenate-strings], but the preferred one is usually [string interpolation][tutorial-csharp.net-string-interpolation].
 
-[docs-string-methods]: https://docs.microsoft.com/en-us/dotnet/api/system.string?view=netcore-3.0#methods
+[docs-string-methods]: https://docs.microsoft.com/en-us/dotnet/api/system.string
 [tutorial-docs.microsoft.com-search-text-in-string]: https://docs.microsoft.com/en-us/dotnet/csharp/how-to/search-strings#where-does-the-sought-text-occur-in-a-string
 [tutorial-docs.microsoft.com-trim-white-space]: https://docs.microsoft.com/en-us/dotnet/csharp/how-to/modify-string-contents#trim-white-space
 [tutorial-docs.microsoft.com-changing-case]: https://docs.microsoft.com/en-us/dotnet/standard/base-types/changing-case

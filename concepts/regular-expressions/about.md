@@ -55,9 +55,9 @@ var rewrittenLine = $"{grps[PREAMBLE].Value}{grps[PWTEXT].Value}{grps[SPACE].Val
 Another option of interest is `RegexOptions.Compiled` for [compiled][regex-compilation] regexes.
 
 [regular-expressions]: https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference
-[regex]: https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regex?view=netcore-3.1
+[regex]: https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regex
 [so-groups-and-captures]: https://stackoverflow.com/questions/3320823/whats-the-difference-between-groups-and-captures-in-net-regular-expression
 [regex-comparison]: https://en.wikipedia.org/wiki/Comparison_of_regular-expression_engines
-[capture]: https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.capturecollection?view=netcore-3.1
-[regex-options]: https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regexoptions?view=netcore-3.1
+[capture]: https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.capturecollection
+[regex-options]: https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regexoptions
 [regex-compilation]: https://docs.microsoft.com/en-us/dotnet/standard/base-types/best-practices

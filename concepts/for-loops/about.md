@@ -50,11 +50,11 @@ A `for` loop does have some advantages over a `foreach` loop:
 [implicitly-typed-arrays]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/arrays/implicitly-typed-arrays
 [array-foreach]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/arrays/using-foreach-with-arrays
 [single-dimensional-arrays]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/arrays/single-dimensional-arrays
-[array-class]: https://docs.microsoft.com/en-us/dotnet/api/system.array?view=netcore-3.1
-[array-properties]: https://docs.microsoft.com/en-us/dotnet/api/system.array?view=netcore-3.1#properties
-[array-methods]: https://docs.microsoft.com/en-us/dotnet/api/system.array?view=netcore-3.1#methods
+[array-class]: https://docs.microsoft.com/en-us/dotnet/api/system.array
+[array-properties]: https://docs.microsoft.com/en-us/dotnet/api/system.array
+[array-methods]: https://docs.microsoft.com/en-us/dotnet/api/system.array
 [foreach-statement]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/foreach-in
 [for-statement]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/for
 [break-keyword]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/break
 [multi-dimensional-arrays]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/arrays/multidimensional-arrays
-[system-array-object]: https://docs.microsoft.com/en-us/dotnet/api/system.array.createinstance?view=netcore-3.1#System_Array_CreateInstance_System_Type_System_Int32_
+[system-array-object]: https://docs.microsoft.com/en-us/dotnet/api/system.array.createinstance

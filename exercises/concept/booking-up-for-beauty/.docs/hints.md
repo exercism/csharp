@@ -28,9 +28,9 @@
 - You can use one of the current date time's [properties][docs.microsoft.com_datetime-properties] to get the current year.
 
 [docs.microsoft.com_parsing-date]: https://docs.microsoft.com/en-us/dotnet/standard/base-types/parsing-datetime
-[docs.microsoft.com_datetime-operators]: https://docs.microsoft.com/en-us/dotnet/api/system.datetime?view=netframework-4.8#operators
-[docs.microsoft.com_datetime-properties]: https://docs.microsoft.com/en-us/dotnet/api/system.datetime?view=netcore-3.0#properties
+[docs.microsoft.com_datetime-operators]: https://docs.microsoft.com/en-us/dotnet/api/system.datetime
+[docs.microsoft.com_datetime-properties]: https://docs.microsoft.com/en-us/dotnet/api/system.datetime
 [docs.microsoft.com_standard-date-and-time-format-strings]: https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings
 [docs.microsoft.com_custom-date-and-time-format-strings]: https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings
 [csharp.net-datetimes-working-with-datetimes-time]: https://csharp.net-tutorials.com/data-types/working-with-dates-time//
-[constructors]: https://docs.microsoft.com/en-us/dotnet/api/system.datetime?view=netcore-3.1#constructors
+[constructors]: https://docs.microsoft.com/en-us/dotnet/api/system.datetime

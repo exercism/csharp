@@ -47,10 +47,10 @@ See [this article][dictionary_remove].
 See the [values collection][dictionary_values], [string length][string_length] and [foreach][foreach].
 
 [dictionary_static_initialization]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/how-to-initialize-a-dictionary-with-a-collection-initializer
-[dictionary_add]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2.add?view=netcore-3.1
-[dictionary_item]: https://docs.microsoft.com/en-gb/dotnet/api/system.collections.generic.dictionary-2.item?view=netcore-3.1
-[dictionary_contains_key]: https://docs.microsoft.com/en-gb/dotnet/api/system.collections.generic.dictionary-2.containskey?view=netcore-3.1
-[dictionary_remove]: https://docs.microsoft.com/en-gb/dotnet/api/system.collections.generic.dictionary-2.remove?view=netcore-3.1
-[dictionary_values]: https://docs.microsoft.com/en-gb/dotnet/api/system.collections.generic.dictionary-2.values?view=netcore-3.1
+[dictionary_add]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2.add
+[dictionary_item]: https://docs.microsoft.com/en-gb/dotnet/api/system.collections.generic.dictionary-2.item
+[dictionary_contains_key]: https://docs.microsoft.com/en-gb/dotnet/api/system.collections.generic.dictionary-2.containskey
+[dictionary_remove]: https://docs.microsoft.com/en-gb/dotnet/api/system.collections.generic.dictionary-2.remove
+[dictionary_values]: https://docs.microsoft.com/en-gb/dotnet/api/system.collections.generic.dictionary-2.values
 [foreach]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/foreach-in
-[string_length]: https://docs.microsoft.com/en-gb/dotnet/api/system.string.length?view=netcore-3.1#System_String_Length
+[string_length]: https://docs.microsoft.com/en-gb/dotnet/api/system.string.length

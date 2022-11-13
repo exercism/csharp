@@ -9,10 +9,10 @@ public static class Grains
     {
         if (i is <= 0 or > 64)
             throw new ArgumentOutOfRangeException(nameof(i));
-        
+
         return Math.Pow(2, i - 1);
     }
-    
+
     public static double Total()
     {
         return Enumerable.Range(1, 64).Sum(Square);
@@ -55,9 +55,9 @@ or
 public static double Total() => Enumerable.Range(1, 64).Sum(Square);
 ```
 
-[pow]: https://learn.microsoft.com/en-us/dotnet/api/system.math.pow?view=net-7.0
-[enumerable-range]: https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.range?view=net-7.0
-[sum]: https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.sum?view=net-7.0
+[pow]: https://learn.microsoft.com/en-us/dotnet/api/system.math.pow
+[enumerable-range]: https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.range
+[sum]: https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.sum
 [coding-conventions]: https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions
 [layout-conventions]: https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions#layout-conventions
 [expression-bodied-member]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members

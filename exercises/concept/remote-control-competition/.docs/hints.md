@@ -19,5 +19,5 @@
 
 [interface]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/interfaces/
 [interface-property]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/interface-properties
-[sort]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.sort?view=netcore-3.1#System_Collections_Generic_List_1_Sort
-[icomparable]: https://docs.microsoft.com/en-us/dotnet/api/system.icomparable-1?view=netcore-3.1
+[sort]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.sort
+[icomparable]: https://docs.microsoft.com/en-us/dotnet/api/system.icomparable-1

@@ -62,10 +62,10 @@ The _dispose pattern_ mostly relates to unmanaged resources. If you are using [P
 
 [finalizer]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/destructors
 [using-statement]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-statement
-[idisposable]: https://docs.microsoft.com/en-us/dotnet/api/system.idisposable?view=netcore-3.1
-[dispose]: https://docs.microsoft.com/en-us/dotnet/api/system.idisposable.dispose?view=netcore-3.1
-[stream]: https://docs.microsoft.com/en-us/dotnet/api/system.io.stream?view=netcore-3.1
-[text-reader]: https://docs.microsoft.com/en-us/dotnet/api/system.io.textreader?view=netcore-3.1
+[idisposable]: https://docs.microsoft.com/en-us/dotnet/api/system.idisposable
+[dispose]: https://docs.microsoft.com/en-us/dotnet/api/system.idisposable.dispose
+[stream]: https://docs.microsoft.com/en-us/dotnet/api/system.io.stream
+[text-reader]: https://docs.microsoft.com/en-us/dotnet/api/system.io.textreader
 [native-interoperability]: https://docs.microsoft.com/en-us/dotnet/standard/native-interop/
 [dispose-pattern]: https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-dispose
 [garbage-collector]: https://docs.microsoft.com/en-us/dotnet/standard/garbage-collection/fundamentals
