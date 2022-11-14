@@ -1,0 +1,14 @@
+{
+  "introduction": {
+    "authors": ["erikschierboom"]
+  },
+  "approaches": [
+    {
+      "uuid": "c3cd04fc-dba1-4c32-bd3a-4d940e836882",
+      "slug": "linq",
+      "title": "LINQ",
+      "blurb": "Use LINQ to find the difference between squares.",
+      "authors": ["erikschierboom"]
+    }
+  ]
+}
