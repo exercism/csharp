@@ -24,6 +24,8 @@ Before we start, let's define a helper method to square a number:
 private static int Square(int number) => number * number;
 ```
 
+Having this method will allow us to write more concise code later on.
+
 ## `CalculateSquareOfSum()`
 
 The square of the sum is defined as: sum all numbers from `1` to the provided `max`, and then square that number.
