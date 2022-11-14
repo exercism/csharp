@@ -1,0 +1,14 @@
+{
+  "introduction": {
+    "authors": ["erikschierboom"]
+  },
+  "approaches": [
+    {
+      "uuid": "dd927bfa-cdc0-4f24-a4b1-781943c1a2e2",
+      "slug": "sorted-collections",
+      "title": "Use specialized sorted collections",
+      "blurb": "Use specialized sorted collections for automatic sorting.",
+      "authors": ["erikschierboom"]
+    }
+  ]
+}
