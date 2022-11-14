@@ -9,6 +9,13 @@
       "title": "LINQ",
       "blurb": "Use LINQ to find the difference between squares.",
       "authors": ["erikschierboom"]
+    },
+    {
+      "uuid": "a6118dd7-26d5-4576-919f-11a584beeef8",
+      "slug": "for-statement",
+      "title": "for statement",
+      "blurb": "Use a for statement to find the difference between squares.",
+      "authors": ["erikschierboom"]
     }
   ]
 }
