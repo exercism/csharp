@@ -11,16 +11,16 @@ The key to this exercise is to detect a specific type of sentence and then rewri
 ```csharp
 public static class PigLatin
 {
-    private static readonly Regex VowelRegex = new(@"(?<begin>^|\s+)(?<vowel>a|e|i|o|u|xr|yt)(?<rest>\w+)", RegexOptions.Compiled);
-    private static readonly Regex ConsonantRegex = new(@"(?<begin>^|\s+)(?<consonant>ch|qu|thr|th|rh|sch|yt|\wqu|\w)(?<rest>\w+)", RegexOptions.Compiled);
+    private const string VowelPattern = @"(?<begin>^|\s+)(?<vowel>[aeiou]|xr|yt)(?<rest>\w+)";
+    private const string ConsonantPattern = @"(?<begin>^|\s+)(?<consonant>ch|qu|thr|th|rh|sch|yt|\wqu|\w)(?<rest>\w+)";
 
     private const string VowelReplacement = "${begin}${vowel}${rest}ay";
     private const string ConsonantReplacement = "${begin}${rest}${consonant}ay";
 
     public static string Translate(string sentence) =>
-        VowelRegex.IsMatch(sentence)
-            ? VowelRegex.Replace(sentence, VowelReplacement)
-            : ConsonantRegex.Replace(sentence, ConsonantReplacement);
+        Regex.IsMatch(sentence, VowelPattern)
+            ? Regex.Replace(sentence, VowelPattern, VowelReplacement)
+            : Regex.Replace(sentence, ConsonantPattern, ConsonantReplacement);
 }
 ```
 
