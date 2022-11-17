@@ -4,10 +4,10 @@
   },
   "approaches": [
     {
-      "uuid": "877dbf59-c01e-47c9-84ef-f54b48f78733",
-      "slug": "as-parallel",
-      "title": "Use AsParallel()",
-      "blurb": "Use AsParallel() to parallelize counting characters.",
+      "uuid": "260d9dd5-28ab-4d96-822b-cb87faa366ea",
+      "slug": "regular-expressions",
+      "title": "Use regular expressions",
+      "blurb": "Use regular expressions to match and rewrite a sentence.",
       "authors": ["erikschierboom"]
     }
   ]
