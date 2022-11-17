@@ -1,0 +1,14 @@
+{
+  "introduction": {
+    "authors": ["erikschierboom"]
+  },
+  "approaches": [
+    {
+      "uuid": "55ed5152-f606-4754-87f8-5d61d4477c1d",
+      "slug": "while-loop",
+      "title": "while loop",
+      "blurb": "Use a while loop to find the number of steps.",
+      "authors": ["erikschierboom"]
+    }
+  ]
+}
