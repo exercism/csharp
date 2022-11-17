@@ -12,7 +12,7 @@ The key to this exercise is to detect a specific type of sentence and then rewri
 public static class PigLatin
 {
     private const string VowelPattern = @"(?<begin>^|\s+)(?<vowel>[aeiou]|xr|yt)(?<rest>\w+)";
-    private const string ConsonantPattern = @"(?<begin>^|\s+)(?<consonant>ch|qu|thr|th|rh|sch|yt|\wqu|\w)(?<rest>\w+)";
+    private const string ConsonantPattern = @"(?<begin>^|\s+)(?<consonant>([^aeiou]?qu|[^aeiou]+))(?<rest>[aeiouy]\w*)";
 
     private const string VowelReplacement = "${begin}${vowel}${rest}ay";
     private const string ConsonantReplacement = "${begin}${rest}${consonant}ay";

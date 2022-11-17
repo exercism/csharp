@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 public static class PigLatin
 {
     private const string VowelPattern = @"(?<begin>^|\s+)(?<vowel>[aeiou]|xr|yt)(?<rest>\w+)";
-    private const string ConsonantPattern = @"(?<begin>^|\s+)(?<consonant>ch|qu|thr|th|rh|sch|yt|\wqu|\w)(?<rest>\w+)";
+    private const string ConsonantPattern = @"(?<begin>^|\s+)(?<consonant>([^aeiou]?qu|[^aeiou]+))(?<rest>[aeiouy]\w*)";
 
     private const string VowelReplacement = "${begin}${vowel}${rest}ay";
     private const string ConsonantReplacement = "${begin}${rest}${consonant}ay";
@@ -33,8 +33,57 @@ Let's start out simple and try implement rule number 1:
 
 > **Rule 1**: If a word begins with a vowel sound, add an "ay" sound to the end of the word. Please note that "xr" and "yt" at the beginning of a word make vowel sounds (e.g. "xray" -> "xrayay", "yttria" -> "yttriaay").
 
-Let's focus on "If a word begins with a vowel sound" first.
-We can detect the vowels using the following pattern: `([aeiou])`.
+### Pattern: word begins with a vowel sound
+
+Let's start by focusing on:
+
+> If a word begins with a vowel sound, add an "ay" sound to the end of the word.
+
+To match a vowel, we can use a [positive character group][regex-positive-character-group]: `[aeiou]`.
+This will match when the character is one of the listed vowels.
+
+We can add the [`+` quantifier][regex-quantifiers] to have it match one or more vowels: `[aeiou]+`.
+
+To ensure that we only match vowels at the beginning of a word, we start our pattern with the [`^` anchor][regex-anchors], giving us the following pattern: `^[aeiou]+`.
+
+This can be read as: match when the input starts with one or more vowels, which is exactly what we want.
+We can test if a word matches our regex pattern using [`Regex.IsMatch()`][regex-ismatch]:
+
+```csharp
+Regex.IsMatch("a",     "^[aeiou]+") // true:  one matching vowel
+Regex.IsMatch("io",    "^[aeiou]+") // true:  multiple matching vowels
+Regex.IsMatch("bo",    "^[aeiou]+") // false: starts with different character
+Regex.IsMatch("",      "^[aeiou]+") // false: doesn't match at least once
+```
+
+We can then implement our rule using the following code:
+
+```csharp
+if (Regex.IsMatch(word, "^[aeiou]+"))
+    return word + "ay
+```
+
+### Pattern: "xr" and "yt" at the beginning of a word make vowel sounds
+
+Let's move on to the second part of rule 1:
+
+> Please note that "xr" and "yt" at the beginning of a word make vowel sounds
+
+We now have to deal with an either/or situation, where either the word begins with one or more vowels _or_ it has "xt" or "yt" at the start.
+To support this, we can use the [`|` alternation construct][regex-either-or]: `^[aeiou]+|xr|yt`
+
+Let's test this pattern:
+
+```csharp
+Regex.IsMatch("ai"   "^[aeiou]+") // true:  multiple matching vowels
+Regex.IsMatch("yt",  "^[aeiou]+") // true:  starts with "yt"
+Regex.IsMatch("xt",  "^[aeiou]+") // true   starts with "xt"
+Regex.IsMatch("xtn", "^[aeiou]+") // true:  starts with "xt"
+Regex.IsMatch("yr",  "^[aeiou]+") // false: character after 'y' is not 't'
+Regex.IsMatch("wxt", "^[aeiou]+") // false: does not begin with "xt"
+```
+
+### Supporting multiple words
 
 Next up is detect if the word _begins_ with a vowel sounds.
 There are two ways in which a word can "begin":
@@ -147,3 +196,6 @@ public static bool IsMatch(string input, string pattern) =>
 [regex-anchors]: https://learn.microsoft.com/en-us/dotnet/standard/base-types/anchors-in-regular-expressions
 [regex-named-matched-subexpression]: https://learn.microsoft.com/en-us/dotnet/standard/base-types/grouping-constructs-in-regular-expressions#named_matched_subexpression
 [regex.is-match-source]: https://github.com/dotnet/runtime/blob/main/src/libraries/System.Text.RegularExpressions/src/System/Text/RegularExpressions/Regex.Match.cs#L14
+[regex-positive-character-group]: https://learn.microsoft.com/en-us/dotnet/standard/base-types/character-classes-in-regular-expressions#PositiveGroup
+[regex-quantifiers]: https://learn.microsoft.com/en-us/dotnet/standard/base-types/quantifiers-in-regular-expressions
+[regex-either-or]: https://learn.microsoft.com/en-us/dotnet/standard/base-types/alternation-constructs-in-regular-expressions#Either_Or
