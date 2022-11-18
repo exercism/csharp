@@ -60,7 +60,7 @@ We can then implement our rule using the following code:
 
 ```csharp
 if (Regex.IsMatch(word, "^[aeiou]+"))
-    return word + "ay
+    return word + "ay"
 ```
 
 ### Pattern: "xr" and "yt" at the beginning of a word make vowel sounds
@@ -75,7 +75,7 @@ To support this, we can use the [`|` alternation construct][regex-either-or]: `^
 Let's test this pattern:
 
 ```csharp
-Regex.IsMatch("ai"   "^[aeiou]+|xr|yt") // true:  multiple matching vowels
+Regex.IsMatch("ai",  "^[aeiou]+|xr|yt") // true:  multiple matching vowels
 Regex.IsMatch("yt",  "^[aeiou]+|xr|yt") // true:  starts with "yt"
 Regex.IsMatch("xt",  "^[aeiou]+|xr|yt") // true   starts with "xt"
 Regex.IsMatch("xtn", "^[aeiou]+|xr|yt") // true:  starts with "xt"
