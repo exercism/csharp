@@ -75,7 +75,7 @@ To support this, we can use the [`|` alternation construct][regex-either-or]: `^
 Let's test this pattern:
 
 ```csharp
-Regex.IsMatch("ai",   "^[aeiou]+|xr|yt") // true:  multiple matching vowels
+Regex.IsMatch("ai",  "^[aeiou]+|xr|yt") // true:  multiple matching vowels
 Regex.IsMatch("yt",  "^[aeiou]+|xr|yt") // true:  starts with "yt"
 Regex.IsMatch("xt",  "^[aeiou]+|xr|yt") // true   starts with "xt"
 Regex.IsMatch("xtn", "^[aeiou]+|xr|yt") // true:  starts with "xt"
