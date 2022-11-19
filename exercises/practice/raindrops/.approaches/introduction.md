@@ -21,7 +21,7 @@ public string Convert()
         drops += "Plang";
     if (number % 7 == 0)
         drops += "Plong";
-    return drops.Length > 0 ? drops.ToString() : number.ToString();
+    return drops.Length > 0 ? drops : number.ToString();
 }
 ```
 
