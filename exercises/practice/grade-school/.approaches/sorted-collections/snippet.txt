@@ -1,0 +1,7 @@
+private readonly SortedDictionary<int, SortedSet<string>> _roster = new();
+
+public bool Add(string student, int grade)
+{
+    if (!_roster.TryAdd(grade, new SortedSet<string> { student })) 
+        _roster[grade].Add(student);
+}
