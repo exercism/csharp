@@ -1,0 +1,8 @@
+public static int CalculateSquareOfSum(int max)
+{
+    var sum = 0;
+    for (var i = 1; i <= max; i++)
+        sum += i;
+
+    return sum * sum;
+}

@@ -26,7 +26,7 @@
 [checked-keyword]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/checked
 [unchecked-keyword]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/unchecked
 [checked-compiler-setting]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-options/checked-compiler-option
-[big-integer]: https://docs.microsoft.com/en-us/dotnet/api/system.numerics.biginteger?view=netcore-3.1
-[single]: https://docs.microsoft.com/en-us/dotnet/api/system.single?view=netcore-3.1
-[overflow-exception]: https://docs.microsoft.com/en-us/dotnet/api/system.overflowexception?view=netcore-3.1
-[decimal]: https://docs.microsoft.com/en-us/dotnet/api/system.decimal?view=netcore-3.1
+[big-integer]: https://docs.microsoft.com/en-us/dotnet/api/system.numerics.biginteger
+[single]: https://docs.microsoft.com/en-us/dotnet/api/system.single
+[overflow-exception]: https://docs.microsoft.com/en-us/dotnet/api/system.overflowexception
+[decimal]: https://docs.microsoft.com/en-us/dotnet/api/system.decimal

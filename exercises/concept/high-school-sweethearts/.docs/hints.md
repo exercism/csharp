@@ -25,12 +25,12 @@
 - You will need to work with [`CultureInfo`][culture-info]. Note that it implements the [`IFormatProvider`][format-provider] interface.
 
 [string-interpolation]: https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/string-interpolation
-[format-provider]: https://docs.microsoft.com/en-us/dotnet/api/system.iformatprovider?view=netcore-3.1
-[custom-formatter]: https://docs.microsoft.com/en-us/dotnet/api/system.icustomformatter?view=netcore-3.1
-[string-format]: https://docs.microsoft.com/en-us/dotnet/api/system.string.format?view=netcore-3.1#System_String_Format_System_String_System_Object_System_Object_System_Object_
+[format-provider]: https://docs.microsoft.com/en-us/dotnet/api/system.iformatprovider
+[custom-formatter]: https://docs.microsoft.com/en-us/dotnet/api/system.icustomformatter
+[string-format]: https://docs.microsoft.com/en-us/dotnet/api/system.string.format
 [verbatim-strings]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/strings/#regular-and-verbatim-string-literals
-[culture-info]: https://docs.microsoft.com/en-us/dotnet/api/system.globalization.cultureinfo?view=netcore-3.1
-[formattable-string]: https://docs.microsoft.com/en-us/dotnet/api/system.formattablestring?view=netcore-3.1
+[culture-info]: https://docs.microsoft.com/en-us/dotnet/api/system.globalization.cultureinfo
+[formattable-string]: https://docs.microsoft.com/en-us/dotnet/api/system.formattablestring
 [formatting-types]: https://docs.microsoft.com/en-us/dotnet/standard/base-types/formatting-types
 [standard-numeric-format-strings]: https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-numeric-format-strings
 [custom-numeric-format-strings]: https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-numeric-format-strings

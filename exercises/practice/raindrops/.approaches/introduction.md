@@ -12,19 +12,16 @@ For determining that, you will use the the [remainder operator][remainder-operat
 ## Approach: `if` statements
 
 ```csharp
-public static class Raindrops
+public string Convert()
 {
-    public static string Convert()
-    {
-        var drops = "";
-        if (number % 3 == 0)
-            drops += "Pling";
-        if (number % 5 == 0)
-            drops += "Plang";
-        if (number % 7 == 0)
-            drops += "Plong";
-        return drops.Length > 0 ? drops : number.ToString();
-    }
+    var drops = "";
+    if (number % 3 == 0)
+        drops += "Pling";
+    if (number % 5 == 0)
+        drops += "Plang";
+    if (number % 7 == 0)
+        drops += "Plong";
+    return drops.Length > 0 ? drops : number.ToString();
 }
 ```
 
@@ -33,17 +30,11 @@ For more information, check the [`if` statements approach][approach-if-statement
 ## Approach: `Aggregate` LINQ method
 
 ```csharp
-using System.Linq;
-
-public static class Raindrops
+public static string Convert(int number)
 {
-    private static readonly (int, string)[]  drips = { (3, "Pling"), (5, "Plang"), (7, "Plong") };
-
-    public static string Convert(int number)
-    {
-        var drops = drips.Aggregate("", (acc, drop) => number % drop.Item1 == 0 ? acc + drop.Item2 : acc);
-        return drops.Length > 0 ? drops : number.ToString();
-    }
+    var drips = new[]{ (3, "Pling"), (5, "Plang"), (7, "Plong") };
+    var drops = drips.Aggregate("", (acc, drop) => number % drop.Item1 == 0 ? acc + drop.Item2 : acc);
+    return drops.Length > 0 ? drops : number.ToString();
 }
 ```
 

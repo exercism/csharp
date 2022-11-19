@@ -22,4 +22,4 @@
 [null-conditional-operator]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/conditional-operator
 [nullable-types-tutorial]: https://csharp.net-tutorials.com/data-types/nullable-types/
 [nullable-reference-types-tutorial]: https://docs.microsoft.com/en-us/archive/msdn-magazine/2018/february/essential-net-csharp-8-0-and-nullable-reference-types
-[toupper]: https://docs.microsoft.com/en-us/dotnet/api/system.string.toupper?view=netcore-3.1
+[toupper]: https://docs.microsoft.com/en-us/dotnet/api/system.string.toupper

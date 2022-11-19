@@ -152,6 +152,6 @@ is using [version][language-version] 7 or later of the language.
 [tuple-return-values]: https://docs.microsoft.com/en-us/dotnet/csharp/tuples#tuples-as-method-return-values
 [tuple-deconstruction]: https://docs.microsoft.com/en-us/dotnet/csharp/tuples#deconstruction
 [udt-deconstruction]: https://docs.microsoft.com/en-us/dotnet/csharp/tuples#deconstructing-user-defined-types
-[system-tuple]: https://docs.microsoft.com/en-us/dotnet/api/system.tuple?view=netcore-3.1
-[system-value-tuple]: https://docs.microsoft.com/en-us/dotnet/api/system.valuetuple-8?view=netcore-3.1
+[system-tuple]: https://docs.microsoft.com/en-us/dotnet/api/system.tuple
+[system-value-tuple]: https://docs.microsoft.com/en-us/dotnet/api/system.valuetuple-8
 [language-version]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/configure-language-version

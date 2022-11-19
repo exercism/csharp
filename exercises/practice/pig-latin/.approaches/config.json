@@ -1,0 +1,14 @@
+{
+  "introduction": {
+    "authors": ["erikschierboom"]
+  },
+  "approaches": [
+    {
+      "uuid": "260d9dd5-28ab-4d96-822b-cb87faa366ea",
+      "slug": "regular-expressions",
+      "title": "Use regular expressions",
+      "blurb": "Use regular expressions to match and rewrite a sentence.",
+      "authors": ["erikschierboom"]
+    }
+  ]
+}

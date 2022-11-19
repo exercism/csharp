@@ -1,0 +1,14 @@
+{
+  "introduction": {
+    "authors": ["erikschierboom"]
+  },
+  "approaches": [
+    {
+      "uuid": "86cd2238-c7be-4982-ab11-c828bcb37136",
+      "slug": "big-integer",
+      "title": "Use BigInteger",
+      "blurb": "Use the BigInteger class to easily implement diffie-hellman.",
+      "authors": ["erikschierboom"]
+    }
+  ]
+}

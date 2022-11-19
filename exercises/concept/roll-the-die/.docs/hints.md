@@ -12,6 +12,6 @@ This [article][random-integers] explains how to generate integers.
 
 This [article][random-reals] explains how to generate real numbers.
 
-[system-random]: https://docs.microsoft.com/en-us/dotnet/api/system.random?view=netcore-3.1
-[random-integers]: https://docs.microsoft.com/en-us/dotnet/api/system.random.next?view=netcore-3.1
-[random-reals]: https://docs.microsoft.com/en-us/dotnet/api/system.random.nextdouble?view=netcore-3.1
+[system-random]: https://docs.microsoft.com/en-us/dotnet/api/system.random
+[random-integers]: https://docs.microsoft.com/en-us/dotnet/api/system.random.next
+[random-reals]: https://docs.microsoft.com/en-us/dotnet/api/system.random.nextdouble

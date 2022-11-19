@@ -140,9 +140,9 @@ o.GetType() == typeof(List<int>) // true
 [wiki-casting]: https://en.wikipedia.org/wiki/Type_conversion
 [implicit-casts]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/numeric-conversions
 [explicit-casts]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/numeric-conversions#explicit-numeric-conversions
-[int32-parse]: https://docs.microsoft.com/en-us/dotnet/api/system.int32.parse?view=netcore-3.1
+[int32-parse]: https://docs.microsoft.com/en-us/dotnet/api/system.int32.parse
 [operator-overloading]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/operator-overloading
 [checked]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/checked
 [custom-casts]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/user-defined-conversion-operators
-[big-integer-implicit]: https://docs.microsoft.com/en-us/dotnet/api/system.numerics.biginteger.op_implicit?view=netcore-3.1
-[big-integer-explicit]: https://docs.microsoft.com/en-us/dotnet/api/system.numerics.biginteger.op_explicit?view=netcore-3.1
+[big-integer-implicit]: https://docs.microsoft.com/en-us/dotnet/api/system.numerics.biginteger.op_implicit
+[big-integer-explicit]: https://docs.microsoft.com/en-us/dotnet/api/system.numerics.biginteger.op_explicit

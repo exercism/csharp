@@ -89,4 +89,4 @@ The `BitConverter` class provides a convenient way of converting integer types t
 [implicit-casts]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/numeric-conversions
 [wiki-twos-complement]: https://en.wikipedia.org/wiki/Two%27s_complement
 [wiki-binary]: https://en.wikipedia.org/wiki/Binary_number
-[sbyte]: https://docs.microsoft.com/en-us/dotnet/api/system.sbyte?view=netcore-3.1
+[sbyte]: https://docs.microsoft.com/en-us/dotnet/api/system.sbyte

@@ -27,6 +27,6 @@ or
 public static bool IsLeapYear(int year) => DateTime.IsLeapYear(year);
 ```
 
-[is-leap-year]: https://learn.microsoft.com/en-us/dotnet/api/system.datetime.isleapyear?view=net-7.0
-[datetime]: https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0
+[is-leap-year]: https://learn.microsoft.com/en-us/dotnet/api/system.datetime.isleapyear
+[datetime]: https://learn.microsoft.com/en-us/dotnet/api/system.datetime
 [expression-bodied-member]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members

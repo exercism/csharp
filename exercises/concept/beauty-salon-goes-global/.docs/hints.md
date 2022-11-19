@@ -28,7 +28,7 @@ One approach is to use [`TimeSpan`][time-span] to perform arithmetic on times.
 Have a look at `DateTime.Parse()` and [`CultureInfo`][culture-info].
 
 [time-overview]: https://docs.microsoft.com/en-us/dotnet/standard/datetime/
-[date-time]: https://docs.microsoft.com/en-us/dotnet/api/system.datetime?view=netcore-3.1
-[time-span]: https://docs.microsoft.com/en-us/dotnet/api/system.timespan?view=netcore-2.0
-[culture-info]: https://docs.microsoft.com/en-us/dotnet/api/system.globalization.cultureinfo?view=netcore-2.0
-[time-zone-info]: https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo?view=netcore-2.0
+[date-time]: https://docs.microsoft.com/en-us/dotnet/api/system.datetime
+[time-span]: https://docs.microsoft.com/en-us/dotnet/api/system.timespan
+[culture-info]: https://docs.microsoft.com/en-us/dotnet/api/system.globalization.cultureinfo
+[time-zone-info]: https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo

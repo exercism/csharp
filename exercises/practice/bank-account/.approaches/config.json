@@ -1,0 +1,21 @@
+{
+  "introduction": {
+    "authors": ["erikschierboom"]
+  },
+  "approaches": [
+    {
+      "uuid": "c7922afa-7ae0-43b6-97e2-58d9bda1f050",
+      "slug": "lock-statement",
+      "title": "Use a lock statement",
+      "blurb": "Use a lock statement to prevent concurrent balance updates.",
+      "authors": ["erikschierboom"]
+    },
+    {
+      "uuid": "b6d6ab21-82bb-4285-a840-5bc209ec9524",
+      "slug": "mutex",
+      "title": "Use a Mutex",
+      "blurb": "Use a Mutex to prevent concurrent balance updates.",
+      "authors": ["erikschierboom"]
+    }
+  ]
+}

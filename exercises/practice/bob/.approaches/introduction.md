@@ -28,40 +28,36 @@ Regardless of the approach used, some things you could look out for include
 ## Approach: `if` statements
 
 ```csharp
-using System.Linq;
-public static class Bob
+public static string Response(string message)
 {
-    public static string Response(string message)
-    {
-        if (IsSilence(message))
-            return "Fine. Be that way!";
+    if (IsSilence(message))
+        return "Fine. Be that way!";
 
-        if (IsYell(message) && IsQuestion(message))
-            return "Calm down, I know what I'm doing!";
+    if (IsYell(message) && IsQuestion(message))
+        return "Calm down, I know what I'm doing!";
 
-        if (IsYell(message))
-            return "Whoa, chill out!";
+    if (IsYell(message))
+        return "Whoa, chill out!";
 
-        if (IsQuestion(message))
-            return "Sure.";
+    if (IsQuestion(message))
+        return "Sure.";
 
-        return "Whatever.";
-    }
+    return "Whatever.";
+}
 
-    private bool IsSilence(string message)
-    {
-        return string.IsNullOrWhiteSpace(message);
-    }
+private bool IsSilence(string message)
+{
+    return string.IsNullOrWhiteSpace(message);
+}
 
-    private bool IsYell(string message)
-    {
-        return message.Any(char.IsLetter) && message.ToUpperInvariant() == message;
-    }
+private bool IsYell(string message)
+{
+    return message.Any(char.IsLetter) && message.ToUpperInvariant() == message;
+}
 
-    private bool IsQuestion(string message)
-    {
-        return message.TrimEnd().EndsWith("?");
-    }
+private bool IsQuestion(string message)
+{
+    return message.TrimEnd().EndsWith("?");
 }
 ```
 
@@ -70,25 +66,20 @@ For more information, check the [`if` statements approach][approach-if].
 ## Approach: `switch` on a `tuple`
 
 ```csharp
-using System.Linq;
+private static bool IsShout(string input) => input.Any(c => char.IsLetter(c)) && input.ToUpper() == input;
 
-public static class Bob
+public static string Response(string statement)
 {
-    private static bool IsShout(string input) => input.Any(c => char.IsLetter(c)) && input.ToUpper() == input;
+    var input = statement.TrimEnd();
+    if (input == "")
+        return "Fine. Be that way!";
 
-    public static string Response(string statement)
+    switch ((input.EndsWith('?'), IsShout(input)))
     {
-        var input = statement.TrimEnd();
-        if (input == "")
-            return "Fine. Be that way!";
-
-        switch ((input.EndsWith('?'), IsShout(input)))
-        {
-            case (true, true): return "Calm down, I know what I'm doing!";
-            case (_, true): return "Whoa, chill out!";
-            case (true, _): return "Sure.";
-            default: return "Whatever.";
-        }
+        case (true, true): return "Calm down, I know what I'm doing!";
+        case (_, true): return "Whoa, chill out!";
+        case (true, _): return "Sure.";
+        default: return "Whatever.";
     }
 }
 ```

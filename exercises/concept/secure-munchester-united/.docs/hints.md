@@ -17,4 +17,4 @@
 [is-operator]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/type-testing-and-cast#is-operator
 [cast-operator]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/type-testing-and-cast#cast-expression
 [typeof-operator]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/type-testing-and-cast#typeof-operator
-[get-type]: https://docs.microsoft.com/en-us/dotnet/api/system.object.gettype?view=netcore-3.1#System_Object_GetType
+[get-type]: https://docs.microsoft.com/en-us/dotnet/api/system.object.gettype

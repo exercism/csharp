@@ -37,12 +37,12 @@
 
 - See this [article][list-sort] on sorting and [this][list-item] on retrieving an item by its index.
 
-[lists-docs]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1?view=netcore-3.1
+[lists-docs]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1
 [lists-tutorial]: https://csharp.net-tutorials.com/collections/lists/
-[list-add]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.add?view=netcore-3.1
-[list-count]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.count?view=netcore-3.1
-[list-contains]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.contains?view=netcore-3.1
-[list-reverse]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.reverse?view=netcore-3.1
-[list-item]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.item?view=netcore-3.1
-[list-remove]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.remove?view=netcore-3.1
-[list-sort]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.sort?view=netcore-3.1
+[list-add]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.add
+[list-count]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.count
+[list-contains]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.contains
+[list-reverse]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.reverse
+[list-item]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.item
+[list-remove]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.remove
+[list-sort]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.sort

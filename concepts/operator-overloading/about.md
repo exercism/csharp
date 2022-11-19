@@ -79,5 +79,5 @@ This documentation of [operator overloading][operator-overloading] details the s
 [operator-overloading]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/operator-overloading
 [ud-conversion-operators]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/user-defined-conversion-operators
 [overloadable-operators]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/operator-overloading#overloadable-operators
-[equals]: https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netcore-3.1#System_Object_Equals_System_Object_
-[icomparable]: https://docs.microsoft.com/en-us/dotnet/api/system.icomparable-1?view=netcore-3.1
+[equals]: https://docs.microsoft.com/en-us/dotnet/api/system.object.equals
+[icomparable]: https://docs.microsoft.com/en-us/dotnet/api/system.icomparable-1
