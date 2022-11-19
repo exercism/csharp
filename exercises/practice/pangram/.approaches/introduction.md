@@ -12,17 +12,11 @@ The occurrence of either the letter `a` or the letter `A` would count as the sam
 ## Approach: `All` with `Contains` on lowercased letters
 
 ```csharp
-using System.Linq;
-
-public static class Pangram
+public static bool IsPangram(string input)
 {
-    private const string Letters = "abcdefghijklmnopqrstuvwxyz";
-    
-    public static bool IsPangram(string input)
-    {
-        var lowerCaseInput = input.ToLower();
-        return Letters.All(letter => lowerCaseInput.Contains(letter));
-    }
+    const string Letters = "abcdefghijklmnopqrstuvwxyz";
+    var lowerCaseInput = input.ToLower();
+    return Letters.All(letter => lowerCaseInput.Contains(letter));
 }
 ```
 
@@ -31,16 +25,9 @@ For more information, check the [`All` with `Contains` on lowercase approach][ap
 ## Approach: `All` with `Contains` using case-insensitive comparison
 
 ```csharp
-using System.Linq;
-
-public static class Pangram
+public static bool IsPangram(string input)
 {
-    private static readonly StringComparison xcase = StringComparison.CurrentCultureIgnoreCase;
-    
-    public static bool IsPangram(string input)
-    {
-        return "abcdefghijklmnopqrstuvwxyz".All(c => input.Contains(c, xcase));
-    }
+    return "abcdefghijklmnopqrstuvwxyz".All(c => input.Contains(c, StringComparison.CurrentCultureIgnoreCase));
 }
 ```
 

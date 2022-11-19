@@ -35,18 +35,15 @@ For more information, check the [Ternary operator approach][approach-ternary-ope
 ## Approach: `switch` on a `tuple`
 
 ```csharp
-public static class Leap
+public static bool IsLeapYear(int year)
 {
-    public static bool IsLeapYear(int year)
+    return (year % 4, year % 100, year % 400) switch
     {
-        return (year % 4, year % 100, year % 400) switch
-        {
-            (_, 0, 0) => true,
-            (_, 0, _) => false,
-            (0, _, _) => true,
-            _ => false,
-        };
-    }
+        (_, 0, 0) => true,
+        (_, 0, _) => false,
+        (0, _, _) => true,
+        _ => false,
+    };
 }
 ```
 
@@ -67,11 +64,11 @@ Use the built-in method for the year. For more information, see the [`DateTime.I
 ## Which approach to use?
 
 - The chain of boolean expressions is most efficient, as it proceeds from the most likely to least likely conditions.
-It has a maximum of three checks.
+  It has a maximum of three checks.
 - The ternary operator has a maximum of only two checks, but it starts from a less likely condition.
 - The `switch` on a `tuple` may be considered more "functional", but it is more verbose and may be considered less readable.
 - Using DateTime addition or using the built-in `IsLeapYear` method may be considered "cheats" for the exercise,
-but `IsLeapYear` would be the idiomatic way to check if a year is a leap year in C#.
+  but `IsLeapYear` would be the idiomatic way to check if a year is a leap year in C#.
 
 For more information, check the [Performance article][article-performance].
 

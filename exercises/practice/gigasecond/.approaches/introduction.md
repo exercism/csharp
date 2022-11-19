@@ -16,12 +16,9 @@ Alternative, scientific notation can be used for a more compact notation: `1e9`.
 ## Approach: `AddSeconds()`
 
 ```csharp
-public static class Gigasecond
+public static DateTime Add(DateTime birthDate)
 {
-    public static DateTime Add(DateTime birthDate)
-    {
-        return birthDate.AddSeconds(1_000_000_000);
-    }
+    return birthDate.AddSeconds(1_000_000_000);
 }
 ```
 
@@ -31,12 +28,9 @@ For more information, check the [`AddSeconds()` approach][approach-add-seconds].
 ## Approach: `TimeSpan`
 
 ```csharp
-public static class Gigasecond
+public static DateTime Add(DateTime birthDate)
 {
-    public static DateTime Add(DateTime birthDate)
-    {
-        return birthDate + TimeSpan.FromSeconds(1_000_000_000);
-    }
+    return birthDate + TimeSpan.FromSeconds(1_000_000_000);
 }
 ```
 
