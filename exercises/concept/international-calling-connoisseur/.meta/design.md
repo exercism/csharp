@@ -42,5 +42,5 @@
 [design-example]: https://github.com/exercism/v3/blob/master/languages/csharp/exercises/concept/numbers/.meta/design.md
 [config.json-example]: https://github.com/exercism/v3/blob/master/languages/csharp/exercises/concept/numbers/.meta/config.json
 [concept-exercises]: https://github.com/exercism/v3/blob/master/docs/concept-exercises.md
-[dictionaries-docs]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=netcore-3.1
+[dictionaries-docs]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2
 [dictionaries-tutorial]: https://csharp.net-tutorials.com/collections/dictionaries/

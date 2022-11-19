@@ -19,6 +19,6 @@
 
 [create-user-defined-exceptions]: https://docs.microsoft.com/en-us/dotnet/standard/exceptions/how-to-create-user-defined-exceptions
 [exception-filters]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/when
-[exception-constructors]: https://docs.microsoft.com/en-us/dotnet/api/system.exception.-ctor?view=netcore-3.1
+[exception-constructors]: https://docs.microsoft.com/en-us/dotnet/api/system.exception.-ctor
 [try-catch]: https://docs.microsoft.com/en-us/dotnet/standard/exceptions/how-to-use-the-try-catch-block-to-catch-exceptions
 [try-catch-when]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/try-catch

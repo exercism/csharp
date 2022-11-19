@@ -30,4 +30,4 @@ This exercise's prerequisites Concepts are:
 - `strings`: dates are parsed from and converted to strings.
 - `classes`: know how to call a constructor.
 
-[docs.microsoft.com-datetime]: https://docs.microsoft.com/en-us/dotnet/api/system.datetime?view=netcore-3.1
+[docs.microsoft.com-datetime]: https://docs.microsoft.com/en-us/dotnet/api/system.datetime

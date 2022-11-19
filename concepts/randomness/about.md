@@ -32,13 +32,13 @@ You are advised not to use `System.Random` for crypto or security. See this [pro
 
 When applied in the context of library APIs "not thread safe" is simply shorthand for saying that, if you are likely to access instances of the class through multiple concurrent [threads][threading], you should provide your own thread synchronization mechanisms or, in the case of collections, look at the possibility of using a concurrent version of the class. In the absence of these precautions, [race conditions][so-race-conditions] are likely to occur. If your code base does not use multiple threads, and is not likely to, then this warning is of little concern.
 
-[system-random]: https://docs.microsoft.com/en-us/dotnet/api/system.random?view=netcore-3.1
-[random-thread-safety]: https://docs.microsoft.com/en-us/dotnet/api/system.random?view=netcore-3.1#the-systemrandom-class-and-thread-safety
-[random-use-cases]: https://docs.microsoft.com/en-us/dotnet/api/system.random?view=netcore-3.1#generate-random-boolean-values
-[random-use-case-array]: https://docs.microsoft.com/en-us/dotnet/api/system.random?view=netcore-3.1#UniqueArray
-[crypto-provider]: https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.rngcryptoserviceprovider?view=netcore-3.1
-[crypto-rng]: https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.randomnumbergenerator?view=netcore-3.1
-[random-seedless]: https://docs.microsoft.com/en-us/dotnet/api/system.random?view=netcore-3.1#instantiating-the-random-number-generator
-[random-multiple-instantiations]: https://docs.microsoft.com/en-us/dotnet/api/system.random?view=netcore-3.1#avoiding-multiple-instantiations
+[system-random]: https://docs.microsoft.com/en-us/dotnet/api/system.random
+[random-thread-safety]: https://docs.microsoft.com/en-us/dotnet/api/system.random
+[random-use-cases]: https://docs.microsoft.com/en-us/dotnet/api/system.random
+[random-use-case-array]: https://docs.microsoft.com/en-us/dotnet/api/system.random
+[crypto-provider]: https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.rngcryptoserviceprovider
+[crypto-rng]: https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.randomnumbergenerator
+[random-seedless]: https://docs.microsoft.com/en-us/dotnet/api/system.random
+[random-multiple-instantiations]: https://docs.microsoft.com/en-us/dotnet/api/system.random
 [so-race-conditions]: https://stackoverflow.com/questions/34510/what-is-a-race-condition
 [threading]: https://docs.microsoft.com/en-us/dotnet/standard/threading/using-threads-and-threading

@@ -8,8 +8,8 @@ Comparing `DateTime` instances can be done using the default comparison operator
 
 An important aspect of dates in C# is that they are culture-dependent. As such, any `DateTime` method that deals with `string`s will be dependent on the current culture. This includes the [`DateTime.Parse()` method][parse] that parses a `string` to a `DateTime`, as well as the `DateTime` class' [`ToString()` method][to-string] that converts a `DateTime` to a `string`.
 
-[parse]: https://docs.microsoft.com/en-us/dotnet/api/system.datetime.parse?view=netcore-3.1#System_DateTime_Parse_System_String_
-[operators]: https://docs.microsoft.com/en-us/dotnet/api/system.datetime?view=netcore-3.1#operators
-[properties]: https://docs.microsoft.com/en-us/dotnet/api/system.datetime?view=netcore-3.1#properties
-[to-string]: https://docs.microsoft.com/en-us/dotnet/api/system.datetime.tostring?view=netcore-3.1
-[methods]: https://docs.microsoft.com/en-us/dotnet/api/system.datetime?view=netcore-3.1#methods
+[parse]: https://docs.microsoft.com/en-us/dotnet/api/system.datetime.parse
+[operators]: https://docs.microsoft.com/en-us/dotnet/api/system.datetime
+[properties]: https://docs.microsoft.com/en-us/dotnet/api/system.datetime
+[to-string]: https://docs.microsoft.com/en-us/dotnet/api/system.datetime.tostring
+[methods]: https://docs.microsoft.com/en-us/dotnet/api/system.datetime

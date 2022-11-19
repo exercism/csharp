@@ -29,4 +29,4 @@
 [constants]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/constants
 [properties]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties
 [defensive-copying]: https://www.informit.com/articles/article.aspx?p=31551&seqNum=2
-[readonly-dictionaries]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.objectmodel.readonlydictionary-2?view=netcore-3.1
+[readonly-dictionaries]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.objectmodel.readonlydictionary-2

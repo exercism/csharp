@@ -41,7 +41,7 @@
 [single-dimensional-arrays]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/arrays/single-dimensional-arrays
 [fields]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/fields
 [static-members]: https://www.oreilly.com/library/view/programming-c/0596001177/ch04s03.html
-[array-indexof]: https://docs.microsoft.com/en-us/dotnet/api/system.array.indexof?view=netcore-3.1#System_Array_IndexOf_System_Array_System_Object_
+[array-indexof]: https://docs.microsoft.com/en-us/dotnet/api/system.array.indexof
 [if-statement]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/if-else
-[array-length]: https://docs.microsoft.com/en-us/dotnet/api/system.array.length?view=netcore-3.1
+[array-length]: https://docs.microsoft.com/en-us/dotnet/api/system.array.length
 [for-statement]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/for

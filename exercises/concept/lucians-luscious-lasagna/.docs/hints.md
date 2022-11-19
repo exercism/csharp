@@ -34,5 +34,5 @@
 [methods]: https://docs.microsoft.com/en-us/dotnet/csharp/methods
 [return]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/return
 [operators]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators#addition-operator-
-[integers]: https://docs.microsoft.com/en-us/dotnet/api/system.int32?view=netcore-3.1#instantiating-an-int32-value
+[integers]: https://docs.microsoft.com/en-us/dotnet/api/system.int32
 [invocation]: https://docs.microsoft.com/en-us/dotnet/csharp/methods#method-invocation

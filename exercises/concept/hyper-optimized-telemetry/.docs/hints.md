@@ -15,5 +15,5 @@
 
 [integral-numeric-types]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types
 [numeric-conversions]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/numeric-conversions
-[bit-converter-get-bytes]: https://docs.microsoft.com/en-us/dotnet/api/system.bitconverter.getbytes?view=netcore-3.1
-[bit-converter-to-type]: https://docs.microsoft.com/en-us/dotnet/api/system.bitconverter.toint16?view=netcore-3.1
+[bit-converter-get-bytes]: https://docs.microsoft.com/en-us/dotnet/api/system.bitconverter.getbytes
+[bit-converter-to-type]: https://docs.microsoft.com/en-us/dotnet/api/system.bitconverter.toint16

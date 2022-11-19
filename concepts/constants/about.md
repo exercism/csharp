@@ -66,5 +66,5 @@ For arrays the closest you can get to a read-only version is the [`Array.AsReadO
 [constants]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/constants
 [so-consts]: https://stackoverflow.com/a/5834473/96167
 [premature-optimization]: https://wiki.c2.com/?PrematureOptimization
-[as-read-only]: https://docs.microsoft.com/en-us/dotnet/api/system.array.asreadonly?view=netcore-3.1
-[readonly-collections]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.objectmodel.readonlycollection-1?view=netcore-3.1
+[as-read-only]: https://docs.microsoft.com/en-us/dotnet/api/system.array.asreadonly
+[readonly-collections]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.objectmodel.readonlycollection-1

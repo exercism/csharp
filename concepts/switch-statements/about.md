@@ -62,4 +62,4 @@ switch(animal)
 [switch-default]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/switch#the-default-case
 [switch-pattern-matching]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/switch#type-pattern
 [switch-when]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/switch#the-case-statement-and-the-when-clause
-[c-switch]: https://docs.microsoft.com/en-us/cpp/c-language/switch-statement-c?view=vs-2019
+[c-switch]: https://docs.microsoft.com/en-us/cpp/c-language/switch-statement-c

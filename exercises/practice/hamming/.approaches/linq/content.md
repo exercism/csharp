@@ -41,4 +41,4 @@ And with that, we have quite concise code that correctly calculates the hamming 
 
 [linq]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/
 [enumerable-zip]: https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.zip
-[enumerable-count]: https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.count?view=net-7.0#system-linq-enumerable-count-1(system-collections-generic-ienumerable((-0))-system-func((-0-system-boolean)))
+[enumerable-count]: https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.count

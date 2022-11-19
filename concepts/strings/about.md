@@ -56,8 +56,8 @@ $"Hello {name}!";
 [verbatim]: https://csharp.net-tutorials.com/data-types/strings/#aelm5298
 [plus-operator]: https://csharp.net-tutorials.com/data-types/strings/#aelm5211
 [escaping]: https://devblogs.microsoft.com/csharpfaq/what-character-escape-sequences-are-available/
-[methods]: https://docs.microsoft.com/en-us/dotnet/api/system.string?view=netcore-3.1#methods
-[properties]: https://docs.microsoft.com/en-us/dotnet/api/system.string?view=netcore-3.1#properties
-[substring]: https://docs.microsoft.com/en-us/dotnet/api/system.string.substring?view=netcore-3.1
-[indexof]: https://docs.microsoft.com/en-us/dotnet/api/system.string.indexof?view=netcore-3.1
-[splitting]: https://docs.microsoft.com/en-us/dotnet/api/system.string.split?view=netcore-3.1
+[methods]: https://docs.microsoft.com/en-us/dotnet/api/system.string
+[properties]: https://docs.microsoft.com/en-us/dotnet/api/system.string
+[substring]: https://docs.microsoft.com/en-us/dotnet/api/system.string.substring
+[indexof]: https://docs.microsoft.com/en-us/dotnet/api/system.string.indexof
+[splitting]: https://docs.microsoft.com/en-us/dotnet/api/system.string.split

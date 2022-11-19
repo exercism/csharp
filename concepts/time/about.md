@@ -37,8 +37,8 @@ In case you were wondering, according to this [Wikipedia article][wiki-utc] the 
 [so-timers]: https://stackoverflow.com/questions/10317088/why-there-are-5-versions-of-timer-classes-in-net
 [skeet-time-of-day]: https://stackoverflow.com/a/2037375/96167
 [time-overview]: https://docs.microsoft.com/en-us/dotnet/standard/datetime/
-[date-time]: https://docs.microsoft.com/en-us/dotnet/api/system.datetime?view=netcore-3.1
+[date-time]: https://docs.microsoft.com/en-us/dotnet/api/system.datetime
 [noda-time]: https://nodatime.org/
 [date-string-formatting]: https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings
-[time-span]: https://docs.microsoft.com/en-us/dotnet/api/system.timespan?view=netcore-2.0
+[time-span]: https://docs.microsoft.com/en-us/dotnet/api/system.timespan
 [wiki-utc]: https://en.wikipedia.org/wiki/Coordinated_Universal_Time

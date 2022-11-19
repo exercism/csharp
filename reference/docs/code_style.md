@@ -38,12 +38,12 @@ The [dotnet format global tool][github.com_dotnet-format-editorconfig-options] c
 [docs.microsoft.com_capitalization-conventions]: https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/capitalization-conventions
 [docs.microsoft.com_general-naming-conventions]: https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/general-naming-conventions
 [docs.microsoft.com_layout-conventions]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/inside-a-program/coding-conventions#layout-conventions
-[docs.microsoft.com_editorconfig]: https://docs.microsoft.com/en-us/visualstudio/ide/create-portable-custom-editor-options?view=vs-2019
-[docs.microsoft.com_editorconfig-formatting-conventions]: https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-formatting-conventions?view=vs-2019
-[docs.microsoft.com_editorconfig-naming-conventions]: https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-naming-conventions?view=vs-2019
+[docs.microsoft.com_editorconfig]: https://docs.microsoft.com/en-us/visualstudio/ide/create-portable-custom-editor-options
+[docs.microsoft.com_editorconfig-formatting-conventions]: https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-formatting-conventions
+[docs.microsoft.com_editorconfig-naming-conventions]: https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-naming-conventions
 [github.com_dotnet-format]: https://github.com/dotnet/format/blob/master/README.md
 [github.com_dotnet-format-editorconfig-options]: https://github.com/dotnet/format/wiki/Supported-.editorconfig-options
 [github.com_dotnet-format-how-to]: https://github.com/dotnet/format/blob/master/README.md#how-to-install
-[docs.microsoft.com_editorconfig-language-keywords]: https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-language-conventions?view=vs-2019#language-keywords
+[docs.microsoft.com_editorconfig-language-keywords]: https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-language-conventions
 [github.com_corefx-coding-style]: https://github.com/dotnet/runtime/blob/master/docs/coding-guidelines/coding-style.md
 [jetbrains.com_built-in-type-naming]: https://www.jetbrains.com/help/resharper/Built_In_Type_Naming.html

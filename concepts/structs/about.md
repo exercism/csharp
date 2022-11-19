@@ -85,11 +85,11 @@ public override int GetHashCode()
 - [class-or-struct][class-or-struct]: lists the guidelines for choosing between a struct and class.
 
 [structs-immutable]: https://stackoverflow.com/a/3753640/96167
-[date-time]: https://docs.microsoft.com/en-us/dotnet/api/system.datetime?view=netcore-3.1
+[date-time]: https://docs.microsoft.com/en-us/dotnet/api/system.datetime
 [operators]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/operator-overloading
 [equality]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/how-to-define-value-equality-for-a-type
 [equality-performance]: https://medium.com/@semuserable/c-journey-into-struct-equality-comparison-deep-dive-9693f74562f1
 [structs]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct
 [class-or-struct]: https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/choosing-between-class-and-struct
-[int32]: https://docs.microsoft.com/en-us/dotnet/api/system.int32?view=netcore-3.1
-[time-span]: https://docs.microsoft.com/en-us/dotnet/api/system.timespan?view=netcore-3.1
+[int32]: https://docs.microsoft.com/en-us/dotnet/api/system.int32
+[time-span]: https://docs.microsoft.com/en-us/dotnet/api/system.timespan

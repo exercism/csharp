@@ -23,9 +23,9 @@
 
 [chars-docs]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/char
 [chars-tutorial]: https://csharp.net-tutorials.com/data-types/the-char-type/
-[string-builder]: https://docs.microsoft.com/en-us/dotnet/api/system.text.stringbuilder?view=netcore-3.1
-[iswhitespace]: https://docs.microsoft.com/en-us/dotnet/api/system.char.iswhitespace?view=netcore-3.1#System_Char_IsWhiteSpace_System_Char_
-[iscontrol]: https://docs.microsoft.com/en-us/dotnet/api/system.char.iscontrol?view=netcore-3.1
-[toupper]: https://docs.microsoft.com/en-us/dotnet/api/system.char.toupper?view=netcore-3.1
+[string-builder]: https://docs.microsoft.com/en-us/dotnet/api/system.text.stringbuilder
+[iswhitespace]: https://docs.microsoft.com/en-us/dotnet/api/system.char.iswhitespace
+[iscontrol]: https://docs.microsoft.com/en-us/dotnet/api/system.char.iscontrol
+[toupper]: https://docs.microsoft.com/en-us/dotnet/api/system.char.toupper
 [equality]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/equality-operators
 [comparison]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/comparison-operators

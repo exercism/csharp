@@ -26,8 +26,7 @@ or
 public static bool IsLeapYear(int year) => (new DateTime(year, 2, 28)).AddDays(1.0).Day == 29;
 ```
 
-
-[add=days]: https://learn.microsoft.com/en-us/dotnet/api/system.datetime.adddays?view=net-7.0
-[day]: https://learn.microsoft.com/en-us/dotnet/api/system.datetime.day?view=net-7.0
-[datetime]: https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-7.0
+[add=days]: https://learn.microsoft.com/en-us/dotnet/api/system.datetime.adddays
+[day]: https://learn.microsoft.com/en-us/dotnet/api/system.datetime.day
+[datetime]: https://learn.microsoft.com/en-us/dotnet/api/system.datetime
 [expression-bodied-member]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members

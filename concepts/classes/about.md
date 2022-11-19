@@ -109,7 +109,7 @@ These [access modifiers][access-modifiers] can be used to further limit visibili
 [camel-case]: https://techterms.com/definition/camelcase
 [pascal-case]: https://techterms.com/definition/pascalcase
 [encapsulation]: https://docs.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/architectural-principles#encapsulation
-[visibility]: https://docs.microsoft.com/en-us/cpp/c-language/scope-and-visibility?view=msvc-160
+[visibility]: https://docs.microsoft.com/en-us/cpp/c-language/scope-and-visibility
 [object-state]: https://cs.stackexchange.com/questions/6536/definition-of-the-state-of-an-object-in-oop
 [so-global-state-problem]: https://softwareengineering.stackexchange.com/questions/148108/why-is-global-state-so-evil
 [access-modifiers]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers

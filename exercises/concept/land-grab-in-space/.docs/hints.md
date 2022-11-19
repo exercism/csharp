@@ -19,6 +19,6 @@
 
 [structs]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct
 [struct-instantiation]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/struct#instantiation-of-a-structure-type
-[get-hash-code]: https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode?view=netcore-3.1#System_Object_GetHashCode
-[sets]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.hashset-1?view=netcore-3.1
-[equals]: https://docs.microsoft.com/en-us/dotnet/api/system.object.equals?view=netcore-3.1#System_Object_Equals_System_Object_
+[get-hash-code]: https://docs.microsoft.com/en-us/dotnet/api/system.object.gethashcode
+[sets]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.hashset-1
+[equals]: https://docs.microsoft.com/en-us/dotnet/api/system.object.equals

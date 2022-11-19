@@ -24,10 +24,10 @@
 - Capture groups are discussed [here][capture-groups].
 
 [regular-expressions]: https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference
-[regex]: https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regex?view=netcore-3.1
-[ismatch]: https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regex.ismatch?view=netcore-3.1
-[split]: https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regex.split?view=netcore-3.1
-[multiple-matches]: https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regex.matches?view=netcore-3.1
-[multi-line]: https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regexoptions?view=netcore-3.1
-[replace]: https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regex.replace?view=netcore-3.1
+[regex]: https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regex
+[ismatch]: https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regex.ismatch
+[split]: https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regex.split
+[multiple-matches]: https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regex.matches
+[multi-line]: https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regexoptions
+[replace]: https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regex.replace
 [capture-groups]: https://docs.microsoft.com/en-us/dotnet/standard/base-types/grouping-constructs-in-regular-expressions
