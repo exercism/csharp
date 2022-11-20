@@ -1,0 +1,21 @@
+{
+  "introduction": {
+    "authors": ["erikschierboom"]
+  },
+  "approaches": [
+    {
+      "uuid": "64981158-4304-4b70-84a0-9675887ab225",
+      "slug": "icomparer",
+      "title": "Use IComparer<T>",
+      "blurb": "Use IComparer<T> to compare hands.",
+      "authors": ["erikschierboom"]
+    },
+    {
+      "uuid": "0d49c2c9-6ec7-4dda-9a23-bb8d77823aea",
+      "slug": "domain-modeling",
+      "title": "Use domain modeling",
+      "blurb": "Use domain modeling to properly model poker hands.",
+      "authors": ["erikschierboom"]
+    }
+  ]
+}
