@@ -1,0 +1,8 @@
+foreach (var newState in Moves(state))
+{
+    if (newState.Moves >= statesMinMoveCount.GetValueOrDefault(newState.buckets, int.MaxValue))
+        continue;
+
+    statesMinMoveCount[newState.buckets] = newState.Moves;
+    unprocessed.Enqueue(newState, newState.Moves);
+}
