@@ -1,0 +1,21 @@
+{
+  "introduction": {
+    "authors": ["erikschierboom"]
+  },
+  "approaches": [
+    {
+      "uuid": "fa445dab-3f45-451a-adc7-6c798007129b",
+      "slug": "linq",
+      "title": "Use LINQ",
+      "blurb": "Use LINQ to to iterate over the subjects and recite the song.",
+      "authors": ["erikschierboom"]
+    },
+    {
+      "uuid": "17a95b9d-af7a-4e8d-9086-aa4522c21dd9",
+      "slug": "for-loop",
+      "title": "Use a for loop",
+      "blurb": "Use a for loop to to iterate over the subjects and recite the song.",
+      "authors": ["erikschierboom"]
+    }
+  ]
+}
