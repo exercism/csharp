@@ -17,7 +17,7 @@ public static class DifferenceOfSquares
 }
 ```
 
-## `CalculateSquareOfSum()`
+## Method: `CalculateSquareOfSum()`
 
 The square of the sum is defined as: sum all numbers from `1` to the provided `max`, and then square that number.
 
@@ -29,7 +29,7 @@ var sum = max * (max + 1) / 2;
 return sum * sum;
 ```
 
-## `CalculateSumOfSquares()`
+## Method: `CalculateSumOfSquares()`
 
 The calculate the sum of the squares, we can use the following formula: `(max * (max + 1) * ((max * 2) + 1)) / 6`.
 As this has the summation and squaring built-in, we can directly return this formula in code:
@@ -39,7 +39,7 @@ public static int CalculateSumOfSquares(int max) =>
     (max * (max + 1) * ((max * 2) + 1)) / 6;
 ```
 
-## `CalculateDifferenceOfSquares()`
+## Method: `CalculateDifferenceOfSquares()`
 
 The `CalculateDifferenceOfSquares()` method is nothing more than calling the two methods we just created:
 

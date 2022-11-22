@@ -58,7 +58,7 @@ We'll refer to this grade to student mapping as our _roster_, and define a `priv
 private readonly SortedDictionary<int, SortedSet<string>> _roster = new();
 ```
 
-## `Add()`
+## Method: `Add()`
 
 The first step is to prevent a student from being added twice (regardless whether the grade matches).
 We can do that by check if any grade contains that student, and if so, return `false`:
@@ -106,7 +106,7 @@ Finally, we'll need to return `true` to indicate that a new student was added:
 return true;
 ```
 
-## `Roster()`
+## Method: `Roster()`
 
 To get all the students names in the roster, order ascendingly by grade and then by studnet name, we can just iterate over
 
@@ -142,7 +142,7 @@ public IEnumerable<string> Roster() =>
     _roster.Values.SelectMany(students => students);
 ```
 
-## `Grade()`
+## Method: `Grade()`
 
 For the `Grade()` method, we'll have to deal with two cases:
 
