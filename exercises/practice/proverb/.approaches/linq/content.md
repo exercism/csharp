@@ -27,10 +27,10 @@ Before we start writing code, let's examine the structure of the song's lines we
 There are three different situations we have to handle:
 
 1. No subjects: return an empty array
-2. One subject: return an array with one element: "And all for the want of a <SUBJECT>."
-3. Multiple subjects: return an array of length equal to the number of subjects. All but the last line are of the form: "For want of a <SUBJECT> the <NEXT_SUBJECT> was lost.", where "<SUBJECT>" and "<NEXT_SUBJECT>" are adjacent subjects (subjects at index 0 and 1, then 1 and 2, etc.). The last line is of the form "And all for the want of a <FIRST_SUBJECT>.", where "<FIRST_SUBJECT>" is the first subject.
+2. One subject: return an array with one element: "And all for the want of a &lt;SUBJECT&gt;."
+3. Multiple subjects: return an array of length equal to the number of subjects. All but the last line are of the form: "For want of a &lt;SUBJECT&gt; the &lt;NEXT_SUBJECT&gt; was lost.", where "&lt;SUBJECT&gt;" and "&lt;NEXT_SUBJECT&gt;" are adjacent subjects (subjects at index 0 and 1, then 1 and 2, etc.). The last line is of the form "And all for the want of a &lt;FIRST_SUBJECT&gt;.", where "&lt;FIRST_SUBJECT&gt;" is the first subject.
 
-## No subjects
+## Subjects: none
 
 Let's check the number of subjects via the array's `Length` property.
 If the length is equal to `0`, return an empty array:
@@ -51,7 +51,7 @@ if (!subjects.Any())
 As the `!` operator can be easy to miss whilst reading code, try to write code that doesn't use negation (where possible).
 ```
 
-## One subject
+## Subjects: one
 
 The case for one subject is easy enough:
 
@@ -69,7 +69,7 @@ if (subjects.Length == 1)
 
 This has the benefit of being more expressive _and_ would also work for collection that don't implement the `ICollection<T>` interface (e.g. `IEnumerable<T>`).
 
-## Multiple subjects
+## Subjects: multiple
 
 Handling multiple subjects is where the fun begins!
 To reiterate, there will be one line in the returned array for each adjacent subject pair.
@@ -120,7 +120,7 @@ subjects
 
 ### And all for the want of a ...
 
-The last line is of the form: "And all for the want of a <FIRST_SUBJECT>.", which translates to:
+The last line is of the form: "And all for the want of a &lt;FIRST_SUBJECT&gt;.", which translates to:
 
 ```csharp
 $"And all for the want of a {subjects.First()}."
