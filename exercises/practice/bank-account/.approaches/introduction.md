@@ -98,7 +98,7 @@ They do offer different levels of concurrency guarantees though.
 Locks offer protection against concurrent access via threads, but mutexes even offer protection against concurrent access via processes.
 ```
 
-[approach-recursion]: https://exercism.org/tracks/csharp/exercises/bank-account/approaches/lock-statement
+[approach-lock-statement]: https://exercism.org/tracks/csharp/exercises/bank-account/approaches/lock-statement
 [approach-mutex]: https://exercism.org/tracks/csharp/exercises/bank-account/approaches/mutex
 [lock-statement]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/lock
 [mutex]: https://learn.microsoft.com/en-us/dotnet/api/system.threading.mutex
