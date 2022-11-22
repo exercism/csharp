@@ -31,7 +31,7 @@ There are three different situations we have to handle:
 2. One subject: return an array with one element: "And all for the want of a <SUBJECT>."
 3. Multiple subjects: return an array of length equal to the number of subjects. All but the last line are of the form: "For want of a <SUBJECT> the <NEXT_SUBJECT> was lost.", where "<SUBJECT>" and "<NEXT_SUBJECT>" are adjacent subjects (subjects at index 0 and 1, then 1 and 2, etc.). The last line is of the form "And all for the want of a <FIRST_SUBJECT>.", where "<FIRST_SUBJECT>" is the first subject.
 
-## No subjects
+## Subjects: none
 
 Let's check the number of subjects via the array's `Length` property.
 If the length is equal to `0`, return an empty array:
@@ -41,7 +41,7 @@ if (subjects.Length == 0)
     return Array.Empty<string>();
 ```
 
-## One subject
+## Subjects: one
 
 To implement the case for one subject, we can just return an array with one element that has the correct structure:
 
@@ -49,7 +49,7 @@ To implement the case for one subject, we can just return an array with one elem
 return new[] { $"And all for the want of a {subjects[0]}." };
 ```
 
-## Multiple subjects
+## Subjects: multiple
 
 Handling multiple subjects is where the fun begins!
 
