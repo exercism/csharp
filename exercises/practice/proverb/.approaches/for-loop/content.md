@@ -28,8 +28,8 @@ Before we start writing code, let's examine the structure of the song's lines we
 There are three different situations we have to handle:
 
 1. No subjects: return an empty array
-2. One subject: return an array with one element: "And all for the want of a <SUBJECT>."
-3. Multiple subjects: return an array of length equal to the number of subjects. All but the last line are of the form: "For want of a <SUBJECT> the <NEXT_SUBJECT> was lost.", where "<SUBJECT>" and "<NEXT_SUBJECT>" are adjacent subjects (subjects at index 0 and 1, then 1 and 2, etc.). The last line is of the form "And all for the want of a <FIRST_SUBJECT>.", where "<FIRST_SUBJECT>" is the first subject.
+2. One subject: return an array with one element: "And all for the want of a &lt;SUBJECT&gt;."
+3. Multiple subjects: return an array of length equal to the number of subjects. All but the last line are of the form: "For want of a &lt;SUBJECT&gt; the &lt;NEXT_SUBJECT&gt; was lost.", where "&lt;SUBJECT&gt;" and "&lt;NEXT_SUBJECT&gt;" are adjacent subjects (subjects at index 0 and 1, then 1 and 2, etc.). The last line is of the form "And all for the want of a &lt;FIRST_SUBJECT&gt;.", where "&lt;FIRST_SUBJECT&gt;" is the first subject.
 
 ## Subjects: none
 
@@ -93,7 +93,7 @@ for (int i = 0; i < subjects.Length - 1; i++)
 
 ### And all for the want of a ...
 
-The last line is of the form: "And all for the want of a <FIRST_SUBJECT>.", which translates to:
+The last line is of the form: "And all for the want of a &lt;FIRST_SUBJECT&gt;.", which translates to:
 
 ```csharp
 lines[lines.Length - 1] = $"And all for the want of a {subjects[0]}."
