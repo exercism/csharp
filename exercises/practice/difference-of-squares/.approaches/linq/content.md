@@ -26,7 +26,7 @@ private static int Square(int number) => number * number;
 
 Having this method will allow us to write more concise code later on.
 
-## `CalculateSquareOfSum()`
+## Method: `CalculateSquareOfSum()`
 
 The square of the sum is defined as: sum all numbers from `1` to the provided `max`, and then square that number.
 
@@ -49,7 +49,7 @@ public static int CalculateSquareOfSum(int max) =>
     Square(Enumerable.Range(1, max).Sum());
 ```
 
-## `CalculateSumOfSquares()`
+## Method: `CalculateSumOfSquares()`
 
 The calculate the sum of the squares, we once again start out with creating an enumerable of the numbers from `1` to `max`:
 
@@ -87,7 +87,7 @@ public static int CalculateSumOfSquares(int max) =>
     Enumerable.Range(1, max).Sum(Square);
 ```
 
-## `CalculateDifferenceOfSquares()`
+## Method: `CalculateDifferenceOfSquares()`
 
 The `CalculateDifferenceOfSquares()` method is nothing more than calling the two methods we just created:
 

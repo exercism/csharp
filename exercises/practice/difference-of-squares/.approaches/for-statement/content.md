@@ -28,7 +28,7 @@ public static class DifferenceOfSquares
 }
 ```
 
-## `CalculateSquareOfSum()`
+## Method: `CalculateSquareOfSum()`
 
 The square of the sum is defined as: sum all numbers from `1` to the provided `max`, and then square that number.
 
@@ -51,7 +51,7 @@ The last step is to run the square of the sum:
 return sum * sum;
 ```
 
-## `CalculateSumOfSquares()`
+## Method: `CalculateSumOfSquares()`
 
 The calculate the sum of the squares, we once again start out with creating an enumerable of the numbers from `1` to `max`:
 
@@ -74,7 +74,7 @@ The last step is to run the sum of the squares:
 return sumOfSquares;
 ```
 
-## `CalculateDifferenceOfSquares()`
+## Method: `CalculateDifferenceOfSquares()`
 
 The `CalculateDifferenceOfSquares()` method is nothing more than calling the two methods we just created:
 
