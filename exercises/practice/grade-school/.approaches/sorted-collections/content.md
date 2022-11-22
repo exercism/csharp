@@ -167,7 +167,7 @@ For this pattern, you should instead use `TryGetValue()`, which returns a `bool`
 ```
 
 ```exercism/note
-We're using [`Enumerable.Empty<string>()`])(https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.empty), which is best practice when returning an empty enumerable (for performance reasons).
+We're using [`Enumerable.Empty<string>()`](https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.empty), which is best practice when returning an empty enumerable (for performance reasons).
 ```
 
 With this knowledge, let's rewrite out method a bit:
