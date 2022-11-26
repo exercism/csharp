@@ -1,102 +1,61 @@
 # Introduction
 
-TODO
+While this exercise might appear straightforward, an implementation has to deal with some edge cases (like a low ace straight).
 
 ## General guidance
 
-TODO
+- Define a straight flush using the logic to define a straight and a flush
 
-## Approach: `while` loop
+## Approach: integer score
 
 ```csharp
-public static int Steps(int number)
+record Hand(Card[] Cards)
 {
-    if (number <= 0)
-        throw new ArgumentOutOfRangeException(nameof(number));
+    public int Score => CategoryRanks.Prepend(CategoryScore).Aggregate((total, value) => total * 14 + value);
 
-    var currentNumber = number;
-    var stepCount = 0;
-
-    while (currentNumber != 1)
-    {
-        if (currentNumber % 2 == 0)
-            currentNumber = currentNumber / 2;
-        else
-            currentNumber = currentNumber * 3 + 1;
-
-        stepCount++;
-    }
-
-    return stepCount;
+    private int CategoryScore =>
+        IsStraightFlush ? 9 :
+        IsFourOfAKind ? 8 :
+        IsFullHouse ? 7 :
+        IsFlush ? 6 :
+        IsStraight ? 5 :
+        IsThreeOfAKind ? 4 :
+        IsTwoPair ? 3 :
+        IsOnePair ? 2 :
+        1;
 }
 ```
 
-This approach uses a [`while` loop][while] to check and update the current number after applying the algorithm to it.
-For more information, check the [`while` loop approach][approach-while-loop].
+This approach assign a single integer score to each hand, which makes finding the best hand(s) quite straightforward.
+For more information, check the [integer score approach][approach-icomparer].
 
-## Approach: recursion
+## Approach: `IComparer<T>`
 
 ```csharp
-public static int Steps(int number)
+private enum Category { HighCard, OnePair, TwoPair, ThreeOfAKind, Straight, Flush, FullHouse, FourOfAKind, StraightFlush }
+
+record Hand(Card[] Cards) : IComparable<Hand>
 {
-    if (number <= 0)
-        throw new ArgumentOutOfRangeException(nameof(number));
-
-    return Steps(number, stepCount: 0);
-}
-
-private static int Steps(int number, int stepCount)
-{
-    if (number == 1)
-        return stepCount;
-
-    if (number % 2 == 0)
-        return Steps(number / 2, stepCount + 1);
-
-    return Steps(number * 3 + 1, stepCount + 1);
+    public int CompareTo(Hand other) =>
+        Category.CompareTo(other.Category) switch
+        {
+            < 0 => -1,
+            > 0 => 1,
+            0 => CategoryRanks.CompareTo(other.CategoryRanks)
+        };
 }
 ```
 
-This approach uses a recursion to calculate the steps, with each call to `Steps(int number, int stepCount)` representing a single application of the algorithm.
-For more information, check the [recursion approach][approach-recursion].
-
-### Approach: sequence
-
-```csharp
-public static int Steps(int number)
-{
-    if (number <= 0)
-        throw new ArgumentOutOfRangeException(nameof(number));
-
-    return Sequence(number).Count();
-}
-
-private static IEnumerable<int> Sequence(int number)
-{
-    var currentNumber = number;
-
-    while (currentNumber != 1)
-    {
-        if (currentNumber % 2 == 0)
-            currentNumber = currentNumber / 2;
-        else
-            currentNumber = currentNumber * 3 + 1;
-
-        yield return currentNumber;
-    }
-}
-```
-
-This approach creates a (lazy) sequence of the numeric values that one gets by repeated application of the algorithm (using a while loop).
-It then counts that sequence to get the number of steps.
-For more information, check the [sequence approach][approach-sequence].
+This approach implements the [`IComparer<T>` interface][icomparer] to compare hands.
+For more information, check the [`IComparer<T>` approach][approach-icomparer].
 
 ## Which approach to use?
 
-The difference between the three approaches is mostly cosmetic, so what approach you prefer comes down to personal preference.
+What approach to choose depends a bit on how one would want the code to be used elsewhere.
+The `IComparer<T>` approach model the domain a bit nicer, but the integer score fits well with the mental model of _scoring_ a hand.
+Basically, you should choose whichever approach you prefer.
 
-[approach-recursion]: https://exercism.org/tracks/csharp/exercises/collatz-conjecture/approaches/recursion
-[approach-while-loop]: https://exercism.org/tracks/csharp/exercises/collatz-conjecture/approaches/while-loop
-[approach-sequence]: https://exercism.org/tracks/csharp/exercises/collatz-conjecture/approaches/sequence
-[nameof]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/nameof
-[while]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/iteration-statements#the-while-statement
+[approach-integer-score]: https://exercism.org/tracks/csharp/exercises/poker/approaches/integer-score
+[approach-icomparer]: https://exercism.org/tracks/csharp/exercises/poker/approaches/icomparer
+[icomparer]: https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.icomparer-1
+[list-patterns]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/patterns#list-patterns

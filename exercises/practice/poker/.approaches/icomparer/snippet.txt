@@ -1,8 +1,7 @@
-private static int Steps(int number, int stepCount)
-{
-    if (number == 1)
-        return stepCount;    
-    if (number % 2 == 0)
-        return Steps(number / 2, stepCount + 1);
-    return Steps(number * 3 + 1, stepCount + 1);
-}
+var parsedHands = hands.ToDictionary(hand => hand, Parser.ParseHand);
+var bestHand = parsedHands.Values.Max();
+
+return parsedHands
+    .Where(hand => hand.Value.CompareTo(bestHand) == 0)
+    .Select(hand => hand.Key)
+    .ToArray();

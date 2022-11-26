@@ -1,0 +1,7 @@
+public static IEnumerable<string> BestHands(IEnumerable<string> hands) =>
+    hands.ToLookup(hand => Parser.ParseHand(hand).Score).MaxBy(g => g.Key);
+
+private record Hand(Card[] Cards)
+{
+    public int Score => CategoryRanks.Prepend(CategoryScore).Aggregate((total, value) => total * 14 + value);
+}

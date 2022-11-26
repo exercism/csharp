@@ -12,9 +12,9 @@
     },
     {
       "uuid": "0d49c2c9-6ec7-4dda-9a23-bb8d77823aea",
-      "slug": "domain-modeling",
-      "title": "Use domain modeling",
-      "blurb": "Use domain modeling to properly model poker hands.",
+      "slug": "integer-score",
+      "title": "Score each hand as an integer",
+      "blurb": "Score each hand as an integer.",
       "authors": ["erikschierboom"]
     }
   ]
