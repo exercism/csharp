@@ -1,0 +1,14 @@
+{
+  "introduction": {
+    "authors": ["erikschierboom"]
+  },
+  "approaches": [
+    {
+      "uuid": "ebd226e5-6944-4b49-aa00-84d2821d9539",
+      "slug": "graph-shortest-path",
+      "title": "Shortest path in graph",
+      "blurb": "Model the problem as a graph and use Dijkstra's algorithm to find the shortest path.",
+      "authors": ["erikschierboom"]
+    }
+  ]
+}
