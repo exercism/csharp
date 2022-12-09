@@ -22,5 +22,8 @@
     ]
   },
   "test_runner": false,
+  "representer": {
+    "version": 1
+  },
   "blurb": "Write a function to solve alphametics puzzles."
 }
