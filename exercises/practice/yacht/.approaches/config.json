@@ -1,0 +1,14 @@
+{
+  "introduction": {
+    "authors": ["erikschierboom"]
+  },
+  "approaches": [
+    {
+      "uuid": "52e8cb4a-4724-4cb9-ae29-b614b1617c38",
+      "slug": "linq",
+      "title": "Use LINQ",
+      "blurb": "Use LINQ to score yacht hands.",
+      "authors": ["erikschierboom"]
+    }
+  ]
+}
