@@ -65,6 +65,18 @@ string? name2 = null;
 name2 ?? "George"; // => "George"
 ```
 
+The `??=` operator allows one to assign a default value when the values is 'null':
+
+```csharp
+string? name1 = "Peter";
+name1 ??= "Alexander";
+name1 // => "Peter"
+
+string? name2 = null;
+name2 ??= "George";
+name2 // => "George" 
+```
+
 The `?.` operator allows one to call members safely on a possibly `null` value:
 
 ```csharp
