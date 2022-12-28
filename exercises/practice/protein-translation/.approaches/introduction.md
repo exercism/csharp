@@ -1,3 +1,14 @@
+# Introduction
+
+There are various idiomatic approaches to solve Protein Translation in C#.
+The `Substring()` method could be used with looking values up in either a `Dictionary` or a `switch`.
+Some chained LINQ methods could also use `Substring()` and look the values up in a `Dictionary`.
+The `yield` method could be used with looking values up in either a `Dictionary` or a `switch`.
+
+## General guidance
+
+The objective is to iterate three characters at a time and to stop iterating when a `STOP` codon is received.
+At the time of this writing there is no defensive coding needed to validate codons, but that could change in the future.
 
 ## Approach: `Substring()` with a `Dictionary`
 
@@ -50,6 +61,8 @@ public static class ProteinTranslation
     }
 }
 ```
+
+For more information, check the [`Substring()` with `Dictionary` approach][approach-substring-dict].
 
 ## Approach: `Substring()` with a `switch`
 
@@ -106,6 +119,8 @@ public static class ProteinTranslation
 }
 ```
 
+For more information, check the [`Substring()` with `switch` approach][approach-substring-switch].
+
 ## Approach: LINQ with a `Dictionary`
 
 ```csharp
@@ -146,6 +161,8 @@ public static class ProteinTranslation
  
 }
 ```
+
+For more information, check the [LINQ with `Dictionary` approach][approach-linq-dict].
 
 ## Approach: `yield` with a `Dictionary`
 
@@ -192,6 +209,8 @@ public static class ProteinTranslation
 
 ```
 
+For more information, check the [`yield` with `Dictionary` approach][approach-yield-dict].
+
 ## Approach: `yield` with a `switch`
 
 ```csharp
@@ -234,3 +253,18 @@ public static class ProteinTranslation
     }
 }
 ```
+
+For more information, check the [`yield` with `switch` approach][approach-substring-switch].
+
+# Which approach to use?
+
+The `Substring()` with `switch` approach benchmarked the fastest.
+
+- To compare the performance of the approaches, check out the [Performance article][article-performance].
+
+[approach-substring-dict]: https://exercism.org/tracks/csharp/exercises/protein-translation/approaches/substring-dict
+[approach-substring-switch]: https://exercism.org/tracks/csharp/exercises/protein-translation/approaches/substring-switch
+[approach-linq-dict]: https://exercism.org/tracks/csharp/exercises/protein-translation/approaches/linq-dict
+[approach-yield-dict]: https://exercism.org/tracks/csharp/exercises/protein-translation/approaches/yield-dict
+[approach-yield-switch]: https://exercism.org/tracks/csharp/exercises/protein-translation/approaches/yield-switch
+[article-performance]: https://exercism.org/tracks/csharp/exercises/protein-translation/articles/performance
