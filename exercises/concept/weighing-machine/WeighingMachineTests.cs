@@ -2,6 +2,7 @@ using System;
 using Xunit;
 using Exercism.Tests;
 
+[UseCulture]
 public class WeighingMachineTests
 {
     [Fact]
