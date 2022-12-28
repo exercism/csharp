@@ -7,9 +7,11 @@ using System.Linq;
 
 public static class ProteinTranslation
 {
-    public static string[] Proteins(string strand)
+
+    private static readonly IDictionary<string, string> proteins = new Dictionary<string, string>();
+
+    static ProteinTranslation()
     {
-          IDictionary<string, string> proteins = new Dictionary<string, string>();
           proteins.Add("AUG", "Methionine");
           proteins.Add("UUU", "Phenylalanine");
           proteins.Add("UUC" , "Phenylalanine");
@@ -27,7 +29,10 @@ public static class ProteinTranslation
           proteins.Add("UAA", "STOP");
           proteins.Add("UAG", "STOP");
           proteins.Add("UGA", "STOP");
-  
+    }
+    
+    public static string[] Proteins(string strand)
+    {
         return strand
             .Select((s, i) => i)
             .Where(i => i % 3 == 0)
