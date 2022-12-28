@@ -1,0 +1,8 @@
+public static string[] Proteins(string strand) =>
+   strand.Chunked(3).Select(ToProtein).TakeWhile(protein => protein != "STOP").ToArray();
+
+private static IEnumerable<string> Chunked(this string input, int size)
+{
+    for (var i = 0; i < input.Length; i += size)
+        yield return input[i .. (i + size)];
+}
