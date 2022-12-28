@@ -18,7 +18,7 @@ public class BenchMe
     }
 
     [Benchmark]
-    public string[] ProteinsSubstringMap()
+    public string[] ProteinsSubstringDict()
     {
         var length = strand.Length;
         List<String> proteins = new();
@@ -96,7 +96,7 @@ public class BenchMe
     }
 
     [Benchmark]
-    public string[] ProteinsLinqMap()
+    public string[] ProteinsLinqDict()
     {
         return strand
             .Select((s, i) => i)
@@ -108,7 +108,7 @@ public class BenchMe
 
 
     [Benchmark]
-    public string[] ProteinsYieldMap() =>
+    public string[] ProteinsYieldDict() =>
             strand.Chunked(3).Select(protein => proteins[protein]).TakeWhile(protein => protein != "STOP").ToArray();
 
     private static string ToProtein(string input) =>
