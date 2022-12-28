@@ -13,6 +13,14 @@ public class WeighingMachineTests
     }
 
     [Fact]
+    [Task(1)]
+    public void Get_Precision_1()
+    {
+        var wm = new WeighingMachine(precision: 1);
+        Assert.Equal(1, wm.Precision);
+    }
+
+    [Fact]
     [Task(2)]
     public void Set_weight_and_get_weight()
     {
@@ -37,6 +45,16 @@ public class WeighingMachineTests
         wm.Weight = 100.770;
         wm.TareAdjustment = 10;
         Assert.Equal("90.770 kg", wm.DisplayWeight);
+    }
+
+    [Fact]
+    [Task(4)]
+    public void Apply_tare_adjustment_and_get_display_weight_with_precision_1()
+    {
+        var wm = new WeighingMachine(precision: 1);
+        wm.Weight = 100.770;
+        wm.TareAdjustment = 10;
+        Assert.Equal("90.8 kg", wm.DisplayWeight);
     }
 
     [Fact]
