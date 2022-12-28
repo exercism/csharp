@@ -50,7 +50,7 @@ public static class ProteinTranslation
 }
 ```
 
-The approach begins by defining a [private][private], [static][static], [readonly][readonly] [`Dictionary`][dictionary] for translating the codons to proteins.
+The approach begins by defining a [`private`][private], [`static`][static], [`readonly`][readonly] [`Dictionary`][dictionary] for translating the codons to proteins.
 It is private because it isn't needed outside the class.
 It is static because only one is needed to serve every instance of the class.
 It is readonly because, although it has interior mutability (meaning its elements can change),
@@ -66,6 +66,7 @@ While there are still characters left to iterate, a codon is set from a [`Substr
 The matching protein for the codon is looked up from the `Dictionary` and is tested in a [`switch`][switch].
 If the codon was a `STOP` codon then [`break`][break] is used to exit the loop.
 If not, then the protein is added to the `List`.
+
 After the loop is finished, the `List`'s [`ToArray()`][toarray] method is used to return an array of the matched proteins from the method.
 
 [private]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/private
