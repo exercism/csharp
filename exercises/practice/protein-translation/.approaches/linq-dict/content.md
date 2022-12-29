@@ -66,9 +66,7 @@ For a strand of six characters, the first surviving index will be `0`, since `0`
 and the `Substring()` will get the characters from positions `0` through `2`.
 The next surviving index will be `3`, since `3` divided by `3` has a remainder of `0`,
 and the `Substring()` will get the characters from positions `3` through `5`.
-These substrings are the codons that will eventually be used to lookup their matching proteins in the `Dictionary`.
-
-The substring/codon is used as the key to look up its matching codon in the `Dictionary`.
+These substrings are the codons that are used as the key to lookup their matching proteins in the `Dictionary`.
 
 Each matching protein is chained from the output of `Select()` to the input of the [`TakeWhile()`][takewhile] method,
 which filters the proteins in a lambda based on whether the protein is a `STOP` codon.
