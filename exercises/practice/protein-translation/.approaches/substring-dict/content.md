@@ -64,7 +64,7 @@ The `Proteins()` method starts by defining a [`List`][list] and a couple of vari
 
 While there are still characters left to iterate, a codon is set from a [`Substring()`][substring] of the input strand.
 The matching protein for the codon is looked up from the `Dictionary` and is tested in a [`switch`][switch].
-If the codon was a `STOP` codon then [`break`][break] is used to exit the loop.
+If the codon was a `STOP` codon, then [`break`][break] is used to exit the loop.
 If not, then the protein is added to the `List`.
 
 After the loop is finished, the `List`'s [`ToArray()`][toarray] method is used to return an array of the matched proteins from the method.
