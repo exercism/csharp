@@ -99,7 +99,7 @@ public class BenchMe
     public string[] ProteinsLinqDict()
     {
         return strand
-            .Select((s, i) => i)
+            .Select((_, i) => i)
             .Where(i => i % 3 == 0)
             .Select(i => strand.Substring(i, 3))
             .TakeWhile(s => proteins[s] != "STOP")
