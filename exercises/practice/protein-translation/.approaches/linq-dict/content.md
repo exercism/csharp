@@ -36,9 +36,9 @@ public static class ProteinTranslation
         return strand
             .Select((_, i) => i)
             .Where(i => i % 3 == 0)
-            .Select(i => strand.Substring(i, 3))
-            .TakeWhile(s => proteins[s] != "STOP")
-            .Select(s => proteins[s]).ToArray();
+            .Select(i =>  proteins[strand.Substring(i, 3)])
+            .TakeWhile(protein => protein != "STOP")
+            .ToArray();
     }
  
 }
@@ -68,12 +68,13 @@ The next surviving index will be `3`, since `3` divided by `3` has a remainder o
 and the `Substring()` will get the characters from positions `3` through `5`.
 These substrings are the codons that will eventually be used to lookup their matching proteins in the `Dictionary`.
 
-Each substring/codon is chained to the input of the [`TakeWhile()`][takewhile] method,
-which filters the substrings in a lambda based on whether the protein looked up in the `Dictionary` with the codon is a `STOP` codon.
+The substring/codon is used as the key to look up its matching codon in the `Dictionary`.
+
+Each matching protein is chained from the output of `Select()` to the input of the [`TakeWhile()`][takewhile] method,
+which filters the proteins in a lambda based on whether the protein is a `STOP` codon.
 Unlike `Where()`, once the lambda in `TakeWhile()` encounters a failing lambda condition, it does not continue to iterate, but stops.
 
-The codons that survive the `TakeWhile()` are chained into the input of `Select()` where each codon is looked up again
- and the matching proton is chained into the input of the `ToArray()` method.
+The proteins that survive the `TakeWhile()` are chained into the input of the `ToArray()` method.
 
 The [`ToArray()`][toarray] method is used to return an array of the matched proteins from the `Proteins()` method.
 
