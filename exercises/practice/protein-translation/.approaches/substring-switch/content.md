@@ -58,12 +58,13 @@ The `Proteins()` method starts by defining a [`List`][list] and a couple of vari
 While there are still characters left to iterate, a codon is set from a [`Substring()`][substring] of the input strand.
 The matching protein for the codon is looked up from the [`private`][private], [`static`][static] `ToProteins()` method.
 It is `private` because it isn't needed outside the class.
-It is `static` because it doesn't use any state from an instantiated object, so it does not need to be copied to every object.
+It is `static` because it doesn't use any state from an instantiated object, so it does not need to be copied to every object,
+but remains with the class.
 
 The `ToProteins()` uses a [`switch`][switch] to look up and return the matching protein for the codon.
 
 The returned protein is tested in a [`switch`][switch].
-If the codon was a `STOP` codon then [`break`][break] is used to exit the loop.
+If the codon was a `STOP` codon, then [`break`][break] is used to exit the loop.
 If not, then the protein is added to the `List`.
 
 After the loop is finished, the `List`'s [`ToArray()`][toarray] method is used to return an array of the matched proteins from the method.
