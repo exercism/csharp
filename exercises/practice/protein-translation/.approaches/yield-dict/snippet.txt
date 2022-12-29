@@ -1,5 +1,5 @@
 public static string[] Proteins(string strand) =>
-    strand.Chunked(3).Select(protein => proteins[protein]).TakeWhile(protein => protein != "STOP").ToArray();
+    strand.Chunked(3).Select(codon => proteins[codon]).TakeWhile(protein => protein != "STOP").ToArray();
 
 private static IEnumerable<string> Chunked(this string input, int size)
 {
