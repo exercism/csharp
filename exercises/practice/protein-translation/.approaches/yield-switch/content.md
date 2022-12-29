@@ -51,7 +51,8 @@ The output of `Chunked()` is chained to the input of the [LINQ][linq] [`Select()
 Inside the body of `Select()` is a [lambda][lambda] function which takes the codon chunk as an argument
 and passes it as an argument to the [`private`][private], [`static`][static] `ToProtein` method.
 It is private because it isn't needed outside the class.
-It is `static` because it doesn't use any state from an instantiated object, so it does not need to be copied to every object.
+It is `static` because it doesn't use any state from an instantiated object, so it does not need to be copied to every object,
+but remains with the class.
 Inside `ToProtein()` it uses a [`switch`][switch] to look up and return the matching protein for the codon.
 
 Each matching protein is chained from the output of `Select()` to the input of the [`TakeWhile()`][takewhile] method,
