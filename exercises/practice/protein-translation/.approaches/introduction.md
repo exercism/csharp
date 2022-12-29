@@ -159,9 +159,9 @@ public static class ProteinTranslation
         return strand
             .Select((_, i) => i)
             .Where(i => i % 3 == 0)
-            .Select(i => strand.Substring(i, 3))
-            .TakeWhile(s => proteins[s] != "STOP")
-            .Select(s => proteins[s]).ToArray();
+            .Select(i =>  proteins[strand.Substring(i, 3)])
+            .TakeWhile(protein => protein != "STOP")
+            .ToArray();
     }
  
 }
@@ -202,7 +202,7 @@ public static class ProteinTranslation
     }
 
     public static string[] Proteins(string strand) =>
-        strand.Chunked(3).Select(protein => proteins[protein]).TakeWhile(protein => protein != "STOP").ToArray();
+        strand.Chunked(3).Select(codon => proteins[codon]).TakeWhile(protein => protein != "STOP").ToArray();
 
     private static IEnumerable<string> Chunked(this string input, int size)
     {
