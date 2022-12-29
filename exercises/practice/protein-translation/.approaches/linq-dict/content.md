@@ -52,7 +52,7 @@ the `Dictionary` variable itself will not be assigned to another `Dictionary`.
 
 The [static constructor][static-constructor] loads the `Dictionary` from the codons and their matching protein.
 
-The `Proteins()` method starts by defining calling the [LINQ][linq] [`Select()`][select] method to iterate the characters of the input strand.
+The `Proteins()` method starts by calling the [LINQ][linq] [`Select()`][select] method to iterate the characters of the input strand.
 Inside the body of the `Select()` is a [lambda][lambda] function that take two arguments: the character and its index.
 Since the character isn't used, it is represented by a [discard][discard] (`_`).
 
