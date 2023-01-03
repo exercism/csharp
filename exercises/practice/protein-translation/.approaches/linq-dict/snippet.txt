@@ -1,0 +1,6 @@
+return strand
+    .Select((_, i) => i)
+    .Where(i => i % 3 == 0)
+    .Select(i =>  proteins[strand.Substring(i, 3)])
+    .TakeWhile(protein => protein != "STOP")
+    .ToArray();

@@ -1,0 +1,43 @@
+{
+  "introduction": {
+    "authors": ["bobahop"],
+    "contributors": []
+  },
+  "approaches": [
+    {
+      "uuid": "63220016-5918-4c96-ac44-82196df58da3",
+      "slug": "substring-dict",
+      "title": "Substring with Dictionary",
+      "blurb": "Iterate Substrings with Dictionary.",
+      "authors": ["bobahop"]
+    },
+    {
+      "uuid": "8f8a9272-74d7-47f7-8d66-e4b280c67de5",
+      "slug": "substring-switch",
+      "title": "Switch on a tuple",
+      "blurb": "Iterate Substrings with switch.",
+      "authors": ["bobahop"]
+    },
+    {
+      "uuid": "2a050672-c9ac-40e7-a836-9a844f8811e8",
+      "slug": "linq-dict",
+      "title": "LINQ with Dictionary",
+      "blurb": "Use LINQ with Dictionary.",
+      "authors": ["bobahop"]
+    },
+    {
+      "uuid": "07202257-f3b8-4008-b661-91234f26a6ff",
+      "slug": "yield-dict",
+      "title": "yield with Dictionary",
+      "blurb": "Iterate using yield with Dictionary.",
+      "authors": ["bobahop"]
+    },
+    {
+      "uuid": "621d443b-74a7-48d9-8339-7f1fcec53a15",
+      "slug": "yield-switch",
+      "title": "yield with switch",
+      "blurb": "Iterate using yield with switch.",
+      "authors": ["bobahop"]
+    }
+  ]
+}
