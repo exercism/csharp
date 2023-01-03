@@ -1,8 +1,8 @@
 while (endIndex <= length)
-  {
-      var codon = strand.Substring(endIndex - 3, 3);
-      var protein = lookup[codon];
-      switch (protein)
-      {
-          case "STOP":
-              return proteins.ToArray();
+{
+    var codon = strand.Substring(endIndex - 3, 3);
+    var protein = lookup[codon];
+    switch (protein)
+    {
+        case "STOP":
+            return proteins.ToArray();
