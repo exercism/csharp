@@ -35,7 +35,7 @@ cth.TestMultiplication(6, 7);
 
 ## 4. Test the multiplication operation for negative inputs
 
-Modify the `CalculatorTestHarness.TestMultiplication()` method so that `"Multiply failed for negative operands. <INNER_EXCEPTION_MESSAGE>"`is returned if both integer arguments are negative (less than zero).
+Modify the `CalculatorTestHarness.TestMultiplication()` method so that `"Multiply failed for negative operands. <INNER_EXCEPTION_MESSAGE>"`is returned if both integer arguments are negative (less than zero) when the CalculationException is thrown.
 
 The `<INNER_EXCEPTION_MESSAGE>` placeholder should be replaced with the `CalculationException`'s inner exception's message.
 
@@ -47,7 +47,7 @@ cth.TestMultiplication(-2, -Int32.MaxValue);
 
 ## 5. Test the multiplication operation for positive inputs
 
-Modify the `CalculatorTestHarness.TestMultiplication()` method so that `"Multiply failed for mixed or positive operands. <INNER_EXCEPTION_MESSAGE>"` is returned if at least one of the integer arguments is not negative.
+Modify the `CalculatorTestHarness.TestMultiplication()` method so that `"Multiply failed for mixed or positive operands. <INNER_EXCEPTION_MESSAGE>"` is returned if at least one of the integer arguments is not negative when the CalculationException is thrown.
 
 The `<INNER_EXCEPTION_MESSAGE>` placeholder should be replaced with the `CalculationException`'s inner exception's message.
 
