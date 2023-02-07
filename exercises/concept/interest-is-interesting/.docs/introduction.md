@@ -1,5 +1,19 @@
 # Introduction
 
+## Do While Loops
+
+A less commonly used alternative to the above syntax is a `do-while` loop:
+
+```csharp
+int x = 23;
+
+do
+{
+    // Execute logic if x > 10
+    x = x - 2;
+} while (x > 10)
+```
+
 ## Floating Point Numbers
 
 A floating-point number is a number with zero or more digits behind the decimal separator. Examples are `-2.4`, `0.1`, `3.14`, `16.984025` and `1024.0`.
@@ -26,18 +40,4 @@ while (x > 10)
     // Execute logic if x > 10
     x = x - 2;
 }
-```
-
-## Do While Loops
-
-A less commonly used alternative to the above syntax is a `do-while` loop:
-
-```csharp
-int x = 23;
-
-do
-{
-    // Execute logic if x > 10
-    x = x - 2;
-} while (x > 10)
 ```

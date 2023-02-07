@@ -1,5 +1,7 @@
 # Introduction
 
+## Object Initializers
+
 Object initializers are an alternative to constructors. The syntax is illustrated below. You provide a comma separated list of name-value pairs separated with `=` within curly brackets:
 
 ```csharp
@@ -18,7 +20,7 @@ Collections can also be initialized in this way. Typically, this is accomplished
 IList<Person> people = new List<Person>{ new Person(), new Person{Name="Joe Shmo"}};
 ```
 
-Dictionaries use the following syntax:
+Dictinaries use the following syntax:
 
 ```csharp
 IDictionary<int, string> numbers = new Dictionary<int, string>{ [0] = "zero", [1] = "one"...};
