@@ -1,0 +1,5 @@
+# Introduction
+
+## Properties
+
+%{concept:properties}

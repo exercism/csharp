@@ -1,0 +1,5 @@
+# Introduction
+
+## Namespaces
+
+%{concept:namespaces}

@@ -1,11 +1,13 @@
 # Introduction
 
+## Constructors
+
 Creating an instance of a _class_ is done by calling its _constructor_ through the `new` operator. A constructor is a special type of method whose goal is to initialize a newly created instance. Constructors look like regular methods, but without a return type and with a name that matches the classes' name.
 
 ```csharp
 class Library
 {
-    private books;
+    private int books;
 
     public Library()
     {

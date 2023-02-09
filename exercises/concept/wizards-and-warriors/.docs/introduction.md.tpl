@@ -1,0 +1,5 @@
+# Introduction
+
+## Inheritance
+
+%{concept:inheritance}

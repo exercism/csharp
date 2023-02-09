@@ -21,6 +21,10 @@ public MyClass(int num)
 }
 ```
 
+## Defensive Copying
+
+In security sensitive situations (or even simply on a large code-base where developers have different priorities and agendas) you should avoid allowing a class's public API to be circumvented by accepting and storing a method's mutable parameters or by exposing a mutable member of a class through a return value or as an `out` parameter.
+
 ## Readonly Collections
 
 While the `readonly` modifier prevents the value or reference in a field from being overwritten, it offers no protection for the members of a reference type.
@@ -41,7 +45,3 @@ The Base Class Library (BCL) provides some readonly versions of collections wher
 
 - `ReadOnlyDictionary<T>` exposes a `Dictionary<T>` as read-only.
 - `ReadOnlyCollection<T>` exposes a `List<T>` as read-only.
-
-## Defensive Copying
-
-In security sensitive situations (or even simply on a large code-base where developers have different priorities and agendas) you should avoid allowing a class's public API to be circumvented by accepting and storing a method's mutable parameters or by exposing a mutable member of a class through a return value or as an `out` parameter.
