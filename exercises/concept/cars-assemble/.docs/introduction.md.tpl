@@ -1,9 +1,9 @@
 # Introduction
 
-## If Statements
-
-%{concept:if-statements}
-
 ## Numbers
 
 %{concept:numbers}
+
+## If Statements
+
+%{concept:if-statements}

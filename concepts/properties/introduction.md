@@ -26,7 +26,7 @@ The basic syntax to express properties can take two forms:
 private int myField;
 public int MyProperty
 {
-    get { return myfField; }
+    get { return myField; }
     set { myField = value; }
 }
 ```
