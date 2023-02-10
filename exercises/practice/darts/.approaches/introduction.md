@@ -22,8 +22,8 @@ public static int Score(double x, double y)
 }
 ```
 
-This approach uses an [`if`-statement][if-statement] for the "distance from center" checks.
-For more information, check the [`if`-statement approach][approach-if-statement].
+This approach uses an [`if` statements][if-statements] for the "distance from center" checks.
+For more information, check the [`if` statements approach][approach-if-statements].
 
 ## Approach: `switch` expression
 
@@ -47,8 +47,8 @@ For more information, check the [`switch` expression approach][approach-switch-e
 
 Which to use is pretty much a matter of personal preference.
 
-[approach-if-statement]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches/if-statement
-[approach-switch-expression]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches/switch-expression
+[approach-if-statements]: https://exercism.org/tracks/csharp/exercises/darts/approaches/if-statements
+[approach-switch-expression]: https://exercism.org/tracks/csharp/exercises/darts/approaches/switch-expression
 [switch-expression]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/switch-expression
 [if-statement]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements#the-if-statement
 [relational-patterns]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/patterns#relational-patterns
