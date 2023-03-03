@@ -21,7 +21,8 @@ var myCar = new Car();
 var yourCar = new Car();
 ```
 
-Fields have a type (defined in camelCase) and can be defined anywhere in a class. Public fields are defined in PascalCase and private fields are defined with camelCase prefixed with an underscore `_`:
+Fields have a type and can be defined anywhere in a class.
+Public fields are defined in PascalCase and private fields are defined in camelCase and prefixed with an underscore `_`:
 
 ```csharp
 class Car
