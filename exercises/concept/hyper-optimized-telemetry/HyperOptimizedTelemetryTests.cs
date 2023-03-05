@@ -210,7 +210,7 @@ public class HyperOptimizedTelemetryTests
     public void FromBuffer_upper_short()
     {
         Assert.Equal(Int16.MaxValue,
-            TelemetryBuffer.FromBuffer(new byte[] { 0xfe, 0xff, 0x7f, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0 }));
+            TelemetryBuffer.FromBuffer(new byte[] { 0x2, 0xff, 0x7f, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0 }));
     }
 
     [Fact]
@@ -218,7 +218,7 @@ public class HyperOptimizedTelemetryTests
     public void FromBuffer_Zero()
     {
         Assert.Equal(0,
-            TelemetryBuffer.FromBuffer(new byte[] { 0xfe, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0 }));
+            TelemetryBuffer.FromBuffer(new byte[] { 0x2, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0 }));
     }
 
     [Fact]
