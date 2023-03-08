@@ -25,16 +25,17 @@ var myCar = new Car();
 var yourCar = new Car();
 ```
 
-[Fields][fields] have a type and a name (defined, by convention, in [camelCase][camel-case]) and can be defined anywhere in a class (defined, again by convention, in [PascalCase][pascal-case]).
+[Fields][fields] have a type and can be defined anywhere in a class.
+Public fields are defined in [PascalCase][pascal-case] and private fields are defined in [camelCase][camel-case] and prefixed with an underscore `_`:
 
 ```csharp
 class Car
 {
     // Accessible by anyone
-    public int weight;
+    public int Weight;
 
     // Only accessible by code in this class
-    private string color;
+    private string _color;
 }
 ```
 
@@ -44,18 +45,18 @@ One can optionally assign an initial value to a field. If a field does _not_ spe
 class Car
 {
     // Will be set to specified value
-    public int weight = 2500;
+    public int Weight = 2500;
 
     // Will be set to default value (0)
-    public int year;
+    public int Year;
 }
 
 var newCar = new Car();
-newCar.weight; // => 2500
-newCar.year;   // => 0
+newCar.Weight; // => 2500
+newCar.Year;   // => 0
 
 // Update value of the field
-newCar.year = 2018;
+newCar.Year = 2018;
 ```
 
 Private fields are usually updated as a side-effect of calling a method. Such methods usually don't return any value, in which case the return type should be [`void`][void]:
@@ -63,12 +64,12 @@ Private fields are usually updated as a side-effect of calling a method. Such me
 ```csharp
 class CarImporter
 {
-    private int carsImported;
+    private int _carsImported;
 
     public void ImportCars(int numberOfCars)
     {
         // Update private field
-        carsImported = carsImported + numberOfCars;
+        _carsImported = _carsImported + numberOfCars;
     }
 }
 ```
