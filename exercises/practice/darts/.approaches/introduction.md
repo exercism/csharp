@@ -22,7 +22,7 @@ public static int Score(double x, double y)
 }
 ```
 
-This approach uses an [`if` statements][if-statements] for the "distance from center" checks.
+This approach uses [`if` statements][if-statement] for the "distance from center" checks.
 For more information, check the [`if` statements approach][approach-if-statements].
 
 ## Approach: `switch` expression
