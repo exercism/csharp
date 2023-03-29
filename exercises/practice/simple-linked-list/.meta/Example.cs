@@ -1,63 +1,49 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 
 public class SimpleLinkedList<T> : IEnumerable<T>
 {
-    public SimpleLinkedList(T value) :
-        this(new[] { value })
-    {
+    private class Node { 
+        public T Value { get; set; }
+        public Node Next { get; set; }
     }
+    
+    private Node head;
 
-    public SimpleLinkedList(IEnumerable<T> values)
+    public SimpleLinkedList() { }
+
+    public SimpleLinkedList(params T[] values)
     {
-        var array = values.ToArray();
-
-        if (array.Length == 0)
-        {
-            throw new ArgumentException("Cannot create tree from empty list");
-        }
-
-        Value = array[0];
-        Next = null;
-
-        foreach (var value in array.Skip(1))
-        {
+        foreach(var value in values) { 
             Add(value);
         }
     }
 
-    public T Value { get; }
-
-    public SimpleLinkedList<T> Next { get; private set; }
-
-    public SimpleLinkedList<T> Add(T value)
+    public void Add(T value)
     {
-        var last = this;
+        var node = new Node { Value = value, Next = this.head };
+        this.head = node;
+    }
 
-        while (last.Next != null)
-        {
-            last = last.Next;
+    public T Remove()
+    {
+        if (this.head == null) { 
+            throw new InvalidOperationException("List is empty!");
         }
-
-        last.Next = new SimpleLinkedList<T>(value);
-
-        return this;
+        var value = head.Value;
+        head = head.Next;
+        return value;
     }
 
     public IEnumerator<T> GetEnumerator()
     {
-        yield return Value;
-
-        foreach (var next in Next?.AsEnumerable() ?? Enumerable.Empty<T>())
-        {
-            yield return next;
+        var current = this.head;
+        while(current != null) { 
+            yield return current.Value;
+            current = current.Next;
         }
     }
 
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        return GetEnumerator();
-    }
+    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 }
