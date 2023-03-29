@@ -41,8 +41,14 @@ public class SimpleLinkedListTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Implements_enumerable()
     {
-        var values = new SimpleLinkedList<int>(2).Add(1).Add(3);
-        Assert.Equal(new[] { 2, 1, 3 }, values);
+        var list = new SimpleLinkedList<int>(2).Add(1);
+        var enumerable = Assert.IsAssignableFrom<IEnumerable<int>>(list);
+        var enumerator = enumerable.GetEnumerator();
+        Assert.True(enumerator.MoveNext());
+        Assert.Equal(2, enumerator.Current);
+        Assert.True(enumerator.MoveNext());
+        Assert.Equal(1, enumerator.Current);
+        Assert.False(enumerator.MoveNext());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
