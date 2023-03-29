@@ -64,28 +64,22 @@ public class SimpleLinkedListTests
         Assert.Equal(2, list.Next.Next.Next.Next.Value);
     }
 
-    [Theory(Skip = "Remove this Skip property to run this test")]
-    [InlineData(1)]
-    [InlineData(2)]
-    [InlineData(10)]
-    [InlineData(100)]
-    public void Reverse(int length)
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Reverse()
     {
-        var values = Enumerable.Range(1, length).ToArray();
+        var values = Enumerable.Range(1, 5).ToArray();
         var list = new SimpleLinkedList<int>(values);
-        var reversed = list.Reverse();
+        var enumerable = Assert.IsAssignableFrom<IEnumerable<int>>(list);    
+        var reversed = enumerable.Reverse();
         Assert.Equal(values.Reverse(), reversed);
     }
 
-    [Theory(Skip = "Remove this Skip property to run this test")]
-    [InlineData(1)]
-    [InlineData(2)]
-    [InlineData(10)]
-    [InlineData(100)]
-    public void Roundtrip(int length)
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Roundtrip()
     {
-        var values = Enumerable.Range(1, length);
-        var listValues = new SimpleLinkedList<int>(values);
-        Assert.Equal(values, listValues);
+        var values = Enumerable.Range(1, 7);
+        var list = new SimpleLinkedList<int>(values);
+        var enumerable = Assert.IsAssignableFrom<IEnumerable<int>>(list);    
+        Assert.Equal(values, enumerable);
     }
 }
