@@ -4,7 +4,8 @@ In this exercise, you are going to help high school sweethearts profess their lo
 
 ## 1. Display the couple's name separated by a heart
 
-Please implement the static `HighSchoolSweethearts.DisplaySingleLine()` method to take 2 names and display them separated by a heart centered in a 61 character line.
+Please implement the static `HighSchoolSweethearts.DisplaySingleLine()` method to take two names and display them separated by a heart.
+The formatted text should be 61 characters wide, with the heart in the center of the string.
 
 All names are guaranteed to fit well within the width of the line.
 
