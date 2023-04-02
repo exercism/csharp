@@ -1,6 +1,1 @@
-```csharp
-bool IsPalindrome(int number)
-{
-    /* Let's implement it! */
-}
-```
+*I don't really know what this file is for, but the github action is failing without it*
