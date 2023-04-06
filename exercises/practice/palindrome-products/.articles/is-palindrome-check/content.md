@@ -5,7 +5,7 @@ Most of them require us to check if a given number is a palindrome.
 
 There are multiple ways to do it in C# and we will look at them in this article. 
 
-## String reversal method
+## The string reversal method
 
 Possibly the most obvious solution is to treat a number as a string of characters
 and reverse it. Let's have a look:
@@ -40,7 +40,7 @@ private static bool IsPalindrome(int number)
 =>  $"{number}".Equals(new String($"{number}".Reverse().ToArray()));
 ```
 
-## List of digits method
+## The list of digits method
 
 Another approach is to use [modulo division](https://en.wikipedia.org/wiki/Modulo)
 to extract individual digits from the least significant to the most significant. 
@@ -67,7 +67,8 @@ And now the same in code:
 ```csharp
 using System.Collections.Generic;
 
-private static bool IsPalindrome(int number) { 
+private static bool IsPalindrome(int number)
+{ 
     var original = number;
     var digits = new List<int>();
     
@@ -85,14 +86,15 @@ private static bool IsPalindrome(int number) {
 }
 ```
 
-## Pure math method
+## The pure math method
 
 The list in the above code helps us to see what is going on. 
 The numbers are extracted, stored in the list and then collected. 
 But, this can be done on the fly, using just math and loops without the storage. 
 
 ```csharp
-private static bool IsPalindrome(int number) { 
+private static bool IsPalindrome(int number)
+{ 
     var original = number;
     var reversed = 0;
     
@@ -118,13 +120,18 @@ as an [[extension method](https://learn.microsoft.com/en-us/dotnet/csharp/progra
 What does it change? The code reads differently. Instead of 
 
 ```csharp
-if (IsPalindrome(number)) { /* do something */ }
+if (IsPalindrome(number))
+{ 
+    /* do something */
+}
 ```
 
 you could have
 
 ```csharp
-if (number.IsPalindrome()) { /* do something */ }
+if (number.IsPalindrome()){
+    /* do something */
+}
 ```
 
 You decide which one fits better with your code and expectations. 
