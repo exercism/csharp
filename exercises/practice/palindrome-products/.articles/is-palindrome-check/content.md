@@ -1,12 +1,11 @@
-# Is number a palindrome? 
+# Checking if a number is a palindrome
 
 There are multiple approaches to solve the palindrome product exercise. 
 Most of them require us to check if a given number is a palindrome. 
 
-## Approaches
 There are multiple ways to do it in C# and we will look at them in this article. 
 
-### String reversal
+## String reversal method
 
 Possibly the most obvious solution is to treat a number as a string of characters
 and reverse it. Let's have a look:
@@ -41,7 +40,7 @@ private static bool IsPalindrome(int number)
 =>  $"{number}".Equals(new String($"{number}".Reverse().ToArray()));
 ```
 
-### List of digits
+## List of digits method
 
 Another approach is to use [modulo division](https://en.wikipedia.org/wiki/Modulo)
 to extract individual digits from the least significant to the most significant. 
@@ -86,7 +85,7 @@ private static bool IsPalindrome(int number) {
 }
 ```
 
-### The math without the list
+## Pure math method
 
 The list in the above code helps us to see what is going on. 
 The numbers are extracted, stored in the list and then collected. 
@@ -106,7 +105,7 @@ private static bool IsPalindrome(int number) {
 }
 ```
 
-## The extension method options
+## Converting to an extension method
 All of the above solutions correctly check if a number is a palindrome. 
 They differ in performance, something we will look at in a moment.
 But they also differ in readability. You will have to decide which one makes
