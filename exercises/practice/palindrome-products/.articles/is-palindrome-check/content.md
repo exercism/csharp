@@ -41,21 +41,21 @@ private static bool IsPalindrome(int number)
 
 Another approach is to use [modulo division][modulo-division-link] to extract individual digits from the least significant to the most significant. 
 We can capture them in a list, and then read them again using maths to reconstruct the number in the reverse order. 
-Before we look at the code, let's look at an example. The number is 123. 
+Before we look at the code, let's look at an example. The number is 754. 
 
 | Step | number | n % 10 | n / 10 |    list |
 |-----:|-------:|-------:|-------:|:--------|
-|    1 |    123 |      3 |     12 | [3]     |
-|    2 |     12 |      2 |      1 | [3,2]   |
-|    3 |      1 |      1 |      0 | [3,2,1] |
+|    1 |    754 |      4 |     75 | [4]     |
+|    2 |     75 |      5 |      7 | [4,5]   |
+|    3 |      7 |      7 |      0 | [4,5,7] |
 
-So now we have digits, already in reversed order `[3,2,1]`. We have to combine them into a number.
+So now we have digits, already in reversed order `[7,5,4]`. We have to combine them into a number.
 
 | Step | number | digit | number * 10 + digit |
 |-----:|-------:|------:|:--------------------|
-|    1 |      0 |     3 | 3                   |
-|    2 |      3 |     2 | 32                  |
-|    3 |     32 |     1 | 321                 |
+|    1 |      0 |     7 | 7                   |
+|    2 |      7 |     5 | 75                  |
+|    3 |     75 |     4 | 754                 |
 
 And now the same in code:
 
