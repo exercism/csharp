@@ -7,8 +7,7 @@ There are multiple ways to do it in C# and we will look at them in this article.
 
 ## The string reversal method
 
-Possibly the most obvious solution is to treat a number as a string of characters
-and reverse it. Let's have a look:
+Possibly the most obvious solution is to treat a number as a string of characters and reverse it. Let's have a look:
 
 ```csharp
 using System.Linq;
@@ -23,15 +22,13 @@ private static bool IsPalindrome(int number)
 
 If you come from some other languages you might be surprised by the above code.
 Unfortunately, C# doesn't come with a built in method to reverse a string. 
-We have to use `.Reverse()` extension method provided by 
-[Language-Integrated Query (LINQ)][linq-link]. However, it returns an iterator and so it has to be collected with `.ToArray()` 
-and converted into a `String` with `new String(char[])` constructor. 
+We have to use `.Reverse()` extension method provided by [Language-Integrated Query (LINQ)][linq-link].
+However, it returns an iterator and so, it has to be collected with `.ToArray()` and converted into a `String` with `new String(char[])` constructor. 
 
 
-If this looks like a lot of code to you, it might be slightly shortened using 
-[string interpolation][interpolation-link]
-to convert a number into a text like in the example below. However, before you use it
-read the performance considerations below.
+Does this looks like a lot of code? 
+It might be slightly shortened using [string interpolation][interpolation-link] to convert a number into a text like in the example below. 
+However, before you use it read [the performance considerations](#performance-considerations) below.
 
 ```csharp
 using System.Linq;
@@ -42,11 +39,9 @@ private static bool IsPalindrome(int number)
 
 ## The list of digits method
 
-Another approach is to use [modulo division][modulo-division-link]
-to extract individual digits from the least significant to the most significant. 
-We can capture them in a list, and then read them again using maths again, 
-to reconstruct the number in the reverse order. Before we look at the code, 
-let's look at an example. The number is 123. 
+Another approach is to use [modulo division][modulo-division-link] to extract individual digits from the least significant to the most significant. 
+We can capture them in a list, and then read them again using maths to reconstruct the number in the reverse order. 
+Before we look at the code, let's look at an example. The number is 123. 
 
 | Step | number | n % 10 | n / 10 |    list |
 |-----:|-------:|-------:|-------:|:--------|
@@ -110,14 +105,12 @@ private static bool IsPalindrome(int number)
 ## Converting to an extension method
 All of the above solutions correctly check if a number is a palindrome. 
 They differ in performance, something we will look at in a moment.
-But they also differ in readability. You will have to decide which one makes
-the most sense to you. 
+But they also differ in readability. You will have to decide which one makes the most sense to you. 
 
 Talking about readability of code, we have another decision to make. 
-All of the above solutions can be implemented like they are above, or 
-as an [extension method][extension-methods-link]
+All of the above solutions can be implemented like they are above, or as an [extension method][extension-methods-link].
 
-What does it change? The code reads differently. Instead of 
+What does it change? The code reads differently. Instead of: 
 
 ```csharp
 if (IsPalindrome(number))
@@ -139,12 +132,10 @@ You decide which one fits better with your code and expectations.
 
 ## Performance considerations
 
-OK, let's talk performance. I have tested the four methods above using
-[BenchmarkDotNet][benchmark-link]. I won't share the details
-of where I run it, on what hardware as we are interested in relative performance only. 
-What is important, that in an individual test I am checking all number between 1 and 100,000
-to see if they are a palindrome or not. Here are the results:
-
+OK, let's talk performance. I have tested the four methods above using [BenchmarkDotNet][benchmark-link].
+I won't share the details of where I run it, on what hardware as we are interested in relative performance only. 
+What is important, that in an individual test I am checking all number between 1 and 100,000 to see if they are a palindrome or not.
+Here are the results:
 
 |        Method |        Mean |     Error |    StdDev |
 |-------------- |------------:|----------:|----------:|
@@ -154,21 +145,19 @@ to see if they are a palindrome or not. Here are the results:
 | MathLoopCheck |    935.2 μs |  12.60 μs |  11.79 μs |
 
 There appears to be a big difference between almost 20ms and just under 1ms. 
-It is also worth to observe that the MathLoop is not only the fastest, but also
-the most predictable, the one with the smallest standard deviation. 
+It is also worth to observe that the MathLoop is not only the fastest, but also the most predictable, the one with the smallest standard deviation. 
 
 String interpolation `String2Check` is not only the slowest but also the least predictable. 
 
 ## Which one to choose?
 
-So which one to chose? The fastest always will be the fastest. But the difference is too small
-to perceive in human scales, even when comparing 100,000 numbers it is at most 20ms. 
+So which one to chose? The fastest always will be the fastest. 
+But the difference is too small to perceive in human scales, even when comparing 100,000 numbers it is at most 20ms. 
 
 For 1,000,000 checks  the difference between the first string option and the math loop is 163ms to 12ms. 
 Still almost impossible to spot with our human senses. 
 
-And so, with performance so close, you can choose the one which is easiest to understand,
-one that reads the best. 
+And so, with performance so close, you can choose the one which is easiest to understand, one that reads the best. 
 
 [benchmark-link]: https://benchmarkdotnet.org/
 [extension-methods-link]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods
