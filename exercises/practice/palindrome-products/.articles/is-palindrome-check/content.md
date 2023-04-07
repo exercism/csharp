@@ -24,12 +24,12 @@ private static bool IsPalindrome(int number)
 If you come from some other languages you might be surprised by the above code.
 Unfortunately, C# doesn't come with a built in method to reverse a string. 
 We have to use `.Reverse()` extension method provided by 
-[Language-Integrated Query (LINQ)](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/). However, it returns an iterator and so it has to be collected with `.ToArray()` 
+[Language-Integrated Query (LINQ)][linq-link]. However, it returns an iterator and so it has to be collected with `.ToArray()` 
 and converted into a `String` with `new String(char[])` constructor. 
 
 
 If this looks like a lot of code to you, it might be slightly shortened using 
-[string interpolation](https://learn.microsoft.com/en-us/dotnet/csharp/tutorials/string-interpolation)
+[string interpolation][interpolation-link]
 to convert a number into a text like in the example below. However, before you use it
 read the performance considerations below.
 
@@ -42,7 +42,7 @@ private static bool IsPalindrome(int number)
 
 ## The list of digits method
 
-Another approach is to use [modulo division](https://en.wikipedia.org/wiki/Modulo)
+Another approach is to use [modulo division][modulo-division-link]
 to extract individual digits from the least significant to the most significant. 
 We can capture them in a list, and then read them again using maths again, 
 to reconstruct the number in the reverse order. Before we look at the code, 
@@ -115,7 +115,7 @@ the most sense to you.
 
 Talking about readability of code, we have another decision to make. 
 All of the above solutions can be implemented like they are above, or 
-as an [[extension method](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods)]
+as an [extension method][extension-methods-link]
 
 What does it change? The code reads differently. Instead of 
 
@@ -140,7 +140,7 @@ You decide which one fits better with your code and expectations.
 ## Performance considerations
 
 OK, let's talk performance. I have tested the four methods above using
-[BenchmarkDotNet](https://benchmarkdotnet.org/). I won't share the details
+[BenchmarkDotNet][benchmark-link]. I won't share the details
 of where I run it, on what hardware as we are interested in relative performance only. 
 What is important, that in an individual test I am checking all number between 1 and 100,000
 to see if they are a palindrome or not. Here are the results:
@@ -169,3 +169,9 @@ Still almost impossible to spot with our human senses.
 
 And so, with performance so close, you can choose the one which is easiest to understand,
 one that reads the best. 
+
+[benchmark-link]: https://benchmarkdotnet.org/
+[extension-methods-link]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods
+[interpolation-link]: https://learn.microsoft.com/en-us/dotnet/csharp/tutorials/string-interpolation
+[linq-linl]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/
+[modulo-division-link]: https://en.wikipedia.org/wiki/Modulo
