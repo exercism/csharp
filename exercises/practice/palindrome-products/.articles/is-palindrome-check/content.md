@@ -46,8 +46,8 @@ Before we look at the code, let's look at an example. The number is 754.
 | Step | number | n % 10 | n / 10 |    list |
 |-----:|-------:|-------:|-------:|:--------|
 |    1 |    754 |      4 |     75 | [4]     |
-|    2 |     75 |      5 |      7 | [4,5]   |
-|    3 |      7 |      7 |      0 | [4,5,7] |
+|    2 |     75 |      5 |      7 | [5,4]   |
+|    3 |      7 |      7 |      0 | [7,5,4] |
 
 So now we have digits, already in reversed order `[7,5,4]`. We have to combine them into a number.
 
