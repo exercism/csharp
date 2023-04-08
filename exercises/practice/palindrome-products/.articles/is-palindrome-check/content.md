@@ -139,24 +139,24 @@ We are interested in relative performance only here.
 Each test checked all numbers between 1 and 100,000 to see if they are a palindrome or not.
 Here are the results:
 
-|        Method |        Mean |     Error |    StdDev |
-|-------------- |------------:|----------:|----------:|
-|  String1Check | 13,131.6 μs | 100.98 μs |  94.45 μs |
-|  String2Check | 19,578.5 μs | 324.35 μs | 303.40 μs |
-|     ListCheck |  5,690.9 μs |  59.71 μs |  52.93 μs |
-| MathLoopCheck |    935.2 μs |  12.60 μs |  11.79 μs |
+|                          Method |        Mean |    Error |   StdDev |
+|-------------------------------- |------------:|---------:|---------:|
+|                  StringReversal |  9,499.5 μs | 81.39 μs | 72.15 μs |
+| StringReversalWithInterpolation | 13,677.6 μs | 72.24 μs | 64.04 μs |
+|              MathOnListOfDigits |  4,074.9 μs | 42.06 μs | 39.35 μs |
+|                     MathInALoop |    680.5 μs |  5.77 μs |  4.82 μs |
 
-There appears to be a big difference between almost 20ms and just under 1ms. 
-It is also worth to observe that the MathLoop is not only the fastest, but also the most predictable, the one with the smallest standard deviation. 
+There appears to be a big difference between almost 14 ms and just under 1 ms. 
+It is also worth to observe that the `MathInALoop` is not only the fastest, but also the most predictable, the one with the smallest standard deviation. 
 
-String interpolation `String2Check` is not only the slowest but also the least predictable. 
+The `StringReversalWithInterpolation` is not only the slowest but also the least predictable. 
 
 ## Which one to choose?
 
 So which one to chose? The fastest always will be the fastest. 
-But the difference is too small to perceive in human scales, even when comparing 100,000 numbers it is at most 20ms. 
+But the difference is too small to perceive in human scales, even when comparing 100,000 numbers it is at most 14 ms. 
 
-For 1,000,000 checks  the difference between the first string option and the math loop is 163ms to 12ms. 
+For 1,000,000 checks  the difference between the first string option and the math loop is 163 ms to 12 ms. 
 Still almost impossible to spot with our human senses. 
 
 And so, with performance so close, you can choose the one which is easiest to understand, one that reads the best. 
