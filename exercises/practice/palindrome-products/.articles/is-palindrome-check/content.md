@@ -7,7 +7,10 @@ There are multiple ways to do it in C# and we will look at them in this article.
 
 ## The string reversal method
 
-Possibly the most obvious solution is to treat a number as a string of characters and reverse it. Let's have a look:
+Possibly the most obvious solution is to treat a number as a string of characters.
+We can then use string operations to see if the string is equal to its reversed version. 
+We are checking if it "reads" the same left-to-right and right-to-left.  
+Let's have a look:
 
 ```csharp
 using System.Linq;
@@ -26,7 +29,9 @@ We have to use `.Reverse()` extension method provided by [Language-Integrated Qu
 However, it returns an iterator and so, it has to be collected with `.ToArray()` and converted into a `String` with `new String(char[])` constructor. 
 
 
-Does this looks like a lot of code? 
+## The string reversal with string interpolation method
+
+Does the above, the [string reversal method](#the-string-reversal-method) look like a lot of code? 
 It might be slightly shortened using [string interpolation][interpolation-link] to convert a number into a text like in the example below. 
 However, before you use it read [the performance considerations](#performance-considerations) below.
 
@@ -103,12 +108,8 @@ private static bool IsPalindrome(int number)
 ```
 
 ## Converting to an extension method
-All of the above solutions correctly check if a number is a palindrome. 
-They differ in performance, something we will look at in a moment.
-But they also differ in readability. You will have to decide which one makes the most sense to you. 
-
-Talking about readability of code, we have another decision to make. 
-All of the above solutions can be implemented like they are above, or as an [extension method][extension-methods-link].
+Talking about readability of code, we have another point to make. 
+All of the above solutions can be implemented like they are above, or as an [extension methods][extension-methods-link].
 
 What does it change? The code reads differently. Instead of: 
 
@@ -127,14 +128,15 @@ if (number.IsPalindrome()){
 }
 ```
 
-You decide which one fits better with your code and expectations. 
+You decide which one fits better with your code and your expectations. 
 
 
 ## Performance considerations
 
-OK, let's talk performance. I have tested the four methods above using [BenchmarkDotNet][benchmark-link].
-I won't share the details of where I run it, on what hardware as we are interested in relative performance only. 
-What is important, that in an individual test I am checking all number between 1 and 100,000 to see if they are a palindrome or not.
+OK, let's talk performance. We have tested the four methods above using [BenchmarkDotNet][benchmark-link].
+The details of where we run it, on what hardware are not important.
+We are interested in relative performance only here. 
+Each test checked all numbers between 1 and 100,000 to see if they are a palindrome or not.
 Here are the results:
 
 |        Method |        Mean |     Error |    StdDev |
