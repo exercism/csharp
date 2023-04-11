@@ -4,33 +4,61 @@ using Xunit;
 
 public class SimpleLinkedListTests
 {
-    [Fact]
-    public void Single_item_list_value()
+    [Fact] 
+    public void Empty_list_has_no_elements()
     {
-        var list = new SimpleLinkedList<int>(1);
-        Assert.Equal(1, list.Pop());
+        var list = new SimpleLinkedList<int>();
+        Assert.Equal(0, list.Count);
     }
 
     [Fact]
-    public void Two_item_list_first_value()
+    public void Pushing_elements_to_the_list_increases_the_count()
     {
-        var list = new SimpleLinkedList<int>(1, 2);
-        Assert.Equal(2, list.Pop());
+        var list = new SimpleLinkedList<int>();
+        list.Push(0);
+        Assert.Equal(1, list.Count);
+        list.Push(0);
+        Assert.Equal(2, list.Count);
     }
 
     [Fact]
-    public void Two_item_list_second_value()
+    public void Popping_elements_from_the_list_decreases_the_count()
     {
-        var list = new SimpleLinkedList<int>(1, 2);
+        var list = new SimpleLinkedList<int>();
+        list.Push(0);
+        list.Push(0);
+        Assert.Equal(2, list.Count);
         list.Pop();
-        Assert.Equal(1, list.Pop());
+        Assert.Equal(1, list.Count);
+    }
+
+    [Fact]
+    public void Elements_pop_back_in_lifo_order()
+    {
+        var list = new SimpleLinkedList<int>();
+        list.Push(3);
+        list.Push(5);
+        Assert.Equal(5, list.Pop());
+        list.Push(7);        
+        Assert.Equal(7, list.Pop());
+        Assert.Equal(3, list.Pop());
+    }
+
+    [Fact]
+    public void Singlevalue_initialisation()
+    {
+        var list = new SimpleLinkedList<int>(7);
+        Assert.Equal(1, list.Count);
+        Assert.Equal(7, list.Pop());
     }
 
     [Fact]
     public void Multivalue_initialisation()
     {
-        var values = new SimpleLinkedList<int>(2, 1, 3);
-        Assert.Equal(new[] { 3, 1, 2 }, values);
+        var list = new SimpleLinkedList<int>(2, 1, 3);
+        Assert.Equal(3, list.Pop());
+        Assert.Equal(1, list.Pop());
+        Assert.Equal(2, list.Pop());
     }
 
     [Fact]
