@@ -21,7 +21,7 @@ public class SimpleLinkedList<T> : IEnumerable<T>
     }
 
     public int Count { get; private set; } = 0;
-
+    
     public void Push(T value)
     {
         var node = new Node { Value = value, Next = this.head };

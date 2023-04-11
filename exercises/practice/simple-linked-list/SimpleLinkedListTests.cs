@@ -14,6 +14,15 @@ public class SimpleLinkedListTests
     }
 
     [Fact]
+    [Task(1)]
+    public void Count_cannot_be_changed_from_the_outside()
+    {
+        var count = typeof(SimpleLinkedList<>).GetProperty("Count");
+        Assert.True(count?.GetGetMethod().IsPublic);
+        Assert.False(count?.GetSetMethod(true).IsPublic);
+    }
+
+    [Fact]
     [Task(2)]
     public void Pushing_elements_to_the_list_increases_the_count()
     {
