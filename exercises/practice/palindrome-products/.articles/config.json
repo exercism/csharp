@@ -4,7 +4,7 @@
             "uuid": "987cf2d1-7225-436f-9228-b88120ae2e70",
             "slug": "is-palindrome-check",
             "title": "Is a palindrome number check",
-            "blurb": "A few ways to check if a number is a palindrome.",
+            "blurb": "Different ways to check if a number is a palindrome.",
             "authors": ["michalporeba"]
         }
     ]
