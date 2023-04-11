@@ -16,17 +16,17 @@ public class SimpleLinkedList<T> : IEnumerable<T>
     public SimpleLinkedList(params T[] values)
     {
         foreach(var value in values) { 
-            Add(value);
+            Push(value);
         }
     }
 
-    public void Add(T value)
+    public void Push(T value)
     {
         var node = new Node { Value = value, Next = this.head };
         this.head = node;
     }
 
-    public T Remove()
+    public T Pop()
     {
         if (this.head == null) { 
             throw new InvalidOperationException("List is empty!");

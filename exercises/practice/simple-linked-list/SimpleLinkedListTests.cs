@@ -1,6 +1,6 @@
 using System.Linq;
-using Xunit;
 using System.Collections.Generic;
+using Xunit;
 
 public class SimpleLinkedListTests
 {
@@ -8,22 +8,22 @@ public class SimpleLinkedListTests
     public void Single_item_list_value()
     {
         var list = new SimpleLinkedList<int>(1);
-        Assert.Equal(1, list.Remove());
+        Assert.Equal(1, list.Pop());
     }
 
     [Fact]
     public void Two_item_list_first_value()
     {
         var list = new SimpleLinkedList<int>(1, 2);
-        Assert.Equal(2, list.Remove());
+        Assert.Equal(2, list.Pop());
     }
 
     [Fact]
     public void Two_item_list_second_value()
     {
         var list = new SimpleLinkedList<int>(1, 2);
-        list.Remove();
-        Assert.Equal(1, list.Remove());
+        list.Pop();
+        Assert.Equal(1, list.Pop());
     }
 
     [Fact]
@@ -37,11 +37,11 @@ public class SimpleLinkedListTests
     public void From_enumerable()
     {
         var list = new SimpleLinkedList<int>(new[] { 11, 7, 5, 3, 2 });
-        Assert.Equal(2, list.Remove());
-        Assert.Equal(3, list.Remove());
-        Assert.Equal(5, list.Remove());
-        Assert.Equal(7, list.Remove());
-        Assert.Equal(11, list.Remove());
+        Assert.Equal(2, list.Pop());
+        Assert.Equal(3, list.Pop());
+        Assert.Equal(5, list.Pop());
+        Assert.Equal(7, list.Pop());
+        Assert.Equal(11, list.Pop());
     }
 
     [Fact]

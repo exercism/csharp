@@ -1,48 +1,49 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 
 public class SimpleLinkedList<T> : IEnumerable<T>
 {
-    public SimpleLinkedList(T value)
+    private class Node { 
+        public T Value { get; set; }
+        public Node Next { get; set; }
+    }
+    
+    private Node head;
+
+    public SimpleLinkedList() { }
+
+    public SimpleLinkedList(params T[] values)
     {
-        throw new NotImplementedException("You need to implement this function.");
+        foreach(var value in values) { 
+            Push(value);
+        }
     }
 
-    public SimpleLinkedList(IEnumerable<T> values)
+    public void Push(T value)
     {
-        throw new NotImplementedException("You need to implement this function.");
+        var node = new Node { Value = value, Next = this.head };
+        this.head = node;
     }
 
-    public T Value 
-    { 
-        get
-        {
-            throw new NotImplementedException("You need to implement this function.");
-        } 
-    }
-
-    public SimpleLinkedList<T> Next
-    { 
-        get
-        {
-            throw new NotImplementedException("You need to implement this function.");
-        } 
-    }
-
-    public SimpleLinkedList<T> Add(T value)
+    public T Pop()
     {
-        throw new NotImplementedException("You need to implement this function.");
+        if (this.head == null) { 
+            throw new InvalidOperationException("List is empty!");
+        }
+        var value = head.Value;
+        head = head.Next;
+        return value;
     }
 
     public IEnumerator<T> GetEnumerator()
     {
-        throw new NotImplementedException("You need to implement this function.");
+        var current = this.head;
+        while(current != null) { 
+            yield return current.Value;
+            current = current.Next;
+        }
     }
 
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
+    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 }
