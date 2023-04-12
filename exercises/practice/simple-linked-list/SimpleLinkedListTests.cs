@@ -1,21 +1,18 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
-using Exercism.Tests;
 using Xunit;
 
 public class SimpleLinkedListTests
 {
-    [Fact] 
-    [Task(1)]
+    [Fact(Skip = "Remove this Skip property to run this test")] 
     public void Empty_list_has_no_elements()
     {
         var list = new SimpleLinkedList<int>();
         Assert.Equal(0, list.Count);
     }
 
-    [Fact]
-    [Task(1)]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Count_cannot_be_changed_from_the_outside()
     {
         var count = typeof(SimpleLinkedList<>).GetProperty("Count");
@@ -24,7 +21,6 @@ public class SimpleLinkedListTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    [Task(2)]
     public void Pushing_elements_to_the_list_increases_the_count()
     {
         var list = new SimpleLinkedList<int>();
@@ -35,7 +31,6 @@ public class SimpleLinkedListTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    [Task(3)]
     public void Popping_elements_from_the_list_decreases_the_count()
     {
         var list = new SimpleLinkedList<int>();
@@ -47,7 +42,6 @@ public class SimpleLinkedListTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    [Task(4)]
     public void Elements_pop_back_in_lifo_order()
     {
         var list = new SimpleLinkedList<int>();
@@ -75,7 +69,6 @@ public class SimpleLinkedListTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    [Task(5)]
     public void Singlevalue_initialisation()
     {
         var list = CreateSimpleLinkedList(7);
@@ -84,7 +77,6 @@ public class SimpleLinkedListTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    [Task(5)]
     public void Multivalue_initialisation()
     {
         var list = CreateSimpleLinkedList(2, 1, 3);
@@ -94,7 +86,6 @@ public class SimpleLinkedListTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    [Task(5)]
     public void From_enumerable()
     {
         var list = CreateSimpleLinkedList(new[] { 11, 7, 5, 3, 2 });
@@ -106,7 +97,6 @@ public class SimpleLinkedListTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    [Task(6)]
     public void Reverse_enumerable()
     {
         var values = Enumerable.Range(1, 5).ToArray();
@@ -117,7 +107,6 @@ public class SimpleLinkedListTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    [Task(6)]
     public void Roundtrip()
     {
         var values = Enumerable.Range(1, 7);

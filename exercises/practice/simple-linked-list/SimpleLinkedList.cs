@@ -1,9 +1,9 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 
 public class SimpleLinkedList<T>
 {
+    public int Count => throw new NotImplementedException("You need to implement this function.");
+    
     public void Push(T value)
     {
         throw new NotImplementedException("You need to implement this function.");
