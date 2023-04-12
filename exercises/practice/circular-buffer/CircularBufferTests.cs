@@ -72,6 +72,7 @@ public class CircularBufferTests
     {
         var buffer = new CircularBuffer<int>(capacity: 1);
         buffer.Write(1);
+        buffer.Write(2);
         buffer.Clear();
         Assert.Throws<InvalidOperationException>(() => buffer.Read());
     }
