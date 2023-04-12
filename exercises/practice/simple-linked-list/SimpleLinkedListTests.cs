@@ -23,7 +23,7 @@ public class SimpleLinkedListTests
         Assert.False(count?.GetSetMethod(true).IsPublic);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     [Task(2)]
     public void Pushing_elements_to_the_list_increases_the_count()
     {
@@ -34,7 +34,7 @@ public class SimpleLinkedListTests
         Assert.Equal(2, list.Count);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     [Task(3)]
     public void Popping_elements_from_the_list_decreases_the_count()
     {
@@ -46,7 +46,7 @@ public class SimpleLinkedListTests
         Assert.Equal(1, list.Count);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     [Task(4)]
     public void Elements_pop_back_in_lifo_order()
     {
@@ -74,7 +74,7 @@ public class SimpleLinkedListTests
 		return (SimpleLinkedList<int>)constructor.Invoke(new object[]{ values });
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     [Task(5)]
     public void Singlevalue_initialisation()
     {
@@ -83,7 +83,7 @@ public class SimpleLinkedListTests
         Assert.Equal(7, list.Pop());
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     [Task(5)]
     public void Multivalue_initialisation()
     {
@@ -93,7 +93,7 @@ public class SimpleLinkedListTests
         Assert.Equal(2, list.Pop());
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     [Task(5)]
     public void From_enumerable()
     {
@@ -105,7 +105,7 @@ public class SimpleLinkedListTests
         Assert.Equal(11, list.Pop());
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     [Task(6)]
     public void Reverse_enumerable()
     {
@@ -116,7 +116,7 @@ public class SimpleLinkedListTests
         Assert.Equal(values, reversed);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     [Task(6)]
     public void Roundtrip()
     {
