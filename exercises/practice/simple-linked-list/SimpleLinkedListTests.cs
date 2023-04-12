@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using System.Collections.Generic;
 using Exercism.Tests;
@@ -58,11 +59,26 @@ public class SimpleLinkedListTests
         Assert.Equal(3, list.Pop());
     }
 
+    private static SimpleLinkedList<int> CreateSimpleLinkedList(int value)
+    {
+        var type = typeof(SimpleLinkedList<>).MakeGenericType(typeof(int));
+		var constructor = type.GetConstructor(new Type[] { typeof(int) });
+		return (SimpleLinkedList<int>)constructor?.Invoke(new object[]{ value })
+			?? CreateSimpleLinkedList(new int[] { value });
+    }
+	
+	private static SimpleLinkedList<int> CreateSimpleLinkedList(params int[] values)
+    {
+        var type = typeof(SimpleLinkedList<>).MakeGenericType(typeof(int));
+		var constructor = type.GetConstructor(new Type[]{typeof(int[])});	
+		return (SimpleLinkedList<int>)constructor.Invoke(new object[]{ values });
+    }
+
     [Fact]
     [Task(5)]
     public void Singlevalue_initialisation()
     {
-        var list = new SimpleLinkedList<int>(7);
+        var list = CreateSimpleLinkedList(7);
         Assert.Equal(1, list.Count);
         Assert.Equal(7, list.Pop());
     }
@@ -71,7 +87,7 @@ public class SimpleLinkedListTests
     [Task(5)]
     public void Multivalue_initialisation()
     {
-        var list = new SimpleLinkedList<int>(2, 1, 3);
+        var list = CreateSimpleLinkedList(2, 1, 3);
         Assert.Equal(3, list.Pop());
         Assert.Equal(1, list.Pop());
         Assert.Equal(2, list.Pop());
@@ -81,7 +97,7 @@ public class SimpleLinkedListTests
     [Task(5)]
     public void From_enumerable()
     {
-        var list = new SimpleLinkedList<int>(new[] { 11, 7, 5, 3, 2 });
+        var list = CreateSimpleLinkedList(new[] { 11, 7, 5, 3, 2 });
         Assert.Equal(2, list.Pop());
         Assert.Equal(3, list.Pop());
         Assert.Equal(5, list.Pop());
@@ -94,7 +110,7 @@ public class SimpleLinkedListTests
     public void Reverse_enumerable()
     {
         var values = Enumerable.Range(1, 5).ToArray();
-        var list = new SimpleLinkedList<int>(values);
+        var list = CreateSimpleLinkedList(values);
         var enumerable = Assert.IsAssignableFrom<IEnumerable<int>>(list);    
         var reversed = enumerable.Reverse();
         Assert.Equal(values, reversed);
@@ -105,7 +121,7 @@ public class SimpleLinkedListTests
     public void Roundtrip()
     {
         var values = Enumerable.Range(1, 7);
-        var list = new SimpleLinkedList<int>(values.ToArray());
+        var list = CreateSimpleLinkedList(values.ToArray());
         var enumerable = Assert.IsAssignableFrom<IEnumerable<int>>(list);    
         Assert.Equal(values.Reverse(), enumerable);
     }
