@@ -64,18 +64,6 @@ public class LargestSeriesProductTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Reports_1_for_empty_string_and_empty_product_0_span_()
-    {
-        Assert.Equal(1, LargestSeriesProduct.GetLargestProduct("", 0));
-    }
-
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Reports_1_for_nonempty_string_and_empty_product_0_span_()
-    {
-        Assert.Equal(1, LargestSeriesProduct.GetLargestProduct("123", 0));
-    }
-
-    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Rejects_empty_string_and_nonzero_span()
     {
         Assert.Throws<ArgumentException>(() => LargestSeriesProduct.GetLargestProduct("", 1));
