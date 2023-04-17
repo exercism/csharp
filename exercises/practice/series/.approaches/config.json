@@ -1,6 +1,8 @@
 {
   "introduction": {
-    "authors": ["erikschierboom"]
+    "authors": [
+      "erikschierboom"
+    ]
   },
   "approaches": [
     {
@@ -8,14 +10,18 @@
       "slug": "for-loop",
       "title": "For loop",
       "blurb": "Use a for loop to iterate over the slices.",
-      "authors": ["erikschierboom"]
+      "authors": [
+        "erikschierboom"
+      ]
     },
     {
       "uuid": "3857e426-8dac-41f2-bea0-4c8a0b8cd7bc",
       "slug": "linq",
       "title": "LINQ",
       "blurb": "Use LINQ to iterate over the slices.",
-      "authors": ["erikschierboom"]
+      "authors": [
+        "erikschierboom"
+      ]
     }
   ]
 }

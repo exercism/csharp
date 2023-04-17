@@ -1,6 +1,8 @@
 {
   "introduction": {
-    "authors": ["erikschierboom"]
+    "authors": [
+      "erikschierboom"
+    ]
   },
   "approaches": [
     {
@@ -8,14 +10,18 @@
       "slug": "icomparer",
       "title": "Use IComparer<T>",
       "blurb": "Use IComparer<T> to compare hands.",
-      "authors": ["erikschierboom"]
+      "authors": [
+        "erikschierboom"
+      ]
     },
     {
       "uuid": "0d49c2c9-6ec7-4dda-9a23-bb8d77823aea",
       "slug": "integer-score",
       "title": "Score each hand as an integer",
       "blurb": "Score each hand as an integer.",
-      "authors": ["erikschierboom"]
+      "authors": [
+        "erikschierboom"
+      ]
     }
   ]
 }

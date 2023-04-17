@@ -1,6 +1,8 @@
 {
   "introduction": {
-    "authors": ["erikschierboom"]
+    "authors": [
+      "erikschierboom"
+    ]
   },
   "approaches": [
     {
@@ -8,21 +10,27 @@
       "slug": "while-loop",
       "title": "while loop",
       "blurb": "Use a while loop to find the number of steps.",
-      "authors": ["erikschierboom"]
+      "authors": [
+        "erikschierboom"
+      ]
     },
     {
       "uuid": "8c7199ed-d74d-4e3d-b9d0-5f8595597528",
       "slug": "recursion",
       "title": "Recursion",
       "blurb": "Use recursion to find the number of steps.",
-      "authors": ["erikschierboom"]
+      "authors": [
+        "erikschierboom"
+      ]
     },
     {
       "uuid": "4f91abfb-4c83-4e6d-84bc-bd08211d34d6",
       "slug": "sequence",
       "title": "Sequence",
       "blurb": "Use a (lazy) sequence and count its elements to find the number of steps.",
-      "authors": ["erikschierboom"]
+      "authors": [
+        "erikschierboom"
+      ]
     }
   ]
 }
