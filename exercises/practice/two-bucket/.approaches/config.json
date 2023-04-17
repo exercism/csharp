@@ -1,6 +1,8 @@
 {
   "introduction": {
-    "authors": ["erikschierboom"]
+    "authors": [
+      "erikschierboom"
+    ]
   },
   "approaches": [
     {
@@ -8,7 +10,9 @@
       "slug": "graph-shortest-path",
       "title": "Shortest path in graph",
       "blurb": "Model the problem as a graph and use Dijkstra's algorithm to find the shortest path.",
-      "authors": ["erikschierboom"]
+      "authors": [
+        "erikschierboom"
+      ]
     }
   ]
 }

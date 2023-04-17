@@ -1,6 +1,8 @@
 {
   "introduction": {
-    "authors": ["bobahop"]
+    "authors": [
+      "bobahop"
+    ]
   },
   "approaches": [
     {
@@ -8,21 +10,27 @@
       "slug": "all-contains-tolower",
       "title": "All with Contains on lower case",
       "blurb": "Use All with Contains on lowercased letters.",
-      "authors": ["bobahop"]
+      "authors": [
+        "bobahop"
+      ]
     },
     {
       "uuid": "8886e091-72bf-40c7-9e86-fdde96bbbae2",
       "slug": "all-contains-case-insensitive",
       "title": "All with Contains using case insensitve",
       "blurb": "Use All with Contains using case insensitive.",
-      "authors": ["bobahop"]
+      "authors": [
+        "bobahop"
+      ]
     },
     {
       "uuid": "7eeae24f-d815-400c-9749-b617864e185f",
       "slug": "bitfield",
       "title": "Bit field",
       "blurb": "Use a bit field to keep track of used letters.",
-      "authors": ["bobahop"]
+      "authors": [
+        "bobahop"
+      ]
     }
   ]
 }
