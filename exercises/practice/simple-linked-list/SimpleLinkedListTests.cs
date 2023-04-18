@@ -5,7 +5,7 @@ using Xunit;
 
 public class SimpleLinkedListTests
 {
-    [Fact(Skip = "Remove this Skip property to run this test")] 
+    [Fact] 
     public void Empty_list_has_no_elements()
     {
         var list = new SimpleLinkedList<int>();
