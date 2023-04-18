@@ -1,4 +1,4 @@
-# Hints
+# Instruction append
 
 This exercise requires you to create a linked list data structure which can be iterated. 
 
