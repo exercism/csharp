@@ -61,7 +61,7 @@ public class SimpleLinkedListTests
 			?? CreateSimpleLinkedList(new int[] { value });
     }
 	
-	private static SimpleLinkedList<int> CreateSimpleLinkedList(params int[] values)
+    private static SimpleLinkedList<int> CreateSimpleLinkedList(params int[] values)
     {
         var type = typeof(SimpleLinkedList<>).MakeGenericType(typeof(int));
 		var constructor = type.GetConstructor(new Type[]{typeof(int[])});	
