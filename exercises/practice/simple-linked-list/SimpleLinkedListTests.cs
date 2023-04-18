@@ -77,7 +77,7 @@ public class SimpleLinkedListTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Multivalue_initialisation()
+    public void Multi_value_initialisation()
     {
         var list = CreateSimpleLinkedList(2, 1, 3);
         Assert.Equal(3, list.Pop());
