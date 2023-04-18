@@ -69,7 +69,7 @@ public class SimpleLinkedListTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Singlevalue_initialisation()
+    public void Single_value_initialisation()
     {
         var list = CreateSimpleLinkedList(7);
         Assert.Equal(1, list.Count);
