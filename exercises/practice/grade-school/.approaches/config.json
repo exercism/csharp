@@ -1,6 +1,8 @@
 {
   "introduction": {
-    "authors": ["erikschierboom"]
+    "authors": [
+      "erikschierboom"
+    ]
   },
   "approaches": [
     {
@@ -8,7 +10,9 @@
       "slug": "sorted-collections",
       "title": "Use specialized sorted collections",
       "blurb": "Use specialized sorted collections for automatic sorting.",
-      "authors": ["erikschierboom"]
+      "authors": [
+        "erikschierboom"
+      ]
     }
   ]
 }

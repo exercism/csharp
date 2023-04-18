@@ -1,6 +1,8 @@
 {
   "introduction": {
-    "authors": ["erikschierboom"]
+    "authors": [
+      "erikschierboom"
+    ]
   },
   "approaches": [
     {
@@ -8,21 +10,27 @@
       "slug": "linq",
       "title": "Use LINQ",
       "blurb": "Use LINQ to calculate the sums.",
-      "authors": ["erikschierboom"]
+      "authors": [
+        "erikschierboom"
+      ]
     },
     {
       "uuid": "a6118dd7-26d5-4576-919f-11a584beeef8",
       "slug": "for-statement",
       "title": "Use a for statement",
       "blurb": "Use a for statement to calculate the sums.",
-      "authors": ["erikschierboom"]
+      "authors": [
+        "erikschierboom"
+      ]
     },
     {
       "uuid": "bdcb02d2-1a34-4a52-a80c-ca94907ba721",
       "slug": "math",
       "title": "Use math",
       "blurb": "Use math to calculate the sums.",
-      "authors": ["erikschierboom"]
+      "authors": [
+        "erikschierboom"
+      ]
     }
   ]
 }
