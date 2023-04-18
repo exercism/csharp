@@ -1,6 +1,8 @@
 {
   "introduction": {
-    "authors": ["erikschierboom"]
+    "authors": [
+      "erikschierboom"
+    ]
   },
   "approaches": [
     {
@@ -8,7 +10,9 @@
       "slug": "as-parallel",
       "title": "Use AsParallel()",
       "blurb": "Use AsParallel() to parallelize counting characters.",
-      "authors": ["erikschierboom"]
+      "authors": [
+        "erikschierboom"
+      ]
     }
   ]
 }
