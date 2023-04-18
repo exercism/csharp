@@ -1,6 +1,8 @@
 {
   "introduction": {
-    "authors": ["erikschierboom"]
+    "authors": [
+      "erikschierboom"
+    ]
   },
   "approaches": [
     {
@@ -8,14 +10,18 @@
       "slug": "add-seconds",
       "title": "Use AddSeconds",
       "blurb": "Add a gigasecond via AddSeconds().",
-      "authors": ["erikschierboom"]
+      "authors": [
+        "erikschierboom"
+      ]
     },
     {
       "uuid": "f241c90d-6cba-49ad-9e8e-59cac73ca6e5",
       "slug": "time-span",
       "title": "Use a TimeSpan",
       "blurb": "Add a gigasecond via a TimeSpan.",
-      "authors": ["erikschierboom"]
+      "authors": [
+        "erikschierboom"
+      ]
     }
   ]
 }

@@ -1,6 +1,8 @@
 {
   "introduction": {
-    "authors": ["erikschierboom"]
+    "authors": [
+      "erikschierboom"
+    ]
   },
   "approaches": [
     {
@@ -8,14 +10,18 @@
       "slug": "dictionary",
       "title": "Use a Dictionary",
       "blurb": "Use a Dictionary and some LINQ to translate the DNA strand.",
-      "authors": ["erikschierboom"]
+      "authors": [
+        "erikschierboom"
+      ]
     },
     {
       "uuid": "576af402-9b7f-46fd-8642-bf8fa6d0d4fa",
       "slug": "switch-expression",
       "title": "Use a switch expression",
       "blurb": "Use a switch expression and some LINQ to translate the DNA strand.",
-      "authors": ["erikschierboom"]
+      "authors": [
+        "erikschierboom"
+      ]
     }
   ]
 }
