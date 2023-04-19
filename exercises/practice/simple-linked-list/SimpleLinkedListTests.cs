@@ -1,83 +1,117 @@
+using System;
 using System.Linq;
+using System.Collections.Generic;
 using Xunit;
 
 public class SimpleLinkedListTests
 {
-    [Fact]
-    public void Single_item_list_value()
+    [Fact] 
+    public void Empty_list_has_no_elements()
     {
-        var list = new SimpleLinkedList<int>(1);
-        Assert.Equal(1, list.Value);
+        var list = new SimpleLinkedList<int>();
+        Assert.Equal(0, list.Count);
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Single_item_list_has_no_next_item()
+    public void Count_cannot_be_changed_from_the_outside()
     {
-        var list = new SimpleLinkedList<int>(1);
-        Assert.Null(list.Next);
+        var count = typeof(SimpleLinkedList<>).GetProperty("Count");
+        Assert.True(count?.GetGetMethod().IsPublic);
+        Assert.False(count?.GetSetMethod(true).IsPublic);
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Two_item_list_first_value()
+    public void Pushing_elements_to_the_list_increases_the_count()
     {
-        var list = new SimpleLinkedList<int>(2).Add(1);
-        Assert.Equal(2, list.Value);
+        var list = new SimpleLinkedList<int>();
+        list.Push(0);
+        Assert.Equal(1, list.Count);
+        list.Push(0);
+        Assert.Equal(2, list.Count);
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Two_item_list_second_value()
+    public void Popping_elements_from_the_list_decreases_the_count()
     {
-        var list = new SimpleLinkedList<int>(2).Add(1);
-        Assert.Equal(1, list.Next.Value);
+        var list = new SimpleLinkedList<int>();
+        list.Push(0);
+        list.Push(0);
+        Assert.Equal(2, list.Count);
+        list.Pop();
+        Assert.Equal(1, list.Count);
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Two_item_list_second_item_has_no_next()
+    public void Elements_pop_back_in_lifo_order()
     {
-        var list = new SimpleLinkedList<int>(2).Add(1);
-        Assert.Null(list.Next.Next);
+        var list = new SimpleLinkedList<int>();
+        list.Push(3);
+        list.Push(5);
+        Assert.Equal(5, list.Pop());
+        list.Push(7);        
+        Assert.Equal(7, list.Pop());
+        Assert.Equal(3, list.Pop());
+    }
+
+    private static SimpleLinkedList<int> CreateSimpleLinkedList(int value)
+    {
+        var type = typeof(SimpleLinkedList<>).MakeGenericType(typeof(int));
+		var constructor = type.GetConstructor(new Type[] { typeof(int) });
+		return (SimpleLinkedList<int>)constructor?.Invoke(new object[]{ value })
+			?? CreateSimpleLinkedList(new int[] { value });
+    }
+	
+    private static SimpleLinkedList<int> CreateSimpleLinkedList(params int[] values)
+    {
+        var type = typeof(SimpleLinkedList<>).MakeGenericType(typeof(int));
+		var constructor = type.GetConstructor(new Type[]{typeof(int[])});	
+		return (SimpleLinkedList<int>)constructor.Invoke(new object[]{ values });
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Implements_enumerable()
+    public void Single_value_initialisation()
     {
-        var values = new SimpleLinkedList<int>(2).Add(1);
-        Assert.Equal(new[] { 2, 1 }, values);
+        var list = CreateSimpleLinkedList(7);
+        Assert.Equal(1, list.Count);
+        Assert.Equal(7, list.Pop());
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Multi_value_initialisation()
+    {
+        var list = CreateSimpleLinkedList(2, 1, 3);
+        Assert.Equal(3, list.Pop());
+        Assert.Equal(1, list.Pop());
+        Assert.Equal(2, list.Pop());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void From_enumerable()
     {
-        var list = new SimpleLinkedList<int>(new[] { 11, 7, 5, 3, 2 });
-        Assert.Equal(11, list.Value);
-        Assert.Equal(7, list.Next.Value);
-        Assert.Equal(5, list.Next.Next.Value);
-        Assert.Equal(3, list.Next.Next.Next.Value);
-        Assert.Equal(2, list.Next.Next.Next.Next.Value);
+        var list = CreateSimpleLinkedList(new[] { 11, 7, 5, 3, 2 });
+        Assert.Equal(2, list.Pop());
+        Assert.Equal(3, list.Pop());
+        Assert.Equal(5, list.Pop());
+        Assert.Equal(7, list.Pop());
+        Assert.Equal(11, list.Pop());
     }
 
-    [Theory(Skip = "Remove this Skip property to run this test")]
-    [InlineData(1)]
-    [InlineData(2)]
-    [InlineData(10)]
-    [InlineData(100)]
-    public void Reverse(int length)
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Reverse_enumerable()
     {
-        var values = Enumerable.Range(1, length).ToArray();
-        var list = new SimpleLinkedList<int>(values);
-        var reversed = list.Reverse();
-        Assert.Equal(values.Reverse(), reversed);
+        var values = Enumerable.Range(1, 5).ToArray();
+        var list = CreateSimpleLinkedList(values);
+        var enumerable = Assert.IsAssignableFrom<IEnumerable<int>>(list);    
+        var reversed = enumerable.Reverse();
+        Assert.Equal(values, reversed);
     }
 
-    [Theory(Skip = "Remove this Skip property to run this test")]
-    [InlineData(1)]
-    [InlineData(2)]
-    [InlineData(10)]
-    [InlineData(100)]
-    public void Roundtrip(int length)
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Roundtrip()
     {
-        var values = Enumerable.Range(1, length);
-        var listValues = new SimpleLinkedList<int>(values);
-        Assert.Equal(values, listValues);
+        var values = Enumerable.Range(1, 7);
+        var list = CreateSimpleLinkedList(values.ToArray());
+        var enumerable = Assert.IsAssignableFrom<IEnumerable<int>>(list);    
+        Assert.Equal(values.Reverse(), enumerable);
     }
 }
