@@ -1,4 +1,6 @@
-private static bool IsPalindrome(int number)
+```csharp
+bool IsPalindrome(int number)
 {
-    /* implementation details */
+    /* Let's implement it! */
 }
+```
