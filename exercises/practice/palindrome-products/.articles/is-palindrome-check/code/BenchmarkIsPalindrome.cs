@@ -16,16 +16,6 @@ public class BenchmarkIsPalindrome {
     private static bool StringReversalWithInterpolationSolution(int number)
     =>  $"{number}".Equals(new String($"{number}".Reverse().ToArray()));
 
-    private static bool ArrayOfDigitsWalkThroughSolution(int nubmer)
-    {
-        var digits = nubmer.ToString();
-        for (int l = 0, r = digits.Length -1; l<r; ++l, --r)
-        {
-            if (digits[l] != digits[r]) { return false; }
-        }
-        return true;
-    }
-
     private static bool MathOnListOfDigitsSolution(int number) { 
         var original = number;
         var digits = new List<int>();
@@ -65,11 +55,6 @@ public class BenchmarkIsPalindrome {
     [Benchmark]
     public void StringReversalWithInterpolation() { 
         Enumerable.Range(1,TOP_RANGE).Where(StringReversalWithInterpolationSolution).ToList();
-    }
-
-    [Benchmark]
-    public void CharByCharWalkThrough() { 
-        Enumerable.Range(1,TOP_RANGE).Where(ArrayOfDigitsWalkThroughSolution).ToList();
     }
 
     [Benchmark]
