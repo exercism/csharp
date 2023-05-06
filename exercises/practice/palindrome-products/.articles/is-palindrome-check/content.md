@@ -168,6 +168,8 @@ It is also worth to observe that the `MathInALoop` is not only the fastest, but 
 
 The `StringReversalWithInterpolation` is not only the slowest but also the least predictable. 
 
+If you would like to test it yourself, check out [the source coude][benchmark-source-code] we used to test it. To run the benchmarks execute `dotnet run -c release`. 
+
 ## Which one to choose?
 
 So which one to chose? The fastest always will be the fastest. 
@@ -183,3 +185,4 @@ And so, with performance so close, you can choose the one which is easiest to un
 [interpolation-link]: https://learn.microsoft.com/en-us/dotnet/csharp/tutorials/string-interpolation
 [linq-linl]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/
 [modulo-division-link]: https://en.wikipedia.org/wiki/Modulo
+[benchmakr-source-code]: https://github.com/exercism/csharp/blob/main/exercises/practice/palindrome-products/.articles/is-palindrome-check/code
