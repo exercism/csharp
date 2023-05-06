@@ -15,7 +15,7 @@ Let's have a look:
 ```csharp
 using System.Linq;
 
-private static bool IsPalindrome(int number)
+bool IsPalindrome(int number)
 {
     var original = number.ToString();
     var reversed = new String(original.Reverse().ToArray());
@@ -38,7 +38,7 @@ However, before you use it read [the performance considerations](#performance-co
 ```csharp
 using System.Linq;
 
-private static bool IsPalindrome(int number)
+bool IsPalindrome(int number)
 =>  $"{number}".Equals(new String($"{number}".Reverse().ToArray()));
 ```
 
@@ -47,7 +47,7 @@ private static bool IsPalindrome(int number)
 But do we have to reverse the string? A string is an array of characters and so we can walk the array from both ends and compare the pairs of digits. As soon as we discover a pair that doesn't match we know the number is not a palindrome. 
 
 ```csharp
-public static bool IsPalindrome(int number) 
+bool IsPalindrome(int number) 
 {
     var digits = nubmer.ToString();
     for (int l = 0, r = digits.Length -1; l<r; ++l, --r)
@@ -83,7 +83,7 @@ And now the same in code:
 ```csharp
 using System.Collections.Generic;
 
-private static bool IsPalindrome(int number)
+bool IsPalindrome(int number)
 { 
     var original = number;
     var digits = new List<int>();
@@ -109,7 +109,7 @@ The numbers are extracted, stored in the list and then collected.
 But, this can be done on the fly, using just math and loops without the storage. 
 
 ```csharp
-private static bool IsPalindrome(int number)
+bool IsPalindrome(int number)
 { 
     var original = number;
     var reversed = 0;
