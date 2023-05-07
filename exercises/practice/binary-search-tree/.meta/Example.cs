@@ -1,79 +1,57 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 
-public class BinarySearchTree : IEnumerable<int>
+public class BinarySearchTree<T> where T : IComparable
 {
-    public BinarySearchTree(int value)
+    class Node
     {
-        Value = value;
+        public T Value { get; set; }
+        public Node Left { get; set; }
+        public Node Right { get; set; }
     }
 
-    public BinarySearchTree(IEnumerable<int> values)
+    Node head;
+    
+    public int Count { get; private set; }
+    public int Depth { get; private set; }
+
+    public void Add(T value)
     {
-        var array = values.ToArray();
+        Count++;
 
-        if (array.Length == 0)
-        {
-            throw new ArgumentException("Cannot create tree from empty list");
+        var depth = 1;
+        
+        if (head == null) {
+            head = new Node { Value = value };
+            Depth = 1;
+            return;
         }
 
-        Value = array[0];
-
-        foreach (var value in array.Skip(1))
+        var node = head;
+        while(node.Value.CompareTo(value) != 0)
         {
-            Add(value);
+            depth++;
+            if (node.Value.CompareTo(value) < 0) 
+            {
+                node.Left ??= new Node { Value = value };
+                node = node.Left;
+            } else { 
+                node.Right ??= new Node { Value = value };
+                node = node.Right;
+            }
         }
+        Depth = depth;
     }
 
-    public int Value { get; }
-
-    public BinarySearchTree Left { get; private set; }
-
-    public BinarySearchTree Right { get; private set; }
-
-    public BinarySearchTree Add(int value)
+    public bool Contains(T value)
     {
-        if (value <= Value)
+        var node = head;
+        while(node != null) 
         {
-            Left = Add(value, Left);
+            if (node.Value.CompareTo(value) == 0) { return true; }
+
+            if (node.Value.CompareTo(value) < 0) { node = node.Left; }
+            else { node = node.Right; }
         }
-        else
-        {
-            Right = Add(value, Right);
-        }
-
-        return this;
-    }
-
-    private static BinarySearchTree Add(int value, BinarySearchTree tree)
-    {
-        if (tree == null)
-        {
-            return new BinarySearchTree(value);
-        }
-
-        return tree.Add(value);
-    }
-
-    public IEnumerator<int> GetEnumerator()
-    {
-        foreach (var left in Left?.AsEnumerable() ?? Enumerable.Empty<int>())
-        {
-            yield return left;
-        }
-
-        yield return Value;
-
-        foreach (var right in Right?.AsEnumerable() ?? Enumerable.Empty<int>())
-        {
-            yield return right;
-        }
-    }
-
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        return GetEnumerator();
+        return false;
     }
 }
