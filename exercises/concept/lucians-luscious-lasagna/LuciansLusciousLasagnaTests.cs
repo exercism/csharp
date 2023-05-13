@@ -12,9 +12,16 @@ public class LuciansLusciousLasagnaTests
 
     [Fact]
     [Task(2)]
-    public void Remaining_minutes_in_oven()
+    public void Remaining_minutes_in_oven_for_fifteen()
     {
         Assert.Equal(15, new Lasagna().RemainingMinutesInOven(25));
+    }
+
+    [Fact]
+    [Task(2)]
+    public void Remaining_minutes_in_oven_for_seven()
+    {
+        Assert.Equal(7, new Lasagna().RemainingMinutesInOven(33));
     }
 
     [Fact]
