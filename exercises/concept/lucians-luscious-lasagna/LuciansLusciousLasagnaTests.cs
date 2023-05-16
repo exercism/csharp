@@ -19,7 +19,7 @@ public class LuciansLusciousLasagnaTests
 
     [Fact]
     [Task(2)]
-    public void Remaining_minutes_in_oven_for_seven()
+    public void Remaining_minutes_in_oven_after_thrity_three_mintues()
     {
         Assert.Equal(7, new Lasagna().RemainingMinutesInOven(33));
     }
