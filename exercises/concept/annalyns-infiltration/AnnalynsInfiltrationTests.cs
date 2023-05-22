@@ -55,8 +55,6 @@ public class AnnalynsInfiltrationTests
     {
         var knightIsAwake = false;
         var archerIsAwake = false;
-
-
         var prisonerIsAwake = true;
         Assert.True(QuestLogic.CanSpy(knightIsAwake, archerIsAwake, prisonerIsAwake));
     }
