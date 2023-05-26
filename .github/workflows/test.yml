@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
-      - uses: actions/setup-dotnet@607fce577a46308457984d59e4954e075820f10a
+      - uses: actions/setup-dotnet@aa983c550dfda0d1722b6ac6aed55724ffacc6d3
         with:
           dotnet-version: "7.0.100"
       - run: pwsh ./test.ps1
