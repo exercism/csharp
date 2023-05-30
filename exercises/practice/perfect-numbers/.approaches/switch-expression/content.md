@@ -31,8 +31,8 @@ public static class PerfectNumbers
 
 This approach (in short):
 1. Takes a _range_ of numbers starting from the number `1` up until (but not including) the number being classified.
-2. Keeping only the numbers which are a _factor_ of the number being classified.
-3. Summing these factors and classifying this sum according to given instructions.
+2. For each number, keep the number if it is a factor, otherwise replace it by a zero.
+3. Summing all the numbers by the previous operation and classifying this sum according to given instructions.
 
 Let's go through this in more detail:
 
