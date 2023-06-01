@@ -47,7 +47,7 @@ For the lower bound, we can use `1`, as that is always the smallest factor.
 For the upper bound, we can leverage the fact that the second lowest factor is `2`, which means that any numbers greater than `number / 2` cannot be factors.
 
 We can use the [Enumerable.Sum() method][enumerable-sum] to sum all the factors, but since not all numbers are factors we need to deal with the numbers that aren't.
-Providing the [Enumerable.Sum() method][enumerable-sum] with a function tells it to keep every factor and use a `0` in place of every number that isn't, effectively disregarding it when summing.
+We provide the [Enumerable.Sum() method][enumerable-sum] with a lambda that tells it to keep every factor and use a `0` in place of every number that isn't, effectively disregarding it when summing.
 
 ```csharp
 var sum = Enumerable.Range(1, number / 2)
