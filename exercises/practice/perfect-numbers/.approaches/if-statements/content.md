@@ -18,13 +18,14 @@ public class PerfectNumbers
         if (number < 1)
             throw new ArgumentOutOfRangeException(nameof(number));
 
-        var sum = Enumerable.Range(1, number / 2)
-            .Sum(n => number % n == 0 ? n : 0);
+        var sumOfFactors = Enumerable.Range(1, number / 2)
+            .Where(factor => number % factor == 0)
+            .Sum();
 
-        if (sum < number)
+        if (sumOfFactors < number)
             return Classification.Deficient;
 
-        if (sum > number)
+        if (sumOfFactors > number)
             return Classification.Abundant;
 
         return Classification.Perfect;
@@ -46,38 +47,46 @@ We then need to decide which numbers could possibly be factors.
 For the lower bound, we can use `1`, as that is always the smallest factor.
 For the upper bound, we can leverage the fact that the second lowest factor is `2`, which means that any numbers greater than `number / 2` cannot be factors.
 
-We can use the [Enumerable.Sum() method][enumerable-sum] to sum all the factors, but since not all numbers are factors we need to deal with the numbers that aren't.
-We provide the [Enumerable.Sum() method][enumerable-sum] with a lambda that tells it to keep every factor and use a `0` in place of every number that isn't, effectively disregarding it when summing.
+We can use the [Enumerable.Range() method][enumerable-range] to iterate over the possible factors, then use [Where()][enumerable-where] to select only valid factors and then finally sum them via the [Sum() method][enumerable-sum]:
 
 ```csharp
-var sum = Enumerable.Range(1, number / 2)
-    .Sum(n => number % n == 0 ? n : 0);
+var sumOfFactors = Enumerable.Range(1, number / 2)
+    .Where(factor => number % factor == 0)
+    .Sum();
 ```
 
 Then finally we can apply the logic to classify the perfect number via some `if` statements:
 
 ```csharp
-if (sum < number)
+if (sumOfFactors < number)
     return Classification.Deficient;
 
-if (sum > number)
+if (sumOfFactors > number)
     return Classification.Abundant;
 
 return Classification.Perfect;
 ```
-
-## Sum vs. Where and Sum
-The line `.Sum(n => number % n == 0 ? n : 0);` can also be written as `.Where(n => number % n == 0).Sum();`, using [Enumerable.Where() method][enumerable-where] to _keep_ only the factors and then [Enumerable.Sum() method][enumerable-sum] the result, but this is a little more verbose.
 
 ## Shortening
 
 You could use the [ternary operator][ternary-operator] to replace the `if` statements:
 
 ```csharp
-return sum < number ? Classification.Deficient :
-       sum > number ? Classification.Abundant :
+return sumOfFactors < number ? Classification.Deficient :
+       sumOfFactors > number ? Classification.Abundant :
        Classification.Perfect;
 ```
+
+## Combining Where and Sum vs. using Sum only
+Instead of using [Where][enumerable-where] and then [Sum][enumerable-sum] we could actually implement this by using [Sum][enumerable-sum] only.
+We can provide the [Sum][enumerable-sum] with a _lambda_ that tells it to keep every number that is a factor and use a `0` in place of every number that isn't, effectively disregarding it when summing:
+
+```csharp
+var sum = Enumerable.Range(1, number - 1)
+    .Sum(n => number % n == 0 ? n : 0);
+```
+
+This also uses the aforementioned [ternary operator][ternary-operator].
 
 [ternary-operator]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/conditional-operator
 [enumerable-range]: https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.range

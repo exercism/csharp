@@ -1,8 +1,8 @@
-var sum = Enumerable.Range(1, number / 2).Sum(n => number % n == 0 ? n : 0);
-if (sum < number)
+var sumOfFactors = Enumerable.Range(1, number / 2).Where(factor => number % factor == 0).Sum();
+if (sumOfFactors < number)
     return Classification.Deficient;
 
-if (sum > number)
+if (sumOfFactors > number)
     return Classification.Abundant;
 
 return Classification.Perfect;
