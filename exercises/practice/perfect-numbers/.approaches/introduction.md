@@ -5,7 +5,7 @@ The key to this exercise is to calculate the sum of a number's factors.
 ## General guidance
 
 - Consider what the highest possible factor of a number is whilst determining the factors
-- Try and start the methode by doing any error checking
+- Try and start the method by doing any error checking
 
 ## Approach: `if` statements
 
