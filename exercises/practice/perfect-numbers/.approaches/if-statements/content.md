@@ -78,6 +78,7 @@ return sumOfFactors < number ? Classification.Deficient :
 ```
 
 ## Combining Where and Sum vs. using Sum only
+
 Instead of using [Where][enumerable-where] and then [Sum][enumerable-sum] we could actually implement this by using [Sum][enumerable-sum] only.
 We can provide the [Sum][enumerable-sum] with a _lambda_ that tells it to keep every number that is a factor and use a `0` in place of every number that isn't, effectively disregarding it when summing:
 
