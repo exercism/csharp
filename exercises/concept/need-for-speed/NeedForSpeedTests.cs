@@ -184,7 +184,7 @@ public class NeedForSpeedTests
         int distance = 20;
         var race = new RaceTrack(distance);
 
-        Assert.True(race.TryFinishTrack(car));
+        Assert.False(race.TryFinishTrack(car));
     }
 
     [Fact]
