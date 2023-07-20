@@ -12,7 +12,7 @@ For determining that, you will use the the [remainder operator][remainder-operat
 ## Approach: `if` statements
 
 ```csharp
-public string Convert()
+public static string Convert(int number)
 {
     var drops = "";
     if (number % 3 == 0)
