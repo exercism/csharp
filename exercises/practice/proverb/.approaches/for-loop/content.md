@@ -5,7 +5,7 @@ public static class Proverb
 {
     public static string[] Recite(string[] subjects)
     {
-        if (subjects.Length > 0)
+        if (subjects.Length == 0)
             return Array.Empty<string>();
 
         var lines = new string[subjects.Length];
@@ -115,7 +115,7 @@ As this code also works for subjects with one element, we can remove the code we
 The final step is to return the lines, giving us:
 
 ```csharp
-if (subjects.Length > 0)
+if (subjects.Length == 0)
     return Array.Empty<string>();
 
 var lines = new string[subjects.Length];
