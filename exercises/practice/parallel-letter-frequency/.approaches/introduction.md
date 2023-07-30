@@ -29,5 +29,5 @@ private static Dictionary<char, int> AddCount(Dictionary<char, int> letterCounts
 This approach uses the [`AsParallel()` method][as-parallel] to parallelize a LINQ query.
 For more information, check the [`AsParallel()` approach][approach-as-parallel].
 
-[approach-as-parallel]: https://exercism.org/tracks/csharp/exercises/gigasecond/approaches/as-parallel
+[approach-as-parallel]: https://exercism.org/tracks/csharp/exercises/parallel-letter-frequency/approaches/as-parallel
 [as-parallel]: https://learn.microsoft.com/en-us/dotnet/api/system.linq.parallelenumerable.asparallel
