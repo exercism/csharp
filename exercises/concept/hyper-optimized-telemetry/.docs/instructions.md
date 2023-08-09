@@ -45,4 +45,4 @@ TelemetryBuffer.FromBuffer(new byte[] {0xfc, 0xff, 0xff, 0xff, 0x7f, 0x0, 0x0, 0
 // => 2147483647
 ```
 
-If the prefix byte is not one of `-8`, `-4`, `-2`, `2` or `4` then `0` should be returned.
+If the prefix byte is of unexpected value then `0` should be returned.
