@@ -93,7 +93,7 @@ For that, we can use the [`Mutex`class][mutex], which allows programmatically re
 This ensures that there is never any concurrent execution of the code within the mutex's restricted scope.
 Any other process wanting to execute the same code is halted until the currently executing process is done executing the mutex's code block.
 
-Let's define an instance of the `Mutex` class::
+Let's define an instance of the `Mutex` class:
 
 ```csharp
 private readonly Mutex _mutex = new Mutex();
