@@ -59,7 +59,25 @@ private static int Steps(int number, int stepCount)
 }
 ```
 
-This approach uses a recursion to calculate the steps, with each call to `Steps(int number, int stepCount)` representing a single application of the algorithm.
+To make the recursion approach even more concise you can combine the overloaded methods into a single method using a default parameter for `stepCount`.
+
+```csharp
+public static int Steps(int number, int stepCount = 0)
+{
+    if (number <= 0)
+        throw new ArgumentOutOfRangeException(nameof(number));
+
+    if (number == 1)
+        return stepCount;
+
+    if (number % 2 == 0)
+        return Steps(number / 2, stepCount + 1);
+
+    return Steps(number * 3 + 1, stepCount + 1);
+}
+```
+
+These approaches use a recursion to calculate the steps, with each call to `Steps(int number, int stepCount)` representing a single application of the algorithm.
 For more information, check the [recursion approach][approach-recursion].
 
 ### Approach: sequence
