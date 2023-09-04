@@ -145,4 +145,6 @@ public static int Steps(int number, int stepCount = 0)
 }
 ```
 
+This version is more concise than the overloading version, but it comes with the drawback that the method API publicly exposes the `stepCount` parameter and callers might not know how to use this parameter correctly or may even provide invalid data, which then falsifies the result. 
+
 [optional-parameter]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/named-and-optional-arguments#optional-arguments
