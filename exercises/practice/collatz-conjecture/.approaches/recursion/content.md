@@ -122,3 +122,27 @@ return Steps(number % 2 == 0 ? number / 2 : number * 3 + 1, stepCount + 1);
 ```
 
 [ternary-operator]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/conditional-operator
+
+## Optional parameter
+
+As an alternative to overloading the methods, as seen in the code snippets above, it is also possible to use an [optional parameter][optional-parameter] to solve the problem with only a single method implementation.
+
+This allows callers to use the method either with a single parameter (`number`) or both parameters, as used in the recursive method call. If only the `number` parameter is provided the `stepCount` parameter uses the defined default value.
+
+```csharp
+public static int Steps(int number, int stepCount = 0)
+{
+    if (number <= 0)
+        throw new ArgumentOutOfRangeException(nameof(number));
+
+    if (number == 1)
+        return stepCount;
+
+    if (number % 2 == 0)
+        return Steps(number / 2, stepCount + 1);
+
+    return Steps(number * 3 + 1, stepCount + 1);
+}
+```
+
+[optional-parameter]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/named-and-optional-arguments#optional-arguments
