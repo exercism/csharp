@@ -63,7 +63,7 @@ public class SqueakyCleanTests
     [Task(5)]
     public void Omit_lower_case_greek_letters()
     {
-        Assert.Equal("MyΟFinder", Identifier.Clean("MyΟβιεγτFinder"));
+        Assert.Equal("MyFinder", Identifier.Clean("MyΟβιεγτFinder"));
     }
 
     [Fact]
