@@ -27,7 +27,7 @@ record Hand(Card[] Cards)
 ```
 
 This approach assign a single integer score to each hand, which makes finding the best hand(s) quite straightforward.
-For more information, check the [integer score approach][approach-icomparer].
+For more information, check the [integer score approach][approach-integer-score].
 
 ## Approach: `IComparer<T>`
 
