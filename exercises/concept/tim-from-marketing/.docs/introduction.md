@@ -61,10 +61,10 @@ The `??` operator allows one to return a default value when the value is `null`:
 
 ```csharp
 string? name1 = "John";
-name1 ?? "Paul"; // => "John"
+name1 ??= "Paul"; // => "John"
 
 string? name2 = null;
-name2 ?? "George"; // => "George"
+name2 ??= "George"; // => "George"
 ```
 
 The `?.` operator allows one to call members safely on a possibly `null` value:
