@@ -183,6 +183,6 @@ And so, with performance so close, you can choose the one which is easiest to un
 [benchmark-link]: https://benchmarkdotnet.org/
 [extension-methods-link]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods
 [interpolation-link]: https://learn.microsoft.com/en-us/dotnet/csharp/tutorials/string-interpolation
-[linq-linl]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/
+[linq-link]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/
 [modulo-division-link]: https://en.wikipedia.org/wiki/Modulo
 [benchmark-source-code]: https://github.com/exercism/csharp/blob/main/exercises/practice/palindrome-products/.articles/is-palindrome-check/code

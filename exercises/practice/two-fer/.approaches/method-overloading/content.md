@@ -71,3 +71,4 @@ The main alternative to using method overloads is to use an [optional parameter 
 [optional-parameters-introduction]: https://learn.microsoft.com/en-us/archive/msdn-magazine/2010/july/csharp-4-0-new-csharp-features-in-the-net-framework-4#named-arguments-and-optional-parameters
 [method-overloading]: https://www.pluralsight.com/guides/overload-methods-invoking-overload-methods-csharp
 [string-interpolation]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/interpolated
+[expression-bodied-method]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members#methods

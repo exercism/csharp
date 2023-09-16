@@ -37,7 +37,6 @@ To test a string that might be `null` or only whitespace, the [IsNullOrWhiteSpac
 The first half of the shout condition 
 
 ```csharp
-
 input.Any(c => char.IsLetter(c)) && input.ToUpper() == input
 ```
 
