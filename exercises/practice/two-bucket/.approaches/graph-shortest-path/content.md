@@ -280,9 +280,9 @@ foreach (var newState in Moves(state))
 What we do here is to iterate over all the state's moves, as returned by the `Moves()` method (we'll get to its implementation in a bit).
 Then, for each move's state, we check if its number of moves is greater or equal to the current minimum number of moves for those bucket contents.
 
-```exercism/note
+~~~~exercism/note
 We use `int.MaxValue` as the default value for when no minimum number of moves have yet been found for the node, which should always be greater than the node's actual moves.
-```
+~~~~
 
 If the node's moves _are_ greater than or equal to the current minimum number of moves, we don't process the node as there is another, shorter path to that node.
 Otherwise, we'll update the minimum number of moves for the node and add it to the unprocessed states queue.
@@ -314,11 +314,11 @@ if (state.Buckets.One == 0)
 
 After checking if `state.Buckets.One` equals zero (meaning: bucket one is empty), we return a new state where the number of moves is incremented (after all, we've just applied a move), the first bucket is filled to its capacity and the second bucket is left unchanged.
 
-```exercism/note
+~~~~exercism/note
 We use a [`yield` statement](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/yield) to _yield_ the state.
 When a `yield` statement is written, the compiler transforms the method into a state machine that is suspended after each yield statement.
 Even though we yield indidivual elements, what is returned from a caller's viewpoint is a sequence of elements.
-```
+~~~~
 
 ### Move: fill bucket two when bucket two is empty and bucket one is not empty
 
@@ -463,10 +463,10 @@ to:
 var initialState = (Moves: 0, Buckets: (One: 0, Two: 0));
 ```
 
-```exercism/note
+~~~~exercism/note
 We have given our [tuple fields a name](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/value-tuples#tuple-field-names)
 This is not strictly necessary, but `initialState.Moves` is definitely more descriptive than `initialState.Item1`.
-```
+~~~~
 
 We then apply the same logic to the state creation in the `Moves()` method.
 As an example, this code:

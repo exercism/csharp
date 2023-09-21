@@ -39,7 +39,7 @@ The next step is to call the overload `Steps()` method and return its value.
 return Steps(number, 0);
 ```
 
-````exercism/note
+~~~~exercism/note
 For someone new to the code, it might not be clear what the `0` argument in the `Steps(number, 0)` call represents.
 You could introduce an appropriately named variable and use that as the argument:
 
@@ -53,7 +53,7 @@ This is already much better, but another option is to use a [named argument](htt
 ```csharp
 return Steps(number, stepCount: 0);
 ```
-````
+~~~~
 
 Let's examine the overload `Steps()` method, which looks like this:
 

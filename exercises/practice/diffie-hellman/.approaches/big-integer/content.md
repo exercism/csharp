@@ -31,9 +31,9 @@ public static BigInteger PrivateKey(BigInteger p)
 
 This will generate a number `>= 1` and `< p`.
 
-```exercism/note
+~~~~exercism/note
 The `Random.Shared` instance if guaranteed to be thread-safe, so is usually preferrable over creating your own `Random` instance.
-```
+~~~~
 
 ## Calculate public key and secret
 
