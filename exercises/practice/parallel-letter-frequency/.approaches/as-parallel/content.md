@@ -74,9 +74,9 @@ else
 
 We use `TryGetValue()` to check if there already is an existing count associated with the key, and if so, we increment the existing value, otherwise we'll assign a new value.
 
-```exercism/note
+~~~~exercism/note
 You don't have to worry about any concurrent updates to the dictionary, PLINQ will handle this for you.
-```
+~~~~
 
 Finally, we'll return the updated accumulator value:
 

@@ -42,9 +42,9 @@ We then use a [`for`-loop][for-statement] to iterate over each index of the firs
 for (var i = 0; i < strand1.Length; i++)
 ```
 
-```exercism/note
+~~~~exercism/note
 We could equally well have used `i < strand2.Length`, as both strings are guaranteed to have the same length.
-```
+~~~~
 
 Within the loop, we can then use a simple [`if`-statement][if-statement] to check if the two strings have different characters at the specified index, and if so, increment the `distance` by one:
 

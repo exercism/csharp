@@ -42,11 +42,11 @@ public static class Bob
 In this approach you have a series of `if` statements using private methods that use [regular expressions][regular-expressions] to evaluate the conditions.
 As soon as the right condition is found, the correct response is returned.
 
-```exercism/note
+~~~~exercism/note
 Note that there are no `else if` or `else` statements.
 If an `if` statement returns, then an `else if` or `else` is not needed.
 Execution will either return or will continue to the next statement anyway.
-```
+~~~~
 
 ### Silence
 
@@ -60,9 +60,9 @@ To match on this regular expression, we use [`Regex.IsMatch()`][regex-ismatch], 
 Regex.IsMatch(message, @"^\s*$");
 ```
 
-```exercism/note
+~~~~exercism/note
 When defining regular expression patterns, consider defining them with a verbatim string literal (prefixed with `@`) to prevent having to escape any backslash characters.
-```
+~~~~
 
 ### Yell
 
