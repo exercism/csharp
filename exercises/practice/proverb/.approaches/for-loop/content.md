@@ -61,9 +61,9 @@ var lines = new string[subjects.Length];
 
 To reiterate, there will be one line in the returned array for each adjacent subject pair.
 
-```exercism/note
+~~~~exercism/note
 Breaking up of a collection into adjacent sub-collection of a certain size of sometimes also referred to as a _sliding window_.
-```
+~~~~
 
 Let's look at an example, where the subjects array contains `"nail"`, `"shoe"` and `"horse"`.
 There are two adjacent subject pairs in this array:

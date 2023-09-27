@@ -60,11 +60,11 @@ This is because the second half of the condition tests that the uppercased input
 If the input were only `"123"` it would equal itself uppercased, but without letters it would not be a yell.
 The uppercasing is done by using the `String` method [ToUpperInvariant][toupperinvariant].
 
-```exercism/note
+~~~~exercism/note
 The invariant culture represents a culture that is culture-insensitive.
 It is associated with the English language but not with a specific country or region.
 For more information, see the [CultureInfo.InvariantCulture](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.cultureinfo.invariantculture) property.
-```
+~~~~
 
 ## Extension methods
 

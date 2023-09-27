@@ -53,14 +53,14 @@ The value we're returning is the substring of the input that starts at index `i`
 The `yield` statement then returns the slice to the caller.
 Even though we yield an indidivual string, what is returned from a caller's viewpoint is a sequence of strings.
 
-```exercism/note
+~~~~exercism/note
 When a `yield` statement is written, the compiler transforms the method into a state machine that is suspended after each yield statement.
-```
+~~~~
 
-```exercism/note
+~~~~exercism/note
 Methods that use a `yield` statement are also _lazy_, which means that calling `Sequence(number)` by itself does not do anything.
 It is only when a method is called that forces evaluation (like `Count()` or `ToArray()`), that we're forcing iteration over the elements in the sequence.
-```
+~~~~
 
 ## Shortening
 

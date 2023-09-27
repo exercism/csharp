@@ -8,10 +8,10 @@ The key to this exercise is to reverse a string's characters whilst C# strings b
 
 - The most common way to create a new `string` (apart from hardcoding a string literal) is to call the [constructor that takes an array of characters][constructor-array-chars] (`char []`).
 
-```exercism/note
+~~~~exercism/note
 C# strings represent text as a sequence of UTF-16 code units.
 This means that you don't have to worry about multi-byte Unicode characters, as those are treated as one character.
-```
+~~~~
 
 ## Approach: LINQ
 

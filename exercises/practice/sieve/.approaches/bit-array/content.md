@@ -117,14 +117,14 @@ yield return i;
 
 Note that even though we yield an indidivual integer, what is returned from a caller's viewpoint is a sequence of integers.
 
-```exercism/note
+~~~~exercism/note
 When a `yield` statement is written, the compiler transforms the method into a state machine that is suspended after each yield statement.
-```
+~~~~
 
-```exercism/note
+~~~~exercism/note
 Methods that use a `yield` statement are also _lazy_, which means that calling `Sequence(number)` by itself does not do anything.
 It is only when a method is called that forces evaluation (like `Count()` or `ToArray()`), that we're forcing iteration over the elements in the sequence.
-```
+~~~~
 
 [yield-statement]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/yield
 [bit-array]: https://learn.microsoft.com/en-us/dotnet/api/system.collections.bitarray
