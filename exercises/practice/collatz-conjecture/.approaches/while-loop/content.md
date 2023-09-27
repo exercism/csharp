@@ -45,9 +45,9 @@ var currentNumber = number;
 var stepCount = 0;
 ```
 
-```exercism/note
+~~~~exercism/note
 Re-assiging values to a parameter _is_ possible, but it is considered good practice to not do that.
-```
+~~~~
 
 Then a `while` loop starts by checking whether the current number is not equal to `1`; if it is, the method terminates:
 

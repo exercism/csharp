@@ -43,9 +43,9 @@ private decimal _balance;
 private bool _isOpen;
 ```
 
-```exercism/caution
+~~~~exercism/caution
 When dealing with monetary amount, _always_ use `decimal` instead of `float` or `double`, as the later suffer from rounding errors.
-```
+~~~~
 
 The `Open()` and `Close()` methods change the open state:
 

@@ -71,9 +71,9 @@ private static IEnumerable<int> Sequence(int number)
 
 First, we start out with assigning the `number` parameter to a `currentNumber` variable, which we'll use to keep track of where in the collatz conjecture sequence we currently are.
 
-```exercism/note
+~~~~exercism/note
 Re-assiging values to a parameter _is_ possible, but it is considered good practice to not do that.
-```
+~~~~
 
 Then a `while` loop starts by checking whether the current number is not equal to `1`; if it is, the method terminates:
 
@@ -102,9 +102,9 @@ Note that even though we are yield indidivual elements, what is returned from a 
 Methods that use a `yield` statement are also _lazy_, which means that calling `Sequence(number)` by itself does not do anything.
 It is only when we call `Count()` on the sequence, that we're forcing iteration over the elements in the sequence.
 
-```exercism/note
+~~~~exercism/note
 Using `yield` statement to generate a lazy sequence allows one to work with "infinite" sequences efficiently, as only the element to be returned (and the generated state machine) take up memory.
-```
+~~~~
 
 ## Shortening
 

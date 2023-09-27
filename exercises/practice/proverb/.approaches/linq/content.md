@@ -47,9 +47,9 @@ if (!subjects.Any())
     return Array.Empty<string>();
 ```
 
-```exercism/note
+~~~~exercism/note
 As the `!` operator can be easy to miss whilst reading code, try to write code that doesn't use negation (where possible).
-```
+~~~~
 
 ## Subjects: one
 
@@ -74,9 +74,9 @@ This has the benefit of being more expressive _and_ would also work for collecti
 Handling multiple subjects is where the fun begins!
 To reiterate, there will be one line in the returned array for each adjacent subject pair.
 
-```exercism/note
+~~~~exercism/note
 Breaking up of a collection into adjacent sub-collection of a certain size of sometimes also referred to as a _sliding window_.
-```
+~~~~
 
 Let's look at an example, where the subjects array contains `"nail"`, `"shoe"` and `"horse"`.
 There are two adjacent subject pairs in this array:
@@ -94,9 +94,9 @@ We can use a little trick by calling the [`Zip()` method][enumerable.zip] on the
 
 What `Zip()` does is that it works on two enumerables and creates a new enumerable where element is a pair (tuple) of values, the first element being the n-th value of the first enumerable and the second element being the n-th value of the second enumerable.
 
-```exercism/note
+~~~~exercism/note
 The number of elements returned by `Zip()` is equal to the minimum of the lengths of both enumerables.
-```
+~~~~
 
 As an example:
 

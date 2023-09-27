@@ -78,9 +78,9 @@ else
     _roster[grade] = new SortedSet<string> { student };
 ```
 
-```exercism/note
+~~~~exercism/note
 Not that we don't worry about sorting, this will all happen transparently due to our choice of data structures.
-```
+~~~~
 
 We could also rewrite this to:
 
@@ -161,14 +161,14 @@ public IEnumerable<string> Grade(int grade)
 }
 ```
 
-```exercism/note
+~~~~exercism/note
 The pattern of checking if a dictionary contains a key followed by accessing that value by key after that check is slightly wasteful, as it will require accessing the dictionary twice.
 For this pattern, you should instead use `TryGetValue()`, which returns a `bool` value indicating if the key exists and has an `out` parameter for the retrieved value (if any)
-```
+~~~~
 
-```exercism/note
+~~~~exercism/note
 We're using [`Enumerable.Empty<string>()`](https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.empty), which is best practice when returning an empty enumerable (for performance reasons).
-```
+~~~~
 
 With this knowledge, let's rewrite out method a bit:
 

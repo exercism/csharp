@@ -39,10 +39,10 @@ Span<char> chars = stackalloc char[input.Length];
 
 With this version, the memory allocated for the `Span<char>` is all on the stack and no garbage collection is needed for that data.
 
-```exercism/caution
+~~~~exercism/caution
 The stack has a finite amount of memory.
 This means that for large strings, the above code will result in a `StackOverflowException` being thrown.
-```
+~~~~
 
 So what is the limit for the amount of memory we can allocate?
 Well, this depends on how memory has already been allocated on the stack.

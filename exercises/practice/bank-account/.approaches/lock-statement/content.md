@@ -34,9 +34,9 @@ private decimal _balance;
 private bool _isOpen;
 ```
 
-```exercism/caution
+~~~~exercism/caution
 When dealing with monetary amount, _always_ use `decimal` instead of `float` or `double`, as the later suffer from rounding errors.
-```
+~~~~
 
 The `Open()` and `Close()` methods change the open state:
 
@@ -101,7 +101,7 @@ lock (_lock)
 
 As our lock object is unique per instance of the `BankAccount` class, we won't have any issues with locking other bank accounts when we lock on that object.
 
-````exercism/note
+~~~~exercism/note
 The `lock` statement is syntactic sugar for calls to `Monitor.Enter()` and `Monitor.Exit()`, using a `try/finally` block.
 
 ```csharp
@@ -124,7 +124,7 @@ finally
     Monitor.Exit(_lock);
 }
 ```
-````
+~~~~
 
 ## Shortening
 

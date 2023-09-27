@@ -16,10 +16,10 @@ public static class ReverseString
 
 The `string` class' [`ToCharArray()`][to-char-array] method returns the string's characters as a `char[]`.
 
-```exercism/caution
+~~~~exercism/caution
 The `char[]` returned by `ToCharArray()` is a **copy** of the `string`'s characters.
 Modifying the values in the `char[]` does **not** update the `string` it was created from.
-```
+~~~~
 
 We then pass the `char[]` to the [`Array.Reverse()`][array-reverse] method, which will reverse the array's content _in-place_ (meaning the argument is modified).
 
