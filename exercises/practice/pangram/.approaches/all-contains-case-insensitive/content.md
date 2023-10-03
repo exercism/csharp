@@ -1,12 +1,13 @@
 # `All` with `Contains` using case-insensitive comparison
 
 ```csharp
+using System;
 using System.Linq;
 
 public static class Pangram
 {
     private static readonly StringComparison xcase = StringComparison.CurrentCultureIgnoreCase;
-    
+
     public static bool IsPangram(string input)
     {
         return "abcdefghijklmnopqrstuvwxyz".All(c => input.Contains(c, xcase));
@@ -16,9 +17,9 @@ public static class Pangram
 
 - This begins by setting a variable for a case-insensitive `string` comparison.
 - It then checks if all letters in the alphabet are contained in the input,
-using the [LINQ][linq] method [`All`][all] with the `String` method [`Contains`][contains].
+  using the [LINQ][linq] method [`All`][all] with the `String` method [`Contains`][contains].
 - `Contains` takes the optional [`StringComparison`][stringcomparison] argument,
-but a case-insensitive comparison is about seven times slower than if the input were lowercased and then an exact comparison were done.
+  but a case-insensitive comparison is about seven times slower than if the input were lowercased and then an exact comparison were done.
 
 ## Shortening
 
