@@ -12,7 +12,10 @@
       "blurb": "Use a BitArray to sieve out primes.",
       "authors": [
         "erikschierboom"
-      ]
+      ],
+      "tags": {
+        "all": ["construct:bit-array"]
+      }
     },
     {
       "uuid": "4d367233-9bd4-45f9-9b33-b08cb78e15fa",
@@ -21,7 +24,10 @@
       "blurb": "Use a HashSet to sieve out primes.",
       "authors": [
         "erikschierboom"
-      ]
+      ],
+      "tags": {
+        "all": ["construct:set"]
+      }
     }
   ]
 }

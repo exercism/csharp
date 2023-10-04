@@ -12,7 +12,10 @@
       "blurb": "Use Array.Reverse to reverse a string.",
       "authors": [
         "erikschierboom"
-      ]
+      ],
+      "tags": {
+        "all": ["uses:Array.Reverse"]
+      }
     },
     {
       "uuid": "581af3cf-5218-41cc-84ff-50fbb2d9601a",
@@ -21,7 +24,10 @@
       "blurb": "Use LINQ to concisely reverse a string.",
       "authors": [
         "erikschierboom"
-      ]
+      ],
+      "tags": {
+        "all": ["uses:linq"]
+      }
     },
     {
       "uuid": "448fb2b4-18ab-4e55-aa54-ad4ed6d5f7f6",
@@ -30,7 +36,10 @@
       "blurb": "Use Span<T> and stack allocation for hyper-optimized string reversal.",
       "authors": [
         "erikschierboom"
-      ]
+      ],
+      "tags": {
+        "all": ["uses:Span<T>"]
+      }
     },
     {
       "uuid": "053bd627-c362-4f2e-8e2f-01bd279b0ef6",
@@ -39,7 +48,10 @@
       "blurb": "Reverse a string using the StringBuilder class.",
       "authors": [
         "erikschierboom"
-      ]
+      ],
+      "tags": {
+        "all": ["uses:StringBuilder"]
+      }
     }
   ]
 }

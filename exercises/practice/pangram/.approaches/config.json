@@ -12,7 +12,14 @@
       "blurb": "Use All with Contains on lowercased letters.",
       "authors": [
         "bobahop"
-      ]
+      ],
+      "tags": {
+        "all": [
+          "uses:Enumerable.All",
+          "uses:String.Contains(char)",
+          "uses:String.ToLower"
+        ]
+      }
     },
     {
       "uuid": "8886e091-72bf-40c7-9e86-fdde96bbbae2",
@@ -21,7 +28,13 @@
       "blurb": "Use All with Contains using case insensitive.",
       "authors": [
         "bobahop"
-      ]
+      ],
+      "tags": {
+        "all": [
+          "uses:Enumerable.All",
+          "uses:string.Contains(char, System.StringComparison)"
+        ]
+      }
     },
     {
       "uuid": "7eeae24f-d815-400c-9749-b617864e185f",
@@ -30,7 +43,10 @@
       "blurb": "Use a bit field to keep track of used letters.",
       "authors": [
         "bobahop"
-      ]
+      ],
+      "tags": {
+        "all": ["technique:bit-shifting"]
+      }
     }
   ]
 }

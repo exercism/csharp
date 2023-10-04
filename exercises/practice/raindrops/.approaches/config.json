@@ -12,7 +12,11 @@
       "blurb": "Use a chain of if statements.",
       "authors": [
         "bobahop"
-      ]
+      ],
+      "tags": {
+        "all": ["construct:if"],
+        "not": ["uses:linq"]
+      }
     },
     {
       "uuid": "dc8fca24-1a44-4bb6-a08b-50d47de757c4",
@@ -21,7 +25,10 @@
       "blurb": "Use the LINQ Aggregate method.",
       "authors": [
         "bobahop"
-      ]
+      ],
+      "tags": {
+        "all": ["uses:Enumerable.Aggregate"]
+      }
     }
   ]
 }

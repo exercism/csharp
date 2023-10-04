@@ -12,7 +12,10 @@
       "blurb": "Use an optional parameter and its default value.",
       "authors": [
         "erikschierboom"
-      ]
+      ],
+      "tags": {
+        "all": ["construct:optional-parameter"]
+      }
     },
     {
       "uuid": "e3999368-f13c-42e9-a814-e385356fd640",
@@ -21,7 +24,10 @@
       "blurb": "Use method overloading.",
       "authors": [
         "erikschierboom"
-      ]
+      ],
+      "tags": {
+        "all": ["construct:method-overloading"]
+      }
     }
   ]
 }

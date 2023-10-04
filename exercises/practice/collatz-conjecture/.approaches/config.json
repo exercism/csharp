@@ -12,7 +12,10 @@
       "blurb": "Use a while loop to find the number of steps.",
       "authors": [
         "erikschierboom"
-      ]
+      ],
+      "tags": {
+        "all": ["construct:while-loop"]
+      }
     },
     {
       "uuid": "8c7199ed-d74d-4e3d-b9d0-5f8595597528",
@@ -21,7 +24,10 @@
       "blurb": "Use recursion to find the number of steps.",
       "authors": [
         "erikschierboom"
-      ]
+      ],
+      "tags": {
+        "all": ["technique:recursion"]
+      }
     },
     {
       "uuid": "4f91abfb-4c83-4e6d-84bc-bd08211d34d6",
@@ -30,7 +36,10 @@
       "blurb": "Use a (lazy) sequence and count its elements to find the number of steps.",
       "authors": [
         "erikschierboom"
-      ]
+      ],
+      "tags": {
+        "all": ["uses:Enumerable.Count", "uses:yield"]
+      }
     }
   ]
 }

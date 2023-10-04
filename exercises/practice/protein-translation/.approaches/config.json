@@ -12,7 +12,10 @@
       "blurb": "Iterate Substrings with Dictionary.",
       "authors": [
         "bobahop"
-      ]
+      ],
+      "tags": {
+        "all": ["construct:dictionary", "uses:String.Substring"]
+      }
     },
     {
       "uuid": "8f8a9272-74d7-47f7-8d66-e4b280c67de5",
@@ -21,7 +24,10 @@
       "blurb": "Iterate Substrings with switch.",
       "authors": [
         "bobahop"
-      ]
+      ],
+      "tags": {
+        "all": ["construct:switch", "uses:String.Substring"]
+      }
     },
     {
       "uuid": "2a050672-c9ac-40e7-a836-9a844f8811e8",
@@ -30,7 +36,13 @@
       "blurb": "Use LINQ with Dictionary.",
       "authors": [
         "bobahop"
-      ]
+      ],
+      "tags": {
+        "all": [
+          "uses:linq",
+          "construct:dictionary"
+        ]
+      }
     },
     {
       "uuid": "07202257-f3b8-4008-b661-91234f26a6ff",
@@ -39,7 +51,14 @@
       "blurb": "Iterate using yield with Dictionary.",
       "authors": [
         "bobahop"
-      ]
+      ],
+      "tags": {
+        "all": [
+          "uses:yield", 
+          "construct:dictionary",
+          "construct:switch-expression"
+        ]
+      }
     },
     {
       "uuid": "621d443b-74a7-48d9-8339-7f1fcec53a15",
@@ -48,7 +67,13 @@
       "blurb": "Iterate using yield with switch.",
       "authors": [
         "bobahop"
-      ]
+      ],
+      "tags": {
+        "all": [
+          "uses:yield", 
+          "construct:switch-expression"
+        ]
+      }
     }
   ]
 }

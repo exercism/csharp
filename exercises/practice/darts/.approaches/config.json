@@ -12,7 +12,10 @@
       "blurb": "Use if statements.",
       "authors": [
         "erikschierboom"
-      ]
+      ],
+      "tags": {
+        "all": ["construct:if"]
+      }
     },
     {
       "uuid": "5f0878ae-8faf-4db9-b3d5-775e2d9bff37",
@@ -21,7 +24,10 @@
       "blurb": "Use a switch expression.",
       "authors": [
         "erikschierboom"
-      ]
+      ],
+      "tags": {
+        "any": ["construct:switch", "construct:switch-expression"]
+      }
     }
   ]
 }
