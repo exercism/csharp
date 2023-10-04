@@ -15,7 +15,10 @@
       "blurb": "Use a chain of boolean expressions.",
       "authors": [
         "bobahop"
-      ]
+      ],
+      "tags": {
+        "all": ["technique:boolean-logic"]
+      }
     },
     {
       "uuid": "eebe5a57-7e58-44c2-92e6-50f46f1251ac",
@@ -24,7 +27,11 @@
       "blurb": "Use a ternary operator of boolean expressions.",
       "authors": [
         "bobahop"
-      ]
+      ],
+      "tags": {
+        "all": ["construct:ternary"],
+        "not": ["construct:logical-and", "construct:logical-or"]
+      }
     },
     {
       "uuid": "cb7c88a6-49f3-4744-a3e8-fcc7acc0770d",
@@ -33,7 +40,11 @@
       "blurb": "Use a switch on a tuple made from boolean expressions.",
       "authors": [
         "bobahop"
-      ]
+      ],
+      "tags": {
+        "all": ["construct:tuple"],
+        "any": ["construct:switch-expression", "construct:switch"]
+      }
     },
     {
       "uuid": "1691a675-03a5-47da-a878-f76cfb895dc6",
@@ -42,7 +53,10 @@
       "blurb": "Use DateTime addition.",
       "authors": [
         "bobahop"
-      ]
+      ],
+      "tags": {
+        "all": ["uses:DateTime.AddDays"]
+      }
     },
     {
       "uuid": "28483396-da67-4f59-8388-4c63065dab00",
@@ -51,7 +65,10 @@
       "blurb": "Use the built-in method.",
       "authors": [
         "bobahop"
-      ]
+      ],
+      "tags": {
+        "all": ["uses:DateTime.IsLeapYear"]
+      }
     }
   ]
 }
