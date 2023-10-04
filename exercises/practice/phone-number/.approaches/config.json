@@ -12,7 +12,10 @@
       "blurb": "Use a regular expression to check and parse the phone number.",
       "authors": [
         "erikschierboom"
-      ]
+      ],
+      "tags": {
+        "all": ["technique:regular-expression"]
+      }
     }
   ]
 }
