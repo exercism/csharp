@@ -12,7 +12,10 @@
       "blurb": "Add a gigasecond via AddSeconds().",
       "authors": [
         "erikschierboom"
-      ]
+      ],
+      "tags": {
+        "all": ["uses:DateTime.AddSeconds"]
+      }
     },
     {
       "uuid": "f241c90d-6cba-49ad-9e8e-59cac73ca6e5",
@@ -21,7 +24,10 @@
       "blurb": "Add a gigasecond via a TimeSpan.",
       "authors": [
         "erikschierboom"
-      ]
+      ],
+      "tags": {
+        "all": ["uses:DateTime.Plus(TimeSpan)"]
+      }
     }
   ]
 }
