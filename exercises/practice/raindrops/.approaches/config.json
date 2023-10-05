@@ -15,7 +15,7 @@
       ],
       "tags": {
         "all": ["construct:if"],
-        "not": ["uses:linq"]
+        "not": ["construct:linq"]
       }
     },
     {

@@ -39,7 +39,7 @@
       ],
       "tags": {
         "all": [
-          "uses:linq",
+          "construct:linq",
           "construct:dictionary"
         ]
       }
@@ -54,7 +54,7 @@
       ],
       "tags": {
         "all": [
-          "uses:yield", 
+          "construct:yield", 
           "construct:dictionary",
           "construct:switch-expression"
         ]
@@ -70,7 +70,7 @@
       ],
       "tags": {
         "all": [
-          "uses:yield", 
+          "construct:yield", 
           "construct:switch-expression"
         ]
       }

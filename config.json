@@ -1814,362 +1814,589 @@
     {
       "uuid": "efc1a32a-ebea-45ab-8c0b-5b512717abc0",
       "slug": "arrays",
-      "name": "Arrays"
+      "name": "Arrays",
+      "tags": {
+        "all": ["construct:array"]
+      }
     },
     {
       "uuid": "06a39e16-780f-4d44-811e-53ebf2fdf6d5",
       "slug": "attributes",
-      "name": "Attributes"
+      "name": "Attributes",
+      "tags": {
+        "all": ["construct:attribute"]
+      }
     },
     {
       "uuid": "2eb4a463-355f-46ef-ac55-a75ec5afdf86",
       "slug": "basics",
-      "name": "Basics"
+      "name": "Basics",
+      "tags": {
+        "all": [
+          "construct:assignment",
+          "construct:variable",
+          "construct:method",
+          "construct:invocation",
+          "construct:comment"
+        ]
+      }
     },
     {
       "uuid": "83226d8e-9d8b-4223-82ad-6d251f519a49",
       "slug": "bit-manipulation",
-      "name": "Bit Manipulation"
+      "name": "Bit Manipulation",
+      "tags": {
+        "all": ["technique:bit-manipulation"]
+      }
     },
     {
       "uuid": "64a2670d-f61a-419f-8623-7116bad8e8a7",
       "slug": "booleans",
-      "name": "Booleans"
+      "name": "Booleans",
+      "tags": {
+        "any": ["technique:boolean-logic", "construct:boolean"]
+      }
     },
     {
       "uuid": "e3b507b0-d2c3-4791-9c6e-6a40bdb4ec1a",
       "slug": "casting",
-      "name": "Casting"
+      "name": "Casting",
+      "tags": {
+        "all": ["construct:cast"]
+      }
     },
     {
       "uuid": "352db7e4-c47c-42cf-a290-74e42fadc6ff",
       "slug": "chars",
-      "name": "Chars"
+      "name": "Chars",
+      "tags": {
+        "all": ["construct:char"]
+      }
     },
     {
       "uuid": "5b2f9bbb-079c-47fd-9ba6-0c6469e547cb",
       "slug": "classes",
-      "name": "Classes"
+      "name": "Classes",
+      "tags": {
+        "all": ["construct:class"]
+      }
     },
     {
       "uuid": "2c1ac74e-cec8-4616-a1c4-a08ef9f3f926",
       "slug": "compound-assignment",
-      "name": "Compound Assignment"
+      "name": "Compound Assignment",
+      "tags": {
+        "all": ["technique:compound-assignment"]
+      }
     },
     {
       "uuid": "43820de3-174a-41a3-9fc0-d7a6f0c393aa",
       "slug": "ternary-operators",
-      "name": "Conditionals Ternary"
+      "name": "Conditionals Ternary",
+      "tags": {
+        "all": ["construct:ternary"]
+      }
     },
     {
       "uuid": "b29bc90a-65ae-4984-b7de-17debee7fc5f",
       "slug": "const-readonly",
-      "name": "Const Readonly"
+      "name": "Const Readonly",
+      "tags": {
+        "any": ["construct:read-only", "construct:const"]
+      }
     },
     {
       "uuid": "0ae08bee-1252-4d21-ae47-4952a1ab03b5",
       "slug": "constants",
-      "name": "Constants"
+      "name": "Constants",
+      "tags": {
+        "all": ["construct:const"]
+      }
     },
     {
       "uuid": "250f7606-f01d-4713-8e3e-1b1056a6b790",
       "slug": "constructors",
-      "name": "Constructors"
+      "name": "Constructors",
+      "tags": {
+        "all": ["construct:constructor"]
+      }
     },
     {
       "uuid": "bed44bba-b5a5-43e7-a548-b17812a6f536",
       "slug": "datetimes",
-      "name": "Datetimes"
+      "name": "Datetimes",
+      "tags": {
+        "any": ["uses:DateTime"]
+      }
     },
     {
       "uuid": "c710b7f8-226f-4cc0-8a8f-b125cebb13fc",
       "slug": "defensive-copying",
-      "name": "Defensive Copying"
+      "name": "Defensive Copying",
+      "tags": {
+        "all": []
+      }
     },
     {
       "uuid": "3af88acb-1487-4554-8715-089d7dda1199",
       "slug": "dictionaries",
-      "name": "Dictionaries"
+      "name": "Dictionaries",
+      "tags": {
+        "all": ["construct:dictionary"]
+      }
     },
     {
       "uuid": "5b04ddb3-54ff-479f-a525-fb4f117d5c34",
       "slug": "do-while-loops",
-      "name": "Do While Loops"
+      "name": "Do While Loops",
+      "tags": {
+        "all": ["construct:do-loop"]
+      }
     },
     {
       "uuid": "3996a8a9-6bde-4e79-beeb-7ae5d29f9065",
       "slug": "enumerables",
-      "name": "Enumerables"
+      "name": "Enumerables",
+      "tags": {
+        "all": ["construct:enumeration"]
+      }
     },
     {
       "uuid": "d5b628d9-ac64-4eeb-91c7-f2dcff798b31",
       "slug": "enums",
-      "name": "Enums"
+      "name": "Enums",
+      "tags": {
+        "all": ["construct:enum"]
+      }
     },
     {
       "uuid": "08632727-cfae-4c5b-b53f-f04ba35ce4ed",
       "slug": "equality",
-      "name": "Equality"
+      "name": "Equality",
+      "tags": {
+        "all": ["technique:equality-comparison"]
+      }
     },
     {
       "uuid": "d3f5d61c-6bed-46ef-be21-cf7fdc07d4f7",
       "slug": "exception-filtering",
-      "name": "Exception Filtering"
+      "name": "Exception Filtering",
+      "tags": {
+        "all": ["construct:catch-filter"]
+      }
     },
     {
       "uuid": "6a322f90-1428-4ced-ba8c-cdcadf8914bd",
       "slug": "exceptions",
-      "name": "Exceptions"
+      "name": "Exceptions",
+      "tags": {
+        "all": ["construct:exception"]
+      }
     },
     {
       "uuid": "c82d74c8-fbe1-42ab-be71-b1f524f28bf6",
       "slug": "explicit-casts",
-      "name": "Explicit Casts"
+      "name": "Explicit Casts",
+      "tags": {
+        "all": ["construct:explicit-conversion"]
+      }
     },
     {
       "uuid": "8e69833b-9668-4ed1-bfdd-d3c90fe4d9a4",
       "slug": "expression-bodied-members",
-      "name": "Expression Bodied Members"
+      "name": "Expression Bodied Members",
+      "tags": {
+        "all": ["construct:expression-bodied-member"]
+      }
     },
     {
       "uuid": "c1e57d81-8965-4e3f-96d1-44ff43b768e4",
       "slug": "extension-methods",
-      "name": "Extension Methods"
+      "name": "Extension Methods",
+      "tags": {
+        "all": ["construct:extension-method"]
+      }
     },
     {
       "uuid": "0d0ce715-a7f2-42f4-b97b-54ba99b4df73",
       "slug": "flag-enums",
-      "name": "Flag Enums"
+      "name": "Flag Enums",
+      "tags": {
+        "all": ["construct:flags-enum"]
+      }
     },
     {
       "uuid": "05cd97a1-fedb-40c1-9f73-3a47d3f8690d",
       "slug": "floating-point-numbers",
-      "name": "Floating Point Numbers"
+      "name": "Floating Point Numbers",
+      "tags": {
+        "all": ["construct:floating-point-number"]
+      }
     },
     {
       "uuid": "bd406da5-7a16-4487-a820-ce7ef5f1066b",
       "slug": "for-loops",
-      "name": "For Loops"
+      "name": "For Loops",
+      "tags": {
+        "all": ["construct:for-loop"]
+      }
     },
     {
       "uuid": "a352e32f-2e90-43ba-94c3-f22dc985e10a",
       "slug": "foreach-loops",
-      "name": "Foreach Loops"
+      "name": "Foreach Loops",
+      "tags": {
+        "all": ["construct:foreach"]
+      }
     },
     {
       "uuid": "555dc4c4-b30e-4928-a52e-336b05c26fca",
       "slug": "generic-types",
-      "name": "Generic Types"
+      "name": "Generic Types",
+      "tags": {
+        "all": ["construct:generic-type"]
+      }
     },
     {
       "uuid": "4466e33e-dcd2-4b1f-9d9d-2c4315bf5188",
       "slug": "if-statements",
-      "name": "If Statements"
+      "name": "If Statements",
+      "tags": {
+        "all": ["construct:if"]
+      }
     },
     {
       "uuid": "760a9811-a77f-4022-bc62-2a84dfbddbfc",
       "slug": "indexers",
-      "name": "Indexers"
+      "name": "Indexers",
+      "tags": {
+        "all": ["construct:indexer"]
+      }
     },
     {
       "uuid": "4725bc7b-481a-4ba2-951d-e7fa42c5b0c3",
       "slug": "inheritance",
-      "name": "Inheritance"
+      "name": "Inheritance",
+      "tags": {
+        "all": ["technique:inheritance"]
+      }
     },
     {
       "uuid": "0b793025-5434-4c3d-ab72-67578669529f",
       "slug": "integral-numbers",
-      "name": "Integral Numbers"
+      "name": "Integral Numbers",
+      "tags": {
+        "all": ["construct:integral-number"]
+      }
     },
     {
       "uuid": "10b71949-a188-481a-8c24-04a9c20c1530",
       "slug": "interfaces",
-      "name": "Interfaces"
+      "name": "Interfaces",
+      "tags": {
+        "all": ["construct:interface"]
+      }
     },
     {
       "uuid": "af24ee71-e561-4e5b-a505-e1a9ec04987d",
       "slug": "lambdas",
-      "name": "Lambdas"
+      "name": "Lambdas",
+      "tags": {
+        "all": ["construct:lambda"]
+      }
     },
     {
       "uuid": "dd7bf404-59af-4ae6-895b-5d04cdc8ecaa",
       "slug": "lists",
-      "name": "Lists"
+      "name": "Lists",
+      "tags": {
+        "all": ["construct:list"]
+      }
     },
     {
       "uuid": "5001a8f1-de6a-44ce-bfc0-24a533f3b793",
       "slug": "math-operators",
-      "name": "Math Operators"
+      "name": "Math Operators",
+      "tags": {
+        "any": [
+          "construct:multiply",
+          "construct:divide",
+          "construct:add",
+          "construct:subtract"
+        ]
+      }
     },
     {
       "uuid": "a93a154c-4706-4c01-8ece-b5504ba3378d",
       "slug": "memory-allocation",
-      "name": "Memory Allocation"
+      "name": "Memory Allocation",
+      "tags": {
+        "all": []
+      }
     },
     {
       "uuid": "e4c0bba5-e08b-426a-bccf-0f0fb375c2ad",
       "slug": "method-overloading",
-      "name": "Method Overloading"
+      "name": "Method Overloading",
+      "tags": {
+        "all": ["construct:method-overloading"]
+      }
     },
     {
       "uuid": "3b67cb8b-bcd3-4d34-ad4c-8e2009c3e6b5",
       "slug": "named-arguments",
-      "name": "Named Arguments"
+      "name": "Named Arguments",
+      "tags": {
+        "all": ["construct:named-argument"]
+      }
     },
     {
       "uuid": "944d243a-65bc-4a52-97e8-b692a8419d04",
       "slug": "namespaces",
-      "name": "Namespaces"
+      "name": "Namespaces",
+      "tags": {
+        "all": ["construct:namespace"]
+      }
     },
     {
       "uuid": "339dce38-c4b6-423d-9b66-88fed35408d4",
       "slug": "nested-types",
-      "name": "Nested Types"
+      "name": "Nested Types",
+      "tags": {
+        "all": ["construct:nested-type"]
+      }
     },
     {
       "uuid": "f66d4f26-ebd8-41d0-b79e-05858491e035",
       "slug": "nullability",
-      "name": "Nullability"
+      "name": "Nullability",
+      "tags": {
+        "all": ["construct:nullability"]
+      }
     },
     {
       "uuid": "b9a421b2-c5ff-4213-bd6d-b886da31ea0d",
       "slug": "numbers",
-      "name": "Numbers"
+      "name": "Numbers",
+      "tags": {
+        "all": ["construct:number"]
+      }
     },
     {
       "uuid": "9b50d5ee-7b68-46e3-9c3b-893c3a83110f",
       "slug": "object-initializers",
-      "name": "Object Initializers"
+      "name": "Object Initializers",
+      "tags": {
+        "all": ["construct:initializer"]
+      }
     },
     {
       "uuid": "3b510fdc-2975-41e4-acc5-c6b3780acf50",
       "slug": "operator-overloading",
-      "name": "Operator Overloading"
+      "name": "Operator Overloading",
+      "tags": {
+        "all": ["construct:operator-overloading"]
+      }
     },
     {
       "uuid": "cddf1b02-6dcd-4ef0-9847-a2cd35abdb80",
       "slug": "optional-parameters",
-      "name": "Optional Parameters"
+      "name": "Optional Parameters",
+      "tags": {
+        "all": ["construct:optional-parameter"]
+      }
     },
     {
       "uuid": "9f993d9a-144c-45fe-ab09-e368b5be2e6c",
       "slug": "ordering",
-      "name": "Ordering"
+      "name": "Ordering",
+      "tags": {
+        "all": []
+      }
     },
     {
       "uuid": "a9ea7864-bfc7-49ce-815b-32d018627fe9",
       "slug": "overflow",
-      "name": "Overflow"
+      "name": "Overflow",
+      "tags": {
+        "all": ["construct:overflow"]
+      }
     },
     {
       "uuid": "83414ea8-0335-485c-a826-95c88a532d65",
       "slug": "parameters",
-      "name": "Parameters"
+      "name": "Parameters",
+      "tags": {
+        "all": ["construct:parameter"]
+      }
     },
     {
       "uuid": "7149c281-8b8c-42a2-a534-7bc5553cbbce",
       "slug": "properties",
-      "name": "Properties"
+      "name": "Properties",
+      "tags": {
+        "all": ["construct:property"]
+      }
     },
     {
       "uuid": "b71dc153-1cb0-4b82-ab5f-d896d6f1f7ed",
       "slug": "randomness",
-      "name": "Randomness"
+      "name": "Randomness",
+      "tags": {
+        "all": ["technique:randomness"]
+      }
     },
     {
       "uuid": "34e99b87-8862-47a7-87d3-621e1db47e5c",
       "slug": "readonly-collections",
-      "name": "Readonly Collections"
+      "name": "Readonly Collections",
+      "tags": {
+        "all": ["technique:immutable-collection"]
+      }
     },
     {
       "uuid": "3c67b33f-e2a6-45e9-b4c4-456044e3c6ef",
       "slug": "regular-expressions",
-      "name": "Regular Expressions"
+      "name": "Regular Expressions",
+      "tags": {
+        "all": ["technique:regular-expression"]
+      }
     },
     {
       "uuid": "726f35e6-8af7-4279-b3bc-5299e1b7c182",
       "slug": "resource-cleanup",
-      "name": "Resource Cleanup"
+      "name": "Resource Cleanup",
+      "tags": {
+        "all": ["uses:IDisposable"]
+      }
     },
     {
       "uuid": "64ef0e6d-ca7a-4a3e-81a7-e66766615a9b",
       "slug": "resource-lifetime",
-      "name": "Resource Lifetime"
+      "name": "Resource Lifetime",
+      "tags": {
+        "all": ["construct:using-statement"]
+      }
     },
     {
       "uuid": "d38a4651-09d2-47e5-8a18-9bcb6f3bfa0b",
       "slug": "sets",
-      "name": "Sets"
+      "name": "Sets",
+      "tags": {
+        "all": ["construct:set"]
+      }
     },
     {
       "uuid": "c1fcce17-0cbb-410e-8281-698606d73690",
       "slug": "string-builder",
-      "name": "String Builder"
+      "name": "String Builder",
+      "tags": {
+        "all": ["uses:StringBuilder"]
+      }
     },
     {
       "uuid": "7262549b-0bb3-4650-af34-e655c6ec59c2",
       "slug": "string-formatting",
-      "name": "String Formatting"
+      "name": "String Formatting",
+      "tags": {
+        "any": ["construct:string-interpolation", "uses:StringBuilder"]
+      }
     },
     {
       "uuid": "fe39a4ab-e760-4e71-804e-2937ecc52b4d",
       "slug": "strings",
-      "name": "Strings"
+      "name": "Strings",
+      "tags": {
+        "all": ["construct:string"]
+      }
     },
     {
       "uuid": "b9a177bc-b815-4e85-9c0f-b84eb059500d",
       "slug": "structs",
-      "name": "Structs"
+      "name": "Structs",
+      "tags": {
+        "all": ["construct:struct"]
+      }
     },
     {
       "uuid": "bc342654-6ebc-46fd-8148-eef2c8477a15",
       "slug": "switch-expressions",
-      "name": "Switch Expressions"
+      "name": "Switch Expressions",
+      "tags": {
+        "all": ["construct:switch-expression"]
+      }
     },
     {
       "uuid": "f57713c2-ddf3-4e71-802b-b24b552db609",
       "slug": "switch-statements",
-      "name": "Switch Statements"
+      "name": "Switch Statements",
+      "tags": {
+        "all": ["construct:switch"]
+      }
     },
     {
       "uuid": "58d5caa7-1683-44e0-a62f-1564ac6959ab",
       "slug": "throw-expressions",
-      "name": "Throw Expressions"
+      "name": "Throw Expressions",
+      "tags": {
+        "all": ["construct:throw-expression"]
+      }
     },
     {
       "uuid": "050e789f-d318-41df-b2cc-f386ccf349dc",
       "slug": "time",
-      "name": "Time"
+      "name": "Time",
+      "tags": {
+        "any": ["uses:DateTime", "uses:TimeOnly"]
+      }
     },
     {
       "uuid": "3b83bdcc-de0b-43f7-b8f1-41fa9c656fb1",
       "slug": "timezone",
-      "name": "Timezone"
+      "name": "Timezone",
+      "tags": {
+        "all": ["uses:TimeZoneInfo"]
+      }
     },
     {
       "uuid": "86848fc2-c1ef-44ce-b099-86feabbbc7c9",
       "slug": "tuples",
-      "name": "Tuples"
+      "name": "Tuples",
+      "tags": {
+        "all": ["construct:tuple"]
+      }
     },
     {
       "uuid": "a625c3c3-7299-4426-99e5-f2c850479a29",
       "slug": "user-defined-exceptions",
-      "name": "User Defined Exceptions"
+      "name": "User Defined Exceptions",
+      "tags": {
+        "all": ["construct:user-defined-exception"]
+      }
     },
     {
       "uuid": "1f78e26c-14d1-402e-a3cd-c786f8b1eec2",
       "slug": "varargs",
-      "name": "Varargs"
+      "name": "Varargs",
+      "tags": {
+        "all": ["construct:varargs"]
+      }
     },
     {
       "uuid": "6d85366c-7767-4d6a-af08-4cee5db801ca",
       "slug": "verbatim-strings",
-      "name": "Verbatim Strings"
+      "name": "Verbatim Strings",
+      "tags": {
+        "all": ["construct:verbatim-string"]
+      }
     },
     {
       "uuid": "5442d5da-f74e-4793-97ee-97ddc09d4942",
       "slug": "while-loops",
-      "name": "While Loops"
+      "name": "While Loops",
+      "tags": {
+        "all": ["construct:while-loop"]
+      }
     }
   ],
   "key_features": [
