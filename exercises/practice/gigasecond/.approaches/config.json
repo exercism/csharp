@@ -14,7 +14,9 @@
         "erikschierboom"
       ],
       "tags": {
-        "all": ["uses:DateTime.AddSeconds"]
+        "all": [
+          "uses:DateTime.AddSeconds"
+        ]
       }
     },
     {
@@ -26,7 +28,9 @@
         "erikschierboom"
       ],
       "tags": {
-        "all": ["uses:DateTime.Plus(TimeSpan)"]
+        "all": [
+          "uses:DateTime.Plus(TimeSpan)"
+        ]
       }
     }
   ]

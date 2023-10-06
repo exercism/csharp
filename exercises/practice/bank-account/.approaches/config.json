@@ -14,7 +14,9 @@
         "erikschierboom"
       ],
       "tags": {
-        "all": ["construct:lock"]
+        "all": [
+          "construct:lock"
+        ]
       }
     },
     {
@@ -26,7 +28,9 @@
         "erikschierboom"
       ],
       "tags": {
-        "all": ["uses:Mutex"]
+        "all": [
+          "uses:Mutex"
+        ]
       }
     }
   ]

@@ -14,7 +14,9 @@
         "erikschierboom"
       ],
       "tags": {
-        "all": ["uses:Array.Reverse"]
+        "all": [
+          "uses:Array.Reverse"
+        ]
       }
     },
     {
@@ -26,7 +28,9 @@
         "erikschierboom"
       ],
       "tags": {
-        "all": ["construct:linq"]
+        "all": [
+          "construct:linq"
+        ]
       }
     },
     {
@@ -38,7 +42,9 @@
         "erikschierboom"
       ],
       "tags": {
-        "all": ["uses:Span<T>"]
+        "all": [
+          "uses:Span<T>"
+        ]
       }
     },
     {
@@ -50,7 +56,9 @@
         "erikschierboom"
       ],
       "tags": {
-        "all": ["uses:StringBuilder"]
+        "all": [
+          "uses:StringBuilder"
+        ]
       }
     }
   ]

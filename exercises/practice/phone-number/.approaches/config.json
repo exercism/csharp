@@ -14,7 +14,9 @@
         "erikschierboom"
       ],
       "tags": {
-        "all": ["technique:regular-expression"]
+        "all": [
+          "technique:regular-expression"
+        ]
       }
     }
   ]

@@ -14,7 +14,9 @@
         "erikschierboom"
       ],
       "tags": {
-        "all": ["construct:bit-array"]
+        "all": [
+          "construct:bit-array"
+        ]
       }
     },
     {
@@ -26,7 +28,9 @@
         "erikschierboom"
       ],
       "tags": {
-        "all": ["construct:set"]
+        "all": [
+          "construct:set"
+        ]
       }
     }
   ]

@@ -17,7 +17,9 @@
         "bobahop"
       ],
       "tags": {
-        "all": ["technique:boolean-logic"]
+        "all": [
+          "technique:boolean-logic"
+        ]
       }
     },
     {
@@ -29,8 +31,13 @@
         "bobahop"
       ],
       "tags": {
-        "all": ["construct:ternary"],
-        "not": ["construct:logical-and", "construct:logical-or"]
+        "all": [
+          "construct:ternary"
+        ],
+        "not": [
+          "construct:logical-and",
+          "construct:logical-or"
+        ]
       }
     },
     {
@@ -42,8 +49,13 @@
         "bobahop"
       ],
       "tags": {
-        "all": ["construct:tuple"],
-        "any": ["construct:switch-expression", "construct:switch"]
+        "all": [
+          "construct:tuple"
+        ],
+        "any": [
+          "construct:switch-expression",
+          "construct:switch"
+        ]
       }
     },
     {
@@ -55,7 +67,9 @@
         "bobahop"
       ],
       "tags": {
-        "all": ["uses:DateTime.AddDays"]
+        "all": [
+          "uses:DateTime.AddDays"
+        ]
       }
     },
     {
@@ -67,7 +81,9 @@
         "bobahop"
       ],
       "tags": {
-        "all": ["uses:DateTime.IsLeapYear"]
+        "all": [
+          "uses:DateTime.IsLeapYear"
+        ]
       }
     }
   ]

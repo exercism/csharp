@@ -14,7 +14,9 @@
         "erikschierboom"
       ],
       "tags": {
-        "all": ["uses:Enumerable.AsParallel"]
+        "all": [
+          "uses:Enumerable.AsParallel"
+        ]
       }
     }
   ]

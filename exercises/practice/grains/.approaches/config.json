@@ -14,7 +14,9 @@
         "bobahop"
       ],
       "tags": {
-        "all": ["uses:Math.Pow"]
+        "all": [
+          "uses:Math.Pow"
+        ]
       }
     },
     {
@@ -26,7 +28,9 @@
         "bobahop"
       ],
       "tags": {
-        "all": ["technique:bit-shifting"]
+        "all": [
+          "technique:bit-shifting"
+        ]
       }
     },
     {
@@ -38,7 +42,9 @@
         "bobahop"
       ],
       "tags": {
-        "all": ["uses:ulong.MaxValue"]
+        "all": [
+          "uses:ulong.MaxValue"
+        ]
       }
     }
   ]

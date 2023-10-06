@@ -14,8 +14,12 @@
         "bobahop"
       ],
       "tags": {
-        "all": ["construct:if"],
-        "not": ["construct:linq"]
+        "all": [
+          "construct:if"
+        ],
+        "not": [
+          "construct:linq"
+        ]
       }
     },
     {
@@ -27,7 +31,9 @@
         "bobahop"
       ],
       "tags": {
-        "all": ["uses:Enumerable.Aggregate"]
+        "all": [
+          "uses:Enumerable.Aggregate"
+        ]
       }
     }
   ]
