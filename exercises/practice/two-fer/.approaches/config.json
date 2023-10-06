@@ -14,7 +14,9 @@
         "erikschierboom"
       ],
       "tags": {
-        "all": ["construct:optional-parameter"]
+        "all": [
+          "construct:optional-parameter"
+        ]
       }
     },
     {
@@ -26,7 +28,9 @@
         "erikschierboom"
       ],
       "tags": {
-        "all": ["construct:method-overloading"]
+        "all": [
+          "construct:method-overloading"
+        ]
       }
     }
   ]

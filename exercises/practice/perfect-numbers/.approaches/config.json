@@ -16,7 +16,9 @@
         "aage"
       ],
       "tags": {
-        "all": ["construct:if"]
+        "all": [
+          "construct:if"
+        ]
       }
     },
     {
@@ -28,7 +30,9 @@
         "aage"
       ],
       "tags": {
-        "all": ["construct:switch-expression"]
+        "all": [
+          "construct:switch-expression"
+        ]
       }
     }
   ]

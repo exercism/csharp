@@ -14,7 +14,9 @@
         "erikschierboom"
       ],
       "tags": {
-        "all": ["construct:while-loop"]
+        "all": [
+          "construct:while-loop"
+        ]
       }
     },
     {
@@ -26,7 +28,9 @@
         "erikschierboom"
       ],
       "tags": {
-        "all": ["technique:recursion"]
+        "all": [
+          "technique:recursion"
+        ]
       }
     },
     {
@@ -38,7 +42,10 @@
         "erikschierboom"
       ],
       "tags": {
-        "all": ["uses:Enumerable.Count", "uses:yield"]
+        "all": [
+          "uses:Enumerable.Count",
+          "uses:yield"
+        ]
       }
     }
   ]

@@ -17,10 +17,12 @@
         "bobahop"
       ],
       "tags": {
-        "all": ["construct:if"],
+        "all": [
+          "construct:if"
+        ],
         "not": [
-          "technique:regular-expression", 
-          "construct:switch", 
+          "technique:regular-expression",
+          "construct:switch",
           "construct:switch-expression",
           "construct:array",
           "construct:list",
@@ -37,8 +39,13 @@
         "bobahop"
       ],
       "tags": {
-        "all": ["construct:tuple"],
-        "any": ["construct:switch", "construct:switch-expression"]
+        "all": [
+          "construct:tuple"
+        ],
+        "any": [
+          "construct:switch",
+          "construct:switch-expression"
+        ]
       }
     },
     {
@@ -50,8 +57,13 @@
         "bobahop"
       ],
       "tags": {
-        "all": ["construct:array"],
-        "not": ["technique:regular-expression", "construct:tuple"]
+        "all": [
+          "construct:array"
+        ],
+        "not": [
+          "technique:regular-expression",
+          "construct:tuple"
+        ]
       }
     },
     {
@@ -63,7 +75,9 @@
         "erikschierboom"
       ],
       "tags": {
-        "all": ["technique:regular-expression"]
+        "all": [
+          "technique:regular-expression"
+        ]
       }
     }
   ]

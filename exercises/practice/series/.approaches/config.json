@@ -14,7 +14,9 @@
         "erikschierboom"
       ],
       "tags": {
-        "all": ["construct:for-loop"]
+        "all": [
+          "construct:for-loop"
+        ]
       }
     },
     {
@@ -26,7 +28,9 @@
         "erikschierboom"
       ],
       "tags": {
-        "all": ["construct:linq"]
+        "all": [
+          "construct:linq"
+        ]
       }
     }
   ]

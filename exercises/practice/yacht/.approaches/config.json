@@ -14,7 +14,9 @@
         "erikschierboom"
       ],
       "tags": {
-        "all": ["construct:linq"]
+        "all": [
+          "construct:linq"
+        ]
       }
     }
   ]

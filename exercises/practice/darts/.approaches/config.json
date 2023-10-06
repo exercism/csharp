@@ -14,7 +14,9 @@
         "erikschierboom"
       ],
       "tags": {
-        "all": ["construct:if"]
+        "all": [
+          "construct:if"
+        ]
       }
     },
     {
@@ -26,7 +28,10 @@
         "erikschierboom"
       ],
       "tags": {
-        "any": ["construct:switch", "construct:switch-expression"]
+        "any": [
+          "construct:switch",
+          "construct:switch-expression"
+        ]
       }
     }
   ]

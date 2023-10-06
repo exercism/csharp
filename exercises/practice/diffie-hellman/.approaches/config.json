@@ -14,7 +14,9 @@
         "erikschierboom"
       ],
       "tags": {
-        "all": ["construct:big-integer"]
+        "all": [
+          "construct:big-integer"
+        ]
       }
     }
   ]

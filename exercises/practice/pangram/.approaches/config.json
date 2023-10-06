@@ -45,7 +45,9 @@
         "bobahop"
       ],
       "tags": {
-        "all": ["technique:bit-shifting"]
+        "all": [
+          "technique:bit-shifting"
+        ]
       }
     }
   ]

@@ -14,7 +14,10 @@
         "bobahop"
       ],
       "tags": {
-        "all": ["construct:dictionary", "uses:String.Substring"]
+        "all": [
+          "construct:dictionary",
+          "uses:String.Substring"
+        ]
       }
     },
     {
@@ -26,7 +29,10 @@
         "bobahop"
       ],
       "tags": {
-        "all": ["construct:switch", "uses:String.Substring"]
+        "all": [
+          "construct:switch",
+          "uses:String.Substring"
+        ]
       }
     },
     {
@@ -54,7 +60,7 @@
       ],
       "tags": {
         "all": [
-          "construct:yield", 
+          "construct:yield",
           "construct:dictionary",
           "construct:switch-expression"
         ]
@@ -70,7 +76,7 @@
       ],
       "tags": {
         "all": [
-          "construct:yield", 
+          "construct:yield",
           "construct:switch-expression"
         ]
       }
