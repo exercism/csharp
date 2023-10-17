@@ -29,7 +29,7 @@ The developers' details are as follows:
 | bert@ex.ism   | blue      | 0.8            | Bertrand | Paris     | France    |
 | anders@ex.ism | brown     | 0.85           | Anders   | Redmond   | USA       |
 
-Implement the `Authenticator.Developers()` method to return the developers' identity details. The dictionary key is the developer's name.
+Implement the `Authenticator.Developers` property to return the developers' identity details. The dictionary key is the developer's name.
 
 ```csharp
 var authenticator = new Authenticator();
