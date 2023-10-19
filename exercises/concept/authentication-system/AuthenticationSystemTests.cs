@@ -18,11 +18,12 @@ public class AuthenticationSystemTests
     [Task(4)]
     public void CheckAdminCannotBeTampered()
     {
-        var admin = new Identity { EyeColor = "green", Email = "admin@ex.ism" };
+        var adminEmail = "admin@ex.ism";
+        var admin = new Identity { EyeColor = "green", Email = adminEmail };
         var authenticator = new Authenticator(admin);
         var tamperedAdmin = authenticator.Admin;
         tamperedAdmin.Email = "admin@hack.ed";
-        Assert.NotEqual(tamperedAdmin.Email, authenticator.Admin.Email);
+        Assert.Equal(adminEmail, authenticator.Admin.Email);
     }
 
     [Fact]
@@ -44,13 +45,6 @@ public class AuthenticationSystemTests
         IDictionary<string, Identity> devs = authenticator.GetDevelopers();
 
         Identity tamperedDev = new Identity { EyeColor = "grey", Email = "anders@hack.ed" };
-        try
-        {
-            devs["Anders"] = tamperedDev;
-            Assert.True(false, "Unexpected change to developers list.");
-        } catch (NotSupportedException)
-        {
-            Assert.True(true);            
-        }
+        Assert.Throws<NotSupportedException>(() => devs["Anders"] = tamperedDev);
     }
 }
