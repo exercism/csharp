@@ -15,4 +15,4 @@ class MyClass
 
 This declarative metadata only associates additional structured information to the code and does not modify its behavior, but that metadata is used by other part of the code to change how its target would behave or add, change or remove, restrict some its functionalities.
 
-There are many [predefined and reserved attributes](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/attributes/general#conditional-attribute), for example: `Flags`, `Obsolete`, `Conditional`, each has a specific that can be looked up on the C# documentation. Note that the full name of an attribute like [`Flags`](https://docs.microsoft.com/en-us/dotnet/api/system.flagsattribute
+There are many [predefined and reserved attributes](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/attributes/general#conditional-attribute), for example: `Flags`, `Obsolete`, `Conditional`, each has a specific that can be looked up on the C# documentation. Note that the full name of an attribute like [`Flags`](https://docs.microsoft.com/en-us/dotnet/api/system.flagsattribute)
