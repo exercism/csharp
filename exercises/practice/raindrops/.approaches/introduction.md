@@ -42,7 +42,7 @@ For more information, check the [`Aggregate` approach][approach-aggregate].
 
 ## Which approach to use?
 
-Although the `Aggregate` approach may be considered moe "functional", it is about three times slower than the `if` statements approach.
+Although the `Aggregate` approach may be considered more "functional", it is about three times slower than the `if` statements approach.
 
 [remainder-operator]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators#remainder-operator-
 [approach-if-statements]: https://exercism.org/tracks/csharp/exercises/raindrops/approaches/if-statements
