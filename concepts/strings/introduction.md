@@ -20,6 +20,6 @@ For any string formatting more complex than simple concatenation, string interpo
 
 ```csharp
 string name = "Jane";
-$"Hello {name}!";
+Console.WriteLine($"Hello {name}!");
 // => "Hello Jane!"
 ```
