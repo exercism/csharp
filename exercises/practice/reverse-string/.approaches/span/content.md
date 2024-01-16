@@ -56,6 +56,17 @@ So what is the limit for the amount of memory we can allocate?
 Well, this depends on how memory has already been allocated on the stack.
 That said, a small test program successfully stack-allocated memory for `750_000` characters, so you might be fine.
 
+## Alternative
+
+It is possible to use an alternative span-based implementation that is more readable, but has the downside of being about twice as slow:
+
+```csharp
+Span<char> chars = stackalloc char[input.Length];
+input.AsSpan().CopyTo(chars);
+chars.Reverse();
+return new string(chars);
+```
+
 ## Performance
 
 If you're interested in how this approach's performance compares to other approaches, check the [performance approach][approach-performance].
