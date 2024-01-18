@@ -1,0 +1,8 @@
+(number % 3, number % 5, number % 7) switch
+{
+    (0, 0, 0) => "PlingPlangPlong",
+    (0, 0, _) => "PlingPlang",
+    (_, 0, _) => "Plang",
+    (_, _, 0) => "Plong",
+    _ => number.ToString()
+};
