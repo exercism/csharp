@@ -49,6 +49,24 @@
           "uses:Enumerable.Aggregate"
         ]
       }
+    },
+    {
+      "uuid": "9ed72d33-b8eb-4322-86a2-beab30677cb7",
+      "slug": "pattern-matching",
+      "title": "Pattern Matching",
+      "blurb": "Use pattern matching to find the right sound combination.",
+      "authors": [
+        "erikschierboom"
+      ],
+      "tags": {
+        "all": [
+          "construct:pattern-matching"
+        ],
+        "any": [
+          "construct:switch",
+          "construct:switch-expression"
+        ]
+      }
     }
   ]
 }
