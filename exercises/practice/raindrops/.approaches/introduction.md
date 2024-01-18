@@ -15,17 +15,33 @@ For determining that, you will use the the [remainder operator][remainder-operat
 public static string Convert(int number)
 {
     var drops = "";
-    if (number % 3 == 0)
-        drops += "Pling";
-    if (number % 5 == 0)
-        drops += "Plang";
-    if (number % 7 == 0)
-        drops += "Plong";
+
+    if (number % 3 == 0) drops += "Pling";
+    if (number % 5 == 0) drops += "Plang";
+    if (number % 7 == 0) drops += "Plong";
+
     return drops.Length > 0 ? drops : number.ToString();
 }
 ```
 
 For more information, check the [`if` statements approach][approach-if-statements].
+
+## Approach: `StringBuilder`
+
+```csharp
+public static string Convert(int number)
+{
+    var drops = new StringBuilder(15);
+
+    if (number % 3 == 0) drops.Append("Pling");
+    if (number % 5 == 0) drops.Append("Plang");
+    if (number % 7 == 0) drops.Append("Plong");
+
+    return drops.Length > 0 ? drops.ToString() : number.ToString();
+}
+```
+
+For more information, check the [`StringBuilder` approach][approach-string-builder].
 
 ## Approach: `Aggregate` LINQ method
 
@@ -47,3 +63,4 @@ Although the `Aggregate` approach may be considered more "functional", it is abo
 [remainder-operator]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/arithmetic-operators#remainder-operator-
 [approach-if-statements]: https://exercism.org/tracks/csharp/exercises/raindrops/approaches/if-statements
 [approach-aggregate]: https://exercism.org/tracks/csharp/exercises/raindrops/approaches/aggregate
+[approach-string-builder]: https://exercism.org/tracks/csharp/exercises/raindrops/approaches/string-builder
