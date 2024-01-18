@@ -23,6 +23,20 @@
       }
     },
     {
+      "uuid": "7fe3b15c-d553-41c3-85f7-96ff013a0090",
+      "slug": "string-builder",
+      "title": "StringBuilder",
+      "blurb": "Use a StringBuilder to build up the result.",
+      "authors": [
+        "erikschierboom"
+      ],
+      "tags": {
+        "all": [
+          "uses:StringBuilder"
+        ]
+      }
+    },
+    {
       "uuid": "dc8fca24-1a44-4bb6-a08b-50d47de757c4",
       "slug": "aggregate",
       "title": "Aggregate",
