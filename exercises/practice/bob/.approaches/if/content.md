@@ -2,6 +2,7 @@
 
 ```csharp
 using System.Linq;
+
 public static class Bob
 {
     public static string Response(string message)
@@ -21,17 +22,17 @@ public static class Bob
         return "Whatever.";
     }
 
-    private bool IsSilence(string message)
+    private static bool IsSilence(string message)
     {
         return string.IsNullOrWhiteSpace(message);
     }
 
-    private bool IsYell(string message)
+    private static bool IsYell(string message)
     {
         return message.Any(char.IsLetter) && message.ToUpperInvariant() == message;
     }
 
-    private bool IsQuestion(string message)
+    private static bool IsQuestion(string message)
     {
         return message.TrimEnd().EndsWith("?");
     }
@@ -60,11 +61,11 @@ This is because the second half of the condition tests that the uppercased input
 If the input were only `"123"` it would equal itself uppercased, but without letters it would not be a yell.
 The uppercasing is done by using the `String` method [ToUpperInvariant][toupperinvariant].
 
-```exercism/note
+~~~~exercism/note
 The invariant culture represents a culture that is culture-insensitive.
 It is associated with the English language but not with a specific country or region.
 For more information, see the [CultureInfo.InvariantCulture](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.cultureinfo.invariantculture) property.
-```
+~~~~
 
 ## Extension methods
 
@@ -97,14 +98,14 @@ Your team may choose to overrule them.
 When the body of a function is a single expression, the function can be implemented as a [member-bodied expression][member-bodied-expressions], like so
 
 ```csharp
-private bool IsSilence(string message) =>
+private static bool IsSilence(string message) =>
     string.IsNullOrWhiteSpace(message);
 ```
 
 or
 
 ```csharp
-private bool IsSilence(string message) => string.IsNullOrWhiteSpace(message);
+private static bool IsSilence(string message) => string.IsNullOrWhiteSpace(message);
 ```
 
 A [ternary operator][ternary operator] can be used to shorten the code and make the logic more efficient, like so

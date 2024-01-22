@@ -12,7 +12,12 @@
       "blurb": "Use AsParallel() to parallelize counting characters.",
       "authors": [
         "erikschierboom"
-      ]
+      ],
+      "tags": {
+        "all": [
+          "uses:Enumerable.AsParallel"
+        ]
+      }
     }
   ]
 }

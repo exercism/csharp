@@ -51,15 +51,11 @@ For more information, check the [`switch` on a `tuple` approach][approach-switch
 
 ## Other approaches
 
-Besides the aforementioned, idiomatic approaches, you could also approach the exercise as follows:
-
-## DateTime.Add approach:
-
-Add a day to February 28th for the year and see if the new day is the 29th. For more information, see the [`DateTime.Add` approach][approach-datetime-add].
-
-## Built-in method approach:
-
-Use the built-in method for the year. For more information, see the [`DateTime.IsLeapYear` approach][approach-datetime-isleapyear].
+Besides the aforementioned, idiomatic approaches, you could also solve the exercise by:
+- Adding a day to February 28th seeing if the new day is the 29th. 
+  For more information, see the [`DateTime.Add` approach][approach-datetime-add].
+- Using the built-in method for the year.
+  For more information, see the [`DateTime.IsLeapYear` approach][approach-datetime-isleapyear].
 
 ## Which approach to use?
 

@@ -5,7 +5,7 @@ public static class Proverb
 {
     public static string[] Recite(string[] subjects)
     {
-        if (subjects.Length > 0)
+        if (subjects.Length == 0)
             return Array.Empty<string>();
 
         var lines = new string[subjects.Length];
@@ -61,9 +61,9 @@ var lines = new string[subjects.Length];
 
 To reiterate, there will be one line in the returned array for each adjacent subject pair.
 
-```exercism/note
+~~~~exercism/note
 Breaking up of a collection into adjacent sub-collection of a certain size of sometimes also referred to as a _sliding window_.
-```
+~~~~
 
 Let's look at an example, where the subjects array contains `"nail"`, `"shoe"` and `"horse"`.
 There are two adjacent subject pairs in this array:
@@ -115,7 +115,7 @@ As this code also works for subjects with one element, we can remove the code we
 The final step is to return the lines, giving us:
 
 ```csharp
-if (subjects.Length > 0)
+if (subjects.Length == 0)
     return Array.Empty<string>();
 
 var lines = new string[subjects.Length];

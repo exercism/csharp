@@ -45,17 +45,17 @@ public static string Response(string message)
     return "Whatever.";
 }
 
-private bool IsSilence(string message)
+private static bool IsSilence(string message)
 {
     return string.IsNullOrWhiteSpace(message);
 }
 
-private bool IsYell(string message)
+private static bool IsYell(string message)
 {
     return message.Any(char.IsLetter) && message.ToUpperInvariant() == message;
 }
 
-private bool IsQuestion(string message)
+private static bool IsQuestion(string message)
 {
     return message.TrimEnd().EndsWith("?");
 }

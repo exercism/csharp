@@ -12,7 +12,12 @@
       "blurb": "Use specialized sorted collections for automatic sorting.",
       "authors": [
         "erikschierboom"
-      ]
+      ],
+      "tags": {
+        "all": [
+          "technique:sorted-collection"
+        ]
+      }
     }
   ]
 }

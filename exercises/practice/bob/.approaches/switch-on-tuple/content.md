@@ -30,11 +30,11 @@ The `switch` returns the right response for a question, shout, shouted question,
 The `String` [TrimEnd][trimend] method is applied to the input to eliminate any whitespace at the end of the input.
 If the string has no characters left, it returns the response for saying nothing.
 
-```exercism/caution
+~~~~exercism/caution
 Note that a `null` `string` would be different from a `string` of all whitespace.
 A `null` `string` would throw an `Exception` if `TrimEnd` were applied to it.
 To test a `string` that might be `null` or only whitespace, the [IsNullOrWhiteSpace](https://learn.microsoft.com/en-us/dotnet/api/system.string.isnullorwhitespace) method of `String` would be used.
-```
+~~~~
 
 Next a [tuple][tuple] is made from the conditions for a queston and a shout.
 The first half of the shout condition

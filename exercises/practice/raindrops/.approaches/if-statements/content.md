@@ -6,23 +6,22 @@ public static class Raindrops
     public static string Convert(int number)
     {
         var drops = "";
-        if (number % 3 == 0)
-            drops += "Pling";
-        if (number % 5 == 0)
-            drops += "Plang";
-        if (number % 7 == 0)
-            drops += "Plong";
+
+        if (number % 3 == 0) drops += "Pling";
+        if (number % 5 == 0) drops += "Plang";
+        if (number % 7 == 0) drops += "Plong";
+
         return drops.Length > 0 ? drops : number.ToString();
     }
 }
 ```
 
 - First, `drops` is defined with `var` to be implicitly typed as a `string`, initialized as empty.
-- The first `if` statement uses the remainder operator to check if the year is evenly divided by `3`.
+- The first `if` statement uses the remainder operator to check if the is a multiple of `3`.
   If so, "Pling" is [concatenated][concatenate] to `drops` using `+`.
-- The second `if` statement uses the remainder operator to check if the year is evenly divided by `5`.
+- The second `if` statement uses the remainder operator to check if the is a multiple of `5`.
   If so, "Plang" is concatenated to `drops` using `+`.
-- The third `if` statement uses the remainder operator to check if the year is evenly divided by `7`.
+- The third `if` statement uses the remainder operator to check if the is a multiple of `7`.
   If so, "Plong" is concatenated to `drops` using `+`.
 
 A [ternary operator][ternary] is then used to return `drops` if it has more than `0` characters,

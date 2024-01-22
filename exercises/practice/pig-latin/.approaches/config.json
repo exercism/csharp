@@ -12,7 +12,12 @@
       "blurb": "Use regular expressions to match and rewrite a sentence.",
       "authors": [
         "erikschierboom"
-      ]
+      ],
+      "tags": {
+        "all": [
+          "technique:regular-expression"
+        ]
+      }
     }
   ]
 }

@@ -7,9 +7,9 @@ As C# `DateTime` instances are immutable, this means that you'll need to return 
 
 A gigasecond is equal to one billion seconds, which we can write as `1_000_000_000`.
 
-```exercism/note
+~~~~exercism/note
 Using underscores as digit separators can help make large numbers a lot more readable.
-```
+~~~~
 
 Alternative, scientific notation can be used for a more compact notation: `1e9`.
 

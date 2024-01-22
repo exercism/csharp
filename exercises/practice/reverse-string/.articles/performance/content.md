@@ -105,9 +105,9 @@ The `Span<T>` approach has the downside of being more error-prone to write and f
 
 The two slowest approaches, LINQ and `StringBuilder`, are also the ones that allocate (the most) memory.
 
-```exercism/note
+~~~~exercism/note
 Reducing memory allocation is often a great way to improve performance.
-```
+~~~~
 
 [approaches]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches
 [approach-linq]: https://exercism.org/tracks/csharp/exercises/reverse-string/approaches/linq

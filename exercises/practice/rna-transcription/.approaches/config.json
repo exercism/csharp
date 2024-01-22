@@ -12,7 +12,12 @@
       "blurb": "Use a Dictionary and some LINQ to translate the DNA strand.",
       "authors": [
         "erikschierboom"
-      ]
+      ],
+      "tags": {
+        "all": [
+          "construct:dictionary"
+        ]
+      }
     },
     {
       "uuid": "576af402-9b7f-46fd-8642-bf8fa6d0d4fa",
@@ -21,7 +26,12 @@
       "blurb": "Use a switch expression and some LINQ to translate the DNA strand.",
       "authors": [
         "erikschierboom"
-      ]
+      ],
+      "tags": {
+        "all": [
+          "construct:switch-expression"
+        ]
+      }
     }
   ]
 }

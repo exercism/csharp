@@ -12,7 +12,12 @@
       "blurb": "Use a for loop to iterate over the slices.",
       "authors": [
         "erikschierboom"
-      ]
+      ],
+      "tags": {
+        "all": [
+          "construct:for-loop"
+        ]
+      }
     },
     {
       "uuid": "3857e426-8dac-41f2-bea0-4c8a0b8cd7bc",
@@ -21,7 +26,12 @@
       "blurb": "Use LINQ to iterate over the slices.",
       "authors": [
         "erikschierboom"
-      ]
+      ],
+      "tags": {
+        "all": [
+          "construct:linq"
+        ]
+      }
     }
   ]
 }

@@ -25,7 +25,7 @@ For more information, check the [LINQ approach][approach-linq].
 ```csharp
 public static string[] Recite(string[] subjects)
 {
-    if (subjects.Length > 0)
+    if (subjects.Length == 0)
         return Array.Empty<string>();
 
     var lines = new string[subjects.Length];

@@ -12,7 +12,12 @@
       "blurb": "Use a lock statement to prevent concurrent balance updates.",
       "authors": [
         "erikschierboom"
-      ]
+      ],
+      "tags": {
+        "all": [
+          "construct:lock"
+        ]
+      }
     },
     {
       "uuid": "b6d6ab21-82bb-4285-a840-5bc209ec9524",
@@ -21,7 +26,12 @@
       "blurb": "Use a Mutex to prevent concurrent balance updates.",
       "authors": [
         "erikschierboom"
-      ]
+      ],
+      "tags": {
+        "all": [
+          "uses:Mutex"
+        ]
+      }
     }
   ]
 }

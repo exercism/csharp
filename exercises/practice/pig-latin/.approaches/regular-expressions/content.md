@@ -107,10 +107,10 @@ The regex pattern then becomes:
 
 As we are now using a backslash that should be interpreted as an escape character, we prefix the string with the `@` character, making it a [_verbatim string_](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/verbatim).
 
-```exercism/note
+~~~~exercism/note
 Verbatim strings ensure that characters like a backslash are not interpreted as escape characters, but instead inserted literally.
 This is especially convenient when working with regular expressions, as one often uses backslashes.
-```
+~~~~
 
 The next step is to replace all the words in our sentence using our regex pattern, which we can do with [`Regex.Replace()`][regex-replace].
 This method takes an input, a matching pattern _and_ a replacement pattern.

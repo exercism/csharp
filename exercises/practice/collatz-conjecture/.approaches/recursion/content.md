@@ -39,7 +39,7 @@ The next step is to call the overload `Steps()` method and return its value.
 return Steps(number, 0);
 ```
 
-````exercism/note
+~~~~exercism/note
 For someone new to the code, it might not be clear what the `0` argument in the `Steps(number, 0)` call represents.
 You could introduce an appropriately named variable and use that as the argument:
 
@@ -53,7 +53,7 @@ This is already much better, but another option is to use a [named argument](htt
 ```csharp
 return Steps(number, stepCount: 0);
 ```
-````
+~~~~
 
 Let's examine the overload `Steps()` method, which looks like this:
 
@@ -122,3 +122,29 @@ return Steps(number % 2 == 0 ? number / 2 : number * 3 + 1, stepCount + 1);
 ```
 
 [ternary-operator]: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/conditional-operator
+
+## Optional parameter
+
+As an alternative to overloading the methods, as seen in the code snippets above, it is also possible to use an [optional parameter][optional-parameter] to solve the problem with only a single method implementation.
+
+This allows callers to use the method either with a single parameter (`number`) or both parameters, as used in the recursive method call. If only the `number` parameter is provided the `stepCount` parameter uses the defined default value.
+
+```csharp
+public static int Steps(int number, int stepCount = 0)
+{
+    if (number <= 0)
+        throw new ArgumentOutOfRangeException(nameof(number));
+
+    if (number == 1)
+        return stepCount;
+
+    if (number % 2 == 0)
+        return Steps(number / 2, stepCount + 1);
+
+    return Steps(number * 3 + 1, stepCount + 1);
+}
+```
+
+This version is more concise than the overloading version, but it comes with the drawback that the method API publicly exposes the `stepCount` parameter and callers might not know how to use this parameter correctly or may even provide invalid data, which then falsifies the result. 
+
+[optional-parameter]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/named-and-optional-arguments#optional-arguments

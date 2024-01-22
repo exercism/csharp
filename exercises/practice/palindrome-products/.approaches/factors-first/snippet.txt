@@ -1,0 +1,6 @@
+IEnumerable<(int, int)> FactorPairsInRange(int min, int max) 
+{
+  for (var a = min; a <= max; ++a)
+    for (var b = a; b <= max; ++b)
+      yield return (a, b);
+}

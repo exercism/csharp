@@ -12,7 +12,29 @@
       "blurb": "Use a chain of if statements.",
       "authors": [
         "bobahop"
-      ]
+      ],
+      "tags": {
+        "all": [
+          "construct:if"
+        ],
+        "not": [
+          "construct:linq"
+        ]
+      }
+    },
+    {
+      "uuid": "7fe3b15c-d553-41c3-85f7-96ff013a0090",
+      "slug": "string-builder",
+      "title": "StringBuilder",
+      "blurb": "Use a StringBuilder to build up the result.",
+      "authors": [
+        "erikschierboom"
+      ],
+      "tags": {
+        "all": [
+          "uses:StringBuilder"
+        ]
+      }
     },
     {
       "uuid": "dc8fca24-1a44-4bb6-a08b-50d47de757c4",
@@ -21,7 +43,30 @@
       "blurb": "Use the LINQ Aggregate method.",
       "authors": [
         "bobahop"
-      ]
+      ],
+      "tags": {
+        "all": [
+          "uses:Enumerable.Aggregate"
+        ]
+      }
+    },
+    {
+      "uuid": "9ed72d33-b8eb-4322-86a2-beab30677cb7",
+      "slug": "pattern-matching",
+      "title": "Pattern Matching",
+      "blurb": "Use pattern matching to find the right sound combination.",
+      "authors": [
+        "erikschierboom"
+      ],
+      "tags": {
+        "all": [
+          "construct:pattern-matching"
+        ],
+        "any": [
+          "construct:switch",
+          "construct:switch-expression"
+        ]
+      }
     }
   ]
 }

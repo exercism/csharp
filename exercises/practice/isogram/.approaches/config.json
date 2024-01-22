@@ -12,7 +12,12 @@
       "blurb": "Use Distinct with Count to return the answer.",
       "authors": [
         "bobahop"
-      ]
+      ],
+      "tags": {
+        "all": [
+          "uses:Enumerable.Distinct"
+        ]
+      }
     },
     {
       "uuid": "78bc9485-94b7-4bac-8ce6-d577e85670a1",
@@ -21,7 +26,12 @@
       "blurb": "Use GroupBy with All and Count to return the answer.",
       "authors": [
         "bobahop"
-      ]
+      ],
+      "tags": {
+        "all": [
+          "uses:Enumerable.GroupBy"
+        ]
+      }
     },
     {
       "uuid": "5a77a3ff-8474-4238-bf23-c7c657f27e34",
@@ -30,7 +40,12 @@
       "blurb": "Use a bit field to keep track of used letters.",
       "authors": [
         "bobahop"
-      ]
+      ],
+      "tags": {
+        "all": [
+          "technique:bit-shifting"
+        ]
+      }
     }
   ]
 }

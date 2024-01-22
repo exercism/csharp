@@ -1,7 +1,8 @@
 {
   "introduction": {
     "authors": [
-      "erikschierboom"
+      "erikschierboom",
+      "aage"
     ]
   },
   "approaches": [
@@ -11,8 +12,28 @@
       "title": "Use if statements",
       "blurb": "Use if statements to check for a perfect number.",
       "authors": [
-        "erikschierboom"
-      ]
+        "erikschierboom",
+        "aage"
+      ],
+      "tags": {
+        "all": [
+          "construct:if"
+        ]
+      }
+    },
+    {
+      "uuid": "fb72e324-eed2-46bb-a6a9-cb3bb68514bf",
+      "slug": "switch-expression",
+      "title": "Use switch expression",
+      "blurb": "Use switch expression to check for a perfect number.",
+      "authors": [
+        "aage"
+      ],
+      "tags": {
+        "all": [
+          "construct:switch-expression"
+        ]
+      }
     }
   ]
 }

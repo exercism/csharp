@@ -1,12 +1,20 @@
 # Span&lt;T&gt;
 
 ```csharp
-Span<char> chars = stackalloc[input.Length];
-for (var i = 0; i < input.Length; i++)
+public static class ReverseString
 {
-    chars[input.Length - 1 - i] = input[i];
+    public static string Reverse(string input)
+    {
+        Span<char> chars = stackalloc[input.Length];
+
+        for (var i = 0; i < input.Length; i++)
+        {
+            chars[input.Length - 1 - i] = input[i];
+        }
+
+        return new string(chars);
+    }
 }
-return new string(chars);
 ```
 
 C# 7.2. introduced the [`Span<T>`][span-t] class, which was specifically designed to allow performant iteration/mutation of _array-like_ objects.
@@ -39,14 +47,25 @@ Span<char> chars = stackalloc char[input.Length];
 
 With this version, the memory allocated for the `Span<char>` is all on the stack and no garbage collection is needed for that data.
 
-```exercism/caution
+~~~~exercism/caution
 The stack has a finite amount of memory.
 This means that for large strings, the above code will result in a `StackOverflowException` being thrown.
-```
+~~~~
 
 So what is the limit for the amount of memory we can allocate?
 Well, this depends on how memory has already been allocated on the stack.
 That said, a small test program successfully stack-allocated memory for `750_000` characters, so you might be fine.
+
+## Alternative
+
+It is possible to use an alternative span-based implementation that is more readable, but has the downside of being about twice as slow:
+
+```csharp
+Span<char> chars = stackalloc char[input.Length];
+input.AsSpan().CopyTo(chars);
+chars.Reverse();
+return new string(chars);
+```
 
 ## Performance
 

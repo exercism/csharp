@@ -1,0 +1,18 @@
+{
+  "introduction": {
+    "authors": [
+      "michalporeba"
+    ]
+  },
+  "approaches": [
+    {
+      "uuid": "f701e9a9-605c-45cc-bd3e-60c05852f2a2",
+      "slug": "factors-first",
+      "title": "Factors First",
+      "blurb": "Generate factor first and check if their product is a palindrome.",
+      "authors": [
+        "michalporeba"
+      ]
+    }
+  ]
+}

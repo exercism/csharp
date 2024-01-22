@@ -12,7 +12,12 @@
       "blurb": "Use Math.Pow to raise 2 by a specified power.",
       "authors": [
         "bobahop"
-      ]
+      ],
+      "tags": {
+        "all": [
+          "uses:Math.Pow"
+        ]
+      }
     },
     {
       "uuid": "71f823dc-c667-46ee-875f-6e73918d0336",
@@ -21,7 +26,12 @@
       "blurb": "Use bit-shifting to raise 2 by a specified power.",
       "authors": [
         "bobahop"
-      ]
+      ],
+      "tags": {
+        "all": [
+          "technique:bit-shifting"
+        ]
+      }
     },
     {
       "uuid": "076f430a-3779-4249-a190-b75110da455b",
@@ -30,7 +40,12 @@
       "blurb": "Use UInt64.MaxValue for Total.",
       "authors": [
         "bobahop"
-      ]
+      ],
+      "tags": {
+        "all": [
+          "uses:ulong.MaxValue"
+        ]
+      }
     }
   ]
 }

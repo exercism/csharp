@@ -8,7 +8,7 @@ public class Authenticator
         public string Green = "green";
         public string Brown = "brown";
         public string Hazel = "hazel";
-        public string Brey = "grey";
+        public string Grey = "grey";
     }
 
     public Authenticator(Identity admin)

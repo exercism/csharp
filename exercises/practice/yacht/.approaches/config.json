@@ -12,7 +12,12 @@
       "blurb": "Use LINQ to score yacht hands.",
       "authors": [
         "erikschierboom"
-      ]
+      ],
+      "tags": {
+        "all": [
+          "construct:linq"
+        ]
+      }
     }
   ]
 }

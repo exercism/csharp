@@ -12,7 +12,12 @@
       "blurb": "Use LINQ to to iterate over the subjects and recite the song.",
       "authors": [
         "erikschierboom"
-      ]
+      ],
+      "tags": {
+        "all": [
+          "construct:linq"
+        ]
+      }
     },
     {
       "uuid": "17a95b9d-af7a-4e8d-9086-aa4522c21dd9",
@@ -21,7 +26,12 @@
       "blurb": "Use a for loop to to iterate over the subjects and recite the song.",
       "authors": [
         "erikschierboom"
-      ]
+      ],
+      "tags": {
+        "all": [
+          "construct:for-loop"
+        ]
+      }
     }
   ]
 }

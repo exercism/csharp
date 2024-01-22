@@ -12,7 +12,12 @@
       "blurb": "Use the BigInteger class to easily implement diffie-hellman.",
       "authors": [
         "erikschierboom"
-      ]
+      ],
+      "tags": {
+        "all": [
+          "construct:big-integer"
+        ]
+      }
     }
   ]
 }

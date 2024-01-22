@@ -33,9 +33,9 @@ public static string Speak(string name = "you")
 Using an optional parameter, we can assign a default value to that parameter which is then used if no value is passed for that parameter: `Speak()` and `Speak("you")` are equivalent.
 This new syntax allowed for a more succinct way of defining default values for parameters.
 
-```exercism/note
+~~~~exercism/note
 Method overloading can do everything optional parameters can do, but the latter are arguably easier to read and write.
-```
+~~~~
 
 ## What are the differences?
 
@@ -164,9 +164,9 @@ The big differences are that the generated IL code:
 
 This demonstrates that optional parameters are _not_ overloaded methods in disguise.
 
-```exercism/note
+~~~~exercism/note
 Note how the interpolated string is actually converted to a `string.Concat` call in the IL code.
-```
+~~~~
 
 ## Conclusion
 
