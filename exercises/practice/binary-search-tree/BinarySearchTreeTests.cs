@@ -10,14 +10,14 @@ public class BinarySearchTreeTests
         Assert.Equal(0, sut.Count);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void New_bst_can_be_serialized_to_json()
     {
         var sut = new BinarySearchTree<int>();
         Assert.Null(sut.ToJson());
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Single_value_can_be_found()
     {
         var sut = new BinarySearchTree<int>();
@@ -26,7 +26,7 @@ public class BinarySearchTreeTests
         Assert.True(sut.Contains(4));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Single_value_can_be_serialized()
     {
         var sut = new BinarySearchTree<int>();
@@ -41,7 +41,7 @@ public class BinarySearchTreeTests
         Assert.Equal(WithoutSpaces(expected), WithoutSpaces(sut.ToJson()));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Insert_data_at_proper_node_42()
     {
         var sut = new BinarySearchTree<int>();
@@ -61,7 +61,7 @@ public class BinarySearchTreeTests
         Assert.Equal(WithoutSpaces(expected), WithoutSpaces(sut.ToJson()));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Insert_data_at_proper_node_44()
     {
         var sut = new BinarySearchTree<int>();
@@ -81,7 +81,7 @@ public class BinarySearchTreeTests
         Assert.Equal(WithoutSpaces(expected), WithoutSpaces(sut.ToJson()));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Insert_data_at_proper_node_45()
     {
         var sut = new BinarySearchTree<int>();
@@ -101,7 +101,7 @@ public class BinarySearchTreeTests
         Assert.Equal(WithoutSpaces(expected), WithoutSpaces(sut.ToJson()));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Insert_data_at_proper_node_4261357()
     {
         var sut = new BinarySearchTree<int>();
@@ -146,7 +146,7 @@ public class BinarySearchTreeTests
         Assert.Equal(WithoutSpaces(expected), WithoutSpaces(sut.ToJson()));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Can_sort_a_single_number()
     {
         var sut = new BinarySearchTree<int>();
@@ -154,7 +154,7 @@ public class BinarySearchTreeTests
         Assert.Equal(new int[] {2}, sut.GetOrderedValues());
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Can_sort_if_second_number_is_smaller_than_first()
     {
         var sut = new BinarySearchTree<int>();
@@ -163,7 +163,7 @@ public class BinarySearchTreeTests
         Assert.Equal(new int[] {1, 2}, sut.GetOrderedValues());
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Can_sort_if_second_number_is_same_as_first()
     {
         var sut = new BinarySearchTree<int>();
@@ -172,7 +172,7 @@ public class BinarySearchTreeTests
         Assert.Equal(new int[] {2, 2}, sut.GetOrderedValues());
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Can_sort_if_second_number_is_greater_than_first()
     {
         var sut = new BinarySearchTree<int>();
@@ -181,7 +181,7 @@ public class BinarySearchTreeTests
         Assert.Equal(new int[] {2, 3}, sut.GetOrderedValues());
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Can_sort_complex_tree()
     {
         var sut = new BinarySearchTree<int>();
