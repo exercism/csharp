@@ -66,7 +66,7 @@ PlayAnalyzer.AnalyzeOffField(new Foul());
 // => "The referee deemed a foul."
 
 PlayAnalyzer.AnalyzeOffField(new Injury(8));
-// => "Oh no! Player 8 is injured. Medics are on the field.
+// => "Oh no! Player 8 is injured. Medics are on the field."
 ```
 
 ## 5. Report on club managers
