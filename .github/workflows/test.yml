@@ -18,3 +18,7 @@ jobs:
         with:
           dotnet-version: "7.0.100"
       - run: pwsh ./test.ps1
+      - uses: test-summary/action@fee35d7df20790255fe6aa92cf0f6d28092ecf2f
+        with:
+          paths: build/**/results/**/*.xml
+        if: always()
