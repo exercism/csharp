@@ -2,9 +2,9 @@
 // ***** BenchmarkRunner: Start   *****
 // ***** Found 4 benchmark(s) in total *****
 // ***** Building 1 exe(s) in Parallel: Start   *****
-// start dotnet  restore /p:UseSharedCompilation=false /p:BuildInParallel=false /m:1 /p:Deterministic=true /p:Optimize=true in /Users/erik/Code/exercism/csharp/exercises/practice/bob/.articles/performance/code/bin/release/net7.0/43a0d367-c24e-4951-ac8b-e51ed4e832f2
+// start dotnet  restore /p:UseSharedCompilation=false /p:BuildInParallel=false /m:1 /p:Deterministic=true /p:Optimize=true in /Users/erik/Code/exercism/csharp/exercises/practice/bob/.articles/performance/code/bin/release/net8.0/43a0d367-c24e-4951-ac8b-e51ed4e832f2
 // command took 0.68s and exited with 0
-// start dotnet  build -c Release --no-restore /p:UseSharedCompilation=false /p:BuildInParallel=false /m:1 /p:Deterministic=true /p:Optimize=true in /Users/erik/Code/exercism/csharp/exercises/practice/bob/.articles/performance/code/bin/release/net7.0/43a0d367-c24e-4951-ac8b-e51ed4e832f2
+// start dotnet  build -c Release --no-restore /p:UseSharedCompilation=false /p:BuildInParallel=false /m:1 /p:Deterministic=true /p:Optimize=true in /Users/erik/Code/exercism/csharp/exercises/practice/bob/.articles/performance/code/bin/release/net8.0/43a0d367-c24e-4951-ac8b-e51ed4e832f2
 // command took 2.26s and exited with 0
 // ***** Done, took 00:00:02 (3 sec)   *****
 // Found 4 benchmarks:
@@ -17,7 +17,7 @@
 // Benchmark: BenchMe.ResponseIfChain: DefaultJob
 // *** Execute ***
 // Launch: 1 / 1
-// Execute: dotnet 43a0d367-c24e-4951-ac8b-e51ed4e832f2.dll --benchmarkName BenchMe.ResponseIfChain --job Default --benchmarkId 0 in /Users/erik/Code/exercism/csharp/exercises/practice/bob/.articles/performance/code/bin/release/net7.0/43a0d367-c24e-4951-ac8b-e51ed4e832f2/bin/Release/net7.0
+// Execute: dotnet 43a0d367-c24e-4951-ac8b-e51ed4e832f2.dll --benchmarkName BenchMe.ResponseIfChain --job Default --benchmarkId 0 in /Users/erik/Code/exercism/csharp/exercises/practice/bob/.articles/performance/code/bin/release/net8.0/43a0d367-c24e-4951-ac8b-e51ed4e832f2/bin/Release/net8.0
 Failed to set up high priority. Make sure you have the right permissions. Message: Permission denied
 // BeforeAnythingElse
 
@@ -144,7 +144,7 @@ Skewness = 0.99, Kurtosis = 3.06, MValue = 2
 // Benchmark: BenchMe.ResponseWithSwitch: DefaultJob
 // *** Execute ***
 // Launch: 1 / 1
-// Execute: dotnet 43a0d367-c24e-4951-ac8b-e51ed4e832f2.dll --benchmarkName BenchMe.ResponseWithSwitch --job Default --benchmarkId 1 in /Users/erik/Code/exercism/csharp/exercises/practice/bob/.articles/performance/code/bin/release/net7.0/43a0d367-c24e-4951-ac8b-e51ed4e832f2/bin/Release/net7.0
+// Execute: dotnet 43a0d367-c24e-4951-ac8b-e51ed4e832f2.dll --benchmarkName BenchMe.ResponseWithSwitch --job Default --benchmarkId 1 in /Users/erik/Code/exercism/csharp/exercises/practice/bob/.articles/performance/code/bin/release/net8.0/43a0d367-c24e-4951-ac8b-e51ed4e832f2/bin/Release/net8.0
 Failed to set up high priority. Make sure you have the right permissions. Message: Permission denied
 // BeforeAnythingElse
 
@@ -266,7 +266,7 @@ Skewness = 0.97, Kurtosis = 3.43, MValue = 2
 // Benchmark: BenchMe.ResponseWithArray: DefaultJob
 // *** Execute ***
 // Launch: 1 / 1
-// Execute: dotnet 43a0d367-c24e-4951-ac8b-e51ed4e832f2.dll --benchmarkName BenchMe.ResponseWithArray --job Default --benchmarkId 2 in /Users/erik/Code/exercism/csharp/exercises/practice/bob/.articles/performance/code/bin/release/net7.0/43a0d367-c24e-4951-ac8b-e51ed4e832f2/bin/Release/net7.0
+// Execute: dotnet 43a0d367-c24e-4951-ac8b-e51ed4e832f2.dll --benchmarkName BenchMe.ResponseWithArray --job Default --benchmarkId 2 in /Users/erik/Code/exercism/csharp/exercises/practice/bob/.articles/performance/code/bin/release/net8.0/43a0d367-c24e-4951-ac8b-e51ed4e832f2/bin/Release/net8.0
 Failed to set up high priority. Make sure you have the right permissions. Message: Permission denied
 // BeforeAnythingElse
 
@@ -389,7 +389,7 @@ Skewness = -0.34, Kurtosis = 1.84, MValue = 2
 // Benchmark: BenchMe.ResponseRegex: DefaultJob
 // *** Execute ***
 // Launch: 1 / 1
-// Execute: dotnet 43a0d367-c24e-4951-ac8b-e51ed4e832f2.dll --benchmarkName BenchMe.ResponseRegex --job Default --benchmarkId 3 in /Users/erik/Code/exercism/csharp/exercises/practice/bob/.articles/performance/code/bin/release/net7.0/43a0d367-c24e-4951-ac8b-e51ed4e832f2/bin/Release/net7.0
+// Execute: dotnet 43a0d367-c24e-4951-ac8b-e51ed4e832f2.dll --benchmarkName BenchMe.ResponseRegex --job Default --benchmarkId 3 in /Users/erik/Code/exercism/csharp/exercises/practice/bob/.articles/performance/code/bin/release/net8.0/43a0d367-c24e-4951-ac8b-e51ed4e832f2/bin/Release/net8.0
 Failed to set up high priority. Make sure you have the right permissions. Message: Permission denied
 // BeforeAnythingElse
 
