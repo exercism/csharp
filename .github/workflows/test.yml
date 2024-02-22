@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
       - uses: actions/setup-dotnet@4d6c8fcf3c8f7a60068d26b594648e99df24cee3
         with:
-          dotnet-version: "7.0.100"
+          dotnet-version: "8.0.201"
       - run: pwsh ./test.ps1
       - uses: test-summary/action@fee35d7df20790255fe6aa92cf0f6d28092ecf2f
         with:
