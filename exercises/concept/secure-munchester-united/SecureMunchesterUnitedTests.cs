@@ -25,7 +25,7 @@ public class SecureMunchesterUnitedTests
     public void DisplaySecurityPass_security()
     {
         var spm = new SecurityPassMaker();
-        Assert.Equal("Security Team Member Priority Personnel", spm.GetDisplayName(new Security()));
+        Assert.Equal("Security Team Member", spm.GetDisplayName(new Security()));
     }
 
     [Fact]
