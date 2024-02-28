@@ -164,21 +164,21 @@ public class BookingUpForBeautyTests
     [Task(4)]
     public void Description_on_friday_afternoon()
     {
-        Assert.Equal("You have an appointment on 3/29/2019 3:00:00 PM.", Appointment.Description(new DateTime(2019, 03, 29, 15, 0, 0)));
+        Assert.Equal("You have an appointment on 3/29/2019 3:00:00 PM.", Appointment.Description(new DateTime(2019, 03, 29, 15, 0, 0)).Replace('\u202F', ' '));
     }
 
     [Fact]
     [Task(4)]
     public void Description_on_thursday_afternoon()
     {
-        Assert.Equal("You have an appointment on 7/25/2019 1:45:00 PM.", Appointment.Description(new DateTime(2019, 07, 25, 13, 45, 0)));
+        Assert.Equal("You have an appointment on 7/25/2019 1:45:00 PM.", Appointment.Description(new DateTime(2019, 07, 25, 13, 45, 0)).Replace('\u202F', ' '));
     }
 
     [Fact]
     [Task(4)]
     public void Description_on_wednesday_morning()
     {
-        Assert.Equal("You have an appointment on 9/9/2020 9:09:09 AM.", Appointment.Description(new DateTime(2020, 9, 9, 9, 9, 9)));
+        Assert.Equal("You have an appointment on 9/9/2020 9:09:09 AM.", Appointment.Description(new DateTime(2020, 9, 9, 9, 9, 9)).Replace('\u202F', ' '));
     }
 
     [Fact]
