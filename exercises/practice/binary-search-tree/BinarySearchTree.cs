@@ -1,53 +1,21 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
-public class BinarySearchTree : IEnumerable<int>
+public class BinarySearchTree<T> where T : IComparable
 {
-    public BinarySearchTree(int value)
-    {
-    }
+    public int Count
+    => throw new NotImplementedException("Please implement the Count property of the BinarySearchTree<T> class.");
 
-    public BinarySearchTree(IEnumerable<int> values)
-    {
-    }
+    public void Add(T value)
+    => throw new NotImplementedException("Please implement the Add(T) method of the BinarySearchTree<T> class.");
 
-    public int Value
-    {
-        get
-        {
-            throw new NotImplementedException("You need to implement this function.");
-        }
-    }
+    public bool Contains(T value)
+    => throw new NotImplementedException("Please implement the Contains(T) method of the BinarySearchTree<T> class.");
 
-    public BinarySearchTree Left
-    {
-        get
-        {
-            throw new NotImplementedException("You need to implement this function.");
-        }
-    }
+    public string ToJson()
+    => throw new NotImplementedException("Please implement the ToJson() method of the BinarySearchTree<T> class.");
 
-    public BinarySearchTree Right
-    {
-        get
-        {
-            throw new NotImplementedException("You need to implement this function.");
-        }
-    }
-
-    public BinarySearchTree Add(int value)
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
-
-    public IEnumerator<int> GetEnumerator()
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
-
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
+    public IEnumerable<T> GetOrderedValues()
+    => throw new NotImplementedException("Please implement the GetOrderedValues() method of the BinarySearchTree<T> class.");
 }

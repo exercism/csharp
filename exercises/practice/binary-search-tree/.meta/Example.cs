@@ -1,79 +1,113 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
+using Newtonsoft.Json;
 
-public class BinarySearchTree : IEnumerable<int>
+public class BinarySearchTree<T> where T : IComparable
 {
-    public BinarySearchTree(int value)
+    class Node
     {
-        Value = value;
-    }
+        public T Value { get; set; }
+        public Node Left { get; set; }
+        public Node Right { get; set; }
 
-    public BinarySearchTree(IEnumerable<int> values)
-    {
-        var array = values.ToArray();
-
-        if (array.Length == 0)
+        public static object ToData(Node node)
         {
-            throw new ArgumentException("Cannot create tree from empty list");
+            if (node == null) return null;
+
+            return new
+            {
+                data = node.Value,
+                left = Node.ToData(node.Left),
+                right = Node.ToData(node.Right)
+            };
         }
 
-        Value = array[0];
-
-        foreach (var value in array.Skip(1))
+        public IEnumerable<T> GetOrderedValues()
         {
-            Add(value);
-        }
-    }
-
-    public int Value { get; }
-
-    public BinarySearchTree Left { get; private set; }
-
-    public BinarySearchTree Right { get; private set; }
-
-    public BinarySearchTree Add(int value)
-    {
-        if (value <= Value)
-        {
-            Left = Add(value, Left);
-        }
-        else
-        {
-            Right = Add(value, Right);
-        }
-
-        return this;
-    }
-
-    private static BinarySearchTree Add(int value, BinarySearchTree tree)
-    {
-        if (tree == null)
-        {
-            return new BinarySearchTree(value);
-        }
-
-        return tree.Add(value);
-    }
-
-    public IEnumerator<int> GetEnumerator()
-    {
-        foreach (var left in Left?.AsEnumerable() ?? Enumerable.Empty<int>())
-        {
-            yield return left;
-        }
-
-        yield return Value;
-
-        foreach (var right in Right?.AsEnumerable() ?? Enumerable.Empty<int>())
-        {
-            yield return right;
+            if (Left != null)
+            {
+                foreach(var value in Left.GetOrderedValues())
+                {
+                    yield return value;
+                }
+            }
+            yield return Value;
+            if (Right != null)
+            {
+                foreach(var value in Right.GetOrderedValues())
+                {
+                    yield return value;
+                }
+            }
         }
     }
 
-    IEnumerator IEnumerable.GetEnumerator()
+    Node head;
+
+    public int Count { get; private set; }
+
+    public void Add(T value)
     {
-        return GetEnumerator();
+        Count++;
+
+        if (head == null) {
+            head = new Node { Value = value };
+            return;
+        }
+
+        var node = head;
+
+        while(true)
+        {
+            if (node.Value.CompareTo(value) >= 0)
+            {
+                if (node.Left == null)
+                {
+                    node.Left = new Node { Value = value };
+                    break;
+                }
+                node = node.Left;
+            } else {
+                if (node.Right == null)
+                {
+                    node.Right = new Node { Value = value };
+                    break;
+                }
+                node = node.Right;
+            }
+        }
+    }
+
+    public bool Contains(T value)
+    {
+        var node = head;
+        while(node != null)
+        {
+            if (node.Value.CompareTo(value) == 0) { return true; }
+
+            if (node.Value.CompareTo(value) < 0) { node = node.Left; }
+            else { node = node.Right; }
+        }
+        return false;
+    }
+
+    public string ToJson()
+    {
+        if (head == null) return null;
+
+        var settings = new JsonSerializerSettings
+        {
+            Formatting = Formatting.Indented,
+        };
+
+        var data = Node.ToData(head);
+
+        return JsonConvert.SerializeObject(data, settings);
+    }
+
+    public IEnumerable<T> GetOrderedValues()
+    {
+        if (head == null) return new T[0];
+        return head.GetOrderedValues();
     }
 }
