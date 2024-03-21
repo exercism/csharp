@@ -6,7 +6,7 @@ You have six tasks, all dealing with the numbers of birds that visited your gard
 
 ## 1. Check what the counts were last week
 
-For comparison purposes, you always keep a copy of last week's counts nearby, which were: 0, 2, 5, 3, 7, 8 and 4. Implement the (_static_) `BirdCount.LastWeek()` method that returns last week's counts:
+For comparison purposes, you always keep a copy of last week's counts nearby, which were: 0, 2, 5, 3, 7, 8 and 4. Implement the (_static_) `BirdCount.LastWeek()` method that returns last week's counts. Instead of fetching these counts from elsewhere, you should directly write them into the method:
 
 ```csharp
 BirdCount.LastWeek();
