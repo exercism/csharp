@@ -42,3 +42,5 @@ In case you were wondering, according to this [Wikipedia article][wiki-utc] the 
 [date-string-formatting]: https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings
 [time-span]: https://docs.microsoft.com/en-us/dotnet/api/system.timespan
 [wiki-utc]: https://en.wikipedia.org/wiki/Coordinated_Universal_Time
+[time-zone-info]: https://learn.microsoft.com/en-us/dotnet/api/system.timezoneinfo
+[cross-platform-time-zones]: https://devblogs.microsoft.com/dotnet/cross-platform-time-zones-with-net-core/

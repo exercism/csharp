@@ -46,7 +46,7 @@ As a result of points 1 and 3 above there is no way for the developer of a `stru
 
 ## Common structs
 
-You will see from the documentation that there is a close relationship between primitives and structs. See [`Int32/int]`][int32], for an example. A more conventional example of a`struct`is the type [`TimeSpan`][time-span].
+You will see from the documentation that there is a close relationship between primitives and structs. See [`Int32/int`][int32], for an example. A more conventional example of a`struct`is the type [`TimeSpan`][time-span].
 
 Instances of `TimeSpan` behave much like numbers with comparison operators like `>` and `<` and arithmetic operators. You can implement these operators for your own `struct`s when you need them.
 

@@ -60,7 +60,7 @@ To ensure that all members of a reference type are protected the fields can be m
 
 You should examine [read-only collections][readonly-collections] in the Base Class Library.
 
-For arrays the closest you can get to a read-only version is the [`Array.AsReadOnly<T>()][as-read-only] method.
+For arrays the closest you can get to a read-only version is the [`Array.AsReadOnly<T>()`][as-read-only] method.
 
 [readonly-fields]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/readonly#readonly-field-example
 [constants]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/constants
