@@ -29,5 +29,5 @@ An "arm" of the `switch` is selected when the pattern matches the range variable
 Switch expression also support [type patterns][pattern-matching] and recursive matching.
 
 [switch-expressions]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/switch-expression
-[switch-statement]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/switch
+[switch-statements]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/switch
 [pattern-matching]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/switch-expression#patterns-and-case-guards

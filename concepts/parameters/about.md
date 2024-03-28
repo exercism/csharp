@@ -68,7 +68,7 @@ When studying the documentation note that it uses the following terms:
 
 Whilst `ref` is easy to use and has no performance penalties it is worth seeing how the problems it addresses are dealt with in a particular code base before using it widely. There are alternatives such as passing in by-value and using the value from the called method's return statement. Again, `tuples` can play a role.
 
-You will see from the [documentation][ref-parameter] that `out` and `ref` cannot be used in certain situations but you can ignore them for now. The compiler will let you know whwn such situations arise.
+You will see from the [documentation][ref-parameter] that `out` and `ref` cannot be used in certain situations but you can ignore them for now. The compiler will let you know when such situations arise.
 
 Note that `optional parameters` and `named arguments` are discussed in the `method-overloading` exercise.
 
