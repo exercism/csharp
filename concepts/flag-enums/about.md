@@ -59,7 +59,7 @@ features.HasFlag(PhoneFeatures.Call); // => false
 features.HasFlag(PhoneFeatures.Text); // => true
 ```
 
-The [working with enums as bit flags tutorial][docs.microsoft.com-enumeration-types-as-bit-flags] goes into more detail how to work with flag enums. Another great resource is the [enum flags and bitwise operators page][alanzucconi.com-enum-flags-and-bitwise-operators].
+The [working with enums as bit flags tutorial][docs.microsoft.com-enumeration-types-as-bit-flags] goes into more detail how to work with flag enums. Another great resource is the [enum flags and bitwise operators page][enum-lags].
 
 By default, the `int` type is used for enum member values. One can use a different integer type by specifying the type in the enum declaration:
 
@@ -78,3 +78,4 @@ enum PhoneFeatures : byte
 [bitwise-complement-operator]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/bitwise-and-shift-operators#bitwise-complement-operator-
 [binary-literals]: https://riptutorial.com/csharp/example/6327/binary-literals
 [has-flag]: https://docs.microsoft.com/en-us/dotnet/api/system.enum.hasflag
+[enum-lags]: alanzucconi.com-enum-flags-and-bitwise-operators
