@@ -16,5 +16,8 @@ To ensure that all members of a reference type are protected the fields can be m
 
 The Base Class Library (BCL) provides some readonly versions of collections where there is a requirement to stop members of a collections being updated. These come in the form of wrappers:
 
-- [`ReadOnlyDictionary<T>`](https://docs.microsoft.com/en-us/dotnet/api/system.collections.objectmodel.readonlydictionary-2
-- [`ReadOnlyCollection<T>`](https://docs.microsoft.com/en-us/dotnet/api/system.collections.objectmodel.readonlycollection-1
+- [`ReadOnlyDictionary<T>`][ReadOnlyDictionary]
+- [`ReadOnlyCollection<T>`][ReadOnlyCollection]
+
+[ReadOnlyDictionary]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.objectmodel.readonlydictionary-2
+[ReadOnlyCollection]: https://docs.microsoft.com/en-us/dotnet/api/system.collections.objectmodel.readonlycollection-1
