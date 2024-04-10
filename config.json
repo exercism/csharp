@@ -2608,6 +2608,19 @@
           "exceptions"
         ],
         "difficulty": 1
+      },
+      {
+        "slug": "game-of-life",
+        "name": "Conway's Game of Life",
+        "uuid": "bf644c78-ae34-4a69-9bd3-b189c448cf10",
+        "practices": [
+          "multi-dimensional-arrays"
+        ],
+        "prerequisites": [
+          "multi-dimensional-arrays",
+          "if-statements"
+        ],
+        "difficulty": 5
       }
     ],
     "foregone": [

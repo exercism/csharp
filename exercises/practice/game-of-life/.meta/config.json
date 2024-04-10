@@ -1,0 +1,22 @@
+{
+  "authors": [
+    "Steffan153"
+  ],
+  "files": {
+    "solution": [
+      "GameOfLife.cs"
+    ],
+    "test": [
+      "GameOfLifeTests.cs"
+    ],
+    "example": [
+      ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "GameOfLife.csproj"
+    ]
+  },
+  "blurb": "Implement Conway's Game of Life.",
+  "source": "Wikipedia",
+  "source_url": "https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life"
+}
