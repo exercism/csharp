@@ -16,8 +16,8 @@ Remove the `set` accessor or make it `private` for any appropriate property on t
 
 ## 4. Ensure that the admin cannot be tampered with
 
-At present the admin identity field is returned by a call to `Admin`. This is not ideal as the caller can modify the field. Find a way to prevent the caller modifying the details of admin on the `Authenticator` object.
+At present the admin identity field is returned by a call to `Admin`. This is not ideal as the caller can modify the field. Find a way to prevent the caller from modifying the details of admin on the `Authenticator` object.
 
 ## 5. Ensure that the developers cannot be tampered with
 
-At present the dictionary containing the hard coded privileged developer identities is returned by a call to `GetDevelopers()`. This is not ideal as the caller can modify the dictionary. Find a way to prevent the caller modifying the details of admin on the `Authenticator` object.
+At present the dictionary containing the hard coded privileged developer identities is returned by a call to `GetDevelopers()`. This is not ideal as the caller can modify the dictionary. Find a way to prevent the caller from modifying the details of developers on the `Authenticator` object.
