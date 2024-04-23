@@ -5,12 +5,12 @@ using System.Text;
 using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class Tournament : ExerciseGenerator
 {
-    internal class Tournament : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             testMethod.TestedMethod = "RunTally";
             testMethod.TestedMethodType = TestedMethodType.StaticMethod;
             testMethod.UseVariablesForInput = true;
@@ -21,12 +21,12 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.Assert = RenderAssert();
         }
 
-        private string RenderAssert() => Render.AssertEqual("expected", "RunTally(rows)");
+    private string RenderAssert() => Render.AssertEqual("expected", "RunTally(rows)");
 
-        protected override void UpdateTestClass(TestClass testClass) => AddRunTallyMethod(testClass);
+    protected override void UpdateTestClass(TestClass testClass) => AddRunTallyMethod(testClass);
 
-        private static void AddRunTallyMethod(TestClass testClass) =>
-            testClass.AdditionalMethods.Add(@"
+    private static void AddRunTallyMethod(TestClass testClass) =>
+        testClass.AdditionalMethods.Add(@"
 private string RunTally(string input)
 {
     var encoding = new UTF8Encoding();
@@ -39,11 +39,10 @@ private string RunTally(string input)
     }
 }");
 
-        protected override void UpdateNamespaces(ISet<string> namespaces)
-        {
+    protected override void UpdateNamespaces(ISet<string> namespaces)
+    {
             namespaces.Add(typeof(Array).Namespace!);
             namespaces.Add(typeof(Stream).Namespace!);
             namespaces.Add(typeof(UTF8Encoding).Namespace!);
         }
-    }
 }

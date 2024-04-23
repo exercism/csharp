@@ -1,11 +1,10 @@
-namespace Exercism.CSharp.Exercises
+namespace Exercism.CSharp.Exercises;
+
+public enum TestedMethodType
 {
-    public enum TestedMethodType
-    {
-        StaticMethod,
-        InstanceMethod,
-        ExtensionMethod,
-        Property,
-        Constructor
-    }
+    StaticMethod,
+    InstanceMethod,
+    ExtensionMethod,
+    Property,
+    Constructor
 }

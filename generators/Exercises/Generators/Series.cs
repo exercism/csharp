@@ -4,12 +4,12 @@ using System.Linq;
 
 using Exercism.CSharp.Output;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class Series : ExerciseGenerator
 {
-    internal class Series : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             testMethod.UseVariableForExpected = true;
 
             if (!(testMethod.Expected is string[]))
@@ -18,7 +18,6 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.ForceEvaluation = true;
         }
 
-        protected override void UpdateNamespaces(ISet<string> namespaces) => 
-            namespaces.Add(typeof(Enumerable).Namespace!);
-    }
+    protected override void UpdateNamespaces(ISet<string> namespaces) => 
+        namespaces.Add(typeof(Enumerable).Namespace!);
 }

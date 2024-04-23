@@ -1,6 +1,5 @@
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class RotationalCipher : ExerciseGenerator
 {
-    internal class RotationalCipher : ExerciseGenerator
-    {
-    }
 }

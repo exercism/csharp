@@ -1,12 +1,12 @@
 ﻿using Exercism.CSharp.Output;
 using Newtonsoft.Json;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class RestApi : ExerciseGenerator
 {
-    internal class RestApi : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             testMethod.UseVariablesForInput = true;
             testMethod.UseVariableForTested = true;
             testMethod.UseVariableForExpected = true;
@@ -24,5 +24,4 @@ namespace Exercism.CSharp.Exercises.Generators
                     ? testMethod.Expected["users"]
                     : testMethod.Expected).Replace(".0", "");
         }
-    }
 }

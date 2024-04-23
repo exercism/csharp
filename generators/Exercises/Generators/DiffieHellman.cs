@@ -6,12 +6,12 @@ using System.Text;
 using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class DiffieHellman : ExerciseGenerator
 {
-    internal class DiffieHellman : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             switch (testMethod.Property)
             {
                 case "privateKeyIsInRange":
@@ -29,8 +29,8 @@ namespace Exercism.CSharp.Exercises.Generators
             }
         }
 
-        private void UpdateTestMethodForPrivateKeyIsInRangeProperty(TestMethod testMethod)
-        {
+    private void UpdateTestMethodForPrivateKeyIsInRangeProperty(TestMethod testMethod)
+    {
             testMethod.TestedMethod = "PrivateKey";
             testMethod.Expected!["greaterThan"] = new BigInteger(testMethod.Expected!["greaterThan"]);
             
@@ -38,11 +38,11 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.Assert = RenderAssertForPrivateKeyIsInRangeProperty(testMethod);
         }
 
-        private string RenderArrangeForPrivateKeyIsInRangeProperty(TestMethod testMethod) 
-            => RenderRandomPrivateKeysArrange(testMethod);
+    private string RenderArrangeForPrivateKeyIsInRangeProperty(TestMethod testMethod) 
+        => RenderRandomPrivateKeysArrange(testMethod);
 
-        private string RenderAssertForPrivateKeyIsInRangeProperty(TestMethod testMethod)
-        {
+    private string RenderAssertForPrivateKeyIsInRangeProperty(TestMethod testMethod)
+    {
             var arrange = new StringBuilder();
             
             arrange.AppendLine("foreach (var privateKey in privateKeys)");
@@ -53,21 +53,21 @@ namespace Exercism.CSharp.Exercises.Generators
             return arrange.ToString();
         }
         
-        private void UpdateTestMethodForPrivateKeyIsRandomProperty(TestMethod testMethod)
-        {
+    private void UpdateTestMethodForPrivateKeyIsRandomProperty(TestMethod testMethod)
+    {
             testMethod.TestedMethod = "PrivateKey";
             testMethod.Arrange = RenderArrangeForPrivateKeyIsRandomProperty(testMethod);
             testMethod.Assert = RenderAssertForPrivateKeyIsRandomProperty();
         }
 
-        private string RenderArrangeForPrivateKeyIsRandomProperty(TestMethod testMethod) 
-            => RenderRandomPrivateKeysArrange(testMethod);
+    private string RenderArrangeForPrivateKeyIsRandomProperty(TestMethod testMethod) 
+        => RenderRandomPrivateKeysArrange(testMethod);
 
-        private string RenderAssertForPrivateKeyIsRandomProperty() 
-            => Render.AssertInRange("privateKeys.Distinct().Count()", "privateKeys.Length - 100", "privateKeys.Length");
+    private string RenderAssertForPrivateKeyIsRandomProperty() 
+        => Render.AssertInRange("privateKeys.Distinct().Count()", "privateKeys.Length - 100", "privateKeys.Length");
 
-        private string RenderRandomPrivateKeysArrange(TestMethod testMethod)
-        {
+    private string RenderRandomPrivateKeysArrange(TestMethod testMethod)
+    {
             var arrange = new StringBuilder();
 
             arrange.AppendLine(Render.Variable("p", Render.BigInteger(new BigInteger(7919))));
@@ -76,8 +76,8 @@ namespace Exercism.CSharp.Exercises.Generators
             return arrange.ToString();
         }
         
-        private void UpdateTestMethodForKeyExchangeProperty(TestMethod testMethod)
-        {
+    private void UpdateTestMethodForKeyExchangeProperty(TestMethod testMethod)
+    {
             testMethod.UseVariablesForInput = true;
             
             var keys = testMethod.Input.Keys.ToArray();
@@ -88,18 +88,18 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.Assert = RenderAssertForKeyExchangeProperty();
         }
         
-        private static dynamic ConvertKeyExchangeInput(dynamic input, TestMethod testMethod) =>
-            input switch
-            {
-                int i => new BigInteger(i),
-                string str => new UnescapedValue($"{testMethod.TestedClass}.{char.ToUpper(str[0]) + str.Substring(1)}"),
-                _ => input
-            };
-
-        private string RenderAssertForKeyExchangeProperty() => Render.AssertEqual("secretA", "secretB");
-
-        private static void UpdateTestMethodForNormalProperty(TestMethod testMethod)
+    private static dynamic ConvertKeyExchangeInput(dynamic input, TestMethod testMethod) =>
+        input switch
         {
+            int i => new BigInteger(i),
+            string str => new UnescapedValue($"{testMethod.TestedClass}.{char.ToUpper(str[0]) + str.Substring(1)}"),
+            _ => input
+        };
+
+    private string RenderAssertForKeyExchangeProperty() => Render.AssertEqual("secretA", "secretB");
+
+    private static void UpdateTestMethodForNormalProperty(TestMethod testMethod)
+    {
             testMethod.UseVariablesForInput = true;
             testMethod.Expected = new BigInteger(testMethod.Expected);
 
@@ -109,10 +109,9 @@ namespace Exercism.CSharp.Exercises.Generators
                 testMethod.Input[key] = new BigInteger(testMethod.Input[key]);
         }
 
-        protected override void UpdateNamespaces(ISet<string> namespaces)
-        {
+    protected override void UpdateNamespaces(ISet<string> namespaces)
+    {
             namespaces.Add(typeof(BigInteger).Namespace!);
             namespaces.Add(typeof(Enumerable).Namespace!);
         }
-    }
 }

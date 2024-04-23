@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class OcrNumbers : ExerciseGenerator
 {
-    internal class OcrNumbers : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             if (!(testMethod.Expected is string))
             {
                 testMethod.ExceptionThrown = typeof(ArgumentException);
@@ -20,6 +20,5 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.UseVariablesForInput = true;
         }
 
-        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(Array).Namespace!);
-    }
+    protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(Array).Namespace!);
 }

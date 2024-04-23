@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Numerics;
 using System.Text.RegularExpressions;
 
-namespace Exercism.CSharp.Output.Rendering
+namespace Exercism.CSharp.Output.Rendering;
+
+internal partial class Render
 {
-    internal partial class Render
+    public string Object(object? val)
     {
-        public string Object(object? val)
-        {
             if (val == null)
                 return "null";
 
@@ -43,8 +43,8 @@ namespace Exercism.CSharp.Output.Rendering
             }
         }
 
-        public string ObjectMultiLine(object val)
-        {
+    public string ObjectMultiLine(object val)
+    {
             if (val == null)
                 return "null";
 
@@ -65,24 +65,23 @@ namespace Exercism.CSharp.Output.Rendering
             }
         }
 
-        private static bool IsList(object obj)
-            => obj.GetType().IsGenericType && obj.GetType().GetGenericTypeDefinition() == typeof(List<>);
+    private static bool IsList(object obj)
+        => obj.GetType().IsGenericType && obj.GetType().GetGenericTypeDefinition() == typeof(List<>);
 
-        private static bool IsArray(object obj)
-            => obj.GetType().IsArray;
+    private static bool IsArray(object obj)
+        => obj.GetType().IsArray;
 
-        private static bool IsHashSet(object obj)
-            => obj.GetType().IsGenericType && obj.GetType().GetGenericTypeDefinition() == typeof(HashSet<>);
+    private static bool IsHashSet(object obj)
+        => obj.GetType().IsGenericType && obj.GetType().GetGenericTypeDefinition() == typeof(HashSet<>);
 
-        private static bool IsDictionary(object obj)
-            => obj.GetType().IsGenericType && obj.GetType().GetGenericTypeDefinition() == typeof(Dictionary<,>);
+    private static bool IsDictionary(object obj)
+        => obj.GetType().IsGenericType && obj.GetType().GetGenericTypeDefinition() == typeof(Dictionary<,>);
         
-        private static bool RenderArrayAsMultiline<T>(T[,] _) => true;
+    private static bool RenderArrayAsMultiline<T>(T[,] _) => true;
 
-        private static bool RenderArrayAsMultiline<T>(T[] elements)
-            => IsNestedArray(elements) && elements.Length > 0;
+    private static bool RenderArrayAsMultiline<T>(T[] elements)
+        => IsNestedArray(elements) && elements.Length > 0;
 
-        private static bool IsNestedArray<T>(T[] elements) 
-            => elements.GetType()!.GetElementType()!.IsArray;
-    }
+    private static bool IsNestedArray<T>(T[] elements) 
+        => elements.GetType()!.GetElementType()!.IsArray;
 }

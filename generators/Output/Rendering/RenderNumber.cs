@@ -1,24 +1,23 @@
 ﻿using System.Globalization;
 using System.Numerics;
 
-namespace Exercism.CSharp.Output.Rendering
+namespace Exercism.CSharp.Output.Rendering;
+
+internal partial class Render
 {
-    internal partial class Render
-    {
-        public string Decimal(decimal dec) => $"{dec.ToString(CultureInfo.InvariantCulture)}m";
+    public string Decimal(decimal dec) => $"{dec.ToString(CultureInfo.InvariantCulture)}m";
 
-        public string Double(double dbl) => dbl.ToString(CultureInfo.InvariantCulture);
+    public string Double(double dbl) => dbl.ToString(CultureInfo.InvariantCulture);
 
-        public string Float(float flt) => flt.ToString(CultureInfo.InvariantCulture);
+    public string Float(float flt) => flt.ToString(CultureInfo.InvariantCulture);
 
-        public string Int(int i) => i.ToString(CultureInfo.InvariantCulture);
+    public string Int(int i) => i.ToString(CultureInfo.InvariantCulture);
         
-        public string Long(long lng) => $"{lng}L";
+    public string Long(long lng) => $"{lng}L";
 
-        public string Ulong(ulong ulng) => $"{ulng}UL";
+    public string Ulong(ulong ulng) => $"{ulng}UL";
 
-        public string Uint(uint ui) => string.Format("0x{0:X}u", ui);
+    public string Uint(uint ui) => string.Format("0x{0:X}u", ui);
 
-        public string BigInteger(BigInteger bigInt) => $"new BigInteger({bigInt.ToString()})";
-    }
+    public string BigInteger(BigInteger bigInt) => $"new BigInteger({bigInt.ToString()})";
 }

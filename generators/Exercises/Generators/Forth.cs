@@ -2,12 +2,12 @@
 using System;
 using System.Text;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class Forth : ExerciseGenerator
 {
-    internal class Forth : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             testMethod.TestMethodName = testMethod.TestMethodNameWithPath;
 
             if (testMethod.ExpectedIsError)
@@ -27,8 +27,8 @@ namespace Exercism.CSharp.Exercises.Generators
             }
         }
 
-        private string RenderEvaluateBothAssert(TestMethod testMethod)
-        {
+    private string RenderEvaluateBothAssert(TestMethod testMethod)
+    {
             var instructionsFirst = Render.Object(testMethod.Input["instructionsFirst"]);
             var instructionsSecond = Render.Object(testMethod.Input["instructionsSecond"]);
             var expectedFirst = Render.String(string.Join(" ", testMethod.Expected![0]));
@@ -39,5 +39,4 @@ namespace Exercism.CSharp.Exercises.Generators
 
             return assert.ToString();
         }
-    }
 }

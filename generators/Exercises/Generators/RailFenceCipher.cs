@@ -1,15 +1,14 @@
 ﻿using Exercism.CSharp.Output;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class RailFenceCipher : ExerciseGenerator
 {
-    internal class RailFenceCipher : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             testMethod.UseVariablesForInput = true;
             testMethod.UseVariableForExpected = true;
             testMethod.ConstructorInputParameters = new[] { "rails" };
             testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
         }
-    }
 }

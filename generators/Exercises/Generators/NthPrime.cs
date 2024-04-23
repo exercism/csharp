@@ -2,14 +2,13 @@ using System;
 
 using Exercism.CSharp.Output;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class NthPrime : ExerciseGenerator
 {
-    internal class NthPrime : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             if (testMethod.ExpectedIsError)
                 testMethod.ExceptionThrown = typeof(ArgumentOutOfRangeException);
         }
-    }
 }

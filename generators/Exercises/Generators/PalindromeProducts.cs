@@ -4,12 +4,12 @@ using System.Text;
 using Exercism.CSharp.Output;
 using Newtonsoft.Json.Linq;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class PalindromeProducts : ExerciseGenerator
 {
-    internal class PalindromeProducts : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             if (ShouldThrowException(testMethod))
             {
                 testMethod.ExceptionThrown = typeof(ArgumentException);
@@ -23,23 +23,22 @@ namespace Exercism.CSharp.Exercises.Generators
             }
         }
 
-        private static bool ShouldThrowException(TestMethod testMethod) =>
-            testMethod.ExpectedIsError || testMethod.Expected!["value"] is null;
+    private static bool ShouldThrowException(TestMethod testMethod) =>
+        testMethod.ExpectedIsError || testMethod.Expected!["value"] is null;
 
-        private string RenderAssert()
-        {
+    private string RenderAssert()
+    {
             var assert = new StringBuilder();
             assert.AppendLine(Render.AssertEqual("expected.Item1", "actual.Item1"));
             assert.AppendLine(Render.AssertEqual("expected.Item2", "actual.Item2"));
             return assert.ToString();
         }
 
-        private string RenderCoordinates(JArray coordinates)
-            => Render.Object(coordinates
-                .Select(RenderCoordinate)
-                .ToArray());
+    private string RenderCoordinates(JArray coordinates)
+        => Render.Object(coordinates
+            .Select(RenderCoordinate)
+            .ToArray());
 
-        private static (int, int) RenderCoordinate(JToken coordinate)
-            => (coordinate[0]!.ToObject<int>(), coordinate[1]!.ToObject<int>());
-    }
+    private static (int, int) RenderCoordinate(JToken coordinate)
+        => (coordinate[0]!.ToObject<int>(), coordinate[1]!.ToObject<int>());
 }

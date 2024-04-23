@@ -1,12 +1,12 @@
 ﻿using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class TwelveDays : ExerciseGenerator
 {
-    internal class TwelveDays : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             testMethod.UseVariableForExpected = true;
             testMethod.Expected = new MultiLineString(testMethod.Expected);
 
@@ -15,5 +15,4 @@ namespace Exercism.CSharp.Exercises.Generators
                 testMethod.InputParameters = new[] { "startVerse" };
             }
         }
-    }
 }

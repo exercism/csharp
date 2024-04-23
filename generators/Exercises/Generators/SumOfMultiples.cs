@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using Exercism.CSharp.Output;
 using Newtonsoft.Json.Linq;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class SumOfMultiples : ExerciseGenerator
 {
-    internal class SumOfMultiples : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             if (testMethod.Input["factors"] is JArray)
                 testMethod.Input["factors"] = Array.Empty<int>();
         }
 
-        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(Array).Namespace!);
-    }
+    protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(Array).Namespace!);
 }

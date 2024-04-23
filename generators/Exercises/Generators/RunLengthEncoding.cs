@@ -1,22 +1,21 @@
 ﻿using Exercism.CSharp.Output;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class RunLengthEncoding : ExerciseGenerator
 {
-    internal class RunLengthEncoding : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             testMethod.TestMethodName = testMethod.TestMethodNameWithPath;
 
             if (testMethod.Property == "consistency")
                 testMethod.Assert = RenderConsistencyToAssert(testMethod);
         }
 
-        private string RenderConsistencyToAssert(TestMethod testMethod)
-        {
+    private string RenderConsistencyToAssert(TestMethod testMethod)
+    {
             var expected = Render.Object(testMethod.Expected);
             var actual = $"{testMethod.TestedClass}.Decode({testMethod.TestedClass}.Encode({expected}))";
             return Render.AssertEqual(expected, actual);
         }
-    }
 }

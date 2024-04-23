@@ -1,12 +1,11 @@
 ﻿using Serilog;
 
-namespace Exercism.CSharp
+namespace Exercism.CSharp;
+
+internal static class Logging
 {
-    internal static class Logging
-    {
-        public static void Setup() =>
-            Log.Logger = new LoggerConfiguration()
-                .WriteTo.LiterateConsole()
-                .CreateLogger();
-    }
+    public static void Setup() =>
+        Log.Logger = new LoggerConfiguration()
+            .WriteTo.LiterateConsole()
+            .CreateLogger();
 }

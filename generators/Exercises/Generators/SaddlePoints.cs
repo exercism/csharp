@@ -4,12 +4,12 @@ using System.Linq;
 using Exercism.CSharp.Output;
 using Newtonsoft.Json.Linq;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class SaddlePoints : ExerciseGenerator
 {
-    internal class SaddlePoints : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             testMethod.TestedMethod = "Calculate";
 
             testMethod.UseVariablesForInput = true;
@@ -24,12 +24,12 @@ namespace Exercism.CSharp.Exercises.Generators
             }
         }
 
-        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(string).Namespace!);
+    protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(string).Namespace!);
 
-        private static dynamic ToMultiDimensionalArray(JToken jArray) => jArray.ToObject<int[,]>()!;
+    private static dynamic ToMultiDimensionalArray(JToken jArray) => jArray.ToObject<int[,]>()!;
 
-        private static (string, object)[] ToTupleCollection(Array array)
-        {
+    private static (string, object)[] ToTupleCollection(Array array)
+    {
             var tuples = new List<(string, object)>();
             
             for (var x = 0; x < array.GetLength(0); x++)
@@ -40,5 +40,4 @@ namespace Exercism.CSharp.Exercises.Generators
 
             return tuples.OrderBy(x => x).ToArray();
         }
-    }
 }

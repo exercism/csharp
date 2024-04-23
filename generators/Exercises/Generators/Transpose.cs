@@ -1,12 +1,12 @@
 using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class Transpose : ExerciseGenerator
 {
-    internal class Transpose : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             testMethod.TestedMethod = "String";
             testMethod.Input["lines"] = new MultiLineString(testMethod.Input["lines"]);
             testMethod.Expected = new MultiLineString(testMethod.Expected);
@@ -14,5 +14,4 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.UseVariablesForInput = true;
             testMethod.UseVariableForExpected = true;
         }
-    }
 }

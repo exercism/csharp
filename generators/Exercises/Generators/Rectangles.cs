@@ -4,12 +4,12 @@ using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
 using Newtonsoft.Json.Linq;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class Rectangles : ExerciseGenerator
 {
-    internal class Rectangles : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             testMethod.UseVariablesForInput = true;
             testMethod.TestedMethod = "Count";
             
@@ -19,6 +19,5 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.Input["strings"] = new UnescapedValue(Render.ArrayMultiLine(testMethod.Input["strings"]));
         }
 
-        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(Array).Namespace!);
-    }
+    protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(Array).Namespace!);
 }

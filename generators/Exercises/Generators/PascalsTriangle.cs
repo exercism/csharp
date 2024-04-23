@@ -2,12 +2,12 @@ using System;
 using Exercism.CSharp.Output;
 using Newtonsoft.Json.Linq;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class PascalsTriangle : ExerciseGenerator
 {
-    internal class PascalsTriangle : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             testMethod.UseVariableForExpected = true;
             testMethod.TestedMethod = "Calculate";
 
@@ -16,5 +16,4 @@ namespace Exercism.CSharp.Exercises.Generators
             else
                 testMethod.ExceptionThrown = typeof(ArgumentOutOfRangeException);
         }
-    }
 }

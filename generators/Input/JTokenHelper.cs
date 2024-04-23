@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json.Linq;
 
-namespace Exercism.CSharp.Input
+namespace Exercism.CSharp.Input;
+
+internal static class JTokenHelper
 {
-    internal static class JTokenHelper
+    public static IEnumerable<JToken> ParentsAndSelf(this JToken? jToken)
     {
-        public static IEnumerable<JToken> ParentsAndSelf(this JToken? jToken)
-        {
             while (jToken != null)
             {
                 yield return jToken;
@@ -16,25 +16,25 @@ namespace Exercism.CSharp.Input
             }
         }
         
-        public static dynamic? ConvertJToken(JToken? jToken) =>
-            jToken switch
-            {
-                null => null,
-                JObject jObject => ConvertJObject(jObject),
-                JArray jArray => ConvertJArray(jArray),
-                _ => jToken.Type switch
-                {
-                    JTokenType.Integer => ConvertJTokenToInteger(jToken),
-                    JTokenType.Float => jToken.ToObject<float>(),
-                    JTokenType.String => jToken.ToObject<string>(),
-                    JTokenType.Boolean => jToken.ToObject<bool>(),
-                    JTokenType.Date => jToken.ToObject<DateTime>(),
-                    _ => null
-                }
-            };
-
-        private static dynamic ConvertJObject(JObject jObject)
+    public static dynamic? ConvertJToken(JToken? jToken) =>
+        jToken switch
         {
+            null => null,
+            JObject jObject => ConvertJObject(jObject),
+            JArray jArray => ConvertJArray(jArray),
+            _ => jToken.Type switch
+            {
+                JTokenType.Integer => ConvertJTokenToInteger(jToken),
+                JTokenType.Float => jToken.ToObject<float>(),
+                JTokenType.String => jToken.ToObject<string>(),
+                JTokenType.Boolean => jToken.ToObject<bool>(),
+                JTokenType.Date => jToken.ToObject<DateTime>(),
+                _ => null
+            }
+        };
+
+    private static dynamic ConvertJObject(JObject jObject)
+    {
             var properties = new Dictionary<string, dynamic?>(jObject.Count, StringComparer.OrdinalIgnoreCase);
 
             foreach (var (key, value) in jObject)
@@ -43,8 +43,8 @@ namespace Exercism.CSharp.Input
             return properties;
         }
 
-        private static dynamic? ConvertJArray(JArray jArray)
-        {
+    private static dynamic? ConvertJArray(JArray jArray)
+    {
             // We can't determine the type of the array if the array is empty
             if (!jArray.Any())
                 return jArray;
@@ -82,8 +82,8 @@ namespace Exercism.CSharp.Input
             }
         }
 
-        private static dynamic? ConvertJTokenToInteger(JToken jToken)
-        {
+    private static dynamic? ConvertJTokenToInteger(JToken jToken)
+    {
             var str = jToken.ToObject<string>();
 
             if (int.TryParse(str, out var i))
@@ -97,5 +97,4 @@ namespace Exercism.CSharp.Input
 
             return str;
         }
-    }
 }

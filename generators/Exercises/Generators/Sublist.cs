@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using Exercism.CSharp.Output;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class Sublist : ExerciseGenerator
 {
-    internal class Sublist : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             testMethod.Input["listOne"] = ConvertToList(testMethod.Input["listOne"]);
             testMethod.Input["listTwo"] = ConvertToList(testMethod.Input["listTwo"]);
 
@@ -15,9 +15,7 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.Expected = Render.Enum("SublistType", testMethod.Expected);
         }
 
-        private static List<int> ConvertToList(dynamic value) => new(value as int[] ?? Array.Empty<int>());
+    private static List<int> ConvertToList(dynamic value) => new(value as int[] ?? Array.Empty<int>());
 
-        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(IList<int>).Namespace!);
-    }
+    protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(IList<int>).Namespace!);
 }
-

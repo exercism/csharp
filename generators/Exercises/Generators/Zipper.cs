@@ -4,18 +4,18 @@ using System.Text;
 using Exercism.CSharp.Helpers;
 using Exercism.CSharp.Output;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class Zipper : ExerciseGenerator
 {
-    internal class Zipper : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             testMethod.Arrange = RenderArrange(testMethod);
             testMethod.Assert = RenderAssert(testMethod);
         }
 
-        private string RenderArrange(TestMethod testMethod)
-        {
+    private string RenderArrange(TestMethod testMethod)
+    {
             var arrange = new StringBuilder();
             var tree = RenderTree(testMethod.Input["initialTree"]);
             arrange.AppendLine(Render.Variable("tree", tree));
@@ -26,8 +26,8 @@ namespace Exercism.CSharp.Exercises.Generators
             return arrange.ToString();
         }
 
-        private string RenderAssert(TestMethod testMethod)
-        {
+    private string RenderAssert(TestMethod testMethod)
+    {
             var expected = RenderExpected(testMethod.Expected);
             if (expected == null)
             {
@@ -40,24 +40,24 @@ namespace Exercism.CSharp.Exercises.Generators
             return assert.ToString();
         }
 
-        private static string RenderTree(dynamic tree)
-        {
+    private static string RenderTree(dynamic tree)
+    {
             if (tree == null)
                 return "null";
 
             return $"new BinTree({tree["value"]}, {RenderTree(tree["left"])}, {RenderTree(tree["right"])})";
         }
 
-        private static string RenderOperations(dynamic operations)
-        {
+    private static string RenderOperations(dynamic operations)
+    {
             if (operations.Length == 0)
                 return "";
 
             return "." + string.Join(".", ((object[])operations).Select(RenderOperation));
         }
 
-        private static string RenderOperation(dynamic operation)
-        {
+    private static string RenderOperation(dynamic operation)
+    {
             var operationType = (string)operation["operation"];
             var operationMethod = operationType.ToMethodName();
 
@@ -73,8 +73,8 @@ namespace Exercism.CSharp.Exercises.Generators
             }
         }
 
-        private string? RenderExpected(dynamic expected)
-        {
+    private string? RenderExpected(dynamic expected)
+    {
             switch (expected["type"])
             {
                 case "int":
@@ -94,5 +94,4 @@ namespace Exercism.CSharp.Exercises.Generators
                     throw new ArgumentException("Unknown expected type");
             }
         }
-    }
 }

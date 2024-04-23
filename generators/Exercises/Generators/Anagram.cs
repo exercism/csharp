@@ -1,15 +1,14 @@
 using Exercism.CSharp.Output;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class Anagram : ExerciseGenerator
 {
-    internal class Anagram : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             testMethod.UseVariablesForInput = true;
             testMethod.UseVariableForExpected = true;
             testMethod.ConstructorInputParameters = new[] { "subject" };
             testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
         }
-    }
 }

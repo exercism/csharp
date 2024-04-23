@@ -3,12 +3,12 @@ using System.Linq;
 using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class Pov : ExerciseGenerator
 {
-    internal class Pov : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             testMethod.UseVariablesForInput = true;
             testMethod.UseVariableForExpected = true;
             
@@ -23,8 +23,8 @@ namespace Exercism.CSharp.Exercises.Generators
             }
         }
 
-        private UnescapedValue? RenderTree(dynamic tree)
-        {
+    private UnescapedValue? RenderTree(dynamic tree)
+    {
             if (tree == null)
             {
                 return null;
@@ -40,5 +40,4 @@ namespace Exercism.CSharp.Exercises.Generators
             
             return new UnescapedValue($"new Tree({label})");
         }
-    }
 }

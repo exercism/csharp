@@ -5,12 +5,12 @@ using Exercism.CSharp.Exercises;
 
 using Serilog;
 
-namespace Exercism.CSharp
+namespace Exercism.CSharp;
+
+public static class Program
 {
-    public static class Program
+    public static void Main(string[] args)
     {
-        public static void Main(string[] args)
-        {
             Logging.Setup();
 
             Options.Parse(args)
@@ -18,8 +18,8 @@ namespace Exercism.CSharp
                 .WithNotParsed(OnParseError);
         }
         
-        private static void OnParseSuccess(Options options)
-        {
+    private static void OnParseSuccess(Options options)
+    {
             var generatorRunner = new GeneratorRunner(options);
 
             // TODO: enable nullable
@@ -29,7 +29,6 @@ namespace Exercism.CSharp
                 generatorRunner.RegenerateSingleExercise(options.Exercise);
         }
 
-        private static void OnParseError(IEnumerable<Error> errors) =>
-            Log.Error("Errors: {Errors}", errors);
-    }
+    private static void OnParseError(IEnumerable<Error> errors) =>
+        Log.Error("Errors: {Errors}", errors);
 }

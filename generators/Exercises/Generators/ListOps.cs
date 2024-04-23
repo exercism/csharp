@@ -6,12 +6,12 @@ using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
 using Newtonsoft.Json.Linq;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class ListOps : ExerciseGenerator
 {
-    internal class ListOps : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             testMethod.TestMethodName = testMethod.TestMethodNameWithPath;
             testMethod.UseVariablesForInput = true;
             testMethod.UseVariableForExpected = !(testMethod.Expected is int);
@@ -37,8 +37,8 @@ namespace Exercism.CSharp.Exercises.Generators
             }
         }
 
-        private static UnescapedValue ConvertToFunction(string property, dynamic function)
-        {
+    private static UnescapedValue ConvertToFunction(string property, dynamic function)
+    {
             var signature =
                 property == "filter" ? "<int, bool>" :
                 property == "map" ? "<int, int>" :
@@ -51,8 +51,8 @@ namespace Exercism.CSharp.Exercises.Generators
             return new UnescapedValue($"new Func{signature}({body})");
         }
 
-        private static dynamic ConvertToList(dynamic value)
-        {
+    private static dynamic ConvertToList(dynamic value)
+    {
             if (IsArrayOfIntegers(value))
                 return new List<int>(value);
             
@@ -68,30 +68,29 @@ namespace Exercism.CSharp.Exercises.Generators
             throw new ArgumentException("Unsupported list type");
         }
 
-        private static dynamic ConvertToNestedList(dynamic value) 
-            => IsEmptyList(value) 
-                ? new List<List<int>>() 
-                : ConvertToList(value);
+    private static dynamic ConvertToNestedList(dynamic value) 
+        => IsEmptyList(value) 
+            ? new List<List<int>>() 
+            : ConvertToList(value);
 
-        private static bool IsArrayOfIntegers(dynamic value) 
-            => value is int [];
+    private static bool IsArrayOfIntegers(dynamic value) 
+        => value is int [];
         
-        private static bool IsListOfIntegers(dynamic value) 
-            => value is JArray jArray && jArray.All(child => child.Type == JTokenType.Integer);
+    private static bool IsListOfIntegers(dynamic value) 
+        => value is JArray jArray && jArray.All(child => child.Type == JTokenType.Integer);
 
-        private static bool IsListOfListOfIntegers(dynamic value) 
-            => value is JArray jArray && jArray.All(IsListOfIntegers);
+    private static bool IsListOfListOfIntegers(dynamic value) 
+        => value is JArray jArray && jArray.All(IsListOfIntegers);
 
-        private static bool IsListOfListOfListOfIntegers(dynamic value) 
-            => value is JArray jArray && jArray.All(IsListOfListOfIntegers);
+    private static bool IsListOfListOfListOfIntegers(dynamic value) 
+        => value is JArray jArray && jArray.All(IsListOfListOfIntegers);
         
-        private static bool IsEmptyList(dynamic value) 
-            => value is JArray jArray && jArray.Count == 0;
+    private static bool IsEmptyList(dynamic value) 
+        => value is JArray jArray && jArray.Count == 0;
 
-        protected override void UpdateNamespaces(ISet<string> namespaces)
-        {
+    protected override void UpdateNamespaces(ISet<string> namespaces)
+    {
             namespaces.Add(typeof(Func<int,int>).Namespace!);
             namespaces.Add(typeof(List<int>).Namespace!);
         }
-    }
 }

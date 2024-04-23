@@ -7,12 +7,12 @@ using Exercism.CSharp.Output.Rendering;
 
 using Newtonsoft.Json.Linq;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class SgfParsing : ExerciseGenerator
 {
-    internal class SgfParsing : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             if (testMethod.ExpectedIsError)
                 testMethod.ExceptionThrown = typeof(ArgumentException);
             else
@@ -28,16 +28,16 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.Input["encoded"] = testMethod.Input.FirstOrDefault().Value;
         }
 
-        protected override void UpdateNamespaces(ISet<string> namespaces)
-        {
+    protected override void UpdateNamespaces(ISet<string> namespaces)
+    {
             namespaces.Add(typeof(ArgumentException).Namespace!);
             namespaces.Add(typeof(Dictionary<string, string[]>).Namespace!);
         }
 
-        protected override void UpdateTestClass(TestClass testClass) => AddAssertEqualMethod(testClass);
+    protected override void UpdateTestClass(TestClass testClass) => AddAssertEqualMethod(testClass);
 
-        private static void AddAssertEqualMethod(TestClass testClass) =>
-            testClass.AdditionalMethods.Add(@"
+    private static void AddAssertEqualMethod(TestClass testClass) =>
+        testClass.AdditionalMethods.Add(@"
 private void AssertEqual(SgfTree expected, SgfTree actual)
 {
     Assert.Equal(expected.Data, actual.Data);
@@ -48,8 +48,8 @@ private void AssertEqual(SgfTree expected, SgfTree actual)
     }
 }");
 
-        private UnescapedValue? RenderTree(dynamic tree)
-        {
+    private UnescapedValue? RenderTree(dynamic tree)
+    {
             if (tree == null)
             {
                 return null;
@@ -71,5 +71,4 @@ private void AssertEqual(SgfTree expected, SgfTree actual)
 
             return new UnescapedValue($"new SgfTree({label})");
         }
-    }
 }

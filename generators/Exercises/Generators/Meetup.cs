@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using Exercism.CSharp.Output;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class Meetup : ExerciseGenerator
 {
-    internal class Meetup : ExerciseGenerator
+    private const string ParamYear = "year";
+    private const string ParamMonth = "month";
+    private const string ParamWeek = "week";
+    private const string ParamDayOfWeek = "dayofweek";
+
+    private const string PropertyDay = "Day";
+
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        private const string ParamYear = "year";
-        private const string ParamMonth = "month";
-        private const string ParamWeek = "week";
-        private const string ParamDayOfWeek = "dayofweek";
-
-        private const string PropertyDay = "Day";
-
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             testMethod.TestedMethod = PropertyDay;
             testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
             testMethod.UseVariableForExpected = true;
@@ -29,6 +29,5 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.Expected = DateTime.Parse(testMethod.Expected);
         }
 
-        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(DayOfWeek).Namespace!);
-    }
+    protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(DayOfWeek).Namespace!);
 }

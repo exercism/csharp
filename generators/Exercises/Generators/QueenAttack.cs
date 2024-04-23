@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class QueenAttack : ExerciseGenerator
 {
-    internal class QueenAttack : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             if (testMethod.Property == "create")
                 UpdateTestMethodForCreateProperty(testMethod);
             else if (testMethod.Property == "canAttack")
                 UpdateTestMethodForCanAttackProperty(testMethod);
         }
 
-        private static void UpdateTestMethodForCreateProperty(TestMethod testMethod)
-        {
+    private static void UpdateTestMethodForCreateProperty(TestMethod testMethod)
+    {
             if (testMethod.ExpectedIsError)
             {
                 testMethod.ExceptionThrown = typeof(ArgumentOutOfRangeException);
@@ -34,26 +34,25 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.InputParameters = new[] { "X", "Y" };
         }
 
-        private static void UpdateTestMethodForCanAttackProperty(TestMethod testMethod)
-        {
+    private static void UpdateTestMethodForCanAttackProperty(TestMethod testMethod)
+    {
             testMethod.UseVariablesForInput = true;
             testMethod.Input["white_queen"] = RenderQueen(testMethod.Input["white_queen"]);
             testMethod.Input["black_queen"] = RenderQueen(testMethod.Input["black_queen"]);
         }
 
-        private static UnescapedValue RenderQueen(dynamic input)
-        {
+    private static UnescapedValue RenderQueen(dynamic input)
+    {
             var (x, y) = GetCoordinatesFromPosition((IDictionary<string, dynamic>)input);
             return new UnescapedValue($"QueenAttack.Create({x},{y})");
         }
 
-        private static (int, int) GetCoordinatesFromPosition(IDictionary<string, dynamic> expected)
-        {
+    private static (int, int) GetCoordinatesFromPosition(IDictionary<string, dynamic> expected)
+    {
             var coordinates = expected["position"];
             var positionX = (int)coordinates["row"];
             var positionY = (int)coordinates["column"];
 
             return (positionX, positionY);
         }
-    }
 }

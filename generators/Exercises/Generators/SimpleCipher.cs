@@ -4,12 +4,12 @@ using System.Text.RegularExpressions;
 using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class SimpleCipher : ExerciseGenerator
 {
-    internal class SimpleCipher : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             testMethod.TestMethodName = testMethod.TestMethodNameWithPath;
             
             if (testMethod.Input.ContainsKey("key"))
@@ -23,20 +23,20 @@ namespace Exercism.CSharp.Exercises.Generators
                 UpdateTestMethodForEncodeOrDecodeProperty(testMethod);
         }
 
-        private static void UpdateTestMethodForNewProperty(TestMethod testMethod)
-        {
+    private static void UpdateTestMethodForNewProperty(TestMethod testMethod)
+    {
             testMethod.TestedMethodType = TestedMethodType.Constructor;
             testMethod.ExceptionThrown = typeof(ArgumentException);
         }
 
-        private static void UpdateTestMethodForKeyProperty(TestMethod testMethod)
-        {
+    private static void UpdateTestMethodForKeyProperty(TestMethod testMethod)
+    {
             testMethod.Expected = new Regex(testMethod.Expected!["match"]);
             testMethod.TestedMethodType = TestedMethodType.Property;
         }
 
-        private void UpdateTestMethodForEncodeOrDecodeProperty(TestMethod testMethod)
-        {
+    private void UpdateTestMethodForEncodeOrDecodeProperty(TestMethod testMethod)
+    {
             testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
 
             if (testMethod.Input.TryGetValue("ciphertext", out var cipherText))
@@ -59,6 +59,5 @@ namespace Exercism.CSharp.Exercises.Generators
             }
         }
 
-        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(ArgumentException).Namespace!);
-    }
+    protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(ArgumentException).Namespace!);
 }

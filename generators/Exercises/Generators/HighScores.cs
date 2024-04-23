@@ -7,12 +7,12 @@ using Exercism.CSharp.Output;
 
 using Humanizer;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class HighScores : ExerciseGenerator
 {
-    internal class HighScores : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
             testMethod.ConstructorInputParameters = new[] { "scores" };
 
@@ -31,7 +31,6 @@ namespace Exercism.CSharp.Exercises.Generators
             }
         }
 
-        protected override void UpdateNamespaces(ISet<string> namespaces) =>
-            namespaces.Add(typeof(List<int>).Namespace!);
-    }
+    protected override void UpdateNamespaces(ISet<string> namespaces) =>
+        namespaces.Add(typeof(List<int>).Namespace!);
 }
