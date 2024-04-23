@@ -105,7 +105,11 @@ internal class TestMethodOutput
             _ => throw new ArgumentOutOfRangeException()
         };
 
-    private object RenderValues => new { Name = _testMethod.TestMethodName, _testMethod.Skip, _testMethod.Arrange, _testMethod.Act, _testMethod.Assert };
+    private object RenderValues => new
+    {
+        Name = _testMethod.TestMethodName, _testMethod.Skip, 
+        Body = string.Join(Environment.NewLine, [_testMethod.Arrange, _testMethod.Act, _testMethod.Assert])
+    };
 
     private void Update()
     {

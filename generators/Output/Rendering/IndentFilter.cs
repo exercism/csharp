@@ -6,7 +6,7 @@ namespace Exercism.CSharp.Output.Rendering;
 internal static class IndentFilter
 {
     public static string Indent(string input)
-        => string.Join(Environment.NewLine, input
-            .Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries)
+        => string.Join(Environment.NewLine, input.Trim()
+            .Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries)
             .Select(x => x.Indent()));
 }
