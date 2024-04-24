@@ -46,19 +46,19 @@ public class GrainsTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Square_0_raises_an_exception()
+    public void Square_0_is_invalid()
     {
         Assert.Throws<ArgumentOutOfRangeException>(() => Grains.Square(0));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Negative_square_raises_an_exception()
+    public void Negative_square_is_invalid()
     {
         Assert.Throws<ArgumentOutOfRangeException>(() => Grains.Square(-1));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Square_greater_than_64_raises_an_exception()
+    public void Square_greater_than_64_is_invalid()
     {
         Assert.Throws<ArgumentOutOfRangeException>(() => Grains.Square(65));
     }

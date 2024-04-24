@@ -45,6 +45,12 @@ public class RomanNumeralsTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Number_16_is_xvi()
+    {
+        Assert.Equal("XVI", 16.ToRoman());
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Number_27_is_xxvii()
     {
         Assert.Equal("XXVII", 27.ToRoman());
@@ -69,6 +75,12 @@ public class RomanNumeralsTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Number_66_is_lxvi()
+    {
+        Assert.Equal("LXVI", 66.ToRoman());
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Number_93_is_xciii()
     {
         Assert.Equal("XCIII", 93.ToRoman());
@@ -87,6 +99,12 @@ public class RomanNumeralsTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Number_166_is_clxvi()
+    {
+        Assert.Equal("CLXVI", 166.ToRoman());
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Number_402_is_cdii()
     {
         Assert.Equal("CDII", 402.ToRoman());
@@ -96,6 +114,12 @@ public class RomanNumeralsTests
     public void Number_575_is_dlxxv()
     {
         Assert.Equal("DLXXV", 575.ToRoman());
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Number_666_is_dclxvi()
+    {
+        Assert.Equal("DCLXVI", 666.ToRoman());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
@@ -111,39 +135,15 @@ public class RomanNumeralsTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Number_3000_is_mmm()
-    {
-        Assert.Equal("MMM", 3000.ToRoman());
-    }
-
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Number_16_is_xvi()
-    {
-        Assert.Equal("XVI", 16.ToRoman());
-    }
-
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Number_66_is_lxvi()
-    {
-        Assert.Equal("LXVI", 66.ToRoman());
-    }
-
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Number_166_is_clxvi()
-    {
-        Assert.Equal("CLXVI", 166.ToRoman());
-    }
-
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Number_666_is_dclxvi()
-    {
-        Assert.Equal("DCLXVI", 666.ToRoman());
-    }
-
-    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Number_1666_is_mdclxvi()
     {
         Assert.Equal("MDCLXVI", 1666.ToRoman());
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Number_3000_is_mmm()
+    {
+        Assert.Equal("MMM", 3000.ToRoman());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
