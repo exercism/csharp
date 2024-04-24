@@ -5,16 +5,16 @@ using System.Linq;
 using Tomlyn;
 using Tomlyn.Syntax;
 
-namespace Exercism.CSharp.Input
+namespace Exercism.CSharp.Input;
+
+internal class TestsTomlParser
 {
-    internal class TestsTomlParser
+    private readonly Options _options;
+
+    public TestsTomlParser(Options options) => _options = options;
+
+    public HashSet<string> ParseEnabledTests(string exercise)
     {
-        private readonly Options _options;
-
-        public TestsTomlParser(Options options) => _options = options;
-
-        public HashSet<string> ParseEnabledTests(string exercise)
-        {
             static bool IncludeMissingOrTrue (TableSyntaxBase table)
             {
                 var includeKeyValue = table.Items.FirstOrDefault(item => item.Key!.ToString().Trim() == "include");
@@ -28,10 +28,9 @@ namespace Exercism.CSharp.Input
                 .ToHashSet();
         }
 
-        private DocumentSyntax ParseTestsToml(string exercise) =>
-            Toml.Parse(File.ReadAllText(TestsTomlPath(exercise)));
+    private DocumentSyntax ParseTestsToml(string exercise) =>
+        Toml.Parse(File.ReadAllText(TestsTomlPath(exercise)));
 
-        private string TestsTomlPath(string exercise) =>
-            Path.Combine(_options.PracticeExercisesDir, exercise, ".meta", "tests.toml");
-    }
+    private string TestsTomlPath(string exercise) =>
+        Path.Combine(_options.PracticeExercisesDir, exercise, ".meta", "tests.toml");
 }

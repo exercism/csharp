@@ -1,12 +1,12 @@
 ﻿using System.Linq;
 using Exercism.CSharp.Output;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class PrimeFactors : ExerciseGenerator
 {
-    internal class PrimeFactors : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             testMethod.Input["value"] = (long)testMethod.Input["value"];
 
             if (testMethod.Expected is int[] expected)
@@ -14,5 +14,4 @@ namespace Exercism.CSharp.Exercises.Generators
                 testMethod.Expected = expected.Select(l => (long)l).ToArray();
             }
         }
-    }
 }

@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using Exercism.CSharp.Output;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class VariableLengthQuantity : ExerciseGenerator
 {
-    internal class VariableLengthQuantity : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             testMethod.UseVariableForExpected = true;
             testMethod.UseVariablesForInput = true;
             testMethod.Input["integers"] = ConvertToUInt32Array(testMethod.Input["integers"]);
@@ -20,9 +20,8 @@ namespace Exercism.CSharp.Exercises.Generators
                 testMethod.Expected = ConvertToUInt32Array(testMethod.Expected);
         }
 
-        private static uint[] ConvertToUInt32Array(IEnumerable input) 
-            => input.Cast<object>().Select(number => Convert.ToUInt32(number.ToString())).ToArray();
+    private static uint[] ConvertToUInt32Array(IEnumerable input) 
+        => input.Cast<object>().Select(number => Convert.ToUInt32(number.ToString())).ToArray();
 
-        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(Array).Namespace!);
-    }
+    protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(Array).Namespace!);
 }

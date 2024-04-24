@@ -1,14 +1,14 @@
 using System;
 using Exercism.CSharp.Output;
 
-namespace Exercism.CSharp.Exercises.Generators
-{
-    internal class RationalNumbers : ExerciseGenerator
-    {
-        protected override void UpdateTestMethod(TestMethod testMethod) => testMethod.Assert = RenderAssert(testMethod);
+namespace Exercism.CSharp.Exercises.Generators;
 
-        private string RenderAssert(TestMethod testMethod)
-        {
+internal class RationalNumbers : ExerciseGenerator
+{
+    protected override void UpdateTestMethod(TestMethod testMethod) => testMethod.Assert = RenderAssert(testMethod);
+
+    private string RenderAssert(TestMethod testMethod)
+    {
             switch (testMethod.Property)
             {
                 case "add":
@@ -30,6 +30,5 @@ namespace Exercism.CSharp.Exercises.Generators
             }
         }
 
-        private static string RenderRationalNumber(dynamic input) => $"new RationalNumber({input[0]}, {input[1]})";
-    }
+    private static string RenderRationalNumber(dynamic input) => $"new RationalNumber({input[0]}, {input[1]})";
 }

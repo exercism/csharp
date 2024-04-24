@@ -1,9 +1,8 @@
 ﻿using Exercism.CSharp.Output;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class ScaleGenerator : ExerciseGenerator
 {
-    internal class ScaleGenerator : ExerciseGenerator
-    {
-        protected override void UpdateTestMethod(TestMethod testMethod) => testMethod.UseVariableForExpected = true;
-    }
+    protected override void UpdateTestMethod(TestMethod testMethod) => testMethod.UseVariableForExpected = true;
 }

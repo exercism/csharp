@@ -5,12 +5,12 @@ using Exercism.CSharp.Helpers;
 using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class DndCharacter : ExerciseGenerator
 {
-    internal class DndCharacter : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             testMethod.TestMethodName = testMethod.Description.Replace("-", "minus_").ToTestMethodName();
 
             if (testMethod.Property == "ability")
@@ -21,13 +21,13 @@ namespace Exercism.CSharp.Exercises.Generators
                 UpdateTestMethodForStrengthProperty(testMethod);
         }
 
-        protected override void UpdateTestClass(TestClass testClass) => AddTestMethodForDistribution(testClass);
+    protected override void UpdateTestClass(TestClass testClass) => AddTestMethodForDistribution(testClass);
 
-        private void UpdateTestMethodForAbilityProperty(TestMethod testMethod)
-            => testMethod.Assert = RenderAssertForAbilityProperty(testMethod);
+    private void UpdateTestMethodForAbilityProperty(TestMethod testMethod)
+        => testMethod.Assert = RenderAssertForAbilityProperty(testMethod);
 
-        private string RenderAssertForAbilityProperty(TestMethod testMethod)
-        {
+    private string RenderAssertForAbilityProperty(TestMethod testMethod)
+    {
             var assert = new StringBuilder();
             assert.AppendLine("for (var i = 0; i < 10; i++)");
             assert.AppendLine("{");
@@ -36,11 +36,11 @@ namespace Exercism.CSharp.Exercises.Generators
             return assert.ToString();
         }
 
-        private void UpdateTestMethodForCharacterProperty(TestMethod testMethod)
-            => testMethod.Assert = RenderAssertForCharacterProperty(testMethod);
+    private void UpdateTestMethodForCharacterProperty(TestMethod testMethod)
+        => testMethod.Assert = RenderAssertForCharacterProperty(testMethod);
 
-        private string RenderAssertForCharacterProperty(TestMethod testMethod)
-        {
+    private string RenderAssertForCharacterProperty(TestMethod testMethod)
+    {
             var assert = new StringBuilder();
             assert.AppendLine("for (var i = 0; i < 10; i++)");
             assert.AppendLine("{");
@@ -56,13 +56,13 @@ namespace Exercism.CSharp.Exercises.Generators
             return assert.ToString();
         }
 
-        private string RenderAssertForAbilityRange(string ability) => Render.AssertInRange(ability, 3, 18);
+    private string RenderAssertForAbilityRange(string ability) => Render.AssertInRange(ability, 3, 18);
 
-        private void UpdateTestMethodForStrengthProperty(TestMethod testMethod)
-            => testMethod.Assert = RenderAssertForStrengthProperty(testMethod);
+    private void UpdateTestMethodForStrengthProperty(TestMethod testMethod)
+        => testMethod.Assert = RenderAssertForStrengthProperty(testMethod);
 
-        private string RenderAssertForStrengthProperty(TestMethod testMethod)
-        {
+    private string RenderAssertForStrengthProperty(TestMethod testMethod)
+    {
             var assert = new StringBuilder();
             assert.AppendLine("for (var i = 0; i < 10; i++)");
             assert.AppendLine("{");
@@ -77,8 +77,8 @@ namespace Exercism.CSharp.Exercises.Generators
             return assert.ToString();
         }
 
-        private static void AddTestMethodForDistribution(TestClass testClass) =>
-            testClass.AdditionalMethods.Add(@"
+    private static void AddTestMethodForDistribution(TestClass testClass) =>
+        testClass.AdditionalMethods.Add(@"
 [Fact(Skip = ""Remove this Skip property to run this test"")]
 public void Random_ability_is_distributed_correctly()
 {
@@ -109,10 +109,9 @@ public void Random_ability_is_distributed_correctly()
         Assert.InRange(actualDistribution[k], expectedDistribution[k] * minTimes, expectedDistribution[k] * maxTimes);
 }");
 
-        protected override void UpdateNamespaces(ISet<string> namespaces)
-        {
+    protected override void UpdateNamespaces(ISet<string> namespaces)
+    {
             namespaces.Add(typeof(Enumerable).Namespace!);
             namespaces.Add(typeof(Dictionary<int, int>).Namespace!);
         }
-    }
 }

@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Humanizer;
 
-namespace Exercism.CSharp.Helpers
+namespace Exercism.CSharp.Helpers;
+
+internal static class NameExtensions
 {
-    internal static class NameExtensions
-    {
-        private static readonly HashSet<Type> ValueTupleTypes = new(new[]
+    private static readonly HashSet<Type> ValueTupleTypes = new(new[]
         {
             typeof(ValueTuple<>),
             typeof(ValueTuple<,>),
@@ -20,14 +20,14 @@ namespace Exercism.CSharp.Helpers
             typeof(ValueTuple<,,,,,,,>)
         });
         
-        public static string ToExerciseName(this Type exerciseType) => exerciseType.Name.Kebaberize();
+    public static string ToExerciseName(this Type exerciseType) => exerciseType.Name.Kebaberize();
 
-        public static string ToTestClassName(this string input) => $"{input.Dehumanize()}Tests";
+    public static string ToTestClassName(this string input) => $"{input.Dehumanize()}Tests";
 
-        public static string ToTestedClassName(this string input) => input.Dehumanize();
+    public static string ToTestedClassName(this string input) => input.Dehumanize();
 
-        public static string ToTestMethodName(this string input)
-        {
+    public static string ToTestMethodName(this string input)
+    {
             var methodName = input
                 .Replace(":", " is")
                 .Replace("'", "");
@@ -41,14 +41,14 @@ namespace Exercism.CSharp.Helpers
             return !char.IsLetter(methodName[0]) ? "Test_" : methodName;
         }
 
-        public static string ToTestedMethodName(this string input) => input.ToMethodName();
+    public static string ToTestedMethodName(this string input) => input.ToMethodName();
         
-        public static string ToMethodName(this string input) => input.Dehumanize();
+    public static string ToMethodName(this string input) => input.Dehumanize();
 
-        public static string ToVariableName(this string input) => input.Camelize();
+    public static string ToVariableName(this string input) => input.Camelize();
 
-        public static string ToFriendlyName(this Type type)
-        {
+    public static string ToFriendlyName(this Type type)
+    {
             if (type == typeof(int))
                 return "int";
             if (type == typeof(short))
@@ -81,5 +81,4 @@ namespace Exercism.CSharp.Helpers
                 return $"{type.GetElementType()!.ToFriendlyName()}[]";
             return type.Name;
         }
-    }
 }

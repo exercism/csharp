@@ -4,19 +4,19 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Humanizer;
 
-namespace Exercism.CSharp.Output.Rendering
-{
-    internal partial class Render
-    {
-        public UnescapedValue Enum(string enumType, string enumCase)
-            => new($"{enumType}.{enumCase.ToLower().Dehumanize()}");
+namespace Exercism.CSharp.Output.Rendering;
 
-        public string Char(char c) => c.Quote();
+internal partial class Render
+{
+    public UnescapedValue Enum(string enumType, string enumCase)
+        => new($"{enumType}.{enumCase.ToLower().Dehumanize()}");
+
+    public string Char(char c) => c.Quote();
        
-        public string String(string s) => s.EscapeSpecialCharacters().Quote();
+    public string String(string s) => s.EscapeSpecialCharacters().Quote();
         
-        public string StringMultiLine(MultiLineString multiLineString)
-        {
+    public string StringMultiLine(MultiLineString multiLineString)
+    {
             return multiLineString.Lines.Length switch
             {
                 0 => String(string.Empty),
@@ -30,6 +30,5 @@ namespace Exercism.CSharp.Output.Rendering
                     : $"{String(t).Indent()}");
         }
 
-        public string Regex(Regex regex) => String(regex.ToString());
-    }
+    public string Regex(Regex regex) => String(regex.ToString());
 }

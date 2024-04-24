@@ -3,14 +3,14 @@ using System.Linq;
 using System.Text;
 using Exercism.CSharp.Output;
 
-namespace Exercism.CSharp.Exercises.Generators
-{
-    internal class BinarySearchTree : ExerciseGenerator
-    {
-        protected override void UpdateTestMethod(TestMethod testMethod) => testMethod.Assert = RenderAssert(testMethod);
+namespace Exercism.CSharp.Exercises.Generators;
 
-        private string RenderAssert(TestMethod testMethod)
-        {
+internal class BinarySearchTree : ExerciseGenerator
+{
+    protected override void UpdateTestMethod(TestMethod testMethod) => testMethod.Assert = RenderAssert(testMethod);
+
+    private string RenderAssert(TestMethod testMethod)
+    {
             var assert = new StringBuilder();
 
             var treeData = ConvertToIntegers(testMethod.Input["treeData"]);
@@ -31,15 +31,14 @@ namespace Exercism.CSharp.Exercises.Generators
             return assert.ToString();
         }
 
-        private static int[] ConvertToIntegers(dynamic data) => ((string[]) data).Select(int.Parse).ToArray();
+    private static int[] ConvertToIntegers(dynamic data) => ((string[]) data).Select(int.Parse).ToArray();
 
-        private IEnumerable<string> TestAsserts(dynamic tree, string traverse = "")
-        {
+    private IEnumerable<string> TestAsserts(dynamic tree, string traverse = "")
+    {
             yield return Render.AssertEqual(tree["data"], $"tree{traverse}.Value");
             if (tree["left"] != null) foreach (var assert in TestAsserts(tree["left"], $"{traverse}.Left")) yield return assert;
             if (tree["right"] != null) foreach (var assert in TestAsserts(tree["right"], $"{traverse}.Right")) yield return assert;
         }
 
-        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(IQueryable).Namespace!);
-    }
+    protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(IQueryable).Namespace!);
 }

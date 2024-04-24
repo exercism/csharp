@@ -6,12 +6,12 @@ using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
 using Newtonsoft.Json.Linq;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class GoCounting : ExerciseGenerator
 {
-    internal class GoCounting : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             testMethod.UseVariablesForInput = true;
             testMethod.UseVariableForExpected = true;
             testMethod.UseVariablesForConstructorParameters = true;
@@ -27,8 +27,8 @@ namespace Exercism.CSharp.Exercises.Generators
                 UpdateTestMethodForTerritoriesProperty(testMethod);
         }
 
-        private void UpdateTestMethodForTerritoryProperty(TestMethod testMethod)
-        {
+    private void UpdateTestMethodForTerritoryProperty(TestMethod testMethod)
+    {
             testMethod.Input["coordinate"] = (testMethod.Input["x"], testMethod.Input["y"]);
             testMethod.InputParameters = new[] {"coordinate"};
 
@@ -45,8 +45,8 @@ namespace Exercism.CSharp.Exercises.Generators
             }
         }
 
-        private void UpdateTestMethodForTerritoriesProperty(TestMethod testMethod)
-        {
+    private void UpdateTestMethodForTerritoriesProperty(TestMethod testMethod)
+    {
             var expected = new[]
             {
                 "new Dictionary<Owner, HashSet<(int, int)>>",
@@ -61,16 +61,16 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.Assert = RenderTerritoriesAssert();
         }
 
-        private string RenderTerritoryAssert()
-        {
+    private string RenderTerritoryAssert()
+    {
             var assert = new StringBuilder();
             assert.AppendLine(Render.AssertEqual("expected.Item1", "actual.Item1"));
             assert.AppendLine(Render.AssertEqual("expected.Item2", "actual.Item2"));
             return assert.ToString();
         }
 
-        private string RenderTerritoriesAssert()
-        {
+    private string RenderTerritoriesAssert()
+    {
             var territoriesAssert = new StringBuilder();
             territoriesAssert.AppendLine(Render.AssertEqual("expected[Owner.Black]", "actual[Owner.Black]"));
             territoriesAssert.AppendLine(Render.AssertEqual("expected[Owner.White]", "actual[Owner.White]"));
@@ -78,11 +78,10 @@ namespace Exercism.CSharp.Exercises.Generators
             return territoriesAssert.ToString();
         }
 
-        private UnescapedValue RenderOwner(dynamic owner) => Render.Enum("Owner", owner);
+    private UnescapedValue RenderOwner(dynamic owner) => Render.Enum("Owner", owner);
 
-        private string RenderTerritory(dynamic territory)
-            => Render.Object(((JArray)territory).Select(coordinate => (coordinate[0]!.ToObject<int>(), coordinate[1]!.ToObject<int>())).ToHashSet());
+    private string RenderTerritory(dynamic territory)
+        => Render.Object(((JArray)territory).Select(coordinate => (coordinate[0]!.ToObject<int>(), coordinate[1]!.ToObject<int>())).ToHashSet());
 
-        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(Dictionary<int, int>).Namespace!);
-    }
+    protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(Dictionary<int, int>).Namespace!);
 }

@@ -3,12 +3,12 @@ using System.Linq;
 using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class Allergies : ExerciseGenerator
 {
-    internal class Allergies : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             testMethod.ConstructorInputParameters = new[] { "score" };
             testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
 
@@ -25,14 +25,13 @@ namespace Exercism.CSharp.Exercises.Generators
             }
         }
 
-        private UnescapedValue[] ConvertExpected(dynamic expected)
-        {
+    private UnescapedValue[] ConvertExpected(dynamic expected)
+    {
             if (expected is string[] allergens)
                 return allergens.Select(RenderAllergen).ToArray();
 
             return Array.Empty<UnescapedValue>();
         }
 
-        private UnescapedValue RenderAllergen(dynamic input) => Render.Enum("Allergen", input);
-    }
+    private UnescapedValue RenderAllergen(dynamic input) => Render.Enum("Allergen", input);
 }

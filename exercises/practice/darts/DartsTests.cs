@@ -27,13 +27,13 @@ public class DartsTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Exactly_on_centre()
+    public void Exactly_on_center()
     {
         Assert.Equal(10, Darts.Score(0, 0));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Near_the_centre()
+    public void Near_the_center()
     {
         Assert.Equal(10, Darts.Score(-0.1, -0.1));
     }

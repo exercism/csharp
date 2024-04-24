@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace Exercism.CSharp.Helpers
+namespace Exercism.CSharp.Helpers;
+
+internal static class EnumerableExtensions
 {
-    internal static class EnumerableExtensions
-    {
-        public static SortedSet<TSource> ToSortedSet<TSource>(this IEnumerable<TSource> source) => new(source);
-    }
+    public static SortedSet<TSource> ToSortedSet<TSource>(this IEnumerable<TSource> source) => new(source);
 }

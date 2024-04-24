@@ -1,9 +1,8 @@
 using Exercism.CSharp.Output;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class Luhn : ExerciseGenerator
 {
-    internal class Luhn : ExerciseGenerator
-    {
-        protected override void UpdateTestMethod(TestMethod testMethod) => testMethod.TestedMethod = "IsValid";
-    }
+    protected override void UpdateTestMethod(TestMethod testMethod) => testMethod.TestedMethod = "IsValid";
 }

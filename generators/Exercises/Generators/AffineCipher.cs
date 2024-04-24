@@ -2,12 +2,12 @@
 
 using Exercism.CSharp.Output;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class AffineCipher : ExerciseGenerator
 {
-    internal class AffineCipher : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             testMethod.Input["a"] = testMethod.Input["key"]["a"];
             testMethod.Input["b"] = testMethod.Input["key"]["b"];
             testMethod.InputParameters = new[] { "phrase", "a", "b" };
@@ -17,5 +17,4 @@ namespace Exercism.CSharp.Exercises.Generators
                 testMethod.ExceptionThrown = typeof(ArgumentException);
             }
         }
-    }
 }

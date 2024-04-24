@@ -6,18 +6,18 @@ using System.Text.RegularExpressions;
 using Exercism.CSharp.Helpers;
 using Exercism.CSharp.Output;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class React : ExerciseGenerator
 {
-    internal class React : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             testMethod.Arrange = RenderArrange(testMethod);
             testMethod.Assert = RenderAssert();
         }
 
-        private string RenderArrange(TestMethod testMethod)
-        {
+    private string RenderArrange(TestMethod testMethod)
+    {
             var arrange = new StringBuilder();
             arrange.AppendLine(Render.Variable("sut", "new Reactor()"));
 
@@ -30,10 +30,10 @@ namespace Exercism.CSharp.Exercises.Generators
             return arrange.ToString();
         }
 
-        private string RenderCells(object[] cells) => string.Join(Environment.NewLine, cells.Select(RenderCell));
+    private string RenderCells(object[] cells) => string.Join(Environment.NewLine, cells.Select(RenderCell));
 
-        private string RenderCell(dynamic cell)
-        {
+    private string RenderCell(dynamic cell)
+    {
             var cellType = (string)cell["type"];
             var cellName = ToVariableName(cell["name"]);
 
@@ -50,8 +50,8 @@ namespace Exercism.CSharp.Exercises.Generators
             }
         }
 
-        private static string RenderComputeFunction(dynamic computeFunction)
-        {
+    private static string RenderComputeFunction(dynamic computeFunction)
+    {
             var match = Regex.Match((string)computeFunction, "if (.+) then (.+) else (.+)");
 
             return match.Success
@@ -59,11 +59,11 @@ namespace Exercism.CSharp.Exercises.Generators
                 : (string)computeFunction;
         }
 
-        private string RenderOperations(object[] operations) 
-            => string.Join(Environment.NewLine, operations.Select(RenderOperation));
+    private string RenderOperations(object[] operations) 
+        => string.Join(Environment.NewLine, operations.Select(RenderOperation));
 
-        private string RenderOperation(dynamic operation)
-        {
+    private string RenderOperation(dynamic operation)
+    {
             var operationType = (string)operation["type"];
 
             switch (operationType)
@@ -108,14 +108,13 @@ namespace Exercism.CSharp.Exercises.Generators
             }
         }
 
-        private static string RenderAssert() => string.Empty;
+    private static string RenderAssert() => string.Empty;
 
-        protected override void UpdateNamespaces(ISet<string> namespaces)
-        {
+    protected override void UpdateNamespaces(ISet<string> namespaces)
+    {
             namespaces.Add(typeof(EventHandler).Namespace!);
             namespaces.Add("FakeItEasy");
         }
 
-        private static string ToVariableName(dynamic value) => ((string)value).ToVariableName();
-    }
+    private static string ToVariableName(dynamic value) => ((string)value).ToVariableName();
 }

@@ -3,27 +3,27 @@ using System.Linq;
 using LibGit2Sharp;
 using Serilog;
 
-namespace Exercism.CSharp.Input
+namespace Exercism.CSharp.Input;
+
+internal class PropSpecsRepository
 {
-    internal class PropSpecsRepository
+    private const string ProblemSpecificationsGitUrl = "https://github.com/exercism/problem-specifications.git";
+    private const string ProblemSpecificationsBranch = "main";
+    private const string ProblemSpecificationsRemote = "origin";
+    private const string ProblemSpecificationsRemoteBranch = ProblemSpecificationsRemote + "/" + ProblemSpecificationsBranch;
+
+    private readonly Options _options;
+
+    public PropSpecsRepository(Options options) => _options = options;
+
+    public void SyncToLatest()
     {
-        private const string ProblemSpecificationsGitUrl = "https://github.com/exercism/problem-specifications.git";
-        private const string ProblemSpecificationsBranch = "main";
-        private const string ProblemSpecificationsRemote = "origin";
-        private const string ProblemSpecificationsRemoteBranch = ProblemSpecificationsRemote + "/" + ProblemSpecificationsBranch;
-
-        private readonly Options _options;
-
-        public PropSpecsRepository(Options options) => _options = options;
-
-        public void SyncToLatest()
-        {
             CloneRepository();
             ResetBranchToUpstream();
         }
 
-        private void CloneRepository()
-        {
+    private void CloneRepository()
+    {
             if (Directory.Exists(_options.ProbSpecsDir))
                 return;
 
@@ -34,8 +34,8 @@ namespace Exercism.CSharp.Input
             Log.Debug("Repository cloned.");
         }
 
-        private void ResetBranchToUpstream()
-        {
+    private void ResetBranchToUpstream()
+    {
             Log.Debug("Updating repository to latest version...");
 
             using (var repository = new Repository(_options.ProbSpecsDir))
@@ -48,5 +48,4 @@ namespace Exercism.CSharp.Input
 
             Log.Debug("Updated repository to latest version.");
         }
-    }
 }

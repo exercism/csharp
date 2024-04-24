@@ -1,6 +1,5 @@
-﻿namespace Exercism.CSharp.Exercises.Generators
+﻿namespace Exercism.CSharp.Exercises.Generators;
+
+internal class PigLatin : ExerciseGenerator
 {
-    internal class PigLatin : ExerciseGenerator
-    {
-    }
 }

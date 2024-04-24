@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Text;
 using Exercism.CSharp.Output;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class Bowling : ExerciseGenerator
 {
-    internal class Bowling : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             if (testMethod.Expected is int)
                 testMethod.UseVariableForTested = true;
             else
@@ -21,8 +21,8 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.Assert = RenderAssert(testMethod);
         }
 
-        private string RenderArrange(TestMethod testMethod)
-        {
+    private string RenderArrange(TestMethod testMethod)
+    {
             var builder = new StringBuilder();
             builder.AppendLine(Render.Variable("sut", "new BowlingGame()"));
 
@@ -35,8 +35,8 @@ namespace Exercism.CSharp.Exercises.Generators
             return builder.ToString();
         }
 
-        private string? RenderAssert(TestMethod testMethod)
-        {
+    private string? RenderAssert(TestMethod testMethod)
+    {
             if (testMethod.ExceptionThrown != null && testMethod.Input.ContainsKey("roll"))
             {
                 var actual = Render.Object(testMethod.Input["roll"]);
@@ -49,8 +49,8 @@ namespace Exercism.CSharp.Exercises.Generators
             return Render.AssertThrows(testMethod.ExceptionThrown, "sut.Score()");
         }
 
-        private string RenderAct(TestMethod testMethod)
-        {
+    private string RenderAct(TestMethod testMethod)
+    {
             var act = new StringBuilder();
             act.AppendLine("DoRoll(previousRolls, sut);");
             
@@ -70,10 +70,10 @@ namespace Exercism.CSharp.Exercises.Generators
             return act.ToString();
         }
 
-        protected override void UpdateTestClass(TestClass testClass) => AddDoRollMethod(testClass);
+    protected override void UpdateTestClass(TestClass testClass) => AddDoRollMethod(testClass);
 
-        private static void AddDoRollMethod(TestClass testClass) =>
-            testClass.AdditionalMethods.Add(@"
+    private static void AddDoRollMethod(TestClass testClass) =>
+        testClass.AdditionalMethods.Add(@"
 private void DoRoll(IEnumerable<int> rolls, BowlingGame sut)
 {
     foreach (var roll in rolls)
@@ -82,10 +82,9 @@ private void DoRoll(IEnumerable<int> rolls, BowlingGame sut)
     }
 }");
 
-        protected override void UpdateNamespaces(ISet<string> namespaces)
-        {
+    protected override void UpdateNamespaces(ISet<string> namespaces)
+    {
             namespaces.Add(typeof(Array).Namespace!);
             namespaces.Add(typeof(ICollection<>).Namespace!);
         }
-    }
 }

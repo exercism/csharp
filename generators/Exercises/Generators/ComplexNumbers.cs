@@ -9,12 +9,12 @@ using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
 using Newtonsoft.Json.Linq;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class ComplexNumbers : ExerciseGenerator
 {
-    internal class ComplexNumbers : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             testMethod.TestedClass = "ComplexNumber";
             testMethod.TestedMethodType = TestedMethodType.InstanceMethod;
             
@@ -36,15 +36,15 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.Assert = RenderAssert(testMethod);
         }
 
-        private static string[] GetInputParameters(TestMethod testMethod, string constructorParamName)
-            => testMethod.Input.Keys.Where(x => x != constructorParamName).ToArray();
+    private static string[] GetInputParameters(TestMethod testMethod, string constructorParamName)
+        => testMethod.Input.Keys.Where(x => x != constructorParamName).ToArray();
 
-        private string? RenderAssert(TestMethod testMethod) => testMethod.UseVariableForExpected
-            ? RenderComplexNumberAssert(testMethod)
-            : testMethod.Assert;
+    private string? RenderAssert(TestMethod testMethod) => testMethod.UseVariableForExpected
+        ? RenderComplexNumberAssert(testMethod)
+        : testMethod.Assert;
 
-        private string RenderComplexNumberAssert(TestMethod testMethod)
-        {
+    private string RenderComplexNumberAssert(TestMethod testMethod)
+    {
             var inputParameters = testMethod.Input.ContainsKey("z") ? "" : Render.Object(testMethod.Input["z2"]);
             var actual = $"sut.{testMethod.TestedMethod}({inputParameters})"; 
             
@@ -55,31 +55,30 @@ namespace Exercism.CSharp.Exercises.Generators
             return assert.ToString();
         }
 
-        private object ConvertToType(dynamic rawValue) 
-            => IsComplexNumber(rawValue)
-                ? RenderComplexNumber(rawValue)
-                : rawValue;
+    private object ConvertToType(dynamic rawValue) 
+        => IsComplexNumber(rawValue)
+            ? RenderComplexNumber(rawValue)
+            : rawValue;
 
-        private UnescapedValue RenderComplexNumber(dynamic rawValue) 
-            => new($"new ComplexNumber({Render.Object(ConvertToDouble(rawValue, 0))}, {Render.Object(ConvertToDouble(rawValue, 1))})");
+    private UnescapedValue RenderComplexNumber(dynamic rawValue) 
+        => new($"new ComplexNumber({Render.Object(ConvertToDouble(rawValue, 0))}, {Render.Object(ConvertToDouble(rawValue, 1))})");
 
-        private static bool IsComplexNumber(object rawValue) => rawValue is int[] || rawValue is double[] || rawValue is float[] || rawValue is JArray;
+    private static bool IsComplexNumber(object rawValue) => rawValue is int[] || rawValue is double[] || rawValue is float[] || rawValue is JArray;
 
-        private static object ConvertToDouble(dynamic value, int index) =>
-            value switch
-            {
-                string _ => ParseDouble(value),
-                int _ => ParseDouble(value),
-                double _ => ParseDouble(value),
-                _ => ParseDouble(value[index])
-            };
+    private static object ConvertToDouble(dynamic value, int index) =>
+        value switch
+        {
+            string _ => ParseDouble(value),
+            int _ => ParseDouble(value),
+            double _ => ParseDouble(value),
+            _ => ParseDouble(value[index])
+        };
         
-        private static object ParseDouble(dynamic value) =>
-            double.TryParse(value.ToString(), out double result ) ? 
-                result :
-                new UnescapedValue(value.ToString().Replace("e", "Math.E").Replace("pi", "Math.PI")
-                    .Replace("ln(2)", "Math.Log(2.0)"));
+    private static object ParseDouble(dynamic value) =>
+        double.TryParse(value.ToString(), out double result ) ? 
+            result :
+            new UnescapedValue(value.ToString().Replace("e", "Math.E").Replace("pi", "Math.PI")
+                .Replace("ln(2)", "Math.Log(2.0)"));
 
-        protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(Math).Namespace!);
-    }
+    protected override void UpdateNamespaces(ISet<string> namespaces) => namespaces.Add(typeof(Math).Namespace!);
 }

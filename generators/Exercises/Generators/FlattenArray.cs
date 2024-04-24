@@ -4,12 +4,12 @@ using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
 using Newtonsoft.Json.Linq;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class FlattenArray : ExerciseGenerator
 {
-    internal class FlattenArray : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             testMethod.UseVariablesForInput = true;
             testMethod.UseVariableForExpected = true;
 
@@ -17,8 +17,8 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.Input["array"] = new UnescapedValue(renderedArray.Replace("new[]", "new object[]"));
         }
 
-        private static dynamic? ConvertToObjectArray(dynamic input)
-        {   
+    private static dynamic? ConvertToObjectArray(dynamic input)
+    {   
             if (input is int[] ints)
                 return ints;
 
@@ -31,7 +31,6 @@ namespace Exercism.CSharp.Exercises.Generators
             return input;
         }
 
-        protected override void UpdateNamespaces(ISet<string> namespaces) =>
-            namespaces.Add(typeof(System.Array).Namespace!);
-    }
+    protected override void UpdateNamespaces(ISet<string> namespaces) =>
+        namespaces.Add(typeof(System.Array).Namespace!);
 }

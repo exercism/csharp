@@ -5,12 +5,12 @@ using System.IO;
 using Exercism.CSharp.Output;
 using Exercism.CSharp.Output.Rendering;
 
-namespace Exercism.CSharp.Exercises.Generators
+namespace Exercism.CSharp.Exercises.Generators;
+
+internal class Grep : ExerciseGenerator
 {
-    internal class Grep : ExerciseGenerator
+    protected override void UpdateTestMethod(TestMethod testMethod)
     {
-        protected override void UpdateTestMethod(TestMethod testMethod)
-        {
             testMethod.TestedMethod = "Match";
             testMethod.Input["flags"] = ConvertFlags(testMethod);
             testMethod.Expected = ConvertExpected(testMethod.Expected);
@@ -18,21 +18,21 @@ namespace Exercism.CSharp.Exercises.Generators
             testMethod.UseVariableForExpected = true;
         }
 
-        private static dynamic ConvertFlags(TestMethod testMethod)
-            => string.Join(" ", testMethod.Input["flags"]);
+    private static dynamic ConvertFlags(TestMethod testMethod)
+        => string.Join(" ", testMethod.Input["flags"]);
 
-        private static MultiLineString ConvertExpected(dynamic expected)
-            => new(expected as string[] ?? Array.Empty<string>());
+    private static MultiLineString ConvertExpected(dynamic expected)
+        => new(expected as string[] ?? Array.Empty<string>());
 
-        protected override void UpdateTestClass(TestClass testClass)
-        {
+    protected override void UpdateTestClass(TestClass testClass)
+    {
             testClass.IsDisposable = true;
 
             AddAdditionalMethods(testClass);
         }
 
-        private static void AddAdditionalMethods(TestClass testClass)
-        {
+    private static void AddAdditionalMethods(TestClass testClass)
+    {
             AddIliadData(testClass);
             AddMidsummerNightData(testClass);
             AddParadiseLostData(testClass);
@@ -40,8 +40,8 @@ namespace Exercism.CSharp.Exercises.Generators
             AddDisposeMethod(testClass);
         }
 
-        private static void AddIliadData(TestClass testClass) =>
-            testClass.AdditionalMethods.Add(@"
+    private static void AddIliadData(TestClass testClass) =>
+        testClass.AdditionalMethods.Add(@"
 private const string IliadFileName = ""iliad.txt"";
 private const string IliadContents =
     ""Achilles sing, O Goddess! Peleus' son;\n"" +
@@ -54,8 +54,8 @@ private const string IliadContents =
     ""The noble Chief Achilles from the son\n"" +
     ""Of Atreus, Agamemnon, King of men.\n"";");
 
-        private static void AddMidsummerNightData(TestClass testClass) =>
-            testClass.AdditionalMethods.Add(@"
+    private static void AddMidsummerNightData(TestClass testClass) =>
+        testClass.AdditionalMethods.Add(@"
 private const string MidsummerNightFileName = ""midsummer-night.txt"";
 private const string MidsummerNightContents =
     ""I do entreat your grace to pardon me.\n"" +
@@ -66,8 +66,8 @@ private const string MidsummerNightContents =
     ""The worst that may befall me in this case,\n"" +
     ""If I refuse to wed Demetrius.\n"";");
 
-        private static void AddParadiseLostData(TestClass testClass) =>
-            testClass.AdditionalMethods.Add(@"
+    private static void AddParadiseLostData(TestClass testClass) =>
+        testClass.AdditionalMethods.Add(@"
 private const string ParadiseLostFileName = ""paradise-lost.txt"";
 private const string ParadiseLostContents =
     ""Of Mans First Disobedience, and the Fruit\n"" +
@@ -79,8 +79,8 @@ private const string ParadiseLostContents =
     ""Of Oreb, or of Sinai, didst inspire\n"" +
     ""That Shepherd, who first taught the chosen Seed\n"";");
 
-        private static void AddConstructor(TestClass testClass) =>
-            testClass.AdditionalMethods.Add(@"
+    private static void AddConstructor(TestClass testClass) =>
+        testClass.AdditionalMethods.Add(@"
 public GrepTests()
 {
     Directory.SetCurrentDirectory(Path.GetTempPath());
@@ -89,8 +89,8 @@ public GrepTests()
     File.WriteAllText(ParadiseLostFileName, ParadiseLostContents);
 }");
 
-        private static void AddDisposeMethod(TestClass testClass) =>
-            testClass.AdditionalMethods.Add(@"
+    private static void AddDisposeMethod(TestClass testClass) =>
+        testClass.AdditionalMethods.Add(@"
 public void Dispose()
 {
     Directory.SetCurrentDirectory(Path.GetTempPath());
@@ -99,10 +99,9 @@ public void Dispose()
     File.Delete(ParadiseLostFileName);
 }");
 
-        protected override void UpdateNamespaces(ISet<string> namespaces)
-        {
+    protected override void UpdateNamespaces(ISet<string> namespaces)
+    {
             namespaces.Add(typeof(IDisposable).Namespace!);
             namespaces.Add(typeof(File).Namespace!);
         }
-    }
 }
