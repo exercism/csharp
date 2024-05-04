@@ -14,9 +14,10 @@ build/
 *.user
 *.userprefs
 
-# Un-ignore fetch configlet scripts
-!bin/fetch-configlet
-!bin/fetch-configlet.ps1
+# Un-ignore scripts
+!/bin
+/bin/configlet
+/bin/configlet.exe
 
 # Prob-specs repo
 .problem-specifications

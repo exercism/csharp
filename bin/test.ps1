@@ -23,12 +23,11 @@ param (
     [string]$Exercise
 )
 
-# Import shared functionality
-. ./shared.ps1
+$PSNativeCommandUseErrorActionPreference = $true
 
 function Invoke-Build-Generators {
     Write-Output "Building generators"
-    Invoke-CallScriptExitOnError { dotnet build ./generators }
+    & dotnet build ./generators 
 }
 
 function Clean($BuildDir) {
@@ -102,12 +101,12 @@ function Test-ExerciseImplementation($Exercise, $BuildDir, $ConceptExercisesDir,
 function Invoke-Tests($Path, $IsCI) {
     if ($IsCI) {
         Get-ChildItem -Path $Path -Include "*.csproj" -Recurse | ForEach-Object {
-            Invoke-CallScriptExitOnError { dotnet add $_.FullName package JunitXml.TestLogger -n -v 3.0.134 }
+            & dotnet add $_.FullName package JunitXml.TestLogger -n -v 3.0.134 
         }
-        Invoke-CallScriptExitOnError { dotnet test $Path --logger "junit;LogFilePath=results/test.xml" }
+        & dotnet test $Path --logger "junit;LogFilePath=results/test.xml" 
     }
     else {
-        Invoke-CallScriptExitOnError { dotnet test "$Path" }
+        & dotnet test "$Path" 
     }
 }
 
