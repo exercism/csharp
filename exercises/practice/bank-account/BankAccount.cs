@@ -4,12 +4,12 @@ public class BankAccount
 {
     public void Open()
     {
-        throw new NotImplementedException("You need to implement this function.");
+        throw new NotImplementedException("You need to implement this method.");
     }
 
     public void Close()
     {
-        throw new NotImplementedException("You need to implement this function.");
+        throw new NotImplementedException("You need to implement this method.");
     }
 
     public decimal Balance
@@ -22,6 +22,6 @@ public class BankAccount
 
     public void UpdateBalance(decimal change)
     {
-        throw new NotImplementedException("You need to implement this function.");
+        throw new NotImplementedException("You need to implement this method.");
     }
 }

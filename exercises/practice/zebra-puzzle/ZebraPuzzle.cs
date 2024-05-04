@@ -12,11 +12,11 @@ public static class ZebraPuzzle
 {
     public static Nationality DrinksWater()
     {
-        throw new NotImplementedException("You need to implement this function.");
+        throw new NotImplementedException("You need to implement this method.");
     }
 
     public static Nationality OwnsZebra()
     {
-        throw new NotImplementedException("You need to implement this function.");
+        throw new NotImplementedException("You need to implement this method.");
     }
 }

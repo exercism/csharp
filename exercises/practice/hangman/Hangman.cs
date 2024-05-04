@@ -25,11 +25,11 @@ public class TooManyGuessesException : Exception
 
 public class Hangman
 {
-    public IObservable<HangmanState> StateObservable { get => throw new NotImplementedException("You need to implement this function."); }
-    public IObserver<char> GuessObserver { get => throw new NotImplementedException("You need to implement this function."); }
+    public IObservable<HangmanState> StateObservable { get => throw new NotImplementedException("You need to implement this method."); }
+    public IObserver<char> GuessObserver { get => throw new NotImplementedException("You need to implement this method."); }
   
     public Hangman(string word)
     {
-        throw new NotImplementedException("You need to implement this function.");
+        throw new NotImplementedException("You need to implement this method.");
     }
 }
