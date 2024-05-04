@@ -344,6 +344,7 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogAnalysis", "concept\log-analysis\LogAnalysis.csproj", "{D66F4A88-0765-4D6B-A8A4-933E5882EC92}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EliudsEggs", "practice\eliuds-eggs\EliudsEggs.csproj", "{2F3B7384-F4CA-4925-B07C-E05DB3FAC01B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Knapsack", "practice\knapsack\Knapsack.csproj", "{90C70CAA-A225-4D66-8B42-6AC82AD1D5DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -1027,6 +1028,10 @@ Global
 		{2F3B7384-F4CA-4925-B07C-E05DB3FAC01B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F3B7384-F4CA-4925-B07C-E05DB3FAC01B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F3B7384-F4CA-4925-B07C-E05DB3FAC01B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90C70CAA-A225-4D66-8B42-6AC82AD1D5DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90C70CAA-A225-4D66-8B42-6AC82AD1D5DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90C70CAA-A225-4D66-8B42-6AC82AD1D5DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90C70CAA-A225-4D66-8B42-6AC82AD1D5DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1201,6 +1206,7 @@ Global
 		{82C5DF7B-6F86-40D3-8F65-4B63D41E23A5} = {E276EF69-669A-43E0-88AC-8ABB17A9C026}
 		{D66F4A88-0765-4D6B-A8A4-933E5882EC92} = {3303F74B-62AC-47B7-A8AA-F93A52A1C95C}
 		{2F3B7384-F4CA-4925-B07C-E05DB3FAC01B} = {E276EF69-669A-43E0-88AC-8ABB17A9C026}
+		{90C70CAA-A225-4D66-8B42-6AC82AD1D5DC} = {E276EF69-669A-43E0-88AC-8ABB17A9C026}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AB4EA6C9-5461-4024-BDC7-2AE0C3A85CD1}
