@@ -2621,6 +2621,19 @@
           "if-statements"
         ],
         "difficulty": 5
+      },
+      {
+        "slug": "eliuds-eggs",
+        "name": "Eliud's Eggs",
+        "uuid": "c51655c7-a3a2-4e66-8e38-b6e8f5e33e8c",
+        "practices": [
+          "bit-manipulation"
+        ],
+        "prerequisites": [
+          "numbers",
+          "bit-manipulation"
+        ],
+        "difficulty": 3
       }
     ],
     "foregone": [
