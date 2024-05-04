@@ -2634,6 +2634,20 @@
           "bit-manipulation"
         ],
         "difficulty": 3
+      },
+      {
+        "slug": "knapsack",
+        "name": "Knapsack",
+        "uuid": "677c9cf8-d94c-423c-aba1-45ff19805655",
+        "practices": [
+          "tuples"
+        ],
+        "prerequisites": [
+          "numbers",
+          "arrays",
+          "tuples"
+        ],
+        "difficulty": 5
       }
     ],
     "foregone": [
