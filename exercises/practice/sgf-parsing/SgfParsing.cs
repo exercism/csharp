@@ -17,6 +17,6 @@ public class SgfParser
 {
     public static SgfTree ParseTree(string input)
     {
-        throw new NotImplementedException();
+        throw new NotImplementedException("You need to implement this method.");
     }
 }

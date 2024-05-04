@@ -17,6 +17,6 @@ public class KindergartenGarden
 
     public IEnumerable<Plant> Plants(string student)
     {
-        throw new NotImplementedException("You need to implement this function.");
+        throw new NotImplementedException("You need to implement this method.");
     }
 }

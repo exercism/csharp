@@ -20,7 +20,7 @@ public static class YachtGame
 {
     public static int Score(int[] dice, YachtCategory category)
     {
-        throw new NotImplementedException("You need to implement this function.");
+        throw new NotImplementedException("You need to implement this method.");
     }
 }
 

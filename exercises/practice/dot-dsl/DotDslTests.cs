@@ -95,7 +95,7 @@ public class DotDslTests
 
         public int GetHashCode(IEnumerable<T> obj)
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException("You need to implement this method.");
         }
     }
 }
