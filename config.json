@@ -856,7 +856,8 @@
         ],
         "prerequisites": [
           "strings",
-          "if-statements"
+          "if-statements",
+          "for-loops"
         ],
         "difficulty": 4
       },
