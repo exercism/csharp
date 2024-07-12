@@ -83,18 +83,18 @@ public class GameOfLifeTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Dead_cells_with_three_live_neighbors_become_alive()
+    public void Dead_cells_with_exactly_three_live_neighbors_become_alive()
     {
         var matrix = new[,]
         {
-             { 1, 1, 0 },
+             { 1, 1, 1 },
              { 0, 0, 0 },
              { 1, 0, 0 }
         };
         var expected = new[,]
         {
-             { 0, 0, 0 },
-             { 1, 1, 0 },
+             { 0, 1, 0 },
+             { 1, 0, 0 },
              { 0, 0, 0 }
         };
         Assert.Equal(expected, GameOfLife.Tick(matrix));
