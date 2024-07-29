@@ -12,7 +12,7 @@ The player descriptions are as follows:
 ```
 1 -> "goalie"
 2 -> "left back"
-3 & 4 "center back"
+3 & 4 -> "center back"
 5 -> "right back"
 6, 7 & 8 -> "midfielder"
 9 -> "left wing"
