@@ -17,6 +17,12 @@ public class StrainTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Keep_nothing()
+    {
+        Assert.Equal(new HashSet<int>(), new HashSet<int> { 1, 2, 3 }.Keep(x => x > 10));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Keep_first_and_last()
     {
         Assert.Equal(new[] { 1, 3 }, new[] { 1, 2, 3 }.Keep(x => x % 2 != 0));
@@ -56,6 +62,12 @@ public class StrainTests
     public void Empty_discard()
     {
         Assert.Equal(new LinkedList<int>(), new LinkedList<int>().Discard(x => x < 10));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Discard_everything()
+    {
+        Assert.Equal(new HashSet<int>(), new HashSet<int> { 1, 2, 3 }.Discard(x => x < 10));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
