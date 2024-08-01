@@ -153,6 +153,12 @@ public class RomanNumeralsTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Number_3888_is_mmmdccclxxxviii()
+    {
+        Assert.Equal("MMMDCCCLXXXVIII", 3888.ToRoman());
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Number_3999_is_mmmcmxcix()
     {
         Assert.Equal("MMMCMXCIX", 3999.ToRoman());
