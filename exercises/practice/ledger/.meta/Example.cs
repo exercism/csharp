@@ -33,8 +33,8 @@ public static class Ledger
     {
         switch (locale)
         {
-            case "en-US": return new CultureInfo("en-US");
-            case "nl-NL": return new CultureInfo("nl-NL");
+            case "en-US": return CultureInfo.GetCultureInfo("en-US");
+            case "nl-NL": return CultureInfo.GetCultureInfo("nl-NL");
             default: throw new ArgumentException("Invalid locale");
         }
     }

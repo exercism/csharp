@@ -10,7 +10,7 @@ public class BeautySalonGoesGlobalTests
 {
     public BeautySalonGoesGlobalTests()
     {
-        Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+        Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
     }
 
     [Fact]
