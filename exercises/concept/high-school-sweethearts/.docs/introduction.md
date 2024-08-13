@@ -34,7 +34,7 @@ A format item can comprise up to 3 parts. The first is the mandatory expression 
 
 `{<interpolationExpression>[,<alignment>][:<formatString>]`
 
-The _alignment_ specifies the length of the "field" in which the text is placed, padded to the left with spaces if the alignment is negative or to the right if it is positive.
+The _alignment_ specifies the length of the "field" in which the text is placed, padded to the left with spaces if the alignment is positive or to the right if it is negative.
 
 The _format string_ specifies the shape of the text output such as whether thousands separators should be included for a number or whether the date part only of a `DateTime` object should be output.
 
