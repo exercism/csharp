@@ -72,7 +72,7 @@ public static class Ledger
             }
         }
 
-        var culture = CultureInfo.GetCultureInfo(loc);
+        var culture = new CultureInfo(loc, false);
         culture.NumberFormat.CurrencySymbol = curSymb;
         culture.NumberFormat.CurrencyNegativePattern = curNeg;
         culture.DateTimeFormat.ShortDatePattern = datPat;
