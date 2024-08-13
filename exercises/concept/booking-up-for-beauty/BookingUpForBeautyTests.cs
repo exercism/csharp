@@ -8,7 +8,7 @@ public class BookingUpForBeautyTests
 {
     public BookingUpForBeautyTests()
     {
-        var enUsCulture = new CultureInfo("en-US");
+        var enUsCulture = CultureInfo.GetCultureInfo("en-US");
         Thread.CurrentThread.CurrentCulture = enUsCulture;
         Thread.CurrentThread.CurrentUICulture = enUsCulture;
     }
