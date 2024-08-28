@@ -7,7 +7,7 @@ Our ORM usage analysis shows that 95% of transactions are executed from within o
 The database has the following instance methods:
 
 - `Database.BeginTransaction()` starts a transaction on the database.
-- `Database.Write(string data)` writes data to the database within the transaction. If it receives bad data an exception will be thrown. An attempt to call this method without `BeginTransction()` having been called will cause an exception to be thrown. If successful the internal state of the database will change to `DataWritten`.
+- `Database.Write(string data)` writes data to the database within the transaction. If it receives bad data an exception will be thrown. An attempt to call this method without `BeginTransaction()` having been called will cause an exception to be thrown. If successful the internal state of the database will change to `DataWritten`.
 - `Database.EndTransaction()` commits the transaction to the database. It may throw an exception if it can't close the transaction or if `Database.BeginTransaction()` had not been called.
 - A call to`Database.Dispose()` will clean up the database if an exception is thrown during a transaction. This will change the state of the database to `Closed`.
 
