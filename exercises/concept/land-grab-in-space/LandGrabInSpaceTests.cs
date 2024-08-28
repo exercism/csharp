@@ -59,6 +59,30 @@ public class LandGrabInSpaceTests
         Assert.Equal(longer, ch.GetClaimWithLongestSide());
     }
 
+    [Fact]
+    [Task(4)]
+    public void GetLongestSideReverseInsertionOrder()
+    {
+        var ch = new ClaimsHandler();
+        var longer = CreatePlot(new Coord(10, 1), new Coord(20, 1), new Coord(10, 2), new Coord(20, 2));
+        var shorter = CreatePlot(new Coord(1, 1), new Coord(2, 1), new Coord(1, 2), new Coord(2, 2));
+        ch.StakeClaim(shorter);
+        ch.StakeClaim(longer);
+        Assert.Equal(longer, ch.GetClaimWithLongestSide());
+    }
+
+    [Fact]
+    [Task(4)]
+    public void GetLongestSideDiagonal1()
+    {
+        var ch = new ClaimsHandler();
+        var shorter = CreatePlot(new Coord(0, 0), new Coord(0, 10), new Coord(10, 0), new Coord(10, 10));
+        var longer = CreatePlot(new Coord(0, 0), new Coord(11, 0), new Coord(11, 11), new Coord(0, 11));
+        ch.StakeClaim(shorter);
+        ch.StakeClaim(longer);
+        Assert.Equal(longer, ch.GetClaimWithLongestSide());
+    }
+
     private Plot CreatePlot(Coord coord1, Coord coord2, Coord coord3, Coord coord4)
     {
         Type plotType = typeof(Plot);
