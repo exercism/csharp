@@ -76,9 +76,7 @@ public class LandGrabInSpaceTests
     public void GetLongestSideDiagonal1()
     {
         var ch = new ClaimsHandler();
-        // Bottom left, bottom right, top left, top right. The longest side is 10, diagonal is >14
         var shorter = CreatePlot(new Coord(0, 0), new Coord(0, 10), new Coord(10, 0), new Coord(10, 10));
-        // Bottom left, top left, top right, bottom right, longest side 11
         var longer = CreatePlot(new Coord(0, 0), new Coord(11, 0), new Coord(11, 11), new Coord(0, 11));
         ch.StakeClaim(shorter);
         ch.StakeClaim(longer);
