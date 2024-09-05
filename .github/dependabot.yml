@@ -5,10 +5,10 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: 'monthly'
 
   # Keep NuGet dependencies up-to-date
   - package-ecosystem: "nuget"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: 'monthly'
