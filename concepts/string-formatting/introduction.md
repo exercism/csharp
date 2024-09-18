@@ -30,7 +30,7 @@ The text in braces, placeholders in the case of the composite format and interpo
 
 A format item can comprise up to 3 parts. The first is the mandatory expression or argument placeholder as seen in the example code above. In addition, there is an optional alignment (introduced with a comma, ",") and an optional _format string_ (introduced with a colon ":").
 
-`{<interpolationExpression>[,<alignment>][:<formatString>]`
+`{<interpolationExpression>[,<alignment>][:<formatString>]}`
 
 The _alignment_ specifies the length of the "field" in which the text is placed, padded to the left with spaces if the alignment is positive or to the right if it is negative.
 
