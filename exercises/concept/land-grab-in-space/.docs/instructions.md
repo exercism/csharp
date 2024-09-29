@@ -38,7 +38,7 @@ ch.IsLastClaim(new Plot(new Coord(1,1), new Coord(2,1), new Coord(1,2), new Coor
 
 ## 4. Find the plot claimed that has the longest side for research purposes
 
-Implement the `ClaimsHandler.GetClaimWithLongestSide()` method to examine all registered claims and return the plot with the longest side.
+Implement the `ClaimsHandler.GetClaimWithLongestSide()` method to examine all registered claims and return the plot with the longest side. The coordinate data in a plot is guaranteed to be in a contiguous rectangular shape.
 
 ```csharp
 var ch = new ClaimsHandler();
