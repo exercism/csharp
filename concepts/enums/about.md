@@ -40,7 +40,7 @@ enum Priority : byte
 
 ## Convert to an Enum member
 
-You should always consider using an enum whenever you want to model something like a boolean. Besides the aforementioned readability benefits, enums have another advantage over booleans: new values can always be added to an enum, whereas a boolean value will only ever be `true` or `false`. Using an enum is thus more future proof.
+You should always consider using an enum whenever you want to model something like a Boolean. Besides the aforementioned readability benefits, enums have another advantage over Booleans: new values can always be added to an enum, whereas a Boolean value will only ever be `true` or `false`. Using an enum is thus more future proof.
 
 ```csharp
 enum Status
@@ -71,7 +71,7 @@ Status status = (Status)Enum.Parse(typeof(Status), input);
 // Inactive
 ```
 
-To check if a name or a value exists in the enum, you can use [`Enum.TryParse`][enum tryparse] or [`Enum.IsDefined`][enum isdefined], both return a boolean indicating if the enum member exists:
+To check if a name or a value exists in the enum, you can use [`Enum.TryParse`][enum tryparse] or [`Enum.IsDefined`][enum isdefined], both return a Boolean indicating if the enum member exists:
 
 ```csharp
 bool doesExist = Enum.IsDefined(typeof(Status), "Inexistent");

@@ -3,16 +3,16 @@
 ## Learning objectives
 
 - Know of the existence of the `bool` type and its two values.
-- Know about boolean operators and how to build logical expressions with them.
-- Know of the boolean operator precedence rules.
+- Know about Boolean operators and how to build logical expressions with them.
+- Know of the Boolean operator precedence rules.
 
 ## Out of scope
 
-- Pattern matching on booleans.
+- Pattern matching on Booleans.
 
 ## Concepts
 
-- `booleans`: know of the existence of the `bool` type and its two values; know about boolean operators and how to build logical expressions with them; know of the boolean operator precedence rules.
+- `booleans`: know of the existence of the `bool` type and its two values; know about Boolean operators and how to build logical expressions with them; know of the Boolean operator precedence rules.
 
 ## Prerequisites
 

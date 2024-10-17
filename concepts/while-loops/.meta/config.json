@@ -1,5 +1,5 @@
 {
-  "blurb": "A while loop continues looping until a boolean condition evaluates to false.",
+  "blurb": "A while loop continues looping until a Boolean condition evaluates to false.",
   "authors": [
     "ErikSchierboom"
   ],

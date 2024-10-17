@@ -4,7 +4,7 @@ In this approach, we'll find out how to most efficiently calculate if a year is 
 
 The [approaches page][approaches] lists three idiomatic approaches to this exercise:
 
-1. [Using the boolean chain][approach-boolean-chain]
+1. [Using the Boolean chain][approach-boolean-chain]
 2. [Using the ternary operator][approach-ternary-operator]
 3. [Using `switch` in a `tuple`][approach-switch-on-a-tuple]
 

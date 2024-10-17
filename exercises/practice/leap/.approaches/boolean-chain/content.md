@@ -1,4 +1,4 @@
-# Chain of boolean expressions
+# Chain of Boolean expressions
 
 ```csharp
 public static bool IsLeapYear(int year)
@@ -7,7 +7,7 @@ public static bool IsLeapYear(int year)
 }
 ```
 
-The first boolean expression uses the [remainder operator][remainder-operator] to check if the year is evenly divided by `4`.
+The first Boolean expression uses the [remainder operator][remainder-operator] to check if the year is evenly divided by `4`.
 - If the year is not evenly divisible by `4`, then the chain will "short circuit" due to the next operator being a [logical AND][logical-and] (`&&`), and will return `false`.
 - If the year _is_ evenly divisible by `4`, then the year is checked to _not_ be evenly divisible by `100`.
 - If the year is not evenly divisible by `100`, then the expression is `true` and the chain will "short-circuit" to return `true`,
@@ -22,7 +22,7 @@ since the next operator is a [logical OR][logical-or] (`||`).
 | 1900 |          true |           false |           false |        false |
 
 
-The chain of boolean expressions is efficient, as it proceeds from testing the most likely to least likely conditions.
+The chain of Boolean expressions is efficient, as it proceeds from testing the most likely to least likely conditions.
 
 ## Shortening
 
