@@ -18,8 +18,8 @@
 - operator precedence: conditional AND operator has a higher precedence than conditional logical OR
 - parentheses and operator precedence: Use parentheses `()` to change the order of evaluation imposed by operator precedence
 
-## Approach: single boolean expression
+## Approach: single Boolean expression
 
-- boolean expression: function could be written as a single combined boolean expression
+- boolean expression: function could be written as a single combined Boolean expression
 - order of the validation: years divisible with 4 are more common, and adding this condition as first, removes the necessity to execute the other checks. Similar to 100 comparing to 400.
 - expression body method: it makes the code cleaner for a short (one-line) method

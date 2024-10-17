@@ -23,7 +23,7 @@
 
 This exercise's prerequisites Concepts are:
 
-- `numbers`: define numbers and apply arithmetic and boolean logic to them.
+- `numbers`: define numbers and apply arithmetic and Boolean logic to them.
 - `if-statements`: conditionally execute code based on value of floating-point numbers.
 
 [docs.microsoft.com-floating-point-numeric-types]: https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types

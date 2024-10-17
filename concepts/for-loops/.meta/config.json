@@ -1,5 +1,5 @@
 {
-  "blurb": "For-loops allow for iteration over a specified range, with a boolean condition to indicate when to stop, and an increment to indicate how much to go up or down by.",
+  "blurb": "For-loops allow for iteration over a specified range, with a Boolean condition to indicate when to stop, and an increment to indicate how much to go up or down by.",
   "authors": [
     "ErikSchierboom"
   ],

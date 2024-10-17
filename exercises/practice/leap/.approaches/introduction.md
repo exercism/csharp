@@ -1,7 +1,7 @@
 # Introduction
 
 There are various idiomatic approaches to solve Leap.
-You can use a chain of boolean expressions to test the conditions.
+You can use a chain of Boolean expressions to test the conditions.
 Or you can use a [ternary operator][ternary-operator].
 Another approach you can use is a [switch][switch] on a [tuple][tuple].
 
@@ -59,7 +59,7 @@ Besides the aforementioned, idiomatic approaches, you could also solve the exerc
 
 ## Which approach to use?
 
-- The chain of boolean expressions is most efficient, as it proceeds from the most likely to least likely conditions.
+- The chain of Boolean expressions is most efficient, as it proceeds from the most likely to least likely conditions.
   It has a maximum of three checks.
 - The ternary operator has a maximum of only two checks, but it starts from a less likely condition.
 - The `switch` on a `tuple` may be considered more "functional", but it is more verbose and may be considered less readable.

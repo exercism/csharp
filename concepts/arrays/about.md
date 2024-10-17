@@ -79,7 +79,7 @@ foreach (char vowel in vowels)
 A `for` loop does have some advantages over a `foreach` loop:
 
 - You can start or stop at the index you want.
-- You can use any (boolean) termination condition you want.
+- You can use any (Boolean) termination condition you want.
 - You can skip elements by customizing the incrementing of the loop variable.
 - You can process collections from back to front by counting down.
 - You can use `for` loops in scenarios that don't involve collections.

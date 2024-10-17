@@ -12,7 +12,7 @@
       "uuid": "54148cc8-e3bf-4981-95c9-cb584c658c76",
       "slug": "boolean-chain",
       "title": "Boolean chain",
-      "blurb": "Use a chain of boolean expressions.",
+      "blurb": "Use a chain of Boolean expressions.",
       "authors": [
         "bobahop"
       ],
@@ -26,7 +26,7 @@
       "uuid": "eebe5a57-7e58-44c2-92e6-50f46f1251ac",
       "slug": "ternary-operator",
       "title": "Ternary operator",
-      "blurb": "Use a ternary operator of boolean expressions.",
+      "blurb": "Use a ternary operator of Boolean expressions.",
       "authors": [
         "bobahop"
       ],
@@ -44,7 +44,7 @@
       "uuid": "cb7c88a6-49f3-4744-a3e8-fcc7acc0770d",
       "slug": "switch-on-a-tuple",
       "title": "switch on a tuple",
-      "blurb": "Use a switch on a tuple made from boolean expressions.",
+      "blurb": "Use a switch on a tuple made from Boolean expressions.",
       "authors": [
         "bobahop"
       ],
