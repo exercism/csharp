@@ -8,17 +8,15 @@ Exercism exercises in C#
 
 Please see the [contributing guide](https://exercism.org/docs/building)
 
-### Adding a new exercise
+### Adding a new practice exercise
 
-To add a new exercise, run the `bin/add-new-exercise.ps1` PowerShell script:
+To add a new exercise, run the `bin/add-practice-exercise.ps1` PowerShell script:
 
 ```shell
-pwsh bin/add-new-exercise.ps1 bob
+pwsh bin/add-practice-exercise.ps1 bob
 ```
 
-This will create all the necessary files and tests for you.
-Then you just need to implement the `Example.cs` file and to check if the generated tests make sense.
-Parameters and examples for running the script can be found in the script file.
+This will add the exercise's files and output what remains to be done.
 
 ## Support
 
