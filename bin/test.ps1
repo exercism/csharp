@@ -129,5 +129,3 @@ if (!$Exercise) {
 
 Use-ExampleImplementation $conceptExercisesDir $practiceExercisesDir
 Test-ExerciseImplementation -Exercise $Exercise -BuildDir $buildDir -ConceptExercisesDir $conceptExercisesDir -PracticeExercisesDir $practiceExercisesDir -IsCI $isCi
-
-exit $LastExitCode
