@@ -11,14 +11,21 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@d632683dd7b4114ad314bca15554477dd762a938
-      - uses: actions/setup-dotnet@6bd8b7f7774af54e05809fcc5431931b3eb1ddee
+      - name: Checkout code
+        uses: actions/checkout@d632683dd7b4114ad314bca15554477dd762a938
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@6bd8b7f7774af54e05809fcc5431931b3eb1ddee
         with:
-          dotnet-version: "8.0.201"
-      - run: pwsh bin/test.ps1
-      - uses: test-summary/action@31493c76ec9e7aa675f1585d3ed6f1da69269a86
+          dotnet-version: "8.0.403"
+
+      - name: Run tests
+        run: pwsh bin/test.ps1
+
+      - name: Create test summary
+        uses: test-summary/action@31493c76ec9e7aa675f1585d3ed6f1da69269a86
         with:
           paths: build/**/results/**/*.xml
         if: always()
