@@ -1,6 +1,6 @@
 There is a new exercise, [EXERCISE-NAME](https://github.com/exercism/problem-specifications/blob/master/exercises/EXERCISE-NAME/description.md), which data can be found here: https://github.com/exercism/problem-specifications/tree/master/exercises/EXERCISE-NAME
 
-To implement the `EXERCISE-NAME` exercise, first run the `./add-new-exercise EXERCISE-NAME` script that will create and update the files required for the new exercise. After this script has run, it will have done the following:
+To implement the `EXERCISE-NAME` exercise, first run the `./add-practice-exercise EXERCISE-NAME` script that will create and update the files required for the new exercise. After this script has run, it will have done the following:
 
 - Added a new entry for the exercise to the [config.json](https://github.com/exercism/csharp/blob/master/config.json) file.
 - Created a default generator in the [generator/Generators/Exercise] directory, which is used to automatically convert the [canonical data](https://github.com/exercism/problem-specifications/blob/master/exercises/EXERCISE-NAME/canonical-data.json) to a test file. For more information on how this works, check the [generators docs](https://github.com/exercism/csharp/blob/master/docs/GENERATORS.md).
