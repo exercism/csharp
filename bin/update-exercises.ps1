@@ -11,9 +11,6 @@
 .EXAMPLE
     The example below will update the "acronym" exercise
     PS C:\> ./update-exercises.ps1 acronym
-.EXAMPLE
-    The example below will update the "acronym" exercise and regenerate the tests
-    PS C:\> ./update-exercises.ps1 acronym -RegenerateTests
 #>
 
 [CmdletBinding(SupportsShouldProcess)]
@@ -25,19 +22,12 @@ param (
 $ErrorActionPreference = "Stop"
 $PSNativeCommandUseErrorActionPreference = $true
 
-# Use fetch-configlet and configlet to create the exercise
-$extension = if ($IsWindows) { ".exe" } else { "" }
-$fetchConfiglet = Join-Path "bin" -ChildPath "fetch-configlet${extension}"
-$configlet = Join-Path "bin" -ChildPath "configlet${extension}"
-
-$syncArgs = @("sync", "--docs", "--metadata", "--filepaths", "--update", "--yes")
-$generatorArgs = @("run", "--project", "generators")
+& bin/fetch-configlet
 
 if ($Exercise) {
-    $syncArgs += "--exercise ${Exercise}"
-    $generatorArgs += "--exercise ${Exercise}"
+    & configlet sync --docs --metadata --filepaths --update --yes --exercise $Exercise
+    & dotnet run --project generators --exercise $Exercise
+} else {
+    & configlet sync --docs --metadata --filepaths --update --yes
+    & dotnet run --project generators
 }
-
-Start-Process -FilePath $fetchConfiglet -Wait
-Start-Process -FilePath $configlet -ArgumentList $syncArgs -Wait
-Start-Process "dotnet" -ArgumentList $generatorArgs -Wait
