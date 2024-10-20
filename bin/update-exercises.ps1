@@ -22,6 +22,7 @@ param (
     [Parameter()][switch]$RegenerateTests
 )
 
+$ErrorActionPreference = "Stop"
 $PSNativeCommandUseErrorActionPreference = $true
 
 # Use fetch-configlet and configlet to create the exercise

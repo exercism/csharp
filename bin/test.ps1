@@ -23,6 +23,7 @@ param (
     [string]$Exercise
 )
 
+$ErrorActionPreference = "Stop"
 $PSNativeCommandUseErrorActionPreference = $true
 
 function Invoke-Build-Generators {
