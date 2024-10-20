@@ -51,7 +51,7 @@ function Enable-All-UnitTests($BuildDir) {
 function Test-Refactoring-Projects($PracticeExercisesDir) {
     Write-Output "Testing refactoring projects"
     @("tree-building", "ledger", "markdown") | ForEach-Object {
-        Invoke-Tests -Path "$PracticeExercisesDir/$_"
+        Invoke-Tests -Path "${PracticeExercisesDir}/${_}"
     }
 }
 
@@ -59,7 +59,7 @@ function Set-ExampleImplementation {
     [CmdletBinding(SupportsShouldProcess)]
     param($ExercisesDir, $ReplaceFileName)
 
-    if ($PSCmdlet.ShouldProcess("Exercise $ReplaceFileName", "replace solution with example")) {
+    if ($PSCmdlet.ShouldProcess("Exercise ${ReplaceFileName}", "replace solution with example")) {
         Get-ChildItem -Path $ExercisesDir -Include "*.csproj" -Recurse | ForEach-Object {
             $stub = Join-Path -Path $_.Directory ($_.BaseName + ".cs")
             $example = Join-Path -Path $_.Directory ".meta" $ReplaceFileName
@@ -88,33 +88,33 @@ function Test-ExerciseImplementation($Exercise, $BuildDir, $ConceptExercisesDir,
     if (-Not $Exercise) {
         Invoke-Tests -Path $BuildDir -IsCI $IsCI
     }
-    elseif (Test-Path "$ConceptExercisesDir/$Exercise") {
-        Invoke-Tests -Path "$ConceptExercisesDir/$Exercise" -IsCI $IsCI
+    elseif (Test-Path "${ConceptExercisesDir}/${Exercise}") {
+        Invoke-Tests -Path "${ConceptExercisesDir}/${Exercise}" -IsCI $IsCI
     }
-    elseif (Test-Path "$PracticeExercisesDir/$Exercise") {
-        Invoke-Tests -Path "$PracticeExercisesDir/$Exercise" -IsCI $IsCI
+    elseif (Test-Path "${PracticeExercisesDir}/${Exercise}") {
+        Invoke-Tests -Path "${PracticeExercisesDir}/${Exercise}" -IsCI $IsCI
     }
     else {
-        throw "Could not find exercise '$Exercise'"
+        throw "Could not find exercise '${Exercise}'"
     }
 }
 
 function Invoke-Tests($Path, $IsCI) {
     if ($IsCI) {
         Get-ChildItem -Path $Path -Include "*.csproj" -Recurse | ForEach-Object {
-            & dotnet add $_.FullName package JunitXml.TestLogger -n -v 3.0.134 
+            & dotnet add $_.FullName package JunitXml.TestLogger -v 4.1.0
         }
         & dotnet test $Path --logger "junit;LogFilePath=results/test.xml" 
     }
     else {
-        & dotnet test "$Path" 
+        & dotnet test $Path
     }
 }
 
 
-$buildDir = Join-Path $PSScriptRoot "build"
-$practiceExercisesDir = Join-Path $buildDir "practice"
-$conceptExercisesDir = Join-Path $buildDir "concept"
+$buildDir = "${PSScriptRoot}/build"
+$practiceExercisesDir = "${buildDir}/practice"
+$conceptExercisesDir = "${buildDir}/concept"
 $sourceDir = Resolve-Path "exercises"
 $isCi = [System.Convert]::ToBoolean($env:CI)
 
