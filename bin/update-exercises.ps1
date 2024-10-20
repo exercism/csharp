@@ -15,8 +15,7 @@
 
 [CmdletBinding(SupportsShouldProcess)]
 param (
-    [Parameter(Position = 0, Mandatory = $false)][string]$Exercise,
-    [Parameter()][switch]$RegenerateTests
+    [Parameter(Position = 0, Mandatory = $false)][string]$Exercise
 )
 
 $ErrorActionPreference = "Stop"
