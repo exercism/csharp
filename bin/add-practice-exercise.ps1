@@ -17,8 +17,8 @@
 [CmdletBinding(SupportsShouldProcess)]
 param (
     [Parameter(Position = 0, Mandatory = $true)][string]$Exercise,
-    [Parameter(Mandatory = $true)][string]$Author,
-    [Parameter()][int]$Difficulty = 1
+    [Parameter(Position = 1, Mandatory = $true)][string]$Author,
+    [Parameter(Position = 2)][int]$Difficulty = 1
 )
 
 $ErrorActionPreference = "Stop"
