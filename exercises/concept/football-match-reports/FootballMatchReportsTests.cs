@@ -34,9 +34,9 @@ public class FootballMatchReportsTests
 
     [Fact]
     [Task(2)]
-    public void AnalyzeOnField_throws_unknown_shirt_number()
+    public void AnalyzeOnField_with_unknown_shirt_number()
     {
-        Assert.Throws<ArgumentOutOfRangeException>(() => PlayAnalyzer.AnalyzeOnField(1729));
+        Assert.Equal("UNKNOWN", PlayAnalyzer.AnalyzeOnField(1729));
     }
     
     [Fact]
@@ -50,7 +50,7 @@ public class FootballMatchReportsTests
     [Task(3)]
     public void AnalyzeOffField_throws_unknown_type()
     {
-        Assert.Throws<ArgumentException>(() => PlayAnalyzer.AnalyzeOffField(90.0f));
+        Assert.Equal("", PlayAnalyzer.AnalyzeOffField(90.0f));
     }
 
     [Fact]

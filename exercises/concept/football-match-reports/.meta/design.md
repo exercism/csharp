@@ -11,6 +11,7 @@
 - switch expressions
 - pattern matching tuples
 - enums
+- exceptions
 
 ## Concepts
 
