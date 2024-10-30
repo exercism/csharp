@@ -6,7 +6,7 @@
 
 - The [`break`][break] statement is useful.
 
-## 2. Raise an alert if an unknown shirt number is encountered
+## 2. Handle unknown shirt numbers
 
 - The [`default`][default] statement is useful.
 

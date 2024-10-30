@@ -26,7 +26,7 @@ public static class PlayAnalyzer
             case 10:
                 return "striker";
             default:
-                throw new ArgumentOutOfRangeException();
+                return "UNKNOWN";
         }
     }
 
@@ -47,7 +47,7 @@ public static class PlayAnalyzer
             case Manager manager:
                 return manager.Name;
             default:
-                throw new ArgumentException();
+                return "";
         }
     }
 }
