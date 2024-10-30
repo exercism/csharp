@@ -18,6 +18,17 @@ C# has two types of numeric conversions:
 
 As an `int` has less precision than a `double`, converting from an `int` to a `double` is safe and is thus an implicit conversion. However, converting from a `double` to an `int` could mean losing data, so that requires an explicit conversion.
 
+```csharp
+int softCool = 1358938113;
+double notLost = 4.8151623;
+
+// implicit cast: no loss of information
+double macDebug = softCool;         // 1358938113.0
+
+// explicit cast: possible loss of information 
+int somethingLost = (int)notLost;   // 4
+```
+
 ## If Statements
 
 In this exercise you must conditionally execute logic. The most common way to do this in C# is by using an `if/else` statement:

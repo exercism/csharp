@@ -15,3 +15,14 @@ C# has two types of numeric conversions:
 2. Explicit conversions: data could be lost and additional syntax in the form of a _cast_ is required.
 
 As an `int` has less precision than a `double`, converting from an `int` to a `double` is safe and is thus an implicit conversion. However, converting from a `double` to an `int` could mean losing data, so that requires an explicit conversion.
+
+```csharp
+int softCool = 1358938113;
+double notLost = 4.8151623;
+
+// implicit cast: no loss of information
+double macDebug = softCool;         // 1358938113.0
+
+// explicit cast: possible loss of information 
+int somethingLost = (int)notLost;   // 4
+```
