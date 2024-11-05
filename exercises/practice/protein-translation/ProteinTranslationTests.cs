@@ -159,7 +159,7 @@ public class ProteinTranslationTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Sequence_of_two_non_stop_codons_does_not_translate_stop_codon()
+    public void Sequence_of_two_non_stop_codons_does_not_translate_to_a_stop_codon()
     {
         Assert.Equal(new[] { "Methionine", "Methionine" }, ProteinTranslation.Proteins("AUGAUG"));
     }
