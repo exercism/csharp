@@ -11,6 +11,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "EliudsEggs.csproj"
     ]
   },
   "blurb": "Help Eliud count the number of eggs in her chicken coop by counting the number of 1 bits in a binary representation.",
