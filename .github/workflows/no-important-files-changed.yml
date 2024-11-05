@@ -2,15 +2,15 @@ name: No important files changed
 
 on:
   pull_request_target:
-    types: [opened]
-    branches: [main]
-    paths:
-      - "exercises/concept/**"
-      - "exercises/practice/**"
-      - "!exercises/*/*/.approaches/**"
-      - "!exercises/*/*/.articles/**"
-      - "!exercises/*/*/.docs/**"
-      - "!exercises/*/*/.meta/**"
+    # types: [opened]
+    # branches: [main]
+    # paths:
+    #   - "exercises/concept/**"
+    #   - "exercises/practice/**"
+    #   - "!exercises/*/*/.approaches/**"
+    #   - "!exercises/*/*/.articles/**"
+    #   - "!exercises/*/*/.docs/**"
+    #   - "!exercises/*/*/.meta/**"
 
 permissions:
   pull-requests: write
