@@ -12,7 +12,7 @@ C# has three floating-point types:
 - `double`: 8 bytes (~15-17 digits precision). This is the most common type. Written as `2.45` or `2.45d`.
 - `decimal`: 16 bytes (28-29 digits precision). Normally used when working with monetary data, as its precision reduces the chance of rounding errors. Written as `2.45m`.
 
-As can be seen, each type can store a different number of digits. Trying to store PI in a `float` will only store the first 6 decimal places (with the last stored digit rounded).
+As can be seen, each type can store a different number of digits. For example, trying to store PI in a `float` will only store the first 6 decimal places (with the last stored digit rounded).
 
 ## While Loops
 
