@@ -10,13 +10,13 @@ C# has three floating-point types:
 
 - `float`: 4 bytes (~6-9 digits precision). Written as `2.45f`.
 - `double`: 8 bytes (~15-17 digits precision). This is the most common type. Written as `2.45` or `2.45d`.
-- `decimal`: 16 bytes (28-29 digits precision). Normally used when working with monetary data, as its precision leads to less rounding errors. Written as `2.45m`.
+- `decimal`: 16 bytes (28-29 digits precision). Normally used when working with monetary data, as its precision reduces the chance of rounding errors. Written as `2.45m`.
 
-As can be seen, each type can store a different number of digits. This means that trying to store PI in a `float` will only store the first 6 to 9 digits (with the last digit being rounded).
+As can be seen, each type can store a different number of digits. Trying to store PI in a `float` will only store the first 6 decimal places (with the last stored digit rounded).
 
 ## While Loops
 
-In this exercise you may also want to use a loop. There are several ways to write loops in C#, but the `while` loop is most appropriate here:
+In this exercise you may want to use a loop. There are several ways to write loops in C#, but the `while` loop is most appropriate here:
 
 ```csharp
 int x = 23;
@@ -37,7 +37,7 @@ int x = 23;
 
 do
 {
-    // Execute logic if x > 10
+    // Execute body, repeating only if x > 10
     x = x - 2;
 } while (x > 10);
 ```
