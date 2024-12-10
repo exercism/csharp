@@ -7,7 +7,7 @@ using System.Linq;
 public class DiamondTests
 {
     public static readonly char[] AllLetters = GetLetterRange('A', 'Z');
-    private static string[] Rows(string x) => x.Split(Environment.NewLine);
+    private static string[] Rows(string x) => x.Split('\n').Select(line => line.TrimEnd('\r')).ToArray();
 
     private static string LeadingSpaces(string x) => x.Substring(0, x.IndexOfAny(AllLetters));
     private static string TrailingSpaces(string x) => x.Substring(x.LastIndexOfAny(AllLetters) + 1);
