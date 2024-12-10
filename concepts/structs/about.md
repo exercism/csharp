@@ -1,11 +1,11 @@
 # About
 
-C# `struct`s are closely related `class`s.
+C# `struct`s are closely related to `class`es.
 They have state and behavior.
 They can have the same kinds of members: constructors, methods, fields, properties, etc.
 
 Fields and properties can be simple types, `struct`s or reference types.
-`struct`s observe the same rules about scope, read/write rules and access levels as do `class`s.
+`struct`s observe the same rules about scope, read/write rules and access levels as do `class`es.
 
 ```csharp
 enum Unit
@@ -38,7 +38,7 @@ new Weight(77.5, Unit.Kg).ToString();
 One of the main things to remember is that when one struct is assigned to a variable or passed as a parameter the values are copied across so changes to the original variable will not affect the copied one and vice versa.
 In summary, `struct`s are **value types**.
 
-This [article][class-or-struct] discusses the differences between `struct`s and `class`s.
+This [article][class-or-struct] discusses the differences between `struct`s and `class`es.
 You will see from the article that `struct`s tend to be lightweight and [immutable][structs-immutable] although this guidance is not enforced (by default) by the compiler or runtime.
 
 There are a couple of things that you will come up against (and about which the compiler will remind you):
@@ -63,7 +63,7 @@ Although `struct`s cannot be derived from other `struct`s they can implement int
 
 ## Equality
 
-Equality testing for `struct`s can often be much simpler than that for `class`s as it simply compares fields for equality by default.
+Equality testing for `struct`s can often be much simpler than that for `class`es as it simply compares fields for equality by default.
 There is no need to override `object.Equals()` (or `GetHashCode()`).
 Remember that if you are relying on `Object.GetHashCode()` you must still ensure that the fields involved in generating the hash code (i.e. all the fields) must not change while a hashed collection is use.
 Effectively, this means that structs used in this way should be immutable.
@@ -71,7 +71,7 @@ Effectively, this means that structs used in this way should be immutable.
 In contrast to the method, `Equals()`, there is no default implementation of the equality operators, `==` and `!=`.
 If your `struct` needs them then you will have to implement them.
 
-On the other hand, this [article][equality] describes how performance can be optimised by creating your own custom `Equals()` and `GetHashCode()` method as is often done with `class`s.
+On the other hand, this [article][equality] describes how performance can be optimised by creating your own custom `Equals()` and `GetHashCode()` method as is often done with `class`es.
 The difference in the case of this exercise was about 20% in a not very rigorous comparison but that may be on the low side because all the fields are of the same type - see below.
 
 There are discussions on the [web][equality-performance] about speed improvements, where the `Equals()` method is not overridden, if all fields are of the same type.
