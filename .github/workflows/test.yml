@@ -17,9 +17,9 @@ jobs:
         uses: actions/checkout@d632683dd7b4114ad314bca15554477dd762a938
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@6bd8b7f7774af54e05809fcc5431931b3eb1ddee
+        uses: actions/setup-dotnet@87b7050bc53ea08284295505d98d2aa94301e852
         with:
-          dotnet-version: "8.0.403"
+          dotnet-version: "9.0.101"
 
       - name: Run tests
         run: pwsh bin/test.ps1
