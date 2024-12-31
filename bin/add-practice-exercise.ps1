@@ -32,7 +32,7 @@ $PSNativeCommandUseErrorActionPreference = $true
 $exerciseName = (Get-Culture).TextInfo.ToTitleCase($Exercise).Replace("-", "")
 $exerciseDir = "exercises/practice/${Exercise}"
 $project = "${exerciseDir}/${ExerciseName}.csproj"
-& dotnet new xunit --force -lang "C#" --target-framework-override net8.0 -o $exerciseDir -n $ExerciseName
+& dotnet new xunit --force -lang "C#" --target-framework-override net9.0 -o $exerciseDir -n $ExerciseName
 & dotnet sln exercises/Exercises.sln add $project
 
 # Update project packages
