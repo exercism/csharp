@@ -2649,6 +2649,19 @@
           "tuples"
         ],
         "difficulty": 5
+      },
+      {
+        "slug": "square-root",
+        "name": "Square Root",
+        "uuid": "9855aaff-979d-4cab-9487-d0b8750c014a",
+        "practices": [
+          "while-loops"
+        ],
+        "prerequisites": [
+          "numbers",
+          "while-loops"
+        ],
+        "difficulty": 2
       }
     ],
     "foregone": [
