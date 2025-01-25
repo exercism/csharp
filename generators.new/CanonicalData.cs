@@ -2,6 +2,8 @@ using System.Collections.Immutable;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 
+namespace Generators;
+
 internal record TestCase(
     string Uuid,
     string Description,

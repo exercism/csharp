@@ -1,3 +1,5 @@
+namespace Generators;
+
 internal static class Paths
 {
     private static readonly string RootDir = Path.GetFullPath(Path.Join(Environment.CurrentDirectory, "..", "..", "..", ".."));

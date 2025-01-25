@@ -1,6 +1,8 @@
 using Tomlyn;
 using Tomlyn.Model;
 
+namespace Generators;
+
 internal static class TestsToml
 {
     internal static HashSet<string> ExcludedTestCaseIds(string testsTomlFile) =>
