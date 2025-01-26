@@ -12,6 +12,6 @@ internal static class TestGenerator
             .ToArray();
 
         var renderedTests = TemplateRenderer.RenderTests(exercise, testCases);
-        File.WriteAllText(Paths.TestsFile(exercise), Formatter.FormatCode(renderedTests));
+        File.WriteAllText(Paths.TestsFile(exercise), CodeFormatter.FormatCode(renderedTests));
     }
 }
