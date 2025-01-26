@@ -63,25 +63,26 @@ public class IsogramTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void["madeUpNameThatIsAnIsogram()
-     {
-    Assert.True(Isogram.IsIsogram( "Emily Jung Schwartzkopf" ) ) ; }
+    public void MadeUpNameThatIsAnIsogram()
+    {
+        Assert.True(Isogram.IsIsogram("Emily Jung Schwartzkopf"));
+    }
 
-[Fact(Skip = "Remove this Skip property to run this test")]
-public void DuplicatedCharacterInTheMiddle()
-{
-    Assert.False(Isogram.IsIsogram("accentor"));
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void DuplicatedCharacterInTheMiddle()
+    {
+        Assert.False(Isogram.IsIsogram("accentor"));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void SameFirstAndLastCharacters()
+    {
+        Assert.False(Isogram.IsIsogram("angola"));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void WordWithDuplicatedCharacterAndWithTwoHyphens()
+    {
+        Assert.False(Isogram.IsIsogram("up-to-date"));
+    }
 }
-
-[Fact(Skip = "Remove this Skip property to run this test")]
-public void SameFirstAndLastCharacters()
-{
-    Assert.False(Isogram.IsIsogram("angola"));
-}
-
-[Fact(Skip = "Remove this Skip property to run this test")]
-public void WordWithDuplicatedCharacterAndWithTwoHyphens()
-{
-    Assert.False(Isogram.IsIsogram("up-to-date"));
-} }
-

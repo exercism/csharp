@@ -32,7 +32,11 @@ internal static class TemplateRenderer
             .ToDictionary(kv => kv.Key, kv => kv.ToArray());
 
     private class CustomFunctions : ScriptObject
-    {
-        public static string MethodName(params string[] path) => string.Join(" ", path).Dehumanize();
+    {   
+        public static string MethodName(params object[] path)
+        {
+            var flattenedPath = path.SelectMany(element => element as IEnumerable<string> ?? [element.ToString()!]);
+            return string.Join(" ", flattenedPath).Dehumanize();
+        }
     }
 }
