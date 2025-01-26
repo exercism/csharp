@@ -35,7 +35,7 @@ internal static class TemplateRenderer
     {   
         public static string MethodName(params object[] path)
         {
-            var flattenedPath = path.SelectMany(element => element as IEnumerable<string> ?? [element.ToString()!]);
+            var flattenedPath = path.SelectMany(x => x as IEnumerable<string> ?? [x.ToString()!]);
             return string.Join(" ", flattenedPath).Dehumanize();
         }
     }
