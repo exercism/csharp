@@ -7,29 +7,32 @@ namespace Generators;
 
 internal static class TemplateRenderer
 {
-    public static string RenderTests(Exercise exercise, TestCase[] testCases)
+    public static string RenderTests(Exercise exercise, TestCase[] testCases) =>
+        Template.Parse(File.ReadAllText(Paths.TemplateFile(exercise)))
+            .Render(CreateTemplateContext(exercise, testCases))!;
+
+    private static TemplateContext CreateTemplateContext(Exercise exercise, TestCase[] testCases)
     {
-        var template = Template.Parse(File.ReadAllText(Paths.TemplateFile(exercise)));
-
-        var propertyTestCases = testCases
-            .GroupBy(testCase => testCase.Property)
-            .ToDictionary(k => k);
-
         var customFunctions = new CustomFunctions
         {
             { "exercise", exercise },
             { "test_cases", testCases },
-            { "property_test_cases", propertyTestCases}
+            { "test_cases_by_property", GroupTestCasesByProperty(testCases)}
         };
 
         var context = new TemplateContext();
         context.PushGlobal(customFunctions);
-        
-        return template.Render(context)!;
+
+        return context;
     }
+
+    private static Dictionary<string, TestCase[]> GroupTestCasesByProperty(TestCase[] testCases) =>
+        testCases
+            .GroupBy(testCase => testCase.Property)
+            .ToDictionary(kv => kv.Key, kv => kv.ToArray());
 
     private class CustomFunctions : ScriptObject
     {
-        public static string MethodName(string[] path) => string.Join(" ", path).Dehumanize();
+        public static string MethodName(params string[] path) => string.Join(" ", path).Dehumanize();
     }
 }

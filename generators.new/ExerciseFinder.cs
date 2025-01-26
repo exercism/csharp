@@ -12,5 +12,5 @@ internal static class ExerciseFinder
             .Select(ToExercise)
             .OrderBy(exercise => exercise.Slug);
 
-    private static Exercise ToExercise(string slug) => new(slug, slug.Pascalize());
+    private static Exercise ToExercise(string slug) => new(slug, slug.Dehumanize());
 }

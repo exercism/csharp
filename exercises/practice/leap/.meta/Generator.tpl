@@ -6,7 +6,7 @@ public class {{exercise.name}}Tests
     [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
     public void {{test_case.path | method_name}}()
     {
-        Assert.{{test_case.expected}}(Leap.IsLeapYear(2015));
+        Assert.{{test_case.expected}}({{exercise.name}}.IsLeapYear({{test_case.input.year}}));
     }
     {{end}}
 }
