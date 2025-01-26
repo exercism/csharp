@@ -23,7 +23,7 @@ internal static class CanonicalData
     private static IEnumerable<TestCase> Parse(JsonObject jsonObject, ImmutableQueue<string> path)
     {
         var updatedPath = jsonObject.TryGetPropertyValue("description", out var description)
-            ? path.Enqueue(description!.ToString())
+            ? path.Enqueue(description.Deserialize<string>()!)
             : path;
         
         return jsonObject.TryGetPropertyValue("cases", out var cases)
