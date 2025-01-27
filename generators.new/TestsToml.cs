@@ -5,8 +5,8 @@ namespace Generators;
 
 internal static class TestsToml
 {
-    internal static HashSet<string> ExcludedTestCaseIds(string testsTomlFile) =>
-        Toml.ToModel(File.ReadAllText(testsTomlFile))
+    internal static HashSet<string> ExcludedTestCaseIds(Exercise exercise) =>
+        Toml.ToModel(File.ReadAllText(Paths.TestsTomlFile(exercise)))
             .Where(IsExcluded)
             .Select(table => table.Key)
             .ToHashSet();

@@ -39,8 +39,8 @@ internal static class CanonicalData
         Commands.Pull(repo, new Signature("Exercism", "info@exercism.org", DateTimeOffset.Now), new PullOptions());
     }
 
-    internal static TestCase[] Parse(string canonicalDataFile) =>
-        Parse(JsonNode.Parse(File.ReadAllText(canonicalDataFile))!.AsObject(), ImmutableQueue<string>.Empty)
+    internal static TestCase[] Parse(Exercise exercise) =>
+        Parse(JsonNode.Parse(File.ReadAllText(Paths.CanonicalDataFile(exercise)))!.AsObject(), ImmutableQueue<string>.Empty)
             .ToArray();
 
     private static IEnumerable<TestCase> Parse(JsonObject jsonObject, ImmutableQueue<string> path)
