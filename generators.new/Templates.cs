@@ -22,6 +22,10 @@ internal static class Templates
             var path = parameters.SelectMany(parameter => parameter as IEnumerable<string> ?? [parameter.ToString()!]);
             writer.WriteSafeString(string.Join(" ", path).Dehumanize());
         });
+        HandlebarsContext.RegisterHelper("raw", (writer, context, parameters) =>
+        {
+            writer.WriteSafeString(parameters.First().ToString());
+        });
         HandlebarsContext.Configuration.FormatterProviders.Add(new JsonElementFormatter());
     }
 
