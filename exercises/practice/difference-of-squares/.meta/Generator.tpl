@@ -1,28 +1,28 @@
 using Xunit;
 
-public class {{exercise.name}}Tests
+public class DifferenceOfSquaresTests
 {
-    {{for test_case in test_cases_by_property.squareOfSum}}
-    [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
-    public void {{test_case.description | method_name}}()
+    {{#test_cases_by_property.squareOfSum}}
+    [Fact{{#unless @first}}(Skip = "Remove this Skip property to run this test"){{/unless}}]
+    public void {{method_name description}}()
     {
-        Assert.Equal({{test_case.expected}}, {{exercise.name}}.CalculateSquareOfSum({{test_case.input.number}}));
+        Assert.Equal({{expected}}, DifferenceOfSquares.CalculateSquareOfSum({{input.number}}));
     }
-    {{end}}
+    {{/test_cases_by_property.squareOfSum}}
 
-    {{for test_case in test_cases_by_property.sumOfSquares}}
-    [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
-    public void {{test_case.description | method_name}}()
+    {{#test_cases_by_property.sumOfSquares}}
+    [Fact{{#unless @first}}(Skip = "Remove this Skip property to run this test"){{/unless}}]
+    public void {{method_name description}}()
     {
-        Assert.Equal({{test_case.expected}}, {{exercise.name}}.CalculateSumOfSquares({{test_case.input.number}}));
+        Assert.Equal({{expected}}, DifferenceOfSquares.CalculateSumOfSquares({{input.number}}));
     }
-    {{end}}
+    {{/test_cases_by_property.sumOfSquares}}
 
-    {{for test_case in test_cases_by_property.differenceOfSquares}}
-    [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
-    public void {{test_case.description | method_name}}()
+    {{#test_cases_by_property.differenceOfSquares}}
+    [Fact{{#unless @first}}(Skip = "Remove this Skip property to run this test"){{/unless}}]
+    public void {{method_name description}}()
     {
-        Assert.Equal({{test_case.expected}}, {{exercise.name}}.CalculateDifferenceOfSquares({{test_case.input.number}}));
+        Assert.Equal({{expected}}, DifferenceOfSquares.CalculateDifferenceOfSquares({{input.number}}));
     }
-    {{end}}  
+    {{/test_cases_by_property.differenceOfSquares}}
 }

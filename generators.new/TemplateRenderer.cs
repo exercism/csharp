@@ -1,42 +1,34 @@
-using Humanizer;
+using HandlebarsDotNet;
 
-using Scriban;
-using Scriban.Runtime;
+using Humanizer;
 
 namespace Generators;
 
 internal static class TemplateRenderer
 {
-    public static string RenderTests(Exercise exercise, TestCase[] testCases) =>
-        Template.Parse(File.ReadAllText(Paths.TemplateFile(exercise)))
-            .Render(CreateTemplateContext(exercise, testCases))!;
+    static TemplateRenderer() =>
+        Handlebars.RegisterHelper("method_name", (writer, context, parameters) =>
+        {
+            var path = parameters.SelectMany(parameter => parameter as IEnumerable<string> ?? [parameter.ToString()!]);
+            writer.WriteSafeString(string.Join(" ", path).Dehumanize());
+        });
 
-    private static TemplateContext CreateTemplateContext(Exercise exercise, TestCase[] testCases)
-    {
-        var customFunctions = new CustomFunctions
+    public static string RenderTests(Exercise exercise, TestCase[] testCases) =>
+        CompileTemplate(exercise)(ToTemplateData(exercise, testCases));
+
+    private static HandlebarsTemplate<object, object> CompileTemplate(Exercise exercise) =>
+        Handlebars.Compile(File.ReadAllText(Paths.TemplateFile(exercise)));
+
+    private static Dictionary<string, object> ToTemplateData(Exercise exercise, TestCase[] testCases) =>
+        new()
         {
             { "exercise", exercise },
             { "test_cases", testCases },
             { "test_cases_by_property", GroupTestCasesByProperty(testCases)}
         };
 
-        var context = new TemplateContext();
-        context.PushGlobal(customFunctions);
-
-        return context;
-    }
-
     private static Dictionary<string, TestCase[]> GroupTestCasesByProperty(TestCase[] testCases) =>
         testCases
             .GroupBy(testCase => testCase.Property)
             .ToDictionary(kv => kv.Key, kv => kv.ToArray());
-
-    private class CustomFunctions : ScriptObject
-    {   
-        public static string MethodName(params object[] path)
-        {
-            var flattenedPath = path.SelectMany(x => x as IEnumerable<string> ?? [x.ToString()!]);
-            return string.Join(" ", flattenedPath).Dehumanize();
-        }
-    }
 }
