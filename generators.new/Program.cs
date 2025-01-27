@@ -4,7 +4,7 @@ namespace Generators;
 
 public static class Program 
 {
-    internal class Options
+    private class Options
     {
         [Option('e', "exercise", Required = false, HelpText = "The exercise (slug) to generate the tests file for.")]
         public string? Exercise { get; set; }
