@@ -21,23 +21,7 @@ internal static class CanonicalData
 {
     private static readonly JsonSerializerOptions SerializerOptions = new() { PropertyNameCaseInsensitive = true };
 
-    static CanonicalData()
-    {
-        CloneProbSpecsRepo();
-        UpdateProbSpecsRepo();
-    }
-
-    private static void CloneProbSpecsRepo()
-    {
-        if (!Directory.Exists(Paths.ProbSpecsDir))
-            Repository.Clone("https://github.com/exercism/problem-specifications.git", Paths.ProbSpecsDir);
-    }
-
-    private static void UpdateProbSpecsRepo()
-    {
-        using var repo = new Repository(Paths.ProbSpecsDir);
-        Commands.Pull(repo, new Signature("Exercism", "info@exercism.org", DateTimeOffset.Now), new PullOptions());
-    }
+    static CanonicalData() => ProbSpecs.Sync();
 
     internal static TestCase[] Parse(Exercise exercise) =>
         Parse(JsonNode.Parse(File.ReadAllText(Paths.CanonicalDataFile(exercise)))!.AsObject(), ImmutableQueue<string>.Empty)
@@ -69,4 +53,26 @@ internal static class CanonicalData
 
         return null;
     }
+    
+    private static class ProbSpecs
+    {
+        internal static void Sync()
+        {
+            Clone();
+            Pull();
+        }
+
+        private static void Clone()
+        {
+            if (!Directory.Exists(Paths.ProbSpecsDir))
+                Repository.Clone("https://github.com/exercism/problem-specifications.git", Paths.ProbSpecsDir);
+        }
+
+        private static void Pull()
+        {
+            using var repo = new Repository(Paths.ProbSpecsDir);
+            Commands.Pull(repo, new Signature("Exercism", "info@exercism.org", DateTimeOffset.Now), new PullOptions());
+        }
+    }
 }
+

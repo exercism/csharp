@@ -3,7 +3,7 @@ using Tomlyn.Model;
 
 namespace Generators;
 
-internal static class TestsToml
+internal static class TestCaseConfiguration
 {
     internal static HashSet<string> ExcludedTestCaseIds(Exercise exercise) =>
         Toml.ToModel(File.ReadAllText(Paths.TestsTomlFile(exercise)))

@@ -4,7 +4,7 @@ namespace Generators;
 
 internal record Exercise(string Slug, string Name);
 
-internal static class ExerciseFinder
+internal static class Exercises
 {
     internal static Exercise[] TemplatedExercises(string? slug) =>
         slug is null ? TemplatedExercises() : [TemplatedExercise(slug)];

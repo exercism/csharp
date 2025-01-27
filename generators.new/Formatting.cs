@@ -4,7 +4,7 @@ using Microsoft.CodeAnalysis.Formatting;
 
 namespace Generators;
 
-internal static class CodeFormatter
+internal static class Formatting
 {
     private static readonly AdhocWorkspace AdhocWorkspace = new();
 

@@ -10,11 +10,11 @@ using Microsoft.CodeAnalysis.CSharp;
 
 namespace Generators;
 
-internal static class TemplateRenderer
+internal static class Templates
 {
     private static readonly IHandlebars HandlebarsContext = Handlebars.Create();
 
-    static TemplateRenderer()
+    static Templates()
     {
         HandlebarsHelpers.Register(HandlebarsContext);
         HandlebarsContext.RegisterHelper("method_name", (writer, context, parameters) =>
