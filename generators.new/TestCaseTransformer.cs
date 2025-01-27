@@ -20,13 +20,13 @@ internal static class TestCaseTransformerFactory
         };
 }
 
-class TestCaseTransformer
+internal class TestCaseTransformer
 {
     protected virtual TestCase UpdateTestCase(TestCase testCase) => testCase;
 
     protected virtual TestCase[] AddOrRemoveTestCases(TestCase[] testCases) => testCases;
 
-    public static TestCase[] Transform(Exercise exercise, TestCase[] testCases) =>
+    internal static TestCase[] Transform(Exercise exercise, TestCase[] testCases) =>
         TestCaseTransformerFactory.Create(exercise).AddOrRemoveTestCases(testCases)
             .Select(TestCaseTransformerFactory.Create(exercise).UpdateTestCase)
             .ToArray();
