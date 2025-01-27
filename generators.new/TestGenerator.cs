@@ -11,7 +11,9 @@ internal static class TestGenerator
             .Where(testCase => !excludedTestCaseIds.Contains(testCase.Uuid))
             .ToArray();
 
-        var renderedTests = TemplateRenderer.RenderTests(exercise, testCases);
+        var transformedTestCases = TestCaseTransformer.Transform(exercise, testCases);
+
+        var renderedTests = TemplateRenderer.RenderTests(exercise, transformedTestCases);
         File.WriteAllText(Paths.TestsFile(exercise), CodeFormatter.FormatCode(renderedTests));
     }
 }

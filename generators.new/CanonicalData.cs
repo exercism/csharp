@@ -4,6 +4,8 @@ using System.Text.Json.Nodes;
 
 using LibGit2Sharp;
 
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+
 namespace Generators;
 
 internal record TestCase(
@@ -12,6 +14,7 @@ internal record TestCase(
     string Property,
     Dictionary<string, dynamic> Input,
     dynamic Expected,
+    dynamic Error,
     string[] Path);
 
 internal static class CanonicalData
@@ -51,9 +54,19 @@ internal static class CanonicalData
             : [ToTestCase(jsonObject, updatedPath)];
     }
 
-    private static TestCase ToTestCase(JsonObject jsonObject, IEnumerable<string> path)
+    private static TestCase ToTestCase(JsonObject testCaseJson, IEnumerable<string> path)
     {
-        jsonObject["path"] = JsonValue.Create(path);
-        return jsonObject.Deserialize<TestCase>(SerializerOptions)!;
+        testCaseJson["path"] = JsonValue.Create(path);
+        testCaseJson["error"] = ToError(testCaseJson);
+        return testCaseJson.Deserialize<TestCase>(SerializerOptions)!;
+    }
+
+    private static JsonNode? ToError(JsonObject testCaseJson)
+    {
+        if (testCaseJson["expected"] is JsonObject expectedJson &&
+            expectedJson.TryGetPropertyValue("error", out var error))
+            return error!.DeepClone();
+
+        return null;
     }
 }
