@@ -4,8 +4,6 @@ using System.Text.Json.Nodes;
 
 using LibGit2Sharp;
 
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-
 namespace Generators;
 
 internal record TestCase(
@@ -23,9 +21,13 @@ internal static class CanonicalData
 
     static CanonicalData() => ProbSpecs.Sync();
 
-    internal static TestCase[] Parse(Exercise exercise) =>
-        Parse(JsonNode.Parse(File.ReadAllText(Paths.CanonicalDataFile(exercise)))!.AsObject(), ImmutableQueue<string>.Empty)
+    internal static TestCase[] Parse(Exercise exercise)
+    {
+        var json = File.ReadAllText(Paths.CanonicalDataFile(exercise));
+        var jsonNode = JsonNode.Parse(json)!.AsObject();
+        return Parse(jsonNode, ImmutableQueue<string>.Empty)
             .ToArray();
+    }
 
     private static IEnumerable<TestCase> Parse(JsonObject jsonObject, ImmutableQueue<string> path)
     {
