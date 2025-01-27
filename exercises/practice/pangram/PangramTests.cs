@@ -3,61 +3,61 @@ using Xunit;
 public class PangramTests
 {
     [Fact]
-    public void Empty_sentence()
+    public void EmptySentence()
     {
         Assert.False(Pangram.IsPangram(""));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Perfect_lower_case()
+    public void PerfectLowerCase()
     {
         Assert.True(Pangram.IsPangram("abcdefghijklmnopqrstuvwxyz"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Only_lower_case()
+    public void OnlyLowerCase()
     {
         Assert.True(Pangram.IsPangram("the quick brown fox jumps over the lazy dog"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Missing_the_letter_x()
+    public void MissingTheLetterX()
     {
         Assert.False(Pangram.IsPangram("a quick movement of the enemy will jeopardize five gunboats"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Missing_the_letter_h()
+    public void MissingTheLetterH()
     {
         Assert.False(Pangram.IsPangram("five boxing wizards jump quickly at it"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void With_underscores()
+    public void WithUnderscores()
     {
         Assert.True(Pangram.IsPangram("the_quick_brown_fox_jumps_over_the_lazy_dog"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void With_numbers()
+    public void WithNumbers()
     {
         Assert.True(Pangram.IsPangram("the 1 quick brown fox jumps over the 2 lazy dogs"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Missing_letters_replaced_by_numbers()
+    public void MissingLettersReplacedByNumbers()
     {
         Assert.False(Pangram.IsPangram("7h3 qu1ck brown fox jumps ov3r 7h3 lazy dog"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Mixed_case_and_punctuation()
+    public void MixedCaseAndPunctuation()
     {
         Assert.True(Pangram.IsPangram("\"Five quacking Zephyrs jolt my wax bed.\""));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void A_m_and_a_m_are_26_different_characters_but_not_a_pangram()
+    public void AMAndAMAre26DifferentCharactersButNotAPangram()
     {
         Assert.False(Pangram.IsPangram("abcdefghijklm ABCDEFGHIJKLM"));
     }
