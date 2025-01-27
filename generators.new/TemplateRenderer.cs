@@ -1,6 +1,7 @@
 using System.Text.Json;
 
 using HandlebarsDotNet;
+using HandlebarsDotNet.Helpers;
 using HandlebarsDotNet.IO;
 
 using Humanizer;
@@ -11,21 +12,24 @@ namespace Generators;
 
 internal static class TemplateRenderer
 {
+    private static readonly IHandlebars HandlebarsContext = Handlebars.Create();
+
     static TemplateRenderer()
     {
-        Handlebars.RegisterHelper("method_name", (writer, context, parameters) =>
+        HandlebarsHelpers.Register(HandlebarsContext);
+        HandlebarsContext.RegisterHelper("method_name", (writer, context, parameters) =>
         {
             var path = parameters.SelectMany(parameter => parameter as IEnumerable<string> ?? [parameter.ToString()!]);
             writer.WriteSafeString(string.Join(" ", path).Dehumanize());
         });
-        Handlebars.Configuration.FormatterProviders.Add(new JsonElementFormatter());
+        HandlebarsContext.Configuration.FormatterProviders.Add(new JsonElementFormatter());
     }
 
     public static string RenderTests(Exercise exercise, TestCase[] testCases) =>
         CompileTemplate(exercise)(ToTemplateData(exercise, testCases));
 
     private static HandlebarsTemplate<object, object> CompileTemplate(Exercise exercise) =>
-        Handlebars.Compile(File.ReadAllText(Paths.TemplateFile(exercise)));
+        HandlebarsContext.Compile(File.ReadAllText(Paths.TemplateFile(exercise)));
 
     private static Dictionary<string, object> ToTemplateData(Exercise exercise, TestCase[] testCases) =>
         new()
