@@ -18,7 +18,8 @@
   </ItemGroup>
   
   <ItemGroup>
-    <Content Link="exercises\practice\%(RecursiveDir)%(Filename)%(Extension)" Include="..\exercises\practice\**" />            
+    <Content Include="..\exercises\practice\**" Link="exercises\practice\%(RecursiveDir)%(Filename)%(Extension)"  />
+    <Content Include="..\.problem-specifications\exercises\**" Link=".problem-specifications\exercises\%(RecursiveDir)%(Filename)%(Extension)" />
   </ItemGroup>
 
 </Project>
