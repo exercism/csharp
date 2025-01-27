@@ -2,7 +2,7 @@ namespace Generators;
 
 internal static class Paths
 {
-    private static readonly string RootDir = Path.GetFullPath(Path.Join(Environment.CurrentDirectory, "..", "..", "..", ".."));
+    private static readonly string RootDir = GetRootDir();
     private static readonly string ProbSpecsExercisesDir = Path.Join(RootDir, ".problem-specifications", "exercises");
     internal static readonly string PracticeExercisesDir = Path.Join(RootDir, "exercises", "practice");
 
@@ -11,4 +11,14 @@ internal static class Paths
     internal static string TestsTomlFile(Exercise exercise) => Path.Join(ExerciseDir(exercise), ".meta", "tests.toml");
     internal static string TemplateFile(Exercise exercise) => Path.Join(ExerciseDir(exercise), ".meta", "Generator.tpl");
     internal static string CanonicalDataFile(Exercise exercise) => Path.Join(ProbSpecsExercisesDir, exercise.Slug, "canonical-data.json");
+
+    private static string GetRootDir()
+    {
+        // Workaround: IDEs use a different current directory than dotnet run
+        var currentDir = Environment.CurrentDirectory;
+        while (!File.Exists(Path.Join(currentDir, "LICENSE")))
+            currentDir = Path.GetDirectoryName(currentDir);
+
+        return currentDir!;
+    }
 }
