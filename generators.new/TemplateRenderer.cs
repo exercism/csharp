@@ -47,14 +47,14 @@ internal static class TemplateRenderer
             if (value is not JsonElement element) 
                 throw new ArgumentException("Invalid type");
 
-            writer.Write(SymbolDisplay.FormatLiteral(element.ToString(), false));
+            writer.WriteSafeString(SymbolDisplay.FormatLiteral(element.ToString(), element.ValueKind == JsonValueKind.String));
         }
 
         public bool TryCreateFormatter(Type type, out IFormatter formatter)
         {
             if (type != typeof(JsonElement))
             {
-                formatter = null;
+                formatter = null!;
                 return false;
             }
 

@@ -6,7 +6,7 @@ public class IsogramTests
     [Fact{{#unless @first}}(Skip = "Remove this Skip property to run this test"){{/unless}}]
     public void {{method_name path}}()
     {
-        Assert.{{expected}}(Isogram.IsIsogram("{{input.phrase}}"));
+        Assert.{{expected}}(Isogram.IsIsogram({{input.phrase}}));
     }
     {{/test_cases}}
 }
