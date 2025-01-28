@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Text.Json;
 
 using HandlebarsDotNet;
@@ -16,6 +17,8 @@ internal static class Templates
     static Templates()
     {
         HandlebarsHelpers.Register(HandlebarsContext, options => { options.UseCategoryPrefix = false; });
+        
+        HandlebarsContext.Configuration.FormatProvider = CultureInfo.InvariantCulture;
         HandlebarsContext.RegisterHelper("method_name", (writer, context, parameters) =>
         {
             var path = parameters.SelectMany(parameter => parameter as IEnumerable<string> ?? [parameter.ToString()!]).ToArray();
@@ -36,7 +39,7 @@ internal static class Templates
         HandlebarsContext.RegisterHelper("literal", (writer, context, parameters) =>
         {
             var first = parameters.First();
-            writer.WriteSafeString(SymbolDisplay.FormatLiteral(first.ToString()!, first is string));
+            writer.WriteSafeString(SymbolDisplay.FormatLiteral(Convert.ToString(first, CultureInfo.InvariantCulture)!, first is string));
         });
     }
 

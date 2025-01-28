@@ -6,7 +6,7 @@ public class ZebraPuzzleTests
     [Fact{{#unless @first}}(Skip = "Remove this Skip property to run this test"){{/unless}}]
     public void {{method_name path}}()
     {
-        Assert.Equal(Nationality.{{raw expected}}, ZebraPuzzle.{{Capitalize property}}());
+        Assert.Equal(Nationality.{{expected}}, ZebraPuzzle.{{Capitalize property}}());
     }
     {{/test_cases}}
 }
