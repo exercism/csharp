@@ -1,3 +1,4 @@
+using System.Dynamic;
 using System.Globalization;
 
 using HandlebarsDotNet;
@@ -45,16 +46,16 @@ internal static class Templates
     }
 
     public static string RenderTestsCode(CanonicalData canonicalData) =>
-        CompileTemplate(canonicalData.Exercise)(TemplateData.Create(canonicalData));
+        CompileTemplate(canonicalData.Exercise)(TemplateData.ForCanonicalData(canonicalData));
 
     private static HandlebarsTemplate<object, object> CompileTemplate(Exercise exercise) =>
         HandlebarsContext.Compile(File.ReadAllText(Paths.TemplateFile(exercise)));
 
     private static class TemplateData
     {
-        internal static Dictionary<string, object> Create(CanonicalData canonicalData)
+        internal static Dictionary<string, object> ForCanonicalData(CanonicalData canonicalData)
         {
-            var testCases = canonicalData.TestCases.Select(ForTestCase).ToArray();
+            var testCases = canonicalData.TestCases.Select(Create).ToArray();
             
             return new Dictionary<string, object>
             {
@@ -64,11 +65,11 @@ internal static class Templates
             };
         }
 
-        private static Dictionary<string, object> ForTestCase(JToken testCase, int index)
+        private static ExpandoObject Create(JToken testCase)
         {
-            var testData = testCase.ToObject<Dictionary<string, object>>()!;
-            testData["test_method_name"] = ToMethodName(testCase["path"]!.ToObject<string[]>()!);
-            testData["short_test_method_name"] = ToMethodName(testCase["property"]!.ToObject<string>()!);
+            dynamic testData = testCase.ToObject<ExpandoObject>()!;
+            testData.test_method_name = ToMethodName(testData.path.ToArray());
+            testData.short_test_method_name = ToMethodName(testData.property);
 
             return testData;
         }
@@ -82,21 +83,23 @@ internal static class Templates
                 ["tested_class_name"] = $"{exercise.Name}"
             };
 
-        private static Dictionary<string, Dictionary<string, object>[]> GroupTestCasesByProperty(IEnumerable<Dictionary<string, object>> testCases) =>
+        private static Dictionary<string, dynamic[]> GroupTestCasesByProperty(IEnumerable<dynamic> testCases) =>
             testCases
-                .GroupBy(testCase => testCase["property"].ToString()!)
+                .GroupBy(testCase => (string)testCase.property)
                 .ToDictionary(kv => kv.Key, kv => kv.ToArray());
         
-        private static string ToMethodName(params string[] path)
+        private static string ToMethodName(params object[] path)
         {
+            var stringPath = path.Select(obj => obj.ToString()!).ToArray();
+            
             // Fix method names that start with a number
-            if (char.IsNumber(path[0][0]))
+            if (char.IsNumber(stringPath[0][0]))
             {
-                var parts = path[0].Split(' ');
-                path[0] = string.Join(" ", [Convert.ToInt32(parts[0]).ToWords(), ..parts[1..]]);
+                var parts = stringPath[0].Split(' ');
+                stringPath[0] = string.Join(" ", [Convert.ToInt32(parts[0]).ToWords(), ..parts[1..]]);
             }
 
-            return string.Join(" ", path).Dehumanize();
+            return string.Join(" ", stringPath).Dehumanize();
         }
     }
 }
