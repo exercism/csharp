@@ -9,7 +9,7 @@ internal static class TestCasesConfiguration
     {
         var excludedTestCaseIds = ExcludedTestCaseIds(canonicalData.Exercise);
         var includedTestCases = canonicalData.TestCases
-            .Where(testCase => !excludedTestCaseIds.Contains(testCase.Uuid))
+            .Where(testCase => !excludedTestCaseIds.Contains(testCase["uuid"]!.ToObject<string>()!))
             .ToArray();
         
         return canonicalData with { TestCases = includedTestCases };

@@ -1,23 +1,12 @@
 using System.Collections.Immutable;
-using System.Dynamic;
 
 using LibGit2Sharp;
 
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace Generators;
 
-internal record TestCase(
-    string Uuid,
-    string Description,
-    string Property,
-    Dictionary<string, dynamic> Input,
-    dynamic Expected,
-    dynamic Error,
-    string[] Path);
-
-internal record CanonicalData(Exercise Exercise, TestCase[] TestCases);
+internal record CanonicalData(Exercise Exercise, JObject[] TestCases);
 
 internal static class CanonicalDataParser
 {
@@ -25,13 +14,13 @@ internal static class CanonicalDataParser
     
     internal static CanonicalData Parse(Exercise exercise) => new(exercise, ParseTestCases(exercise));
 
-    private static TestCase[] ParseTestCases(Exercise exercise)
+    private static JObject[] ParseTestCases(Exercise exercise)
     {
         var jsonObject = JObject.Parse(File.ReadAllText(Paths.CanonicalDataFile(exercise)));
         return ParseTestCases(jsonObject, ImmutableQueue<string>.Empty).ToArray();
     }
 
-    private static IEnumerable<TestCase> ParseTestCases(JObject jsonObject, ImmutableQueue<string> path)
+    private static IEnumerable<JObject> ParseTestCases(JObject jsonObject, ImmutableQueue<string> path)
     {
         var updatedPath = jsonObject.TryGetValue("description", out var description)
             ? path.Enqueue(description.Value<string>()!)
@@ -42,11 +31,11 @@ internal static class CanonicalDataParser
             : [ToTestCase(jsonObject, updatedPath)];
     }
 
-    private static TestCase ToTestCase(JObject testCaseJson, IEnumerable<string> path)
+    private static JObject ToTestCase(JObject testCaseJson, IEnumerable<string> path)
     {
         testCaseJson["path"] = JArray.FromObject(path);
         testCaseJson["error"] = ToError(testCaseJson);
-        return JsonConvert.DeserializeObject<TestCase>(testCaseJson.ToString())!;
+        return testCaseJson;
     }
 
     private static JToken? ToError(JObject testCaseJson)
