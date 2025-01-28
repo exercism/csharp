@@ -4,8 +4,6 @@ using System.Globalization;
 using HandlebarsDotNet;
 using HandlebarsDotNet.Helpers;
 
-using Microsoft.CodeAnalysis.CSharp;
-
 using Newtonsoft.Json.Linq;
 
 namespace Generators;
@@ -38,8 +36,8 @@ internal static class Templates
 
             return new()
             {
-                { "test_cases", testCases.ToArray() },
-                { "test_cases_by_property", GroupTestCasesByProperty(testCases) }
+                ["test_cases"] = testCases.ToArray(),
+                ["test_cases_by_property"] = GroupTestCasesByProperty(testCases)
             };
         }
 
