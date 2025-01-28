@@ -6,17 +6,14 @@ internal record Exercise(string Slug, string Name);
 
 internal static class Exercises
 {
-    internal static Exercise[] TemplatedExercises(string? slug) =>
-        slug is null ? TemplatedExercises() : [TemplatedExercise(slug)];
-
-    private static Exercise[] TemplatedExercises() =>
+    internal static Exercise[] TemplatedExercises() =>
         Directory.EnumerateFiles(Paths.PracticeExercisesDir, "Generator.tpl", SearchOption.AllDirectories)
             .Select(templateFile => Directory.GetParent(templateFile)!.Parent!.Name)
             .Select(ToExercise)
             .OrderBy(exercise => exercise.Slug)
             .ToArray();
 
-    private static Exercise TemplatedExercise(string slug)
+    internal static Exercise TemplatedExercise(string slug)
     {
         var exercise = ToExercise(slug);
 

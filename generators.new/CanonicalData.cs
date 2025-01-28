@@ -17,28 +17,29 @@ internal record TestCase(
     dynamic Error,
     string[] Path);
 
-internal static class CanonicalData
-{
-    static CanonicalData() => ProbSpecs.Sync();
+internal record CanonicalData(Exercise Exercise, TestCase[] TestCases);
 
-    internal static TestCase[] Parse(Exercise exercise)
+internal static class CanonicalDataParser
+{
+    static CanonicalDataParser() => ProbSpecs.Sync();
+    
+    internal static CanonicalData Parse(Exercise exercise) => new(exercise, ParseTestCases(exercise));
+
+    private static TestCase[] ParseTestCases(Exercise exercise)
     {
-        var json = File.ReadAllText(Paths.CanonicalDataFile(exercise));
-        var jsonObject = JObject.Parse(json);
-        return Parse(jsonObject, ImmutableQueue<string>.Empty)
-            .ToArray();
+        var jsonObject = JObject.Parse(File.ReadAllText(Paths.CanonicalDataFile(exercise)));
+        return ParseTestCases(jsonObject, ImmutableQueue<string>.Empty).ToArray();
     }
 
-    private static IEnumerable<TestCase> Parse(JObject jsonObject, ImmutableQueue<string> path)
+    private static IEnumerable<TestCase> ParseTestCases(JObject jsonObject, ImmutableQueue<string> path)
     {
         var updatedPath = jsonObject.TryGetValue("description", out var description)
             ? path.Enqueue(description.Value<string>()!)
             : path;
 
-        if (jsonObject.TryGetValue("cases", out var cases))
-            return ((JArray)cases).Cast<JObject>().SelectMany(child => Parse(child, updatedPath));
-        
-        return [ToTestCase(jsonObject, updatedPath)];
+        return jsonObject.TryGetValue("cases", out var cases)
+            ? ((JArray)cases).Cast<JObject>().SelectMany(child => ParseTestCases(child, updatedPath))
+            : [ToTestCase(jsonObject, updatedPath)];
     }
 
     private static TestCase ToTestCase(JObject testCaseJson, IEnumerable<string> path)

@@ -14,7 +14,12 @@ public static class Program
         Parser.Default.ParseArguments<Options>(args)
             .WithParsed(options =>
             {
-                foreach (var exercise in Exercises.TemplatedExercises(options.Exercise))
-                    TestGenerator.GenerateTests(exercise);
+                foreach (var exercise in Exercises(options))
+                    TestsGenerator.Generate(exercise);
             });
+
+    private static Exercise[] Exercises(Options options) =>
+        options.Exercise is null
+            ? Generators.Exercises.TemplatedExercises()
+            : [Generators.Exercises.TemplatedExercise(options.Exercise)];
 }

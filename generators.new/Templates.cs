@@ -42,18 +42,18 @@ internal static class Templates
         });
     }
 
-    public static string RenderTests(Exercise exercise, TestCase[] testCases) =>
-        CompileTemplate(exercise)(ToTemplateData(exercise, testCases));
+    public static string RenderTestsCode(CanonicalData canonicalData) =>
+        CompileTemplate(canonicalData.Exercise)(ToTemplateData(canonicalData));
 
     private static HandlebarsTemplate<object, object> CompileTemplate(Exercise exercise) =>
         HandlebarsContext.Compile(File.ReadAllText(Paths.TemplateFile(exercise)));
 
-    private static Dictionary<string, object> ToTemplateData(Exercise exercise, TestCase[] testCases) =>
+    private static Dictionary<string, object> ToTemplateData(CanonicalData canonicalData) =>
         new()
         {
-            { "exercise", exercise },
-            { "test_cases", testCases },
-            { "test_cases_by_property", GroupTestCasesByProperty(testCases)}
+            { "exercise", canonicalData.Exercise },
+            { "test_cases", canonicalData.TestCases },
+            { "test_cases_by_property", GroupTestCasesByProperty(canonicalData.TestCases)}
         };
 
     private static Dictionary<string, TestCase[]> GroupTestCasesByProperty(TestCase[] testCases) =>
