@@ -19,21 +19,7 @@ internal static class Templates
     static Templates()
     {
         HandlebarsHelpers.Register(HandlebarsContext, options => { options.UseCategoryPrefix = false; });
-        
         HandlebarsContext.Configuration.FormatProvider = CultureInfo.InvariantCulture;
-        HandlebarsContext.RegisterHelper("method_name", (writer, context, parameters) =>
-        {
-            var path = parameters.SelectMany(parameter => parameter as IEnumerable<string> ?? [parameter.ToString()!]).ToArray();
-            
-            // Fix method names that start with a number
-            if (char.IsNumber(path[0][0]))
-            {
-                var parts = path[0].Split(' ');
-                path[0] = string.Join(" ", [Convert.ToInt32(parts[0]).ToWords(), ..parts[1..]]);
-            }
-            
-            writer.WriteSafeString(string.Join(" ", path).Dehumanize());
-        });
         HandlebarsContext.RegisterHelper("raw", (writer, context, parameters) =>
         {
             writer.WriteSafeString(parameters.First().ToString());
@@ -68,8 +54,8 @@ internal static class Templates
         private static ExpandoObject Create(JToken testCase)
         {
             dynamic testData = testCase.ToObject<ExpandoObject>()!;
-            testData.test_method_name = ToMethodName(testData.path.ToArray());
-            testData.short_test_method_name = ToMethodName(testData.property);
+            testData.test_method_name = Naming.ToMethodName(testData.path.ToArray());
+            testData.short_test_method_name = Naming.ToMethodName(testData.description);
 
             return testData;
         }
@@ -79,27 +65,13 @@ internal static class Templates
             {
                 ["slug"] = exercise.Slug,
                 ["name"] = exercise.Name,
-                ["test_class_name"] = $"{exercise.Name}Tests",
-                ["tested_class_name"] = $"{exercise.Name}"
+                ["test_class_name"] = Naming.ToTestClassName(exercise),
+                ["tested_class_name"] = Naming.ToTestedClassName(exercise)
             };
 
         private static Dictionary<string, dynamic[]> GroupTestCasesByProperty(IEnumerable<dynamic> testCases) =>
             testCases
                 .GroupBy(testCase => (string)testCase.property)
                 .ToDictionary(kv => kv.Key, kv => kv.ToArray());
-        
-        private static string ToMethodName(params object[] path)
-        {
-            var stringPath = path.Select(obj => obj.ToString()!).ToArray();
-            
-            // Fix method names that start with a number
-            if (char.IsNumber(stringPath[0][0]))
-            {
-                var parts = stringPath[0].Split(' ');
-                stringPath[0] = string.Join(" ", [Convert.ToInt32(parts[0]).ToWords(), ..parts[1..]]);
-            }
-
-            return string.Join(" ", stringPath).Dehumanize();
-        }
     }
 }
