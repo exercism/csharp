@@ -16,7 +16,7 @@ internal static class Templates
 
     static Templates()
     {
-        HandlebarsHelpers.Register(HandlebarsContext);
+        HandlebarsHelpers.Register(HandlebarsContext, options => { options.UseCategoryPrefix = false; });
         HandlebarsContext.RegisterHelper("method_name", (writer, context, parameters) =>
         {
             var path = parameters.SelectMany(parameter => parameter as IEnumerable<string> ?? [parameter.ToString()!]);
