@@ -6,7 +6,7 @@ public class HammingTests
     [Fact{{#unless @first}}(Skip = "Remove this Skip property to run this test"){{/unless}}]
     public void {{test_method_name}}()
     {
-        {{#if error}}
+        {{#if expected.error}}
         Assert.Throws<ArgumentException>(() => Hamming.Distance({{lit input.strand1}}, {{lit input.strand2}}));
         {{else}}
         Assert.Equal({{expected}}, Hamming.Distance({{lit input.strand1}}, {{lit input.strand2}}));

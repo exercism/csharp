@@ -1,10 +1,9 @@
-using System;
 using Xunit;
 
 public class WordyTests
 {
     [Fact]
-    public void Just_a_number()
+    public void JustANumber()
     {
         Assert.Equal(5, Wordy.Answer("What is 5?"));
     }
@@ -16,19 +15,19 @@ public class WordyTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void More_addition()
+    public void MoreAddition()
     {
         Assert.Equal(55, Wordy.Answer("What is 53 plus 2?"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Addition_with_negative_numbers()
+    public void AdditionWithNegativeNumbers()
     {
         Assert.Equal(-11, Wordy.Answer("What is -1 plus -10?"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Large_addition()
+    public void LargeAddition()
     {
         Assert.Equal(45801, Wordy.Answer("What is 123 plus 45678?"));
     }
@@ -52,91 +51,91 @@ public class WordyTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Multiple_additions()
+    public void MultipleAdditions()
     {
         Assert.Equal(3, Wordy.Answer("What is 1 plus 1 plus 1?"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Addition_and_subtraction()
+    public void AdditionAndSubtraction()
     {
         Assert.Equal(8, Wordy.Answer("What is 1 plus 5 minus -2?"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Multiple_subtraction()
+    public void MultipleSubtraction()
     {
         Assert.Equal(3, Wordy.Answer("What is 20 minus 4 minus 13?"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Subtraction_then_addition()
+    public void SubtractionThenAddition()
     {
         Assert.Equal(14, Wordy.Answer("What is 17 minus 6 plus 3?"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Multiple_multiplication()
+    public void MultipleMultiplication()
     {
         Assert.Equal(-12, Wordy.Answer("What is 2 multiplied by -2 multiplied by 3?"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Addition_and_multiplication()
+    public void AdditionAndMultiplication()
     {
         Assert.Equal(-8, Wordy.Answer("What is -3 plus 7 multiplied by -2?"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Multiple_division()
+    public void MultipleDivision()
     {
         Assert.Equal(2, Wordy.Answer("What is -12 divided by 2 divided by -3?"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Unknown_operation()
+    public void UnknownOperation()
     {
         Assert.Throws<ArgumentException>(() => Wordy.Answer("What is 52 cubed?"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Non_math_question()
+    public void NonMathQuestion()
     {
         Assert.Throws<ArgumentException>(() => Wordy.Answer("Who is the President of the United States?"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Reject_problem_missing_an_operand()
+    public void RejectProblemMissingAnOperand()
     {
         Assert.Throws<ArgumentException>(() => Wordy.Answer("What is 1 plus?"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Reject_problem_with_no_operands_or_operators()
+    public void RejectProblemWithNoOperandsOrOperators()
     {
         Assert.Throws<ArgumentException>(() => Wordy.Answer("What is?"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Reject_two_operations_in_a_row()
+    public void RejectTwoOperationsInARow()
     {
         Assert.Throws<ArgumentException>(() => Wordy.Answer("What is 1 plus plus 2?"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Reject_two_numbers_in_a_row()
+    public void RejectTwoNumbersInARow()
     {
         Assert.Throws<ArgumentException>(() => Wordy.Answer("What is 1 plus 2 1?"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Reject_postfix_notation()
+    public void RejectPostfixNotation()
     {
         Assert.Throws<ArgumentException>(() => Wordy.Answer("What is 1 2 plus?"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Reject_prefix_notation()
+    public void RejectPrefixNotation()
     {
         Assert.Throws<ArgumentException>(() => Wordy.Answer("What is plus 1 2?"));
     }

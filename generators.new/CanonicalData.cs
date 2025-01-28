@@ -34,17 +34,7 @@ internal static class CanonicalDataParser
     private static JObject ToTestCase(JObject testCaseJson, IEnumerable<string> path)
     {
         testCaseJson["path"] = JArray.FromObject(path);
-        testCaseJson["error"] = ToError(testCaseJson);
         return testCaseJson;
-    }
-
-    private static JToken? ToError(JObject testCaseJson)
-    {
-        if (testCaseJson["expected"] is JObject expectedJson &&
-            expectedJson.TryGetValue("error", out var error))
-            return error.DeepClone();
-
-        return null;
     }
     
     private static class ProbSpecs
