@@ -19,7 +19,15 @@ internal static class Templates
         HandlebarsHelpers.Register(HandlebarsContext, options => { options.UseCategoryPrefix = false; });
         HandlebarsContext.RegisterHelper("method_name", (writer, context, parameters) =>
         {
-            var path = parameters.SelectMany(parameter => parameter as IEnumerable<string> ?? [parameter.ToString()!]);
+            var path = parameters.SelectMany(parameter => parameter as IEnumerable<string> ?? [parameter.ToString()!]).ToArray();
+            
+            // Fix method names that start with a number
+            if (char.IsNumber(path[0][0]))
+            {
+                var parts = path[0].Split(' ');
+                path[0] = string.Join(" ", [Convert.ToInt32(parts[0]).ToWords(), ..parts[1..]]);
+            }
+            
             writer.WriteSafeString(string.Join(" ", path).Dehumanize());
         });
         HandlebarsContext.RegisterHelper("raw", (writer, context, parameters) =>
