@@ -3,79 +3,79 @@ using Xunit;
 public class PerfectNumbersTests
 {
     [Fact]
-    public void PerfectNumbersSmallestPerfectNumberIsClassifiedCorrectly()
+    public void Smallest_perfect_number_is_classified_correctly()
     {
         Assert.Equal(Classification.Perfect, PerfectNumbers.Classify(6));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void PerfectNumbersMediumPerfectNumberIsClassifiedCorrectly()
+    public void Medium_perfect_number_is_classified_correctly()
     {
         Assert.Equal(Classification.Perfect, PerfectNumbers.Classify(28));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void PerfectNumbersLargePerfectNumberIsClassifiedCorrectly()
+    public void Large_perfect_number_is_classified_correctly()
     {
         Assert.Equal(Classification.Perfect, PerfectNumbers.Classify(33550336));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void AbundantNumbersSmallestAbundantNumberIsClassifiedCorrectly()
+    public void Smallest_abundant_number_is_classified_correctly()
     {
         Assert.Equal(Classification.Abundant, PerfectNumbers.Classify(12));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void AbundantNumbersMediumAbundantNumberIsClassifiedCorrectly()
+    public void Medium_abundant_number_is_classified_correctly()
     {
         Assert.Equal(Classification.Abundant, PerfectNumbers.Classify(30));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void AbundantNumbersLargeAbundantNumberIsClassifiedCorrectly()
+    public void Large_abundant_number_is_classified_correctly()
     {
         Assert.Equal(Classification.Abundant, PerfectNumbers.Classify(33550335));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void DeficientNumbersSmallestPrimeDeficientNumberIsClassifiedCorrectly()
+    public void Smallest_prime_deficient_number_is_classified_correctly()
     {
         Assert.Equal(Classification.Deficient, PerfectNumbers.Classify(2));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void DeficientNumbersSmallestNonPrimeDeficientNumberIsClassifiedCorrectly()
+    public void Smallest_non_prime_deficient_number_is_classified_correctly()
     {
         Assert.Equal(Classification.Deficient, PerfectNumbers.Classify(4));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void DeficientNumbersMediumDeficientNumberIsClassifiedCorrectly()
+    public void Medium_deficient_number_is_classified_correctly()
     {
         Assert.Equal(Classification.Deficient, PerfectNumbers.Classify(32));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void DeficientNumbersLargeDeficientNumberIsClassifiedCorrectly()
+    public void Large_deficient_number_is_classified_correctly()
     {
         Assert.Equal(Classification.Deficient, PerfectNumbers.Classify(33550337));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void DeficientNumbersEdgeCaseNoFactorsOtherThanItselfIsClassifiedCorrectly()
+    public void Edge_case_no_factors_other_than_itself_is_classified_correctly()
     {
         Assert.Equal(Classification.Deficient, PerfectNumbers.Classify(1));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void InvalidInputsZeroIsRejectedAsItIsNotAPositiveInteger()
+    public void Zero_is_rejected_as_it_is_not_a_positive_integer()
     {
         Assert.Throws<ArgumentOutOfRangeException>(() => PerfectNumbers.Classify(0));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void InvalidInputsNegativeIntegerIsRejectedAsItIsNotAPositiveInteger()
+    public void Negative_integer_is_rejected_as_it_is_not_a_positive_integer()
     {
         Assert.Throws<ArgumentOutOfRangeException>(() => PerfectNumbers.Classify(-1));
     }

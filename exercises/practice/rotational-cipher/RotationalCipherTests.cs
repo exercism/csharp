@@ -3,61 +3,61 @@ using Xunit;
 public class RotationalCipherTests
 {
     [Fact]
-    public void RotateABy0SameOutputAsInput()
+    public void Rotate_a_by0_same_output_as_input()
     {
         Assert.Equal(a, RotationalCipher.Rotate("a", 0));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void RotateABy1()
+    public void Rotate_a_by1()
     {
         Assert.Equal(b, RotationalCipher.Rotate("a", 1));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void RotateABy26SameOutputAsInput()
+    public void Rotate_a_by26_same_output_as_input()
     {
         Assert.Equal(a, RotationalCipher.Rotate("a", 26));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void RotateMBy13()
+    public void Rotate_m_by13()
     {
         Assert.Equal(z, RotationalCipher.Rotate("m", 13));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void RotateNBy13WithWrapAroundAlphabet()
+    public void Rotate_n_by13_with_wrap_around_alphabet()
     {
         Assert.Equal(a, RotationalCipher.Rotate("n", 13));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void RotateCapitalLetters()
+    public void Rotate_capital_letters()
     {
         Assert.Equal(TRL, RotationalCipher.Rotate("OMG", 5));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void RotateSpaces()
+    public void Rotate_spaces()
     {
         Assert.Equal(T R L, RotationalCipher.Rotate("O M G", 5));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void RotateNumbers()
+    public void Rotate_numbers()
     {
         Assert.Equal(Xiwxmrk 1 2 3 xiwxmrk, RotationalCipher.Rotate("Testing 1 2 3 testing", 4));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void RotatePunctuation()
+    public void Rotate_punctuation()
     {
         Assert.Equal(Gzo 'n zvo, Bmviyhv!, RotationalCipher.Rotate("Let' s eat, Grandma!", 21));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void RotateAllLetters()
+    public void Rotate_all_letters()
     {
         Assert.Equal(Gur dhvpx oebja sbk whzcf bire gur ynml qbt., RotationalCipher.Rotate("The quick brown fox jumps over the lazy dog.", 13));
     }

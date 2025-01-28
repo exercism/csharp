@@ -9,7 +9,7 @@ public class AcronymTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void LowercaseWords()
+    public void Lowercase_words()
     {
         Assert.Equal("ROR", Acronym.Abbreviate("Ruby on Rails"));
     }
@@ -21,25 +21,25 @@ public class AcronymTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void AllCapsWord()
+    public void All_caps_word()
     {
         Assert.Equal("GIMP", Acronym.Abbreviate("GNU Image Manipulation Program"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void PunctuationWithoutWhitespace()
+    public void Punctuation_without_whitespace()
     {
         Assert.Equal("CMOS", Acronym.Abbreviate("Complementary metal-oxide semiconductor"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void VeryLongAbbreviation()
+    public void Very_long_abbreviation()
     {
         Assert.Equal("ROTFLSHTMDCOALM", Acronym.Abbreviate("Rolling On The Floor Laughing So Hard That My Dogs Came Over And Licked Me"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void ConsecutiveDelimiters()
+    public void Consecutive_delimiters()
     {
         Assert.Equal("SIMUFTA", Acronym.Abbreviate("Something - I made up from thin air"));
     }
@@ -51,7 +51,7 @@ public class AcronymTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void UnderscoreEmphasis()
+    public void Underscore_emphasis()
     {
         Assert.Equal("TRNT", Acronym.Abbreviate("The Road _Not_ Taken"));
     }

@@ -12,7 +12,7 @@ internal static class Naming
         if (char.IsNumber(stringPath[0][0]))
             stringPath[0] = NumberToWord(stringPath[0]);
 
-        return string.Join(" ", stringPath).Dehumanize();
+        return string.Join("_", stringPath.Select(str => str.Dehumanize())).Underscore().Transform(To.SentenceCase);
     }
 
     private static string NumberToWord(string str)

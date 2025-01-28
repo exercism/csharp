@@ -4,7 +4,7 @@ public class PerfectNumbersTests
 {
     {{#test_cases}}
     [Fact{{#unless @first}}(Skip = "Remove this Skip property to run this test"){{/unless}}]
-    public void {{test_method_name}}()
+    public void {{short_test_method_name}}()
     {
         {{#if expected.error}}
         Assert.Throws<ArgumentOutOfRangeException>(() => PerfectNumbers.Classify({{input.number}}));
