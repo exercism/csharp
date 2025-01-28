@@ -1,8 +1,10 @@
 using System.Collections.Immutable;
-using System.Text.Json;
-using System.Text.Json.Nodes;
+using System.Dynamic;
 
 using LibGit2Sharp;
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Generators;
 
@@ -17,41 +19,40 @@ internal record TestCase(
 
 internal static class CanonicalData
 {
-    private static readonly JsonSerializerOptions SerializerOptions = new() { PropertyNameCaseInsensitive = true };
-
     static CanonicalData() => ProbSpecs.Sync();
 
     internal static TestCase[] Parse(Exercise exercise)
     {
         var json = File.ReadAllText(Paths.CanonicalDataFile(exercise));
-        var jsonNode = JsonNode.Parse(json)!.AsObject();
-        return Parse(jsonNode, ImmutableQueue<string>.Empty)
+        var jsonObject = JObject.Parse(json);
+        return Parse(jsonObject, ImmutableQueue<string>.Empty)
             .ToArray();
     }
 
-    private static IEnumerable<TestCase> Parse(JsonObject jsonObject, ImmutableQueue<string> path)
+    private static IEnumerable<TestCase> Parse(JObject jsonObject, ImmutableQueue<string> path)
     {
-        var updatedPath = jsonObject.TryGetPropertyValue("description", out var description)
-            ? path.Enqueue(description.Deserialize<string>()!)
+        var updatedPath = jsonObject.TryGetValue("description", out var description)
+            ? path.Enqueue(description.Value<string>()!)
             : path;
+
+        if (jsonObject.TryGetValue("cases", out var cases))
+            return ((JArray)cases).Cast<JObject>().SelectMany(child => Parse(child, updatedPath));
         
-        return jsonObject.TryGetPropertyValue("cases", out var cases)
-            ? cases!.AsArray().SelectMany(child => Parse(child!.AsObject(), updatedPath))
-            : [ToTestCase(jsonObject, updatedPath)];
+        return [ToTestCase(jsonObject, updatedPath)];
     }
 
-    private static TestCase ToTestCase(JsonObject testCaseJson, IEnumerable<string> path)
+    private static TestCase ToTestCase(JObject testCaseJson, IEnumerable<string> path)
     {
-        testCaseJson["path"] = JsonValue.Create(path);
+        testCaseJson["path"] = JArray.FromObject(path);
         testCaseJson["error"] = ToError(testCaseJson);
-        return testCaseJson.Deserialize<TestCase>(SerializerOptions)!;
+        return JsonConvert.DeserializeObject<TestCase>(testCaseJson.ToString())!;
     }
 
-    private static JsonNode? ToError(JsonObject testCaseJson)
+    private static JToken? ToError(JObject testCaseJson)
     {
-        if (testCaseJson["expected"] is JsonObject expectedJson &&
-            expectedJson.TryGetPropertyValue("error", out var error))
-            return error!.DeepClone();
+        if (testCaseJson["expected"] is JObject expectedJson &&
+            expectedJson.TryGetValue("error", out var error))
+            return error.DeepClone();
 
         return null;
     }

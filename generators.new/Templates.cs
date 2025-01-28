@@ -2,7 +2,6 @@ using System.Text.Json;
 
 using HandlebarsDotNet;
 using HandlebarsDotNet.Helpers;
-using HandlebarsDotNet.IO;
 
 using Humanizer;
 
@@ -34,7 +33,11 @@ internal static class Templates
         {
             writer.WriteSafeString(parameters.First().ToString());
         });
-        HandlebarsContext.Configuration.FormatterProviders.Add(new JsonElementFormatter());
+        HandlebarsContext.RegisterHelper("literal", (writer, context, parameters) =>
+        {
+            var first = parameters.First();
+            writer.WriteSafeString(SymbolDisplay.FormatLiteral(first.ToString()!, first is string));
+        });
     }
 
     public static string RenderTests(Exercise exercise, TestCase[] testCases) =>
@@ -55,27 +58,4 @@ internal static class Templates
         testCases
             .GroupBy(testCase => testCase.Property)
             .ToDictionary(kv => kv.Key, kv => kv.ToArray());
-
-    private sealed class JsonElementFormatter : IFormatter, IFormatterProvider
-    {
-        public void Format<T>(T value, in EncodedTextWriter writer)
-        {
-            if (value is not JsonElement element) 
-                throw new ArgumentException("Invalid type");
-
-            writer.WriteSafeString(SymbolDisplay.FormatLiteral(element.ToString(), element.ValueKind == JsonValueKind.String));
-        }
-
-        public bool TryCreateFormatter(Type type, out IFormatter formatter)
-        {
-            if (type != typeof(JsonElement))
-            {
-                formatter = null!;
-                return false;
-            }
-
-            formatter = this;
-            return true;
-        }
-    }
 }

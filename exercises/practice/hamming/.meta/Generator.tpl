@@ -7,9 +7,9 @@ public class HammingTests
     public void {{method_name path}}()
     {
         {{#if error}}
-        Assert.Throws<ArgumentException>(() => Hamming.Distance({{input.strand1}}, {{input.strand2}}));
+        Assert.Throws<ArgumentException>(() => Hamming.Distance({{literal input.strand1}}, {{literal input.strand2}}));
         {{else}}
-        Assert.Equal({{expected}}, Hamming.Distance({{input.strand1}}, {{input.strand2}}));
+        Assert.Equal({{expected}}, Hamming.Distance({{literal input.strand1}}, {{literal input.strand2}}));
         {{/if}}
     }
     {{/test_cases}}
