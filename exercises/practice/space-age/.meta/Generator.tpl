@@ -7,7 +7,7 @@ public class SpaceAgeTests
     public void {{test_method_name}}()
     {
         var sut = new SpaceAge({{input.seconds}});
-        Assert.Equal({{literal expected}}, sut.On{{input.planet}}(), precision: 2);
+        Assert.Equal({{lit expected}}, sut.On{{input.planet}}(), precision: 2);
     }
     {{/test_cases}}
 }

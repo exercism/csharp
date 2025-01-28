@@ -1,3 +1,5 @@
+using System.Globalization;
+
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Formatting;
@@ -14,6 +16,7 @@ internal static class Formatting
 
     private static SyntaxNode Parse(string code) =>
         CSharpSyntaxTree.ParseText(code).GetRoot();
-    
-    // SymbolDisplay.FormatLiteral(Convert.ToString(first, CultureInfo.InvariantCulture)!, first is string))
+
+    internal static string FormatLiteral(object obj) =>
+        SymbolDisplay.FormatLiteral(Convert.ToString(obj, CultureInfo.InvariantCulture)!, obj is string);
 }

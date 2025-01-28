@@ -6,7 +6,7 @@ public class AcronymTests
     [Fact{{#unless @first}}(Skip = "Remove this Skip property to run this test"){{/unless}}]
     public void {{test_method_name}}()
     {
-        Assert.Equal({{literal expected}}, Acronym.Abbreviate({{literal input.phrase}}));
+        Assert.Equal({{lit expected}}, Acronym.Abbreviate({{lit input.phrase}}));
     }
     {{/test_cases}}
 }

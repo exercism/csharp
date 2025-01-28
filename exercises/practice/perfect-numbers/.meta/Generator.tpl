@@ -9,7 +9,7 @@ public class PerfectNumbersTests
         {{#if error}}
         Assert.Throws<ArgumentOutOfRangeException>(() => PerfectNumbers.Classify({{input.number}}));
         {{else}}
-        Assert.Equal(Classification.{{Capitalize (raw expected)}}, PerfectNumbers.Classify({{input.number}}));
+        Assert.Equal(Classification.{{Capitalize expected}}, PerfectNumbers.Classify({{input.number}}));
         {{/if}}
     }
     {{/test_cases}}

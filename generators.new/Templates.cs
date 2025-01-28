@@ -4,8 +4,6 @@ using System.Globalization;
 using HandlebarsDotNet;
 using HandlebarsDotNet.Helpers;
 
-using Humanizer;
-
 using Microsoft.CodeAnalysis.CSharp;
 
 using Newtonsoft.Json.Linq;
@@ -20,14 +18,9 @@ internal static class Templates
     {
         HandlebarsHelpers.Register(HandlebarsContext, options => { options.UseCategoryPrefix = false; });
         HandlebarsContext.Configuration.FormatProvider = CultureInfo.InvariantCulture;
-        HandlebarsContext.RegisterHelper("raw", (writer, context, parameters) =>
+        HandlebarsContext.RegisterHelper("lit", (writer, context, parameters) =>
         {
-            writer.WriteSafeString(parameters.First().ToString());
-        });
-        HandlebarsContext.RegisterHelper("literal", (writer, context, parameters) =>
-        {
-            var first = parameters.First();
-            writer.WriteSafeString(SymbolDisplay.FormatLiteral(Convert.ToString(first, CultureInfo.InvariantCulture)!, first is string));
+            writer.WriteSafeString(Formatting.FormatLiteral(parameters.First()));
         });
     }
 
