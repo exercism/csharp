@@ -14,4 +14,6 @@ internal static class Formatting
 
     private static SyntaxNode Parse(string code) =>
         CSharpSyntaxTree.ParseText(code).GetRoot();
+    
+    // SymbolDisplay.FormatLiteral(Convert.ToString(first, CultureInfo.InvariantCulture)!, first is string))
 }

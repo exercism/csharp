@@ -21,7 +21,4 @@ internal static class Naming
         var word = Convert.ToInt32(parts[0]).ToWords();
         return string.Join(" ", [word, ..parts[1..]]);
     }
-    
-    internal static string ToTestClassName(Exercise exercise) => $"{exercise.Name}Tests";
-    internal static string ToTestedClassName(Exercise exercise) => exercise.Name;
 }

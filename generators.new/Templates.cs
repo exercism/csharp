@@ -42,12 +42,11 @@ internal static class Templates
         internal static Dictionary<string, object> ForCanonicalData(CanonicalData canonicalData)
         {
             var testCases = canonicalData.TestCases.Select(Create).ToArray();
-            
-            return new Dictionary<string, object>
+
+            return new()
             {
-                {"exercise", Create(canonicalData.Exercise)},
-                {"test_cases", testCases.ToArray()},
-                {"test_cases_by_property", GroupTestCasesByProperty(testCases)}
+                { "test_cases", testCases.ToArray() },
+                { "test_cases_by_property", GroupTestCasesByProperty(testCases) }
             };
         }
 
@@ -59,15 +58,6 @@ internal static class Templates
 
             return testData;
         }
-
-        private static Dictionary<string, object> Create(Exercise exercise) =>
-            new()
-            {
-                ["slug"] = exercise.Slug,
-                ["name"] = exercise.Name,
-                ["test_class_name"] = Naming.ToTestClassName(exercise),
-                ["tested_class_name"] = Naming.ToTestedClassName(exercise)
-            };
 
         private static Dictionary<string, dynamic[]> GroupTestCasesByProperty(IEnumerable<dynamic> testCases) =>
             testCases
