@@ -4,21 +4,20 @@ namespace Generators;
 
 internal static class Naming
 {
-    internal static string ToMethodName(params object[] path)
-    {
-        var stringPath = path.Select(obj => obj.ToString()!).ToArray();
-            
-        // Fix method names that start with a number
-        if (char.IsNumber(stringPath[0][0]))
-            stringPath[0] = NumberToWord(stringPath[0]);
+    internal static string ToMethodName(params object[] path) =>
+        path.Cast<string>()
+            .Unwords()
+            .Words()
+            .Select(Transform)
+            .Unwords()
+            .Underscore()
+            .Transform(To.SentenceCase);
 
-        return string.Join("_", stringPath.Select(str => str.Dehumanize())).Underscore().Transform(To.SentenceCase);
-    }
-
-    private static string NumberToWord(string str)
-    {
-        var parts = str.Split(' ');
-        var word = Convert.ToInt32(parts[0]).ToWords();
-        return string.Join(" ", [word, ..parts[1..]]);
-    }
+    private static string Transform(string str, int index) =>
+        index == 0 && int.TryParse(str, out var i)
+            ? i.ToWords()
+            : str.Dehumanize();
+    
+    private static IEnumerable<string> Words(this string str) => str.Split(' ');
+    private static string Unwords(this IEnumerable<string> strs) => string.Join(' ', strs);
 }

@@ -3,31 +3,31 @@ using Xunit;
 public class RotationalCipherTests
 {
     [Fact]
-    public void Rotate_a_by0_same_output_as_input()
+    public void Rotate_a_by_0_same_output_as_input()
     {
         Assert.Equal(a, RotationalCipher.Rotate("a", 0));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Rotate_a_by1()
+    public void Rotate_a_by_1()
     {
         Assert.Equal(b, RotationalCipher.Rotate("a", 1));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Rotate_a_by26_same_output_as_input()
+    public void Rotate_a_by_26_same_output_as_input()
     {
         Assert.Equal(a, RotationalCipher.Rotate("a", 26));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Rotate_m_by13()
+    public void Rotate_m_by_13()
     {
         Assert.Equal(z, RotationalCipher.Rotate("m", 13));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Rotate_n_by13_with_wrap_around_alphabet()
+    public void Rotate_n_by_13_with_wrap_around_alphabet()
     {
         Assert.Equal(a, RotationalCipher.Rotate("n", 13));
     }

@@ -69,7 +69,7 @@ public class SumOfMultiplesTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void All_numbers_are_multiples_of1()
+    public void All_numbers_are_multiples_of_1()
     {
         Assert.Equal(4950, SumOfMultiples.Sum([1], 100));
     }
@@ -81,19 +81,19 @@ public class SumOfMultiplesTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void The_only_multiple_of0_is0()
+    public void The_only_multiple_of_0_is_0()
     {
         Assert.Equal(0, SumOfMultiples.Sum([0], 1));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void The_factor0_does_not_affect_the_sum_of_multiples_of_other_factors()
+    public void The_factor_0_does_not_affect_the_sum_of_multiples_of_other_factors()
     {
         Assert.Equal(3, SumOfMultiples.Sum([3, 0], 4));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Solutions_using_include_exclude_must_extend_to_cardinality_greater_than3()
+    public void Solutions_using_include_exclude_must_extend_to_cardinality_greater_than_3()
     {
         Assert.Equal(39614537, SumOfMultiples.Sum([2, 3, 5, 7, 11], 10000));
     }
