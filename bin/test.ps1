@@ -50,9 +50,7 @@ function Enable-All-UnitTests($BuildDir) {
 
 function Test-Refactoring-Projects($PracticeExercisesDir) {
     Write-Output "Testing refactoring projects"
-    @("tree-building", "ledger", "markdown") | ForEach-Object {
-        Invoke-Tests -Path "${PracticeExercisesDir}/${_}"
-    }
+    & dotnet test "${PracticeExercisesDir}/Refactoring.sln"
 }
 
 function Set-ExampleImplementation {
