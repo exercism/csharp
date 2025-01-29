@@ -130,7 +130,7 @@ function Parse-Exercises {
 function Build-Generators {
     Write-Output "Build generators"
     & dotnet build generators
-    & dotnet build generators.new
+    & dotnet build generators.deprecated
 }
 
 function Test-Refactoring-Exercise-Default-Implementations {
