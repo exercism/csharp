@@ -20,7 +20,7 @@ public class DifferenceOfSquaresTests
         Assert.Equal(25502500, DifferenceOfSquares.CalculateSquareOfSum(100));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Sum_of_squares_1()
     {
         Assert.Equal(1, DifferenceOfSquares.CalculateSumOfSquares(1));
@@ -38,7 +38,7 @@ public class DifferenceOfSquaresTests
         Assert.Equal(338350, DifferenceOfSquares.CalculateSumOfSquares(100));
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Difference_of_squares_1()
     {
         Assert.Equal(0, DifferenceOfSquares.CalculateDifferenceOfSquares(1));
