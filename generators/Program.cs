@@ -1,34 +1,25 @@
-﻿using System.Collections.Generic;
+﻿using CommandLine;
 
-using CommandLine;
-using Exercism.CSharp.Exercises;
+namespace Generators;
 
-using Serilog;
-
-namespace Exercism.CSharp;
-
-public static class Program
+public static class Program 
 {
-    public static void Main(string[] args)
+    private class Options
     {
-            Logging.Setup();
+        [Option('e', "exercise", Required = false, HelpText = "The exercise (slug) to generate the tests file for.")]
+        public string? Exercise { get; set; }
+    }
+    
+    static void Main(string[] args) =>
+        Parser.Default.ParseArguments<Options>(args)
+            .WithParsed(options =>
+            {
+                foreach (var exercise in Exercises(options))
+                    TestsGenerator.Generate(exercise);
+            });
 
-            Options.Parse(args)
-                .WithParsed(OnParseSuccess)
-                .WithNotParsed(OnParseError);
-        }
-        
-    private static void OnParseSuccess(Options options)
-    {
-            var generatorRunner = new GeneratorRunner(options);
-
-            // TODO: enable nullable
-            if (options.Exercise == null)
-                generatorRunner.RegenerateAllExercises();
-            else
-                generatorRunner.RegenerateSingleExercise(options.Exercise);
-        }
-
-    private static void OnParseError(IEnumerable<Error> errors) =>
-        Log.Error("Errors: {Errors}", errors);
+    private static Exercise[] Exercises(Options options) =>
+        options.Exercise is null
+            ? Generators.Exercises.TemplatedExercises()
+            : [Generators.Exercises.TemplatedExercise(options.Exercise)];
 }

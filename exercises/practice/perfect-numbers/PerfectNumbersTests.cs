@@ -70,13 +70,13 @@ public class PerfectNumbersTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Zero_is_rejected_as_it_is_not_a_positive_integer_()
+    public void Zero_is_rejected_as_it_is_not_a_positive_integer()
     {
         Assert.Throws<ArgumentOutOfRangeException>(() => PerfectNumbers.Classify(0));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Negative_integer_is_rejected_as_it_is_not_a_positive_integer_()
+    public void Negative_integer_is_rejected_as_it_is_not_a_positive_integer()
     {
         Assert.Throws<ArgumentOutOfRangeException>(() => PerfectNumbers.Classify(-1));
     }

@@ -38,25 +38,28 @@ $project = "${exerciseDir}/${ExerciseName}.csproj"
 # Update project packages
 & dotnet remove $project package coverlet.collector
 & dotnet add $project package Exercism.Tests --version 0.1.0-beta1
-& dotnet add $project package xunit.runner.visualstudio --version 2.4.3
-& dotnet add $project package xunit --version 2.4.1
-& dotnet add $project package Microsoft.NET.Test.Sdk --version 16.8.3
+& dotnet add $project package xunit.runner.visualstudio --version 3.0.1
+& dotnet add $project package xunit --version 2.8.1
+& dotnet add $project package Microsoft.NET.Test.Sdk --version 17.12.0
 
 # Remove and update files
 Remove-Item -Path "${exerciseDir}/UnitTest1.cs"
 (Get-Content -Path ".editorconfig") -Replace "\[\*\.cs\]", "[${exerciseName}.cs]" | Set-Content -Path "${exerciseDir}/.editorconfig"
 
 # Add and run generator (this will update the tests file)
-$generator = "generators/Exercises/Generators/${ExerciseName}.cs"
+$generator = "${exerciseDir}/.meta/Generator.tpl"
 Add-Content -Path $generator -Value @"
-using System;
+using Xunit;
 
-using Exercism.CSharp.Output;
-
-namespace Exercism.CSharp.Exercises.Generators;
-
-internal class ${exerciseName} : ExerciseGenerator
+public class ${exerciseName}Tests
 {
+    {{#test_cases}}
+    [Fact{{#unless @first}}(Skip = "Remove this Skip property to run this test"){{/unless}}]
+    public void {{test_method_name}}()
+    {
+        // TODO: implement the test
+    }
+    {{/test_cases}}
 }
 "@
 & dotnet run --project generators --exercise $Exercise
