@@ -47,6 +47,11 @@ internal static class Templates
             testData.test_method_name = Naming.ToMethodName(testData.path.ToArray());
             testData.short_test_method_name = Naming.ToMethodName(testData.description);
 
+            if (testCase["expected"] is JArray expected)
+            {
+                testData.expected = expected.Select(e => e.ToString()).ToArray();
+            }
+            
             return testData;
         }
 

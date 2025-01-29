@@ -283,81 +283,81 @@ public class AllergiesTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void No_allergies()
+    public void List_when_no_allergies()
     {
         var sut = new Allergies(0);
         Assert.Empty(sut.List());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Just_eggs()
+    public void List_when_just_eggs()
     {
         var sut = new Allergies(1);
-        var expected = new[] { Allergen.Eggs };
+        Allergen[] expected = [Allergen.Eggs];
         Assert.Equal(expected, sut.List());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Just_peanuts()
+    public void List_when_just_peanuts()
     {
         var sut = new Allergies(2);
-        var expected = new[] { Allergen.Peanuts };
+        Allergen[] expected = [Allergen.Peanuts];
         Assert.Equal(expected, sut.List());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Just_strawberries()
+    public void List_when_just_strawberries()
     {
         var sut = new Allergies(8);
-        var expected = new[] { Allergen.Strawberries };
+        Allergen[] expected = [Allergen.Strawberries];
         Assert.Equal(expected, sut.List());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Eggs_and_peanuts()
+    public void List_when_eggs_and_peanuts()
     {
         var sut = new Allergies(3);
-        var expected = new[] { Allergen.Eggs, Allergen.Peanuts };
+        Allergen[] expected = [Allergen.Eggs, Allergen.Peanuts];
         Assert.Equal(expected, sut.List());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void More_than_eggs_but_not_peanuts()
+    public void List_when_more_than_eggs_but_not_peanuts()
     {
         var sut = new Allergies(5);
-        var expected = new[] { Allergen.Eggs, Allergen.Shellfish };
+        Allergen[] expected = [Allergen.Eggs, Allergen.Shellfish];
         Assert.Equal(expected, sut.List());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Lots_of_stuff()
+    public void List_when_lots_of_stuff()
     {
         var sut = new Allergies(248);
-        var expected = new[] { Allergen.Strawberries, Allergen.Tomatoes, Allergen.Chocolate, Allergen.Pollen, Allergen.Cats };
+        Allergen[] expected = [Allergen.Strawberries, Allergen.Tomatoes, Allergen.Chocolate, Allergen.Pollen, Allergen.Cats];
         Assert.Equal(expected, sut.List());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Everything()
+    public void List_when_everything()
     {
         var sut = new Allergies(255);
-        var expected = new[] { Allergen.Eggs, Allergen.Peanuts, Allergen.Shellfish, Allergen.Strawberries, Allergen.Tomatoes, Allergen.Chocolate, Allergen.Pollen, Allergen.Cats };
+        Allergen[] expected = [Allergen.Eggs, Allergen.Peanuts, Allergen.Shellfish, Allergen.Strawberries, Allergen.Tomatoes, Allergen.Chocolate, Allergen.Pollen, Allergen.Cats];
         Assert.Equal(expected, sut.List());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void No_allergen_score_parts()
+    public void List_when_no_allergen_score_parts()
     {
         var sut = new Allergies(509);
-        var expected = new[] { Allergen.Eggs, Allergen.Shellfish, Allergen.Strawberries, Allergen.Tomatoes, Allergen.Chocolate, Allergen.Pollen, Allergen.Cats };
+        Allergen[] expected = [Allergen.Eggs, Allergen.Shellfish, Allergen.Strawberries, Allergen.Tomatoes, Allergen.Chocolate, Allergen.Pollen, Allergen.Cats];
         Assert.Equal(expected, sut.List());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void No_allergen_score_parts_without_highest_valid_score()
+    public void List_when_no_allergen_score_parts_without_highest_valid_score()
     {
         var sut = new Allergies(257);
-        var expected = new[] { Allergen.Eggs };
+        Allergen[] expected = [Allergen.Eggs];
         Assert.Equal(expected, sut.List());
     }
 }
