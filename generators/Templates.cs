@@ -16,9 +16,18 @@ internal static class Templates
     {
         HandlebarsHelpers.Register(HandlebarsContext, options => { options.UseCategoryPrefix = false; });
         HandlebarsContext.Configuration.FormatProvider = CultureInfo.InvariantCulture;
+
         HandlebarsContext.RegisterHelper("lit", (writer, context, parameters) =>
+            writer.WriteSafeString(Formatting.FormatLiteral(parameters.First())));
+        
+        HandlebarsContext.RegisterHelper("equals", (output, options, context, arguments) => 
         {
-            writer.WriteSafeString(Formatting.FormatLiteral(parameters.First()));
+            if (arguments.Length != 2) throw new HandlebarsException("{{#equals}} helper must have exactly two arguments");
+
+            if (arguments[0]!.Equals(arguments[1]!))
+                options.Template(output, context);
+            else
+                options.Inverse(output, context);
         });
     }
 
