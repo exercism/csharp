@@ -26,97 +26,131 @@ param (
 $ErrorActionPreference = "Stop"
 $PSNativeCommandUseErrorActionPreference = $true
 
-function Invoke-Build-Generators {
-    Write-Output "Building generators"
-    & dotnet build ./generators 
-}
-
-function Clean($BuildDir) {
-    Write-Output "Cleaning previous build"
-    Remove-Item -Recurse -Force $BuildDir -ErrorAction Ignore
-}
-
-function Copy-Exercise($SourceDir, $BuildDir) {
-    Write-Output "Copying exercises"
-    Copy-Item $SourceDir -Destination $BuildDir -Recurse
-}
-
-function Enable-All-UnitTests($BuildDir) {
-    Write-Output "Enabling all tests"
-    Get-ChildItem -Path $BuildDir -Include "*Tests.cs" -Recurse | ForEach-Object {
-        (Get-Content $_.FullName) -replace "Skip = ""Remove this Skip property to run this test""", "" | Set-Content $_.FullName
-    }
-}
-
-function Test-Refactoring-Projects($PracticeExercisesDir) {
-    Write-Output "Testing refactoring projects"
-    @("tree-building", "ledger", "markdown") | ForEach-Object {
-        Invoke-Tests -Path "${PracticeExercisesDir}/${_}"
-    }
-}
-
-function Set-ExampleImplementation {
-    [CmdletBinding(SupportsShouldProcess)]
-    param($ExercisesDir, $ReplaceFileName)
-
-    if ($PSCmdlet.ShouldProcess("Exercise ${ReplaceFileName}", "replace solution with example")) {
-        Get-ChildItem -Path $ExercisesDir -Include "*.csproj" -Recurse | ForEach-Object {
-            $stub = Join-Path -Path $_.Directory ($_.BaseName + ".cs")
-            $example = Join-Path -Path $_.Directory ".meta" $ReplaceFileName
-
-            Move-Item -Path $example -Destination $stub -Force
-        }
-    }
-}
-
-function Use-ExampleImplementation {
-    [CmdletBinding(SupportsShouldProcess)]
-    param($ConceptExercisesDir, $PracticeExercisesDir)
-
-    if ($PSCmdlet.ShouldProcess("Exercises directory", "replace all solutions with corresponding examples")) {
-        Write-Output "Replacing concept exercise stubs with exemplar"
-        Set-ExampleImplementation $ConceptExercisesDir "Exemplar.cs"
-
-        Write-Output "Replacing practice exercise stubs with example"
-        Set-ExampleImplementation $PracticeExercisesDir "Example.cs"
-    }
-}
-
-function Test-ExerciseImplementation($Exercise, $BuildDir, $ConceptExercisesDir, $PracticeExercisesDir) {
-    Write-Output "Running tests"
-
-    if (-Not $Exercise) {
-        Invoke-Tests -Path $BuildDir
-    }
-    elseif (Test-Path "${ConceptExercisesDir}/${Exercise}") {
-        Invoke-Tests -Path "${ConceptExercisesDir}/${Exercise}"
-    }
-    elseif (Test-Path "${PracticeExercisesDir}/${Exercise}") {
-        Invoke-Tests -Path "${PracticeExercisesDir}/${Exercise}"
-    }
-    else {
-        throw "Could not find exercise '${Exercise}'"
-    }
-}
-
 function Invoke-Tests($Path) {
     & dotnet test $Path
 }
 
+function Prepare-Exercise($Path) {
+    $files = Get-Content (Join-Path $Path ".meta" "config.json") -Raw | ConvertFrom-Json | Select-Object -ExpandProperty files
 
-$buildDir = "${PSScriptRoot}/build"
-$practiceExercisesDir = "${buildDir}/practice"
-$conceptExercisesDir = "${buildDir}/concept"
-$sourceDir = Resolve-Path "exercises"
+    foreach ($fileType in @("example", "exemplar")) {
+        for (($i = 0); $i -lt $files.$fileType.length; $i++) {
+            $exampleFile = Join-Path $Path $files.$fileType[$i]
+            $solutionFile = Join-Path $Path $files.solution[$i]
 
-Clean $buildDir
-Copy-Exercise $sourceDir $buildDir
-Enable-All-UnitTests $buildDir
+            Copy-Item -Path $solutionFile -Destination "${solutionFile}.tmp"
+            Copy-Item -Path $exampleFile -Destination $solutionFile
+        }
+    }
 
-if (!$Exercise) {
-    Invoke-Build-Generators
-    Test-Refactoring-Projects $practiceExercisesDir
+    foreach ($testFile in $files.test) {
+        $testFile = Join-Path $Path $testFile
+        Copy-Item -Path $testFile -Destination "${testFile}.tmp"
+        (Get-Content $testFile) -replace "Skip = ""Remove this Skip property to run this test""", "" | Set-Content $testFile
+    }
 }
 
-Use-ExampleImplementation $conceptExercisesDir $practiceExercisesDir
-Test-ExerciseImplementation -Exercise $Exercise -BuildDir $buildDir -ConceptExercisesDir $conceptExercisesDir -PracticeExercisesDir $practiceExercisesDir
+function Restore-Exercise($Path) {
+    Get-ChildItem -Path $Path -Include "*.tmp" -Recurse | ForEach-Object {
+        $tmpFile = $_.FullName
+        $originalFile = ($tmpFile -replace "\.tmp$", "")
+        Move-Item -Path $tmpFile -Destination $originalFile -Force
+    }
+}
+
+function Process-Exercises($Exercises, [ScriptBlock]$Action) {
+    foreach ($ExerciseType in @("practice", "concept")) {
+        $Exercises.$ExerciseType | ForEach-Object {
+            &$Action (Join-Path "exercises" $ExerciseType $_)
+        }
+    }
+}
+
+function Prepare-Exercises($Exercises) {
+    Process-Exercises $Exercises {
+        param($Path)
+        Prepare-Exercise $Path
+    }
+}
+
+function Restore-Exercises($Exercises) {
+    Process-Exercises $Exercises {
+        param($Path)
+        Restore-Exercise $Path
+    }
+}
+
+function Run-Tests($Path) {
+    & dotnet test $Path
+}
+
+function Find-Exercise-Path($Exercise, $Exercises) {
+    if ($Exercises.practice.Contains($Exercise)) {
+        Join-Path "exercises" "practice" $Exercise
+    }
+    elseif ($Exercises.concept.Contains($Exercise)) {
+        Join-Path "exercises" "concept" $Exercise
+    } else {
+        throw "Could not find exercise '${Exercise}'"
+    }
+}
+
+function Test-Single-Exercise($Exercise, $Exercises) {
+    $path = Find-Exercise-Path $Exercise $Exercises
+
+    try {
+        Prepare-Exercise $path
+        Run-Tests $path
+    } finally {
+        Restore-Exercise $path
+    }
+}
+
+function Test-All-Exercises($Exercises) {
+    try {
+        Prepare-Exercises $Exercises
+        Run-Tests "exercises/Exercises.sln"
+    } finally {
+        Restore-Exercises $Exercises
+    }
+}
+
+function Parse-Exercises {
+    Get-Content .\config.json -Raw |
+    ConvertFrom-Json |
+    Select-Object -ExpandProperty exercises |
+    ForEach-Object {
+        @{
+            concept  = $_.concept  | Select-Object -ExpandProperty slug | Sort-Object
+            practice = $_.practice | Select-Object -ExpandProperty slug | Sort-Object
+        }
+    }
+}
+
+function Build-Generators {
+    Write-Output "Build generators"
+    & dotnet build generators
+}
+
+function Test-Refactoring-Exercise-Default-Implementations {
+    Write-Output "Testing refactoring exercises"
+    & dotnet test (Join-Path "exercises" "Refactoring.sln")
+}
+
+function Test-Exercise-Example-Implementations($Exercise) {
+    Write-Output "Testing example implementations"
+    $exercises = Parse-Exercises
+
+    if ($Exercise) {
+        Test-Single-Exercise $Exercise $Exercises
+    } else {
+        Test-All-Exercises $Exercises
+    }
+}
+
+Test-Exercise-Example-Implementations $Exercise
+
+if (!$Exercise) {
+    Build-Generators
+    Test-Refactoring-Exercise-Default-Implementations
+}
