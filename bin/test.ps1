@@ -130,6 +130,7 @@ function Parse-Exercises {
 function Build-Generators {
     Write-Output "Build generators"
     & dotnet build generators
+    & dotnet build generators.new
 }
 
 function Test-Refactoring-Exercise-Default-Implementations {
