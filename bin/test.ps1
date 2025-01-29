@@ -82,33 +82,25 @@ function Use-ExampleImplementation {
     }
 }
 
-function Test-ExerciseImplementation($Exercise, $BuildDir, $ConceptExercisesDir, $PracticeExercisesDir, $IsCI) {
+function Test-ExerciseImplementation($Exercise, $BuildDir, $ConceptExercisesDir, $PracticeExercisesDir) {
     Write-Output "Running tests"
 
     if (-Not $Exercise) {
-        Invoke-Tests -Path $BuildDir -IsCI $IsCI
+        Invoke-Tests -Path $BuildDir
     }
     elseif (Test-Path "${ConceptExercisesDir}/${Exercise}") {
-        Invoke-Tests -Path "${ConceptExercisesDir}/${Exercise}" -IsCI $IsCI
+        Invoke-Tests -Path "${ConceptExercisesDir}/${Exercise}"
     }
     elseif (Test-Path "${PracticeExercisesDir}/${Exercise}") {
-        Invoke-Tests -Path "${PracticeExercisesDir}/${Exercise}" -IsCI $IsCI
+        Invoke-Tests -Path "${PracticeExercisesDir}/${Exercise}"
     }
     else {
         throw "Could not find exercise '${Exercise}'"
     }
 }
 
-function Invoke-Tests($Path, $IsCI) {
-    if ($IsCI) {
-        Get-ChildItem -Path $Path -Include "*.csproj" -Recurse | ForEach-Object {
-            & dotnet add $_.FullName package JunitXml.TestLogger -v 4.1.0
-        }
-        & dotnet test $Path --logger "junit;LogFilePath=results/test.xml" 
-    }
-    else {
-        & dotnet test $Path
-    }
+function Invoke-Tests($Path) {
+    & dotnet test $Path
 }
 
 
@@ -116,7 +108,6 @@ $buildDir = "${PSScriptRoot}/build"
 $practiceExercisesDir = "${buildDir}/practice"
 $conceptExercisesDir = "${buildDir}/concept"
 $sourceDir = Resolve-Path "exercises"
-$isCi = [System.Convert]::ToBoolean($env:CI)
 
 Clean $buildDir
 Copy-Exercise $sourceDir $buildDir
@@ -128,4 +119,4 @@ if (!$Exercise) {
 }
 
 Use-ExampleImplementation $conceptExercisesDir $practiceExercisesDir
-Test-ExerciseImplementation -Exercise $Exercise -BuildDir $buildDir -ConceptExercisesDir $conceptExercisesDir -PracticeExercisesDir $practiceExercisesDir -IsCI $isCi
+Test-ExerciseImplementation -Exercise $Exercise -BuildDir $buildDir -ConceptExercisesDir $conceptExercisesDir -PracticeExercisesDir $practiceExercisesDir

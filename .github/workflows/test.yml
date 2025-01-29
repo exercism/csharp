@@ -23,9 +23,3 @@ jobs:
 
       - name: Run tests
         run: pwsh bin/test.ps1
-
-      - name: Create test summary
-        uses: test-summary/action@31493c76ec9e7aa675f1585d3ed6f1da69269a86
-        with:
-          paths: build/**/results/**/*.xml
-        if: always()
