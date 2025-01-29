@@ -24,3 +24,6 @@ build/
 
 # Other files
 .DS_Store
+
+# Temporary files
+exercises/**/*.tmp
