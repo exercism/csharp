@@ -1,6 +1,6 @@
 using Xunit;
 
-public class DartssTests
+public class DartsTests
 {
     [Fact]
     public void Missed_target()
