@@ -5,110 +5,114 @@ using Xunit;
 public class StrainTests
 {
     [Fact]
-    public void Empty_keep()
+    public void Keep_on_empty_list_returns_empty_list()
     {
-        Assert.Equal(new LinkedList<int>(), new LinkedList<int>().Keep(x => x < 10));
+        int[] expected = [];
+        int[] input = [];
+        Assert.Equal(expected, input.Keep(x => true).ToArray());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Keep_everything()
+    public void Keeps_everything()
     {
-        Assert.Equal(new HashSet<int> { 1, 2, 3 }, new HashSet<int> { 1, 2, 3 }.Keep(x => x < 10));
+        int[] expected = [1, 3, 5];
+        int[] input = [1, 3, 5];
+        Assert.Equal(expected, input.Keep(x => true).ToArray());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Keep_nothing()
+    public void Keeps_nothing()
     {
-        Assert.Equal(new HashSet<int>(), new HashSet<int> { 1, 2, 3 }.Keep(x => x > 10));
+        int[] expected = [];
+        int[] input = [1, 3, 5];
+        Assert.Equal(expected, input.Keep(x => false).ToArray());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Keep_first_and_last()
+    public void Keeps_first_and_last()
     {
-        Assert.Equal(new[] { 1, 3 }, new[] { 1, 2, 3 }.Keep(x => x % 2 != 0));
+        int[] expected = [1, 3];
+        int[] input = [1, 2, 3];
+        Assert.Equal(expected, input.Keep(x => x % 2 == 1).ToArray());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Keep_neither_first_nor_last()
+    public void Keeps_neither_first_nor_last()
     {
-        Assert.Equal(new List<int> { 2, 4 }, new List<int> { 1, 2, 3, 4, 5 }.Keep(x => x % 2 == 0));
+        int[] expected = [2];
+        int[] input = [1, 2, 3];
+        Assert.Equal(expected, input.Keep(x => x % 2 == 0).ToArray());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Keep_strings()
+    public void Keeps_strings()
     {
-        var words = "apple zebra banana zombies cherimoya zelot".Split(' ');
-        Assert.Equal("zebra zombies zelot".Split(' '), words.Keep(x => x.StartsWith("z")));
+        string[] expected = ["zebra", "zombies", "zealot"];
+        string[] input = ["apple", "zebra", "banana", "zombies", "cherimoya", "zealot"];
+        Assert.Equal(expected, input.Keep(x => x.StartsWith('z')).ToArray());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Keep_arrays()
+    public void Keeps_lists()
     {
-        var actual = new[]
-            {
-                new[] { 1, 2, 3 },
-                new[] { 5, 5, 5 },
-                new[] { 5, 1, 2 },
-                new[] { 2, 1, 2 },
-                new[] { 1, 5, 2 },
-                new[] { 2, 2, 1 },
-                new[] { 1, 2, 5 }
-            };
-        var expected = new[] { new[] { 5, 5, 5 }, new[] { 5, 1, 2 }, new[] { 1, 5, 2 }, new[] { 1, 2, 5 } };
-        Assert.Equal(expected, actual.Keep(x => x.Contains(5)));
+        int[][] expected = [[5, 5, 5], [5, 1, 2], [1, 5, 2], [1, 2, 5]];
+        int[][] input = [[1, 2, 3], [5, 5, 5], [5, 1, 2], [2, 1, 2], [1, 5, 2], [2, 2, 1], [1, 2, 5]];
+        Assert.Equal(expected, input.Keep(x => x.Contains(5)).ToArray());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Empty_discard()
+    public void Discard_on_empty_list_returns_empty_list()
     {
-        Assert.Equal(new LinkedList<int>(), new LinkedList<int>().Discard(x => x < 10));
+        int[] expected = [];
+        int[] input = [];
+        Assert.Equal(expected, input.Discard(x => true).ToArray());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Discard_everything()
+    public void Discards_everything()
     {
-        Assert.Equal(new HashSet<int>(), new HashSet<int> { 1, 2, 3 }.Discard(x => x < 10));
+        int[] expected = [];
+        int[] input = [1, 3, 5];
+        Assert.Equal(expected, input.Discard(x => true).ToArray());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Discard_nothing()
+    public void Discards_nothing()
     {
-        Assert.Equal(new HashSet<int> { 1, 2, 3 }, new HashSet<int> { 1, 2, 3 }.Discard(x => x > 10));
+        int[] expected = [1, 3, 5];
+        int[] input = [1, 3, 5];
+        Assert.Equal(expected, input.Discard(x => false).ToArray());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Discard_first_and_last()
+    public void Discards_first_and_last()
     {
-        Assert.Equal(new[] { 2 }, new[] { 1, 2, 3 }.Discard(x => x % 2 != 0));
+        int[] expected = [2];
+        int[] input = [1, 2, 3];
+        Assert.Equal(expected, input.Discard(x => x % 2 == 1).ToArray());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Discard_neither_first_nor_last()
+    public void Discards_neither_first_nor_last()
     {
-        Assert.Equal(new List<int> { 1, 3, 5 }, new List<int> { 1, 2, 3, 4, 5 }.Discard(x => x % 2 == 0));
+        int[] expected = [1, 3];
+        int[] input = [1, 2, 3];
+        Assert.Equal(expected, input.Discard(x => x % 2 == 0).ToArray());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Discard_strings()
+    public void Discards_strings()
     {
-        var words = "apple zebra banana zombies cherimoya zelot".Split(' ');
-        Assert.Equal("apple banana cherimoya".Split(' '), words.Discard(x => x.StartsWith("z")));
+        string[] expected = ["apple", "banana", "cherimoya"];
+        string[] input = ["apple", "zebra", "banana", "zombies", "cherimoya", "zealot"];
+        Assert.Equal(expected, input.Discard(x => x.StartsWith('z')).ToArray());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Discard_arrays()
+    public void Discards_lists()
     {
-        var actual = new[]
-            {
-                new[] { 1, 2, 3 },
-                new[] { 5, 5, 5 },
-                new[] { 5, 1, 2 },
-                new[] { 2, 1, 2 },
-                new[] { 1, 5, 2 },
-                new[] { 2, 2, 1 },
-                new[] { 1, 2, 5 }
-            };
-        var expected = new[] { new[] { 1, 2, 3 }, new[] { 2, 1, 2 }, new[] { 2, 2, 1 } };
-        Assert.Equal(expected, actual.Discard(x => x.Contains(5)));
+        int[][] expected = [[1, 2, 3], [2, 1, 2], [2, 2, 1]];
+        int[][] input = [[1, 2, 3], [5, 5, 5], [5, 1, 2], [2, 1, 2], [1, 5, 2], [2, 2, 1], [1, 2, 5]];
+        Assert.Equal(expected, input.Discard(x => x.Contains(5)).ToArray());
     }
 }
