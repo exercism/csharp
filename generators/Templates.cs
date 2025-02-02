@@ -13,7 +13,10 @@ internal static class Templates
     public static string RenderTestsCode(CanonicalData canonicalData)
     {
         var scriptObject = new ScriptObject();
-        scriptObject.Import("enum", new Func<string, string, string>((text, enumType) => $"{enumType.Pascalize()}.{text.Pascalize()}"));;
+        scriptObject.Import("enum", new Func<string, string, string>((text, enumType) =>
+            $"{enumType.Pascalize()}.{text.Pascalize()}"));
+        scriptObject.Import("property", new Func<ScriptArray, string, ScriptArray>((testCases, name) =>
+            new ScriptArray(testCases.Cast<ScriptObject>().Where(testCase => testCase["property"].ToString() == name))));
         scriptObject.Import(TemplateData.ForCanonicalData(canonicalData));
         
         var context = new TemplateContext();
@@ -25,13 +28,8 @@ internal static class Templates
 
     private static class TemplateData
     {
-        internal static JsonElement ForCanonicalData(CanonicalData canonicalData)
-        {
-            var testCases = canonicalData.TestCases.Select(Create).ToArray();
-            var testCasesByProperty = GroupTestCasesByProperty(testCases);
-
-            return JsonSerializer.SerializeToElement(new { testCases, testCasesByProperty });
-        }
+        internal static JsonElement ForCanonicalData(CanonicalData canonicalData) =>
+            JsonSerializer.SerializeToElement(new { testCases = canonicalData.TestCases.Select(Create).ToArray() });
 
         private static JsonElement Create(JsonNode testCase)
         {
@@ -40,10 +38,5 @@ internal static class Templates
             
             return JsonSerializer.SerializeToElement(testCase);
         }
-
-        private static Dictionary<string, JsonElement[]> GroupTestCasesByProperty(IEnumerable<JsonElement> testCases) =>
-            testCases
-                .GroupBy(testCase => testCase.GetProperty("property").GetString()!)
-                .ToDictionary(kv => kv.Key, kv => kv.ToArray());
     }
 }
