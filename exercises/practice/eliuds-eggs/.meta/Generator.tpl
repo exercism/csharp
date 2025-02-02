@@ -2,11 +2,11 @@ using Xunit;
 
 public class EliudsEggsTests
 {
-    {{#test_cases}}
-    [Fact{{#unless @first}}(Skip = "Remove this Skip property to run this test"){{/unless}}]
-    public void {{test_method_name}}()
+    {{for testCase in testCases}}
+    [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
+    public void {{testCase.testMethodName}}()
     {
-        Assert.Equal({{expected}}, EliudsEggs.EggCount({{input.number}}));
+        Assert.Equal({{testCase.expected}}, EliudsEggs.EggCount({{testCase.input.number}}));
     }
-    {{/test_cases}}
+    {{end}}
 }

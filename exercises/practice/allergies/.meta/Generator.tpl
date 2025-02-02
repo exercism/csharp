@@ -2,26 +2,30 @@ using Xunit;
 
 public class AllergiesTests
 {
-    {{#test_cases_by_property.allergicTo}}
-    [Fact{{#unless @first}}(Skip = "Remove this Skip property to run this test"){{/unless}}]
-    public void {{test_method_name}}()
+    {{for testCase in testCasesByProperty.allergicTo}}
+    [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
+    public void {{testCase.testMethodName}}()
     {
-        var sut = new Allergies({{input.score}});
-        Assert.{{expected}}(sut.IsAllergicTo(Allergen.{{Capitalize input.item}}));
+        var sut = new Allergies({{testCase.input.score}});
+        Assert.{{testCase.expected ? "True" : "False"}}(sut.IsAllergicTo({{testCase.input.item | enum "Allergen"}}));
     }
-    {{/test_cases_by_property.allergicTo}}
+    {{end}}
 
-    {{#test_cases_by_property.list}}
+    {{for testCase in testCasesByProperty.list}}
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void {{test_method_name}}()
+    public void {{testCase.testMethodName}}()
     {
-        var sut = new Allergies({{input.score}});
-        {{#isempty expected}}
+        var sut = new Allergies({{testCase.input.score}});
+        {{if testCase.expected.empty?}}
         Assert.Empty(sut.List());
         {{else}}
-        Allergen[] expected = [{{#each ../expected}}Allergen.{{Capitalize .}}{{#unless @last}},{{/unless}}{{/each}}];
+        Allergen[] expected = [
+            {{for expected in testCase.expected}}        
+                {{expected | enum "Allergen"}}{{if !for.last}},{{end}}
+            {{end}}
+        ];
         Assert.Equal(expected, sut.List());
-        {{/isempty}}
+        {{end}}
     }
-    {{/test_cases_by_property.list}}
+    {{end}}    
 }

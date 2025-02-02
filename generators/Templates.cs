@@ -1,7 +1,7 @@
 using System.Text.Json;
 using System.Text.Json.Nodes;
 
-using Microsoft.CodeAnalysis.CSharp;
+using Humanizer;
 
 using Scriban;
 using Scriban.Runtime;
@@ -12,8 +12,15 @@ internal static class Templates
 {
     public static string RenderTestsCode(CanonicalData canonicalData)
     {
-        var template = Template.Parse(File.ReadAllText(Paths.TemplateFile(canonicalData.Exercise)));
-        return template.Render(TemplateData.ForCanonicalData(canonicalData));
+        var scriptObject = new ScriptObject();
+        scriptObject.Import("enum", new Func<string, string, string>((text, enumType) => $"{enumType.Pascalize()}.{text.Pascalize()}"));;
+        scriptObject.Import(TemplateData.ForCanonicalData(canonicalData));
+        
+        var context = new TemplateContext();
+        context.PushGlobal(scriptObject);
+
+        return Template.Parse(File.ReadAllText(Paths.TemplateFile(canonicalData.Exercise)))
+            .Render(context);
     }
 
     private static class TemplateData
@@ -29,7 +36,7 @@ internal static class Templates
         private static JsonElement Create(JsonNode testCase)
         {
             testCase["testMethodName"] = Naming.ToMethodName(testCase["path"]!.AsArray().GetValues<string>().ToArray());
-            testCase["shortMethodName"] = Naming.ToMethodName(testCase["description"]!.GetValue<string>());
+            testCase["shortTestMethodName"] = Naming.ToMethodName(testCase["description"]!.GetValue<string>());
             
             return JsonSerializer.SerializeToElement(testCase);
         }

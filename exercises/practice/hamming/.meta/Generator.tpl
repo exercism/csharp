@@ -3,15 +3,15 @@ using Xunit;
 
 public class HammingTests
 {
-    {{#test_cases}}
-    [Fact{{#unless @first}}(Skip = "Remove this Skip property to run this test"){{/unless}}]
-    public void {{test_method_name}}()
+    {{for testCase in testCases}}
+    [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
+    public void {{testCase.testMethodName}}()
     {
-        {{#if expected.error}}
-        Assert.Throws<ArgumentException>(() => Hamming.Distance({{lit input.strand1}}, {{lit input.strand2}}));
+        {{if testCase.expected.error}}
+        Assert.Throws<ArgumentException>(() => Hamming.Distance({{testCase.input.strand1 | string.literal}}, {{testCase.input.strand2 | string.literal}}));
         {{else}}
-        Assert.Equal({{expected}}, Hamming.Distance({{lit input.strand1}}, {{lit input.strand2}}));
-        {{/if}}
+        Assert.Equal({{testCase.expected}}, Hamming.Distance({{testCase.input.strand1 | string.literal}}, {{testCase.input.strand2 | string.literal}}));
+        {{end}}
     }
-    {{/test_cases}}
+    {{end}}
 }

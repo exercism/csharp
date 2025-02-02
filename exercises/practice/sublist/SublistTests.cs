@@ -6,108 +6,144 @@ public class SublistTests
     [Fact]
     public void Empty_lists()
     {
-        Assert.Equal(SublistType.Equal, Sublist.Classify(new List<int>(), new List<int>()));
+        List<int> listOne = [];
+        List<int> listTwo = [];
+        Assert.Equal(SublistType.Equal, Sublist.Classify(listOne, listTwo));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Empty_list_within_non_empty_list()
     {
-        Assert.Equal(SublistType.Sublist, Sublist.Classify(new List<int>(), new List<int> { 1, 2, 3 }));
+        List<int> listOne = [];
+        List<int> listTwo = [1, 2, 3];
+        Assert.Equal(SublistType.Sublist, Sublist.Classify(listOne, listTwo));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Non_empty_list_contains_empty_list()
     {
-        Assert.Equal(SublistType.Superlist, Sublist.Classify(new List<int> { 1, 2, 3 }, new List<int>()));
+        List<int> listOne = [1, 2, 3];
+        List<int> listTwo = [];
+        Assert.Equal(SublistType.Superlist, Sublist.Classify(listOne, listTwo));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void List_equals_itself()
     {
-        Assert.Equal(SublistType.Equal, Sublist.Classify(new List<int> { 1, 2, 3 }, new List<int> { 1, 2, 3 }));
+        List<int> listOne = [1, 2, 3];
+        List<int> listTwo = [1, 2, 3];
+        Assert.Equal(SublistType.Equal, Sublist.Classify(listOne, listTwo));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Different_lists()
     {
-        Assert.Equal(SublistType.Unequal, Sublist.Classify(new List<int> { 1, 2, 3 }, new List<int> { 2, 3, 4 }));
+        List<int> listOne = [1, 2, 3];
+        List<int> listTwo = [2, 3, 4];
+        Assert.Equal(SublistType.Unequal, Sublist.Classify(listOne, listTwo));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void False_start()
     {
-        Assert.Equal(SublistType.Sublist, Sublist.Classify(new List<int> { 1, 2, 5 }, new List<int> { 0, 1, 2, 3, 1, 2, 5, 6 }));
+        List<int> listOne = [1, 2, 5];
+        List<int> listTwo = [0, 1, 2, 3, 1, 2, 5, 6];
+        Assert.Equal(SublistType.Sublist, Sublist.Classify(listOne, listTwo));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Consecutive()
     {
-        Assert.Equal(SublistType.Sublist, Sublist.Classify(new List<int> { 1, 1, 2 }, new List<int> { 0, 1, 1, 1, 2, 1, 2 }));
+        List<int> listOne = [1, 1, 2];
+        List<int> listTwo = [0, 1, 1, 1, 2, 1, 2];
+        Assert.Equal(SublistType.Sublist, Sublist.Classify(listOne, listTwo));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Sublist_at_start()
     {
-        Assert.Equal(SublistType.Sublist, Sublist.Classify(new List<int> { 0, 1, 2 }, new List<int> { 0, 1, 2, 3, 4, 5 }));
+        List<int> listOne = [0, 1, 2];
+        List<int> listTwo = [0, 1, 2, 3, 4, 5];
+        Assert.Equal(SublistType.Sublist, Sublist.Classify(listOne, listTwo));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Sublist_in_middle()
     {
-        Assert.Equal(SublistType.Sublist, Sublist.Classify(new List<int> { 2, 3, 4 }, new List<int> { 0, 1, 2, 3, 4, 5 }));
+        List<int> listOne = [2, 3, 4];
+        List<int> listTwo = [0, 1, 2, 3, 4, 5];
+        Assert.Equal(SublistType.Sublist, Sublist.Classify(listOne, listTwo));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Sublist_at_end()
     {
-        Assert.Equal(SublistType.Sublist, Sublist.Classify(new List<int> { 3, 4, 5 }, new List<int> { 0, 1, 2, 3, 4, 5 }));
+        List<int> listOne = [3, 4, 5];
+        List<int> listTwo = [0, 1, 2, 3, 4, 5];
+        Assert.Equal(SublistType.Sublist, Sublist.Classify(listOne, listTwo));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void At_start_of_superlist()
     {
-        Assert.Equal(SublistType.Superlist, Sublist.Classify(new List<int> { 0, 1, 2, 3, 4, 5 }, new List<int> { 0, 1, 2 }));
+        List<int> listOne = [0, 1, 2, 3, 4, 5];
+        List<int> listTwo = [0, 1, 2];
+        Assert.Equal(SublistType.Superlist, Sublist.Classify(listOne, listTwo));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void In_middle_of_superlist()
     {
-        Assert.Equal(SublistType.Superlist, Sublist.Classify(new List<int> { 0, 1, 2, 3, 4, 5 }, new List<int> { 2, 3 }));
+        List<int> listOne = [0, 1, 2, 3, 4, 5];
+        List<int> listTwo = [2, 3];
+        Assert.Equal(SublistType.Superlist, Sublist.Classify(listOne, listTwo));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void At_end_of_superlist()
     {
-        Assert.Equal(SublistType.Superlist, Sublist.Classify(new List<int> { 0, 1, 2, 3, 4, 5 }, new List<int> { 3, 4, 5 }));
+        List<int> listOne = [0, 1, 2, 3, 4, 5];
+        List<int> listTwo = [3, 4, 5];
+        Assert.Equal(SublistType.Superlist, Sublist.Classify(listOne, listTwo));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void First_list_missing_element_from_second_list()
     {
-        Assert.Equal(SublistType.Unequal, Sublist.Classify(new List<int> { 1, 3 }, new List<int> { 1, 2, 3 }));
+        List<int> listOne = [1, 3];
+        List<int> listTwo = [1, 2, 3];
+        Assert.Equal(SublistType.Unequal, Sublist.Classify(listOne, listTwo));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Second_list_missing_element_from_first_list()
     {
-        Assert.Equal(SublistType.Unequal, Sublist.Classify(new List<int> { 1, 2, 3 }, new List<int> { 1, 3 }));
+        List<int> listOne = [1, 2, 3];
+        List<int> listTwo = [1, 3];
+        Assert.Equal(SublistType.Unequal, Sublist.Classify(listOne, listTwo));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void First_list_missing_additional_digits_from_second_list()
     {
-        Assert.Equal(SublistType.Unequal, Sublist.Classify(new List<int> { 1, 2 }, new List<int> { 1, 22 }));
+        List<int> listOne = [1, 2];
+        List<int> listTwo = [1, 22];
+        Assert.Equal(SublistType.Unequal, Sublist.Classify(listOne, listTwo));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Order_matters_to_a_list()
     {
-        Assert.Equal(SublistType.Unequal, Sublist.Classify(new List<int> { 1, 2, 3 }, new List<int> { 3, 2, 1 }));
+        List<int> listOne = [1, 2, 3];
+        List<int> listTwo = [3, 2, 1];
+        Assert.Equal(SublistType.Unequal, Sublist.Classify(listOne, listTwo));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Same_digits_but_different_numbers()
     {
-        Assert.Equal(SublistType.Unequal, Sublist.Classify(new List<int> { 1, 0, 1 }, new List<int> { 10, 1 }));
+        List<int> listOne = [1, 0, 1];
+        List<int> listTwo = [10, 1];
+        Assert.Equal(SublistType.Unequal, Sublist.Classify(listOne, listTwo));
     }
 }
