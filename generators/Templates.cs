@@ -1,72 +1,42 @@
-using System.Dynamic;
-using System.Globalization;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 
-using HandlebarsDotNet;
-using HandlebarsDotNet.Helpers;
+using Microsoft.CodeAnalysis.CSharp;
 
-using Newtonsoft.Json.Linq;
+using Scriban;
+using Scriban.Runtime;
 
 namespace Generators;
 
 internal static class Templates
 {
-    private static readonly IHandlebars HandlebarsContext = Handlebars.Create();
-
-    static Templates()
+    public static string RenderTestsCode(CanonicalData canonicalData)
     {
-        HandlebarsHelpers.Register(HandlebarsContext, options => { options.UseCategoryPrefix = false; });
-        HandlebarsContext.Configuration.FormatProvider = CultureInfo.InvariantCulture;
-
-        HandlebarsContext.RegisterHelper("lit", (writer, context, parameters) =>
-            writer.WriteSafeString(Formatting.FormatLiteral(parameters.First())));
-        
-        HandlebarsContext.RegisterHelper("equals", (output, options, context, arguments) => 
-        {
-            if (arguments.Length != 2) throw new HandlebarsException("{{#equals}} helper must have exactly two arguments");
-
-            if (arguments[0]!.Equals(arguments[1]!))
-                options.Template(output, context);
-            else
-                options.Inverse(output, context);
-        });
+        var template = Template.Parse(File.ReadAllText(Paths.TemplateFile(canonicalData.Exercise)));
+        return template.Render(TemplateData.ForCanonicalData(canonicalData));
     }
-
-    public static string RenderTestsCode(CanonicalData canonicalData) =>
-        CompileTemplate(canonicalData.Exercise)(TemplateData.ForCanonicalData(canonicalData));
-
-    private static HandlebarsTemplate<object, object> CompileTemplate(Exercise exercise) =>
-        HandlebarsContext.Compile(File.ReadAllText(Paths.TemplateFile(exercise)));
 
     private static class TemplateData
     {
-        internal static Dictionary<string, object> ForCanonicalData(CanonicalData canonicalData)
+        internal static JsonElement ForCanonicalData(CanonicalData canonicalData)
         {
             var testCases = canonicalData.TestCases.Select(Create).ToArray();
+            var testCasesByProperty = GroupTestCasesByProperty(testCases);
 
-            return new()
-            {
-                ["test_cases"] = testCases.ToArray(),
-                ["test_cases_by_property"] = GroupTestCasesByProperty(testCases)
-            };
+            return JsonSerializer.SerializeToElement(new { testCases, testCasesByProperty });
         }
 
-        private static ExpandoObject Create(JToken testCase)
+        private static JsonElement Create(JsonNode testCase)
         {
-            dynamic testData = testCase.ToObject<ExpandoObject>()!;
-            testData.test_method_name = Naming.ToMethodName(testData.path.ToArray());
-            testData.short_test_method_name = Naming.ToMethodName(testData.description);
-
-            if (testCase["expected"] is JArray expected)
-            {
-                testData.expected = expected.Select(e => e.ToString()).ToArray();
-            }
+            testCase["testMethodName"] = Naming.ToMethodName(testCase["path"]!.AsArray().GetValues<string>().ToArray());
+            testCase["shortMethodName"] = Naming.ToMethodName(testCase["description"]!.GetValue<string>());
             
-            return testData;
+            return JsonSerializer.SerializeToElement(testCase);
         }
 
-        private static Dictionary<string, dynamic[]> GroupTestCasesByProperty(IEnumerable<dynamic> testCases) =>
+        private static Dictionary<string, JsonElement[]> GroupTestCasesByProperty(IEnumerable<JsonElement> testCases) =>
             testCases
-                .GroupBy(testCase => (string)testCase.property)
+                .GroupBy(testCase => testCase.GetProperty("property").GetString()!)
                 .ToDictionary(kv => kv.Key, kv => kv.ToArray());
     }
 }

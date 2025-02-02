@@ -2,11 +2,11 @@ using Xunit;
 
 public class LeapTests
 {
-    {{#test_cases}}
-    [Fact{{#unless @first}}(Skip = "Remove this Skip property to run this test"){{/unless}}]
-    public void {{test_method_name}}()
+    {{for testCase in testCases}}
+    [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
+    public void {{testCase.testMethodName}}()
     {
-        Assert.{{expected}}(Leap.IsLeapYear({{input.year}}));
+        Assert.{{testCase.expected ? "True" : "False"}}(Leap.IsLeapYear({{testCase.input.year}}));
     }
-    {{/test_cases}}
+    {{end}}
 }
