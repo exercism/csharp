@@ -2,11 +2,11 @@ using Xunit;
 
 public class ZebraPuzzleTests
 {
-    {{#test_cases}}
-    [Fact{{#unless @first}}(Skip = "Remove this Skip property to run this test"){{/unless}}]
-    public void {{test_method_name}}()
+    {{for testCase in testCases}}
+    [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
+    public void {{testCase.testMethodName}}()
     {
-        Assert.Equal(Nationality.{{expected}}, ZebraPuzzle.{{Capitalize property}}());
+        Assert.Equal(Nationality.{{testCase.expected}}, {{testCase.property | enum "ZebraPuzzle"}}());
     }
-    {{/test_cases}}
+    {{end}}
 }

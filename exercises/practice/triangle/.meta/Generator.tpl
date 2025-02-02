@@ -2,27 +2,27 @@ using Xunit;
 
 public class TriangleTests
 {
-    {{#test_cases_by_property.equilateral}}
-    [Fact{{#unless @first}}(Skip = "Remove this Skip property to run this test"){{/unless}}]
-    public void {{test_method_name}}()
+    {{for testCase in testCasesByProperty.equilateral}}
+    [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
+    public void {{testCase.testMethodName}}()
     {
-        Assert.{{expected}}(Triangle.IsEquilateral({{input.sides.0}}, {{input.sides.1}}, {{input.sides.2}}));
+        Assert.{{testCase.expected ? "True" : "False"}}(Triangle.IsEquilateral({{testCase.input.sides | array.join ", "}}));
     }
-    {{/test_cases_by_property.equilateral}}
+    {{end}}
 
-    {{#test_cases_by_property.isosceles}}
+    {{for testCase in testCasesByProperty.isosceles}}
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void {{test_method_name}}()
+    public void {{testCase.testMethodName}}()
     {
-        Assert.{{expected}}(Triangle.IsIsosceles({{input.sides.0}}, {{input.sides.1}}, {{input.sides.2}}));
+        Assert.{{testCase.expected ? "True" : "False"}}(Triangle.IsIsosceles({{testCase.input.sides | array.join ", "}}));
     }
-    {{/test_cases_by_property.isosceles}}
+    {{end}}
 
-    {{#test_cases_by_property.scalene}}
+    {{for testCase in testCasesByProperty.scalene}}
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void {{test_method_name}}()
+    public void {{testCase.testMethodName}}()
     {
-        Assert.{{expected}}(Triangle.IsScalene({{input.sides.0}}, {{input.sides.1}}, {{input.sides.2}}));
+        Assert.{{testCase.expected ? "True" : "False"}}(Triangle.IsScalene({{testCase.input.sides | array.join ", "}}));
     }
-    {{/test_cases_by_property.scalene}}
+    {{end}}
 }

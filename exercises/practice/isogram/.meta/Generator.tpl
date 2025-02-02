@@ -2,11 +2,11 @@ using Xunit;
 
 public class IsogramTests
 {
-    {{#test_cases}}
-    [Fact{{#unless @first}}(Skip = "Remove this Skip property to run this test"){{/unless}}]
-    public void {{test_method_name}}()
+    {{for testCase in testCases}}
+    [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
+    public void {{testCase.testMethodName}}()
     {
-        Assert.{{expected}}(Isogram.IsIsogram({{lit input.phrase}}));
+        Assert.{{testCase.expected ? "True" : "False"}}(Isogram.IsIsogram({{testCase.input.phrase | string.literal}}));
     }
-    {{/test_cases}}
+    {{end}}
 }

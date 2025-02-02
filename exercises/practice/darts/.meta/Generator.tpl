@@ -2,11 +2,11 @@ using Xunit;
 
 public class DartsTests
 {
-    {{#test_cases}}
-    [Fact{{#unless @first}}(Skip = "Remove this Skip property to run this test"){{/unless}}]
-    public void {{test_method_name}}()
+    {{for testCase in testCases}}
+    [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
+    public void {{testCase.testMethodName}}()
     {
-        Assert.Equal({{expected}}, Darts.Score({{input.x}}, {{input.y}}));
+        Assert.Equal({{testCase.expected}}, Darts.Score({{testCase.input.x}}, {{testCase.input.y}}));
     }
-    {{/test_cases}}
+    {{end}}
 }

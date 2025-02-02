@@ -2,12 +2,12 @@ using Xunit;
 
 public class SieveTests
 {
-    {{#test_cases}}
-    [Fact{{#unless @first}}(Skip = "Remove this Skip property to run this test"){{/unless}}]
-    public void {{test_method_name}}()
+    {{for testCase in testCases}}
+    [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
+    public void {{testCase.testMethodName}}()
     {
-        int[] expected = [{{expected}}];
-        Assert.Equal(expected, Sieve.Primes({{input.limit}}));
+        int[] expected = {{testCase.expected}};
+        Assert.Equal(expected, Sieve.Primes({{testCase.input.limit}}));
     }
-    {{/test_cases}}
+    {{end}}
 }

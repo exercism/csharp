@@ -2,49 +2,31 @@ using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
+{{func normalize_predicate}}
+   {{ $0 | string.replace "fn(x) ->" "x => " |
+           string.replace "starts_with(x, " "x.StartsWith(" |
+           string.replace "contains(x, " "x.Contains(" }}
+{{end}}
+
+{{func test_case_type}}
+    {{if $0 | string.contains "strings"}}
+        string[]
+    {{else if $0 | string.contains "lists"}}    
+        int[][]
+    {{else}}
+        int[]
+    {{end}}
+{{end}}
+
 public class StrainTests
 {
-    {{#test_cases_by_property.keep}}
-    [Fact{{#unless @first}}(Skip = "Remove this Skip property to run this test"){{/unless}}]
-    public void {{test_method_name}}()
+    {{for testCase in testCases}}
+    [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
+    public void {{testCase.testMethodName}}()
     {
-        {{#equals description "keeps lists"}}
-        int[][] expected = [{{../expected}}];
-        int[][] input = [{{#../input.list}}[{{.}}]{{#unless @last}}, {{/unless}}{{/../input.list}}];
-        Assert.Equal(expected, input.Keep(x => x.Contains(5)).ToArray());
-        {{else}}
-        {{#equals ../description "keeps strings"}}
-        string[] expected = [{{#../../expected}}{{lit .}}{{#unless @last}}, {{/unless}}{{/../../expected}}];
-        string[] input = [{{#../../input.list}}{{lit .}}{{#unless @last}}, {{/unless}}{{/../../input.list}}];
-        Assert.Equal(expected, input.Keep(x => x.StartsWith('z')).ToArray());
-        {{else}}
-        int[] expected = [{{../../expected}}];
-        int[] input = [{{../../input.list}}];
-        Assert.Equal(expected, input.Keep(x => {{replace ../../input.predicate "fn(x) -> " ""}}).ToArray());
-        {{/equals}}
-        {{/equals}}
+        {{testCase.description | test_case_type}} expected = {{testCase.expected}};
+        {{testCase.description | test_case_type}} input = {{testCase.input.list}};
+        Assert.Equal(expected, input.{{testCase.property | string.capitalize}}({{testCase.input.predicate | normalize_predicate}}).ToArray());
     }
-    {{/test_cases_by_property.keep}}
-
-    {{#test_cases_by_property.discard}}
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void {{test_method_name}}()
-    {
-        {{#equals description "discards lists"}}
-        int[][] expected = [{{../expected}}];
-        int[][] input = [{{#../input.list}}[{{.}}]{{#unless @last}}, {{/unless}}{{/../input.list}}];
-        Assert.Equal(expected, input.Discard(x => x.Contains(5)).ToArray());
-        {{else}}
-        {{#equals ../description "discards strings"}}
-        string[] expected = [{{#../../expected}}{{lit .}}{{#unless @last}}, {{/unless}}{{/../../expected}}];
-        string[] input = [{{#../../input.list}}{{lit .}}{{#unless @last}}, {{/unless}}{{/../../input.list}}];
-        Assert.Equal(expected, input.Discard(x => x.StartsWith('z')).ToArray());
-        {{else}}        
-        int[] expected = [{{../../expected}}];
-        int[] input = [{{../../input.list}}];
-        Assert.Equal(expected, input.Discard(x => {{replace ../../input.predicate "fn(x) -> " ""}}).ToArray());
-        {{/equals}}  
-        {{/equals}}        
-    }
-    {{/test_cases_by_property.discard}}
+    {{end}}
 }

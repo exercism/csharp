@@ -2,11 +2,11 @@ using Xunit;
 
 public class TwoFerTests
 {
-    {{#test_cases}}
-    [Fact{{#unless @first}}(Skip = "Remove this Skip property to run this test"){{/unless}}]
-    public void {{test_method_name}}()
+    {{for testCase in testCases}}
+    [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
+    public void {{testCase.testMethodName}}()
     {
-        Assert.Equal({{lit expected}}, TwoFer.Speak({{#if input.name}}{{lit input.name}}{{/if}}));
+        Assert.Equal({{testCase.expected | string.literal}}, TwoFer.Speak({{if !testCase.input.name.empty?}}{{testCase.input.name | string.literal}}{{end}}));
     }
-    {{/test_cases}}
+    {{end}}
 }

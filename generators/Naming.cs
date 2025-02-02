@@ -4,9 +4,8 @@ namespace Generators;
 
 internal static class Naming
 {
-    internal static string ToMethodName(params object[] path) =>
-        path.Cast<string>()
-            .Unwords()
+    internal static string ToMethodName(params string[] path) =>
+        path.Unwords()
             .Words()
             .Select(Transform)
             .Unwords()

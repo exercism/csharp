@@ -1,12 +1,12 @@
 using System.Collections.Immutable;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 
 using LibGit2Sharp;
 
-using Newtonsoft.Json.Linq;
-
 namespace Generators;
 
-internal record CanonicalData(Exercise Exercise, JObject[] TestCases);
+internal record CanonicalData(Exercise Exercise, JsonNode[] TestCases);
 
 internal static class CanonicalDataParser
 {
@@ -14,26 +14,26 @@ internal static class CanonicalDataParser
     
     internal static CanonicalData Parse(Exercise exercise) => new(exercise, ParseTestCases(exercise));
 
-    private static JObject[] ParseTestCases(Exercise exercise)
-    {
-        var jsonObject = JObject.Parse(File.ReadAllText(Paths.CanonicalDataFile(exercise)));
-        return ParseTestCases(jsonObject, ImmutableQueue<string>.Empty).ToArray();
-    }
+    private static JsonNode[] ParseTestCases(Exercise exercise) =>
+        ParseTestCases(ParseCanonicalData(exercise), ImmutableQueue<string>.Empty).ToArray();
 
-    private static IEnumerable<JObject> ParseTestCases(JObject jsonObject, ImmutableQueue<string> path)
+    private static JsonNode ParseCanonicalData(Exercise exercise) =>
+        JsonNode.Parse(File.ReadAllText(Paths.CanonicalDataFile(exercise)))!;
+
+    private static IEnumerable<JsonNode> ParseTestCases(JsonNode jsonNode, ImmutableQueue<string> path)
     {
-        var updatedPath = jsonObject.TryGetValue("description", out var description)
-            ? path.Enqueue(description.Value<string>()!)
+        var updatedPath = jsonNode["description"] is {} description
+            ? path.Enqueue(description.GetValue<string>())
             : path;
 
-        return jsonObject.TryGetValue("cases", out var cases)
-            ? ((JArray)cases).Cast<JObject>().SelectMany(child => ParseTestCases(child, updatedPath))
-            : [ToTestCase(jsonObject, updatedPath)];
+        return jsonNode["cases"] is {} cases
+            ? cases.AsArray().SelectMany(child => ParseTestCases(child!, updatedPath))
+            : [ToTestCase(jsonNode, updatedPath)];
     }
 
-    private static JObject ToTestCase(JObject testCaseJson, IEnumerable<string> path)
+    private static JsonNode ToTestCase(JsonNode testCaseJson, IEnumerable<string> path)
     {
-        testCaseJson["path"] = JArray.FromObject(path);
+        testCaseJson["path"] = JsonSerializer.SerializeToNode(path);
         return testCaseJson;
     }
     

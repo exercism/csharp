@@ -3,15 +3,15 @@ using Xunit;
 
 public class WordyTests
 {
-    {{#test_cases}}
-    [Fact{{#unless @first}}(Skip = "Remove this Skip property to run this test"){{/unless}}]
-    public void {{test_method_name}}()
+    {{for testCase in testCases}}
+    [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
+    public void {{testCase.testMethodName}}()
     {
-        {{#if expected.error}}
-        Assert.Throws<ArgumentException>(() => Wordy.Answer({{lit input.question}}));
+        {{if testCase.expected.error}}
+        Assert.Throws<ArgumentException>(() => Wordy.Answer({{testCase.input.question | string.literal}}));
         {{else}}
-        Assert.Equal({{expected}}, Wordy.Answer({{lit input.question}}));
-        {{/if}}
+        Assert.Equal({{testCase.expected}}, Wordy.Answer({{testCase.input.question | string.literal}}));
+        {{end}}
     }
-    {{/test_cases}}
+    {{end}}
 }

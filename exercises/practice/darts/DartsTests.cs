@@ -65,7 +65,7 @@ public class DartsTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Just_within_the_outer_circle()
     {
-        Assert.Equal(1, Darts.Score(-7, 7));
+        Assert.Equal(1, Darts.Score(-7.0, 7.0));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]

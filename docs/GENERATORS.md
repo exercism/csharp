@@ -15,11 +15,9 @@ To generate a practice exercise's tests, the test generator:
 
 ### Step 1: read `canonical-data.json` file
 
-The test generator parses the test cases from the exercise's `canonical-data.json` using the [JSON.net library](https://www.newtonsoft.com/json).
+The test generator parses the test cases from the exercise's `canonical-data.json` using the [System.Text.Json namespace](https://learn.microsoft.com/en-us/dotnet/api/system.text.json).
 
 Since some canonical data uses nesting, the parsed test case includes an additional `path` field that contains the `description` properties of any parent elements, as well as the test case's own `description` property.
-
-Note: the JSON is parsed to an `ExpandoObject` instance, which makes dealing with dynamic data easier.
 
 ### Step 2: omit excluded tests from `tests.toml` file
 
@@ -44,7 +42,7 @@ Finally, the output of the rendered template is written to the exercise's test f
 
 ## Templates
 
-The templates are rendered using the [Handlebars.Net library](https://github.com/Handlebars-Net/Handlebars.Net), which supports [handlebars syntax](https://handlebarsjs.com/).
+The templates are rendered using the [Scriban library](https://github.com/scriban/scriban/).
 
 ## Command-line interface
 
