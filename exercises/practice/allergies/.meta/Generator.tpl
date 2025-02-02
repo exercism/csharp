@@ -2,7 +2,7 @@ using Xunit;
 
 public class AllergiesTests
 {
-    {{for testCase in testCasesByProperty.allergicTo}}
+    {{for testCase in testCases | property "allergicTo" }}
     [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
     public void {{testCase.testMethodName}}()
     {
@@ -11,7 +11,7 @@ public class AllergiesTests
     }
     {{end}}
 
-    {{for testCase in testCasesByProperty.list}}
+    {{for testCase in testCases | property "list"}}
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void {{testCase.testMethodName}}()
     {
