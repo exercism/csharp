@@ -42,6 +42,6 @@ public static class Program
     private class NewOptions
     {
         [Option('e', "exercise", Required = true, HelpText = "The exercise (slug) for which to generate a generator file.")]
-        public required string Exercise { get; set; }
+        public string? Exercise { get; set; }
     }
 }
