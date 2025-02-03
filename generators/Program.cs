@@ -2,24 +2,34 @@
 
 namespace Generators;
 
-public static class Program 
+public static class Program
 {
-    private class Options
-    {
-        [Option('e', "exercise", Required = false, HelpText = "The exercise (slug) to generate the tests file for.")]
-        public string? Exercise { get; set; }
-    }
-    
     static void Main(string[] args) =>
-        Parser.Default.ParseArguments<Options>(args)
-            .WithParsed(options =>
-            {
-                foreach (var exercise in Exercises(options))
-                    TestsGenerator.Generate(exercise);
-            });
+        Parser.Default.ParseArguments<NewOptions, GenerateOptions>(args)
+            .WithParsed<GenerateOptions>(HandleGenerateCommand)
+            .WithParsed<NewOptions>(HandleNewCommand)
+            .WithNotParsed(HandleErrors);
 
-    private static Exercise[] Exercises(Options options) =>
-        options.Exercise is null
-            ? Generators.Exercises.TemplatedExercises()
-            : [Generators.Exercises.TemplatedExercise(options.Exercise)];
+    private static void HandleGenerateCommand(GenerateOptions options)
+    {
+        if (options.Exercise is not null)
+        {
+            TestsGenerator.Generate(Exercises.TemplatedExercise(options.Exercise));
+            return;
+        }
+            
+        foreach (var exercise in Exercises.TemplatedExercises())
+            TestsGenerator.Generate(exercise);
+    }
+
+    private static void HandleNewCommand(NewOptions options)
+    {
+        throw new NotImplementedException();
+    }
+
+    private static void HandleErrors(IEnumerable<Error> errors)
+    {
+        foreach (var error in errors)
+            Console.Error.WriteLine(error.ToString());
+    }
 }
