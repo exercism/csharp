@@ -20,17 +20,17 @@ using Xunit;
 
 public class SimpleCipherTests
 {
-    {{for testCase in testCases}}
+    {{for test in tests}}
     [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
-    public void {{testCase.methodName}}()
+    public void {{test.methodName}}()
     {
-        var sut = new SimpleCipher({{if testCase.input.key}}{{testCase.input.key | string.literal}}{{end}});
-        {{if testCase.property == "encode"}}        
-        Assert.Equal({{testCase.expected | expected_value}}, sut.Encode({{testCase.input.plaintext | string.literal}}));
-        {{else if testCase.property == "decode"}}
-        Assert.Equal({{testCase.expected | string.literal}}, sut.Decode({{testCase | decode_arg}}));
-        {{else if testCase.property == "key"}}
-        Assert.Matches({{testCase.expected.match | string.literal}}, sut.Key);
+        var sut = new SimpleCipher({{if test.input.key}}{{test.input.key | string.literal}}{{end}});
+        {{if test.property == "encode"}}        
+        Assert.Equal({{test.expected | expected_value}}, sut.Encode({{test.input.plaintext | string.literal}}));
+        {{else if test.property == "decode"}}
+        Assert.Equal({{test.expected | string.literal}}, sut.Decode({{test | decode_arg}}));
+        {{else if test.property == "key"}}
+        Assert.Matches({{test.expected.match | string.literal}}, sut.Key);
         {{end}}
     }
     {{end}}

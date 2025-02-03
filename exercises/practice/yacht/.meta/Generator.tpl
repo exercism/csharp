@@ -3,11 +3,11 @@ using Xunit;
 
 public class YachtTests
 {
-    {{for testCase in testCases}}
+    {{for test in tests}}
     [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
-    public void {{testCase.methodName}}()
+    public void {{test.methodName}}()
     {
-        Assert.Equal({{testCase.expected}}, YachtGame.Score({{testCase.input.dice}}, {{testCase.input.category | enum "YachtCategory"}}));
+        Assert.Equal({{test.expected}}, YachtGame.Score({{test.input.dice}}, {{test.input.category | enum "YachtCategory"}}));
     }
     {{end}}
 }

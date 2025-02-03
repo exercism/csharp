@@ -3,15 +3,15 @@ using Xunit;
 
 public class SeriesTests
 {
-    {{for testCase in testCases}}
+    {{for test in tests}}
     [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
-    public void {{testCase.methodName}}()
+    public void {{test.methodName}}()
     {
-        {{if testCase.expected.error}}
-        Assert.Throws<ArgumentException>(() => Series.Slices({{testCase.input.series | string.literal}}, {{testCase.input.sliceLength}}));
+        {{if test.expected.error}}
+        Assert.Throws<ArgumentException>(() => Series.Slices({{test.input.series | string.literal}}, {{test.input.sliceLength}}));
         {{else}}
-        string[] expected = {{testCase.expected}};
-        Assert.Equal(expected, Series.Slices({{testCase.input.series | string.literal}}, {{testCase.input.sliceLength}}));
+        string[] expected = {{test.expected}};
+        Assert.Equal(expected, Series.Slices({{test.input.series | string.literal}}, {{test.input.sliceLength}}));
         {{end}}
     }
     {{end}}

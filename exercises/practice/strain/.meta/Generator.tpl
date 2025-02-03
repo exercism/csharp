@@ -20,13 +20,13 @@ using Xunit;
 
 public class StrainTests
 {
-    {{for testCase in testCases}}
+    {{for test in tests}}
     [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
-    public void {{testCase.methodName}}()
+    public void {{test.methodName}}()
     {
-        {{testCase.description | test_case_type}} expected = {{testCase.expected}};
-        {{testCase.description | test_case_type}} input = {{testCase.input.list}};
-        Assert.Equal(expected, input.{{testCase.property | string.capitalize}}({{testCase.input.predicate | normalize_predicate}}).ToArray());
+        {{test.description | test_case_type}} expected = {{test.expected}};
+        {{test.description | test_case_type}} input = {{test.input.list}};
+        Assert.Equal(expected, input.{{test.property | string.capitalize}}({{test.input.predicate | normalize_predicate}}).ToArray());
     }
     {{end}}
 }

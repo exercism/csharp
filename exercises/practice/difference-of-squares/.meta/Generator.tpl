@@ -2,11 +2,11 @@ using Xunit;
 
 public class DifferenceOfSquaresTests
 {
-    {{for testCase in testCases}}
+    {{for test in tests}}
     [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
-    public void {{testCase.shortMethodName}}()
+    public void {{test.shortMethodName}}()
     {
-        Assert.Equal({{testCase.expected}}, DifferenceOfSquares.Calculate{{testCase.property | string.capitalize}}({{testCase.input.number}}));
+        Assert.Equal({{test.expected}}, DifferenceOfSquares.Calculate{{test.property | string.capitalize}}({{test.input.number}}));
     }
     {{end}}
 }

@@ -29,7 +29,7 @@ internal static class Templates
     private static class TemplateData
     {
         internal static JsonElement ForCanonicalData(CanonicalData canonicalData) =>
-            JsonSerializer.SerializeToElement(new { testCases = canonicalData.TestCases.Select(Create).ToArray() });
+            JsonSerializer.SerializeToElement(new { tests = canonicalData.TestCases.Select(Create).ToArray() });
 
         private static JsonElement Create(JsonNode testCase)
         {

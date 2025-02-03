@@ -2,11 +2,11 @@ using Xunit;
 
 public class AcronymTests
 {
-    {{for testCase in testCases}}
+    {{for test in tests}}
     [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
-    public void {{testCase.methodName}}()
+    public void {{test.methodName}}()
     {
-        Assert.Equal({{testCase.expected | string.literal}}, Acronym.Abbreviate({{testCase.input.phrase | string.literal}}));
+        Assert.Equal({{test.expected | string.literal}}, Acronym.Abbreviate({{test.input.phrase | string.literal}}));
     }
     {{end}}
 }

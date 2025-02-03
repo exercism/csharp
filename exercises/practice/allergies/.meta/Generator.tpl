@@ -2,25 +2,25 @@ using Xunit;
 
 public class AllergiesTests
 {
-    {{for testCase in testCases | property "allergicTo" }}
+    {{for test in tests | property "allergicTo" }}
     [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
-    public void {{testCase.methodName}}()
+    public void {{test.methodName}}()
     {
-        var sut = new Allergies({{testCase.input.score}});
-        Assert.{{testCase.expected ? "True" : "False"}}(sut.IsAllergicTo({{testCase.input.item | enum "Allergen"}}));
+        var sut = new Allergies({{test.input.score}});
+        Assert.{{test.expected ? "True" : "False"}}(sut.IsAllergicTo({{test.input.item | enum "Allergen"}}));
     }
     {{end}}
 
-    {{for testCase in testCases | property "list"}}
+    {{for test in tests | property "list"}}
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void {{testCase.methodName}}()
+    public void {{test.methodName}}()
     {
-        var sut = new Allergies({{testCase.input.score}});
-        {{if testCase.expected.empty?}}
+        var sut = new Allergies({{test.input.score}});
+        {{if test.expected.empty?}}
         Assert.Empty(sut.List());
         {{else}}
         Allergen[] expected = [
-            {{for expected in testCase.expected}}        
+            {{for expected in test.expected}}        
                 {{expected | enum "Allergen"}}{{if !for.last}},{{end}}
             {{end}}
         ];

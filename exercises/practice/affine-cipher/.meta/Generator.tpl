@@ -3,14 +3,14 @@ using Xunit;
 
 public class AffineCipherTests
 {
-    {{for testCase in testCases}}
+    {{for test in tests}}
     [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
-    public void {{testCase.shortMethodName}}()
+    public void {{test.shortMethodName}}()
     {
-        {{if testCase.expected.error}}
-        Assert.Throws<ArgumentException>(() => AffineCipher.{{testCase.property | string.capitalize}}({{testCase.input.phrase | string.literal}}, {{testCase.input.key.a}}, {{testCase.input.key.b}}));
+        {{if test.expected.error}}
+        Assert.Throws<ArgumentException>(() => AffineCipher.{{test.property | string.capitalize}}({{test.input.phrase | string.literal}}, {{test.input.key.a}}, {{test.input.key.b}}));
         {{else}}
-        Assert.Equal({{testCase.expected | string.literal}}, AffineCipher.{{testCase.property | string.capitalize}}({{testCase.input.phrase | string.literal}}, {{testCase.input.key.a}}, {{testCase.input.key.b}}));
+        Assert.Equal({{test.expected | string.literal}}, AffineCipher.{{test.property | string.capitalize}}({{test.input.phrase | string.literal}}, {{test.input.key.a}}, {{test.input.key.b}}));
         {{end}}
     }
     {{end}}
