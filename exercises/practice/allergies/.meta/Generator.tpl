@@ -4,7 +4,7 @@ public class AllergiesTests
 {
     {{for testCase in testCases | property "allergicTo" }}
     [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
-    public void {{testCase.testMethodName}}()
+    public void {{testCase.methodName}}()
     {
         var sut = new Allergies({{testCase.input.score}});
         Assert.{{testCase.expected ? "True" : "False"}}(sut.IsAllergicTo({{testCase.input.item | enum "Allergen"}}));
@@ -13,7 +13,7 @@ public class AllergiesTests
 
     {{for testCase in testCases | property "list"}}
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void {{testCase.testMethodName}}()
+    public void {{testCase.methodName}}()
     {
         var sut = new Allergies({{testCase.input.score}});
         {{if testCase.expected.empty?}}

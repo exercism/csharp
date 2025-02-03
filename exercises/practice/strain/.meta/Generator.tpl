@@ -22,7 +22,7 @@ public class StrainTests
 {
     {{for testCase in testCases}}
     [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
-    public void {{testCase.testMethodName}}()
+    public void {{testCase.methodName}}()
     {
         {{testCase.description | test_case_type}} expected = {{testCase.expected}};
         {{testCase.description | test_case_type}} input = {{testCase.input.list}};

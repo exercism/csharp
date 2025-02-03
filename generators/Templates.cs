@@ -33,8 +33,8 @@ internal static class Templates
 
         private static JsonElement Create(JsonNode testCase)
         {
-            testCase["testMethodName"] = Naming.ToMethodName(testCase["path"]!.AsArray().GetValues<string>().ToArray());
-            testCase["shortTestMethodName"] = Naming.ToMethodName(testCase["description"]!.GetValue<string>());
+            testCase["methodName"] = Naming.ToMethodName(testCase["path"]!.AsArray().GetValues<string>().ToArray());
+            testCase["shortMethodName"] = Naming.ToMethodName(testCase["description"]!.GetValue<string>());
             
             return JsonSerializer.SerializeToElement(testCase);
         }

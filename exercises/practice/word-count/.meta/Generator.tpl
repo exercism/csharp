@@ -5,7 +5,7 @@ public class WordCountTests
 {
     {{for testCase in testCases}}
     [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
-    public void {{testCase.testMethodName}}()
+    public void {{testCase.methodName}}()
     {
         var actual = WordCount.CountWords({{testCase.input.sentence | string.literal}});
         var expected = new Dictionary<string, int>
