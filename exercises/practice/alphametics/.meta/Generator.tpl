@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using Xunit;
 
-public class AlphameticsTests
+public class {{testClass}}
 {
     {{for test in tests}}
     [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
-    public void {{test.methodName}}()
+    public void {{test.testMethod}}()
     {
         {{if test.expected}}
         var actual = Alphametics.Solve({{test.input.puzzle | string.literal}});

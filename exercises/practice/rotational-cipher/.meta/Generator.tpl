@@ -1,12 +1,12 @@
 using Xunit;
 
-public class RotationalCipherTests
+public class {{testClass}}
 {
     {{for test in tests}}
     [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
-    public void {{test.methodName}}()
+    public void {{test.testMethod}}()
     {
-        Assert.Equal({{test.expected | string.literal}}, RotationalCipher.Rotate({{test.input.text | string.literal}}, {{test.input.shiftKey}}));
+        Assert.Equal({{test.expected | string.literal}}, {{testedClass}}.{{test.testedMethod}}({{test.input.text | string.literal}}, {{test.input.shiftKey}}));
     }
     {{end}}
 }

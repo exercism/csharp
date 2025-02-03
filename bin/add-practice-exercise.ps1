@@ -51,15 +51,15 @@ $generator = "${exerciseDir}/.meta/Generator.tpl"
 Add-Content -Path $generator -Value @"
 using Xunit;
 
-public class ${exerciseName}Tests
+public class {{testClass}}
 {
-    {{#test_cases}}
-    [Fact{{#unless @first}}(Skip = "Remove this Skip property to run this test"){{/unless}}]
-    public void {{test_method_name}}()
+    {{for test in tests}}
+    [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
+    public void {{test.testMethod}}()
     {
         // TODO: implement the test
     }
-    {{/test_cases}}
+    {{end}}
 }
 "@
 & dotnet run --project generators --exercise $Exercise

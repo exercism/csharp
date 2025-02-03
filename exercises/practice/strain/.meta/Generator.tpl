@@ -18,15 +18,15 @@ using Xunit;
     {{end}}
 {{end}}
 
-public class StrainTests
+public class {{testClass}}
 {
     {{for test in tests}}
     [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
-    public void {{test.methodName}}()
+    public void {{test.testMethod}}()
     {
         {{test.description | test_case_type}} expected = {{test.expected}};
         {{test.description | test_case_type}} input = {{test.input.list}};
-        Assert.Equal(expected, input.{{test.property | string.capitalize}}({{test.input.predicate | normalize_predicate}}).ToArray());
+        Assert.Equal(expected, input.{{test.testedMethod}}({{test.input.predicate | normalize_predicate}}).ToArray());
     }
     {{end}}
 }
