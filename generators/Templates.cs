@@ -29,12 +29,12 @@ internal static class Templates
     private static class TemplateData
     {
         internal static JsonElement ForCanonicalData(CanonicalData canonicalData) =>
-            JsonSerializer.SerializeToElement(new { testCases = canonicalData.TestCases.Select(Create).ToArray() });
+            JsonSerializer.SerializeToElement(new { tests = canonicalData.TestCases.Select(Create).ToArray() });
 
         private static JsonElement Create(JsonNode testCase)
         {
-            testCase["testMethodName"] = Naming.ToMethodName(testCase["path"]!.AsArray().GetValues<string>().ToArray());
-            testCase["shortTestMethodName"] = Naming.ToMethodName(testCase["description"]!.GetValue<string>());
+            testCase["methodName"] = Naming.ToMethodName(testCase["path"]!.AsArray().GetValues<string>().ToArray());
+            testCase["shortMethodName"] = Naming.ToMethodName(testCase["description"]!.GetValue<string>());
             
             return JsonSerializer.SerializeToElement(testCase);
         }

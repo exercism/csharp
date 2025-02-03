@@ -2,11 +2,11 @@ using Xunit;
 
 public class TriangleTests
 {
-    {{for testCase in testCases}}
+    {{for test in tests}}
     [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
-    public void {{testCase.testMethodName}}()
+    public void {{test.methodName}}()
     {
-        Assert.{{testCase.expected ? "True" : "False"}}(Triangle.Is{{testCase.property | string.capitalize}}({{testCase.input.sides | array.join ", "}}));
+        Assert.{{test.expected ? "True" : "False"}}(Triangle.Is{{test.property | string.capitalize}}({{test.input.sides | array.join ", "}}));
     }
     {{end}}
 }

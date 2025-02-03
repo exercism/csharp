@@ -57,7 +57,7 @@ public class PangramTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Am_and_am_are_26_different_characters_but_not_a_pangram()
+    public void A_m_and_a_m_are_26_different_characters_but_not_a_pangram()
     {
         Assert.False(Pangram.IsPangram("abcdefghijklm ABCDEFGHIJKLM"));
     }

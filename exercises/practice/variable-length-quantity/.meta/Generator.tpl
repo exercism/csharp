@@ -3,24 +3,24 @@ using Xunit;
 
 public class VariableLengthQuantityTests
 {
-    {{for testCase in testCases}}
+    {{for test in tests}}
     [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
-    public void {{testCase.testMethodName}}()
+    public void {{test.methodName}}()
     {
         uint[] integers = [
-            {{for integer in testCase.input.integers}}
+            {{for integer in test.input.integers}}
             {{integer}}{{if !for.last}},{{end}}
             {{end}}
             ];
-        {{if testCase.expected.error}}
-        Assert.Throws<InvalidOperationException>(() => VariableLengthQuantity.{{testCase.property | string.capitalize}}(integers));
+        {{if test.expected.error}}
+        Assert.Throws<InvalidOperationException>(() => VariableLengthQuantity.{{test.property | string.capitalize}}(integers));
         {{else}}
         uint[] expected = [
-            {{for expected in testCase.expected}}
+            {{for expected in test.expected}}
             {{expected}}{{if !for.last}},{{end}}
             {{end}}
         ];
-        Assert.Equal(expected, VariableLengthQuantity.{{testCase.property | string.capitalize}}(integers));
+        Assert.Equal(expected, VariableLengthQuantity.{{test.property | string.capitalize}}(integers));
         {{end}}
     }
     {{end}}

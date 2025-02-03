@@ -3,17 +3,17 @@ using Xunit;
 
 public class AllYourBaseTests
 {
-    {{for testCase in testCases}}
+    {{for test in tests}}
     [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
-    public void {{testCase.testMethodName}}()
+    public void {{test.methodName}}()
     {
-        {{if testCase.expected.error}}
-        int[] digits = {{testCase.input.digits}};
-        Assert.Throws<ArgumentException>(() => AllYourBase.Rebase({{testCase.input.inputBase}}, digits, {{testCase.input.outputBase}}));        
+        {{if test.expected.error}}
+        int[] digits = {{test.input.digits}};
+        Assert.Throws<ArgumentException>(() => AllYourBase.Rebase({{test.input.inputBase}}, digits, {{test.input.outputBase}}));        
         {{else}}
-        int[] digits = {{testCase.input.digits}};
-        int[] expected = {{testCase.expected}};
-        Assert.Equal(expected, AllYourBase.Rebase({{testCase.input.inputBase}}, digits, {{testCase.input.outputBase}}));
+        int[] digits = {{test.input.digits}};
+        int[] expected = {{test.expected}};
+        Assert.Equal(expected, AllYourBase.Rebase({{test.input.inputBase}}, digits, {{test.input.outputBase}}));
         {{end}}
     }
     {{end}}
