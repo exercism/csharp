@@ -46,23 +46,9 @@ $project = "${exerciseDir}/${ExerciseName}.csproj"
 Remove-Item -Path "${exerciseDir}/UnitTest1.cs"
 (Get-Content -Path ".editorconfig") -Replace "\[\*\.cs\]", "[${exerciseName}.cs]" | Set-Content -Path "${exerciseDir}/.editorconfig"
 
-# Add and run generator (this will update the tests file)
-$generator = "${exerciseDir}/.meta/Generator.tpl"
-Add-Content -Path $generator -Value @"
-using Xunit;
-
-public class {{testClass}}
-{
-    {{for test in tests}}
-    [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
-    public void {{test.testMethod}}()
-    {
-        // TODO: implement the test
-    }
-    {{end}}
-}
-"@
-& dotnet run --project generators --exercise $Exercise
+# Create new generator template and run generator (this will update the tests file)
+& dotnet run --project generators new --exercise $Exercise
+& dotnet run --project generators generate --exercise $Exercise
 
 # Output the next steps
 $files = Get-Content "exercises/practice/${Exercise}/.meta/config.json" | ConvertFrom-Json | Select-Object -ExpandProperty files

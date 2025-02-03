@@ -32,10 +32,12 @@ internal static class TemplateGenerator
         return template.Render(model).Trim() + Environment.NewLine;
     }
 
-    private static string Expected(JsonNode testCase) =>
+    private static string Value(string field, JsonNode testCase) =>
         testCase.GetValueKind() == JsonValueKind.String
-            ? "{{test.expected | string.literal}}"
-            : "{{test.expected}}";
+            ? $"{{{{{field} | string.literal}}}}"
+            : $"{{{{{field}}}}}";
+
+    private static string Expected(JsonNode testCase) => Value("test.expected", testCase);
 
     private static string Assertion(JsonNode testCase) =>
         testCase["expected"]!.GetValueKind() switch
@@ -43,9 +45,12 @@ internal static class TemplateGenerator
             JsonValueKind.False or JsonValueKind.True => AssertBool(testCase),
             _ => AssertEqual(testCase)
         };
+    
+    private static string TestedMethodArguments(JsonNode testCase) =>
+        string.Join(", ", testCase["input"]!.AsObject().Select(kv => Value($"test.input.{kv.Key}", kv.Value!)));
 
     private static string TestedMethodCall(JsonNode testCase) =>
-        "{{testedClass}}.{{test.testedMethod}}({{test.input}}";
+        $"{{{{testedClass}}}}.{{{{test.testedMethod}}}}({TestedMethodArguments(testCase)})";
 
     private static string AssertBool(JsonNode testCase) =>
         $"Assert.{{{{test.expected ? \"True\" : \"False\"}}}}({TestedMethodCall(testCase)});";
