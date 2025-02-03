@@ -4,7 +4,10 @@ namespace Generators;
 
 internal static class Naming
 {
-    internal static string ToMethodName(params string[] path) =>
+    internal static string ToMethodName(string property) =>
+        property.Dehumanize();
+
+    internal static string ToTestMethodName(params string[] path) =>
         path.Unwords()
             .Words()
             .Select(Transform)

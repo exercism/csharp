@@ -1,12 +1,12 @@
 using Xunit;
 
-public class SquareRootTests
+public class {{testClass}}
 {
     {{for test in tests}}
     [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
-    public void {{test.methodName}}()
+    public void {{test.testMethod}}()
     {
-        Assert.Equal({{test.expected}}, SquareRoot.Root({{test.input.radicand}}));
+        Assert.Equal({{test.expected}}, {{testedClass}}.Root({{test.input.radicand}}));
     }
     {{end}}
 }
