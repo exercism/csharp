@@ -1,8 +1,10 @@
+using System.Text.Json;
+
 using Humanizer;
 
 namespace Generators;
 
-internal record Exercise(string Slug, string Name);
+internal record Exercise(string Slug, string Name, bool HasTemplate);
 
 internal static class Exercises
 {
@@ -26,5 +28,15 @@ internal static class Exercises
         return exercise;
     }
 
-    private static Exercise ToExercise(string slug) => new(slug, slug.Dehumanize());
+    private static Exercise ToExercise(string slug) => new(slug, slug.Dehumanize(), true);
+    
+    private static IEnumerable<string> ParseExerciseSlugs() =>
+        ParseConfig()
+            .GetProperty("exercises")
+            .GetProperty("practice")
+            .EnumerateArray()
+            .Select(exercise => exercise.GetProperty("slug").ToString());
+    
+    private static JsonElement ParseConfig() =>
+        JsonSerializer.Deserialize<JsonElement>(File.ReadAllText(Paths.TrackConfigFile));  
 }
