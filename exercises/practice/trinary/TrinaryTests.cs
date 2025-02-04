@@ -1,6 +1,6 @@
 using Xunit;
 
-public class TrinaryTest
+public class TrinaryTests
 {
     [Fact]
     public void Trinary_1_is_decimal_1()
