@@ -93,9 +93,7 @@ public class MarkdownTests
     [Fact]
     public void Unordered_lists()
     {
-        var markdown = 
-            "* Item 1\n" +
-            "* Item 2";
+        var markdown = "* Item 1\n* Item 2";
         var expected = "<ul><li>Item 1</li><li>Item 2</li></ul>";
         Assert.Equal(expected, Markdown.Parse(markdown));
     }
@@ -103,10 +101,7 @@ public class MarkdownTests
     [Fact]
     public void With_a_little_bit_of_everything()
     {
-        var markdown = 
-            "# Header!\n" +
-            "* __Bold Item__\n" +
-            "* _Italic Item_";
+        var markdown = "# Header!\n* __Bold Item__\n* _Italic Item_";
         var expected = "<h1>Header!</h1><ul><li><strong>Bold Item</strong></li><li><em>Italic Item</em></li></ul>";
         Assert.Equal(expected, Markdown.Parse(markdown));
     }
@@ -122,9 +117,7 @@ public class MarkdownTests
     [Fact]
     public void With_markdown_symbols_in_the_list_item_text_that_should_not_be_interpreted()
     {
-        var markdown = 
-            "* Item 1 with a # in the text\n" +
-            "* Item 2 with * in the text";
+        var markdown = "* Item 1 with a # in the text\n* Item 2 with * in the text";
         var expected = "<ul><li>Item 1 with a # in the text</li><li>Item 2 with * in the text</li></ul>";
         Assert.Equal(expected, Markdown.Parse(markdown));
     }
@@ -140,11 +133,7 @@ public class MarkdownTests
     [Fact]
     public void Unordered_lists_close_properly_with_preceding_and_following_lines()
     {
-        var markdown = 
-            "# Start a list\n" +
-            "* Item 1\n" +
-            "* Item 2\n" +
-            "End a list";
+        var markdown = "# Start a list\n* Item 1\n* Item 2\nEnd a list";
         var expected = "<h1>Start a list</h1><ul><li>Item 1</li><li>Item 2</li></ul><p>End a list</p>";
         Assert.Equal(expected, Markdown.Parse(markdown));
     }
