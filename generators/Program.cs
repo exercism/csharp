@@ -14,7 +14,7 @@ public static class Program
         Exercises.Templated().ForEach(TestsGenerator.Generate);
 
     private static void HandleNewCommand(NewOptions options) =>
-        Exercises.Templated().ForEach(TemplateGenerator.Generate);
+        Exercises.Untemplated().ForEach(TemplateGenerator.Generate);
 
     private static void HandleErrors(IEnumerable<Error> errors) =>
         errors.ToList().ForEach(Console.Error.WriteLine);
