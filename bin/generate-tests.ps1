@@ -24,7 +24,7 @@ $ErrorActionPreference = "Stop"
 $PSNativeCommandUseErrorActionPreference = $true
 
 if ($Exercise) {
-    dotnet run --project generators --exercise $Exercise
+    dotnet run --project generators generate --exercise $Exercise
 } else {
-    dotnet run --project generators
+    dotnet run --project generators generate 
 }
