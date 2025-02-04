@@ -11,6 +11,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "SquareRoot.csproj"
     ]
   },
   "blurb": "Given a natural radicand, return its square root.",
