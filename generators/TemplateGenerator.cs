@@ -32,8 +32,8 @@ internal static class TemplateGenerator
         return template.Render(model).Trim() + Environment.NewLine;
     }
 
-    private static string Value(string field, JsonNode testCase) =>
-        testCase.GetValueKind() == JsonValueKind.String
+    private static string Value(string field, JsonNode? testCase) =>
+        testCase is not null && testCase.GetValueKind() == JsonValueKind.String
             ? $"{{{{{field} | string.literal}}}}"
             : $"{{{{{field}}}}}";
 
