@@ -22,11 +22,7 @@ internal static class TemplateGenerator
     {
         var error = canonicalData.TestCases.Where(ExpectsError).Any();
         var testCase = canonicalData.TestCases.First(testCase => !ExpectsError(testCase));
-
-        HashSet<string> namespaces = ["Xunit"];
-        if (error) namespaces.Add("System");
-
-        var model = new { namespaces, error, assertion = Assertion(testCase), throwsAssertion = AssertThrows(testCase) };
+        var model = new { error, assert = Assertion(testCase), throws = AssertThrows(testCase) };
 
         var template = Template.Parse(GeneratorTemplate);
         return template.Render(model).Trim() + Environment.NewLine;
@@ -37,7 +33,7 @@ internal static class TemplateGenerator
             ? $"{{{{{field} | string.literal}}}}"
             : $"{{{{{field}}}}}";
 
-    private static string Expected(JsonNode testCase) => Value("test.expected", testCase);
+    private static string Expected(JsonNode testCase) => Value("test.expected", testCase["expected"]);
 
     private static string Assertion(JsonNode testCase) =>
         testCase["expected"]!.GetValueKind() switch
@@ -56,18 +52,18 @@ internal static class TemplateGenerator
         $"Assert.{{{{test.expected ? \"True\" : \"False\"}}}}({TestedMethodCall(testCase)});";
     
     private static string AssertEqual(JsonNode testCase) =>
-        $"Assert.Equal({Expected(testCase)}, {TestedMethodCall(testCase)}));";
+        $"Assert.Equal({Expected(testCase)}, {TestedMethodCall(testCase)});";
     
     private static string AssertThrows(JsonNode testCase) =>
-        $"Assert.Throws<ArgumentException>(() => {TestedMethodCall(testCase)}));";
+        $"Assert.Throws<ArgumentException>(() => {TestedMethodCall(testCase)});";
 
     private static bool ExpectsError(this JsonNode testCase) =>
         testCase["expected"] is JsonObject jsonObject && jsonObject.ContainsKey("error");
 
     private const string GeneratorTemplate = @"
-{{for namespace in namespaces}}
-using {{namespace}};
-{{end}}
+{{if error}}using System;{{end}}
+using Xunit;
+
 public class {%{{{testClass}}}%}
 {
     {%{{{for test in tests}}}%}
@@ -76,13 +72,14 @@ public class {%{{{testClass}}}%}
     {
         {{-if error}}
         {%{{{if test.expected.error}}}%}
-        {{throwsAssertion}}
+            {{throws}}
         {%{{{else}}}%}
-        {{assertion}}
+            {{assert}}
         {%{{{end}}}%}
-        {{else}}
-        {{assertion}}
+        {{-else}}
+        {{assert}}
         {{-end}}
     }
+    {%{{{end}}}%}
 }";
 }
