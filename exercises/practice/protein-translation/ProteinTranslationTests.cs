@@ -11,85 +11,99 @@ public class ProteinTranslationTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Methionine_rna_sequence()
     {
-        Assert.Equal(new[] { "Methionine" }, ProteinTranslation.Proteins("AUG"));
+        string[] expected = ["Methionine"];
+        Assert.Equal(expected, ProteinTranslation.Proteins("AUG"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Phenylalanine_rna_sequence_1()
     {
-        Assert.Equal(new[] { "Phenylalanine" }, ProteinTranslation.Proteins("UUU"));
+        string[] expected = ["Phenylalanine"];
+        Assert.Equal(expected, ProteinTranslation.Proteins("UUU"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Phenylalanine_rna_sequence_2()
     {
-        Assert.Equal(new[] { "Phenylalanine" }, ProteinTranslation.Proteins("UUC"));
+        string[] expected = ["Phenylalanine"];
+        Assert.Equal(expected, ProteinTranslation.Proteins("UUC"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Leucine_rna_sequence_1()
     {
-        Assert.Equal(new[] { "Leucine" }, ProteinTranslation.Proteins("UUA"));
+        string[] expected = ["Leucine"];
+        Assert.Equal(expected, ProteinTranslation.Proteins("UUA"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Leucine_rna_sequence_2()
     {
-        Assert.Equal(new[] { "Leucine" }, ProteinTranslation.Proteins("UUG"));
+        string[] expected = ["Leucine"];
+        Assert.Equal(expected, ProteinTranslation.Proteins("UUG"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Serine_rna_sequence_1()
     {
-        Assert.Equal(new[] { "Serine" }, ProteinTranslation.Proteins("UCU"));
+        string[] expected = ["Serine"];
+        Assert.Equal(expected, ProteinTranslation.Proteins("UCU"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Serine_rna_sequence_2()
     {
-        Assert.Equal(new[] { "Serine" }, ProteinTranslation.Proteins("UCC"));
+        string[] expected = ["Serine"];
+        Assert.Equal(expected, ProteinTranslation.Proteins("UCC"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Serine_rna_sequence_3()
     {
-        Assert.Equal(new[] { "Serine" }, ProteinTranslation.Proteins("UCA"));
+        string[] expected = ["Serine"];
+        Assert.Equal(expected, ProteinTranslation.Proteins("UCA"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Serine_rna_sequence_4()
     {
-        Assert.Equal(new[] { "Serine" }, ProteinTranslation.Proteins("UCG"));
+        string[] expected = ["Serine"];
+        Assert.Equal(expected, ProteinTranslation.Proteins("UCG"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Tyrosine_rna_sequence_1()
     {
-        Assert.Equal(new[] { "Tyrosine" }, ProteinTranslation.Proteins("UAU"));
+        string[] expected = ["Tyrosine"];
+        Assert.Equal(expected, ProteinTranslation.Proteins("UAU"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Tyrosine_rna_sequence_2()
     {
-        Assert.Equal(new[] { "Tyrosine" }, ProteinTranslation.Proteins("UAC"));
+        string[] expected = ["Tyrosine"];
+        Assert.Equal(expected, ProteinTranslation.Proteins("UAC"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Cysteine_rna_sequence_1()
     {
-        Assert.Equal(new[] { "Cysteine" }, ProteinTranslation.Proteins("UGU"));
+        string[] expected = ["Cysteine"];
+        Assert.Equal(expected, ProteinTranslation.Proteins("UGU"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Cysteine_rna_sequence_2()
     {
-        Assert.Equal(new[] { "Cysteine" }, ProteinTranslation.Proteins("UGC"));
+        string[] expected = ["Cysteine"];
+        Assert.Equal(expected, ProteinTranslation.Proteins("UGC"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Tryptophan_rna_sequence()
     {
-        Assert.Equal(new[] { "Tryptophan" }, ProteinTranslation.Proteins("UGG"));
+        string[] expected = ["Tryptophan"];
+        Assert.Equal(expected, ProteinTranslation.Proteins("UGG"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
@@ -113,19 +127,22 @@ public class ProteinTranslationTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Sequence_of_two_protein_codons_translates_into_proteins()
     {
-        Assert.Equal(new[] { "Phenylalanine", "Phenylalanine" }, ProteinTranslation.Proteins("UUUUUU"));
+        string[] expected = ["Phenylalanine", "Phenylalanine"];
+        Assert.Equal(expected, ProteinTranslation.Proteins("UUUUUU"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Sequence_of_two_different_protein_codons_translates_into_proteins()
     {
-        Assert.Equal(new[] { "Leucine", "Leucine" }, ProteinTranslation.Proteins("UUAUUG"));
+        string[] expected = ["Leucine", "Leucine"];
+        Assert.Equal(expected, ProteinTranslation.Proteins("UUAUUG"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Translate_rna_strand_into_correct_protein_list()
     {
-        Assert.Equal(new[] { "Methionine", "Phenylalanine", "Tryptophan" }, ProteinTranslation.Proteins("AUGUUUUGG"));
+        string[] expected = ["Methionine", "Phenylalanine", "Tryptophan"];
+        Assert.Equal(expected, ProteinTranslation.Proteins("AUGUUUUGG"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
@@ -137,30 +154,35 @@ public class ProteinTranslationTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Translation_stops_if_stop_codon_at_end_of_two_codon_sequence()
     {
-        Assert.Equal(new[] { "Tryptophan" }, ProteinTranslation.Proteins("UGGUAG"));
+        string[] expected = ["Tryptophan"];
+        Assert.Equal(expected, ProteinTranslation.Proteins("UGGUAG"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Translation_stops_if_stop_codon_at_end_of_three_codon_sequence()
     {
-        Assert.Equal(new[] { "Methionine", "Phenylalanine" }, ProteinTranslation.Proteins("AUGUUUUAA"));
+        string[] expected = ["Methionine", "Phenylalanine"];
+        Assert.Equal(expected, ProteinTranslation.Proteins("AUGUUUUAA"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Translation_stops_if_stop_codon_in_middle_of_three_codon_sequence()
     {
-        Assert.Equal(new[] { "Tryptophan" }, ProteinTranslation.Proteins("UGGUAGUGG"));
+        string[] expected = ["Tryptophan"];
+        Assert.Equal(expected, ProteinTranslation.Proteins("UGGUAGUGG"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Translation_stops_if_stop_codon_in_middle_of_six_codon_sequence()
     {
-        Assert.Equal(new[] { "Tryptophan", "Cysteine", "Tyrosine" }, ProteinTranslation.Proteins("UGGUGUUAUUAAUGGUUU"));
+        string[] expected = ["Tryptophan", "Cysteine", "Tyrosine"];
+        Assert.Equal(expected, ProteinTranslation.Proteins("UGGUGUUAUUAAUGGUUU"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Sequence_of_two_non_stop_codons_does_not_translate_stop_codon()
+    public void Sequence_of_two_non_stop_codons_does_not_translate_to_a_stop_codon()
     {
-        Assert.Equal(new[] { "Methionine", "Methionine" }, ProteinTranslation.Proteins("AUGAUG"));
+        string[] expected = ["Methionine", "Methionine"];
+        Assert.Equal(expected, ProteinTranslation.Proteins("AUGAUG"));
     }
 }
