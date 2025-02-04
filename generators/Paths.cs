@@ -6,7 +6,8 @@ internal static class Paths
     internal static readonly string ProbSpecsDir = Path.Join(RootDir, ".problem-specifications");
     private static readonly string ProbSpecsExercisesDir = Path.Join(ProbSpecsDir, "exercises");
     internal static readonly string PracticeExercisesDir = Path.Join(RootDir, "exercises", "practice");
-
+    internal static readonly string TrackConfigFile = Path.Join(RootDir, "config.json");
+    
     internal static string ExerciseDir(Exercise exercise) => Path.Join(PracticeExercisesDir, exercise.Slug);
     internal static string TestsFile(Exercise exercise) => Path.Join(ExerciseDir(exercise), $"{exercise.Name}Tests.cs");
     internal static string TestsTomlFile(Exercise exercise) => Path.Join(ExerciseDir(exercise), ".meta", "tests.toml");
