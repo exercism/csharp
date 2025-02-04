@@ -10,26 +10,14 @@ public static class Program
             .WithParsed<NewOptions>(HandleNewCommand)
             .WithNotParsed(HandleErrors);
 
-    private static void HandleGenerateCommand(GenerateOptions options)
-    {
-        if (options.Exercise is not null)
-        {
-            TestsGenerator.Generate(Exercises.TemplatedExercise(options.Exercise));
-            return;
-        }
-            
-        foreach (var exercise in Exercises.TemplatedExercises())
-            TestsGenerator.Generate(exercise);
-    }
+    private static void HandleGenerateCommand(GenerateOptions options) =>
+        Exercises.Templated().ForEach(TestsGenerator.Generate);
 
     private static void HandleNewCommand(NewOptions options) =>
-        TemplateGenerator.Generate(Exercises.TemplatedExercise(options.Exercise));
+        Exercises.Templated().ForEach(TemplateGenerator.Generate);
 
-    private static void HandleErrors(IEnumerable<Error> errors)
-    {
-        foreach (var error in errors)
-            Console.Error.WriteLine(error.ToString());
-    }
+    private static void HandleErrors(IEnumerable<Error> errors) =>
+        errors.ToList().ForEach(Console.Error.WriteLine);
     
     [Verb("generate", isDefault: true, HelpText = "Generate the test file's contents using the exercise's generator template file.")]
     private class GenerateOptions

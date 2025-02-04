@@ -4,39 +4,29 @@ using Humanizer;
 
 namespace Generators;
 
-internal record Exercise(string Slug, string Name, bool HasTemplate);
+internal record Exercise(string Slug, string Name);
 
 internal static class Exercises
 {
-    internal static List<Exercise> TemplatedExercises() =>
-        Directory.EnumerateFiles(Paths.PracticeExercisesDir, "Generator.tpl", SearchOption.AllDirectories)
-            .Select(templateFile => Directory.GetParent(templateFile)!.Parent!.Name)
-            .Select(ToExercise)
-            .OrderBy(exercise => exercise.Slug)
+    internal static List<Exercise> Templated(string? slug = null) => Find(slug, hasTemplate: true);
+
+    internal static List<Exercise> Untemplated(string? slug = null) => Find(slug, hasTemplate: false);
+
+    private static List<Exercise> Find(string? slug, bool hasTemplate) =>
+        Parse()
+            .Where(exercise => slug is null || exercise.Slug == slug)
+            .Where(exercise => hasTemplate == HasTemplate(exercise))
             .ToList();
 
-    internal static Exercise TemplatedExercise(string slug)
-    {
-        var exercise = ToExercise(slug);
-
-        if (!Directory.Exists(Paths.ExerciseDir(exercise)))
-            throw new ArgumentException($"Could not find exercise '{slug}'.");
-        
-        if (!File.Exists(Paths.TemplateFile(exercise)))
-            throw new ArgumentException($"Could not find template file for exercise '{slug}'.");
-
-        return exercise;
-    }
-
-    private static Exercise ToExercise(string slug) => new(slug, slug.Dehumanize(), true);
-    
-    private static IEnumerable<string> ParseExerciseSlugs() =>
-        ParseConfig()
+    private static IEnumerable<Exercise> Parse() =>
+        JsonSerializer.Deserialize<JsonElement>(File.ReadAllText(Paths.TrackConfigFile))
             .GetProperty("exercises")
             .GetProperty("practice")
             .EnumerateArray()
-            .Select(exercise => exercise.GetProperty("slug").ToString());
+            .Select(exercise => exercise.GetProperty("slug").ToString())
+            .Select(ToExercise);
+
+    private static Exercise ToExercise(string slug) => new(slug, slug.Dehumanize());
     
-    private static JsonElement ParseConfig() =>
-        JsonSerializer.Deserialize<JsonElement>(File.ReadAllText(Paths.TrackConfigFile));  
+    private static bool HasTemplate(Exercise exercise) => File.Exists(Paths.TemplateFile(exercise));
 }
