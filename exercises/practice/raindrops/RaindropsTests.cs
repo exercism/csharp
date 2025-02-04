@@ -33,7 +33,7 @@ public class RaindropsTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Number_2_to_the_power_3_does_not_make_a_raindrop_sound_as_3_is_the_exponent_not_the_base()
+    public void Two_to_the_power_3_does_not_make_a_raindrop_sound_as_3_is_the_exponent_not_the_base()
     {
         Assert.Equal("8", Raindrops.Convert(8));
     }
@@ -57,13 +57,13 @@ public class RaindropsTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void The_sound_for_15_is_plingplang_as_it_has_factors_3_and_5()
+    public void The_sound_for_15_is_pling_plang_as_it_has_factors_3_and_5()
     {
         Assert.Equal("PlingPlang", Raindrops.Convert(15));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void The_sound_for_21_is_plingplong_as_it_has_factors_3_and_7()
+    public void The_sound_for_21_is_pling_plong_as_it_has_factors_3_and_7()
     {
         Assert.Equal("PlingPlong", Raindrops.Convert(21));
     }
@@ -81,7 +81,7 @@ public class RaindropsTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void The_sound_for_35_is_plangplong_as_it_has_factors_5_and_7()
+    public void The_sound_for_35_is_plang_plong_as_it_has_factors_5_and_7()
     {
         Assert.Equal("PlangPlong", Raindrops.Convert(35));
     }
@@ -99,7 +99,7 @@ public class RaindropsTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void The_sound_for_105_is_plingplangplong_as_it_has_factors_3_5_and_7()
+    public void The_sound_for_105_is_pling_plang_plong_as_it_has_factors_3_5_and_7()
     {
         Assert.Equal("PlingPlangPlong", Raindrops.Convert(105));
     }

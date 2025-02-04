@@ -23,6 +23,7 @@ public class ResistorColorTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Colors()
     {
-        Assert.Equal(new[] { "black", "brown", "red", "orange", "yellow", "green", "blue", "violet", "grey", "white" }, ResistorColor.Colors());
+        string[] expected = ["black", "brown", "red", "orange", "yellow", "green", "blue", "violet", "grey", "white"];
+        Assert.Equal(expected, ResistorColor.Colors());
     }
 }

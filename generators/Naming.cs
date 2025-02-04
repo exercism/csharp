@@ -20,6 +20,6 @@ internal static class Naming
             ? i.ToWords()
             : str.Dehumanize();
     
-    private static IEnumerable<string> Words(this string str) => str.Split(' ', '-');
+    private static string[] Words(this string str) => str.Split(' ', '-');
     private static string Unwords(this IEnumerable<string> strs) => string.Join(' ', strs);
 }

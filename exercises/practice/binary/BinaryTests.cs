@@ -1,6 +1,6 @@
 using Xunit;
 
-public class BinaryTest
+public class BinaryTests
 {
     [Fact]
     public void Binary_0_is_decimal_0()
@@ -57,7 +57,7 @@ public class BinaryTest
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Invalid_binary_2_converts_to_decimal_0()
+    public void Two_is_not_a_valid_binary_digit()
     {
         Assert.Equal(0, Binary.ToDecimal("2"));
     }
