@@ -8,7 +8,7 @@ public class {{testClass}}
     {
         var sut = new Matrix({{test.input.string | string.literal}});
         int[] expected = {{test.expected}};
-        Assert.Equal(expected, {{testedClass}}.{{test.testedMethod}}({{test.input.index}}));
+        Assert.Equal(expected, sut.{{test.testedMethod}}({{test.input.index}}));
     }
     {{end}}
 }
