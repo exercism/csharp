@@ -15,6 +15,7 @@ internal static class Exercises
     private static List<Exercise> Find(string? slug, bool hasTemplate) =>
         Parse()
             .Where(exercise => slug is null || exercise.Slug == slug)
+            .Where(HasCanonicalData)
             .Where(exercise => hasTemplate == HasTemplate(exercise))
             .ToList();
 
@@ -29,5 +30,6 @@ internal static class Exercises
 
     private static Exercise ToExercise(string slug) => new(slug, slug.Dehumanize());
     
+    private static bool HasCanonicalData(Exercise exercise) => File.Exists(Paths.CanonicalDataFile(exercise));
     private static bool HasTemplate(Exercise exercise) => File.Exists(Paths.TemplateFile(exercise));
 }
