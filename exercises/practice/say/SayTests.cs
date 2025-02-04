@@ -112,7 +112,7 @@ public class SayTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Numbers_above_999_999_999_999_are_out_of_range()
+    public void Numbers_above_999999999999_are_out_of_range()
     {
         Assert.Throws<ArgumentOutOfRangeException>(() => Say.InEnglish(1000000000000L));
     }
