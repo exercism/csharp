@@ -123,12 +123,6 @@ public class BobTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Multiple_line_question()
-    {
-        Assert.Equal("Whatever.", Bob.Response("\nDoes this cryogenic chamber make me look fat?\nNo."));
-    }
-
-    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Starting_with_whitespace()
     {
         Assert.Equal("Whatever.", Bob.Response("         hmmmmmmm..."));
@@ -150,5 +144,11 @@ public class BobTests
     public void Non_question_ending_with_whitespace()
     {
         Assert.Equal("Whatever.", Bob.Response("This is a statement ending with whitespace      "));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Multiple_line_question()
+    {
+        Assert.Equal("Sure.", Bob.Response("\nDoes this cryogenic chamber make\n me look fat?"));
     }
 }
