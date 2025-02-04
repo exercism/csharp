@@ -117,19 +117,19 @@ public class LuhnTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Using_ascii_value_for_non_doubled_non_digit_isnt_allowed()
+    public void Using_ascii_value_for_non_doubled_non_digit_isn_t_allowed()
     {
         Assert.False(Luhn.IsValid("055b 444 285"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Using_ascii_value_for_doubled_non_digit_isnt_allowed()
+    public void Using_ascii_value_for_doubled_non_digit_isn_t_allowed()
     {
         Assert.False(Luhn.IsValid(":9"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Non_numeric_non_space_char_in_the_middle_with_a_sum_thats_divisible_by_10_isnt_allowed()
+    public void Non_numeric_non_space_char_in_the_middle_with_a_sum_that_s_divisible_by_10_isn_t_allowed()
     {
         Assert.False(Luhn.IsValid("59%59"));
     }
