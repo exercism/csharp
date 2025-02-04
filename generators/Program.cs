@@ -29,7 +29,7 @@ public static class Program
     [Verb("new", HelpText = "Create a new exercise generator template file.")]
     private class NewOptions
     {
-        [Option('e', "exercise", Required = true, HelpText = "The exercise (slug) for which to generate a generator file.")]
+        [Option('e', "exercise", Required = false, HelpText = "The exercise (slug) for which to generate a generator file.")]
         public string? Exercise { get; set; }
     }
 }
