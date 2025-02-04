@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using Humanizer;
 
 namespace Generators;
@@ -19,7 +20,10 @@ internal static class Naming
         index == 0 && int.TryParse(str, out var i)
             ? i.ToWords()
             : str.Dehumanize();
+
+    private static IEnumerable<string> Words(this string str) => 
+        Regex.Split(str, @"\W+")
+            .Where(s => !string.IsNullOrWhiteSpace(s));
     
-    private static string[] Words(this string str) => str.Split(' ', '-');
     private static string Unwords(this IEnumerable<string> strs) => string.Join(' ', strs);
 }
