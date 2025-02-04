@@ -24,6 +24,7 @@ internal static class Exercises
             .GetProperty("practice")
             .EnumerateArray()
             .Select(exercise => exercise.GetProperty("slug").ToString())
+            .Order()
             .Select(ToExercise);
 
     private static Exercise ToExercise(string slug) => new(slug, slug.Dehumanize());
