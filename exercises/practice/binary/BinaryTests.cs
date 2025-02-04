@@ -1,6 +1,6 @@
 using Xunit;
 
-public class BinaryTest
+public class BinaryTests
 {
     [Fact]
     public void Binary_0_is_decimal_0()
@@ -57,38 +57,38 @@ public class BinaryTest
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Invalid_binary_2_converts_to_decimal_0()
+    public void Two_is_not_a_valid_binary_digit()
     {
-        Assert.Equal(0, Binary.ToDecimal("2"));
+        Assert.Equal(, Binary.ToDecimal("2"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void A_number_containing_a_non_binary_digit_is_invalid()
     {
-        Assert.Equal(0, Binary.ToDecimal("01201"));
+        Assert.Equal(, Binary.ToDecimal("01201"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void A_number_with_trailing_non_binary_characters_is_invalid()
     {
-        Assert.Equal(0, Binary.ToDecimal("10nope"));
+        Assert.Equal(, Binary.ToDecimal("10nope"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void A_number_with_leading_non_binary_characters_is_invalid()
     {
-        Assert.Equal(0, Binary.ToDecimal("nope10"));
+        Assert.Equal(, Binary.ToDecimal("nope10"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void A_number_with_internal_non_binary_characters_is_invalid()
     {
-        Assert.Equal(0, Binary.ToDecimal("10nope10"));
+        Assert.Equal(, Binary.ToDecimal("10nope10"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void A_number_and_a_word_whitespace_separated_is_invalid()
     {
-        Assert.Equal(0, Binary.ToDecimal("001 nope"));
+        Assert.Equal(, Binary.ToDecimal("001 nope"));
     }
 }
