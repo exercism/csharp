@@ -47,8 +47,7 @@ Remove-Item -Path "${exerciseDir}/UnitTest1.cs"
 (Get-Content -Path ".editorconfig") -Replace "\[\*\.cs\]", "[${exerciseName}.cs]" | Set-Content -Path "${exerciseDir}/.editorconfig"
 
 # Create new generator template and run generator (this will update the tests file)
-& dotnet run --project generators new --exercise $Exercise
-& dotnet run --project generators generate --exercise $Exercise
+bin\update-tests.ps1 -e $Exercise -new
 
 # Output the next steps
 $files = Get-Content "exercises/practice/${Exercise}/.meta/config.json" | ConvertFrom-Json | Select-Object -ExpandProperty files
