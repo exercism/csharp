@@ -1,12 +1,12 @@
 using Xunit;
 
-public class {{testClass}}
+public class {{ testClass }}
 {
-    {{for test in tests}}
-    [Fact{{if !for.first}}(Skip = "Remove this Skip property to run this test"){{end}}]
-    public void {{test.testMethod}}()
+    {{- for test in tests }}
+    [Fact{{ if !for.first }}(Skip = "Remove this Skip property to run this test"){{ end }}]
+    public void {{ test.testMethod }}()
     {
-        Assert.Equal(Nationality.{{test.expected}}, {{test.property | enum "ZebraPuzzle"}}());
+        Assert.Equal(Nationality.{{ test.expected }}, {{ test.property | enum "ZebraPuzzle" }}());
     }
-    {{end}}
+    {{ end -}}
 }

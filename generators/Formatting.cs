@@ -1,16 +1,15 @@
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.Formatting;
 
 namespace Generators;
 
 internal static class Formatting
 {
-    internal static string FormatCode(string code) => 
-        Parse(code).NormalizeWhitespace().AddTrailingNewLine().ToFullString();
+    private static readonly AdhocWorkspace AdhocWorkspace = new();
 
-    private static SyntaxNode Parse(string code) =>
-        CSharpSyntaxTree.ParseText(code).GetRoot();
+    internal static string FormatCode(string code) =>
+        CSharpSyntaxTree.ParseText(code).GetRoot().WithoutLeadingTrivia().Format().ToFullString();
 
-    private static SyntaxNode AddTrailingNewLine(this SyntaxNode node) =>
-        node.WithTrailingTrivia(SyntaxFactory.ElasticEndOfLine(Environment.NewLine));
+    private static SyntaxNode Format(this SyntaxNode node) => Formatter.Format(node, AdhocWorkspace);
 }

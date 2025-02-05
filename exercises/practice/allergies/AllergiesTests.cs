@@ -293,7 +293,9 @@ public class AllergiesTests
     public void List_when_just_eggs()
     {
         var sut = new Allergies(1);
-        Allergen[] expected = [Allergen.Eggs];
+        Allergen[] expected = [
+            Allergen.Eggs
+        ];
         Assert.Equal(expected, sut.List());
     }
 
@@ -301,7 +303,9 @@ public class AllergiesTests
     public void List_when_just_peanuts()
     {
         var sut = new Allergies(2);
-        Allergen[] expected = [Allergen.Peanuts];
+        Allergen[] expected = [
+            Allergen.Peanuts
+        ];
         Assert.Equal(expected, sut.List());
     }
 
@@ -309,7 +313,9 @@ public class AllergiesTests
     public void List_when_just_strawberries()
     {
         var sut = new Allergies(8);
-        Allergen[] expected = [Allergen.Strawberries];
+        Allergen[] expected = [
+            Allergen.Strawberries
+        ];
         Assert.Equal(expected, sut.List());
     }
 
@@ -317,7 +323,10 @@ public class AllergiesTests
     public void List_when_eggs_and_peanuts()
     {
         var sut = new Allergies(3);
-        Allergen[] expected = [Allergen.Eggs, Allergen.Peanuts];
+        Allergen[] expected = [
+            Allergen.Eggs,
+            Allergen.Peanuts
+        ];
         Assert.Equal(expected, sut.List());
     }
 
@@ -325,7 +334,10 @@ public class AllergiesTests
     public void List_when_more_than_eggs_but_not_peanuts()
     {
         var sut = new Allergies(5);
-        Allergen[] expected = [Allergen.Eggs, Allergen.Shellfish];
+        Allergen[] expected = [
+            Allergen.Eggs,
+            Allergen.Shellfish
+        ];
         Assert.Equal(expected, sut.List());
     }
 
@@ -333,7 +345,13 @@ public class AllergiesTests
     public void List_when_lots_of_stuff()
     {
         var sut = new Allergies(248);
-        Allergen[] expected = [Allergen.Strawberries, Allergen.Tomatoes, Allergen.Chocolate, Allergen.Pollen, Allergen.Cats];
+        Allergen[] expected = [
+            Allergen.Strawberries,
+            Allergen.Tomatoes,
+            Allergen.Chocolate,
+            Allergen.Pollen,
+            Allergen.Cats
+        ];
         Assert.Equal(expected, sut.List());
     }
 
@@ -341,7 +359,16 @@ public class AllergiesTests
     public void List_when_everything()
     {
         var sut = new Allergies(255);
-        Allergen[] expected = [Allergen.Eggs, Allergen.Peanuts, Allergen.Shellfish, Allergen.Strawberries, Allergen.Tomatoes, Allergen.Chocolate, Allergen.Pollen, Allergen.Cats];
+        Allergen[] expected = [
+            Allergen.Eggs,
+            Allergen.Peanuts,
+            Allergen.Shellfish,
+            Allergen.Strawberries,
+            Allergen.Tomatoes,
+            Allergen.Chocolate,
+            Allergen.Pollen,
+            Allergen.Cats
+        ];
         Assert.Equal(expected, sut.List());
     }
 
@@ -349,7 +376,15 @@ public class AllergiesTests
     public void List_when_no_allergen_score_parts()
     {
         var sut = new Allergies(509);
-        Allergen[] expected = [Allergen.Eggs, Allergen.Shellfish, Allergen.Strawberries, Allergen.Tomatoes, Allergen.Chocolate, Allergen.Pollen, Allergen.Cats];
+        Allergen[] expected = [
+            Allergen.Eggs,
+            Allergen.Shellfish,
+            Allergen.Strawberries,
+            Allergen.Tomatoes,
+            Allergen.Chocolate,
+            Allergen.Pollen,
+            Allergen.Cats
+        ];
         Assert.Equal(expected, sut.List());
     }
 
@@ -357,7 +392,10 @@ public class AllergiesTests
     public void List_when_no_allergen_score_parts_without_highest_valid_score()
     {
         var sut = new Allergies(257);
-        Allergen[] expected = [Allergen.Eggs];
+        Allergen[] expected = [
+            Allergen.Eggs
+        ];
         Assert.Equal(expected, sut.List());
     }
+
 }

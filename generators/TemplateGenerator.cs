@@ -30,8 +30,8 @@ internal static class TemplateGenerator
 
     private static string Value(string field, JsonNode? testCase) =>
         testCase is not null && testCase.GetValueKind() == JsonValueKind.String
-            ? $"{{{{{field} | string.literal}}}}"
-            : $"{{{{{field}}}}}";
+            ? $"{{{{ {field} | string.literal }}}}"
+            : $"{{{{ {field} }}}}";
 
     private static string Expected(JsonNode testCase) => Value("test.expected", testCase["expected"]);
 
@@ -46,10 +46,10 @@ internal static class TemplateGenerator
         string.Join(", ", testCase["input"]!.AsObject().Select(kv => Value($"test.input.{kv.Key}", kv.Value!)));
 
     private static string TestedMethodCall(JsonNode testCase) =>
-        $"{{{{testedClass}}}}.{{{{test.testedMethod}}}}({TestedMethodArguments(testCase)})";
+        $"{{{{ testedClass }}}}.{{{{ test.testedMethod }}}}({TestedMethodArguments(testCase)})";
 
     private static string AssertBool(JsonNode testCase) =>
-        $"Assert.{{{{test.expected ? \"True\" : \"False\"}}}}({TestedMethodCall(testCase)});";
+        $"Assert.{{{{ test.expected ? \"True\" : \"False\" }}}}({TestedMethodCall(testCase)});";
     
     private static string AssertEqual(JsonNode testCase) =>
         $"Assert.Equal({Expected(testCase)}, {TestedMethodCall(testCase)});";
@@ -61,25 +61,25 @@ internal static class TemplateGenerator
         testCase["expected"] is JsonObject jsonObject && jsonObject.ContainsKey("error");
 
     private const string GeneratorTemplate = @"
-{{if error}}using System;{{end}}
+{{if error}}using System;{{ end }}
 using Xunit;
 
-public class {%{{{testClass}}}%}
+public class {%{{{ testClass }}}%}
 {
-    {%{{{for test in tests}}}%}
-    [Fact{%{{{if !for.first}}}%}(Skip = ""Remove this Skip property to run this test""){%{{{end}}}%}]
-    public void {%{{{test.testMethod}}}%}()
+    {%{{{- for test in tests }}}%}
+    [Fact{%{{{ if !for.first }}}%}(Skip = ""Remove this Skip property to run this test""){%{{{ end }}}%}]
+    public void {%{{{ test.testMethod }}}%}()
     {
-        {{-if error}}
-        {%{{{if test.expected.error}}}%}
+        {{- if error }}
+        {%{{{- if test.expected.error }}}%}
             {{throws}}
-        {%{{{else}}}%}
+        {%{{{ else }}}%}
             {{assert}}
-        {%{{{end}}}%}
-        {{-else}}
+        {%{{{ end -}}}%}
+        {{- else }}
         {{assert}}
-        {{-end}}
+        {{- end }}
     }
-    {%{{{end}}}%}
+    {%{{{end -}}}%}
 }";
 }
