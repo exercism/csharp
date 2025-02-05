@@ -6,43 +6,40 @@ public class OcrNumbersTests
     [Fact]
     public void Recognizes_0()
     {
-        var rows = 
+        var rows =
             " _ \n" +
             "| |\n" +
             "|_|\n" +
             "   ";
-        var actual = OcrNumbers.Convert(rows);
-        Assert.Equal("0", actual);
+        Assert.Equal("0", OcrNumbers.Convert(rows));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Recognizes_1()
     {
-        var rows = 
+        var rows =
             "   \n" +
             "  |\n" +
             "  |\n" +
             "   ";
-        var actual = OcrNumbers.Convert(rows);
-        Assert.Equal("1", actual);
+        Assert.Equal("1", OcrNumbers.Convert(rows));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Unreadable_but_correctly_sized_inputs_return_()
+    public void Unreadable_but_correctly_sized_inputs_return()
     {
-        var rows = 
+        var rows =
             "   \n" +
             "  _\n" +
             "  |\n" +
             "   ";
-        var actual = OcrNumbers.Convert(rows);
-        Assert.Equal("?", actual);
+        Assert.Equal("?", OcrNumbers.Convert(rows));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Input_with_a_number_of_lines_that_is_not_a_multiple_of_four_raises_an_error()
     {
-        var rows = 
+        var rows =
             " _ \n" +
             "| |\n" +
             "   ";
@@ -52,7 +49,7 @@ public class OcrNumbersTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Input_with_a_number_of_columns_that_is_not_a_multiple_of_three_raises_an_error()
     {
-        var rows = 
+        var rows =
             "    \n" +
             "   |\n" +
             "   |\n" +
@@ -63,139 +60,128 @@ public class OcrNumbersTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Recognizes_110101100()
     {
-        var rows = 
+        var rows =
             "       _     _        _  _ \n" +
             "  |  || |  || |  |  || || |\n" +
             "  |  ||_|  ||_|  |  ||_||_|\n" +
             "                           ";
-        var actual = OcrNumbers.Convert(rows);
-        Assert.Equal("110101100", actual);
+        Assert.Equal("110101100", OcrNumbers.Convert(rows));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Garbled_numbers_in_a_string_are_replaced_with_()
+    public void Garbled_numbers_in_a_string_are_replaced_with()
     {
-        var rows = 
+        var rows =
             "       _     _           _ \n" +
             "  |  || |  || |     || || |\n" +
             "  |  | _|  ||_|  |  ||_||_|\n" +
             "                           ";
-        var actual = OcrNumbers.Convert(rows);
-        Assert.Equal("11?10?1?0", actual);
+        Assert.Equal("11?10?1?0", OcrNumbers.Convert(rows));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Recognizes_2()
     {
-        var rows = 
+        var rows =
             " _ \n" +
             " _|\n" +
             "|_ \n" +
             "   ";
-        var actual = OcrNumbers.Convert(rows);
-        Assert.Equal("2", actual);
+        Assert.Equal("2", OcrNumbers.Convert(rows));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Recognizes_3()
     {
-        var rows = 
+        var rows =
             " _ \n" +
             " _|\n" +
             " _|\n" +
             "   ";
-        var actual = OcrNumbers.Convert(rows);
-        Assert.Equal("3", actual);
+        Assert.Equal("3", OcrNumbers.Convert(rows));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Recognizes_4()
     {
-        var rows = 
+        var rows =
             "   \n" +
             "|_|\n" +
             "  |\n" +
             "   ";
-        var actual = OcrNumbers.Convert(rows);
-        Assert.Equal("4", actual);
+        Assert.Equal("4", OcrNumbers.Convert(rows));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Recognizes_5()
     {
-        var rows = 
+        var rows =
             " _ \n" +
             "|_ \n" +
             " _|\n" +
             "   ";
-        var actual = OcrNumbers.Convert(rows);
-        Assert.Equal("5", actual);
+        Assert.Equal("5", OcrNumbers.Convert(rows));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Recognizes_6()
     {
-        var rows = 
+        var rows =
             " _ \n" +
             "|_ \n" +
             "|_|\n" +
             "   ";
-        var actual = OcrNumbers.Convert(rows);
-        Assert.Equal("6", actual);
+        Assert.Equal("6", OcrNumbers.Convert(rows));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Recognizes_7()
     {
-        var rows = 
+        var rows =
             " _ \n" +
             "  |\n" +
             "  |\n" +
             "   ";
-        var actual = OcrNumbers.Convert(rows);
-        Assert.Equal("7", actual);
+        Assert.Equal("7", OcrNumbers.Convert(rows));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Recognizes_8()
     {
-        var rows = 
+        var rows =
             " _ \n" +
             "|_|\n" +
             "|_|\n" +
             "   ";
-        var actual = OcrNumbers.Convert(rows);
-        Assert.Equal("8", actual);
+        Assert.Equal("8", OcrNumbers.Convert(rows));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Recognizes_9()
     {
-        var rows = 
+        var rows =
             " _ \n" +
             "|_|\n" +
             " _|\n" +
             "   ";
-        var actual = OcrNumbers.Convert(rows);
-        Assert.Equal("9", actual);
+        Assert.Equal("9", OcrNumbers.Convert(rows));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Recognizes_string_of_decimal_numbers()
     {
-        var rows = 
+        var rows =
             "    _  _     _  _  _  _  _  _ \n" +
             "  | _| _||_||_ |_   ||_||_|| |\n" +
             "  ||_  _|  | _||_|  ||_| _||_|\n" +
             "                              ";
-        var actual = OcrNumbers.Convert(rows);
-        Assert.Equal("1234567890", actual);
+        Assert.Equal("1234567890", OcrNumbers.Convert(rows));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Numbers_separated_by_empty_lines_are_recognized_lines_are_joined_by_commas_()
+    public void Numbers_separated_by_empty_lines_are_recognized_lines_are_joined_by_commas()
     {
-        var rows = 
+        var rows =
             "    _  _ \n" +
             "  | _| _|\n" +
             "  ||_  _|\n" +
@@ -208,7 +194,6 @@ public class OcrNumbersTests
             "  ||_||_|\n" +
             "  ||_| _|\n" +
             "         ";
-        var actual = OcrNumbers.Convert(rows);
-        Assert.Equal("123,456,789", actual);
+        Assert.Equal("123,456,789", OcrNumbers.Convert(rows));
     }
 }
