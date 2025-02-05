@@ -80,6 +80,6 @@ public class {%{{{ testClass }}}%}
         {{ assert }}
         {{- end }}
     }
-    {%{{{end -}}}%}
+    {%{{{ end -}}}%}
 }";
 }
