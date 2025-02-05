@@ -3,121 +3,121 @@ using Xunit;
 public class ScaleGeneratorTests
 {
     [Fact]
-    public void Chromatic_scale_with_sharps()
+    public void Chromatic_scales_chromatic_scale_with_sharps()
     {
-        var expected = new[] { "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B" };
+        string[] expected = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
         Assert.Equal(expected, ScaleGenerator.Chromatic("C"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Chromatic_scale_with_flats()
+    public void Chromatic_scales_chromatic_scale_with_flats()
     {
-        var expected = new[] { "F", "Gb", "G", "Ab", "A", "Bb", "B", "C", "Db", "D", "Eb", "E" };
+        string[] expected = ["F", "Gb", "G", "Ab", "A", "Bb", "B", "C", "Db", "D", "Eb", "E"];
         Assert.Equal(expected, ScaleGenerator.Chromatic("F"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Simple_major_scale()
+    public void Scales_with_specified_intervals_simple_major_scale()
     {
-        var expected = new[] { "C", "D", "E", "F", "G", "A", "B", "C" };
+        string[] expected = ["C", "D", "E", "F", "G", "A", "B", "C"];
         Assert.Equal(expected, ScaleGenerator.Interval("C", "MMmMMMm"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Major_scale_with_sharps()
+    public void Scales_with_specified_intervals_major_scale_with_sharps()
     {
-        var expected = new[] { "G", "A", "B", "C", "D", "E", "F#", "G" };
+        string[] expected = ["G", "A", "B", "C", "D", "E", "F#", "G"];
         Assert.Equal(expected, ScaleGenerator.Interval("G", "MMmMMMm"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Major_scale_with_flats()
+    public void Scales_with_specified_intervals_major_scale_with_flats()
     {
-        var expected = new[] { "F", "G", "A", "Bb", "C", "D", "E", "F" };
+        string[] expected = ["F", "G", "A", "Bb", "C", "D", "E", "F"];
         Assert.Equal(expected, ScaleGenerator.Interval("F", "MMmMMMm"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Minor_scale_with_sharps()
+    public void Scales_with_specified_intervals_minor_scale_with_sharps()
     {
-        var expected = new[] { "F#", "G#", "A", "B", "C#", "D", "E", "F#" };
+        string[] expected = ["F#", "G#", "A", "B", "C#", "D", "E", "F#"];
         Assert.Equal(expected, ScaleGenerator.Interval("f#", "MmMMmMM"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Minor_scale_with_flats()
+    public void Scales_with_specified_intervals_minor_scale_with_flats()
     {
-        var expected = new[] { "Bb", "C", "Db", "Eb", "F", "Gb", "Ab", "Bb" };
+        string[] expected = ["Bb", "C", "Db", "Eb", "F", "Gb", "Ab", "Bb"];
         Assert.Equal(expected, ScaleGenerator.Interval("bb", "MmMMmMM"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Dorian_mode()
+    public void Scales_with_specified_intervals_dorian_mode()
     {
-        var expected = new[] { "D", "E", "F", "G", "A", "B", "C", "D" };
+        string[] expected = ["D", "E", "F", "G", "A", "B", "C", "D"];
         Assert.Equal(expected, ScaleGenerator.Interval("d", "MmMMMmM"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Mixolydian_mode()
+    public void Scales_with_specified_intervals_mixolydian_mode()
     {
-        var expected = new[] { "Eb", "F", "G", "Ab", "Bb", "C", "Db", "Eb" };
+        string[] expected = ["Eb", "F", "G", "Ab", "Bb", "C", "Db", "Eb"];
         Assert.Equal(expected, ScaleGenerator.Interval("Eb", "MMmMMmM"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Lydian_mode()
+    public void Scales_with_specified_intervals_lydian_mode()
     {
-        var expected = new[] { "A", "B", "C#", "D#", "E", "F#", "G#", "A" };
+        string[] expected = ["A", "B", "C#", "D#", "E", "F#", "G#", "A"];
         Assert.Equal(expected, ScaleGenerator.Interval("a", "MMMmMMm"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Phrygian_mode()
+    public void Scales_with_specified_intervals_phrygian_mode()
     {
-        var expected = new[] { "E", "F", "G", "A", "B", "C", "D", "E" };
+        string[] expected = ["E", "F", "G", "A", "B", "C", "D", "E"];
         Assert.Equal(expected, ScaleGenerator.Interval("e", "mMMMmMM"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Locrian_mode()
+    public void Scales_with_specified_intervals_locrian_mode()
     {
-        var expected = new[] { "G", "Ab", "Bb", "C", "Db", "Eb", "F", "G" };
+        string[] expected = ["G", "Ab", "Bb", "C", "Db", "Eb", "F", "G"];
         Assert.Equal(expected, ScaleGenerator.Interval("g", "mMMmMMM"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Harmonic_minor()
+    public void Scales_with_specified_intervals_harmonic_minor()
     {
-        var expected = new[] { "D", "E", "F", "G", "A", "Bb", "Db", "D" };
+        string[] expected = ["D", "E", "F", "G", "A", "Bb", "Db", "D"];
         Assert.Equal(expected, ScaleGenerator.Interval("d", "MmMMmAm"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Octatonic()
+    public void Scales_with_specified_intervals_octatonic()
     {
-        var expected = new[] { "C", "D", "D#", "F", "F#", "G#", "A", "B", "C" };
+        string[] expected = ["C", "D", "D#", "F", "F#", "G#", "A", "B", "C"];
         Assert.Equal(expected, ScaleGenerator.Interval("C", "MmMmMmMm"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Hexatonic()
+    public void Scales_with_specified_intervals_hexatonic()
     {
-        var expected = new[] { "Db", "Eb", "F", "G", "A", "B", "Db" };
+        string[] expected = ["Db", "Eb", "F", "G", "A", "B", "Db"];
         Assert.Equal(expected, ScaleGenerator.Interval("Db", "MMMMMM"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Pentatonic()
+    public void Scales_with_specified_intervals_pentatonic()
     {
-        var expected = new[] { "A", "B", "C#", "E", "F#", "A" };
+        string[] expected = ["A", "B", "C#", "E", "F#", "A"];
         Assert.Equal(expected, ScaleGenerator.Interval("A", "MMAMA"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Enigmatic()
+    public void Scales_with_specified_intervals_enigmatic()
     {
-        var expected = new[] { "G", "G#", "B", "C#", "D#", "F", "F#", "G" };
+        string[] expected = ["G", "G#", "B", "C#", "D#", "F", "F#", "G"];
         Assert.Equal(expected, ScaleGenerator.Interval("G", "mAMMMmm"));
     }
 }
