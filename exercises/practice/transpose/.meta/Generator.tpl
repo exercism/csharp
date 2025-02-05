@@ -1,5 +1,5 @@
 {{ func lines(lines, variable) }}
-    {{- if test.input.lines.empty? }}
+    {{- if lines.empty? }}
     var {{variable}} = "";
     {{- else }}
     var {{variable}} =
