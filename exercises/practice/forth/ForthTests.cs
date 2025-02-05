@@ -102,7 +102,7 @@ public class ForthTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Division_errors_if_dividing_by_zero()
     {
-        Assert.Throws<InvalidOperationException>(() => Forth.Evaluate(["4 0 /"]));
+        Assert.Throws<DivideByZeroException>(() => Forth.Evaluate(["4 0 /"]));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
@@ -294,7 +294,8 @@ public class ForthTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void User_defined_words_only_defines_locally()
     {
-        Assert.Equal("[0] [2]", Forth.EvaluateBoth());
+        Assert.Equal("0", Forth.Evaluate([": + - ;", "1 1 +"]));
+        Assert.Equal("2", Forth.Evaluate(["1 1 +"]));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
