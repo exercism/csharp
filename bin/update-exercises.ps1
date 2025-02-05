@@ -25,8 +25,8 @@ $PSNativeCommandUseErrorActionPreference = $true
 
 if ($Exercise) {
     & configlet sync --docs --metadata --filepaths --update --yes --exercise $Exercise
-    & dotnet run --project generators --exercise $Exercise
+    & dotnet run --project generators update --exercise $Exercise
 } else {
     & configlet sync --docs --metadata --filepaths --update --yes
-    & dotnet run --project generators
+    & dotnet run --project generators update
 }
