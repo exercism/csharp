@@ -1,6 +1,8 @@
 {{ func lines(lines, variable) }}
     {{- if lines.empty? }}
     var {{variable}} = "";
+    {{- else if (array.size lines) == 1 }}
+    var {{variable}} = {{ lines[0] | string.literal }};
     {{- else }}
     var {{variable}} =
     {{- for line in lines }}
@@ -13,6 +15,9 @@
     {{- end -}}
 {{ end }}
 
+using System;
+using System.IO;
+using System.Text;
 using Xunit;
 
 public class {{ testClass }}
@@ -21,9 +26,19 @@ public class {{ testClass }}
     [Fact{{ if !for.first }}(Skip = "Remove this Skip property to run this test"){{ end }}]
     public void {{ test.testMethod }}()
     {
-        {{- test.input.lines | lines "lines" }}
+        {{- test.input.rows | lines "rows" }}
         {{- test.expected | lines "expected" }}
-        Assert.Equal(expected, {{ testedClass }}.String(lines));
+        Assert.Equal(expected, RunTally(rows));
     }
-    {{ end -}}
+    {{ end }}
+    private string RunTally(string input)
+    {
+        var encoding = new UTF8Encoding();
+        using (var inStream = new MemoryStream(encoding.GetBytes(input)))
+        using (var outStream = new MemoryStream())
+        {
+            Tournament.Tally(inStream, outStream);
+            return encoding.GetString(outStream.ToArray());
+        }
+    }
 }
