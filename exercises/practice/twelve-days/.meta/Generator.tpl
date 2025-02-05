@@ -8,11 +8,11 @@ public class {{ testClass }}
     {
         var expected =
         {{- for line in test.expected }}
-            {{- if for.last -}}
-            {{ line | string.literal }};
+            {{ if for.last -}}
+            {{ line | string.literal -}};
             {{- else -}}
             {{ line | string.append "\n" | string.literal }} +
-            {{ end -}}
+            {{- end -}}
         {{- end }}
         Assert.Equal(expected, {{ testedClass }}.{{ test.testedMethod }}({{ test.input.startVerse }}{{if test.input.endVerse != test.input.startVerse }}, {{ test.input.endVerse }}{{ end }}));
     }
