@@ -9,7 +9,7 @@ public class {{ testClass }}
         {{- if test.expected.empty? }}
         Assert.Empty({{ testedClass }}.GetMatrix({{ test.input.size }}));
         {{ else }}
-        int[,] expected = new[,]
+        int[,] expected =
         {
         {{- for row in test.expected }}
             { {{ row | array.join ", " }} }{{- if !for.last }},{{ end -}}

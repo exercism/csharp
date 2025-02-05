@@ -11,7 +11,7 @@ public class SpiralMatrixTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Trivial_spiral()
     {
-        int[,] expected = new[,]
+        int[,] expected =
         {
             { 1 }
         };
@@ -21,7 +21,7 @@ public class SpiralMatrixTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Spiral_of_size_2()
     {
-        int[,] expected = new[,]
+        int[,] expected =
         {
             { 1, 2 },
             { 4, 3 }
@@ -32,7 +32,7 @@ public class SpiralMatrixTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Spiral_of_size_3()
     {
-        int[,] expected = new[,]
+        int[,] expected =
         {
             { 1, 2, 3 },
             { 8, 9, 4 },
@@ -44,7 +44,7 @@ public class SpiralMatrixTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Spiral_of_size_4()
     {
-        int[,] expected = new[,]
+        int[,] expected =
         {
             { 1, 2, 3, 4 },
             { 12, 13, 14, 5 },
@@ -57,7 +57,7 @@ public class SpiralMatrixTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Spiral_of_size_5()
     {
-        int[,] expected = new[,]
+        int[,] expected =
         {
             { 1, 2, 3, 4, 5 },
             { 16, 17, 18, 19, 6 },
