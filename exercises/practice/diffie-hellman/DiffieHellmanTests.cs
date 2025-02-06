@@ -8,7 +8,7 @@ public class DiffieHellmanTests
     public void Private_key_is_greater_than_1_and_less_than_p()
     {
         var p = new BigInteger(7919);
-        var privateKeys = Enumerable.Range(0, 1000).Select(_ => DiffieHellman.PrivateKey(p)).ToArray();
+        var privateKeys = Enumerable.Range(0, 1000).Select(_ => DiffieHellman.PrivateKey(p));
         foreach (var privateKey in privateKeys)
         {
             Assert.InRange(privateKey, new BigInteger(1), p);
@@ -42,7 +42,7 @@ public class DiffieHellmanTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Can_calculate_secret_using_other_partys_public_key()
+    public void Can_calculate_secret_using_other_party_s_public_key()
     {
         var p = new BigInteger(23);
         var theirPublicKey = new BigInteger(19);
