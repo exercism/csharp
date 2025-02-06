@@ -95,7 +95,7 @@ public class SgfParsingTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Semicolon_in_property_value_doesnt_need_to_be_escaped()
+    public void Semicolon_in_property_value_doesn_t_need_to_be_escaped()
     {
         var encoded = "(;A[a;b][foo]B[bar];C[baz])";
         var expected = new SgfTree(new Dictionary<string, string[]> { ["A"] = new[] { "a;b", "foo" }, ["B"] = new[] { "bar" } }, new SgfTree(new Dictionary<string, string[]> { ["C"] = new[] { "baz" } }));
@@ -103,7 +103,7 @@ public class SgfParsingTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Parentheses_in_property_value_dont_need_to_be_escaped()
+    public void Parentheses_in_property_value_don_t_need_to_be_escaped()
     {
         var encoded = "(;A[x(y)z][foo]B[bar];C[baz])";
         var expected = new SgfTree(new Dictionary<string, string[]> { ["A"] = new[] { "x(y)z", "foo" }, ["B"] = new[] { "bar" } }, new SgfTree(new Dictionary<string, string[]> { ["C"] = new[] { "baz" } }));
