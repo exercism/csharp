@@ -115,7 +115,20 @@ public static class Ledger
 
     private static string Change(IFormatProvider culture, decimal cgh)
     {
-        return cgh < 0.0m ? cgh.ToString("C", culture) : cgh.ToString("C", culture) + " ";
+        if (cgh < 0.0m)
+        {
+            var change = cgh.ToString("C", culture);
+            if (change.Contains("-"))
+            {
+                return change + " ";
+            }
+
+            return change;
+        }
+        else
+        {
+            return cgh.ToString("C", culture) + " ";
+        }
     }
 
     private static string PrintEntry(IFormatProvider culture, LedgerEntry entry)

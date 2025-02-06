@@ -6,23 +6,23 @@ public class EtlTests
     [Fact]
     public void Single_letter()
     {
-        var input = new Dictionary<int, string[]>
+        var legacy = new Dictionary<int, string[]>
         {
-            [1] = new[] { "A" }
+            [1] = ["A"]
         };
         var expected = new Dictionary<string, int>
         {
             ["a"] = 1
         };
-        Assert.Equal(expected, Etl.Transform(input));
+        Assert.Equal(expected, Etl.Transform(legacy));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Single_score_with_multiple_letters()
     {
-        var input = new Dictionary<int, string[]>
+        var legacy = new Dictionary<int, string[]>
         {
-            [1] = new[] { "A", "E", "I", "O", "U" }
+            [1] = ["A", "E", "I", "O", "U"]
         };
         var expected = new Dictionary<string, int>
         {
@@ -32,16 +32,16 @@ public class EtlTests
             ["o"] = 1,
             ["u"] = 1
         };
-        Assert.Equal(expected, Etl.Transform(input));
+        Assert.Equal(expected, Etl.Transform(legacy));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Multiple_scores_with_multiple_letters()
     {
-        var input = new Dictionary<int, string[]>
+        var legacy = new Dictionary<int, string[]>
         {
-            [1] = new[] { "A", "E" },
-            [2] = new[] { "D", "G" }
+            [1] = ["A", "E"],
+            [2] = ["D", "G"]
         };
         var expected = new Dictionary<string, int>
         {
@@ -50,21 +50,21 @@ public class EtlTests
             ["e"] = 1,
             ["g"] = 2
         };
-        Assert.Equal(expected, Etl.Transform(input));
+        Assert.Equal(expected, Etl.Transform(legacy));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Multiple_scores_with_differing_numbers_of_letters()
     {
-        var input = new Dictionary<int, string[]>
+        var legacy = new Dictionary<int, string[]>
         {
-            [1] = new[] { "A", "E", "I", "O", "U", "L", "N", "R", "S", "T" },
-            [2] = new[] { "D", "G" },
-            [3] = new[] { "B", "C", "M", "P" },
-            [4] = new[] { "F", "H", "V", "W", "Y" },
-            [5] = new[] { "K" },
-            [8] = new[] { "J", "X" },
-            [10] = new[] { "Q", "Z" }
+            [1] = ["A", "E", "I", "O", "U", "L", "N", "R", "S", "T"],
+            [2] = ["D", "G"],
+            [3] = ["B", "C", "M", "P"],
+            [4] = ["F", "H", "V", "W", "Y"],
+            [5] = ["K"],
+            [8] = ["J", "X"],
+            [10] = ["Q", "Z"]
         };
         var expected = new Dictionary<string, int>
         {
@@ -95,6 +95,6 @@ public class EtlTests
             ["y"] = 4,
             ["z"] = 10
         };
-        Assert.Equal(expected, Etl.Transform(input));
+        Assert.Equal(expected, Etl.Transform(legacy));
     }
 }
