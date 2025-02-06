@@ -1,63 +1,56 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
 public class AccumulateTests
 {
     [Fact]
-    public void Empty_accumulation_produces_empty_accumulation()
+    public void Accumulate_empty()
     {
-        Assert.Equal(new int[0], new int[0].Accumulate(x => x * x));
+        int[] input = [];
+        int[] expected = [];
+        Assert.Equal(expected, input.Accumulate((x) => x * x));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Accumulate_squares()
     {
-        Assert.Equal(new[] { 1, 4, 9 }, new[] { 1, 2, 3 }.Accumulate(x => x * x));
+        int[] input = [1, 2, 3];
+        int[] expected = [1, 4, 9];
+        Assert.Equal(expected, input.Accumulate((x) => x * x));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Accumulate_upcases()
     {
-        Assert.Equal(new List<string> { "HELLO", "WORLD" }, new List<string> { "hello", "world" }.Accumulate(x => x.ToUpper()));
+        string[] input = ["Hello", "world"];
+        string[] expected = ["HELLO", "WORLD"];
+        Assert.Equal(expected, input.Accumulate((x) => x.ToUpper()));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Accumulate_reversed_strings()
     {
-        Assert.Equal("eht kciuq nworb xof cte".Split(' '), "the quick brown fox etc".Split(' ').Accumulate(Reverse));
-    }
-
-    private static string Reverse(string value)
-    {
-        var array = value.ToCharArray();
-        Array.Reverse(array);
-        return new string(array);
+        string[] input = ["the", "quick", "brown", "fox", "etc"];
+        string[] expected = ["eht", "kciuq", "nworb", "xof", "cte"];
+        Assert.Equal(expected, input.Accumulate((x) => new string(x.Reverse().ToArray())));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Accumulate_within_accumulate()
+    public void Accumulate_recursively()
     {
-        var actual = new[] { "a", "b", "c" }.Accumulate(c =>
-            string.Join(" ", new[] { "1", "2", "3" }.Accumulate(d => c + d)));
-        Assert.Equal(new[] { "a1 a2 a3", "b1 b2 b3", "c1 c2 c3" }, actual);
+        string[] input = ["a", "b", "c"];
+        string[][] expected = [["a1", "a2", "a3"], ["b1", "b2", "b3"], ["c1", "c2", "c3"]];
+        Assert.Equal(expected, input.Accumulate((x) => new[] { "1", "2", "3" }.Accumulate((y) => x + y)));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Accumulate_is_lazy()
     {
         var counter = 0;
-        var accumulation = new[] { 1, 2, 3 }.Accumulate(x => x * counter++);
-
+        int[] input = [1, 2, 3];
+        var accumulation = input.Accumulate(x => x * counter++);
         Assert.Equal(0, counter);
-        accumulation.ToList();
+        var _ = accumulation.ToList();
         Assert.Equal(3, counter);
-    }
-
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Accumulate_allows_different_return_type()
-    {
-        Assert.Equal(new[] { "1", "2", "3" }, new[] { 1, 2, 3 }.Accumulate(x => x.ToString()));
     }
 }
