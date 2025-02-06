@@ -93,11 +93,15 @@ public static class Ledger
     private static string FormatDescription(string description) =>
         description.Length <= TruncateLength ? description : description.Substring(0, TruncateLength - TruncateSuffix.Length) + TruncateSuffix;
 
-    private static string FormatChange(IFormatProvider culture, decimal change) =>
-        change < 0.0m ? change.ToString("C", culture) : change.ToString("C", culture) + " ";
+    private static string FormatChange(IFormatProvider culture, decimal change)
+    {
+        var formatChange = change.ToString("C", culture);
+        var suffix = change >= 0 || formatChange.Contains('-') ? " " : ""; 
+        return $"{formatChange}{suffix}";
+    }
 
     private static string FormatEntry(IFormatProvider culture, LedgerEntry entry) =>
-        string.Format("{0} | {1,-25} | {2,13}", FormatDate(culture, entry.Date), FormatDescription(entry.Description), FormatChange(culture, entry.Change));
+        $"{FormatDate(culture, entry.Date)} | {FormatDescription(entry.Description),-25} | {FormatChange(culture, entry.Change),13}";
 
     private static IEnumerable<LedgerEntry> OrderEntries(LedgerEntry[] entries) =>
         entries
