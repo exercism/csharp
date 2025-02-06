@@ -3,84 +3,88 @@ using Xunit;
 public class DequeTests
 {
     [Fact]
-    public void Push_and_pop_are_first_in_last_out_order()
+    public void Pop_gets_element_from_the_list()
     {
-        var deque = new Deque<int>();
-        deque.Push(10);
-        deque.Push(20);
-        Assert.Equal(20, deque.Pop());
-        Assert.Equal(10, deque.Pop());
+        var sut = new Deque<int>();
+        sut.Push(7);
+        Assert.Equal(7, sut.Pop());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Push_and_shift_are_first_in_first_out_order()
+    public void Push_pop_respectively_add_remove_at_the_end_of_the_list()
     {
-        var deque = new Deque<int>();
-        deque.Push(10);
-        deque.Push(20);
-        Assert.Equal(10, deque.Shift());
-        Assert.Equal(20, deque.Shift());
+        var sut = new Deque<int>();
+        sut.Push(11);
+        sut.Push(13);
+        Assert.Equal(13, sut.Pop());
+        Assert.Equal(11, sut.Pop());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Unshift_and_shift_are_last_in_first_out_order()
+    public void Shift_gets_an_element_from_the_list()
     {
-        var deque = new Deque<int>();
-        deque.Unshift(10);
-        deque.Unshift(20);
-        Assert.Equal(20, deque.Shift());
-        Assert.Equal(10, deque.Shift());
+        var sut = new Deque<int>();
+        sut.Push(17);
+        Assert.Equal(17, sut.Shift());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Unshift_and_pop_are_last_in_last_out_order()
+    public void Shift_gets_first_element_from_the_list()
     {
-        var deque = new Deque<int>();
-        deque.Unshift(10);
-        deque.Unshift(20);
-        Assert.Equal(10, deque.Pop());
-        Assert.Equal(20, deque.Pop());
+        var sut = new Deque<int>();
+        sut.Push(23);
+        sut.Push(5);
+        Assert.Equal(23, sut.Shift());
+        Assert.Equal(5, sut.Shift());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Push_and_pop_can_handle_multiple_values()
+    public void Unshift_adds_element_at_start_of_the_list()
     {
-        var deque = new Deque<int>();
-        deque.Push(10);
-        deque.Push(20);
-        deque.Push(30);
-        Assert.Equal(30, deque.Pop());
-        Assert.Equal(20, deque.Pop());
-        Assert.Equal(10, deque.Pop());
+        var sut = new Deque<int>();
+        sut.Unshift(23);
+        sut.Unshift(5);
+        Assert.Equal(5, sut.Shift());
+        Assert.Equal(23, sut.Shift());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Unshift_and_shift_can_handle_multiple_values()
+    public void Pop_push_shift_and_unshift_can_be_used_in_any_order()
     {
-        var deque = new Deque<int>();
-        deque.Unshift(10);
-        deque.Unshift(20);
-        deque.Unshift(30);
-        Assert.Equal(30, deque.Shift());
-        Assert.Equal(20, deque.Shift());
-        Assert.Equal(10, deque.Shift());
+        var sut = new Deque<int>();
+        sut.Push(1);
+        sut.Push(2);
+        Assert.Equal(2, sut.Pop());
+        sut.Push(3);
+        Assert.Equal(1, sut.Shift());
+        sut.Unshift(4);
+        sut.Push(5);
+        Assert.Equal(4, sut.Shift());
+        Assert.Equal(5, sut.Pop());
+        Assert.Equal(3, sut.Shift());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void All_methods_of_manipulating_the_deque_can_be_used_together()
+    public void Popping_to_empty_doesn_t_break_the_list()
     {
-        var deque = new Deque<int>();
-        deque.Push(10);
-        deque.Push(20);
-        Assert.Equal(20, deque.Pop());
+        var sut = new Deque<int>();
+        sut.Push(41);
+        sut.Push(59);
+        sut.Pop();
+        sut.Pop();
+        sut.Push(47);
+        Assert.Equal(47, sut.Pop());
+    }
 
-        deque.Push(30);
-        Assert.Equal(10, deque.Shift());
-
-        deque.Unshift(40);
-        deque.Push(50);
-        Assert.Equal(40, deque.Shift());
-        Assert.Equal(50, deque.Pop());
-        Assert.Equal(30, deque.Shift());
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Shifting_to_empty_doesn_t_break_the_list()
+    {
+        var sut = new Deque<int>();
+        sut.Push(41);
+        sut.Push(59);
+        sut.Shift();
+        sut.Shift();
+        sut.Push(47);
+        Assert.Equal(47, sut.Shift());
     }
 }
