@@ -5,109 +5,109 @@ public class RationalNumbersTests
     [Fact]
     public void Add_two_positive_rational_numbers()
     {
-        Assert.Equal(new RationalNumber(7, 6), new RationalNumber(1, 2) + (new RationalNumber(2, 3)));
+        Assert.Equal(new RationalNumber(7, 6), new RationalNumber(1, 2) + new RationalNumber(2, 3));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Add_a_positive_rational_number_and_a_negative_rational_number()
     {
-        Assert.Equal(new RationalNumber(-1, 6), new RationalNumber(1, 2) + (new RationalNumber(-2, 3)));
+        Assert.Equal(new RationalNumber(-1, 6), new RationalNumber(1, 2) + new RationalNumber(-2, 3));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Add_two_negative_rational_numbers()
     {
-        Assert.Equal(new RationalNumber(-7, 6), new RationalNumber(-1, 2) + (new RationalNumber(-2, 3)));
+        Assert.Equal(new RationalNumber(-7, 6), new RationalNumber(-1, 2) + new RationalNumber(-2, 3));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Add_a_rational_number_to_its_additive_inverse()
     {
-        Assert.Equal(new RationalNumber(0, 1), new RationalNumber(1, 2) + (new RationalNumber(-1, 2)));
+        Assert.Equal(new RationalNumber(0, 1), new RationalNumber(1, 2) + new RationalNumber(-1, 2));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Subtract_two_positive_rational_numbers()
     {
-        Assert.Equal(new RationalNumber(-1, 6), new RationalNumber(1, 2) - (new RationalNumber(2, 3)));
+        Assert.Equal(new RationalNumber(-1, 6), new RationalNumber(1, 2) - new RationalNumber(2, 3));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Subtract_a_positive_rational_number_and_a_negative_rational_number()
     {
-        Assert.Equal(new RationalNumber(7, 6), new RationalNumber(1, 2) - (new RationalNumber(-2, 3)));
+        Assert.Equal(new RationalNumber(7, 6), new RationalNumber(1, 2) - new RationalNumber(-2, 3));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Subtract_two_negative_rational_numbers()
     {
-        Assert.Equal(new RationalNumber(1, 6), new RationalNumber(-1, 2) - (new RationalNumber(-2, 3)));
+        Assert.Equal(new RationalNumber(1, 6), new RationalNumber(-1, 2) - new RationalNumber(-2, 3));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Subtract_a_rational_number_from_itself()
     {
-        Assert.Equal(new RationalNumber(0, 1), new RationalNumber(1, 2) - (new RationalNumber(1, 2)));
+        Assert.Equal(new RationalNumber(0, 1), new RationalNumber(1, 2) - new RationalNumber(1, 2));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Multiply_two_positive_rational_numbers()
     {
-        Assert.Equal(new RationalNumber(1, 3), new RationalNumber(1, 2) * (new RationalNumber(2, 3)));
+        Assert.Equal(new RationalNumber(1, 3), new RationalNumber(1, 2) * new RationalNumber(2, 3));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Multiply_a_negative_rational_number_by_a_positive_rational_number()
     {
-        Assert.Equal(new RationalNumber(-1, 3), new RationalNumber(-1, 2) * (new RationalNumber(2, 3)));
+        Assert.Equal(new RationalNumber(-1, 3), new RationalNumber(-1, 2) * new RationalNumber(2, 3));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Multiply_two_negative_rational_numbers()
     {
-        Assert.Equal(new RationalNumber(1, 3), new RationalNumber(-1, 2) * (new RationalNumber(-2, 3)));
+        Assert.Equal(new RationalNumber(1, 3), new RationalNumber(-1, 2) * new RationalNumber(-2, 3));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Multiply_a_rational_number_by_its_reciprocal()
     {
-        Assert.Equal(new RationalNumber(1, 1), new RationalNumber(1, 2) * (new RationalNumber(2, 1)));
+        Assert.Equal(new RationalNumber(1, 1), new RationalNumber(1, 2) * new RationalNumber(2, 1));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Multiply_a_rational_number_by_1()
     {
-        Assert.Equal(new RationalNumber(1, 2), new RationalNumber(1, 2) * (new RationalNumber(1, 1)));
+        Assert.Equal(new RationalNumber(1, 2), new RationalNumber(1, 2) * new RationalNumber(1, 1));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Multiply_a_rational_number_by_0()
     {
-        Assert.Equal(new RationalNumber(0, 1), new RationalNumber(1, 2) * (new RationalNumber(0, 1)));
+        Assert.Equal(new RationalNumber(0, 1), new RationalNumber(1, 2) * new RationalNumber(0, 1));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Divide_two_positive_rational_numbers()
     {
-        Assert.Equal(new RationalNumber(3, 4), new RationalNumber(1, 2) / (new RationalNumber(2, 3)));
+        Assert.Equal(new RationalNumber(3, 4), new RationalNumber(1, 2) / new RationalNumber(2, 3));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Divide_a_positive_rational_number_by_a_negative_rational_number()
     {
-        Assert.Equal(new RationalNumber(-3, 4), new RationalNumber(1, 2) / (new RationalNumber(-2, 3)));
+        Assert.Equal(new RationalNumber(-3, 4), new RationalNumber(1, 2) / new RationalNumber(-2, 3));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Divide_two_negative_rational_numbers()
     {
-        Assert.Equal(new RationalNumber(3, 4), new RationalNumber(-1, 2) / (new RationalNumber(-2, 3)));
+        Assert.Equal(new RationalNumber(3, 4), new RationalNumber(-1, 2) / new RationalNumber(-2, 3));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Divide_a_rational_number_by_1()
     {
-        Assert.Equal(new RationalNumber(1, 2), new RationalNumber(1, 2) / (new RationalNumber(1, 1)));
+        Assert.Equal(new RationalNumber(1, 2), new RationalNumber(1, 2) / new RationalNumber(1, 1));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
@@ -203,19 +203,19 @@ public class RationalNumbersTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Raise_a_real_number_to_a_positive_rational_number()
     {
-        Assert.Equal(16, 8.Expreal(new RationalNumber(4, 3)), precision: 7);
+        Assert.Equal(16.0, 8.Expreal(new RationalNumber(4, 3)), precision: 7);
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Raise_a_real_number_to_a_negative_rational_number()
     {
-        Assert.Equal(0.33333334, 9.Expreal(new RationalNumber(-1, 2)), precision: 7);
+        Assert.Equal(0.3333333333333333, 9.Expreal(new RationalNumber(-1, 2)), precision: 7);
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Raise_a_real_number_to_a_zero_rational_number()
     {
-        Assert.Equal(1, 2.Expreal(new RationalNumber(0, 1)), precision: 7);
+        Assert.Equal(1.0, 2.Expreal(new RationalNumber(0, 1)), precision: 7);
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]

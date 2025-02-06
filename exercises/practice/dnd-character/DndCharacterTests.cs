@@ -1,47 +1,46 @@
 using System.Collections.Generic;
-using System.Linq;
 using Xunit;
 
 public class DndCharacterTests
 {
     [Fact]
-    public void Ability_modifier_for_score_3_is_minus_4()
+    public void Ability_modifier_for_score_3_is_4()
     {
         Assert.Equal(-4, DndCharacter.Modifier(3));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Ability_modifier_for_score_4_is_minus_3()
+    public void Ability_modifier_for_score_4_is_3()
     {
         Assert.Equal(-3, DndCharacter.Modifier(4));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Ability_modifier_for_score_5_is_minus_3()
+    public void Ability_modifier_for_score_5_is_3()
     {
         Assert.Equal(-3, DndCharacter.Modifier(5));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Ability_modifier_for_score_6_is_minus_2()
+    public void Ability_modifier_for_score_6_is_2()
     {
         Assert.Equal(-2, DndCharacter.Modifier(6));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Ability_modifier_for_score_7_is_minus_2()
+    public void Ability_modifier_for_score_7_is_2()
     {
         Assert.Equal(-2, DndCharacter.Modifier(7));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Ability_modifier_for_score_8_is_minus_1()
+    public void Ability_modifier_for_score_8_is_1()
     {
         Assert.Equal(-1, DndCharacter.Modifier(8));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Ability_modifier_for_score_9_is_minus_1()
+    public void Ability_modifier_for_score_9_is_1()
     {
         Assert.Equal(-1, DndCharacter.Modifier(9));
     }
@@ -145,25 +144,33 @@ public class DndCharacterTests
     {
         var expectedDistribution = new Dictionary<int, int>
         {
-            [3] = 1,        [4] = 4,
-            [5] = 10,       [6] = 21,
-            [7] = 38,       [8] = 62,
-            [9] = 91,       [10] = 122,
-            [11] = 148,     [12] = 167,
-            [13] = 172,     [14] = 160,
-            [15] = 131,     [16] = 94,
-            [17] = 54,      [18] = 21
+            [3] = 1,
+            [4] = 4,
+            [5] = 10,
+            [6] = 21,
+            [7] = 38,
+            [8] = 62,
+            [9] = 91,
+            [10] = 122,
+            [11] = 148,
+            [12] = 167,
+            [13] = 172,
+            [14] = 160,
+            [15] = 131,
+            [16] = 94,
+            [17] = 54,
+            [18] = 21
         };
-     
+
         var actualDistribution = new Dictionary<int, int>(expectedDistribution);
         foreach (var key in actualDistribution.Keys)
-            actualDistribution[key] = 0;        
-     
+            actualDistribution[key] = 0;
+
         const int times = 250;
-        const int possibleCombinationsCount = 6*6*6*6; // 4d6
+        const int possibleCombinationsCount = 6 * 6 * 6 * 6; // 4d6
         for (var i = 0; i < times * possibleCombinationsCount; i++)
             actualDistribution[DndCharacter.Ability()]++;
-     
+
         const double minTimes = times * 0.8;
         const double maxTimes = times * 1.2;
         foreach (var k in expectedDistribution.Keys)
