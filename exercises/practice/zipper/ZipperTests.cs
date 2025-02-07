@@ -95,7 +95,7 @@ public class ZipperTests
     {
         var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
         var sut = Zipper.FromTree(tree);
-        var actual = sut.Left().SetLeft(new BinTree(5, null, null)).ToTree();
+        var actual = sut.Left().SetLeft({ value: 5, left: null, right: null}).ToTree();
         var expected = new BinTree(1, new BinTree(2, new BinTree(5, null, null), new BinTree(3, null, null)), new BinTree(4, null, null));
         Assert.Equal(expected, actual);
     }
@@ -105,7 +105,7 @@ public class ZipperTests
     {
         var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
         var sut = Zipper.FromTree(tree);
-        var actual = sut.Left().SetRight(null).ToTree();
+        var actual = sut.Left().SetRight().ToTree();
         var expected = new BinTree(1, new BinTree(2, null, null), new BinTree(4, null, null));
         Assert.Equal(expected, actual);
     }
@@ -115,7 +115,7 @@ public class ZipperTests
     {
         var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
         var sut = Zipper.FromTree(tree);
-        var actual = sut.SetRight(new BinTree(6, new BinTree(7, null, null), new BinTree(8, null, null))).ToTree();
+        var actual = sut.SetRight({ value: 6, left: { value: 7, left: null, right: null}, right: { value: 8, left: null, right: null} }).ToTree();
         var expected = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(6, new BinTree(7, null, null), new BinTree(8, null, null)));
         Assert.Equal(expected, actual);
     }
@@ -136,7 +136,6 @@ public class ZipperTests
         var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
         var sut = Zipper.FromTree(tree);
         var actual = sut.Left().Up().Right();
-        var expected = Zipper.FromTree(new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null))).Right();
-        Assert.Equal(expected, actual);
+        Assert.Null(actual);
     }
 }

@@ -13,6 +13,8 @@ internal static class Templates
     public static string RenderTestsCode(CanonicalData canonicalData)
     {
         var scriptObject = new ScriptObject();
+        scriptObject.Import("pascalize", new Func<string, string>((text) =>
+            text.Pascalize()));
         scriptObject.Import("enum", new Func<string, string, string>((text, enumType) =>
             $"{enumType.Pascalize()}.{text.Pascalize()}"));
         scriptObject.Import("property", new Func<ScriptArray, string, ScriptArray>((testCases, name) =>
