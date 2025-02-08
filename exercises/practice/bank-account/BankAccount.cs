@@ -20,7 +20,12 @@ public class BankAccount
         }
     }
 
-    public void UpdateBalance(decimal change)
+    public void Deposit(decimal change)
+    {
+        throw new NotImplementedException("You need to implement this method.");
+    }
+
+    public void Withdraw(decimal change)
     {
         throw new NotImplementedException("You need to implement this method.");
     }

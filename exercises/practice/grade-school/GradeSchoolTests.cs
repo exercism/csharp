@@ -7,7 +7,8 @@ public class GradeSchoolTests
     public void Roster_is_empty_when_no_student_is_added()
     {
         var sut = new GradeSchool();
-        Assert.Empty(sut.Roster());
+        string[] expected = [];
+        Assert.Equal(expected, sut.Roster());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
@@ -21,8 +22,8 @@ public class GradeSchoolTests
     public void Student_is_added_to_the_roster()
     {
         var sut = new GradeSchool();
-        var expected = new[] { "Aimee" };
         sut.Add("Aimee", 2);
+        string[] expected = ["Aimee"];
         Assert.Equal(expected, sut.Roster());
     }
 
@@ -39,10 +40,10 @@ public class GradeSchoolTests
     public void Multiple_students_in_the_same_grade_are_added_to_the_roster()
     {
         var sut = new GradeSchool();
-        var expected = new[] { "Blair", "James", "Paul" };
         sut.Add("Blair", 2);
         sut.Add("James", 2);
         sut.Add("Paul", 2);
+        string[] expected = ["Blair", "James", "Paul"];
         Assert.Equal(expected, sut.Roster());
     }
 
@@ -60,11 +61,11 @@ public class GradeSchoolTests
     public void Student_not_added_to_same_grade_in_the_roster_more_than_once()
     {
         var sut = new GradeSchool();
-        var expected = new[] { "Blair", "James", "Paul" };
         sut.Add("Blair", 2);
         sut.Add("James", 2);
         sut.Add("James", 2);
         sut.Add("Paul", 2);
+        string[] expected = ["Blair", "James", "Paul"];
         Assert.Equal(expected, sut.Roster());
     }
 
@@ -80,9 +81,9 @@ public class GradeSchoolTests
     public void Students_in_multiple_grades_are_added_to_the_roster()
     {
         var sut = new GradeSchool();
-        var expected = new[] { "Chelsea", "Logan" };
         sut.Add("Chelsea", 3);
         sut.Add("Logan", 7);
+        string[] expected = ["Chelsea", "Logan"];
         Assert.Equal(expected, sut.Roster());
     }
 
@@ -100,11 +101,11 @@ public class GradeSchoolTests
     public void Student_not_added_to_multiple_grades_in_the_roster()
     {
         var sut = new GradeSchool();
-        var expected = new[] { "Blair", "James", "Paul" };
         sut.Add("Blair", 2);
         sut.Add("James", 2);
         sut.Add("James", 3);
         sut.Add("Paul", 3);
+        string[] expected = ["Blair", "James", "Paul"];
         Assert.Equal(expected, sut.Roster());
     }
 
@@ -112,10 +113,10 @@ public class GradeSchoolTests
     public void Students_are_sorted_by_grades_in_the_roster()
     {
         var sut = new GradeSchool();
-        var expected = new[] { "Anna", "Peter", "Jim" };
         sut.Add("Jim", 3);
         sut.Add("Peter", 2);
         sut.Add("Anna", 1);
+        string[] expected = ["Anna", "Peter", "Jim"];
         Assert.Equal(expected, sut.Roster());
     }
 
@@ -123,10 +124,10 @@ public class GradeSchoolTests
     public void Students_are_sorted_by_name_in_the_roster()
     {
         var sut = new GradeSchool();
-        var expected = new[] { "Alex", "Peter", "Zoe" };
         sut.Add("Peter", 2);
         sut.Add("Zoe", 2);
         sut.Add("Alex", 2);
+        string[] expected = ["Alex", "Peter", "Zoe"];
         Assert.Equal(expected, sut.Roster());
     }
 
@@ -134,7 +135,6 @@ public class GradeSchoolTests
     public void Students_are_sorted_by_grades_and_then_by_name_in_the_roster()
     {
         var sut = new GradeSchool();
-        var expected = new[] { "Anna", "Barb", "Charlie", "Alex", "Peter", "Zoe", "Jim" };
         sut.Add("Peter", 2);
         sut.Add("Anna", 1);
         sut.Add("Barb", 1);
@@ -142,6 +142,7 @@ public class GradeSchoolTests
         sut.Add("Alex", 2);
         sut.Add("Jim", 3);
         sut.Add("Charlie", 1);
+        string[] expected = ["Anna", "Barb", "Charlie", "Alex", "Peter", "Zoe", "Jim"];
         Assert.Equal(expected, sut.Roster());
     }
 
@@ -149,7 +150,8 @@ public class GradeSchoolTests
     public void Grade_is_empty_if_no_students_in_the_roster()
     {
         var sut = new GradeSchool();
-        Assert.Empty(sut.Grade(1));
+        string[] expected = [];
+        Assert.Equal(expected, sut.Grade(1));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
@@ -160,18 +162,19 @@ public class GradeSchoolTests
         sut.Add("Zoe", 2);
         sut.Add("Alex", 2);
         sut.Add("Jim", 3);
-        Assert.Empty(sut.Grade(1));
+        string[] expected = [];
+        Assert.Equal(expected, sut.Grade(1));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Student_not_added_to_same_grade_more_than_once()
     {
         var sut = new GradeSchool();
-        var expected = new[] { "Blair", "James", "Paul" };
         sut.Add("Blair", 2);
         sut.Add("James", 2);
         sut.Add("James", 2);
         sut.Add("Paul", 2);
+        string[] expected = ["Blair", "James", "Paul"];
         Assert.Equal(expected, sut.Grade(2));
     }
 
@@ -179,11 +182,11 @@ public class GradeSchoolTests
     public void Student_not_added_to_multiple_grades()
     {
         var sut = new GradeSchool();
-        var expected = new[] { "Blair", "James" };
         sut.Add("Blair", 2);
         sut.Add("James", 2);
         sut.Add("James", 3);
         sut.Add("Paul", 3);
+        string[] expected = ["Blair", "James"];
         Assert.Equal(expected, sut.Grade(2));
     }
 
@@ -191,11 +194,11 @@ public class GradeSchoolTests
     public void Student_not_added_to_other_grade_for_multiple_grades()
     {
         var sut = new GradeSchool();
-        var expected = new[] { "Paul" };
         sut.Add("Blair", 2);
         sut.Add("James", 2);
         sut.Add("James", 3);
         sut.Add("Paul", 3);
+        string[] expected = ["Paul"];
         Assert.Equal(expected, sut.Grade(3));
     }
 
@@ -203,10 +206,10 @@ public class GradeSchoolTests
     public void Students_are_sorted_by_name_in_a_grade()
     {
         var sut = new GradeSchool();
-        var expected = new[] { "Bradley", "Franklin" };
         sut.Add("Franklin", 5);
         sut.Add("Bradley", 5);
         sut.Add("Jeff", 1);
+        string[] expected = ["Bradley", "Franklin"];
         Assert.Equal(expected, sut.Grade(5));
     }
 }
