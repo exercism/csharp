@@ -2662,6 +2662,19 @@
           "while-loops"
         ],
         "difficulty": 2
+      },
+      {
+        "slug": "killer-sudoku-helper",
+        "name": "Killer Sudoku Helper",
+        "uuid": "ef287b7e-50ca-4072-93e8-84efbbe77079",
+        "practices": [
+          "arrays"
+        ],
+        "prerequisites": [
+          "arrays",
+          "numbers"
+        ],
+        "difficulty": 7
       }
     ],
     "foregone": [
