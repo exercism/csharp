@@ -2675,6 +2675,20 @@
           "numbers"
         ],
         "difficulty": 7
+      },
+      {
+        "slug": "satellite",
+        "name": "Satellite",
+        "uuid": "4da2ca3b-2fe5-4048-985b-95a3b24aaa36",
+        "practices": [
+          "for-loops"
+        ],
+        "prerequisites": [
+          "generic-methods",
+          "chars",
+          "for-loops"
+        ],
+        "difficulty": 7
       }
     ],
     "foregone": [
