@@ -2276,6 +2276,21 @@
         "difficulty": 5
       },
       {
+        "slug": "state-of-tic-tac-toe",
+        "name": "State of Tic-Tac-Toe",
+        "uuid": "afabe6ff-ba63-42d5-9d74-3b6b27b0675a",
+        "practices": [
+          "arrays"
+        ],
+        "prerequisites": [
+          "arrays",
+          "enums",
+          "strings",
+          "for-loops"
+        ],
+        "difficulty": 5
+      },
+      {
         "slug": "word-search",
         "name": "Word Search",
         "uuid": "2b05d7dd-0f0b-4fa4-a2bf-9d7fa28a7543",
