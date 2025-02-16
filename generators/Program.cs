@@ -30,7 +30,7 @@ public static class Program
         public string? Exercise { get; set; }
     }
     
-    [Verb("update", isDefault: true, HelpText = "Update the test file's contents using the exercise's generator template file.")]
+    [Verb("update", HelpText = "Update the test file's contents using the exercise's generator template file.")]
     private class UpdateOptions
     {
         [Option('e', "exercise", Required = false, HelpText = "The exercise (slug) which tests file to generate.")]
