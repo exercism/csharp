@@ -1,5 +1,3 @@
-using System;
-
 static class SavingsAccount
 {
     public static float InterestRate(decimal balance)

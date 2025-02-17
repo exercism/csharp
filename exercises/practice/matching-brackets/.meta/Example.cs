@@ -1,5 +1,3 @@
-using System.Linq;
-
 public static class MatchingBrackets
 {
     public static bool IsPaired(string input)

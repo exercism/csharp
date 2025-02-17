@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
 public class DndCharacter
 {
     private static readonly Random Random = new Random();

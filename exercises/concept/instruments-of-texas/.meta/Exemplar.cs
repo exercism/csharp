@@ -1,5 +1,3 @@
-using System;
-
 public class CalculationException : Exception
 {
     public CalculationException(int operand1, int operand2, string message, Exception inner) : base(message, inner)

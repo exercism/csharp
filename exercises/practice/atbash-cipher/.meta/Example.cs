@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
 public static class AtbashCipher
 {
     private const int BlockSize = 5;

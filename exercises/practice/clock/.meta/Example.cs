@@ -1,5 +1,3 @@
-using System;
-
 public struct Clock
 {
     public Clock(int hours, int minutes = 0)

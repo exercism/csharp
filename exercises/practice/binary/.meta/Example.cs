@@ -1,6 +1,3 @@
-using System;
-using System.Linq;
-
 public class Binary
 {
     public static int ToDecimal(string binary)

@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 public class Robot
 {
     private static readonly Random Random = new Random();
