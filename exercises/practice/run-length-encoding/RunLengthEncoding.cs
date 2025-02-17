@@ -1,5 +1,3 @@
-using System;
-
 public static class RunLengthEncoding
 {
     public static string Encode(string input)

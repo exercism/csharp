@@ -1,5 +1,3 @@
-using System;
-
 public static class Rectangles
 {
     public static int Count(string[] rows)

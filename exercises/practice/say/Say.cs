@@ -1,5 +1,3 @@
-using System;
-
 public static class Say
 {
     public static string InEnglish(long number)

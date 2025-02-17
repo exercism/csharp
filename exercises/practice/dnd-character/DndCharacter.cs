@@ -1,5 +1,3 @@
-using System;
-
 public class DndCharacter
 {
     public int Strength { get; }

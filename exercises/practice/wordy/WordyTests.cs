@@ -1,6 +1,3 @@
-using System;
-using Xunit;
-
 public class WordyTests
 {
     [Fact]

@@ -1,5 +1,3 @@
-using System;
-
 public static class HighSchoolSweethearts
 {
     public static string DisplaySingleLine(string studentA, string studentB)

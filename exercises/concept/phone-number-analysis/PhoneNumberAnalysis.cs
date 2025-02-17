@@ -1,5 +1,3 @@
-using System;
-
 public static class PhoneNumber
 {
     public static (bool IsNewYork, bool IsFake, string LocalNumber) Analyze(string phoneNumber)
