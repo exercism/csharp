@@ -76,9 +76,16 @@ function Restore-Exercises($Exercises) {
     }
 }
 
+function Parse-Test-Dlls {
+    Select-String -Path "msbuild.log" -Pattern " -> (.+)" -AllMatches
+    | Select-Object -ExpandProperty Matches
+    | ForEach-Object { $_.Groups[1].Value }
+}
+
 function Run-Tests($Path) {
-    & dotnet restore --locked-mode $Path
-    & dotnet test --no-restore $Path
+    & dotnet restore --verbosity quiet --locked-mode $Path
+    & dotnet build   --verbosity quiet --no-restore $Path /flp:v=minimal
+    & dotnet vstest  --logger:"console;verbosity=quiet" --parallel $(Parse-Test-Dlls)
 }
 
 function Find-Exercise-Path($Exercise, $Exercises) {
@@ -126,13 +133,13 @@ function Parse-Exercises {
 
 function Build-Generators {
     Write-Output "Build generators"
-    & dotnet restore --locked-mode generators
-    & dotnet build --no-restore generators
+    & dotnet restore --verbosity quiet --locked-mode generators
+    & dotnet build   --verbosity quiet --no-restore generators
 }
 
 function Test-Refactoring-Exercise-Default-Implementations {
     Write-Output "Testing refactoring exercises"
-    & dotnet test (Join-Path "exercises" "Refactoring.sln")
+    Run-Tests (Join-Path "exercises" "Refactoring.sln")
 }
 
 function Test-Exercise-Example-Implementations($Exercise) {
@@ -149,6 +156,6 @@ function Test-Exercise-Example-Implementations($Exercise) {
 Test-Exercise-Example-Implementations $Exercise
 
 if (!$Exercise) {
-    Build-Generators
     Test-Refactoring-Exercise-Default-Implementations
+    Build-Generators
 }
