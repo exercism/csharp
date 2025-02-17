@@ -2,14 +2,14 @@ using System;
 
 public class BinTree
 {
-    public BinTree(int value, BinTree left, BinTree right)
+    public BinTree(int value, BinTree? left, BinTree? right)
     {
         throw new NotImplementedException("You need to implement this method.");
     }
 
     public int Value { get; }
-    public BinTree Left { get; }
-    public BinTree Right { get; }
+    public BinTree? Left { get; }
+    public BinTree? Right { get; }
 }
 
 public class Zipper
@@ -24,27 +24,27 @@ public class Zipper
         throw new NotImplementedException("You need to implement this method.");
     }
 
-    public Zipper SetLeft(BinTree binTree)
+    public Zipper SetLeft(BinTree? binTree)
     {
         throw new NotImplementedException("You need to implement this method.");
     }
 
-    public Zipper SetRight(BinTree binTree) 
+    public Zipper SetRight(BinTree? binTree) 
     {
         throw new NotImplementedException("You need to implement this method.");
     }
 
-    public Zipper Left()
+    public Zipper? Left()
     {
         throw new NotImplementedException("You need to implement this method.");
     }
 
-    public Zipper Right()
+    public Zipper? Right()
     {
         throw new NotImplementedException("You need to implement this method.");
     }
 
-    public Zipper Up()
+    public Zipper? Up()
     {
         throw new NotImplementedException("You need to implement this method.");
     }

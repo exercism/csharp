@@ -2,10 +2,10 @@
     case (object.typeof input)
         when "array"
             if input.empty?
-                ret "Array.Empty<object>()"
+                ret "Array.Empty<object?>()"
             else
                 elements = array.join (array.each input @toarg) ", "
-                ret "new object[] { " + elements + " }"
+                ret "new object?[] { " + elements + " }"
             end
         else
             if input
@@ -26,11 +26,11 @@ public class {{ testClass }}
     public void {{ test.testMethod }}()
     {
         {{- if test.input.array.empty? }}
-        var array = Array.Empty<object>();
+        var array = Array.Empty<object?>();
         Assert.Empty({{ testedClass }}.{{ test.testedMethod }}(array));
         {{- else }}
-        object[] array = {{ test.input.array | toarg }};
-        object[] expected = {{ test.expected }};
+        object?[] array = {{ test.input.array | toarg }};
+        object?[] expected = {{ test.expected }};
         Assert.Equal(expected, {{ testedClass }}.{{ test.testedMethod }}(array));
         {{ end -}}
     }

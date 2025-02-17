@@ -8,8 +8,13 @@ public enum State
     Invalid
 }
 
-public class TicTacToe(string[] rows)
+public class TicTacToe
 {
+    public TicTacToe(string[] rows)
+    {
+        throw new NotImplementedException("Please implement this constructor");
+    }
+    
     public State State
     {
         get

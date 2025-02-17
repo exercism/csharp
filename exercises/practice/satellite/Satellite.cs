@@ -1,6 +1,6 @@
 using System;
 
-public record Tree(char Value, Tree Left, Tree Right);
+public record Tree(char Value, Tree? Left, Tree? Right);
 
 public static class Satellite
 {
