@@ -27,3 +27,5 @@ build/
 
 # Temporary files
 exercises/**/*.tmp
+
+msbuild.log
