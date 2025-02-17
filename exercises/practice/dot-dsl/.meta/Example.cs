@@ -10,7 +10,7 @@ public class Node : Element
 
     public string Name { get; }
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         if (obj == null || GetType() != obj.GetType())
             return false;
@@ -32,7 +32,7 @@ public class Edge : Element
     public string Node1 { get; }
     public string Node2 { get; }
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         if (obj == null || GetType() != obj.GetType())
             return false;
@@ -55,7 +55,7 @@ public class Attr
     public string Key { get; }
     public string Value { get; }
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         if (obj == null || GetType() != obj.GetType())
             return false;

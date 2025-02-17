@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
@@ -23,7 +22,7 @@ public class DotDslTests
             new Node("a")
         };
 
-        Assert.Equal(new[] { new Node("a") }, g.Nodes);
+        Assert.Equal([new Node("a")], g.Nodes);
         Assert.Empty(g.Edges);
         Assert.Empty(g.Attrs);
     }
@@ -36,7 +35,7 @@ public class DotDslTests
             new Node("a") { { "color", "green" } }
         };
 
-        Assert.Equal(new[] { new Node("a") { { "color", "green" } } }, g.Nodes);
+        Assert.Equal([new Node("a") { { "color", "green" } }], g.Nodes);
         Assert.Empty(g.Edges);
         Assert.Empty(g.Attrs);
     }
@@ -50,7 +49,7 @@ public class DotDslTests
         };
 
         Assert.Empty(g.Nodes);
-        Assert.Equal(new[] { new Edge("a", "b") }, g.Edges);
+        Assert.Equal([new Edge("a", "b")], g.Edges);
         Assert.Empty(g.Attrs);
     }
 
@@ -64,7 +63,7 @@ public class DotDslTests
 
         Assert.Empty(g.Nodes);
         Assert.Empty(g.Edges);
-        Assert.Equal(new[] { new Attr("foo", "1") }, g.Attrs);
+        Assert.Equal([new Attr("foo", "1")], g.Attrs);
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
@@ -82,20 +81,11 @@ public class DotDslTests
             { "bar", "true" }
         };
 
-        Assert.Equal(new[] { new Node("a") { { "color", "green" } }, new Node("b") { { "label", "Beta!" } }, new Node("c") }, g.Nodes, EnumerableEqualityComparer<Node>.Instance);
-        Assert.Equal(new[] { new Edge("a", "b") { { "color", "blue" } }, new Edge("b", "c") }, g.Edges, EnumerableEqualityComparer<Edge>.Instance);
-        Assert.Equal(new[] { new Attr("bar", "true"), new Attr("foo", "1"), new Attr("title", "Testing Attrs") }, g.Attrs, EnumerableEqualityComparer<Attr>.Instance);
-    }
-
-    private class EnumerableEqualityComparer<T> : IEqualityComparer<IEnumerable<T>>
-    {
-        public static readonly EnumerableEqualityComparer<T> Instance = new EnumerableEqualityComparer<T>();
-
-        public bool Equals(IEnumerable<T> x, IEnumerable<T> y) => new HashSet<T>(x).SetEquals(y);
-
-        public int GetHashCode(IEnumerable<T> obj)
-        {
-            throw new NotImplementedException("You need to implement this method.");
-        }
+        HashSet<Node> expectedNodes = [new Node("a") { { "color", "green" } }, new Node("b") { { "label", "Beta!" } }, new Node("c")];
+        Assert.Equal(expectedNodes, g.Nodes.ToHashSet());
+        HashSet<Edge> expectedEdges = [new Edge("a", "b") { { "color", "blue" } }, new Edge("b", "c")];
+        Assert.Equal(expectedEdges, g.Edges.ToHashSet());
+        HashSet<Attr> expectedAttrs = [new Attr("bar", "true"), new Attr("foo", "1"), new Attr("title", "Testing Attrs")];
+        Assert.Equal(expectedAttrs, g.Attrs.ToHashSet());
     }
 }
