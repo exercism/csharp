@@ -20,6 +20,8 @@ jobs:
         uses: actions/setup-dotnet@87b7050bc53ea08284295505d98d2aa94301e852
         with:
           dotnet-version: "9.0.101"
+          cache: true
+          cache-dependency-path: "**/packages.lock.json"
 
       - name: Run tests
         run: pwsh bin/test.ps1
