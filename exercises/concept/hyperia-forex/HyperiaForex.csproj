@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FsCheck" Version="2.16.3" />
     <PackageReference Include="FsCheck.Xunit" Version="2.16.3" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
