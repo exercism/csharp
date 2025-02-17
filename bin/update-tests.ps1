@@ -8,6 +8,8 @@
     The slug of the exercise to generate the tests for (optional).
 .PARAMETER CreateNew
     Create a new test generator file before generating the tests (switch).
+.PARAMETER SyncProbSpecs
+    Sync the prob-specs repo used (switch).
 .EXAMPLE
     The example below will generate the tests for exercises with a template
     PS C:\> ./test.ps1
@@ -22,22 +24,29 @@ param (
     [string]$Exercise,
 
     [Parameter()]
-    [switch]$New
+    [switch]$New,
+
+    [Parameter()]
+    [switch]$SyncProbSpecs
 )
 
 $ErrorActionPreference = "Stop"
 $PSNativeCommandUseErrorActionPreference = $true
 
-function Run-Command($verb) {
-    if ($Exercise) {
-        & dotnet run --project generators $verb --exercise $Exercise
+function Run-Command($verb, $exercise = $null) {
+    if ($exercise) {
+        & dotnet run --project generators $verb --exercise $exercise
     } else {
         & dotnet run --project generators $verb
     }
 }
 
-if ($New.IsPresent) {
-    Run-Command new
+if ($SyncProbSpecs.IsPresent) {
+    Run-Command sync
 }
 
-Run-Command update
+if ($New.IsPresent) {
+    Run-Command new $Exercise
+}
+
+Run-Command update $Exercise

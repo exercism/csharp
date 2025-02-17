@@ -54,7 +54,7 @@ Remove-Item -Path "${exerciseDir}/UnitTest1.cs"
 (Get-Content -Path ".editorconfig") -Replace "\[\*\.cs\]", "[${exerciseName}.cs]" | Set-Content -Path "${exerciseDir}/.editorconfig"
 
 # Create new generator template and run generator (this will update the tests file)
-bin/update-tests.ps1 -e $Exercise -new
+bin/update-tests.ps1 -Exercise $Exercise -New -SyncProbSpecs
 
 # Output the next steps
 $files = Get-Content "exercises/practice/${Exercise}/.meta/config.json" | ConvertFrom-Json | Select-Object -ExpandProperty files

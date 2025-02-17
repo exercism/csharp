@@ -6,6 +6,7 @@ internal static class ProbSpecs
 {
     internal static void Sync()
     {
+        Console.WriteLine($"Syncing problem-specifications repo...");
         Clone();
         Pull();
     }

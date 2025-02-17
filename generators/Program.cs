@@ -5,7 +5,7 @@ namespace Generators;
 public static class Program
 {
     static void Main(string[] args) =>
-        Parser.Default.ParseArguments<NewOptions, UpdateOptions>(args)
+        Parser.Default.ParseArguments<NewOptions, UpdateOptions, SyncOptions>(args)
             .WithParsed<NewOptions>(HandleNewCommand)
             .WithParsed<UpdateOptions>(HandleUpdateCommand)
             .WithParsed<SyncOptions>(HandleSyncCommand)
