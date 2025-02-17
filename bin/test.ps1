@@ -26,10 +26,6 @@ param (
 $ErrorActionPreference = "Stop"
 $PSNativeCommandUseErrorActionPreference = $true
 
-function Invoke-Tests($Path) {
-    & dotnet test $Path
-}
-
 function Prepare-Exercise($Path) {
     $files = Get-Content (Join-Path $Path ".meta" "config.json") -Raw | ConvertFrom-Json | Select-Object -ExpandProperty files
 
@@ -81,7 +77,8 @@ function Restore-Exercises($Exercises) {
 }
 
 function Run-Tests($Path) {
-    & dotnet test $Path
+    & dotnet restore --locked-mode $Path
+    & dotnet test --no-restore $Path
 }
 
 function Find-Exercise-Path($Exercise, $Exercises) {
@@ -129,7 +126,8 @@ function Parse-Exercises {
 
 function Build-Generators {
     Write-Output "Build generators"
-    & dotnet build generators
+    & dotnet restore --locked-mode generators
+    & dotnet build --no-restore generators
 }
 
 function Test-Refactoring-Exercise-Default-Implementations {
