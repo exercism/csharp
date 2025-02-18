@@ -1,5 +1,3 @@
-
-
 // TODO: define the 'AccountType' enum
 
 // TODO: define the 'Permission' enum

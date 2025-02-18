@@ -1,5 +1,3 @@
-
-
 // TODO: define the 'LogLevel' enum
 
 static class LogLine
