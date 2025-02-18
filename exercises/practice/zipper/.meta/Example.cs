@@ -4,7 +4,7 @@ using System.Linq;
 
 public class BinTree : IEquatable<BinTree>
 {
-    public BinTree(int value, BinTree left, BinTree right)
+    public BinTree(int value, BinTree? left, BinTree? right)
     {
         Value = value;
         Left = left;
@@ -16,10 +16,10 @@ public class BinTree : IEquatable<BinTree>
     }
 
     public int Value { get; }
-    public BinTree Left { get; }
-    public BinTree Right { get; }
+    public BinTree? Left { get; }
+    public BinTree? Right { get; }
 
-    public bool Equals(BinTree other)
+    public bool Equals(BinTree? other)
     {
         if (other == null || !Equals(Value, other.Value))
             return false;
@@ -36,26 +36,26 @@ public class BinTree : IEquatable<BinTree>
 
 public abstract class BinTreeCrumb
 {
-    public BinTreeCrumb(int value, BinTree tree)
+    public BinTreeCrumb(int value, BinTree? tree)
     {
         Value = value;
         Tree = tree;
     }
 
     public int Value { get; }
-    public BinTree Tree { get; }
+    public BinTree? Tree { get; }
 }
 
 public class BinTreeLeftCrumb : BinTreeCrumb
 {
-    public BinTreeLeftCrumb(int value, BinTree tree) : base(value, tree)
+    public BinTreeLeftCrumb(int value, BinTree? tree) : base(value, tree)
     {
     }
 }
 
 public class BinTreeRightCrumb : BinTreeCrumb
 {
-    public BinTreeRightCrumb(int value, BinTree tree) : base(value, tree)
+    public BinTreeRightCrumb(int value, BinTree? tree) : base(value, tree)
     {
     }
 }
@@ -63,11 +63,11 @@ public class BinTreeRightCrumb : BinTreeCrumb
 public class Zipper : IEquatable<Zipper>
 {
     private readonly int value;
-    private readonly BinTree left;
-    private readonly BinTree right;
+    private readonly BinTree? left;
+    private readonly BinTree? right;
     private readonly List<BinTreeCrumb> crumbs;
 
-    public Zipper(int value, BinTree left, BinTree right, List<BinTreeCrumb> crumbs)
+    public Zipper(int value, BinTree? left, BinTree? right, List<BinTreeCrumb> crumbs)
     {
         this.value = value;
         this.left = left;
@@ -79,11 +79,11 @@ public class Zipper : IEquatable<Zipper>
 
     public Zipper SetValue(int newValue) => new Zipper(newValue, left, right, crumbs);
 
-    public Zipper SetLeft(BinTree binTree) => new Zipper(value, binTree, right, crumbs);
+    public Zipper SetLeft(BinTree? binTree) => new Zipper(value, binTree, right, crumbs);
 
-    public Zipper SetRight(BinTree binTree) => new Zipper(value, left, binTree, crumbs);
+    public Zipper SetRight(BinTree? binTree) => new Zipper(value, left, binTree, crumbs);
 
-    public Zipper Left()
+    public Zipper? Left()
     {
         if (left == null)
             return null;
@@ -92,7 +92,7 @@ public class Zipper : IEquatable<Zipper>
         return new Zipper(left.Value, left.Left, left.Right, newCrumbs);
     }
 
-    public Zipper Right()
+    public Zipper? Right()
     {
         if (right == null)
             return null;
@@ -101,7 +101,7 @@ public class Zipper : IEquatable<Zipper>
         return new Zipper(right.Value, right.Left, right.Right, newCrumbs);
     }
 
-    public Zipper Up()
+    public Zipper? Up()
     {
         if (crumbs.Count == 0)
             return null;
@@ -133,7 +133,7 @@ public class Zipper : IEquatable<Zipper>
         return tree;
     }
 
-    public bool Equals(Zipper other)
+    public bool Equals(Zipper? other)
     {
         if (other == null)
             return false;
