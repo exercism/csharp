@@ -37,7 +37,7 @@ public static class Change
             return current;
         }
 
-        List<int> MinimalCoins(Dictionary<int, List<int>> current, int subTarget)
+        List<int>? MinimalCoins(Dictionary<int, List<int>> current, int subTarget)
         {
             return coins
                 .Where(coin => coin <= subTarget)
@@ -45,7 +45,7 @@ public static class Change
                     ? subTargetMinimalCoins.Append(coin).ToList()
                     : null)
                 .Where(subTargetMinimalCoins => subTargetMinimalCoins != null)
-                .OrderBy(subTargetMinimalCoins => subTargetMinimalCoins.Count)
+                .OrderBy(subTargetMinimalCoins => subTargetMinimalCoins!.Count)
                 .FirstOrDefault();
         }
     }
