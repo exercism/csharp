@@ -19,7 +19,7 @@ public class GoCountingTests
         var expectedOwner = Owner.Black;
         var expectedCoordinates = new HashSet<(int, int)> { (0, 0), (0, 1), (1, 0) };
         Assert.Equal(expectedOwner, territoryOwner);
-        Assert.Equal(expectedCoordinates, territoryCoordinates);
+        Assert.Equal(expectedCoordinates, territoryCoordinates.ToHashSet());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
@@ -37,7 +37,7 @@ public class GoCountingTests
         var expectedOwner = Owner.White;
         var expectedCoordinates = new HashSet<(int, int)> { (2, 3) };
         Assert.Equal(expectedOwner, territoryOwner);
-        Assert.Equal(expectedCoordinates, territoryCoordinates);
+        Assert.Equal(expectedCoordinates, territoryCoordinates.ToHashSet());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
@@ -55,7 +55,7 @@ public class GoCountingTests
         var expectedOwner = Owner.None;
         var expectedCoordinates = new HashSet<(int, int)> { (0, 3), (0, 4), (1, 4) };
         Assert.Equal(expectedOwner, territoryOwner);
-        Assert.Equal(expectedCoordinates, territoryCoordinates);
+        Assert.Equal(expectedCoordinates, territoryCoordinates.ToHashSet());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
@@ -73,7 +73,7 @@ public class GoCountingTests
         var expectedOwner = Owner.None;
         var expectedCoordinates = new HashSet<(int, int)>();
         Assert.Equal(expectedOwner, territoryOwner);
-        Assert.Equal(expectedCoordinates, territoryCoordinates);
+        Assert.Equal(expectedCoordinates, territoryCoordinates.ToHashSet());
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]

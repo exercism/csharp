@@ -26,7 +26,7 @@ public class {{ testClass }}
             var expectedOwner = {{ test.expected.owner | string.downcase | enum "Owner" }};
             var expectedCoordinates = new HashSet<(int, int)>{{ if test.expected.territory.empty? }}(){{ else }}{ {{ for territory in test.expected.territory }}({{ territory | array.join ", " }}){{ if !for.last }}, {{ end }}{{ end }} }{{ end }};
             Assert.Equal(expectedOwner, territoryOwner);
-            Assert.Equal(expectedCoordinates, territoryCoordinates);
+            Assert.Equal(expectedCoordinates, territoryCoordinates.ToHashSet());
         {{- else if test.property == "territories" }}
             var actual = sut.Territories();
             var expected = new Dictionary<Owner, HashSet<(int, int)>>
