@@ -1,3 +1,5 @@
+using System;
+
 public static class CollatzConjecture
 {
     public static int Steps(int number)

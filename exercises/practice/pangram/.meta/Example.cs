@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 public class Pangram
 {
     public static bool IsPangram(string input)

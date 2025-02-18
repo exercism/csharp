@@ -1,3 +1,5 @@
+using System;
+
 public static class ErrorHandling
 {
     public static void HandleErrorByThrowingException()

@@ -1,3 +1,5 @@
+using System.Linq;
+
 public static class Transpose
 {
     public static string String(string input)

@@ -1,3 +1,5 @@
+using System;
+
 public static class AffineCipher
 {
     public static string Encode(string plainText, int a, int b)

@@ -1,3 +1,5 @@
+using System.Linq;
+
 public class Matrix
 {
     private readonly int[][] _rows;

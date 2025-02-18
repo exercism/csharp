@@ -1,3 +1,6 @@
+using System.Linq;
+using Xunit;
+
 public class AccumulateTests
 {
     [Fact]

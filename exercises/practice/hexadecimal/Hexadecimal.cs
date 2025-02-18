@@ -1,3 +1,5 @@
+using System;
+
 public class Hexadecimal
 {
     public static int ToDecimal(string value)

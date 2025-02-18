@@ -1,3 +1,5 @@
+using System;
+
 public record ComplexNumber(double R, double I)
 {
     public double Real() => R;

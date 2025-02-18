@@ -1,3 +1,4 @@
+using Xunit;
 using Exercism.Tests;
 
 public class WizardsAndWarriors2Tests

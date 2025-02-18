@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 public class Authenticator
 {
     // TODO: Implement the Authenticator.Admin property

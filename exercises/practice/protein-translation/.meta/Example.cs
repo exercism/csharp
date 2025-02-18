@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 public static class ProteinTranslation
 {
     public static string[] Proteins(string strand)

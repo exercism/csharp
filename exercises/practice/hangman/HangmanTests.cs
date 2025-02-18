@@ -1,4 +1,7 @@
+using System;
+using Xunit;
 using Microsoft.Reactive.Testing;
+using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Reactive.Concurrency;
 

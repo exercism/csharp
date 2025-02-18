@@ -1,3 +1,6 @@
+using System;
+using System.Linq;
+
 public class Trinary
 {
     public static int ToDecimal(string trinary)

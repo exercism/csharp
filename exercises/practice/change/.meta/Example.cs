@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
 public static class Change
 {
     public static int[] FindFewestCoins(int[] coins, int target)

@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 public class FacialFeatures
 {
     public string EyeColor { get; }

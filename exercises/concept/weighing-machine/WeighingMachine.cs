@@ -1,3 +1,5 @@
+using System;
+
 class WeighingMachine
 {
     // TODO: define the 'Precision' property

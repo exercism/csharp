@@ -1,3 +1,5 @@
+using System;
+
 public class BinTree
 {
     public BinTree(int value, BinTree? left, BinTree? right)

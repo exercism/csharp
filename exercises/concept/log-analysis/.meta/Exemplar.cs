@@ -1,3 +1,5 @@
+using System;
+
 public static class LogAnalysis 
 {
     public static string SubstringAfter(this string str, string delimiter)

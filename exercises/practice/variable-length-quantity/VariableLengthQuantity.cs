@@ -1,3 +1,5 @@
+using System;
+
 public static class VariableLengthQuantity
 {
     public static uint[] Encode(uint[] numbers)
