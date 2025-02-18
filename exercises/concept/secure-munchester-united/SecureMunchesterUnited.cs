@@ -1,5 +1,3 @@
-using System;
-
 public class SecurityPassMaker
 {
     public string GetDisplayName(TeamSupport support)

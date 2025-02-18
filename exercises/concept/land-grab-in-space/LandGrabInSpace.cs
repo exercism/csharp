@@ -1,5 +1,3 @@
-using System;
-
 public struct Coord
 {
     public Coord(ushort x, ushort y)

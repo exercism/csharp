@@ -1,5 +1,3 @@
-using System;
-
 public static class Grains
 {
     public static ulong Square(int n)

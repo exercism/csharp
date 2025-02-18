@@ -1,5 +1,3 @@
-using System;
-
 public class Clock
 {
     public Clock(int hours, int minutes)

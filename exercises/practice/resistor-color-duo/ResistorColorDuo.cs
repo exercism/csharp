@@ -1,5 +1,3 @@
-using System;
-
 public static class ResistorColorDuo
 {
     public static int Value(string[] colors)

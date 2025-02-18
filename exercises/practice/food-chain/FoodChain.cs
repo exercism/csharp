@@ -1,5 +1,3 @@
-using System;
-
 public static class FoodChain
 {
     public static string Recite(int verseNumber)

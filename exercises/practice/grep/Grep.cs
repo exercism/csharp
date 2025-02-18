@@ -1,5 +1,3 @@
-using System;
-
 public static class Grep
 {
     public static string Match(string pattern, string flags, string[] files)

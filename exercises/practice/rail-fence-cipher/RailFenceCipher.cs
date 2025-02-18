@@ -1,5 +1,3 @@
-using System;
-
 public class RailFenceCipher
 {
     public RailFenceCipher(int rails)

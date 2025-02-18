@@ -1,4 +1,3 @@
-using Xunit;
 using Exercism.Tests;
 
 public class Faceid2Tests

@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 public static class CryptoSquare
 {
     public static string NormalizedPlaintext(string plaintext)

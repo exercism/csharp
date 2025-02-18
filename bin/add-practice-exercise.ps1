@@ -35,12 +35,6 @@ $project = "${exerciseDir}/${ExerciseName}.csproj"
 & dotnet new xunit --force -lang "C#" --target-framework-override net9.0 -o $exerciseDir -n $ExerciseName
 & dotnet sln exercises/Exercises.sln add $project
 
-# Cleanup project file
-[xml]$projectXml = Get-Content "${project}"
-$projectXml.Project.RemoveChild($projectXml.Project.ItemGroup[1])
-$projectXml.Project.PropertyGroup.RemoveChild($projectXml.Project.PropertyGroup.SelectSingleNode("ImplicitUsings"))
-$projectXml.Save("${project}")
-
 # Update project packages
 & dotnet remove $project package coverlet.collector
 & dotnet add $project package Exercism.Tests --version 0.1.0-beta1

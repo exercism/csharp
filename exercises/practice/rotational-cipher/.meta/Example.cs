@@ -1,6 +1,3 @@
-using System;
-using System.Linq;
-
 public static class RotationalCipher
 {
     private const string LowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";

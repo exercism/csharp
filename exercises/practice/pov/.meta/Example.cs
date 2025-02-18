@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
 public class Tree : IEquatable<Tree>
 {
     public Tree(string value, params Tree[] children)

@@ -1,5 +1,3 @@
-using System;
-
 abstract class Character
 {
     protected Character(string characterType)

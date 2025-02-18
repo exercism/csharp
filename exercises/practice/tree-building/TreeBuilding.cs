@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
 public class TreeBuildingRecord
 {
     public int ParentId { get; set; }

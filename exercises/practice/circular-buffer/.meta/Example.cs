@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
 public class CircularBuffer<T>
 {
     private readonly int capacity;

@@ -1,5 +1,3 @@
-using System;
-
 public static class ResistorColor
 {
     public static int ColorCode(string color)

@@ -1,6 +1,4 @@
 using FakeItEasy;
-using System;
-using Xunit;
 
 public class ReactTests
 {

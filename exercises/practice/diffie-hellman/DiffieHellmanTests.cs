@@ -1,6 +1,4 @@
-using System.Linq;
 using System.Numerics;
-using Xunit;
 
 public class DiffieHellmanTests
 {

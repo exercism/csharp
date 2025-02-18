@@ -1,5 +1,3 @@
-using System;
-
 class WeighingMachine
 {
     private double _weight;

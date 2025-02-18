@@ -1,5 +1,3 @@
-using System;
-
 public static class CentralBank
 {
     public static string DisplayDenomination(long @base, long multiplier)

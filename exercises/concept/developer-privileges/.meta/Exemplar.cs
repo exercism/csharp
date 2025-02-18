@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 public class Authenticator
 {
     public Identity Admin { get; } = new Identity

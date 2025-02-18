@@ -1,5 +1,3 @@
-using System;
-
 public class BankAccount
 {
     public void Open()

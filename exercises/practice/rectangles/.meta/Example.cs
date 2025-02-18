@@ -1,6 +1,3 @@
-using System;
-using System.Linq;
-
 public static class Rectangles
 {
     public static int Count(string[] rows)

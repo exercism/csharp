@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
 public static class Say
 {
     public static string InEnglish(long number)

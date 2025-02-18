@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
 public static class RnaTranscription
 {
     private static readonly Dictionary<char, char> DnaToRna = new Dictionary<char, char>

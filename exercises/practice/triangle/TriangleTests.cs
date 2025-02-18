@@ -1,5 +1,3 @@
-using Xunit;
-
 public class TriangleTests
 {
     [Fact]

@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
-
 public static class ScrabbleScore
 {
     private static readonly Dictionary<char, int> LetterScores = new Dictionary<char, int>

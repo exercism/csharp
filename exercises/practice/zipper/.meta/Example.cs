@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
 public class BinTree : IEquatable<BinTree>
 {
     public BinTree(int value, BinTree? left, BinTree? right)

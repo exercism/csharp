@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 public class Tree
 {
     public Tree(string value, params Tree[] children)

@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 public static class Languages
 {
     public static List<string> NewList()
