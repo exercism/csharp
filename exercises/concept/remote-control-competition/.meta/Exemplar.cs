@@ -17,7 +17,7 @@ public class ProductionRemoteControlCar : IRemoteControlCar, IComparable<Product
         DistanceTravelled += 10;
     }
 
-    public int CompareTo(ProductionRemoteControlCar other)
+    public int CompareTo(ProductionRemoteControlCar? other)
     {
         if (ReferenceEquals(this, other)) return 0;
         if (ReferenceEquals(null, other)) return 1;
