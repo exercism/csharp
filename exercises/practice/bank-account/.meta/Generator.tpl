@@ -28,7 +28,7 @@ public class {{ testClass }}
 {
     {{- for test in tests }}
     [Fact{{ if !for.first }}(Skip = "Remove this Skip property to run this test"){{ end }}]
-    public void {{ test.testMethod }}()
+    public {{ if test.scenarios | array.contains "concurrent" }}async Task{{ else }}void{{ end }} {{ test.testMethod }}()
     {
         var account = new {{ testedClass }}();
         {{- for op in test.input.operations }}
@@ -51,7 +51,7 @@ public class {{ testClass }}
                         {{- end -}}
                     }
                 }));
-                Task.WaitAll(tasks.ToArray());
+                await Task.WhenAll(tasks.ToArray());
             }
             {{- else }}
             account.{{ op | to_call }};

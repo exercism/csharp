@@ -153,7 +153,7 @@ public class BankAccountTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Can_handle_concurrent_transactions()
+    public async Task Can_handle_concurrent_transactions()
     {
         var account = new BankAccount();
         account.Open();
@@ -168,7 +168,7 @@ public class BankAccountTests
                     account.Withdraw(1m);
                 }
             }));
-            Task.WaitAll(tasks.ToArray());
+            await Task.WhenAll(tasks.ToArray());
         }
         Assert.Equal(0m, account.Balance);
     }
