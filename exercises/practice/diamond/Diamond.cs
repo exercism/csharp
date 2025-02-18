@@ -1,5 +1,3 @@
-using System;
-
 public static class Diamond
 {
     public static string Make(char target)

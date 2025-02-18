@@ -1,5 +1,3 @@
-using System;
-
 public class FacialFeatures
 {
     public string EyeColor { get; }

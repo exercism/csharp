@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 public class SgfTree
 {
     public SgfTree(IDictionary<string, string[]> data, params SgfTree[] children)
