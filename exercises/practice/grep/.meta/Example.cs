@@ -6,12 +6,7 @@ using System.Text.RegularExpressions;
 
 public static class Grep
 {
-    private class Line
-    {
-        public int Number { get; set; }
-        public string Text { get; set; }
-        public string File { get; set; }
-    }
+    private record Line(string File, int Number, string Text);
 
     [Flags]
     private enum Flags
@@ -69,7 +64,7 @@ public static class Grep
             .Where(isMatch);
     }
 
-    private static Line CreateLine(string file, int index, string text) => new Line { File = file, Number = index + 1, Text = text };
+    private static Line CreateLine(string file, int index, string text) => new(file, index + 1, text);
 
     private static string FormatMatchingFile(string file) => $"{file}";
 
@@ -87,20 +82,13 @@ public static class Grep
         var printLineNumbers = flags.HasFlag(Flags.PrintLineNumbers);
         var printFileName = files.Length > 1;
 
-        if (printLineNumbers && printFileName)
+        return printLineNumbers switch
         {
-            return $"{line.File}:{line.Number}:{line.Text}";
-        }
-        if (printLineNumbers && !printFileName)
-        {
-            return $"{line.Number}:{line.Text}";
-        }
-        if (!printLineNumbers && printFileName)
-        {
-            return $"{line.File}:{line.Text}";
-        }
-
-        return $"{line.Text}";
+            true when printFileName => $"{line.File}:{line.Number}:{line.Text}",
+            true when !printFileName => $"{line.Number}:{line.Text}",
+            false when printFileName => $"{line.File}:{line.Text}",
+            _ => $"{line.Text}"
+        };
     }
 
     private static string FormatMatchingLines(string pattern, Flags flags, string[] files)
