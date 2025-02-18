@@ -168,7 +168,7 @@ public class BankAccountTests
                     account.Withdraw(1m);
                 }
             }));
-            await Task.WaitAll(tasks.ToArray());
+            await Task.WhenAll(tasks.ToArray());
         }
         Assert.Equal(0m, account.Balance);
     }

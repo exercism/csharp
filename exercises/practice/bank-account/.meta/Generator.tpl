@@ -51,7 +51,7 @@ public class {{ testClass }}
                         {{- end -}}
                     }
                 }));
-                await Task.WaitAll(tasks.ToArray());
+                await Task.WhenAll(tasks.ToArray());
             }
             {{- else }}
             account.{{ op | to_call }};
