@@ -1,5 +1,3 @@
-using System;
-
 public class RestApi
 {
     public RestApi(string database)

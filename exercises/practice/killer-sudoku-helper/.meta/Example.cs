@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
-
 public static class KillerSudokuHelper
 {
     private static readonly int[] Digits = [1, 2, 3, 4, 5, 6, 7, 8, 9];

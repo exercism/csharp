@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
 public enum Color { Red , Green , Ivory , Yellow , Blue }
 public enum Nationality { Englishman , Spaniard , Ukrainian , Japanese , Norwegian }
 public enum Pet { Dog , Snails , Fox , Horse , Zebra }

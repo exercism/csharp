@@ -1,8 +1,5 @@
-using Xunit;
 using FsCheck.Xunit;
 using FsCheck;
-using System;
-using System.Linq;
 
 public class DiamondTests
 {

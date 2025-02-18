@@ -1,6 +1,3 @@
-using System;
-using System.Linq;
-
 public static class DifferenceOfSquares
 {
     public static int CalculateSquareOfSum(int max)

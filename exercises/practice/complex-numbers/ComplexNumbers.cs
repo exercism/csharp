@@ -1,5 +1,3 @@
-using System;
-
 public struct ComplexNumber
 {
     public ComplexNumber(double real, double imaginary)

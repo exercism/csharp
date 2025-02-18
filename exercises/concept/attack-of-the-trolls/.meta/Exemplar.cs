@@ -1,5 +1,3 @@
-using System;
-
 enum AccountType
 {
     Guest,

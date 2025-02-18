@@ -1,6 +1,3 @@
-using System;
-using System.Linq;
-
 public static class Diamond
 {
     public static string Make(char target)

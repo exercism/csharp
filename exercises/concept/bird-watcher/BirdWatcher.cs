@@ -1,5 +1,3 @@
-using System;
-
 class BirdCount
 {
     private int[] birdsPerDay;

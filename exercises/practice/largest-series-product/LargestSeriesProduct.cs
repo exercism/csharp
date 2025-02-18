@@ -1,5 +1,3 @@
-using System;
-
 public static class LargestSeriesProduct
 {
     public static long GetLargestProduct(string digits, int span) 

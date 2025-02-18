@@ -1,5 +1,3 @@
-using Xunit;
-
 public class ArmstrongNumbersTests
 {
     [Fact]

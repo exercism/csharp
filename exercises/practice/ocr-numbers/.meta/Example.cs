@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
 public static class OcrNumbers
 {
     private const int CharacterWidth = 3;
