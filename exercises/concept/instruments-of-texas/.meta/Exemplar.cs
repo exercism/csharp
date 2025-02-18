@@ -30,11 +30,11 @@ public class CalculatorTestHarness
         }
         catch (CalculationException cex) when (cex.Operand1 < 0 && cex.Operand2 < 0)
         {
-            return "Multiply failed for negative operands. " + cex.InnerException.Message;
+            return "Multiply failed for negative operands. " + cex.InnerException!.Message;
         }
         catch (CalculationException cex)
         {
-            return "Multiply failed for mixed or positive operands. " + cex.InnerException.Message;
+            return "Multiply failed for mixed or positive operands. " + cex.InnerException!.Message;
         }
     }
 
