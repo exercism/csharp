@@ -6,13 +6,7 @@
     <Nullable>enable</Nullable>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
   </PropertyGroup>
-  <ItemGroup>
-    <Using Include="Xunit" />
-  </ItemGroup>
 
-  <ItemGroup>
-    <Compile Remove="Example.cs" />
-  </ItemGroup>
   <ItemGroup>
     <Using Include="Xunit" />
   </ItemGroup>
