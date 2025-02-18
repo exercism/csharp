@@ -45,7 +45,7 @@ public class CustomSet
 
     private int[] GetValuesFromKeys(IEnumerable<int> keys) => keys.Select(key => items[key]).ToArray();
 
-    public override bool Equals(object obj)
+    public override bool Equals(object? obj)
     {
         if (!(obj is CustomSet other))
         {

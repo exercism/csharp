@@ -2,11 +2,11 @@
     checks = [$"Assert.Equal({string.to_int node.data}, tree.{path}Value);"]
 
     if node.left
-        checks = array.add_range checks (assertions node.left (path + "Left."))
+        checks = array.add_range checks (assertions node.left (path + "Left?."))
     end
 
     if node.right
-        checks = array.add_range checks (assertions node.right (path + "Right."))
+        checks = array.add_range checks (assertions node.right (path + "Right?."))
     end
 
     ret checks

@@ -45,7 +45,7 @@ end }}
 
     for op in $0
         call = to_call op
-        calls = string.append calls $".{call}"
+        calls = string.append calls $"?.{call}"
     end
 
     ret calls

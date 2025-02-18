@@ -1,3 +1,5 @@
+#pragma warning disable CS8618
+
 static class GameMaster
 {
     public static string Describe(Character character)
@@ -44,3 +46,5 @@ enum TravelMethod
     Walking,
     Horseback
 }
+
+#pragma warning restore CS8618

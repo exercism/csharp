@@ -57,7 +57,7 @@ public class AlphameticsEquation
 
 public static class AlphameticsSolver
 {
-    private static AlphameticsEquation _equation;
+    private static AlphameticsEquation? _equation;
     
     public static IDictionary<char, int> Solve(AlphameticsEquation equation)
     {
@@ -77,19 +77,19 @@ public static class AlphameticsSolver
         if (LetterCountHasInvalidNonZeroLetter())
             return false;
 
-        return _equation.LettersWithCount.Values
+        return _equation!.LettersWithCount.Values
                 .Zip(letterCountCombination, (count, solutionCount) => count * solutionCount).Sum() == 0;
 
         bool LetterCountHasInvalidNonZeroLetter()
         {
             var zeroLetterIndex = Array.IndexOf(letterCountCombination, 0);
-            return zeroLetterIndex != -1 && _equation.NonZeroLetters.Contains(_equation.LettersWithCount.Keys.ElementAt(zeroLetterIndex));
+            return zeroLetterIndex != -1 && _equation!.NonZeroLetters.Contains(_equation.LettersWithCount.Keys.ElementAt(zeroLetterIndex));
         }
     }
 
     private static Dictionary<char, int> SolutionForLetterCount(IEnumerable<int> letterCount) 
         => letterCount
-            .Zip(_equation.LettersWithCount.Keys, (x, y) => new KeyValuePair<char, int>(y, x))
+            .Zip(_equation!.LettersWithCount.Keys, (x, y) => new KeyValuePair<char, int>(y, x))
             .ToDictionary(x => x.Key, x => x.Value);
 }
 

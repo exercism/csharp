@@ -108,11 +108,11 @@ public static class ZebraPuzzle
         return solution.Nationalities[Array.IndexOf(solution.Pets, Pet.Zebra)];
     }
 
-    private static bool IsIndexMatch<T1, T2>(T1[] values1, T1 value1, T2[] values2, T2 value2) => values2[Array.IndexOf(values1, value1)].Equals(value2);
+    private static bool IsIndexMatch<T1, T2>(T1[] values1, T1 value1, T2[] values2, T2 value2) => values2[Array.IndexOf(values1, value1)]!.Equals(value2);
 
     private static bool IsAdjacentMatch<T1, T2>(T1[] values1, T1 value1, T2[] values2, T2 value2)
     {
         var index = Array.IndexOf(values1, value1);
-        return (index > 0 && values2[index - 1].Equals(value2)) || (index < values2.Length - 1 && values2[index + 1].Equals(value2));
+        return (index > 0 && values2[index - 1]!.Equals(value2)) || (index < values2.Length - 1 && values2[index + 1]!.Equals(value2));
     }
 }

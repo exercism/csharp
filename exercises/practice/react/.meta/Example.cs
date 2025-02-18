@@ -25,8 +25,11 @@ public class Reactor
         return computeCell;
     }
 
-    private void CellChanged(object sender, int value)
+    private void CellChanged(object? sender, int value)
     {
+        if (sender == null)
+            return;
+
         var cell = (Cell)sender;
         var consumers = new BitArray(cells.Count);
         
@@ -71,7 +74,7 @@ public class InputCell : Cell
         _value = value;
     }
 
-    public override event EventHandler<int> Changed;
+    public override event EventHandler<int>? Changed;
 
     public override int Value
     {
@@ -107,7 +110,7 @@ public class ComputeCell : Cell
     }
 
     public override int Value { get; set; }
-    public override event EventHandler<int> Changed;
+    public override event EventHandler<int>? Changed;
 
     public void Recompute()
     {

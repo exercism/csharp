@@ -7,7 +7,7 @@ public class RestApi
         throw new NotImplementedException("You need to implement this method.");
     }
 
-    public string Get(string url, string payload = null)
+    public string Get(string url, string? payload = null)
     {
         throw new NotImplementedException("You need to implement this method.");
     }

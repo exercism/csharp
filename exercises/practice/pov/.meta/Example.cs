@@ -10,9 +10,14 @@ public class Tree : IEquatable<Tree>
     public string Value { get; }
     public Tree[] Children { get; }
 
-    public bool Equals(Tree other) 
-        => Value.Equals(other.Value) && 
+    public bool Equals(Tree? other) 
+    {
+        if (ReferenceEquals(null, other)) return false;
+        if (ReferenceEquals(this, other)) return true;
+
+        return Value.Equals(other.Value) && 
             Children.OrderBy(child => child.Value).SequenceEqual(other.Children.OrderBy(child => child.Value));
+    }    
 }
 
 public class TreeCrumb
@@ -38,23 +43,31 @@ public static class Pov
 {
     public static Tree FromPov(Tree graph, string value)
     {
-        var zipper = FindNode(value, GraphToZipper(graph));
+        var zipper = GraphToZipper(graph);
         if (zipper == null)
             throw new ArgumentException();
+
+        var node = FindNode(value, zipper);
+        if (node == null)
+            throw new ArgumentException();
         
-        return ChangeParent(zipper);
+        return ChangeParent(node);
     }
 
     public static IEnumerable<string> PathTo(string value1, string value2, Tree graph)
     {
-        var zipper = FindNode(value2, GraphToZipper(FromPov(graph, value1)));
+        var zipper = GraphToZipper(FromPov(graph, value1));
         if (zipper == null)
             throw new ArgumentException();
 
-        return ZipperToPath(zipper);
+        var node = FindNode(value2, zipper);
+        if (node == null)
+            throw new ArgumentException();
+
+        return ZipperToPath(node);
     }
 
-    private static TreeZipper GraphToZipper(Tree graph)
+    private static TreeZipper? GraphToZipper(Tree graph)
     {
         if (graph == null)
             return null;
@@ -64,10 +77,10 @@ public static class Pov
 
     private static IEnumerable<string> ZipperToPath(TreeZipper zipper)
     {
-        return zipper?.Crumbs.Select(c => c.Value).Reverse().Concat(new[] { zipper.Focus.Value });
+        return zipper.Crumbs.Select(c => c.Value).Reverse().Concat(new[] { zipper.Focus.Value });
     }
 
-    private static TreeZipper GoDown(TreeZipper zipper)
+    private static TreeZipper? GoDown(TreeZipper zipper)
     {        
         if (zipper == null || !zipper.Focus.Children.Any())
             return null;
@@ -80,7 +93,7 @@ public static class Pov
         return new TreeZipper(children.First(), new[] { newCrumb }.Concat(zipper.Crumbs));
     }
 
-    private static TreeZipper GoRight(TreeZipper zipper)
+    private static TreeZipper? GoRight(TreeZipper zipper)
     {        
         if (zipper == null || !zipper.Crumbs.Any() || !zipper.Crumbs.First().Right.Any())
             return null;
@@ -93,7 +106,7 @@ public static class Pov
         return new TreeZipper(firstCrumb.Right.First(), new[] { newCrumb }.Concat(crumbs.Skip(1)));
     }
 
-    private static TreeZipper FindNode(string value, TreeZipper zipper)
+    private static TreeZipper? FindNode(string value, TreeZipper? zipper)
     {
         if (zipper == null || zipper.Focus.Value.CompareTo(value) == 0)
             return zipper;
@@ -103,9 +116,6 @@ public static class Pov
 
     private static Tree ChangeParent(TreeZipper zipper)
     {
-        if (zipper == null)
-            return null;
-
         if (!zipper.Crumbs.Any())
             return zipper.Focus;
 

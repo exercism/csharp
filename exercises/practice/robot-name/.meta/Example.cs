@@ -10,7 +10,7 @@ public class Robot
 
     public Robot()
     {
-        Reset();
+        Name = GenerateName();
     }
 
     private static string GenerateName()

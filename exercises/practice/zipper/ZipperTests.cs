@@ -7,7 +7,7 @@ public class ZipperTests
     {
         var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
         var sut = Zipper.FromTree(tree);
-        var actual = sut.ToTree();
+        var actual = sut?.ToTree();
         var expected = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
         Assert.Equal(expected, actual);
     }
@@ -17,7 +17,7 @@ public class ZipperTests
     {
         var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
         var sut = Zipper.FromTree(tree);
-        var actual = sut.Left().Right().Value();
+        var actual = sut?.Left()?.Right()?.Value();
         var expected = 3;
         Assert.Equal(expected, actual);
     }
@@ -27,7 +27,7 @@ public class ZipperTests
     {
         var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
         var sut = Zipper.FromTree(tree);
-        var actual = sut.Left().Left();
+        var actual = sut?.Left()?.Left();
         Assert.Null(actual);
     }
 
@@ -36,7 +36,7 @@ public class ZipperTests
     {
         var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
         var sut = Zipper.FromTree(tree);
-        var actual = sut.Left().Right().ToTree();
+        var actual = sut?.Left()?.Right()?.ToTree();
         var expected = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
         Assert.Equal(expected, actual);
     }
@@ -46,7 +46,7 @@ public class ZipperTests
     {
         var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
         var sut = Zipper.FromTree(tree);
-        var actual = sut.Up();
+        var actual = sut?.Up();
         Assert.Null(actual);
     }
 
@@ -55,7 +55,7 @@ public class ZipperTests
     {
         var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
         var sut = Zipper.FromTree(tree);
-        var actual = sut.Left().Up().Right().Up().Left().Right().Value();
+        var actual = sut?.Left()?.Up()?.Right()?.Up()?.Left()?.Right()?.Value();
         var expected = 3;
         Assert.Equal(expected, actual);
     }
@@ -65,7 +65,7 @@ public class ZipperTests
     {
         var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
         var sut = Zipper.FromTree(tree);
-        var actual = sut.Left().Right().Up().Up().Value();
+        var actual = sut?.Left()?.Right()?.Up()?.Up()?.Value();
         var expected = 1;
         Assert.Equal(expected, actual);
     }
@@ -75,7 +75,7 @@ public class ZipperTests
     {
         var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
         var sut = Zipper.FromTree(tree);
-        var actual = sut.Left().SetValue(5).ToTree();
+        var actual = sut?.Left()?.SetValue(5)?.ToTree();
         var expected = new BinTree(1, new BinTree(5, null, new BinTree(3, null, null)), new BinTree(4, null, null));
         Assert.Equal(expected, actual);
     }
@@ -85,7 +85,7 @@ public class ZipperTests
     {
         var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
         var sut = Zipper.FromTree(tree);
-        var actual = sut.Left().Right().Up().SetValue(5).ToTree();
+        var actual = sut?.Left()?.Right()?.Up()?.SetValue(5)?.ToTree();
         var expected = new BinTree(1, new BinTree(5, null, new BinTree(3, null, null)), new BinTree(4, null, null));
         Assert.Equal(expected, actual);
     }
@@ -95,7 +95,7 @@ public class ZipperTests
     {
         var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
         var sut = Zipper.FromTree(tree);
-        var actual = sut.Left().SetLeft(new BinTree(5, null, null)).ToTree();
+        var actual = sut?.Left()?.SetLeft(new BinTree(5, null, null))?.ToTree();
         var expected = new BinTree(1, new BinTree(2, new BinTree(5, null, null), new BinTree(3, null, null)), new BinTree(4, null, null));
         Assert.Equal(expected, actual);
     }
@@ -105,7 +105,7 @@ public class ZipperTests
     {
         var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
         var sut = Zipper.FromTree(tree);
-        var actual = sut.Left().SetRight(null).ToTree();
+        var actual = sut?.Left()?.SetRight(null)?.ToTree();
         var expected = new BinTree(1, new BinTree(2, null, null), new BinTree(4, null, null));
         Assert.Equal(expected, actual);
     }
@@ -115,7 +115,7 @@ public class ZipperTests
     {
         var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
         var sut = Zipper.FromTree(tree);
-        var actual = sut.SetRight(new BinTree(6, new BinTree(7, null, null), new BinTree(8, null, null))).ToTree();
+        var actual = sut?.SetRight(new BinTree(6, new BinTree(7, null, null), new BinTree(8, null, null)))?.ToTree();
         var expected = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(6, new BinTree(7, null, null), new BinTree(8, null, null)));
         Assert.Equal(expected, actual);
     }
@@ -125,7 +125,7 @@ public class ZipperTests
     {
         var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
         var sut = Zipper.FromTree(tree);
-        var actual = sut.Left().Right().SetValue(5).ToTree();
+        var actual = sut?.Left()?.Right()?.SetValue(5)?.ToTree();
         var expected = new BinTree(1, new BinTree(2, null, new BinTree(5, null, null)), new BinTree(4, null, null));
         Assert.Equal(expected, actual);
     }
@@ -135,8 +135,8 @@ public class ZipperTests
     {
         var tree = new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null));
         var sut = Zipper.FromTree(tree);
-        var actual = sut.Left().Up().Right();
-        var expected = Zipper.FromTree(new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null))).Right();
+        var actual = sut?.Left()?.Up()?.Right();
+        var expected = Zipper.FromTree(new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null)))?.Right();
         Assert.Equal(expected, actual);
     }
 }

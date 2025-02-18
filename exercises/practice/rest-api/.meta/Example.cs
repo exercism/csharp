@@ -84,14 +84,14 @@ public class RestApi
 
     public RestApi(string database)
     {
-        users = JsonSerializer.Deserialize<List<User>>(database);
+        users = JsonSerializer.Deserialize<List<User>>(database)!;
     }
 
-    public string Get(string url, string payload = null)
+    public string Get(string url, string? payload = null)
     {
         if (payload != null)
         {
-            var values = JsonSerializer.Deserialize<Dictionary<string, IEnumerable<string>>>(payload);
+            var values = JsonSerializer.Deserialize<Dictionary<string, IEnumerable<string>>>(payload)!;
             var requestedUsers = values["users"];
             return JsonSerializer.Serialize(users.Where(x => requestedUsers.Contains(x.name)));
         }
@@ -104,22 +104,22 @@ public class RestApi
         if (url == "/add")
         {
             var values = JsonSerializer.Deserialize<Dictionary<string, string>>(payload);
-            var newUser = new User(values["user"]);
+            var newUser = new User(values!["user"]);
             users.Add(newUser);
             return JsonSerializer.Serialize(newUser);
         }
         else if (url == "/iou")
         {
-            var values = JsonSerializer.Deserialize<Dictionary<string, object>>(payload);
+            var values = JsonSerializer.Deserialize<Dictionary<string, object>>(payload)!;
             var lender = users.First(x => x.name.Equals(values["lender"].ToString()));
             var borrower = users.First(x => x.name.Equals(values["borrower"].ToString()));
-            var amount = double.Parse(values["amount"].ToString());
+            var amount = double.Parse(values["amount"].ToString()!);
             lender.Lend(borrower, amount);
             borrower.Borrow(lender, amount);
 
             return JsonSerializer.Serialize(new[] { lender, borrower }.OrderBy(x => x.name));
         }
 
-        return String.Empty;
+        return string.Empty;
     }
 }

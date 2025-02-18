@@ -39,7 +39,6 @@ $project = "${exerciseDir}/${ExerciseName}.csproj"
 [xml]$projectXml = Get-Content "${project}"
 $projectXml.Project.RemoveChild($projectXml.Project.ItemGroup[1])
 $projectXml.Project.PropertyGroup.RemoveChild($projectXml.Project.PropertyGroup.SelectSingleNode("ImplicitUsings"))
-$projectXml.Project.PropertyGroup.RemoveChild($projectXml.Project.PropertyGroup.SelectSingleNode("Nullable"))
 $projectXml.Save("${project}")
 
 # Update project packages

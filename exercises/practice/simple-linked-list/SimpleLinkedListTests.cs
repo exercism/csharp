@@ -16,8 +16,9 @@ public class SimpleLinkedListTests
     public void Count_cannot_be_changed_from_the_outside()
     {
         var count = typeof(SimpleLinkedList<>).GetProperty("Count");
-        Assert.True(count?.GetGetMethod().IsPublic);
-        Assert.False(count?.GetSetMethod(true).IsPublic);
+        Assert.NotNull(count);
+        Assert.True(count.GetGetMethod() is { IsPublic: true });
+        Assert.False(count.GetSetMethod(true) is { IsPublic: true });
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
@@ -56,16 +57,17 @@ public class SimpleLinkedListTests
     private static SimpleLinkedList<int> CreateSimpleLinkedList(int value)
     {
         var type = typeof(SimpleLinkedList<>).MakeGenericType(typeof(int));
-		var constructor = type.GetConstructor(new Type[] { typeof(int) });
-		return (SimpleLinkedList<int>)constructor?.Invoke(new object[]{ value })
-			?? CreateSimpleLinkedList(new int[] { value });
+		var constructor = type.GetConstructor([typeof(int)]);
+        return (SimpleLinkedList<int>?)constructor?.Invoke([value])
+			?? CreateSimpleLinkedList([value]);
     }
 	
     private static SimpleLinkedList<int> CreateSimpleLinkedList(params int[] values)
     {
         var type = typeof(SimpleLinkedList<>).MakeGenericType(typeof(int));
-		var constructor = type.GetConstructor(new Type[]{typeof(int[])});	
-		return (SimpleLinkedList<int>)constructor.Invoke(new object[]{ values });
+		var constructor = type.GetConstructor([typeof(int[])]);	
+        Assert.NotNull(constructor);
+		return (SimpleLinkedList<int>)constructor.Invoke([values]);
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]

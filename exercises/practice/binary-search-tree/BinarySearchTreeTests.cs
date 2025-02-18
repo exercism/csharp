@@ -15,7 +15,7 @@ public class BinarySearchTreeTests
     {
         var tree = new BinarySearchTree(new[] { 4, 2 });
         Assert.Equal(4, tree.Value);
-        Assert.Equal(2, tree.Left.Value);
+        Assert.Equal(2, tree.Left?.Value);
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
@@ -23,7 +23,7 @@ public class BinarySearchTreeTests
     {
         var tree = new BinarySearchTree(new[] { 4, 4 });
         Assert.Equal(4, tree.Value);
-        Assert.Equal(4, tree.Left.Value);
+        Assert.Equal(4, tree.Left?.Value);
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
@@ -31,7 +31,7 @@ public class BinarySearchTreeTests
     {
         var tree = new BinarySearchTree(new[] { 4, 5 });
         Assert.Equal(4, tree.Value);
-        Assert.Equal(5, tree.Right.Value);
+        Assert.Equal(5, tree.Right?.Value);
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
@@ -39,12 +39,12 @@ public class BinarySearchTreeTests
     {
         var tree = new BinarySearchTree(new[] { 4, 2, 6, 1, 3, 5, 7 });
         Assert.Equal(4, tree.Value);
-        Assert.Equal(2, tree.Left.Value);
-        Assert.Equal(1, tree.Left.Left.Value);
-        Assert.Equal(3, tree.Left.Right.Value);
-        Assert.Equal(6, tree.Right.Value);
-        Assert.Equal(5, tree.Right.Left.Value);
-        Assert.Equal(7, tree.Right.Right.Value);
+        Assert.Equal(2, tree.Left?.Value);
+        Assert.Equal(1, tree.Left?.Left?.Value);
+        Assert.Equal(3, tree.Left?.Right?.Value);
+        Assert.Equal(6, tree.Right?.Value);
+        Assert.Equal(5, tree.Right?.Left?.Value);
+        Assert.Equal(7, tree.Right?.Right?.Value);
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]

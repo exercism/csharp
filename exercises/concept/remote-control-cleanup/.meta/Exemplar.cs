@@ -1,3 +1,5 @@
+#pragma warning disable CS8618
+
 public class RemoteControlCar
 {
     private enum SpeedUnits
@@ -95,3 +97,5 @@ public class RemoteControlCar
         currentSpeed = speed;
     }
 }
+
+#pragma warning restore CS8618
