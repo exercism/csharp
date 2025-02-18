@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using Xunit;
+
 public class EtlTests
 {
     [Fact]

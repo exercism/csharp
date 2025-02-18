@@ -1,3 +1,5 @@
+using System;
+using Xunit;
 using FsCheck.Xunit;
 using FsCheck;
 using Exercism.Tests;

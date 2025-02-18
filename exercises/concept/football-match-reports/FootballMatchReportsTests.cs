@@ -1,4 +1,6 @@
+using System;
 using Exercism.Tests;
+using Xunit;
 
 public class FootballMatchReportsTests
 {

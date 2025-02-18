@@ -1,3 +1,5 @@
+using System.Linq;
+
 public static class House
 {
     private static readonly string[] Subjects =

@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Linq;
+
 public class SecretHandshake
 {
     private static readonly Dictionary<int, string> CommandValues = new Dictionary<int, string>

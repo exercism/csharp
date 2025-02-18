@@ -1,3 +1,5 @@
+using System;
+
 static class LogLine
 {
     public static string Message(string logLine)

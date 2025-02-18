@@ -1,3 +1,6 @@
+using System;
+using Xunit;
+
 public class ErrorHandlingTests
 {
     // Read more about exception handling here:

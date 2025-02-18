@@ -1,3 +1,5 @@
+using System;
+
 public static class LogAnalysis 
 {
     // TODO: define the 'SubstringAfter()' extension method on the `string` type

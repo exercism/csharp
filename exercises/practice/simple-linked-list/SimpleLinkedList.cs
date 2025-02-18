@@ -1,3 +1,5 @@
+using System;
+
 public class SimpleLinkedList<T>
 {
     public int Count => throw new NotImplementedException("You need to implement this method.");

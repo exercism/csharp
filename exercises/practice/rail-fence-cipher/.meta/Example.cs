@@ -1,3 +1,6 @@
+using System;
+using System.Linq;
+
 public class RailFenceCipher
 {
     private readonly int _rails;

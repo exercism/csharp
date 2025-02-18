@@ -1,3 +1,5 @@
+using System;
+
 static class AssemblyLine
 {
     public static double SuccessRate(int speed)

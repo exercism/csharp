@@ -1,3 +1,5 @@
+using System;
+
 public class Binary
 {
     public static int ToDecimal(string binary)

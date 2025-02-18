@@ -1,3 +1,5 @@
+using System;
+
 public static class DifferenceOfSquares
 {
     public static int CalculateSquareOfSum(int max)

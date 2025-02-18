@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using Xunit;
+
 public class AlphameticsTests
 {
     [Fact]

@@ -1,3 +1,5 @@
+using System;
+
 static class QuestLogic
 {
     public static bool CanFastAttack(bool knightIsAwake)

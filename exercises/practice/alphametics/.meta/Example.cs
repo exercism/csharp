@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
 public static class Alphametics
 {
     public static IDictionary<char, int> Solve(string equation) => AlphameticsSolver.Solve(Parse(equation));

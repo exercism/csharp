@@ -1,3 +1,6 @@
+using System;
+using System.Linq;
+
 public static class Luhn
 {
     public static bool IsValid(string number)

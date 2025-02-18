@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 public class Minesweeper
 {
     public static string[] Annotate(string[] input)

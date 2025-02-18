@@ -1,3 +1,5 @@
+using System.Linq;
+
 public static class BeerSong
 {
     public static string Verse(int number)

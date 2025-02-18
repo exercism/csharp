@@ -1,6 +1,8 @@
+using Xunit;
 using Exercism.Tests;
-
+using System;
 using System.Globalization;
+using System.Threading;
 
 public class BookingUpForBeautyTests
 {

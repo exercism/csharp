@@ -1,3 +1,5 @@
+using System;
+
 public static class ResistorColorTrio
 {
     private static readonly string[] Colors = ["black", "brown", "red", "orange", "yellow", "green", "blue", "violet", "grey", "white"];

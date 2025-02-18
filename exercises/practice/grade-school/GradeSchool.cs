@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 public class GradeSchool
 {
     public bool Add(string student, int grade)

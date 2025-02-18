@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 public class PrimeFactors
 {
     public static long[] Factors(long number)

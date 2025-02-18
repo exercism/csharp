@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
 public static class Forth
 {
     private static Dictionary<string, string[]> defines = new Dictionary<string, string[]>();

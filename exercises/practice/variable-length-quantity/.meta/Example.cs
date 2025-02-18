@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
 public static class VariableLengthQuantity
 {
     private const uint SevenBitsMask = 0x7fu;

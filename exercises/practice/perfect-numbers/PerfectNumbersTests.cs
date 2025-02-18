@@ -1,3 +1,6 @@
+using System;
+using Xunit;
+
 public class PerfectNumbersTests
 {
     [Fact]

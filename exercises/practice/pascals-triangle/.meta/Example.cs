@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System;
+
 public static class PascalsTriangle
 {
     public static IEnumerable<IEnumerable<int>> Calculate(int rows)
