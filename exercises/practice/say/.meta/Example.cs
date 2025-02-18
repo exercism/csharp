@@ -32,10 +32,10 @@ public static class Say
         var thousands = Thousands(thousandsCount);
         var hundreds = Hundreds(remainder);
 
-        return new[] { billions, millions, thousands, hundreds }.Where(x => x != null);
+        return new[] { billions, millions, thousands, hundreds }.Where(x => x != null).Cast<string>();
     }
 
-    private static string Bases(long number)
+    private static string? Bases(long number)
     {
         var values = new[]
         {
@@ -63,7 +63,7 @@ public static class Say
         return number > 0 && number <= values.Length ? values[number - 1] : null;
     }
 
-    private static string Tens(long number)
+    private static string? Tens(long number)
     {
         if (number < 20L)
         {
@@ -92,7 +92,7 @@ public static class Say
         return $"{countStr}{basesStr}";
     }
 
-    private static string Hundreds(long number)
+    private static string? Hundreds(long number)
     {
         if (number < 100L)
         {
@@ -108,15 +108,15 @@ public static class Say
         return $"{bases} hundred{tensStr}";
     }
 
-    private static string Chunk(string str, long number)
+    private static string? Chunk(string str, long number)
     {
         var hundreds = Hundreds(number);
         return hundreds == null ? null : $"{hundreds} {str}";
     }
 
-    private static string Thousands(long number) => Chunk("thousand", number);
-    private static string Millions(long number) => Chunk("million", number);
-    private static string Billions(long number) => Chunk("billion", number);
+    private static string? Thousands(long number) => Chunk("thousand", number);
+    private static string? Millions(long number) => Chunk("million", number);
+    private static string? Billions(long number) => Chunk("billion", number);
 
     private static Tuple<long, long, long, long> Counts(long number)
     {
