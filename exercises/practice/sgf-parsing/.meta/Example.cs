@@ -14,12 +14,15 @@ public class SgfTree : IEquatable<SgfTree>
         Children = children;
     }
 
-    public bool Equals(SgfTree other)
+    public bool Equals(SgfTree? other)
     {
+        if (other == null)
+            return false;
+
         var otherData = other.Data;
 
         foreach (var d in Data)
-            if (!d.Value.SequenceEqual(otherData.Where(od => od.Key == d.Key)?.FirstOrDefault().Value))
+            if (!d.Value.SequenceEqual(otherData.Where(od => od.Key == d.Key)?.FirstOrDefault().Value ?? []))
                 return false;
 
         if (Children != null)
