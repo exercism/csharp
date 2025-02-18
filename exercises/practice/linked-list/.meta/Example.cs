@@ -1,6 +1,6 @@
 public class Deque<T>
 {
-    private Element head;
+    private Element? head;
 
     public void Push(T value)
     {
@@ -10,7 +10,7 @@ public class Deque<T>
         }
         else
         {
-            var last = head.Next;
+            var last = head.Next!;
             var e = new Element(value, last, head);
             last.Prev = e;
             head.Next = e;
@@ -19,27 +19,27 @@ public class Deque<T>
 
     public T Pop()
     {
-        head = head.Next;
+        head = head?.Next;
         return Shift();
     }
 
     public void Unshift(T value)
     {
         Push(value);
-        head = head.Next;
+        head = head?.Next;
     }
 
     public T Shift()
     {
-        var value = head.Value;
-        var last = head.Next;
+        var value = head!.Value;
+        var last = head.Next!;
 
         if (last == head)
             head = null;
         else
         {
             last.Prev = head.Prev;
-            head.Prev.Next = last;
+            head.Prev!.Next = last;
             head = head.Prev;
         }
 
@@ -49,10 +49,10 @@ public class Deque<T>
     private class Element
     {
         public readonly T Value;
-        public Element Next;
-        public Element Prev;
+        public Element? Next;
+        public Element? Prev;
 
-        public Element(T value, Element next = null, Element prev = null)
+        public Element(T value, Element? next = null, Element? prev = null)
         {
             Value = value;
             Next = next ?? this;
