@@ -1,11 +1,11 @@
 using System;
 using System.Linq;
 
-public record Tree(char Value, Tree Left, Tree Right);
+public record Tree(char Value, Tree? Left, Tree? Right);
 
 public static class Satellite
 {
-    public static Tree TreeFromTraversals(char[] preOrder, char[] inOrder)
+    public static Tree? TreeFromTraversals(char[] preOrder, char[] inOrder)
     {
         if (preOrder.Length != inOrder.Length) throw new ArgumentException("Traversals must have the same length");
         if (!preOrder.Order().SequenceEqual(inOrder.Order())) throw new ArgumentException("Traversals must be consistent");
@@ -15,7 +15,7 @@ public static class Satellite
         return TreeFromTraversals(preOrder, inOrder, ref preOrderIndex, 0, preOrder.Length - 1);
     }
 
-    private static Tree TreeFromTraversals(char[] preOrder, char[] inOrder, ref int preOrderIndex, int left, int right)
+    private static Tree? TreeFromTraversals(char[] preOrder, char[] inOrder, ref int preOrderIndex, int left, int right)
     {
         if (left > right) return null;
         
