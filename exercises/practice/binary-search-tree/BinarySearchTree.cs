@@ -20,7 +20,7 @@ public class BinarySearchTree : IEnumerable<int>
         }
     }
 
-    public BinarySearchTree Left
+    public BinarySearchTree? Left
     {
         get
         {
@@ -28,7 +28,7 @@ public class BinarySearchTree : IEnumerable<int>
         }
     }
 
-    public BinarySearchTree Right
+    public BinarySearchTree? Right
     {
         get
         {
