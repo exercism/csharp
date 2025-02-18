@@ -1,3 +1,9 @@
+using System;
+using System.Runtime.InteropServices;
+
+#pragma warning disable CS0660
+#pragma warning disable CS0661
+
 public struct CurrencyAmount
 {
     private decimal amount;
@@ -9,11 +15,91 @@ public struct CurrencyAmount
         this.currency = currency;
     }
 
-    // TODO: implement equality operators
+    public static bool operator ==(CurrencyAmount @this, CurrencyAmount other)
+    {
+        if (@this.currency != other.currency)
+        {
+            throw new ArgumentException();
+        }
 
-    // TODO: implement comparison operators
+        return @this.amount == other.amount;
+    }
 
-    // TODO: implement arithmetic operators
+    public static bool operator !=(CurrencyAmount @this, CurrencyAmount other)
+    {
+        if (@this.currency != other.currency)
+        {
+            throw new ArgumentException();
+        }
 
-    // TODO: implement type conversion operators
+        return @this.amount != other.amount;
+    }
+
+    public static bool operator >(CurrencyAmount @this, CurrencyAmount other)
+    {
+        if (@this.currency != other.currency)
+        {
+            throw new ArgumentException();
+        }
+
+        return @this.amount > other.amount;
+    }
+
+    public static bool operator <(CurrencyAmount @this, CurrencyAmount other)
+    {
+        if (@this.currency != other.currency)
+        {
+            throw new ArgumentException();
+        }
+
+        return @this.amount < other.amount;
+    }
+
+    public static CurrencyAmount operator +(CurrencyAmount @this, CurrencyAmount other)
+    {
+        if (@this.currency != other.currency)
+        {
+            throw new ArgumentException();
+        }
+
+        return new CurrencyAmount(@this.amount + other.amount, @this.currency);
+    }
+
+    public static CurrencyAmount operator -(CurrencyAmount @this, CurrencyAmount other)
+    {
+        if (@this.currency != other.currency)
+        {
+            throw new ArgumentException();
+        }
+
+        return new CurrencyAmount(@this.amount - other.amount, @this.currency);
+    }
+
+    public static CurrencyAmount operator *(CurrencyAmount @this, decimal multiplier)
+    {
+        return new CurrencyAmount(@this.amount * multiplier, @this.currency);
+    }
+
+    public static CurrencyAmount operator *(decimal multiplier, CurrencyAmount @this)
+    {
+        return new CurrencyAmount(@this.amount * multiplier, @this.currency);
+    }
+
+    public static CurrencyAmount operator /(CurrencyAmount @this, decimal divisor)
+    {
+        return new CurrencyAmount(@this.amount / divisor, @this.currency);
+    }
+
+    public static explicit operator double(CurrencyAmount @this)
+    {
+        return (double)@this.amount;
+    }
+
+    public static implicit operator decimal(CurrencyAmount @this)
+    {
+        return @this.amount;
+    }
 }
+
+#pragma warning restore CS0660
+#pragma warning restore CS0661
