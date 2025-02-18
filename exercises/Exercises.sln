@@ -355,6 +355,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Satellite", "practice\satel
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateOfTicTacToe", "practice\state-of-tic-tac-toe\StateOfTicTacToe.csproj", "{67E9BAB3-9805-42F1-9298-E9BBB795140E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BottleSong", "practice\bottle-song\BottleSong.csproj", "{6BD384E6-225E-4F8A-856C-3079957C6E36}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1057,6 +1059,10 @@ Global
 		{67E9BAB3-9805-42F1-9298-E9BBB795140E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67E9BAB3-9805-42F1-9298-E9BBB795140E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67E9BAB3-9805-42F1-9298-E9BBB795140E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BD384E6-225E-4F8A-856C-3079957C6E36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BD384E6-225E-4F8A-856C-3079957C6E36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BD384E6-225E-4F8A-856C-3079957C6E36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BD384E6-225E-4F8A-856C-3079957C6E36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1236,6 +1242,7 @@ Global
 		{BEBBD420-075D-46F1-AE51-CC9A05FECE4A} = {E276EF69-669A-43E0-88AC-8ABB17A9C026}
 		{8E276065-1371-4CFA-BA20-95225EC6AEBC} = {E276EF69-669A-43E0-88AC-8ABB17A9C026}
 		{67E9BAB3-9805-42F1-9298-E9BBB795140E} = {E276EF69-669A-43E0-88AC-8ABB17A9C026}
+		{6BD384E6-225E-4F8A-856C-3079957C6E36} = {E276EF69-669A-43E0-88AC-8ABB17A9C026}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AB4EA6C9-5461-4024-BDC7-2AE0C3A85CD1}
