@@ -1,5 +1,3 @@
-using System;
-
 public static class BottleSong
 {
     public static string Recite(int startBottles, int takeDown)
