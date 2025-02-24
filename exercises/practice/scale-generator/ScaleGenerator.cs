@@ -1,5 +1,3 @@
-using System;
-
 public static class ScaleGenerator
 {
     public static string[] Chromatic(string tonic)

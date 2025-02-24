@@ -1,5 +1,3 @@
-using System;
-
 public class Deque<T>
 {
     public void Push(T value)

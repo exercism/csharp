@@ -1,5 +1,3 @@
-using System;
-
 static class Appointment
 {
     public static DateTime Schedule(string appointmentDateDescription)

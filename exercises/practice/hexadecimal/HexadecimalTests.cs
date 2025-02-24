@@ -1,5 +1,3 @@
-using Xunit;
-
 public class HexadecimalTest
 {
     [Fact(Skip = "Remove this Skip property to run this test")]

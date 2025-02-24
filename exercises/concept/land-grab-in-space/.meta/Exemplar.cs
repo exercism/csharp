@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Reflection;
-
 public struct Coord
 {
     public Coord(ushort x, ushort y)

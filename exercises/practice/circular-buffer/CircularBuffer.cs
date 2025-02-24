@@ -1,5 +1,3 @@
-using System;
-
 public class CircularBuffer<T>
 {
     public CircularBuffer(int capacity)

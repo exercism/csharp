@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 public class Reactor
 {
     public InputCell CreateInputCell(int value)

@@ -1,5 +1,3 @@
-using System;
-
 static class GameMaster
 {
     public static string Describe(Character character)

@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 public enum Plant
 {
     Violets,

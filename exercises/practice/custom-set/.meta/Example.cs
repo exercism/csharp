@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
-
 public class CustomSet
 {
     private readonly SortedDictionary<int, int> items = new SortedDictionary<int, int>();

@@ -1,6 +1,3 @@
-using System;
-using System.Text.RegularExpressions;
-
 public class LogParser
 {
     public bool IsValidLine(string text)

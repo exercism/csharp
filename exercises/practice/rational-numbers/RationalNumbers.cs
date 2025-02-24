@@ -1,6 +1,3 @@
-using System;
-using System.Diagnostics;
-
 public static class RealNumberExtension
 {
     public static double Expreal(this int realNumber, RationalNumber r)

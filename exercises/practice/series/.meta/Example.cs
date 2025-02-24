@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
 public static class Series
 {
     public static string[] Slices(string numbers, int sliceLength)

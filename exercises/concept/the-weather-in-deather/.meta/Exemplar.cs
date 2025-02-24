@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 public class WeatherStation
 {
     private Reading reading;

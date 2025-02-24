@@ -1,6 +1,3 @@
-using System;
-using System.Linq;
-
 public class Octal
 {
     public static int ToDecimal(string octal)

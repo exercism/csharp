@@ -1,5 +1,3 @@
-using System;
-
 public class Anagram
 {
     public Anagram(string baseWord)

@@ -1,5 +1,3 @@
-using System.Linq;
-
 public static class FoodChain
 {
     private const int Verses = 8;
