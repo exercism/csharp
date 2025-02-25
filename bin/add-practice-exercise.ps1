@@ -34,6 +34,7 @@ $exerciseDir = "exercises/practice/${Exercise}"
 $projectFile = "${exerciseDir}/${ExerciseName}.csproj"
 & dotnet new install xunit.v3.templates
 & dotnet new xunit3 --force --output $exerciseDir --name $ExerciseName
+& dotnet sln exercises/Exercises.sln add $project
 
 [xml]$project = Get-Content $projectFile
 $project.Project.PropertyGroup.RemoveChild($project.Project.PropertyGroup.SelectSingleNode("//comment()"))
@@ -42,15 +43,6 @@ $project.Project.ItemGroup[1].SelectSingleNode("PackageReference[@Include='Micro
 $project.Project.ItemGroup[1].SelectSingleNode("PackageReference[@Include='xunit.v3']").SetAttribute("Version", "1.1.0")
 $project.Project.ItemGroup[1].SelectSingleNode("PackageReference[@Include='xunit.runner.visualstudio']").SetAttribute("Version", "3.0.2")
 $project.Save($projectFile)
-
-& dotnet sln exercises/Exercises.sln add $project
-
-# Update project packages
-& dotnet remove $project package coverlet.collector
-& dotnet add $project package Exercism.Tests --version 0.1.0-beta1
-& dotnet add $project package xunit.runner.visualstudio --version 3.0.1
-& dotnet add $project package xunit --version 2.8.1
-& dotnet add $project package Microsoft.NET.Test.Sdk --version 17.12.0
 
 # Remove and update files
 Remove-Item -Path "${exerciseDir}/UnitTest1.cs"
