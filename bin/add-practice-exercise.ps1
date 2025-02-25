@@ -31,8 +31,18 @@ $PSNativeCommandUseErrorActionPreference = $true
 # Create project
 $exerciseName = (Get-Culture).TextInfo.ToTitleCase($Exercise).Replace("-", "")
 $exerciseDir = "exercises/practice/${Exercise}"
-$project = "${exerciseDir}/${ExerciseName}.csproj"
-& dotnet new xunit --force -lang "C#" --target-framework-override net9.0 -o $exerciseDir -n $ExerciseName
+$projectFile = "${exerciseDir}/${ExerciseName}.csproj"
+& dotnet new install xunit.v3.templates
+& dotnet new xunit3 --force --output $exerciseDir --name $ExerciseName
+
+[xml]$project = Get-Content $projectFile
+$project.Project.PropertyGroup.RemoveChild($project.Project.PropertyGroup.SelectSingleNode("//comment()"))
+$project.Project.RemoveChild($project.Project.ItemGroup[0])
+$project.Project.ItemGroup[1].SelectSingleNode("PackageReference[@Include='Microsoft.NET.Test.Sdk']").SetAttribute("Version", "17.12.0")
+$project.Project.ItemGroup[1].SelectSingleNode("PackageReference[@Include='xunit.v3']").SetAttribute("Version", "1.1.0")
+$project.Project.ItemGroup[1].SelectSingleNode("PackageReference[@Include='xunit.runner.visualstudio']").SetAttribute("Version", "3.0.2")
+$project.Save($projectFile)
+
 & dotnet sln exercises/Exercises.sln add $project
 
 # Update project packages
