@@ -3,6 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net9.0</TargetFramework>
+    <OutputType>Exe</OutputType>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
@@ -14,9 +15,9 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
-    <PackageReference Include="xunit" Version="2.8.1" />
+    <PackageReference Include="xunit.v3" Version="1.1.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="3.0.1" />
-    <PackageReference Include="Exercism.Tests" Version="0.1.0-beta1" />
+    <PackageReference Include="Exercism.Tests.xunit.v3" Version="0.1.0-beta1" />
   </ItemGroup>
 
 </Project>

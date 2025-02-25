@@ -1,180 +1,239 @@
-using FsCheck.Xunit;
 using FsCheck;
+
 using Exercism.Tests;
+
+using FsCheck.Fluent;
 
 public class HyperiaForexTests
 {
-    [Property]
+    [Fact]
     [Task(1)]
-    public void Equality_with_same_currency(decimal value)
+    public void Equality_with_same_currency()
     {
-        var amount1 = new CurrencyAmount(value, "HD");
-        var amount2 = new CurrencyAmount(value, "HD");
+        Prop.ForAll<decimal>(value =>
+        {
+            var amount1 = new CurrencyAmount(value, "HD");
+            var amount2 = new CurrencyAmount(value, "HD");
 
-        Assert.True(amount1 == amount2);
+            Assert.True(amount1 == amount2);
+        }).QuickCheckThrowOnFailure();
     }
 
-    [Property]
+    [Fact]
     [Task(1)]
-    public void Equality_with_different_currency(decimal value)
+    public void Equality_with_different_currency()
     {
-        var amount1 = new CurrencyAmount(value, "HD");
-        var amount2 = new CurrencyAmount(value, "USD");
+        Prop.ForAll<decimal>(value =>
+        {
+            var amount1 = new CurrencyAmount(value, "HD");
+            var amount2 = new CurrencyAmount(value, "USD");
 
-        Assert.Throws<ArgumentException>(() => amount1 == amount2);
+            Assert.Throws<ArgumentException>(() => amount1 == amount2);
+        }).QuickCheckThrowOnFailure();
     }
 
-    [Property]
+    [Fact]
     [Task(1)]
-    public Property Inequality_with_same_currency(decimal value1, decimal value2)
+    public void Inequality_with_same_currency()
     {
-        var amount1 = new CurrencyAmount(value1, "HD");
-        var amount2 = new CurrencyAmount(value2, "HD");
+        Prop.ForAll<(decimal, decimal)>(values =>
+        {
+            var amount1 = new CurrencyAmount(values.Item1, "HD");
+            var amount2 = new CurrencyAmount(values.Item2, "HD");
 
-        return Prop.When(value1 != value2, () => Assert.True(amount1 != amount2));
+            return Prop.When(values.Item1 != values.Item2, () => Assert.True(amount1 != amount2));
+        }).QuickCheckThrowOnFailure();
     }
 
-    [Property]
+    [Fact]
     [Task(1)]
-    public void Inequality_with_different_currency(decimal value1, decimal value2)
+    public void Inequality_with_different_currency()
     {
-        var amount1 = new CurrencyAmount(value1, "HD");
-        var amount2 = new CurrencyAmount(value2, "USD");
+        Prop.ForAll<(decimal, decimal)>(values =>
+        {
+            var amount1 = new CurrencyAmount(values.Item1, "HD");
+            var amount2 = new CurrencyAmount(values.Item2, "USD");
 
-        Assert.Throws<ArgumentException>(() => amount1 != amount2);
+            Assert.Throws<ArgumentException>(() => amount1 != amount2);
+        }).QuickCheckThrowOnFailure();
     }
 
-    [Property]
+    [Fact]
     [Task(2)]
-    public Property LessThan_with_same_currency(decimal value1, decimal value2)
+    public void LessThan_with_same_currency()
     {
-        var amount1 = new CurrencyAmount(value1, "HD");
-        var amount2 = new CurrencyAmount(value2, "HD");
+        Prop.ForAll<(decimal, decimal)>(values =>
+        {
+            var amount1 = new CurrencyAmount(values.Item1, "HD");
+            var amount2 = new CurrencyAmount(values.Item2, "HD");
 
-        return Prop.When(value1 < value2, () => Assert.True(amount1 < amount2));
+            return Prop.When(values.Item1 < values.Item2, () => Assert.True(amount1 < amount2));
+        }).QuickCheckThrowOnFailure();
     }
 
-    [Property]
+    [Fact]
     [Task(2)]
-    public void LessThan_with_different_currency(decimal value1, decimal value2)
+    public void LessThan_with_different_currency()
     {
-        var amount1 = new CurrencyAmount(value1, "HD");
-        var amount2 = new CurrencyAmount(value2, "USD");
+        Prop.ForAll<(decimal, decimal)>(values =>
+        {
+            var amount1 = new CurrencyAmount(values.Item1, "HD");
+            var amount2 = new CurrencyAmount(values.Item2, "USD");
 
-        Assert.Throws<ArgumentException>(() => amount1 < amount2);
+            Assert.Throws<ArgumentException>(() => amount1 < amount2);
+        }).QuickCheckThrowOnFailure();
     }
 
-    [Property]
+    [Fact]
     [Task(2)]
-    public Property GreaterThan_with_same_currency(decimal value1, decimal value2)
+    public void GreaterThan_with_same_currency()
     {
-        var amount1 = new CurrencyAmount(value1, "HD");
-        var amount2 = new CurrencyAmount(value2, "HD");
+        Prop.ForAll<(decimal, decimal)>(values =>
+        {
+            var amount1 = new CurrencyAmount(values.Item1, "HD");
+            var amount2 = new CurrencyAmount(values.Item2, "HD");
 
-        return Prop.When(value1 > value2, () => Assert.True(amount1 > amount2));
+            return Prop.When(values.Item1 > values.Item2, () => Assert.True(amount1 > amount2));
+        }).QuickCheckThrowOnFailure();
     }
 
-    [Property]
+    [Fact]
     [Task(2)]
-    public void GreaterThan_with_different_currency(decimal value1, decimal value2)
+    public void GreaterThan_with_different_currency()
     {
-        var amount1 = new CurrencyAmount(value1, "HD");
-        var amount2 = new CurrencyAmount(value2, "USD");
+        Prop.ForAll<(decimal, decimal)>(values =>
+        {
+            var amount1 = new CurrencyAmount(values.Item1, "HD");
+            var amount2 = new CurrencyAmount(values.Item2, "USD");
 
-        Assert.Throws<ArgumentException>(() => amount1 > amount2);
+            Assert.Throws<ArgumentException>(() => amount1 > amount2);
+        }).QuickCheckThrowOnFailure();
     }
 
-    [Property]
+    [Fact]
     [Task(3)]
-    public void Addition_with_same_currency(decimal value1, decimal value2)
+    public void Addition_with_same_currency()
     {
-        var amount1 = new CurrencyAmount(value1, "HD");
-        var amount2 = new CurrencyAmount(value2, "HD");
-        var expected = new CurrencyAmount(value1 + value2, "HD");
+        Prop.ForAll<(decimal, decimal)>(values =>
+        {
+            var amount1 = new CurrencyAmount(values.Item1, "HD");
+            var amount2 = new CurrencyAmount(values.Item2, "HD");
+            var expected = new CurrencyAmount(values.Item1 + values.Item2, "HD");
 
-        Assert.Equal(expected, amount1 + amount2);
+            Assert.Equal(expected, amount1 + amount2);
+        }).QuickCheckThrowOnFailure();
     }
 
-    [Property]
+    [Fact]
     [Task(3)]
-    public void Addition_is_commutative(decimal value1, decimal value2)
+    public void Addition_is_commutative()
     {
-        var amount1 = new CurrencyAmount(value1, "HD");
-        var amount2 = new CurrencyAmount(value2, "HD");
+        Prop.ForAll<(decimal, decimal)>(values =>
+        {
+            var amount1 = new CurrencyAmount(values.Item1, "HD");
+            var amount2 = new CurrencyAmount(values.Item2, "HD");
 
-        Assert.Equal(amount1 + amount2, amount2 + amount1);
+            Assert.Equal(amount1 + amount2, amount2 + amount1);
+        }).QuickCheckThrowOnFailure();
     }
 
-    [Property]
+    [Fact]
     [Task(3)]
-    public void Addition_with_different_currency(decimal value1, decimal value2)
+    public void Addition_with_different_currency()
     {
-        var amount1 = new CurrencyAmount(value1, "HD");
-        var amount2 = new CurrencyAmount(value2, "USD");
+        Prop.ForAll<(decimal, decimal)>(values =>
+        {
+            var amount1 = new CurrencyAmount(values.Item1, "HD");
+            var amount2 = new CurrencyAmount(values.Item2, "USD");
 
-        Assert.Throws<ArgumentException>(() => amount1 + amount2);
+            Assert.Throws<ArgumentException>(() => amount1 + amount2);
+        }).QuickCheckThrowOnFailure();
     }
 
-    [Property]
+    [Fact]
     [Task(3)]
-    public void Subtraction_with_same_currency(decimal value1, decimal value2)
+    public void Subtraction_with_same_currency()
     {
-        var amount1 = new CurrencyAmount(value1, "HD");
-        var amount2 = new CurrencyAmount(value2, "HD");
-        var expected = new CurrencyAmount(value1 - value2, "HD");
+        Prop.ForAll<(decimal, decimal)>(values =>
+        {
+            var amount1 = new CurrencyAmount(values.Item1, "HD");
+            var amount2 = new CurrencyAmount(values.Item2, "HD");
+            var expected = new CurrencyAmount(values.Item1 - values.Item2, "HD");
 
-        Assert.Equal(expected, amount1 - amount2);
+            Assert.Equal(expected, amount1 - amount2);
+        }).QuickCheckThrowOnFailure();
     }
 
-    [Property]
+    [Fact]
     [Task(3)]
-    public void Subtraction_with_different_currency(decimal value1, decimal value2)
+    public void Subtraction_with_different_currency()
     {
-        var amount1 = new CurrencyAmount(value1, "HD");
-        var amount2 = new CurrencyAmount(value2, "USD");
+        Prop.ForAll<(decimal, decimal)>(values =>
+        {
+            var amount1 = new CurrencyAmount(values.Item1, "HD");
+            var amount2 = new CurrencyAmount(values.Item2, "USD");
 
-        Assert.Throws<ArgumentException>(() => amount1 - amount2);
+            Assert.Throws<ArgumentException>(() => amount1 - amount2);
+        }).QuickCheckThrowOnFailure();
     }
 
-    [Property]
+    [Fact]
     [Task(4)]
-    public void Multiplication(decimal value, decimal factor)
+    public void Multiplication()
     {
-        Assert.Equal(new CurrencyAmount(factor * value, "HD"),
-                     factor * new CurrencyAmount(value, "HD"));
+        Prop.ForAll<(decimal, decimal)>(values =>
+        {
+            var (value, factor) = values;
+            Assert.Equal(new CurrencyAmount(factor * value, "HD"),
+                factor * new CurrencyAmount(value, "HD"));
+        }).QuickCheckThrowOnFailure();
     }
 
-    [Property]
+    [Fact]
     [Task(4)]
-    public void Multiplication_is_commutative(decimal value, decimal factor)
+    public void Multiplication_is_commutative()
     {
-        var amount = new CurrencyAmount(value, "HD");
+        Prop.ForAll<(decimal, decimal)>(values =>
+        {
+            var (value, factor) = values;
+            var amount = new CurrencyAmount(value, "HD");
 
-        Assert.Equal(amount * factor, factor * amount);
+            Assert.Equal(amount * factor, factor * amount);
+        }).QuickCheckThrowOnFailure();
     }
 
-    [Property]
+    [Fact]
     [Task(4)]
-    public Property Division(decimal value, decimal divisor)
+    public void Division()
     {
-        return Prop.When(
-            divisor != 0,
-            () => Assert.True(new CurrencyAmount(value, "HD") / divisor ==
-                              new CurrencyAmount(value / divisor, "HD")));
+        Prop.ForAll<(decimal, decimal)>(values =>
+        {
+            var (value, divisor) = values;
+            return Prop.When(
+                divisor != 0,
+                () => Assert.True(new CurrencyAmount(value, "HD") / divisor ==
+                                  new CurrencyAmount(value / divisor, "HD")));
+        }).QuickCheckThrowOnFailure();
     }
 
-    [Property]
+    [Fact]
     [Task(5)]
-    public void Cast_to_double(decimal value)
+    public void Cast_to_double()
     {
-        Assert.Equal(Convert.ToDouble(value), (double)new CurrencyAmount(value, "HD"));
+        Prop.ForAll<decimal>(value =>
+        {
+            Assert.Equal(Convert.ToDouble(value), (double)new CurrencyAmount(value, "HD"));
+        }).QuickCheckThrowOnFailure();
     }
 
-    [Property]
+    [Fact]
     [Task(6)]
-    public void Cast_to_decimal(decimal value)
+    public void Cast_to_decimal()
     {
-        decimal actual = new CurrencyAmount(value, "HD");
-        Assert.Equal(value, actual);
+        Prop.ForAll<decimal>(value =>
+        {
+            decimal actual = new CurrencyAmount(value, "HD");
+            Assert.Equal(value, actual);
+        }).QuickCheckThrowOnFailure();
     }
 }
