@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "erikschierboom"
+  ],
+  "files": {
+    "solution": [
+      "CalendarConversion.cs"
+    ],
+    "test": [
+      "CalendarConversionTests.cs"
+    ],
+    "example": [
+      ".meta/Example.cs"
+    ]
+  },
+  "blurb": ""
+}

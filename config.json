@@ -2626,6 +2626,19 @@
         "difficulty": 1
       },
       {
+        "slug": "calendar-conversion",
+        "name": "calendar-conversion",
+        "uuid": "8842595a-07ba-45f5-ae9a-012516cde10d",
+        "practices": [
+          "datetimes"
+        ],
+        "prerequisites": [
+          "datetimes",
+          "strings"
+        ],
+        "difficulty": 5
+      },
+      {
         "slug": "game-of-life",
         "name": "Conway's Game of Life",
         "uuid": "bf644c78-ae34-4a69-9bd3-b189c448cf10",
