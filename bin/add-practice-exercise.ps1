@@ -45,6 +45,7 @@ $project.Project.ItemGroup[1].SelectSingleNode("PackageReference[@Include='xunit
 $project.Save($projectFile)
 
 # Remove and update files
+Remove-Item -Path "${exerciseDir}/xunit.runner.json"
 Remove-Item -Path "${exerciseDir}/UnitTest1.cs"
 (Get-Content -Path ".editorconfig") -Replace "\[\*\.cs\]", "[${exerciseName}.cs]" | Set-Content -Path "${exerciseDir}/.editorconfig"
 
