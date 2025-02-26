@@ -34,7 +34,7 @@ $exerciseDir = "exercises/practice/${Exercise}"
 $projectFile = "${exerciseDir}/${ExerciseName}.csproj"
 & dotnet new install xunit.v3.templates
 & dotnet new xunit3 --force --output $exerciseDir --name $ExerciseName
-& dotnet sln exercises/Exercises.sln add $project
+& dotnet sln exercises/Exercises.sln add $projectFile
 
 [xml]$project = Get-Content $projectFile
 $project.Project.PropertyGroup.RemoveChild($project.Project.PropertyGroup.SelectSingleNode("//comment()"))
