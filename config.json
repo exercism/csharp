@@ -2704,6 +2704,20 @@
           "for-loops"
         ],
         "difficulty": 7
+      },
+      {
+        "slug": "swift-scheduling",
+        "name": "swift-scheduling",
+        "uuid": "0eb21dfc-9666-475c-bc92-558f2663a598",
+        "practices": [
+          "datetimes",
+          "string-formatting"
+        ],
+        "prerequisites": [
+          "datetimes",
+          "string-formatting"
+        ],
+        "difficulty": 6
       }
     ],
     "foregone": [
