@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "erikschierboom"
+  ],
+  "files": {
+    "solution": [
+      "DrPerf.cs"
+    ],
+    "test": [
+      "DrPerfTests.cs"
+    ],
+    "example": [
+      ".meta/Example.cs"
+    ]
+  },
+  "blurb": ""
+}

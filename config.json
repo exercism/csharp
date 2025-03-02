@@ -2713,6 +2713,14 @@
           "for-loops"
         ],
         "difficulty": 7
+      },
+      {
+        "slug": "dr-perf",
+        "name": "dr-perf",
+        "uuid": "d2c365e1-ac75-4c2d-95cf-8ef5c20449a0",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 7
       }
     ],
     "foregone": [
