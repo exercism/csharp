@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31808.319
@@ -356,6 +356,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateOfTicTacToe", "practice\state-of-tic-tac-toe\StateOfTicTacToe.csproj", "{67E9BAB3-9805-42F1-9298-E9BBB795140E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BottleSong", "practice\bottle-song\BottleSong.csproj", "{6BD384E6-225E-4F8A-856C-3079957C6E36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntergalacticTransmission", "practice\intergalactic-transmission\IntergalacticTransmission.csproj", "{E81F1BA3-1F99-4DCB-B875-78D1F4750BD5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -1063,6 +1065,10 @@ Global
 		{6BD384E6-225E-4F8A-856C-3079957C6E36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6BD384E6-225E-4F8A-856C-3079957C6E36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6BD384E6-225E-4F8A-856C-3079957C6E36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E81F1BA3-1F99-4DCB-B875-78D1F4750BD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E81F1BA3-1F99-4DCB-B875-78D1F4750BD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E81F1BA3-1F99-4DCB-B875-78D1F4750BD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E81F1BA3-1F99-4DCB-B875-78D1F4750BD5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
