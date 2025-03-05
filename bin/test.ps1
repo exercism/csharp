@@ -153,9 +153,9 @@ function Test-Exercise-Example-Implementations($Exercise) {
     }
 }
 
-Test-Exercise-Example-Implementations $Exercise
-
 if (!$Exercise) {
     Test-Refactoring-Exercise-Default-Implementations
     Build-Generators
 }
+
+Test-Exercise-Example-Implementations $Exercise
