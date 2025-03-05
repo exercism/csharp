@@ -38,6 +38,7 @@ $projectFile = "${exerciseDir}/${ExerciseName}.csproj"
 
 [xml]$project = Get-Content $projectFile
 $project.Project.PropertyGroup.RemoveChild($project.Project.PropertyGroup.SelectSingleNode("//comment()"))
+$project.Project.PropertyGroup.RemoveChild($project.Project.PropertyGroup.SelectSingleNode("//RootNamespace"))
 $project.Project.RemoveChild($project.Project.ItemGroup[0])
 $project.Project.ItemGroup[1].SelectSingleNode("PackageReference[@Include='Microsoft.NET.Test.Sdk']").SetAttribute("Version", "17.12.0")
 $project.Project.ItemGroup[1].SelectSingleNode("PackageReference[@Include='xunit.v3']").SetAttribute("Version", "1.1.0")
