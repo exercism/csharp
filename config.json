@@ -2713,6 +2713,14 @@
           "for-loops"
         ],
         "difficulty": 7
+      },
+      {
+        "slug": "baffling-birthdays",
+        "name": "baffling-birthdays",
+        "uuid": "f75d1dd2-63ee-4258-a4e9-f208fb8e8bd4",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
       }
     ],
     "foregone": [
