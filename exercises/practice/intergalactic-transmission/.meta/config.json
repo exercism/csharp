@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "kahgoh"
+  ],
+  "files": {
+    "solution": [
+      "IntergalacticTransmission.cs"
+    ],
+    "test": [
+      "IntergalacticTransmissionTests.cs"
+    ],
+    "example": [
+      ".meta/Example.cs"
+    ]
+  },
+  "blurb": "Help detect errors in transmissions to neighboring galaxies"
+}
