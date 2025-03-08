@@ -2713,6 +2713,14 @@
           "for-loops"
         ],
         "difficulty": 7
+      },
+      {
+        "slug": "split-second-stopwatch",
+        "name": "Split-Second Stopwatch",
+        "uuid": "791feb53-7250-4176-bd8e-6b1a76748f19",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
       }
     ],
     "foregone": [
