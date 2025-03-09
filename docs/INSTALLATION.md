@@ -17,7 +17,7 @@ If the output is a version greater than or equal to `8.0.100`, the .NET SDK has 
 
 ## Using an IDE
 
-If you want a more full-featured editing experience, you probably want to to use an IDE.
+If you want a more full-featured editing experience, you probably want to to use an [IDE or integrated development environment)](https://en.wikipedia.org/wiki/Integrated_development_environment).
 These are the most popular IDEs that support building .NET projects:
 
 - [Visual Studio 2022](https://www.visualstudio.com/downloads/)
