@@ -7,16 +7,16 @@
   ],
   "files": {
     "solution": [
-      "ElonsToys.cs"
+      "JedliksToys.cs"
     ],
     "test": [
-      "ElonsToysTests.cs"
+      "JedliksToysTests.cs"
     ],
     "exemplar": [
       ".meta/Exemplar.cs"
     ],
     "invalidator": [
-      "ElonsToys.csproj"
+      "JedliksToys.csproj"
     ]
   },
   "blurb": "Learn about classes by working on a remote controlled car."

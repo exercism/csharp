@@ -1,6 +1,6 @@
 using Exercism.Tests;
 
-public class ElonsToysTests
+public class JedliksToysTests
 {
     [Fact]
     [Task(1)]
