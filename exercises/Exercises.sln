@@ -25,7 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarsAssemble", "concept\car
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeveloperPrivileges", "concept\developer-privileges\DeveloperPrivileges.csproj", "{AF9F84FA-7B8E-4B6A-AD7F-3BF1579F3AFD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElonsToys", "concept\elons-toys\ElonsToys.csproj", "{D8B7C7FD-5A31-4D8E-82AB-9D0C97BBEBDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JedliksToys", "concept\jedliks-toys\JedliksToys.csproj", "{D8B7C7FD-5A31-4D8E-82AB-9D0C97BBEBDB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Faceid2", "concept\faceid-2\Faceid2.csproj", "{DB21BFB8-0FCC-4F17-9773-8141B0B4F0D2}"
 EndProject
