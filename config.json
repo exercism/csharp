@@ -2713,6 +2713,18 @@
           "for-loops"
         ],
         "difficulty": 7
+      },
+      {
+        "slug": "intergalactic-transmission",
+        "name": "intergalactic-transmission",
+        "uuid": "845c8cf4-207c-438f-9d18-c5e7875ee729",
+        "practices": [
+          "bit-manipulation"
+        ],
+        "prerequisites": [
+          "bit-manipulation"
+        ],
+        "difficulty": 6
       }
     ],
     "foregone": [
