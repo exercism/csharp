@@ -357,10 +357,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateOfTicTacToe", "practic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BottleSong", "practice\bottle-song\BottleSong.csproj", "{6BD384E6-225E-4F8A-856C-3079957C6E36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LastLap", "practice\last-lap\LastLap.csproj", "{DA4856F5-A260-43A0-9C9C-6DD2E2B08692}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "split-second-stopwatch", "split-second-stopwatch", "{B587F905-CC4E-0FB1-25B1-84C433FD33E0}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SplitSecondStopwatch", "practice\split-second-stopwatch\SplitSecondStopwatch.csproj", "{0A6CD51A-2120-4A72-A17B-08CCC2E6D365}"
 EndProject
 Global
