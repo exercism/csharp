@@ -48,5 +48,5 @@ The templates are rendered using the [Scriban library](https://github.com/scriba
 
 There are two ways in which the test generator can be run:
 
-1. `bin/generate-tests.ps1`: generate the tests for all exercises that have a generator template
-2. `bin/generate-tests.ps1 -e <slug>`: generate the tests for the specified exercise, if it has a generator template
+1. `bin/update-tests.ps1`: update the tests for all exercises that have a generator template
+2. `bin/update-tests.ps1 -e <slug>`: update the tests for the specified exercise, if it has a generator template

@@ -23,7 +23,7 @@ This report is updated automatically when any _design.md_ document is modified o
 - booleans [_(annalyns-infiltration)_][exercise-annalyns-infiltration] - [Design][design-annalyns-infiltration]
 - casting [_(secure-munchester-united)_][exercise-secure-munchester-united] - [Design][design-secure-munchester-united]
 - chars [_(squeaky-clean)_][exercise-squeaky-clean] - [Design][design-squeaky-clean]
-- classes [_(elons-toys)_][exercise-elons-toys] - [Design][design-elons-toys]
+- classes [_(jedliks-toys)_][exercise-jedliks-toys] - [Design][design-jedliks-toys]
 - collections [_(tracks-on-tracks-on-tracks)_][exercise-tracks-on-tracks-on-tracks] - [Design][design-tracks-on-tracks-on-tracks]
 - constants [_(authentication-system)_][exercise-authentication-system] - [Design][design-authentication-system]
 - constructors [_(need-for-speed)_][exercise-need-for-speed] - [Design][design-need-for-speed]
@@ -260,7 +260,7 @@ This report is updated automatically when any _design.md_ document is modified o
 [design-calculator-conundrum]: https://github.com/exercism/csharp/tree/main/exercises/concept/calculator-conundrum/.meta/design.md
 [design-cars-assemble]: https://github.com/exercism/csharp/tree/main/exercises/concept/cars-assemble/.meta/design.md
 [design-developer-privileges]: https://github.com/exercism/csharp/tree/main/exercises/concept/developer-privileges/.meta/design.md
-[design-elons-toys]: https://github.com/exercism/csharp/tree/main/exercises/concept/elons-toys/.meta/design.md
+[design-jedliks-toys]: https://github.com/exercism/csharp/tree/main/exercises/concept/jedliks-toys/.meta/design.md
 [design-faceid-2]: https://github.com/exercism/csharp/tree/main/exercises/concept/faceid-2/.meta/design.md
 [design-football-match-reports]: https://github.com/exercism/csharp/tree/main/exercises/concept/football-match-reports/.meta/design.md
 [design-high-school-sweethearts]: https://github.com/exercism/csharp/tree/main/exercises/concept/high-school-sweethearts/.meta/design.md
@@ -301,7 +301,7 @@ This report is updated automatically when any _design.md_ document is modified o
 [exercise-calculator-conundrum]: https://github.com/exercism/csharp/tree/main/exercises/concept/calculator-conundrum
 [exercise-cars-assemble]: https://github.com/exercism/csharp/tree/main/exercises/concept/cars-assemble
 [exercise-developer-privileges]: https://github.com/exercism/csharp/tree/main/exercises/concept/developer-privileges
-[exercise-elons-toys]: https://github.com/exercism/csharp/tree/main/exercises/concept/elons-toys
+[exercise-jedliks-toys]: https://github.com/exercism/csharp/tree/main/exercises/concept/jedliks-toys
 [exercise-faceid-2]: https://github.com/exercism/csharp/tree/main/exercises/concept/faceid-2
 [exercise-football-match-reports]: https://github.com/exercism/csharp/tree/main/exercises/concept/football-match-reports
 [exercise-high-school-sweethearts]: https://github.com/exercism/csharp/tree/main/exercises/concept/high-school-sweethearts

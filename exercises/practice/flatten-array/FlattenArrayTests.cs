@@ -56,7 +56,7 @@ public class FlattenArrayTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Consecutive_null_values_at_the_front_of_the_list_are_omitted_from_the_final_result()
+    public void Consecutive_null_values_at_the_front_of_the_array_are_omitted_from_the_final_result()
     {
         object?[] array = new object?[] { null, null, 3 };
         object?[] expected = [3];
@@ -64,7 +64,7 @@ public class FlattenArrayTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Consecutive_null_values_in_the_middle_of_the_list_are_omitted_from_the_final_result()
+    public void Consecutive_null_values_in_the_middle_of_the_array_are_omitted_from_the_final_result()
     {
         object?[] array = new object?[] { 1, null, null, 4 };
         object?[] expected = [1, 4];
@@ -72,7 +72,7 @@ public class FlattenArrayTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Six_level_nest_list_with_null_values()
+    public void Six_level_nested_array_with_null_values()
     {
         object?[] array = new object?[] { 0, 2, new object?[] { new object?[] { 2, 3 }, 8, new object?[] { new object?[] { 100 } }, null, new object?[] { new object?[] { null } } }, -2 };
         object?[] expected = [0, 2, 2, 3, 8, 100, -2];
@@ -80,7 +80,7 @@ public class FlattenArrayTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void All_values_in_nested_list_are_null()
+    public void All_values_in_nested_array_are_null()
     {
         object?[] array = new object?[] { null, new object?[] { new object?[] { new object?[] { null } } }, null, null, new object?[] { new object?[] { null, null }, null }, null };
         object?[] expected = [];

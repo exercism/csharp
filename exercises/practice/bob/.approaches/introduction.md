@@ -33,13 +33,16 @@ public static string Response(string message)
     if (IsSilence(message))
         return "Fine. Be that way!";
 
-    if (IsYell(message) && IsQuestion(message))
+    var isYell = IsYell(message);
+    var isQuestion = IsQuestion(message);
+
+    if (isYell && isQuestion)
         return "Calm down, I know what I'm doing!";
 
-    if (IsYell(message))
+    if (isYell)
         return "Whoa, chill out!";
 
-    if (IsQuestion(message))
+    if (isQuestion)
         return "Sure.";
 
     return "Whatever.";

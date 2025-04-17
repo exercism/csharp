@@ -11,6 +11,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "KillerSudokuHelper.csproj"
     ]
   },
   "blurb": "Write a tool that makes it easier to solve Killer Sudokus",
