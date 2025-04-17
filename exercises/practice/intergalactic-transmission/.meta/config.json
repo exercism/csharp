@@ -11,7 +11,12 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "IntergalacticTransmission.csproj"
     ]
   },
-  "blurb": "Help detect errors in transmissions to neighboring galaxies"
+  "blurb": "Add parity bits to a message for transmission",
+  "source": "Kah Goh",
+  "source_url": "https://github.com/exercism/problem-specifications/pull/2543"
 }

@@ -1,10 +1,23 @@
 # Introduction
 
-Trillions upon trillions of messages are exchanged between Earth and the neighboring galaxies every millisecond. 
-But transmission over such long distances faces many obstacles.
-Pesky solar flares, worm holes, temporal distortions, stray forces, heck even the flap of a space butterfly wing can cause a random bit to flip during transmission.
-The difference between an "o" and a "k", a "[" and "{" or a cowboy emoji and a clown emoji can have huge ramifications, from missed orders to Galactic Stockmarket crashes.
-It is thus important for the receiver to know if a message has been corrupted so that the receiver can ask for the message to be sent again.
+Trillions upon trillions of messages zip between Earth and neighboring galaxies every millisecond.
+But transmitting over such long distances is tricky.
+Pesky solar flares, temporal distortions, stray forces, and even the flap of a space butterfly's wing can cause a random bit to change during transmission.
 
-One day, an important message comes through.
-People have just heard about the legend about a way of transmitting in such a way that the receiver can tell when bit flipped ... the parity bit ...
+Now imagine the consequences:
+
+- Crashing the Intergalactic Share Market when "buy low" turns to "sell now".
+- Losing contact with the Kepler Whirl system when "save new worm hole" becomes "cave new worm hole".
+- Or plunging the universe into existential horror by replacing a cowboy emoji 🤠 with a clown emoji 🤡.
+
+Detecting corrupted messages isn't just important — it's critical.
+The receiver _must_ know when something has gone wrong before disaster strikes.
+
+But how?
+Scientists and engineers from across the universe have been battling this problem for eons.
+Entire cosmic AI superclusters churn through the data.
+And then, one day, a legend resurfaces — an ancient, powerful method, whispered in debugging forums, muttered by engineers who've seen too much...
+
+The Parity Bit!
+
+A method so simple, so powerful, that it might just save interstellar communication.

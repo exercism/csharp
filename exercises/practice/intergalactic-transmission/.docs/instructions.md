@@ -1,37 +1,54 @@
 # Instructions
 
-Your job is to help implement the message sequencer to add the parity bit to the messages and the decoder to receive messages.
+Your job is to help implement
 
-The entire message, itself, is sequence of a number of bytes.
-The transmitters and receivers can only transmit and receive one byte at a time, so parity bit needs to be added every eighth bit. 
-The algorithm for adding the bits is as follows:
-1. Divide the message bits into groups of 7, starting from the left (the message is transmitted from left to right).
-2. If the last group has less than 7 bits, append some 0s to pad the group to 7 bits.
-3. For each group, determine if there are an odd or even number of 1s.
-4. If the group has even number of 1s or none at all, append a 0 to the group. Otherwise, append 1 if there is odd number.
+- the transmitter, which calculates the transmission sequence, and
+- the receiver, which decodes it.
 
-For example, consider the message 0xC0_01_C0_DE.
-Writing this out in binary and locating every 7th bit:
+A parity bit is simple way of detecting transmission errors.
+The transmitters and receivers can only transmit and receive _exactly_ eight bits at a time (including the parity bit).
+The parity bit is set so that there is an _even_ number 1s in each transmission and is always the first bit from the right.
+So if the receiver receives `11000001`, `01110101` or `01000000` (i.e. a transmission with an odd number of 1 bits), it knows there is an error.
 
-```text
-C    0    0    1    C    0    D    E
-1100_0000 0000_0001 1100_0000 1101_1110
-       ↑        ↑        ↑       ↑        (7th bits)
-```
+However, messages are rarely this short, and need to be transmitted in a sequence when they are longer.
 
-The last group has only 4 bits (0b1110), so three 0 bits are appended to make it 7 bits:
+For example, consider the message `11000000 00000001 11000000 11011110` (or `C0 01 C0 DE` in hex).
+
+Since each transmission contains exactly eight bits, it can only contain seven bits of data and the parity bit.
+A parity bit must then be inserted after every seven bits of data:
 
 ```text
-| 1100_000 | 0000_000 | 0111_000 | 0001_101 | 1110_000 |
+11000000 00000001 11000000 11011110
+      ↑       ↑       ↑       ↑          (7th bits)
 ```
 
-The first group contains two 1s (an even number of 1s), so 0 is appended to the group.
-The second group has none, so append 0.
-The rest have three, so they append 1.
+The transmission sequence for this message looks like this:
 
 ```text
-| 1100_0000 | 0000_0000 | 0111_0001 | 0001_1011 | 1110_0001 |
-| C    0    | 0    0    | 7    1    | 1    B    | E    1    |  (in hex)
+1100000_ 0000000_ 0111000_ 0001101_ 1110
+       ↑        ↑        ↑        ↑      (parity bits)
 ```
 
-Thus, the transmission sequence is 0xC0_00_71_1B_E1.
+The data in the first transmission in the sequence (`1100000`) has two 1 bits (an even number), so the parity bit is 0.
+The first transmission becomes `11000000` (or `C0` in hex).
+
+The data in the next transmission (`0000000`) has zero 1 bits (an even number again), so the parity bit is 0 again.
+The second transmission thus becomes `00000000` (or `00` in hex).
+
+The data for the next two transmissions (`0111000` and `0001101`) have three 1 bits.
+Their parity bits are set to 1 so that they have an even number of 1 bits in the transmission.
+They are transmitted as `01110001` and `00011011` (or `71` and `1B` in hex).
+
+The last transmission (`1110`) has only four bits of data.
+Since exactly eight bits are transmitted at a time and the parity bit is the right most bit, three 0 bits and then the parity bit are added to make up eight bits.
+It now looks like this (where `_` is the parity bit):
+
+```text
+1110 000_
+     ↑↑↑   (added 0 bits)
+```
+
+There is an odd number of 1 bits again, so the parity bit is 1.
+The last transmission in the sequence becomes `11100001` (or `E1` in hex).
+
+The entire transmission sequence for this message is `11000000 00000000 01110001 00011011 11100001` (or `C0 00 71 1B E1` in hex).
