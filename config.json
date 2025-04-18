@@ -2722,7 +2722,12 @@
           "bit-manipulation"
         ],
         "prerequisites": [
-          "bit-manipulation"
+          "bit-manipulation",
+          "arrays",
+          "exceptions",
+          "integral-numbers",
+          "for-loops",
+          "if-statements"
         ],
         "difficulty": 6
       },
