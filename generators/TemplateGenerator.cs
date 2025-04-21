@@ -61,9 +61,6 @@ internal static class TemplateGenerator
         testCase["expected"] is JsonObject jsonObject && jsonObject.ContainsKey("error");
 
     private const string GeneratorTemplate = @"
-{{ if error }}using System;{{ end }}
-using Xunit;
-
 public class {%{{{ testClass }}}%}
 {
     {%{{{- for test in tests }}}%}

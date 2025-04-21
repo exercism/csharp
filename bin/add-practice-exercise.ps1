@@ -33,17 +33,22 @@ $exerciseName = (Get-Culture).TextInfo.ToTitleCase($Exercise).Replace("-", "")
 $exerciseDir = "exercises/practice/${Exercise}"
 $projectFile = "${exerciseDir}/${ExerciseName}.csproj"
 & dotnet new install xunit.v3.templates
-& dotnet new xunit3 --force --output $exerciseDir --name $ExerciseName
+& dotnet new xunit3 --force --framework net9.0 --output $exerciseDir --name $ExerciseName
 & dotnet sln exercises/Exercises.sln add $projectFile
 
 [xml]$project = Get-Content $projectFile
 $project.Project.PropertyGroup.RemoveChild($project.Project.PropertyGroup.SelectSingleNode("//comment()"))
 $project.Project.PropertyGroup.RemoveChild($project.Project.PropertyGroup.SelectSingleNode("//RootNamespace"))
+$restorePackagesWithLockFileElement = $project.CreateElement("RestorePackagesWithLockFile");
+$restorePackagesWithLockFileElement.InnerText = "true"
+$project.Project.PropertyGroup.AppendChild($restorePackagesWithLockFileElement)
 $project.Project.RemoveChild($project.Project.ItemGroup[0])
 $project.Project.ItemGroup[1].SelectSingleNode("PackageReference[@Include='Microsoft.NET.Test.Sdk']").SetAttribute("Version", "17.12.0")
 $project.Project.ItemGroup[1].SelectSingleNode("PackageReference[@Include='xunit.v3']").SetAttribute("Version", "1.1.0")
-$project.Project.ItemGroup[1].SelectSingleNode("PackageReference[@Include='xunit.runner.visualstudio']").SetAttribute("Version", "3.0.2")
+$project.Project.ItemGroup[1].SelectSingleNode("PackageReference[@Include='xunit.runner.visualstudio']").SetAttribute("Version", "3.0.1")
 $project.Save($projectFile)
+
+dotnet add $projectFile package Exercism.Tests.xunit.v3 --version 0.1.0-beta1
 
 # Remove and update files
 Remove-Item -Path "${exerciseDir}/xunit.runner.json"
