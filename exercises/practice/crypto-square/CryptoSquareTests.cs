@@ -47,4 +47,10 @@ public class CryptoSquareTests
     {
         Assert.Equal("imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghn  sseoau ", CryptoSquare.Ciphertext("If man was meant to stay on the ground, god would have given us roots."));
     }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Fifty_four_character_plaintext_results_in_8_chunks_the_last_two_with_trailing_spaces()
+    {
+        Assert.Equal("imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghn  sseoau ", CryptoSquare.Ciphertext("If man was meant to stay on the ground, god would have given us roots."));
+    }
 }
