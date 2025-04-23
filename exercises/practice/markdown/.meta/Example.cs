@@ -5,7 +5,6 @@ public static class Markdown
     private static string OpeningTag(string tag) => $"<{tag}>";
     private static string ClosingTag(string tag) => $"</{tag}>";
     private static string WrapInTag(this string text, string tag) => $"{OpeningTag(tag)}{text}{ClosingTag(tag)}";
-    private static bool StartsWithTag(this string text, string tag) => text.StartsWith(OpeningTag(tag));
 
     private const string HeaderMarkdown = "#";
     private const string BoldMarkdown = "__";

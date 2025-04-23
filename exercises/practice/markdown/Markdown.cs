@@ -31,7 +31,7 @@ public static class Markdown
         }
     }
 
-    private static string ParseHeader(string markdown, bool list, out bool inListAfter)
+    private static string? ParseHeader(string markdown, bool list, out bool inListAfter)
     {
         var count = 0;
 
@@ -68,7 +68,7 @@ public static class Markdown
         }
     }
 
-    private static string ParseLineItem(string markdown, bool list, out bool inListAfter)
+    private static string? ParseLineItem(string markdown, bool list, out bool inListAfter)
     {
         if (markdown.StartsWith("*"))
         {
