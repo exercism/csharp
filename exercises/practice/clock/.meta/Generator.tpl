@@ -2,8 +2,6 @@
     $"new Clock({$0.hour}, {$0.minute})"
 end }}
 
-using Xunit;
-
 public class {{ testClass }}
 {
     {{- for test in tests }}

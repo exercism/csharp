@@ -6,9 +6,7 @@
     ret $"DiffieHellman.{string.capitalize argument}"
 end }}
 
-using System.Linq;
 using System.Numerics;
-using Xunit;
 
 public class {{ testClass }}
 {

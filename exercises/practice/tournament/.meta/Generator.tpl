@@ -15,10 +15,7 @@
     {{- end -}}
 {{ end }}
 
-using System;
-using System.IO;
 using System.Text;
-using Xunit;
 
 public class {{ testClass }}
 {

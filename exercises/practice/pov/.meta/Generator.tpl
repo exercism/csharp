@@ -8,9 +8,6 @@
     ret $"new Tree(\"{$0.label}\"{children})"
 end }}
 
-using System;
-using Xunit;
-
 public class {{ testClass }}
 {
     {{- for test in tests }}

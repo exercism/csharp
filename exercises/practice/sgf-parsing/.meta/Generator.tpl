@@ -29,10 +29,6 @@ end }}
     end
 end }}
 
-using System;
-using System.Collections.Generic;
-using Xunit;
-
 public class {{ testClass }}
 {
     {{- for test in tests }}

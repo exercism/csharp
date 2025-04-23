@@ -18,12 +18,6 @@ end }}
     ret $"{to_tested_method $0}({ to_amount $0 })"
 end }}
 
-
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Xunit;
-
 public class {{ testClass }}
 {
     {{- for test in tests }}

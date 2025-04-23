@@ -12,9 +12,6 @@
     ret checks
 end }}
 
-using System.Linq;
-using Xunit;
-
 public class {{ testClass }}
 {
     {{- for test in tests }}

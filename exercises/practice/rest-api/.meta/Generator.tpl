@@ -2,8 +2,6 @@
     object.to_json $0 | string.replace ".0" "" | string.literal
 end }}
 
-using Xunit;
-
 public class {{ testClass }}
 {
     {{- for test in tests }}

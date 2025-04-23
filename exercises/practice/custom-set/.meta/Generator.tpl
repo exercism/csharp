@@ -1,8 +1,6 @@
 {{ func toset 
     $"new CustomSet({$0})"
 end }}
-using Xunit;
-
 public class {{ testClass }}
 {
     {{- for test in tests }}
