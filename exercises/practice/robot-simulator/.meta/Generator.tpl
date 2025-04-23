@@ -2,8 +2,6 @@
     $"new RobotSimulator({enum $0.direction "Direction"}, {$0.position.x}, {$0.position.y})"
 end }}
 
-using Xunit;
-
 public class {{ testClass }}
 {
     {{- for test in tests }}

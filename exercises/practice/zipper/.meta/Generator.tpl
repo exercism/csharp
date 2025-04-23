@@ -51,8 +51,6 @@ end }}
     ret calls
 end }}
 
-using Xunit;
-
 public class {{ testClass }}
 {
     {{- for test in tests }}

@@ -1,8 +1,6 @@
 {{ func tuple
     ret $"({$0.column}, {$0.row})"
 end }}
-using Xunit;
-
 public class {{ testClass }}
 {
     {{- for test in tests }}

@@ -14,8 +14,6 @@ end }}
             ret "int[]"
     end
 end }}
-using System.Linq;
-using Xunit;
 
 public class {{ testClass }}
 {

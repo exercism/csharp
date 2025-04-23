@@ -16,9 +16,6 @@
         end
 end }}
 
-using System;
-using Xunit;
-
 public class {{ testClass }}
 {
     {{- for test in tests }}

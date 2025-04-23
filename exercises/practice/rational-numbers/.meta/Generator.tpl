@@ -20,8 +20,6 @@ end }}
     end
 end }}
 
-using Xunit;
-
 public class {{ testClass }}
 {
     {{- for test in tests }}

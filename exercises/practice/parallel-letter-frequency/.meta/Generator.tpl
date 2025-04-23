@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using Xunit;
-
 public class {{ testClass }}
 {
     {{- for test in tests }}

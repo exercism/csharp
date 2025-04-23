@@ -14,9 +14,6 @@ end }}
     ret "['" + (array.join $0 "', '") + "']"
 end }}
 
-using System;
-using Xunit;
-
 public class {{ testClass }}
 {
     {{- for test in tests }}
