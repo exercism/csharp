@@ -9,7 +9,10 @@ public static class BafflingBirthdays
 
     public static DateOnly[] RandomBirthdates(int numberOfBirthdays)
     {
-        var year = Random.Shared.Next(1900, DateTime.Now.Year + 1);
+        var year = Random.Shared.Next(1900, DateTime.Now.Year);
+        if (DateTime.IsLeapYear(year))
+            year -= 1;
+
         return Enumerable.Range(0, numberOfBirthdays).Select(_ => RandomBirthdate(year)).ToArray();
     }
 
