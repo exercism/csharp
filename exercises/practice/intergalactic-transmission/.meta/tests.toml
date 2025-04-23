@@ -42,6 +42,9 @@ description = "calculate transmit sequences -> eight byte message"
 [54a0642a-d5aa-490c-be89-8e171a0cab6f]
 description = "calculate transmit sequences -> twenty byte message"
 
+[9a8084dd-3336-474c-90cb-8a852524604d]
+description = "decode received messages -> empty message"
+
 [879af739-0094-4736-9127-bd441b1ddbbf]
 description = "decode received messages -> zero message"
 
@@ -62,6 +65,9 @@ description = "decode received messages -> second byte has wrong parity"
 
 [b985692e-6338-46c7-8cea-bc38996d4dfd]
 description = "decode received messages -> 0xcf4b00 is decoded to 0xce94"
+
+[7a1f4d48-696d-4679-917c-21b7da3ff3fd]
+description = "decode received messages -> 0xe2566500 is decoded to 0xe2ad90"
 
 [467549dc-a558-443b-80c5-ff3d4eb305d4]
 description = "decode received messages -> six byte message"
