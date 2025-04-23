@@ -2716,7 +2716,7 @@
       },
       {
         "slug": "intergalactic-transmission",
-        "name": "intergalactic-transmission",
+        "name": "Intergalactic Transmission",
         "uuid": "845c8cf4-207c-438f-9d18-c5e7875ee729",
         "practices": [
           "bit-manipulation"
@@ -2747,7 +2747,7 @@
       },
       {
         "slug": "baffling-birthdays",
-        "name": "baffling-birthdays",
+        "name": "Baffling Birthdays",
         "uuid": "f75d1dd2-63ee-4258-a4e9-f208fb8e8bd4",
         "practices": [
           "randomness",
