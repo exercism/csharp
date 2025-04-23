@@ -162,7 +162,7 @@ public class BankAccountTests
                     account.Deposit(1m);
                     account.Withdraw(1m);
                 }
-            }));
+            }, TestContext.Current.CancellationToken));
             await Task.WhenAll(tasks.ToArray());
         }
         Assert.Equal(0m, account.Balance);
