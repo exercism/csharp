@@ -1,18 +1,6 @@
 using System.Globalization;
 
-public class LedgerEntry
-{
-    public LedgerEntry(DateTime date, string description, decimal change)
-    {
-        Date = date;
-        Description = description;
-        Change = change;
-    }
-
-    public DateTime Date { get; }
-    public string Description { get; }
-    public decimal Change { get; }
-}
+public record LedgerEntry(DateTime Date, string Description, decimal Change);
 
 public static class Ledger
 {
@@ -20,51 +8,43 @@ public static class Ledger
     private const string TruncateSuffix = "...";
 
     public static LedgerEntry CreateEntry(string date, string description, int change) =>
-        new LedgerEntry(ParseDate(date), description, ParseChange(change));
+        new(ParseDate(date), description, ParseChange(change));
 
     private static DateTime ParseDate(string date) => DateTime.Parse(date, System.Globalization.CultureInfo.InvariantCulture);
 
     private static decimal ParseChange(int change) => change / 100.0m;
 
-    private static CultureInfo CultureInfo(string locale)
-    {
-        switch (locale)
+    private static CultureInfo CultureInfo(string locale) =>
+        locale switch
         {
-            case "en-US": return new CultureInfo("en-US", false);
-            case "nl-NL": return new CultureInfo("nl-NL", false);
-            default: throw new ArgumentException("Invalid locale");
-        }
-    }
+            "en-US" => new CultureInfo("en-US", false),
+            "nl-NL" => new CultureInfo("nl-NL", false),
+            _ => throw new ArgumentException("Invalid locale")
+        };
 
-    private static string CurrencySymbol(string currency)
-    {
-        switch (currency)
+    private static string CurrencySymbol(string currency) =>
+        currency switch
         {
-            case "USD": return "$";
-            case "EUR": return "€";
-            default: throw new ArgumentException("Invalid currency");
-        }
-    }
+            "USD" => "$",
+            "EUR" => "€",
+            _ => throw new ArgumentException("Invalid currency")
+        };
 
-    private static int CurrencyNegativePattern(string locale)
-    {
-        switch (locale)
+    private static int CurrencyNegativePattern(string locale) =>
+        locale switch
         {
-            case "en-US": return 0;
-            case "nl-NL": return 12;
-            default: throw new ArgumentException("Invalid locale");
-        }
-    }
+            "en-US" => 0,
+            "nl-NL" => 12,
+            _ => throw new ArgumentException("Invalid locale")
+        };
 
-    private static string ShortDateFormat(string locale)
-    {
-        switch (locale)
+    private static string ShortDateFormat(string locale) =>
+        locale switch
         {
-            case "en-US": return "MM/dd/yyyy";
-            case "nl-NL": return "dd/MM/yyyy";
-            default: throw new ArgumentException("Invalid locale");
-        }
-    }
+            "en-US" => "MM/dd/yyyy",
+            "nl-NL" => "dd/MM/yyyy",
+            _ => throw new ArgumentException("Invalid locale")
+        };
 
     private static CultureInfo getCulture(string currency, string locale)
     {
@@ -75,15 +55,13 @@ public static class Ledger
         return culture;
     }
 
-    private static string FormatHeader(CultureInfo culture)
-    {
-        switch (culture.Name)
+    private static string FormatHeader(CultureInfo culture) =>
+        culture.Name switch
         {
-            case "en-US": return "Date       | Description               | Change       ";
-            case "nl-NL": return "Datum      | Omschrijving              | Verandering  ";
-            default: throw new ArgumentException("Invalid locale");
-        }
-    }
+            "en-US" => "Date       | Description               | Change       ",
+            "nl-NL" => "Datum      | Omschrijving              | Verandering  ",
+            _ => throw new ArgumentException("Invalid locale")
+        };
 
     private static string FormatDate(IFormatProvider culture, DateTime date) => date.ToString("d", culture);
 

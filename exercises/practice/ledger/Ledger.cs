@@ -23,9 +23,9 @@ public static class Ledger
 
     private static CultureInfo CreateCulture(string cur, string loc)
     {
-        string curSymb = null;
+        string? curSymb = null;
         int curNeg = 0;
-        string datPat = null;
+        string? datPat = null;
 
         if (cur != "USD" && cur != "EUR")
         {
@@ -70,9 +70,9 @@ public static class Ledger
         }
 
         var culture = new CultureInfo(loc, false);
-        culture.NumberFormat.CurrencySymbol = curSymb;
+        culture.NumberFormat.CurrencySymbol = curSymb!;
         culture.NumberFormat.CurrencyNegativePattern = curNeg;
-        culture.DateTimeFormat.ShortDatePattern = datPat;
+        culture.DateTimeFormat.ShortDatePattern = datPat!;
         return culture;
     }
 
