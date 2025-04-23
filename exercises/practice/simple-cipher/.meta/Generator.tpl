@@ -16,8 +16,6 @@ end}}
     end
 end}}
 
-using Xunit;
-
 public class {{ testClass }}
 {
     {{- for test in tests }}
@@ -31,6 +29,13 @@ public class {{ testClass }}
         Assert.Equal({{- test.expected | string.literal }}, sut.Decode({{ test | decode_arg }}));
         {{- else if test.property == "key" }}
         Assert.Matches({{- test.expected.match | string.literal }}, sut.Key);
+        }
+
+        [Fact(Skip = "Remove this Skip property to run this test")]
+        public void Random_key_cipher_key_is_random()
+        {
+            var keys = Enumerable.Range(0, 1000).Select(_ => new SimpleCipher().Key).ToArray();
+            Assert.InRange(keys.Distinct().Count(), keys.Length - 100, keys.Length);        
         {{ end -}}
     }
     {{ end -}}

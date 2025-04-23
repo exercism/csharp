@@ -29,6 +29,13 @@ public class SimpleCipherTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Random_key_cipher_key_is_random()
+    {
+        var keys = Enumerable.Range(0, 1000).Select(_ => new SimpleCipher().Key).ToArray();
+        Assert.InRange(keys.Distinct().Count(), keys.Length - 100, keys.Length);
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Substitution_cipher_can_encode()
     {
         var sut = new SimpleCipher("abcdefghij");
