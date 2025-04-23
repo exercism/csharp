@@ -2759,6 +2759,20 @@
           "numbers"
         ],
         "difficulty": 6
+      },
+      {
+        "slug": "swift-scheduling",
+        "name": "Swift Scheduling",
+        "uuid": "c323aceb-70ae-4e2b-bdef-03ffcdd40a92",
+        "practices": [
+          "datetimes",
+          "string-formatting"
+        ],
+        "prerequisites": [
+          "datetimes",
+          "string-formatting"
+        ],
+        "difficulty": 6
       }
     ],
     "foregone": [
