@@ -14,8 +14,8 @@
 
 ## 3. Display the battery percentage
 
-- Keep track of the distance driven in a [field][fields].
-- Initialize the field to a specific value to correspond to the initial battery charge.
+- Keep track of the initial battery charge in a [field][fields].
+- Initialize the field to a specific value that corresponds to the expected initial battery charge.
 - Consider what visibility to use for the field (does it need to be used outside the class?).
 - Consider using [string interpolation][string-interpolation] to format the string to return.
 
