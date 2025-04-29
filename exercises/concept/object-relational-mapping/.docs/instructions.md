@@ -15,6 +15,15 @@ The database has the following instance methods:
 - `Database.EndTransaction()` commits the transaction to the database. It may throw an exception if it can't close the transaction or if `Database.BeginTransaction()` had not been called.
 - A call to`Database.Dispose()` will clean up the database if an exception is thrown during a transaction. This will change the state of the database to `Closed`.
 
+The state of the database can be accessed using `database.DbState`.
+
+The state of the database can be set to one of:
+
+- TransactionStarted
+- DataWritten
+- Invalid
+- Closed
+
 ## 1. Begin a transaction
 
 Implement `Orm.Begin()` to start a transaction on the database. If the database does not start with an internal state of `State.Closed` then it throws an `InvalidOperationException`.
