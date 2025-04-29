@@ -11,7 +11,8 @@
       "ObjectRelationalMapping.cs"
     ],
     "test": [
-      "ObjectRelationalMappingTests.cs"
+      "ObjectRelationalMappingTests.cs",
+      "Database.cs"
     ],
     "exemplar": [
       ".meta/Exemplar.cs"
