@@ -12,6 +12,8 @@
     ],
     "test": [
       "ObjectRelationalMappingTests.cs",
+    ],
+  "invalidator": [
       "Database.cs"
     ],
     "exemplar": [
