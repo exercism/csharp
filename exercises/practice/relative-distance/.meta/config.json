@@ -1,0 +1,19 @@
+{
+  "authors": [
+    "BNAndras"
+  ],
+  "files": {
+    "solution": [
+      "RelativeDistance.cs"
+    ],
+    "test": [
+      "RelativeDistanceTests.cs"
+    ],
+    "example": [
+      ".meta/Example.cs"
+    ]
+  },
+  "blurb": "Given a family tree, calculate the degree of separation.",
+  "source": "vaeng",
+  "source_url": "https://github.com/exercism/problem-specifications/pull/2537"
+}
