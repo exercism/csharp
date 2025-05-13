@@ -1682,15 +1682,10 @@
         "slug": "scale-generator",
         "name": "Scale Generator",
         "uuid": "c7d5acc6-68a6-4cd8-a28b-359dceb1e56f",
-        "practices": [
-          "foreach-loops"
-        ],
-        "prerequisites": [
-          "strings",
-          "arrays",
-          "foreach-loops"
-        ],
-        "difficulty": 5
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5,
+        "status": "deprecated"
       },
       {
         "slug": "tree-building",
