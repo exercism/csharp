@@ -3,31 +3,30 @@ public class RelativeDistanceTests
     [Fact]
     public void Direct_parent_child_relation()
     {
-        var familyTree = new Dictionary<string, string[]>
+        Dictionary<string, string[]> familyTree = new()
         {
-            { "Aditi", ["Bao"] },
-            { "Bao", ["Carlos"] },
-            { "Carlos", ["Dalia"] }
+            { "Vera", ["Tomoko"] },
+            { "Tomoko", ["Aditi"] }
         };
         RelativeDistance rd = new(familyTree);
-        Assert.Equal(3, rd.DegreeOfSeparation("Aditi", "Dalia"));
+        Assert.Equal(1, rd.DegreeOfSeparation("Vera", "Tomoko"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Sibling_relationship()
     {
-        var familyTree = new Dictionary<string, string[]>
+        Dictionary<string, string[]> familyTree = new()
         {
-            { "Dalia", ["Olga", "Yassin"] },
+            { "Dalia", ["Olga", "Yassin"] }
         };
         RelativeDistance rd = new(familyTree);
-        Assert.Equal(1, rd.DegreeOfSeparation("Olga", "Yassin"));;
+        Assert.Equal(1, rd.DegreeOfSeparation("Olga", "Yassin"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Two_degrees_of_separation_grandchild()
     {
-        var familyTree = new Dictionary<string, string[]>
+        Dictionary<string, string[]> familyTree = new()
         {
             { "Khadija", ["Mateo"] },
             { "Mateo", ["Rami"] }
@@ -39,7 +38,7 @@ public class RelativeDistanceTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Unrelated_individuals()
     {
-        var familyTree = new Dictionary<string, string[]>
+        Dictionary<string, string[]> familyTree = new()
         {
             { "Priya", ["Rami"] },
             { "Kaito", ["Elif"] }
@@ -51,7 +50,7 @@ public class RelativeDistanceTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Complex_graph_cousins()
     {
-        var familyTree = new Dictionary<string, string[]>
+        Dictionary<string, string[]> familyTree = new()
         {
             { "Aiko", ["Bao", "Carlos"] },
             { "Bao", ["Dalia", "Elias"] },
@@ -111,123 +110,123 @@ public class RelativeDistanceTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Complex_graph_far_removed_nephew()
+    public void Complex_graph_no_shortcut_far_removed_nephew()
     {
-        var familyTree = new Dictionary<string, string[]>
+        Dictionary<string, string[]> familyTree = new()
         {
-            { "Mina", ["Viktor", "Wang"] },
-            { "Olga", ["Yuki"] },
-            { "Javier", ["Quynh", "Ravi"] },
-            { "Tariq", ["Farah"] },
-            { "Viktor", ["Hana", "Ian"] },
-            { "Diego", ["Qi"] },
-            { "Carlos", ["Fatima", "Gustavo"] },
-            { "Hana", ["Umar"] },
-            { "Jing", ["Wyatt"] },
-            { "Sven", ["Fabio"] },
-            { "Zane", ["Mateo"] },
-            { "Isla", ["Pedro"] },
-            { "Quynh", ["Boris"] },
-            { "Kaito", ["Xia"] },
-            { "Liam", ["Tariq", "Uma"] },
-            { "Priya", ["Cai"] },
-            { "Qi", ["Dimitri"] },
-            { "Wang", ["Jing"] },
-            { "Yuki", ["Leila"] },
-            { "Xia", ["Kim"] },
-            { "Pedro", ["Zane", "Aditi"] },
-            { "Uma", ["Giorgio"] },
-            { "Giorgio", ["Tomoko"] },
-            { "Gustavo", ["Mina"] },
-            { "Sofia", ["Diego", "Elif"] },
-            { "Leila", ["Yassin"] },
-            { "Umar", ["Helena"] },
             { "Aiko", ["Bao", "Carlos"] },
-            { "Fatima", ["Khadija", "Liam"] },
-            { "Oscar", ["Bianca"] },
-            { "Wyatt", ["Jun"] },
-            { "Ian", ["Vera"] },
-            { "Mateo", ["Zara"] },
-            { "Noah", ["Xiomara"] },
-            { "Celine", ["Priya"] },
-            { "Xiomara", ["Kaito"] },
             { "Bao", ["Dalia", "Elias"] },
+            { "Carlos", ["Fatima", "Gustavo"] },
+            { "Dalia", ["Hassan", "Isla"] },
+            { "Elias", ["Javier"] },
+            { "Fatima", ["Khadija", "Liam"] },
+            { "Gustavo", ["Mina"] },
+            { "Hassan", ["Noah", "Olga"] },
+            { "Isla", ["Pedro"] },
+            { "Javier", ["Quynh", "Ravi"] },
+            { "Khadija", ["Sofia"] },
+            { "Liam", ["Tariq", "Uma"] },
+            { "Mina", ["Viktor", "Wang"] },
+            { "Noah", ["Xiomara"] },
+            { "Olga", ["Yuki"] },
+            { "Pedro", ["Zane", "Aditi"] },
+            { "Quynh", ["Boris"] },
+            { "Ravi", ["Celine"] },
+            { "Sofia", ["Diego", "Elif"] },
+            { "Tariq", ["Farah"] },
+            { "Uma", ["Giorgio"] },
+            { "Viktor", ["Hana", "Ian"] },
+            { "Wang", ["Jing"] },
+            { "Xiomara", ["Kaito"] },
+            { "Yuki", ["Leila"] },
+            { "Zane", ["Mateo"] },
+            { "Aditi", ["Nia"] },
+            { "Boris", ["Oscar"] },
+            { "Celine", ["Priya"] },
+            { "Diego", ["Qi"] },
             { "Elif", ["Rami"] },
             { "Farah", ["Sven"] },
-            { "Aditi", ["Nia"] },
-            { "Vera", ["Igor"] },
-            { "Boris", ["Oscar"] },
-            { "Khadija", ["Sofia"] },
-            { "Zara", ["Mohammed"] },
-            { "Dalia", ["Hassan", "Isla"] },
-            { "Ravi", ["Celine"] },
-            { "Yassin", ["Lucia"] },
-            { "Elias", ["Javier"] },
+            { "Giorgio", ["Tomoko"] },
+            { "Hana", ["Umar"] },
+            { "Ian", ["Vera"] },
+            { "Jing", ["Wyatt"] },
+            { "Kaito", ["Xia"] },
+            { "Leila", ["Yassin"] },
+            { "Mateo", ["Zara"] },
             { "Nia", ["Antonio"] },
+            { "Oscar", ["Bianca"] },
+            { "Priya", ["Cai"] },
+            { "Qi", ["Dimitri"] },
             { "Rami", ["Ewa"] },
-            { "Hassan", ["Noah", "Olga"] },
-            { "Tomoko", ["Gabriela"] }
+            { "Sven", ["Fabio"] },
+            { "Tomoko", ["Gabriela"] },
+            { "Umar", ["Helena"] },
+            { "Vera", ["Igor"] },
+            { "Wyatt", ["Jun"] },
+            { "Xia", ["Kim"] },
+            { "Yassin", ["Lucia"] },
+            { "Zara", ["Mohammed"] }
         };
         RelativeDistance rd = new(familyTree);
         Assert.Equal(14, rd.DegreeOfSeparation("Lucia", "Jun"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Complex_graph_cousins_several_times_removed()
+    public void Complex_graph_some_shortcuts_cross_down_and_cross_up_cousins_several_times_removed_with_unrelated_family_tree()
     {
-        var familyTree = new Dictionary<string, string[]>
+        Dictionary<string, string[]> familyTree = new()
         {
-            { "Mina", ["Viktor", "Wang"] },
-            { "Olga", ["Yuki"] },
-            { "Javier", ["Quynh", "Ravi"] },
-            { "Tariq", ["Farah"] },
-            { "Viktor", ["Hana", "Ian"] },
-            { "Diego", ["Qi"] },
-            { "Carlos", ["Fatima", "Gustavo"] },
-            { "Hana", ["Umar"] },
-            { "Jing", ["Wyatt"] },
-            { "Sven", ["Fabio"] },
-            { "Zane", ["Mateo"] },
-            { "Isla", ["Pedro"] },
-            { "Quynh", ["Boris"] },
-            { "Kaito", ["Xia"] },
-            { "Liam", ["Tariq", "Uma"] },
-            { "Priya", ["Cai"] },
-            { "Qi", ["Dimitri"] },
-            { "Wang", ["Jing"] },
-            { "Yuki", ["Leila"] },
-            { "Xia", ["Kim"] },
-            { "Pedro", ["Zane", "Aditi"] },
-            { "Uma", ["Giorgio"] },
-            { "Giorgio", ["Tomoko"] },
-            { "Gustavo", ["Mina"] },
-            { "Sofia", ["Diego", "Elif"] },
-            { "Leila", ["Yassin"] },
-            { "Umar", ["Helena"] },
             { "Aiko", ["Bao", "Carlos"] },
-            { "Fatima", ["Khadija", "Liam"] },
-            { "Oscar", ["Bianca"] },
-            { "Wyatt", ["Jun"] },
-            { "Ian", ["Vera"] },
-            { "Mateo", ["Zara"] },
-            { "Noah", ["Xiomara"] },
-            { "Celine", ["Priya"] },
-            { "Xiomara", ["Kaito"] },
             { "Bao", ["Dalia"] },
+            { "Carlos", ["Fatima", "Gustavo"] },
+            { "Dalia", ["Hassan", "Isla"] },
+            { "Fatima", ["Khadija", "Liam"] },
+            { "Gustavo", ["Mina"] },
+            { "Hassan", ["Noah", "Olga"] },
+            { "Isla", ["Pedro"] },
+            { "Javier", ["Quynh", "Ravi"] },
+            { "Khadija", ["Sofia"] },
+            { "Liam", ["Tariq", "Uma"] },
+            { "Mina", ["Viktor", "Wang"] },
+            { "Noah", ["Xiomara"] },
+            { "Olga", ["Yuki"] },
+            { "Pedro", ["Zane", "Aditi"] },
+            { "Quynh", ["Boris"] },
+            { "Ravi", ["Celine"] },
+            { "Sofia", ["Diego", "Elif"] },
+            { "Tariq", ["Farah"] },
+            { "Uma", ["Giorgio"] },
+            { "Viktor", ["Hana", "Ian"] },
+            { "Wang", ["Jing"] },
+            { "Xiomara", ["Kaito"] },
+            { "Yuki", ["Leila"] },
+            { "Zane", ["Mateo"] },
+            { "Aditi", ["Nia"] },
+            { "Boris", ["Oscar"] },
+            { "Celine", ["Priya"] },
+            { "Diego", ["Qi"] },
             { "Elif", ["Rami"] },
             { "Farah", ["Sven"] },
-            { "Aditi", ["Nia"] },
-            { "Vera", ["Igor"] },
-            { "Boris", ["Oscar"] },
-            { "Khadija", ["Sofia"] },
-            { "Zara", ["Mohammed"] },
-            { "Dalia", ["Hassan", "Isla"] },
-            { "Ravi", ["Celine"] },
-            { "Yassin", ["Lucia"] },
+            { "Giorgio", ["Tomoko"] },
+            { "Hana", ["Umar"] },
+            { "Ian", ["Vera"] },
+            { "Jing", ["Wyatt"] },
+            { "Kaito", ["Xia"] },
+            { "Leila", ["Yassin"] },
+            { "Mateo", ["Zara"] },
             { "Nia", ["Antonio"] },
+            { "Oscar", ["Bianca"] },
+            { "Priya", ["Cai"] },
+            { "Qi", ["Dimitri"] },
             { "Rami", ["Ewa"] },
-            { "Hassan", ["Noah", "Olga"] },
-            { "Tomoko", ["Gabriela"] }
+            { "Sven", ["Fabio"] },
+            { "Tomoko", ["Gabriela"] },
+            { "Umar", ["Helena"] },
+            { "Vera", ["Igor"] },
+            { "Wyatt", ["Jun"] },
+            { "Xia", ["Kim"] },
+            { "Yassin", ["Lucia"] },
+            { "Zara", ["Mohammed"] }
         };
         RelativeDistance rd = new(familyTree);
         Assert.Equal(12, rd.DegreeOfSeparation("Wyatt", "Xia"));
