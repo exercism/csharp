@@ -11,6 +11,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "SwiftScheduling.csproj"
     ]
   },
   "blurb": "Convert delivery date descriptions to actual delivery dates.",

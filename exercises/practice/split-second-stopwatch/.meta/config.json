@@ -11,6 +11,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "SplitSecondStopwatch.csproj"
     ]
   },
   "blurb": "Keep track of time through a digital stopwatch.",
