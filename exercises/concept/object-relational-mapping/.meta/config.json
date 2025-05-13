@@ -13,13 +13,11 @@
     "test": [
       "ObjectRelationalMappingTests.cs"
     ],
-  "invalidator": [
-      "Database.cs"
-    ],
     "exemplar": [
       ".meta/Exemplar.cs"
     ],
     "invalidator": [
+      "Database.cs",
       "ObjectRelationalMapping.csproj"
     ]
   },
