@@ -2732,6 +2732,22 @@
         "difficulty": 6
       },
       {
+        "slug": "relative-distance",
+        "name": "Relative Distance",
+        "uuid": "4f4229ce-5a2a-415c-a682-6a56cf3846ac",
+        "practices": [
+          "constructors",
+          "dictionaries"
+        ],
+        "prerequisites": [
+          "arrays",
+          "classes",
+          "constructors",
+          "dictionaries"
+        ],
+        "difficulty": 5
+      },
+      {
         "slug": "split-second-stopwatch",
         "name": "Split-Second Stopwatch",
         "uuid": "1d95976d-b3db-4705-b345-0832f226620f",

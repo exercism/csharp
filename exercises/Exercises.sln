@@ -367,6 +367,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "swift-scheduling", "swift-s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwiftScheduling", "practice\swift-scheduling\SwiftScheduling.csproj", "{9A073412-4B64-48EB-A346-A56DE6847CCC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RelativeDistance", "practice\relative-distance\RelativeDistance.csproj", "{2C37454E-8624-47B8-A09B-ADE201C2B04C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -2525,6 +2527,18 @@ Global
 		{9A073412-4B64-48EB-A346-A56DE6847CCC}.Release|x64.Build.0 = Release|Any CPU
 		{9A073412-4B64-48EB-A346-A56DE6847CCC}.Release|x86.ActiveCfg = Release|Any CPU
 		{9A073412-4B64-48EB-A346-A56DE6847CCC}.Release|x86.Build.0 = Release|Any CPU
+		{2C37454E-8624-47B8-A09B-ADE201C2B04C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C37454E-8624-47B8-A09B-ADE201C2B04C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C37454E-8624-47B8-A09B-ADE201C2B04C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2C37454E-8624-47B8-A09B-ADE201C2B04C}.Debug|x64.Build.0 = Debug|Any CPU
+		{2C37454E-8624-47B8-A09B-ADE201C2B04C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2C37454E-8624-47B8-A09B-ADE201C2B04C}.Debug|x86.Build.0 = Debug|Any CPU
+		{2C37454E-8624-47B8-A09B-ADE201C2B04C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C37454E-8624-47B8-A09B-ADE201C2B04C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C37454E-8624-47B8-A09B-ADE201C2B04C}.Release|x64.ActiveCfg = Release|Any CPU
+		{2C37454E-8624-47B8-A09B-ADE201C2B04C}.Release|x64.Build.0 = Release|Any CPU
+		{2C37454E-8624-47B8-A09B-ADE201C2B04C}.Release|x86.ActiveCfg = Release|Any CPU
+		{2C37454E-8624-47B8-A09B-ADE201C2B04C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -2710,6 +2724,7 @@ Global
 		{1BA5F72A-ED8E-48A8-8FD6-0F567BDCBD9E} = {E276EF69-669A-43E0-88AC-8ABB17A9C026}
 		{FA726133-BC1C-D753-28C5-C9ACB44C0776} = {E276EF69-669A-43E0-88AC-8ABB17A9C026}
 		{9A073412-4B64-48EB-A346-A56DE6847CCC} = {FA726133-BC1C-D753-28C5-C9ACB44C0776}
+		{2C37454E-8624-47B8-A09B-ADE201C2B04C} = {E276EF69-669A-43E0-88AC-8ABB17A9C026}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AB4EA6C9-5461-4024-BDC7-2AE0C3A85CD1}
