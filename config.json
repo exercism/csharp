@@ -1690,7 +1690,8 @@
           "arrays",
           "foreach-loops"
         ],
-        "difficulty": 5
+        "difficulty": 5,
+        "status": "deprecated"
       },
       {
         "slug": "tree-building",
