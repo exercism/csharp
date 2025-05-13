@@ -2735,8 +2735,16 @@
         "slug": "relative-distance",
         "name": "Relative Distance",
         "uuid": "4f4229ce-5a2a-415c-a682-6a56cf3846ac",
-        "practices": [],
-        "prerequisites": [],
+        "practices": [
+          "constructors",
+          "dictionaries"
+        ],
+        "prerequisites": [
+          "arrays",
+          "classes",
+          "constructors",
+          "dictionaries"
+        ],
         "difficulty": 5
       },
       {

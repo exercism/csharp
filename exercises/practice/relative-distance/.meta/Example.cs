@@ -2,7 +2,7 @@ public class RelativeDistance
 {
     private readonly Dictionary<string, HashSet<string>> relatives;
     
-    public RelativeDistance(Dictionary<string, List<string>> familyTree)
+    public RelativeDistance(Dictionary<string, string[]> familyTree)
     {
         Dictionary<string, HashSet<string>>  parsed = new();
         foreach (var (parent, children) in familyTree)

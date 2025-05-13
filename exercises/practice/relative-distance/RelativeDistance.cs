@@ -1,6 +1,6 @@
 public class RelativeDistance
 {   
-    public RelativeDistance(Dictionary<string, List<string>> familyTree)
+    public RelativeDistance(Dictionary<string, string[]> familyTree)
     {
         throw new NotImplementedException("You need to implement this method.");
     }

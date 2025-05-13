@@ -3,7 +3,7 @@ public class RelativeDistanceTests
     [Fact]
     public void Direct_parent_child_relation()
     {
-        var familyTree = new Dictionary<string, List<string>>
+        var familyTree = new Dictionary<string, string[]>
         {
             { "Aditi", ["Bao"] },
             { "Bao", ["Carlos"] },
@@ -16,7 +16,7 @@ public class RelativeDistanceTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Sibling_relationship()
     {
-        var familyTree = new Dictionary<string, List<string>>
+        var familyTree = new Dictionary<string, string[]>
         {
             { "Dalia", ["Olga", "Yassin"] },
         };
@@ -27,7 +27,7 @@ public class RelativeDistanceTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Two_degrees_of_separation_grandchild()
     {
-        var familyTree = new Dictionary<string, List<string>>
+        var familyTree = new Dictionary<string, string[]>
         {
             { "Khadija", ["Mateo"] },
             { "Mateo", ["Rami"] }
@@ -39,7 +39,7 @@ public class RelativeDistanceTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Unrelated_individuals()
     {
-        var familyTree = new Dictionary<string, List<string>>
+        var familyTree = new Dictionary<string, string[]>
         {
             { "Priya", ["Rami"] },
             { "Kaito", ["Elif"] }
@@ -51,7 +51,7 @@ public class RelativeDistanceTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Complex_graph_cousins()
     {
-        var familyTree = new Dictionary<string, List<string>>
+        var familyTree = new Dictionary<string, string[]>
         {
             { "Aiko", ["Bao", "Carlos"] },
             { "Bao", ["Dalia", "Elias"] },
@@ -113,7 +113,7 @@ public class RelativeDistanceTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Complex_graph_far_removed_nephew()
     {
-        var familyTree = new Dictionary<string, List<string>>
+        var familyTree = new Dictionary<string, string[]>
         {
             { "Mina", ["Viktor", "Wang"] },
             { "Olga", ["Yuki"] },
@@ -175,7 +175,7 @@ public class RelativeDistanceTests
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Complex_graph_cousins_several_times_removed()
     {
-        var familyTree = new Dictionary<string, List<string>>
+        var familyTree = new Dictionary<string, string[]>
         {
             { "Mina", ["Viktor", "Wang"] },
             { "Olga", ["Yuki"] },
