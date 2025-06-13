@@ -35,7 +35,7 @@ public class DeveloperPrivilegesTests
     }
 
     [Fact]
-    [Task(3)]
+    [Task(2)]
     public void GetAnders()
     {
         var authenticator = new Authenticator();
