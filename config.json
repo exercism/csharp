@@ -1645,6 +1645,23 @@
         "difficulty": 5
       },
       {
+        "slug": "flower-field",
+        "name": "Flower Field",
+        "uuid": "e987a3e1-3e79-459a-97e1-d1173ffd934b",
+        "practices": [
+          "string-formatting",
+          "chars"
+        ],
+        "prerequisites": [
+          "strings",
+          "chars",
+          "string-formatting",
+          "arrays",
+          "if-statements"
+        ],
+        "difficulty": 5
+      },
+      {
         "slug": "food-chain",
         "name": "Food Chain",
         "uuid": "3a09736e-4002-41aa-acf9-ff10a9392b24",
@@ -1665,18 +1682,10 @@
         "slug": "minesweeper",
         "name": "Minesweeper",
         "uuid": "466f17d4-13d0-4d6e-8564-c8bdfede35d1",
-        "practices": [
-          "string-formatting",
-          "chars"
-        ],
-        "prerequisites": [
-          "strings",
-          "chars",
-          "string-formatting",
-          "arrays",
-          "if-statements"
-        ],
-        "difficulty": 5
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5,
+        "status": "deprecated"
       },
       {
         "slug": "scale-generator",
