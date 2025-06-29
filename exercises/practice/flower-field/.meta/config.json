@@ -1,0 +1,24 @@
+{
+  "authors": [
+    "robkeim"
+  ],
+  "contributors": [
+    "BNAndras",
+    "ErikSchierboom",
+    "felix91gr",
+    "j2jensen",
+    "wolf99"
+  ],
+  "files": {
+    "solution": [
+      "FlowerField.cs"
+    ],
+    "test": [
+      "FlowerFieldTests.cs"
+    ],
+    "example": [
+      ".meta/Example.cs"
+    ]
+  },
+  "blurb": "Mark all the flowers in a garden."
+}
