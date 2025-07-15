@@ -18,6 +18,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "FlowerField.csproj"
     ]
   },
   "blurb": "Mark all the flowers in a garden."

@@ -11,6 +11,9 @@
     ],
     "example": [
       ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "RelativeDistance.csproj"
     ]
   },
   "blurb": "Given a family tree, calculate the degree of separation.",
