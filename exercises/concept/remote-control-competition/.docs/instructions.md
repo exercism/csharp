@@ -35,7 +35,7 @@ exp.DistanceTravelled
 
 Please implement the `IComparable<T>` interface in the `ProductionRemoteControlCar` class. The default sort order for cars should be ascending order of victories.
 
-Implement the static `TestTrack.GetRankedCars()` to return the cars passed is sorted in ascending order of number of victories.
+Implement the static `TestTrack.GetRankedCars()` to return the passed cars sorted in ascending order of number of victories.
 
 ```csharp
 var prc1 = new ProductionRemoteControlCar();

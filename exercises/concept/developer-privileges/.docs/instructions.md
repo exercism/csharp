@@ -20,7 +20,7 @@ authenticator.Admin;
 // => {"admin@ex.ism", {"green", 0.9m}, ["Chanakya", "Mumbai", "India"]}
 ```
 
-## 2 Store the developers' details hard-coded in the system and make them available in the form of a dictionary
+## 2. Store the developers' details hard-coded in the system and make them available in the form of a dictionary
 
 The developers' details are as follows:
 
