@@ -2,7 +2,7 @@
 
 You've been asked to do some more work on the network authentication system.
 
-In addition to the admin identity being hard-coded in the system during development the powers that be also want senior developers to be given the same treatment.
+In addition to the admin identity being hard-coded in the system during development, the powers that be — also want senior developers to be given the same treatment.
 
 ## 1. Store the system admin's details hard-coded in the system and make it available to callers.
 
