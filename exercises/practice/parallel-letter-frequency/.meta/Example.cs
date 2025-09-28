@@ -1,24 +1,45 @@
-public static class ParallelLetterFrequency
+public class ParallelLetterFrequency
 {
-    public static Dictionary<char, int> Calculate(IEnumerable<string> texts)
+    public async Task<Dictionary<char, int>> Calculate(IEnumerable<string> texts)
     {
-        return texts.AsParallel().Aggregate(new Dictionary<char, int>(), AddCount);
-    }
+        var textList = texts.ToList();
 
-    private static Dictionary<char, int> AddCount(Dictionary<char, int> target, string text)
-    {
-        foreach (var kv in text.ToLower().Where(char.IsLetter).GroupBy(c => c))
+        if (!textList.Any())
         {
-            if (target.ContainsKey(kv.Key))
+            return new Dictionary<char, int>();
+        }
+        // Process each text in parallel using Task.Run
+        var tasks = textList.Select(text => Task.Run(() => CountLettersInText(text)));
+        
+        // Wait for all tasks to complete
+        var results = await Task.WhenAll(tasks);
+        
+        return MergeDictionaries(results);
+    }
+    
+    private Dictionary<char, int> CountLettersInText(string text)
+    {
+        return text.ToLower()
+                   .Where(char.IsLetter)
+                   .GroupBy(c => c)
+                   .ToDictionary(g => g.Key, g => g.Count());
+    }
+    
+    private Dictionary<char, int> MergeDictionaries(IEnumerable<Dictionary<char, int>> dictionaries)
+    {
+        var result = new Dictionary<char, int>();
+        
+        foreach (var dictionary in dictionaries)
+        {
+            foreach (var kvp in dictionary)
             {
-                target[kv.Key] += kv.Count();
-            }
-            else
-            {
-                target[kv.Key] = kv.Count();
+                if (result.ContainsKey(kvp.Key))
+                    result[kvp.Key] += kvp.Value;
+                else
+                    result[kvp.Key] = kvp.Value;
             }
         }
-
-        return target;
+        
+        return result;
     }
 }

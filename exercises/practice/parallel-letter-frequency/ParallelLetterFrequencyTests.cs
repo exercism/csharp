@@ -1,15 +1,16 @@
 public class ParallelLetterFrequencyTests
 {
     [Fact]
-    public void No_texts()
+    public async Task No_texts()
     {
-        string[] texts = []; var expected = new Dictionary<char, int>
-        { };
-        Assert.Equal(expected, ParallelLetterFrequency.Calculate(texts));
+        string[] texts = [];
+        var expected = new Dictionary<char, int> { };
+        var result = await ParallelLetterFrequency.Calculate(texts);
+        Assert.Equal(expected, result);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void One_text_with_one_letter()
+    [Fact]
+    public async Task One_text_with_one_letter()
     {
         string[] texts = [
             "a"
@@ -18,11 +19,12 @@ public class ParallelLetterFrequencyTests
         {
             ['a'] = 1
         };
-        Assert.Equal(expected, ParallelLetterFrequency.Calculate(texts));
+        var result = await ParallelLetterFrequency.Calculate(texts);
+        Assert.Equal(expected, result);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void One_text_with_multiple_letters()
+    [Fact]
+    public async Task One_text_with_multiple_letters()
     {
         string[] texts = [
             "bbcccd"
@@ -33,11 +35,12 @@ public class ParallelLetterFrequencyTests
             ['c'] = 3,
             ['d'] = 1
         };
-        Assert.Equal(expected, ParallelLetterFrequency.Calculate(texts));
+        var result = await ParallelLetterFrequency.Calculate(texts);
+        Assert.Equal(expected, result);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Two_texts_with_one_letter()
+    [Fact]
+    public async Task Two_texts_with_one_letter()
     {
         string[] texts = [
             "e",
@@ -48,11 +51,12 @@ public class ParallelLetterFrequencyTests
             ['e'] = 1,
             ['f'] = 1
         };
-        Assert.Equal(expected, ParallelLetterFrequency.Calculate(texts));
+        var result = await ParallelLetterFrequency.Calculate(texts);
+        Assert.Equal(expected, result);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Two_texts_with_multiple_letters()
+    [Fact]
+    public async Task Two_texts_with_multiple_letters()
     {
         string[] texts = [
             "ggh",
@@ -64,11 +68,12 @@ public class ParallelLetterFrequencyTests
             ['h'] = 3,
             ['i'] = 1
         };
-        Assert.Equal(expected, ParallelLetterFrequency.Calculate(texts));
+        var result = await ParallelLetterFrequency.Calculate(texts);
+        Assert.Equal(expected, result);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Ignore_letter_casing()
+    [Fact]
+    public async Task Ignore_letter_casing()
     {
         string[] texts = [
             "m",
@@ -78,11 +83,12 @@ public class ParallelLetterFrequencyTests
         {
             ['m'] = 2
         };
-        Assert.Equal(expected, ParallelLetterFrequency.Calculate(texts));
+        var result = await ParallelLetterFrequency.Calculate(texts);
+        Assert.Equal(expected, result);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Ignore_whitespace()
+    [Fact]
+    public async Task Ignore_whitespace()
     {
         string[] texts = [
             "   ",
@@ -91,13 +97,14 @@ public class ParallelLetterFrequencyTests
         ];
         var expected = new Dictionary<char, int>
         { };
-        Assert.Equal(expected, ParallelLetterFrequency.Calculate(texts));
+        var result = await ParallelLetterFrequency.Calculate(texts);
+        Assert.Equal(expected, result);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Ignore_punctuation()
+    [Fact]
+    public async Task Ignore_punctuation()
     {
-        string[] texts = [
+         string[] texts = [
             "!",
             "?",
             ";",
@@ -106,11 +113,12 @@ public class ParallelLetterFrequencyTests
         ];
         var expected = new Dictionary<char, int>
         { };
-        Assert.Equal(expected, ParallelLetterFrequency.Calculate(texts));
+        var result = await ParallelLetterFrequency.Calculate(texts);
+        Assert.Equal(expected, result);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Ignore_numbers()
+    [Fact]
+    public async Task Ignore_numbers()
     {
         string[] texts = [
             "1",
@@ -125,11 +133,12 @@ public class ParallelLetterFrequencyTests
         ];
         var expected = new Dictionary<char, int>
         { };
-        Assert.Equal(expected, ParallelLetterFrequency.Calculate(texts));
+        var result = await ParallelLetterFrequency.Calculate(texts);
+        Assert.Equal(expected, result);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Unicode_letters()
+    [Fact]
+    public async Task Unicode_letters()
     {
         string[] texts = [
             "本",
@@ -144,11 +153,12 @@ public class ParallelLetterFrequencyTests
             ['ほ'] = 1,
             ['ø'] = 1
         };
-        Assert.Equal(expected, ParallelLetterFrequency.Calculate(texts));
+        var result = await ParallelLetterFrequency.Calculate(texts);
+        Assert.Equal(expected, result);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Combination_of_lower_and_uppercase_letters_punctuation_and_white_space()
+    [Fact]
+    public async Task Combination_of_lower_and_uppercase_letters_punctuation_and_white_space()
     {
         string[] texts = [
             "There, peeping among the cloud-wrack above a dark tower high up in the mountains, Sam saw a white star twinkle for a while. The beauty of it smote his heart, as he looked up out of the forsaken land, and hope returned to him. For like a shaft, clear and cold, the thought pierced him that in the end, the shadow was only a small and passing thing: there was light and high beauty forever beyond its reach."
@@ -178,11 +188,12 @@ public class ParallelLetterFrequencyTests
             ['w'] = 9,
             ['y'] = 4
         };
-        Assert.Equal(expected, ParallelLetterFrequency.Calculate(texts));
+        var result = await ParallelLetterFrequency.Calculate(texts);
+        Assert.Equal(expected, result);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Large_texts()
+    [Fact]
+    public async Task Large_texts()
     {
         string[] texts = [
             "I am a sick man.... I am a spiteful man. I am an unattractive man.\nI believe my liver is diseased. However, I know nothing at all about my disease, and do not\nknow for certain what ails me. I don't consult a doctor for it,\nand never have, though I have a respect for medicine and doctors.\nBesides, I am extremely superstitious, sufficiently so to respect medicine,\nanyway (I am well-educated enough not to be superstitious, but I am superstitious).\nNo, I refuse to consult a doctor from spite.\nThat you probably will not understand. Well, I understand it, though.\nOf course, I can't explain who it is precisely that I am mortifying in this case by my spite:\nI am perfectly well aware that I cannot \"pay out\" the doctors by not consulting them;\nI know better than anyone that by all this I am only injuring myself and no one else.\nBut still, if I don't consult a doctor it is from spite.\nMy liver is bad, well - let it get worse!\nI have been going on like that for a long time - twenty years. Now I am forty.\nI used to be in the government service, but am no longer.\nI was a spiteful official. I was rude and took pleasure in being so.\nI did not take bribes, you see, so I was bound to find a recompense in that, at least.\n(A poor jest, but I will not scratch it out. I wrote it thinking it would sound very witty;\nbut now that I have seen myself that I only wanted to show off in a despicable way -\nI will not scratch it out on purpose!) When petitioners used to come for\ninformation to the table at which I sat, I used to grind my teeth at them,\nand felt intense enjoyment when I succeeded in making anybody unhappy.\nI almost did succeed. For the most part they were all timid people - of course,\nthey were petitioners. But of the uppish ones there was one officer in particular\nI could not endure. He simply would not be humble, and clanked his sword in a disgusting way.\nI carried on a feud with him for eighteen months over that sword. At last I got the better of him.\nHe left off clanking it. That happened in my youth, though. But do you know,\ngentlemen, what was the chief point about my spite? Why, the whole point,\nthe real sting of it lay in the fact that continually, even in the moment of the acutest spleen,\nI was inwardly conscious with shame that I was not only not a spiteful but not even an embittered man,\nthat I was simply scaring sparrows at random and amusing myself by it.\nI might foam at the mouth, but bring me a doll to play with, give me a cup of tea with sugar in it,\nand maybe I should be appeased. I might even be genuinely touched,\nthough probably I should grind my teeth at myself afterwards and lie awake at night with shame for\nmonths after. That was my way. I was lying when I said just now that I was a spiteful official.\nI was lying from spite. I was simply amusing myself with the petitioners and with the officer,\nand in reality I never could become spiteful. I was conscious every moment in myself of many,\nvery many elements absolutely opposite to that. I felt them positively swarming in me,\nthese opposite elements. I knew that they had been swarming in me all my life and craving some outlet from me,\nbut I would not let them, would not let them, purposely would not let them come out.\nThey tormented me till I was ashamed: they drove me to convulsions and - sickened me, at last,\nhow they sickened me!",
@@ -218,11 +229,12 @@ public class ParallelLetterFrequencyTests
             ['x'] = 7,
             ['y'] = 251
         };
-        Assert.Equal(expected, ParallelLetterFrequency.Calculate(texts));
+        var result = await ParallelLetterFrequency.Calculate(texts);
+        Assert.Equal(expected, result);
     }
 
-    [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Many_small_texts()
+    [Fact]
+    public async Task Many_small_texts()
     {
         string[] texts = [
             "abbccc",
@@ -282,6 +294,7 @@ public class ParallelLetterFrequencyTests
             ['b'] = 100,
             ['c'] = 150
         };
-        Assert.Equal(expected, ParallelLetterFrequency.Calculate(texts));
+        var result = await ParallelLetterFrequency.Calculate(texts);
+        Assert.Equal(expected, result);
     }
 }
