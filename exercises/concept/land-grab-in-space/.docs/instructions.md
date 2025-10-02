@@ -43,7 +43,7 @@ Implement the `ClaimsHandler.GetClaimWithLongestSide()` method to examine all re
 ```csharp
 var ch = new ClaimsHandler();
 ch.StakeClaim(new Plot(new Coord(1,1), new Coord(2,1), new Coord(1,2), new Coord(2,2)));
-ch.StakeClaim(new Plot(new Coord(1,1), new Coord(20,1), new Coord(1,2), new Coord(2,2)));
+ch.StakeClaim(new Plot(new Coord(1,1), new Coord(20,1), new Coord(1,2), new Coord(20,2)));
 ch.GetClaimWithLongestSide();
-// => new Plot(new Coord(1,1), new Coord(20,1), new Coord(1,2), new Coord(2,2))
+// => new Plot(new Coord(1,1), new Coord(20,1), new Coord(1,2), new Coord(20,2))
 ```
