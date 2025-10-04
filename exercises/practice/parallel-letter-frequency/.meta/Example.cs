@@ -1,6 +1,6 @@
-public class ParallelLetterFrequency
+public static class ParallelLetterFrequency
 {
-    public async Task<Dictionary<char, int>> Calculate(IEnumerable<string> texts)
+    public static async Task<Dictionary<char, int>> Calculate(IEnumerable<string> texts)
     {
         var textList = texts.ToList();
 
@@ -17,7 +17,7 @@ public class ParallelLetterFrequency
         return MergeDictionaries(results);
     }
     
-    private Dictionary<char, int> CountLettersInText(string text)
+    private static Dictionary<char, int> CountLettersInText(string text)
     {
         return text.ToLower()
                    .Where(char.IsLetter)
@@ -25,7 +25,7 @@ public class ParallelLetterFrequency
                    .ToDictionary(g => g.Key, g => g.Count());
     }
     
-    private Dictionary<char, int> MergeDictionaries(IEnumerable<Dictionary<char, int>> dictionaries)
+    private static Dictionary<char, int> MergeDictionaries(IEnumerable<Dictionary<char, int>> dictionaries)
     {
         var result = new Dictionary<char, int>();
         
