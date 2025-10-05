@@ -34,7 +34,6 @@ public class RollTheDieTests
             Assert.InRange(strength, 0.0, 100.0);
         }
         
-        Assert.True(rolls.Count >= minUniqueValues, 
-            $"Expected at least {minUniqueValues} unique values, but got {rolls.Count}");
+        Assert.InRange(rolls.Count, minUniqueValues, rollCount);
     }
 }
