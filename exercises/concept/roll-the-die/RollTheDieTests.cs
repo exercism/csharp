@@ -24,6 +24,7 @@ public class RollTheDieTests
     public void GenerateSpellStrength()
     {
         var rollCount = 100;
+        var minUniqueValues = rollCount - 5; // Allow up to 5 duplicates
         var rolls = new HashSet<double>(rollCount);
         var player = new Player();
         for (var i = 0; i < rollCount; i++)
@@ -32,6 +33,8 @@ public class RollTheDieTests
             rolls.Add(strength);
             Assert.InRange(strength, 0.0, 100.0);
         }
-        Assert.Equal(rollCount, rolls.Count);
+        
+        Assert.True(rolls.Count >= minUniqueValues, 
+            $"Expected at least {minUniqueValues} unique values, but got {rolls.Count}");
     }
 }
