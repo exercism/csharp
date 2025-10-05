@@ -9,7 +9,7 @@ public class ParallelLetterFrequencyTests
         Assert.Equal(expected, result);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public async Task One_text_with_one_letter()
     {
         string[] texts = [
@@ -23,7 +23,7 @@ public class ParallelLetterFrequencyTests
         Assert.Equal(expected, result);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public async Task One_text_with_multiple_letters()
     {
         string[] texts = [
@@ -39,7 +39,7 @@ public class ParallelLetterFrequencyTests
         Assert.Equal(expected, result);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public async Task Two_texts_with_one_letter()
     {
         string[] texts = [
@@ -55,7 +55,7 @@ public class ParallelLetterFrequencyTests
         Assert.Equal(expected, result);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public async Task Two_texts_with_multiple_letters()
     {
         string[] texts = [
@@ -72,7 +72,7 @@ public class ParallelLetterFrequencyTests
         Assert.Equal(expected, result);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public async Task Ignore_letter_casing()
     {
         string[] texts = [
@@ -87,7 +87,7 @@ public class ParallelLetterFrequencyTests
         Assert.Equal(expected, result);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public async Task Ignore_whitespace()
     {
         string[] texts = [
@@ -101,7 +101,7 @@ public class ParallelLetterFrequencyTests
         Assert.Equal(expected, result);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public async Task Ignore_punctuation()
     {
          string[] texts = [
@@ -117,7 +117,7 @@ public class ParallelLetterFrequencyTests
         Assert.Equal(expected, result);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public async Task Ignore_numbers()
     {
         string[] texts = [
@@ -137,7 +137,7 @@ public class ParallelLetterFrequencyTests
         Assert.Equal(expected, result);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public async Task Unicode_letters()
     {
         string[] texts = [
@@ -157,7 +157,7 @@ public class ParallelLetterFrequencyTests
         Assert.Equal(expected, result);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public async Task Combination_of_lower_and_uppercase_letters_punctuation_and_white_space()
     {
         string[] texts = [
@@ -192,7 +192,7 @@ public class ParallelLetterFrequencyTests
         Assert.Equal(expected, result);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public async Task Large_texts()
     {
         string[] texts = [
@@ -233,7 +233,7 @@ public class ParallelLetterFrequencyTests
         Assert.Equal(expected, result);
     }
 
-    [Fact]
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public async Task Many_small_texts()
     {
         string[] texts = [
