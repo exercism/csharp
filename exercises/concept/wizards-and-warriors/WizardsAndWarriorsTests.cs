@@ -27,6 +27,15 @@ public class WizardsAndWarriorsTests
     }
 
     [Fact]
+    [Task(3)]
+    public void Wizard_is_not_vulnerable_after_preparing_spell()
+    {
+        var wizard = new Wizard();
+        wizard.PrepareSpell();
+        Assert.False(wizard.Vulnerable());
+    }
+    
+    [Fact]
     [Task(4)]
     public void Wizard_is_vulnerable()
     {
