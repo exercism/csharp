@@ -17,3 +17,5 @@ And all for the want of a nail.
 
 Note that the list of inputs may vary; your solution should be able to handle lists of arbitrary length and content.
 No line of the output text should be a static, unchanging string; all should vary according to the input given.
+
+Clue: this proverb follows a specific pattern, look very closely at the poem to understand how each item in the string[] array "list" follows each other. You might need to fail the test first to understand the pattern and for edge cases (like zero input and single string input) incase you are not familiar with the proverb. 
