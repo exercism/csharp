@@ -46,4 +46,9 @@ static class Permissions
     {
         return current.HasFlag(check);
     }
+
+    public static Permission ParsePermission(string permissionString)
+    {
+        return Enum.Parse<Permission>(permissionString, ignoreCase: true);
+    }
 }

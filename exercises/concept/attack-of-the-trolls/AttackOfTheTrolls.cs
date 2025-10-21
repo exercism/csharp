@@ -23,4 +23,9 @@ static class Permissions
     {
         throw new NotImplementedException("Please implement the (static) Permissions.Check() method");
     }
+
+    public static Permission ParsePermission(string permissionString)
+    {
+        throw new NotImplementedException("Please implement the (static) Permissions.ParsePermission() method");
+    }
 }
