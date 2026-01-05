@@ -17,6 +17,14 @@ public class VariableLengthQuantityTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Encode_a_series_of_integers_producing_a_series_of_bytes_asymmetric_single_byte()
+    {
+        uint[] integers = [83];
+        uint[] expected = [83];
+        Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Encode_a_series_of_integers_producing_a_series_of_bytes_largest_single_byte()
     {
         uint[] integers = [127];
@@ -37,6 +45,14 @@ public class VariableLengthQuantityTests
     {
         uint[] integers = [8192];
         uint[] expected = [192, 0];
+        Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Encode_a_series_of_integers_producing_a_series_of_bytes_asymmetric_double_byte()
+    {
+        uint[] integers = [173];
+        uint[] expected = [129, 45];
         Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
     }
 
@@ -65,6 +81,14 @@ public class VariableLengthQuantityTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Encode_a_series_of_integers_producing_a_series_of_bytes_asymmetric_triple_byte()
+    {
+        uint[] integers = [120220];
+        uint[] expected = [135, 171, 28];
+        Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Encode_a_series_of_integers_producing_a_series_of_bytes_largest_triple_byte()
     {
         uint[] integers = [2097151];
@@ -89,6 +113,14 @@ public class VariableLengthQuantityTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Encode_a_series_of_integers_producing_a_series_of_bytes_asymmetric_quadruple_byte()
+    {
+        uint[] integers = [3503876];
+        uint[] expected = [129, 213, 238, 4];
+        Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Encode_a_series_of_integers_producing_a_series_of_bytes_largest_quadruple_byte()
     {
         uint[] integers = [268435455];
@@ -109,6 +141,14 @@ public class VariableLengthQuantityTests
     {
         uint[] integers = [4278190080];
         uint[] expected = [143, 248, 128, 128, 0];
+        Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Encode_a_series_of_integers_producing_a_series_of_bytes_asymmetric_quintuple_byte()
+    {
+        uint[] integers = [2254790917];
+        uint[] expected = [136, 179, 149, 194, 5];
         Assert.Equal(expected, VariableLengthQuantity.Encode(integers));
     }
 
