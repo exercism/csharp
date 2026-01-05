@@ -7,9 +7,33 @@ public class WordyTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Just_a_zero()
+    {
+        Assert.Equal(0, Wordy.Answer("What is 0?"));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Just_a_negative_number()
+    {
+        Assert.Equal(-123, Wordy.Answer("What is -123?"));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Addition()
     {
         Assert.Equal(2, Wordy.Answer("What is 1 plus 1?"));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Addition_with_a_left_hand_zero()
+    {
+        Assert.Equal(2, Wordy.Answer("What is 0 plus 2?"));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Addition_with_a_right_hand_zero()
+    {
+        Assert.Equal(3, Wordy.Answer("What is 3 plus 0?"));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
