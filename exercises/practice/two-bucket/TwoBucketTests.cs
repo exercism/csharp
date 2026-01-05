@@ -61,6 +61,26 @@ public class TwoBucketTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Measure_using_bucket_one_much_bigger_than_bucket_two()
+    {
+        var sut = new TwoBucket(5, 1, Bucket.One);
+        var actual = sut.Measure(2);
+        Assert.Equal(6, actual.Moves);
+        Assert.Equal(1, actual.OtherBucket);
+        Assert.Equal(Bucket.One, actual.GoalBucket);
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Measure_using_bucket_one_much_smaller_than_bucket_two()
+    {
+        var sut = new TwoBucket(3, 15, Bucket.One);
+        var actual = sut.Measure(9);
+        Assert.Equal(6, actual.Moves);
+        Assert.Equal(0, actual.OtherBucket);
+        Assert.Equal(Bucket.Two, actual.GoalBucket);
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Not_possible_to_reach_the_goal()
     {
         var sut = new TwoBucket(6, 15, Bucket.One);
