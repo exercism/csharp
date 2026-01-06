@@ -187,4 +187,16 @@ public class FlowerFieldTests
         ];
         Assert.Equal(expected, FlowerField.Annotate(garden));
     }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Multiple_adjacent_flowers()
+    {
+        string[] garden = [
+            " ** "
+        ];
+        string[] expected = [
+            "1**1"
+        ];
+        Assert.Equal(expected, FlowerField.Annotate(garden));
+    }
 }
