@@ -43,6 +43,18 @@ public class IsbnVerifierTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Only_one_check_digit_is_allowed()
+    {
+        Assert.False(IsbnVerifier.IsValid("3-598-21508-96"));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void X_is_not_substituted_by_the_value_10()
+    {
+        Assert.False(IsbnVerifier.IsValid("3-598-2X507-5"));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Valid_isbn_without_separating_dashes()
     {
         Assert.True(IsbnVerifier.IsValid("3598215088"));
