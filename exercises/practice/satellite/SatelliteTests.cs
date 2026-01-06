@@ -37,4 +37,25 @@ public class SatelliteTests
     {
         Assert.Throws<ArgumentException>(() => Satellite.TreeFromTraversals(['a', 'b', 'a'], ['b', 'a', 'a']));
     }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void A_degenerate_binary_tree()
+    {
+        var expected = new Tree('a', new Tree('b', new Tree('c', new Tree('d', null, null), null), null), null);
+        Assert.Equal(expected, Satellite.TreeFromTraversals(['a', 'b', 'c', 'd'], ['d', 'c', 'b', 'a']));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Another_degenerate_binary_tree()
+    {
+        var expected = new Tree('a', null, new Tree('b', null, new Tree('c', null, new Tree('d', null, null))));
+        Assert.Equal(expected, Satellite.TreeFromTraversals(['a', 'b', 'c', 'd'], ['a', 'b', 'c', 'd']));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Tree_with_many_more_items()
+    {
+        var expected = new Tree('a', new Tree('b', new Tree('d', new Tree('g', null, null), new Tree('h', null, null)), null), new Tree('c', new Tree('e', null, null), new Tree('f', new Tree('i', null, null), null)));
+        Assert.Equal(expected, Satellite.TreeFromTraversals(['a', 'b', 'd', 'g', 'h', 'c', 'e', 'f', 'i'], ['g', 'd', 'h', 'b', 'a', 'e', 'c', 'i', 'f']));
+    }
 }
