@@ -60,7 +60,7 @@ birdCount.CountForFirstDays(4);
 
 ## 6. Calculate the number of busy days
 
-Some days are busier that others. A busy day is one where five or more birds have visited your garden.
+Some days are busier than others. A busy day is one where five or more birds have visited your garden.
 Implement the `BirdCount.BusyDays()` method to return the number of busy days:
 
 ```csharp
