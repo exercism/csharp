@@ -2793,6 +2793,14 @@
           "string-formatting"
         ],
         "difficulty": 6
+      },
+      {
+        "slug": "camicia",
+        "name": "Camicia",
+        "uuid": "7747b8bf-a535-42c2-9e51-5b007419bccb",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
       }
     ],
     "foregone": [
