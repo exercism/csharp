@@ -651,6 +651,19 @@
         "difficulty": 1
       },
       {
+        "slug": "line-up",
+        "name": "Line Up",
+        "uuid": "4fb5288a-e02f-4b5b-8565-5de43b600b8f",
+        "practices": [
+          "strings"
+        ],
+        "prerequisites": [
+          "if-statements",
+          "strings"
+        ],
+        "difficulty": 1
+      },
+      {
         "slug": "gigasecond",
         "name": "Gigasecond",
         "uuid": "b7116dfb-1107-4546-9f95-f15acdb6f6a4",
