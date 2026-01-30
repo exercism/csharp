@@ -70,7 +70,7 @@ Languages.ReverseList(Languages.GetExistingLanguages())
 
 ## 7. Check if list is exciting
 
-While you love all languages, C# has a special place in your heart. As such, you're really excited about a list of languages if:
+While you love all languages, C# has a special place in your heart. As such, you're really excited about a list of languages if one of the following conditions is true:
 
 - The first on the list is C#.
 - The second item on the list is C# and the list contains either two or three languages.
