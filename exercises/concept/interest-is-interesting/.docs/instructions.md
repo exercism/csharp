@@ -33,7 +33,7 @@ Note that the value returned is a `decimal`.
 
 ## 3. Calculate the annual balance update
 
-Implement the (_static_) `SavingsAccount.AnnualBalanceUpdate()` method to calculate the updated annual balance, taking into account the interest rate:
+Implement the (_static_) `SavingsAccount.AnnualBalanceUpdate()` method to calculate the updated annual balance, taking into account the interest rate: 
 
 ```csharp
 SavingsAccount.AnnualBalanceUpdate(balance: 200.75m)
