@@ -37,6 +37,12 @@ public class PerfectNumbersTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Perfect_square_abundant_number_is_classified_correctly()
+    {
+        Assert.Equal(Classification.Abundant, PerfectNumbers.Classify(196));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Smallest_prime_deficient_number_is_classified_correctly()
     {
         Assert.Equal(Classification.Deficient, PerfectNumbers.Classify(2));
