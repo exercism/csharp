@@ -81,7 +81,7 @@ public class PokerTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Both_hands_have_two_pairs_with_the_same_highest_ranked_pair_tie_goes_to_low_pair_HighCardTHrowOff()
+    public void Both_hands_have_two_pairs_with_the_same_highest_ranked_pair_tie_goes_to_low_pair_HighCardThrowOff()
     {
         string[] hands = ["2S QS 2C QD KH", "JD QH JS 8D QC"];
         string[] expected = ["JD QH JS 8D QC"];
