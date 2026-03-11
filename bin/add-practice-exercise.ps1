@@ -54,11 +54,16 @@ $project.Load($projectFile)
 
 $restorePackagesWithLockFileElement = $project.CreateElement("RestorePackagesWithLockFile");
 $restorePackagesWithLockFileElement.InnerText = "true"
-$project.Project.PropertyGroup.AppendChild($project.CreateTextNode("  "))
-$project.Project.PropertyGroup.AppendChild($restorePackagesWithLockFileElement)
-$project.Project.PropertyGroup.AppendChild($project.CreateTextNode("`n  "))
+$project.Project.PropertyGroup.AppendChild($project.CreateTextNode("  ")) | Out-Null
+$project.Project.PropertyGroup.AppendChild($restorePackagesWithLockFileElement) | Out-Null
+$project.Project.PropertyGroup.AppendChild($project.CreateTextNode("`n  ")) | Out-Null
 $project.Project.PropertyGroup.SelectSingleNode("//RootNamespace").InnerText = "Exercism"
-$project.Project.RemoveChild($project.Project.ItemGroup[0])
+$itemGroup = $project.Project.ItemGroup[0]
+$next = $itemGroup.NextSibling
+$project.Project.RemoveChild($itemGroup) | Out-Null
+if ($next -and $next.NodeType -eq [System.Xml.XmlNodeType]::Whitespace) {
+    $project.Project.RemoveChild($next) | Out-Null
+}
 
 $project.Save($projectFile)
 
