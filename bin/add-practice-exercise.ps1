@@ -33,7 +33,7 @@ $exerciseName = (Get-Culture).TextInfo.ToTitleCase($Exercise).Replace("-", "")
 $exerciseDir = "exercises/practice/${Exercise}"
 $projectFile = "${exerciseDir}/${ExerciseName}.csproj"
 & dotnet new install xunit.v3.templates
-& dotnet new xunit3 --force --framework net9.0 --output $exerciseDir --name $ExerciseName
+& dotnet new xunit3 --force --framework net10.0 --output $exerciseDir --name $ExerciseName
 & dotnet sln exercises/Exercises.sln add $projectFile
 
 [xml]$project = Get-Content $projectFile
