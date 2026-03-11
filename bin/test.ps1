@@ -113,7 +113,7 @@ function Test-Single-Exercise($Exercise, $Exercises) {
 function Test-All-Exercises($Exercises) {
     try {
         Prepare-Exercises $Exercises
-        Run-Tests "exercises/Exercises.sln"
+        Run-Tests "exercises/Exercises.slnx"
     } finally {
         Restore-Exercises $Exercises
     }
@@ -139,7 +139,7 @@ function Build-Generators {
 
 function Test-Refactoring-Exercise-Default-Implementations {
     Write-Output "Testing refactoring exercises"
-    Run-Tests (Join-Path "exercises" "Refactoring.sln")
+    Run-Tests (Join-Path "exercises" "Refactoring.slnx")
 }
 
 function Test-Exercise-Example-Implementations($Exercise) {
