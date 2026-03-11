@@ -16,7 +16,7 @@ internal static class TestCasesConfiguration
     }
 
     private static HashSet<string> ExcludedTestCaseIds(Exercise exercise) =>
-        Toml.ToModel(File.ReadAllText(Paths.TestsTomlFile(exercise)))
+        TomlSerializer.Deserialize<TomlTable>(File.ReadAllText(Paths.TestsTomlFile(exercise)))!
             .Where(IsExcluded)
             .Select(table => table.Key)
             .ToHashSet();

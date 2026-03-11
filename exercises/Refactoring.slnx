@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/practice/">
+    <Project Path="practice/ledger/Ledger.csproj" />
+    <Project Path="practice/markdown/Markdown.csproj" />
+    <Project Path="practice/tree-building/TreeBuilding.csproj" />
+  </Folder>
+</Solution>
