@@ -34,26 +34,33 @@ $exerciseDir = "exercises/practice/${Exercise}"
 $projectFile = "${exerciseDir}/${ExerciseName}.csproj"
 & dotnet new install xunit.v3.templates
 & dotnet new xunit3 --force --framework net10.0 --output $exerciseDir --name $ExerciseName
-& dotnet sln exercises/Exercises.sln add $projectFile
-
-[xml]$project = Get-Content $projectFile
-$project.Project.PropertyGroup.RemoveChild($project.Project.PropertyGroup.SelectSingleNode("//comment()"))
-$project.Project.PropertyGroup.RemoveChild($project.Project.PropertyGroup.SelectSingleNode("//RootNamespace"))
-$restorePackagesWithLockFileElement = $project.CreateElement("RestorePackagesWithLockFile");
-$restorePackagesWithLockFileElement.InnerText = "true"
-$project.Project.PropertyGroup.AppendChild($restorePackagesWithLockFileElement)
-$project.Project.RemoveChild($project.Project.ItemGroup[0])
-$project.Project.ItemGroup[1].SelectSingleNode("PackageReference[@Include='Microsoft.NET.Test.Sdk']").SetAttribute("Version", "17.12.0")
-$project.Project.ItemGroup[1].SelectSingleNode("PackageReference[@Include='xunit.v3']").SetAttribute("Version", "1.1.0")
-$project.Project.ItemGroup[1].SelectSingleNode("PackageReference[@Include='xunit.runner.visualstudio']").SetAttribute("Version", "3.0.1")
-$project.Save($projectFile)
-
-dotnet add $projectFile package Exercism.Tests.xunit.v3 --version 0.1.0-beta1
+& dotnet sln exercises/Exercises.slnx add --solution-folder "/practice/" $projectFile
+& dotnet add $projectFile package Exercism.Tests.xunit.v3 --version 0.1.0-beta1
+& dotnet remove $projectFile package xunit.v3.mtp-v2
+& dotnet add $projectFile package Exercism.Tests.xunit.v3 --version 0.1.0-beta1
+& dotnet add $projectFile package xunit.runner.visualstudio --version 3.1.5
+& dotnet add $projectFile package xunit.v3 --version 3.2.2
+& dotnet add $projectFile package Microsoft.NET.Test.Sdk --version 18.3.0
 
 # Remove and update files
+Remove-Item -Path "global.json"
 Remove-Item -Path "${exerciseDir}/xunit.runner.json"
 Remove-Item -Path "${exerciseDir}/UnitTest1.cs"
 (Get-Content -Path ".editorconfig") -Replace "\[\*\.cs\]", "[${exerciseName}.cs]" | Set-Content -Path "${exerciseDir}/.editorconfig"
+
+$project = [xml]::new()
+$project.PreserveWhitespace = $true
+$project.Load($projectFile)
+
+$restorePackagesWithLockFileElement = $project.CreateElement("RestorePackagesWithLockFile");
+$restorePackagesWithLockFileElement.InnerText = "true"
+$project.Project.PropertyGroup.AppendChild($project.CreateTextNode("  "))
+$project.Project.PropertyGroup.AppendChild($restorePackagesWithLockFileElement)
+$project.Project.PropertyGroup.AppendChild($project.CreateTextNode("`n  "))
+$project.Project.PropertyGroup.SelectSingleNode("//RootNamespace").InnerText = "Exercism"
+$project.Project.RemoveChild($project.Project.ItemGroup[0])
+
+$project.Save($projectFile)
 
 # Create new generator template and run generator (this will update the tests file)
 bin/update-tests.ps1 -Exercise $Exercise -New -SyncProbSpecs
