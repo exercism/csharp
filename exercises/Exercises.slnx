@@ -106,6 +106,7 @@
     <Project Path="practice/largest-series-product/LargestSeriesProduct.csproj" />
     <Project Path="practice/leap/Leap.csproj" />
     <Project Path="practice/ledger/Ledger.csproj" />
+    <Project Path="practice/line-up/LineUp.csproj" />
     <Project Path="practice/linked-list/LinkedList.csproj" />
     <Project Path="practice/list-ops/ListOps.csproj" />
     <Project Path="practice/luhn/Luhn.csproj" />
