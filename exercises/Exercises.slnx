@@ -129,6 +129,7 @@
     <Project Path="practice/pov/Pov.csproj" />
     <Project Path="practice/prime-factors/PrimeFactors.csproj" />
     <Project Path="practice/protein-translation/ProteinTranslation.csproj" />
+    <Project Path="practice/prism/Prism.csproj" />
     <Project Path="practice/proverb/Proverb.csproj" />
     <Project Path="practice/pythagorean-triplet/PythagoreanTriplet.csproj" />
     <Project Path="practice/queen-attack/QueenAttack.csproj" />

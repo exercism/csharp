@@ -2149,6 +2149,21 @@
         "difficulty": 4
       },
       {
+        "slug": "prism",
+        "name": "Prism",
+        "uuid": "c52d3d36-4852-48ff-b97c-0b030a5b365d",
+        "practices": [
+          "arrays",
+          "floating-point-numbers",
+          "while-loops"
+        ],
+        "prerequisites": [
+          "arrays",
+          "floating-point-numbers"
+        ],
+        "difficulty": 4
+      },
+      {
         "slug": "twelve-days",
         "name": "Twelve Days",
         "uuid": "2627fb4f-7884-4494-8f49-5888107643f1",
