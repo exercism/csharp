@@ -33,9 +33,9 @@ public class {{ testClass }}
                     Assert.Equal({{ test.expected }}m, account.{{ op | to_call }});
                 {{ end -}}
             {{- else if op.operation == "concurrent" }}
+            var tasks = new List<Task>();
             for (int i = 0; i < 500; i++)
             {
-                var tasks = new List<Task>();
                 tasks.Add(Task.Factory.StartNew(() =>
                 {
                     for (int j = 0; j < 100; j++)
@@ -44,9 +44,9 @@ public class {{ testClass }}
                         account.{{ nested_op | to_call }};
                         {{- end -}}
                     }
-                }));
-                await Task.WhenAll(tasks.ToArray());
+                }, TestContext.Current.CancellationToken));
             }
+            await Task.WhenAll(tasks.ToArray());
             {{- else }}
             account.{{ op | to_call }};
             {{- end -}}
