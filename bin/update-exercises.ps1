@@ -24,9 +24,9 @@ $PSNativeCommandUseErrorActionPreference = $true
 & bin/fetch-configlet
 
 if ($Exercise) {
-    & configlet sync --docs --metadata --filepaths --update --yes --exercise $Exercise
+    & bin/configlet sync --docs --metadata --filepaths --update --yes --exercise $Exercise
     & dotnet run --project generators update --exercise $Exercise
 } else {
-    & configlet sync --docs --metadata --filepaths --update --yes
+    & bin/configlet sync --docs --metadata --filepaths --update --yes
     & dotnet run --project generators update
 }
