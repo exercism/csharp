@@ -39,9 +39,9 @@
       },
       "Scriban": {
         "type": "Direct",
-        "requested": "[6.5.5, )",
-        "resolved": "6.5.5",
-        "contentHash": "TxsmDVQ9agPQaY+SvdTO+zntGpJOnL1QaO4dzACfc6gEKRYhoMpzCCFuVixEZXet291sRnjyym6lB69Cr/EXPQ=="
+        "requested": "[7.0.6, )",
+        "resolved": "7.0.6",
+        "contentHash": "bOtHyk30sjl0y3+KYImIJv0ETZYLuFFJvlBF2ks2YLNtydhJqxRTGe4WaBDvg/3VRhhI6uf+qVfixuFROsOi+w=="
       },
       "Tomlyn": {
         "type": "Direct",
@@ -56,8 +56,8 @@
       },
       "Microsoft.CodeAnalysis.Analyzers": {
         "type": "Transitive",
-        "resolved": "5.3.0-2.final",
-        "contentHash": "VzdevMuvWpgH5s7bj+Y8CHaAPvJvzdRjBL/f2bzCEugZIOFOCZfblsbHwbCJ3hUFvvrbbcLcTrLt6HIj3bngAw=="
+        "resolved": "5.3.0-2.25625.1",
+        "contentHash": "4Yhh2fnu3G+J0J1lDc8WZVgMjgbynSeTfkl5IFJMFrmiIO0sc7Tjx+f3sFVV8Sd35PrIUWfof0RWc3lAMl7Azg=="
       },
       "Microsoft.CodeAnalysis.Common": {
         "type": "Transitive",

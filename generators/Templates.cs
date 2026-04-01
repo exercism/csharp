@@ -18,7 +18,7 @@ internal static class Templates
         scriptObject.Import("enum", new Func<string, string, string>((text, enumType) =>
             $"{enumType.Pascalize()}.{text.Pascalize()}"));
         scriptObject.Import("property", new Func<ScriptArray, string, ScriptArray>((testCases, name) =>
-            new ScriptArray(testCases.Cast<ScriptObject>().Where(testCase => testCase["property"].ToString() == name))));
+            new ScriptArray(testCases.Cast<ScriptObject>().Where(testCase => testCase["property"]?.ToString() == name))));
         scriptObject.Import(TemplateData.ForCanonicalData(canonicalData));
         
         var context = new TemplateContext();
