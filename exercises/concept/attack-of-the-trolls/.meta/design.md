@@ -9,6 +9,7 @@
 - Know how to unset a flag on an enum value.
 - Know that an enum's underlying type can be changed.
 - Know how to use bitwise operators to manipulate bits.
+- Know how to parse a string to an enum value using `Enum.Parse<TEnum>()`.
 
 ## Out of scope
 

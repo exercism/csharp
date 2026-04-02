@@ -173,4 +173,46 @@ public class AttackOfTheTrollsTests
     {
         Assert.True(Permissions.Check(Permission.Read | Permission.Write | Permission.Delete, Permission.All));
     }
+
+    [Fact]
+    [Task(5)]
+    public void Parse_read_permission()
+    {
+        Assert.Equal(Permission.Read, Permissions.ParsePermission("Read"));
+    }
+
+    [Fact]
+    [Task(5)]
+    public void Parse_write_permission()
+    {
+        Assert.Equal(Permission.Write, Permissions.ParsePermission("Write"));
+    }
+
+    [Fact]
+    [Task(5)]
+    public void Parse_delete_permission()
+    {
+        Assert.Equal(Permission.Delete, Permissions.ParsePermission("Delete"));
+    }
+
+    [Fact]
+    [Task(5)]
+    public void Parse_all_permission()
+    {
+        Assert.Equal(Permission.All, Permissions.ParsePermission("All"));
+    }
+
+    [Fact]
+    [Task(5)]
+    public void Parse_none_permission()
+    {
+        Assert.Equal(Permission.None, Permissions.ParsePermission("None"));
+    }
+
+    [Fact]
+    [Task(5)]
+    public void Parse_permission_case_insensitive()
+    {
+        Assert.Equal(Permission.Read, Permissions.ParsePermission("read"));
+    }
 }
