@@ -1,4 +1,6 @@
-# Hints
+# Instructions append
+
+## Hints
 
 In this exercise the following C# feature is used:
 

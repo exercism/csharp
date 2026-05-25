@@ -1,4 +1,6 @@
-# Hints
+# Instructions append
+
+## Hints
 
 One of the uses of Tuples is returning multiple values from a function. In this exercise, write
 a function that returns a Tuple (the x- and y- part of a coordinate).
