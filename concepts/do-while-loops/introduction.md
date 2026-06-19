@@ -7,7 +7,7 @@ int x = 23;
 
 do
 {
-    // Execute logic if x > 10
+    // Always executes at least once, then repeats as long as x > 10
     x = x - 2;
 } while (x > 10)
 ```
