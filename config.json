@@ -1971,6 +1971,15 @@
         "slug": "hangman",
         "name": "Hangman",
         "uuid": "c9b12d50-09dc-4f43-9e7e-66b277432347",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 8,
+        "status": "deprecated"
+      },
+      {
+        "slug": "save-the-cow",
+        "name": "Save the Cow",
+        "uuid": "9c8d05ae-c260-4701-8d8d-78e5f9ff5b01",
         "practices": [
           "sets",
           "immutability",

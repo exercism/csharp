@@ -154,6 +154,7 @@
     <Project Path="practice/saddle-points/SaddlePoints.csproj" />
     <Project Path="practice/satellite/Satellite.csproj" />
     <Project Path="practice/say/Say.csproj" />
+    <Project Path="practice/save-the-cow/SaveTheCow.csproj" />
     <Project Path="practice/scale-generator/ScaleGenerator.csproj" />
     <Project Path="practice/scrabble-score/ScrabbleScore.csproj" />
     <Project Path="practice/secret-handshake/SecretHandshake.csproj" />

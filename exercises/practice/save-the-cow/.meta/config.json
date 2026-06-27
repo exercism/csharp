@@ -1,0 +1,23 @@
+{
+  "authors": [
+    "erikschierboom"
+  ],
+  "contributors": [
+    "BNAndras"
+  ],
+  "files": {
+    "solution": [
+      "SaveTheCow.cs"
+    ],
+    "test": [
+      "SaveTheCowTests.cs"
+    ],
+    "example": [
+      ".meta/Example.cs"
+    ],
+    "invalidator": [
+      "SaveTheCow.csproj"
+    ]
+  },
+  "blurb": "Implement a word-guessing game."
+}
