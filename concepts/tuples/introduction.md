@@ -25,9 +25,13 @@ the second `Item2`, etc. Non-default names are discussed below.
 vertices = (60, 60, 60);
 
 //  return value
-(bool, int) GetSameOrBigger(int num1, int num2)
+(int, int) SumAndProduct(int x, int y)
 {
-    return (num1 == num2, num1 > num2 ? num1 : num2);
+    int sum = x + y;
+    int product = x * y;
+    
+    // return a tuple with both values
+    return (sum, product);
 }
 
 // method argument
