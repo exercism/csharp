@@ -52,4 +52,11 @@ Implement the (_static_) `Permissions.Check()` method that takes the current acc
 ```csharp
 Permissions.Check(current: Permission.Write, check: Permission.Read)
 // => false
+
+## 5. Parse a permission from a string
+
+Implement the (_static_) `Permissions.ParsePermission()` method that parses a string representation of a permission into the `Permission` enum:
+```csharp
+Permissions.ParsePermission("Write")
+// => Permission.Write
 ```
