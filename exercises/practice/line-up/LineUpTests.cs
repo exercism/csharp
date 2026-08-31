@@ -99,10 +99,45 @@ public class LineUpTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Format_exceptional_ordinal_numeral_22_ending_in_nd_even_though_it_is_a_multiple_of_11()
+    {
+        string expected = "Ingrid, you are the 22nd customer we serve today. Thank you!";
+        Assert.Equal(expected, LineUp.Format("Ingrid", 22));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Format_exceptional_ordinal_numeral_33_ending_in_rd_even_though_it_is_a_multiple_of_11()
+    {
+        string expected = "Mario, you are the 33rd customer we serve today. Thank you!";
+        Assert.Equal(expected, LineUp.Format("Mario", 33));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Format_exceptional_ordinal_numeral_52_ending_in_nd_even_though_it_is_a_multiple_of_13()
+    {
+        string expected = "Quentin, you are the 52nd customer we serve today. Thank you!";
+        Assert.Equal(expected, LineUp.Format("Quentin", 52));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
     public void Format_exceptional_ordinal_numeral_62()
     {
         string expected = "Nayra, you are the 62nd customer we serve today. Thank you!";
         Assert.Equal(expected, LineUp.Format("Nayra", 62));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Format_non_exceptional_ordinal_numeral_72_ending_in_nd_even_though_it_is_a_multiple_of_12()
+    {
+        string expected = "Ugo, you are the 72nd customer we serve today. Thank you!";
+        Assert.Equal(expected, LineUp.Format("Ugo", 72));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Format_exceptional_ordinal_numeral_91_ending_in_st_even_though_it_is_a_multiple_of_13()
+    {
+        string expected = "Boris, you are the 91st customer we serve today. Thank you!";
+        Assert.Equal(expected, LineUp.Format("Boris", 91));
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
@@ -131,5 +166,12 @@ public class LineUpTests
     {
         string expected = "Yma, you are the 123rd customer we serve today. Thank you!";
         Assert.Equal(expected, LineUp.Format("Yma", 123));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Format_large_number_972_ending_in_nd_even_though_it_is_a_multiple_of_12()
+    {
+        string expected = "Elias, you are the 972nd customer we serve today. Thank you!";
+        Assert.Equal(expected, LineUp.Format("Elias", 972));
     }
 }
