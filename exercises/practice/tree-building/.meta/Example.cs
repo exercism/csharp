@@ -58,7 +58,7 @@ public static class TreeBuilder
             throw new ArgumentException();
         else if (!record.IsRoot && record.ParentId >= record.RecordId)
             throw new ArgumentException();
-        else if (!record.IsRoot && record.RecordId != previousRecordId + 1)
+        else if (record.RecordId != previousRecordId + 1)
             throw new ArgumentException();
     }
 
