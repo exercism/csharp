@@ -14,6 +14,8 @@ public class TicTacToe(string[] rows)
         {   
             if (Moves.GetValueOrDefault('X', 0) - Moves.GetValueOrDefault('O', 0) > 1 ||
                 Moves.GetValueOrDefault('O', 0) > Moves.GetValueOrDefault('X', 0) ||
+                Winners.Contains('X') && Moves.GetValueOrDefault('X', 0) == Moves.GetValueOrDefault('O', 0) ||
+                Winners.Contains('O') && Moves.GetValueOrDefault('X', 0) > Moves.GetValueOrDefault('O', 0) ||
                 Winners.Distinct().Count() > 1)
                 return State.Invalid;
 
