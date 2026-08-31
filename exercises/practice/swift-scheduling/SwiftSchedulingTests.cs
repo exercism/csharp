@@ -105,7 +105,7 @@ public class SwiftSchedulingTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Q1_in_the_first_quarter_translates_to_the_last_workday_of_the_first_quarter_of_this_year()
+    public void Q_1_in_the_first_quarter_translates_to_the_last_workday_of_the_first_quarter_of_this_year()
     {
         var meetingStart = new DateTime(2003, 1, 1, 10, 45, 0);
         var expected = new DateTime(2003, 3, 31, 8, 0, 0);
@@ -113,7 +113,7 @@ public class SwiftSchedulingTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Q4_in_the_second_quarter_translates_to_the_last_workday_of_the_fourth_quarter_of_this_year()
+    public void Q_4_in_the_second_quarter_translates_to_the_last_workday_of_the_fourth_quarter_of_this_year()
     {
         var meetingStart = new DateTime(2001, 4, 9, 9, 0, 0);
         var expected = new DateTime(2001, 12, 31, 8, 0, 0);
@@ -121,10 +121,18 @@ public class SwiftSchedulingTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Q3_in_the_fourth_quarter_translates_to_the_last_workday_of_the_third_quarter_of_next_year()
+    public void Q_3_in_the_fourth_quarter_translates_to_the_last_workday_of_the_third_quarter_of_next_year()
     {
         var meetingStart = new DateTime(2022, 10, 6, 11, 0, 0);
         var expected = new DateTime(2023, 9, 29, 8, 0, 0);
         Assert.Equal(expected, SwiftScheduling.DeliveryDate(meetingStart, "Q3"), TimeSpan.FromSeconds(1));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Q_2_starting_in_the_last_month_of_the_second_quarter_translates_to_the_last_workday_of_the_second_quarter_of_this_year()
+    {
+        var meetingStart = new DateTime(2019, 6, 15, 9, 50, 0);
+        var expected = new DateTime(2019, 6, 28, 8, 0, 0);
+        Assert.Equal(expected, SwiftScheduling.DeliveryDate(meetingStart, "Q2"), TimeSpan.FromSeconds(1));
     }
 }
