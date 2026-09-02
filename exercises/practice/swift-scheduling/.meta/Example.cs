@@ -18,7 +18,7 @@ public static class SwiftScheduling
             },
             _  when description.StartsWith('Q') => int.Parse(description[1..]) switch 
             {
-                var quarter when quarter * 3 > meetingStart.Month => meetingStart.NthQuarter(quarter).LastWorkDay().AtHour(8),
+                var quarter when quarter * 3 >= meetingStart.Month => meetingStart.NthQuarter(quarter).LastWorkDay().AtHour(8),
                 var quarter => meetingStart.AddYears(1).NthQuarter(quarter).LastWorkDay().AtHour(8)
             },
             _ => throw new ArgumentException("Invalid date"),
