@@ -15,7 +15,7 @@ public class ConnectTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void X_can_win_on_a_1x1_board()
+    public void X_can_win_on_a_1x_1_board()
     {
         string[] board = [
             "X"
@@ -25,7 +25,7 @@ public class ConnectTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void O_can_win_on_a_1x1_board()
+    public void O_can_win_on_a_1x_1_board()
     {
         string[] board = [
             "O"
@@ -84,6 +84,32 @@ public class ConnectTests
             "  O X O .",
             "   X X O X",
             "    . O X ."
+        ];
+        var sut = new Connect(board);
+        Assert.Equal(ConnectWinner.Black, sut.Result());
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void X_wins_with_left_hand_dead_end_fork()
+    {
+        string[] board = [
+            ". . X .",
+            " X X . .",
+            "  . X X X",
+            "   O O O O"
+        ];
+        var sut = new Connect(board);
+        Assert.Equal(ConnectWinner.Black, sut.Result());
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void X_wins_with_right_hand_dead_end_fork()
+    {
+        string[] board = [
+            ". . X X",
+            " X X . .",
+            "  . X X .",
+            "   O O O O"
         ];
         var sut = new Connect(board);
         Assert.Equal(ConnectWinner.Black, sut.Result());
