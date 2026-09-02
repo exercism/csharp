@@ -323,4 +323,28 @@ public class StateOfTicTacToeTests
         var game = new TicTacToe(board);
         Assert.Equal(State.Invalid, game.State);
     }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Invalid_boards_invalid_board_o_kept_playing_after_x_wins()
+    {
+        string[] board = [
+            "OO ",
+            "XXX",
+            " O "
+        ];
+        var game = new TicTacToe(board);
+        Assert.Equal(State.Invalid, game.State);
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Invalid_boards_invalid_board_x_kept_playing_after_o_wins()
+    {
+        string[] board = [
+            "XX ",
+            "OOO",
+            " XX"
+        ];
+        var game = new TicTacToe(board);
+        Assert.Equal(State.Invalid, game.State);
+    }
 }
