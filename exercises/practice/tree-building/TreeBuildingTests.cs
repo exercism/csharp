@@ -1,20 +1,26 @@
 public class TreeBuildingTests
 {
     [Fact]
-    public void One_node()
+    public void Empty_list()
+    {
+        var records = Array.Empty<TreeBuildingRecord>();
+        Assert.Throws<ArgumentException>(() => TreeBuilder.BuildTree(records));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Single_record()
     {
         var records = new[]
         {
             new TreeBuildingRecord { RecordId = 0, ParentId = 0 }
         };
-
         var tree = TreeBuilder.BuildTree(records);
 
         AssertTreeIsLeaf(tree, id: 0);
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Three_nodes_in_order()
+    public void Three_records_in_order()
     {
         var records = new[]
         {
@@ -22,7 +28,6 @@ public class TreeBuildingTests
             new TreeBuildingRecord { RecordId = 1, ParentId = 0 },
             new TreeBuildingRecord { RecordId = 2, ParentId = 0 }
         };
-
         var tree = TreeBuilder.BuildTree(records);
 
         AssertTreeIsBranch(tree, id: 0, childCount: 2);
@@ -31,7 +36,7 @@ public class TreeBuildingTests
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Three_nodes_in_reverse_order()
+    public void Three_records_in_reverse_order()
     {
         var records = new[]
         {
@@ -39,7 +44,6 @@ public class TreeBuildingTests
             new TreeBuildingRecord { RecordId = 1, ParentId = 0 },
             new TreeBuildingRecord { RecordId = 0, ParentId = 0 }
         };
-
         var tree = TreeBuilder.BuildTree(records);
 
         AssertTreeIsBranch(tree, id: 0, childCount: 2);
@@ -52,12 +56,11 @@ public class TreeBuildingTests
     {
         var records = new[]
         {
-            new TreeBuildingRecord { RecordId = 3, ParentId = 0 },
-            new TreeBuildingRecord { RecordId = 2, ParentId = 0 },
+            new TreeBuildingRecord { RecordId = 0, ParentId = 0 },
             new TreeBuildingRecord { RecordId = 1, ParentId = 0 },
-            new TreeBuildingRecord { RecordId = 0, ParentId = 0 }
+            new TreeBuildingRecord { RecordId = 2, ParentId = 0 },
+            new TreeBuildingRecord { RecordId = 3, ParentId = 0 }
         };
-
         var tree = TreeBuilder.BuildTree(records);
 
         AssertTreeIsBranch(tree, id: 0, childCount: 3);
@@ -79,15 +82,13 @@ public class TreeBuildingTests
             new TreeBuildingRecord { RecordId = 0, ParentId = 0 },
             new TreeBuildingRecord { RecordId = 6, ParentId = 2 }
         };
-
         var tree = TreeBuilder.BuildTree(records);
 
         AssertTreeIsBranch(tree, id: 0, childCount: 2);
         AssertTreeIsBranch(tree.Children[0], id: 1, childCount: 2);
-        AssertTreeIsBranch(tree.Children[1], id: 2, childCount: 2);
-
         AssertTreeIsLeaf(tree.Children[0].Children[0], id: 4);
         AssertTreeIsLeaf(tree.Children[0].Children[1], id: 5);
+        AssertTreeIsBranch(tree.Children[1], id: 2, childCount: 2);
         AssertTreeIsLeaf(tree.Children[1].Children[0], id: 3);
         AssertTreeIsLeaf(tree.Children[1].Children[1], id: 6);
     }
@@ -105,24 +106,24 @@ public class TreeBuildingTests
             new TreeBuildingRecord { RecordId = 0, ParentId = 0 },
             new TreeBuildingRecord { RecordId = 6, ParentId = 2 }
         };
-
         var tree = TreeBuilder.BuildTree(records);
 
         AssertTreeIsBranch(tree, id: 0, childCount: 2);
         AssertTreeIsBranch(tree.Children[0], id: 1, childCount: 1);
-        AssertTreeIsBranch(tree.Children[1], id: 2, childCount: 3);
-
         AssertTreeIsLeaf(tree.Children[0].Children[0], id: 4);
+        AssertTreeIsBranch(tree.Children[1], id: 2, childCount: 3);
         AssertTreeIsLeaf(tree.Children[1].Children[0], id: 3);
         AssertTreeIsLeaf(tree.Children[1].Children[1], id: 5);
         AssertTreeIsLeaf(tree.Children[1].Children[2], id: 6);
     }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
-    public void Empty_input()
+    public void One_root_node_and_has_parent()
     {
-        var records = new TreeBuildingRecord[0];
-
+        var records = new[]
+        {
+            new TreeBuildingRecord { RecordId = 0, ParentId = 1 }
+        };
         Assert.Throws<ArgumentException>(() => TreeBuilder.BuildTree(records));
     }
 
@@ -134,7 +135,6 @@ public class TreeBuildingTests
             new TreeBuildingRecord { RecordId = 0, ParentId = 1 },
             new TreeBuildingRecord { RecordId = 1, ParentId = 0 }
         };
-
         Assert.Throws<ArgumentException>(() => TreeBuilder.BuildTree(records));
     }
 
@@ -143,12 +143,34 @@ public class TreeBuildingTests
     {
         var records = new[]
         {
-            new TreeBuildingRecord { RecordId = 1, ParentId = 0 }
+            new TreeBuildingRecord { RecordId = 1, ParentId = 0 },
+            new TreeBuildingRecord { RecordId = 2, ParentId = 0 }
         };
-
         Assert.Throws<ArgumentException>(() => TreeBuilder.BuildTree(records));
     }
 
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Duplicate_node()
+    {
+        var records = new[]
+        {
+            new TreeBuildingRecord { RecordId = 0, ParentId = 0 },
+            new TreeBuildingRecord { RecordId = 1, ParentId = 0 },
+            new TreeBuildingRecord { RecordId = 1, ParentId = 0 }
+        };
+        Assert.Throws<ArgumentException>(() => TreeBuilder.BuildTree(records));
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Duplicate_root()
+    {
+        var records = new[]
+        {
+            new TreeBuildingRecord { RecordId = 0, ParentId = 0 },
+            new TreeBuildingRecord { RecordId = 0, ParentId = 0 }
+        };
+        Assert.Throws<ArgumentException>(() => TreeBuilder.BuildTree(records));
+    }
 
     [Fact(Skip = "Remove this Skip property to run this test")]
     public void Non_continuous()
@@ -160,7 +182,6 @@ public class TreeBuildingTests
             new TreeBuildingRecord { RecordId = 1, ParentId = 0 },
             new TreeBuildingRecord { RecordId = 0, ParentId = 0 }
         };
-
         Assert.Throws<ArgumentException>(() => TreeBuilder.BuildTree(records));
     }
 
@@ -177,7 +198,6 @@ public class TreeBuildingTests
             new TreeBuildingRecord { RecordId = 0, ParentId = 0 },
             new TreeBuildingRecord { RecordId = 6, ParentId = 3 }
         };
-
         Assert.Throws<ArgumentException>(() => TreeBuilder.BuildTree(records));
     }
 
@@ -194,7 +214,6 @@ public class TreeBuildingTests
             new TreeBuildingRecord { RecordId = 0, ParentId = 0 },
             new TreeBuildingRecord { RecordId = 6, ParentId = 3 }
         };
-
         Assert.Throws<ArgumentException>(() => TreeBuilder.BuildTree(records));
     }
 
@@ -207,7 +226,6 @@ public class TreeBuildingTests
             new TreeBuildingRecord { RecordId = 2, ParentId = 0 },
             new TreeBuildingRecord { RecordId = 1, ParentId = 2 }
         };
-
         Assert.Throws<ArgumentException>(() => TreeBuilder.BuildTree(records));
     }
 
