@@ -123,6 +123,14 @@ public class TracksOnTracksOnTracksTests
         languages.Add("C#");
         Assert.True(Languages.IsExciting(languages));
     }
+    [Fact]
+    [Task(7)]
+    public void IsExciting_single_not_star()
+    {
+        var languages = new List<string>();
+        languages.Add("F#");
+        Assert.False(Languages.IsExciting(languages));
+    }
 
     [Fact]
     [Task(7)]
