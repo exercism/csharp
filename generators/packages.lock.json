@@ -39,9 +39,9 @@
       },
       "Scriban": {
         "type": "Direct",
-        "requested": "[7.0.6, )",
-        "resolved": "7.0.6",
-        "contentHash": "bOtHyk30sjl0y3+KYImIJv0ETZYLuFFJvlBF2ks2YLNtydhJqxRTGe4WaBDvg/3VRhhI6uf+qVfixuFROsOi+w=="
+        "requested": "[7.2.2, )",
+        "resolved": "7.2.2",
+        "contentHash": "8qYvR1PxjYtTgAKFyJ2W57DEF3uQcpL7NjkciQuuDnxVxLcSgx+ozBveg7AIJcr7nHETI472g8GVSl6LsYaFyQ=="
       },
       "Tomlyn": {
         "type": "Direct",
