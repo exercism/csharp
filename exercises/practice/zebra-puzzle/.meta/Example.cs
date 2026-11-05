@@ -2,7 +2,7 @@ public enum Color { Red , Green , Ivory , Yellow , Blue }
 public enum Nationality { Englishman , Spaniard , Ukrainian , Japanese , Norwegian }
 public enum Pet { Dog , Snails , Fox , Horse , Zebra }
 public enum Drink { Coffee , Tea , Milk , OrangeJuice , Water }
-public enum Smoke { OldGold , Kools , Chesterfields , LuckyStrike , Parliaments }
+public enum Hobby { Dancing , Painting , Reading , Football , Chess }
 
 public static class ZebraPuzzle
 {
@@ -10,7 +10,7 @@ public static class ZebraPuzzle
     private static readonly Nationality[] Nationalities = (Nationality[]) Enum.GetValues(typeof(Nationality));
     private static readonly Pet[] Pets = (Pet[]) Enum.GetValues(typeof(Pet));
     private static readonly Drink[] Drinks = (Drink[]) Enum.GetValues(typeof(Drink));
-    private static readonly Smoke[] Smokes = (Smoke[]) Enum.GetValues(typeof(Smoke));
+    private static readonly Hobby[] Hobbies = (Hobby[]) Enum.GetValues(typeof(Hobby));
 
     private static IEnumerable<T[]> Permutations<T>(this T[] input) => input.Permutations(input.Length);
     private static IEnumerable<T[]> Permutations<T>(this T[] input, int length)
@@ -30,7 +30,7 @@ public static class ZebraPuzzle
         public Nationality[] Nationalities;
         public Pet[] Pets;
         public Drink[] Drinks;
-        public Smoke[] Smokes;
+        public Hobby[] Hobbies;
     }
 
     private static bool MatchesColorRules(Color[] colors)
@@ -57,29 +57,29 @@ public static class ZebraPuzzle
     private static bool MatchesDrinkRules(Color[] colors, Nationality[] nationalities, Drink[] drinks)
     {
         var coffeeDrunkInGreenHouse = IsIndexMatch(colors, Color.Green, drinks, Drink.Coffee); // #4
-        var ukrainianDrinksTee = IsIndexMatch(nationalities, Nationality.Ukrainian, drinks, Drink.Tea); // #5
+        var ukrainianDrinksTea = IsIndexMatch(nationalities, Nationality.Ukrainian, drinks, Drink.Tea); // #5
         var milkDrunkInMiddleHouse = drinks[2] == Drink.Milk; // #9
 
-        return coffeeDrunkInGreenHouse && ukrainianDrinksTee && milkDrunkInMiddleHouse;
+        return coffeeDrunkInGreenHouse && ukrainianDrinksTea && milkDrunkInMiddleHouse;
     }
     
-    private static bool MatchesSmokeRules(Color[] colors, Nationality[] nationalities, Drink[] drinks, Pet[] pets, Smoke[] smokes)
+    private static bool MatchesHobbyRules(Color[] colors, Nationality[] nationalities, Drink[] drinks, Pet[] pets, Hobby[] hobbies)
     {
-        var oldGoldSmokesOwnsSnails = IsIndexMatch(smokes, Smoke.OldGold, pets, Pet.Snails); // #7
-        var koolsSmokedInYellowHouse = IsIndexMatch(colors, Color.Yellow, smokes, Smoke.Kools); // #8
-        var chesterfieldsSmokedNextToHouseWithFox = IsAdjacentMatch(smokes, Smoke.Chesterfields, pets, Pet.Fox); // #11
-        var koolsSmokedNextToHouseWithHorse = IsAdjacentMatch(smokes, Smoke.Kools, pets, Pet.Horse); // #12
+        var dancerOwnsSnails = IsIndexMatch(hobbies, Hobby.Dancing, pets, Pet.Snails); // #7
+        var painterInYellowHouse = IsIndexMatch(colors, Color.Yellow, hobbies, Hobby.Painting); // #8
+        var readerNextToHouseWithFox = IsAdjacentMatch(hobbies, Hobby.Reading, pets, Pet.Fox); // #11
+        var painterNextToHouseWithHorse = IsAdjacentMatch(hobbies, Hobby.Painting, pets, Pet.Horse); // #12
 
-        var luckyStrikeSmokerDrinksOrangeJuice = IsIndexMatch(smokes, Smoke.LuckyStrike, drinks, Drink.OrangeJuice); // #13
-        var japaneseSmokesParliaments = IsIndexMatch(nationalities, Nationality.Japanese, smokes, Smoke.Parliaments); // #14
+        var footballerDrinksOrangeJuice = IsIndexMatch(hobbies, Hobby.Football, drinks, Drink.OrangeJuice); // #13
+        var japanesePlaysChess = IsIndexMatch(nationalities, Nationality.Japanese, hobbies, Hobby.Chess); // #14
 
         return
-            oldGoldSmokesOwnsSnails &&
-            koolsSmokedInYellowHouse &&
-            chesterfieldsSmokedNextToHouseWithFox &&
-            koolsSmokedNextToHouseWithHorse &&
-            luckyStrikeSmokerDrinksOrangeJuice &&
-            japaneseSmokesParliaments;
+            dancerOwnsSnails &&
+            painterInYellowHouse &&
+            readerNextToHouseWithFox &&
+            painterNextToHouseWithHorse &&
+            footballerDrinksOrangeJuice &&
+            japanesePlaysChess;
     }
 
     private static IEnumerable<Solution> Solutions() => 
@@ -87,8 +87,8 @@ public static class ZebraPuzzle
         from validNationalities in Nationalities.Permutations().Where(nationalities => MatchesNationalityRules(validColors, nationalities))
         from validPets in Pets.Permutations().Where(pets => MatchesPetRules(validNationalities, pets))
         from validDrinks in Drinks.Permutations().Where(drinks => MatchesDrinkRules(validColors, validNationalities, drinks))
-        from validSmokes in Smokes.Permutations().Where(smokes => MatchesSmokeRules(validColors, validNationalities, validDrinks, validPets, smokes))
-        select new Solution { Colors = validColors, Nationalities = validNationalities, Pets = validPets, Drinks = validDrinks, Smokes = validSmokes };
+        from validHobbies in Hobbies.Permutations().Where(hobbies => MatchesHobbyRules(validColors, validNationalities, validDrinks, validPets, hobbies))
+        select new Solution { Colors = validColors, Nationalities = validNationalities, Pets = validPets, Drinks = validDrinks, Hobbies = validHobbies };
     
     private static Solution Solve() => Solutions().First();
     
