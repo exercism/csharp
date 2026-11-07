@@ -1,0 +1,14 @@
+public static string MostCommonWord(string text)
+{
+    var counts = new Dictionary<string, int>();
+    var best = "";
+    foreach (var word in text.ToLower().Split(' '))
+    {
+        counts[word] = counts.GetValueOrDefault(word) + 1;
+        if (counts[word] > counts.GetValueOrDefault(best))
+        {
+            best = word;
+        }
+    }
+    return $"\"{best}\" appears {counts[best]} times";
+}
