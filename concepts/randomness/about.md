@@ -4,20 +4,20 @@ In C# applications randomness is generally implemented using the `System.Random`
 
 This [article][system-random] is an excellent introduction to the subject.
 
-When becoming familiar with a library class it is always worth studying the [documentation][system-random] for properties and methods and their overloads.
+When becoming familiar with a library class, it is always worth studying the [documentation][system-random] for properties and methods and their overloads.
 
-The coding exercise highlighted a number of issues:
+The coding exercise highlighted a number of aspects:
 
 - The random number generator does not require a [seed][random-seedless].
-- `Random.Next()` can generate a range of integers
-- `Random.Double()` can generate a double between 0 and 1
-- The upper bounds in `Next...()`, `Double()` and `Sample()` are **exclusive** so that `Random.Next(1,19)` will yield values from 1 to 18 but not 19.
-- Once you have your random number you can do what you like with it
+- `Random.Next()` can generate a range of integers.
+- `Random.NextDouble()` can generate a double between 0 and 1.
+- The upper bounds in `Next()`, `NextDouble()`, and `Sample()` are **exclusive** so that `Random.Next(1,19)` will yield values from 1 to 18 but not 19.
+- Once you have your random number, you can do what you like with it.
 
 There are 3 patterns for implementing the last point:
 
 - You can get the random number and manipulate it.
-  In the case of the coding exercise this would consist of calling `Random.NextDouble()` and multiplying by 100.
+  In the case of the coding exercise, this would consist of calling `Random.NextDouble()` and multiplying by 100.
   This [piece][random-use-case-array] discusses making random selections from an array.
 - You can inherit from `System.Random` and override the `Sample()` method.
 - You can encapsulate an instance of `System.Random` as a member of a class of your own, for example [to generate Booleans][random-use-cases].
@@ -36,7 +36,7 @@ See this [provider][crypto-provider] and this [number generator][crypto-rng].
 
 ## Thread safety
 
-When applied in the context of library APIs "not thread safe" is simply shorthand for saying that, if you are likely to access instances of the class through multiple concurrent [threads][threading], you should provide your own thread synchronization mechanisms or, in the case of collections, look at the possibility of using a concurrent version of the class.
+When applied in the context of library APIs, "not thread safe" is simply shorthand for saying that, if you are likely to access instances of the class through multiple concurrent [threads][threading], you should provide your own thread synchronization mechanisms or, in the case of collections, look at the possibility of using a concurrent version of the class.
 In the absence of these precautions, [race conditions][so-race-conditions] are likely to occur.
 If your code base does not use multiple threads, and is not likely to, then this warning is of little concern.
 
