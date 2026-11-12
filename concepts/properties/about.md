@@ -73,9 +73,15 @@ class MyClass
 This exercise has dealt with basic use of properties.
 You will find more advanced topics in other exercises:
 
-- expression bodied properties, get accessors, and set accessors (covered by expression-bodied members)
-- properties on interfaces (covered by Interfaces)
-- properties/abstract properties on abstract classes (covered by Inheritance)
-- use of the `readonly` keyword with properties (covered by Immutability)
+- expression bodied properties, get accessors, and set accessors (covered by [Expression-bodied Members][[concept-expression-bodied-members]])
+- properties on interfaces (covered by [Interfaces][concept-interfaces])
+- properties/abstract properties on abstract classes (covered by [Inheritance][concept-inheritance])
+- use of the `readonly` keyword with properties (covered by [Readonly Collections][concept-readonly-collections])
 - static properties (covered by Statics)
-- indexers (covered by Indexers)
+- indexers (covered by [Indexers][concept-indexers])
+
+[concept-expression-bodied-members]: https://exercism.org/tracks/csharp/concepts/expression-bodied-members
+[concept-interfaces]: https://exercism.org/tracks/csharp/concepts/interfaces
+[concept-inheritance]: https://exercism.org/tracks/csharp/concepts/inheritance
+[concept-readonly-collections]: https://exercism.org/tracks/csharp/concepts/readonly-collections
+[concept-indexers]: https://exercism.org/tracks/csharp/concepts/indexers
