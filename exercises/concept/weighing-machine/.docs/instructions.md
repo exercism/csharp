@@ -28,7 +28,7 @@ wm.Weight = 60.5;
 
 ## 3. Ensure that a negative input weight is rejected
 
-Clearly, someone cannot have a negative weight. 
+Clearly, someone cannot have a negative weight.
 Add validation to the `WeighingMachine.Weight` property to throw an `ArgumentOutOfRangeException` when trying to set it to a negative weight:
 
 ```csharp
@@ -38,7 +38,7 @@ wm.Weight = -10; // Throws an ArgumentOutOfRangeException
 
 ## 4. Allow a tare adjustment to be applied to the weighing machine
 
-The tare adjustment can be any value (even negative or a value that makes the display weight negative)
+The tare adjustment can be any value (even negative or a value that makes the display weight negative).
 Implement the `WeighingMachine.TareAdjustment` property to allow the tare adjustment to be set:
 
 ```csharp
@@ -50,7 +50,7 @@ wm.TareAdjustment = -10.6;
 
 ## 5. Ensure that the weighing machine has a default tare adjustment
 
-After some thorough testing, it appears that due to a manifacturing issue all weighing machines have a bias towards overestimating the weight by `5`.
+After some thorough testing, it appears that due to a manufacturing issue all weighing machines have a bias towards overestimating the weight by `5`.
 Change the `WeighingMachine.TareAdjustment` property to `5` as its default value.
 
 ```csharp
@@ -63,7 +63,7 @@ var wm = new WeighingMachine(precision: 3);
 
 Implement the `WeighingMachine.DisplayWeight` property which should return a string showing the weight after tare adjustment, with the correct precision applied, and the unit added.
 Note that:
-``` display-weight = input-weight - tare-adjustment ```
+`DisplayWeight = Weight - TareAdjustment`
 
 ```csharp
 var wm = new WeighingMachine(precision: 3);
