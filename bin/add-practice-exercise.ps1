@@ -33,14 +33,14 @@ $exerciseName = (Get-Culture).TextInfo.ToTitleCase($Exercise).Replace("-", "")
 $exerciseDir = "exercises/practice/${Exercise}"
 $projectFile = "${exerciseDir}/${ExerciseName}.csproj"
 & dotnet new install xunit.v3.templates
-& dotnet new xunit3 --force --framework net10.0 --output $exerciseDir --name $ExerciseName
+& dotnet new xunit3 --force --framework net11.0 --output $exerciseDir --name $ExerciseName
 & dotnet sln exercises/Exercises.slnx add --solution-folder "/practice/" $projectFile
 & dotnet add $projectFile package Exercism.Tests.xunit.v3 --version 0.1.0-beta1
 & dotnet remove $projectFile package xunit.v3.mtp-v2
 & dotnet add $projectFile package Exercism.Tests.xunit.v3 --version 0.1.0-beta1
-& dotnet add $projectFile package xunit.runner.visualstudio --version 3.1.5
-& dotnet add $projectFile package xunit.v3 --version 3.2.2
-& dotnet add $projectFile package Microsoft.NET.Test.Sdk --version 18.3.0
+& dotnet add $projectFile package xunit.runner.visualstudio --version 4.0.1
+& dotnet add $projectFile package xunit.v3.mtp-off --version 4.0.3
+& dotnet add $projectFile package Microsoft.NET.Test.Sdk --version 18.11.1
 
 # Remove and update files
 Remove-Item -Path "global.json"
