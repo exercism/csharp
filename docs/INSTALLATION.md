@@ -20,9 +20,8 @@ If the output is a version greater than or equal to `11.0.100`, the .NET SDK has
 If you want a more full-featured editing experience, you probably want to to use an [IDE or integrated development environment)](https://en.wikipedia.org/wiki/Integrated_development_environment).
 These are the most popular IDEs that support building .NET projects:
 
-- [Visual Studio 2022](https://www.visualstudio.com/downloads/)
+- [Visual Studio 2026](https://www.visualstudio.com/downloads/)
 - [Visual Studio Code](https://code.visualstudio.com/download) with the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
-- [Visual Studio for Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
-- [Project Rider](https://www.jetbrains.com/rider/download/)
+- [Rider](https://www.jetbrains.com/rider/download/)
 
 Note: as the .NET project format differs significantly from earlier versions, older IDEs (like Visual Studio 2015) are not supported.
