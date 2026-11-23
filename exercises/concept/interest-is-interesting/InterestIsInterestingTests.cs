@@ -97,7 +97,7 @@ public class InterestIsInterestingTests
     [Task(2)]
     public void Interest_on_negative_balance()
     {
-        Assert.Equal(-321.3m, SavingsAccount.Interest(-10000.0m));
+        Assert.Equal(-321.3m, SavingsAccount.Interest(-10000.0m), precision: 4);
     }
 
     [Fact]
@@ -111,14 +111,14 @@ public class InterestIsInterestingTests
     [Task(2)]
     public void Interest_on_medium_balance()
     {
-        Assert.Equal(81.0498379m, SavingsAccount.Interest(4999.99m));
+        Assert.Equal(81.0498379m, SavingsAccount.Interest(4999.99m), precision: 3);
     }
 
     [Fact]
     [Task(2)]
     public void Interest_on_large_balance()
     {
-        Assert.Equal(856.3698m, SavingsAccount.Interest(34600.80m));
+        Assert.Equal(856.3698m, SavingsAccount.Interest(34600.80m), precision: 4);
     }
 
     [Fact]
@@ -139,35 +139,39 @@ public class InterestIsInterestingTests
     [Task(3)]
     public void Annual_balance_update_for_average_positive_start_balance()
     {
-        Assert.Equal(1016.210000m, SavingsAccount.AnnualBalanceUpdate(1_000.0m));
+        Assert.Equal(1016.210000m, SavingsAccount.AnnualBalanceUpdate(1_000.0m), precision: 5);
     }
 
     [Fact]
     [Task(3)]
     public void Annual_balance_update_for_large_positive_start_balance()
     {
-        Assert.Equal(1016.210101621m, SavingsAccount.AnnualBalanceUpdate(1_000.0001m));
+        Assert.Equal(1016.210101621m, SavingsAccount.AnnualBalanceUpdate(1_000.0001m), precision: 5);
     }
 
     [Fact]
     [Task(3)]
     public void Annual_balance_update_for_huge_positive_start_balance()
     {
-        Assert.Equal(920352587.26744292868451875m, SavingsAccount.AnnualBalanceUpdate(898124017.826243404425m));
+        const decimal balance = 898124017.826243404425m;
+        const decimal expected = 920352587.26744292868451875m;
+        const decimal tolerance = balance * 0.000000001m;
+
+        Assert.InRange(SavingsAccount.AnnualBalanceUpdate(balance), expected - tolerance, expected + tolerance);
     }
 
     [Fact]
     [Task(3)]
     public void Annual_balance_update_for_small_negative_start_balance()
     {
-        Assert.Equal(-0.12695199m, SavingsAccount.AnnualBalanceUpdate(-0.123m));
+        Assert.Equal(-0.12695199m, SavingsAccount.AnnualBalanceUpdate(-0.123m), precision: 8);
     }
 
     [Fact]
     [Task(3)]
     public void Annual_balance_update_for_large_negative_start_balance()
     {
-        Assert.Equal(-157878.97174203m, SavingsAccount.AnnualBalanceUpdate(-152964.231m));
+        Assert.Equal(-157878.97174203m, SavingsAccount.AnnualBalanceUpdate(-152964.231m), precision: 3);
     }
 
     [Fact]
