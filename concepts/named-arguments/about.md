@@ -16,4 +16,4 @@ Card.Card(1999); // => "Happy 1999 from me!"
 Card.Card(sender: "mom"); // => "Happy 2020 from mom!"
 ```
 
-[named-arguments]: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/named-and-optional-arguments#named-arguments
+[named-arguments]: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/named-and-optional-arguments#named-arguments
