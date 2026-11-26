@@ -137,4 +137,37 @@ public class ZipperTests
         var expected = Zipper.FromTree(new BinTree(1, new BinTree(2, null, new BinTree(3, null, null)), new BinTree(4, null, null)))?.Right();
         Assert.Equal(expected, actual);
     }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Set_value_does_not_modify_the_original_tree_or_zipper()
+    {
+        var tree = new BinTree(1, null, null);
+        var sut = Zipper.FromTree(tree);
+        _ = sut.SetValue(2);
+        var expected = new BinTree(1, null, null);
+        Assert.Equal(expected, tree);
+        Assert.Equal(expected, sut.ToTree());
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Set_left_does_not_modify_the_original_tree_or_zipper()
+    {
+        var tree = new BinTree(1, null, null);
+        var sut = Zipper.FromTree(tree);
+        _ = sut.SetLeft(new BinTree(2, null, null));
+        var expected = new BinTree(1, null, null);
+        Assert.Equal(expected, tree);
+        Assert.Equal(expected, sut.ToTree());
+    }
+
+    [Fact(Skip = "Remove this Skip property to run this test")]
+    public void Set_right_does_not_modify_the_original_tree_or_zipper()
+    {
+        var tree = new BinTree(1, null, null);
+        var sut = Zipper.FromTree(tree);
+        _ = sut.SetRight(new BinTree(2, null, null));
+        var expected = new BinTree(1, null, null);
+        Assert.Equal(expected, tree);
+        Assert.Equal(expected, sut.ToTree());
+    }
 }
