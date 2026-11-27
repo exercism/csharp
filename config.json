@@ -1152,7 +1152,6 @@
         "name": "Series",
         "uuid": "9ca46617-4995-45cc-a2dd-b8630eaa288b",
         "practices": [
-          "arrays",
           "yield",
           "for-loops",
           "exceptions"
@@ -1662,7 +1661,6 @@
         "name": "Flower Field",
         "uuid": "e987a3e1-3e79-459a-97e1-d1173ffd934b",
         "practices": [
-          "string-formatting",
           "chars"
         ],
         "prerequisites": [
@@ -1920,11 +1918,10 @@
         "name": "OCR Numbers",
         "uuid": "2a5ddf5e-e677-4eef-b759-087d71e15986",
         "practices": [
-          "arrays",
-          "for-loops",
           "chars"
         ],
         "prerequisites": [
+          "arrays",
           "strings",
           "chars",
           "for-loops",
@@ -2175,7 +2172,6 @@
         "name": "Prism",
         "uuid": "c52d3d36-4852-48ff-b97c-0b030a5b365d",
         "practices": [
-          "arrays",
           "floating-point-numbers",
           "while-loops"
         ],
